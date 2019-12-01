@@ -1,0 +1,10 @@
+%META:TOPICINFO{author="TWikiContributor" date="1352959007" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarORANGE
+---+++ ORANGE -- start orange colored text
+   * =ORANGE= is one of the rendering shortcut settings predefined in TWikiPreferences.  See the section [[TWikiPreferences#RenderingShortcuts][rendering shortcut settings]] in that topic for a complete list of colors.
+   * Syntax: =%<nop>ORANGE% orange text %<nop>ENDCOLOR%=
+   * Expands to: %ORANGE% orange text %ENDCOLOR%
+   * Note: =%&lt;color&gt;%= text must end with =%<nop>ENDCOLOR%=. If you want to switch from one color to another one you first need to end the active color with =%<nop>ENDCOLOR%=, e.g. write =%<nop>RED% some text %<nop>ENDCOLOR% %<nop>GREEN% more text %<nop>ENDCOLOR%=.
+   * Category: FormattingAndRenderingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENDCOLOR][ENDCOLOR]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarREDBG][REDBG]], [[TWikiPreferences#RenderingShortcuts][TWikiPreferences rendering shortcuts]], StandardColors

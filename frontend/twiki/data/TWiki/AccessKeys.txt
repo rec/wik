@@ -1,0 +1,41 @@
+%META:TOPICINFO{author="TWikiContributor" date="1275286307" format="1.1" version="6"}%
+---+ Access Keys
+
+---++ What are access keys?
+
+Access keys are keyboard shortcuts which allow the user to navigate around a website or a piece of computer software without having to use a mouse or other pointing device.
+
+---++ What are the advantages of using access keys?
+
+Its an alternative to using a mouse, or other pointing device, and can sometimes be quicker than using a mouse.
+
+---++ Does TWiki have access keys?
+
+TWiki offers access keys in view mode, such as "P" for printable view, and in edit mode, such as "S" for save. The underlined characters in topic action links indicate the access keys.
+
+---++ How do I use access keys?
+
+This depends on the browser you are using:
+
+   * Internet Explorer:
+      * Press and hold the 'Alt' key
+      * Press the required letter
+      * Release the keys and press the 'ENTER' key
+
+   * Netscape Navigator, Mozilla, or Firefox 1.0:
+      * Press and hold the 'Alt' key
+      * Press the required letter
+
+   * Firefox 2.0 or later:
+      * Press and hold both the 'Shift' and the 'Alt' key
+      * Press the required letter
+
+   * Firefox on Mac:
+      * Press and hold the 'Ctrl' key
+      * Press the required letter
+
+   * Safari on Mac:
+      * Press and hold both the 'Ctrl' and the key 'option' key
+      * Press the required letter
+
+__Related Topics:__ UserDocumentationCategory

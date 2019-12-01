@@ -1,0 +1,85 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2010.06.24.03.48.47;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2006.06.25.16.26.25;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.17;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1277351327" format="1.1" version="3"}%
+---+ Object Method
+
+An !ObjectMethod is a method that must be called relative to a previous constructed object of the class type. For example:
+
+---+ package Telecoms
+---++ !ClassMethod new()
+---++ !ObjectMethod phone( $who )
+
+must be called something like this
+
+<verbatim>
+my $mobile = new Telecoms();
+$mobile->phone( "home" );
+</verbatim>
+or you can pass the object in as a parameter if you need to:
+<verbatim>
+Telecoms::phone( $mobile, "home" );
+</verbatim>
+
+__Related Topics:__ ClassMethod, StaticMethod, DeveloperDocumentationCategory
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 4
+a4 2
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="2"}%
+An ObjectMethod is a method that must be called relative to a previous constructed object of the class type. For example:
+d7 2
+a8 2
+---++ ClassMethod new()
+---++ ObjectMethod phone( $who )
+a21 1
+
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 2
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="1"}%
+%META:TOPICPARENT{name="HomeTwikiDEVELOPLibTWikiDotPm"}%
+@

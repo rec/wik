@@ -1,0 +1,442 @@
+head	1.17;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.17
+date	2014.06.05.19.21.35;	author TWikiContributor;	state Exp;
+branches;
+next	1.16;
+
+1.16
+date	2012.09.13.06.36.45;	author TWikiContributor;	state Exp;
+branches;
+next	1.15;
+
+1.15
+date	2011.08.21.00.51.02;	author TWikiContributor;	state Exp;
+branches;
+next	1.14;
+
+1.14
+date	2010.05.29.14.45.06;	author TWikiContributor;	state Exp;
+branches;
+next	1.13;
+
+1.13
+date	2008.01.22.03.21.37;	author TWikiContributor;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2007.01.16.04.12.06;	author TWikiContributor;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2006.04.01.05.54.52;	author TWikiContributor;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2006.02.01.12.01.14;	author TWikiContributor;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2004.08.31.16.33.42;	author PeterThoeny;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2003.12.17.07.05.14;	author PeterThoeny;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2003.01.11.23.57.33;	author PeterThoeny;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2002.03.19.01.22.36;	author PeterThoeny;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2001.12.14.02.41.30;	author AndreaSterbini;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2001.08.07.15.48.32;	author JohnTalintyre;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2000.12.14.02.49.41;	author PeterThoeny;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2000.11.08.08.21.25;	author PeterThoeny;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2000.10.29.05.57.04;	author PeterThoeny;	state Exp;
+branches;
+next	;
+
+
+desc
+@none
+@
+
+
+1.17
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1401996095" format="1.1" version="17"}%
+%META:TOPICPARENT{name="TWikiGroups"}%
+---+ %PARENTBC% TWiki Administrator Group
+
+This is a super user group that has access to all content, regardless of [[%SYSTEMWEB%.TWikiAccessControl][access control]]. This group has also access to the [[%SCRIPTURL{configure}%][configure]] script to do system level configuration.
+
+%EDITPREFERENCES{ "%SYSTEMWEB%.TWikiPreferencesForm" editbutton="Edit Group Settings" }%
+
+   * Member list (comma-separated list):
+      * Set GROUP = 
+
+   * Persons/group who can change the list:
+      * Set ALLOWTOPICCHANGE = TWikiAdminGroup
+
+%T% Both settings accept a comma-space delimited list of users and groups in %SYSTEMWEB%.WikiWord format. Groups can be nested.
+
+%INCLUDE{"TWikiAdminUser" section="sudo_login"}%
+
+<sticky><div style="background-color:#FFF263; padding: 10px; display: %IF{"(NOT defined GROUP) OR $GROUP = ''" then="block" else="none"}%"></sticky>
+__How to add the first administrator:__ %BR%
+If you haven't previously set up an administrator, follow these steps:
+   1 Authenticate as the internal TWiki administrator:
+      * %ADMINLOGIN%
+   1 Edit this topic
+   1 Insert the wikinames of admin users in the TWiki Administrator Group by listing them in the GROUP setting %BR% (example =* Set GROUP = <nop>JohnSmith, <nop>JamesBond=)
+   1 Save this topic
+   1 [[%LOGOUTURL%][Logout]] from the Internal TWikiAdminUser
+   1 Verify that new members show up properly in the group listing at TWikiGroups
+   1 Make sure always to keep this topic write protected by keeping the already defined ALLOWTOPICCHANGE setting
+   1 The ALLOWTOPICHANGE and ALLOWTOPICRENAME settings in [[%SYSTEMWEB%.TWikiPreferences]] and [[%USERSWEB%.TWikiPreferences]] have already been set to this group (<nop>TWikiAdminGroup), restricting edit of site-wide preferences to the TWiki Administrator Group
+<sticky></div></sticky>
+
+<!--
+   * Set READONLYSKINMODE = 1
+-->
+__Related topics:__ [[TWikiGroups]], [[%SYSTEMWEB%.TWikiAccessControl][TWikiAccessControl]], [[UserList]], [[%WIKIUSERSTOPIC%]], [[TWikiAdminUser]]
+@
+
+
+1.16
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1347518205" format="1.1" version="16"}%
+d3 1
+a3 1
+---+ [[TWikiGroups]] &#187; TWiki Administrator Group
+@
+
+
+1.15
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1313887862" format="1.1" version="15"}%
+d3 1
+a3 1
+---+ TWiki Administrator Group
+d7 1
+a7 3
+<noautolink>
+%EDITPREFERENCES{ "%SYSTEMWEB%.TWikiPreferencesForm" editbutton="Edit %TOPIC% settings" }%
+</noautolink>
+@
+
+
+1.14
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1273956256" format="1.1" version="14"}%
+d5 6
+d13 1
+d17 2
+d21 2
+a22 3
+%IF{"(NOT defined GROUP) OR $GROUP = ''" then="" else="<!--"}%
+<sticky><div style="background-color:yellow"></sticky>
+__How to add the first administrator__ %BR%
+a33 1
+%IF{"(NOT defined GROUP) OR $GROUP = ''" then="" else="-->"}%
+d35 4
+a38 1
+__Related topics:__ [[%WIKIUSERSTOPIC%]], [[TWikiAdminUser]], [[TWikiGroups]], [[%SYSTEMWEB%.TWikiAccessControl][TWikiAccessControl]]
+@
+
+
+1.13
+log
+@buildrelease
+@
+text
+@d1 2
+a2 1
+%META:TOPICINFO{author="TWikiContributor" date="1111931141" format="1.0" version="13"}%
+a4 1
+
+d10 1
+a10 1
+%INCLUDE{"%MAINWEB%.TWikiAdminUser" section="sudo_login"}%
+d22 1
+a22 1
+   1 Verify that new members show up properly in the group listing at %MAINWEB%.TWikiGroups
+d24 1
+a24 1
+   1 The ALLOWTOPICHANGE and ALLOWTOPICRENAME settings in [[%TWIKIWEB%.TWikiPreferences]] and [[%MAINWEB%.TWikiPreferences]] have already been set to this group (<nop>TWikiAdminGroup), restricting edit of site-wide preferences to the TWiki Administrator Group
+d28 1
+a28 3
+__Related topics:__ %WIKIUSERSTOPIC%, TWikiAdminUser, TWikiGroups, %TWIKIWEB%.TWikiAccessControl
+
+
+@
+
+
+1.12
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111931141" format="1.0" version="12"}%
+d4 3
+a6 2
+   * Member list:
+      * Set GROUP = ATWikiUser
+d8 19
+a26 1
+      * #Set ALLOWTOPICCHANGE = TWikiAdminGroup
+d28 1
+a28 1
+__Related topics:__ %WIKIUSERSTOPIC%, TWikiGroups, %TWIKIWEB%.TWikiAccessControl
+a29 1
+__%X% NOTE:__ If you happen to lock yourself out of <nop>TWikiAdminGroup during setup activities, you can edit this group topic at file system level using any text file editor (as a last resort.)
+a30 14
+<table bgcolor="yellow"><tr><td>
+__Setup Note to Administrator:__
+   a. Verify that user authentication is working
+   a. Edit this group topic (click Edit)
+   a. Insert wanted %MAINWEB%.TWikiUsers in the TWiki Administrator Group by listing them in the GROUP setting %BR%
+      (please remove the demonstration user 'ATWikiUser' as well)
+   a. Save this topic
+   a. Verify that new members show up properly in the group listing at %MAINWEB%.TWikiGroups
+   a. Write protect this topic by removing the # sign from the ALLOWTOPICCHANGE setting
+   a. Save this topic again - <nop>TWikiAdminGroup is now locked to allow editing only by listed users in GROUP
+   a. The ALLOWTOPICHANGE and ALLOWTOPICRENAME settings in [[%TWIKIWEB%.TWikiPreferences]] and [[%MAINWEB%.TWikiPreferences]] have already been set to this group (<nop>TWikiAdminGroup), 
+      restricting edit of site-wide preferences to the TWiki Administrator Group
+   a. Remove this setup note after you have finished setup
+</td></tr></table>
+@
+
+
+1.11
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111931141" format="1.0" version="11"}%
+d23 1
+a23 1
+   a. Suggestion: Add the ALLOWTOPICHANGE setting to [[%TWIKIWEB%.TWikiPreferences]] and [[%MAINWEB%.TWikiPreferences]] and set it to this group (<nop>TWikiAdminGroup), 
+@
+
+
+1.10
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111931141" format="1.0" version="10"}%
+d4 4
+a7 4
+	* Member list:
+		* Set GROUP = ATWikiUser
+	* Persons/group who can change the list:
+		* #Set ALLOWTOPICCHANGE = TWikiAdminGroup
+d15 11
+a25 11
+	a. Verify that user authentication is working
+	a. Edit this group topic (click Edit)
+	a. Insert wanted %MAINWEB%.TWikiUsers in the TWiki Administrator Group by listing them in the GROUP setting %BR%
+		(please remove the demonstration user 'ATWikiUser' as well)
+	a. Save this topic
+	a. Verify that new members show up properly in the group listing at %MAINWEB%.TWikiGroups
+	a. Write protect this topic by removing the # sign from the ALLOWTOPICCHANGE setting
+	a. Save this topic again - <nop>TWikiAdminGroup is now locked to allow editing only by listed users in GROUP
+	a. Suggestion: Add the ALLOWTOPICHANGE setting to [[%TWIKIWEB%.TWikiPreferences]] and [[%MAINWEB%.TWikiPreferences]] and set it to this group (<nop>TWikiAdminGroup), 
+		restricting edit of site-wide preferences to the TWiki Administrator Group
+	a. Remove this setup note after you have finished setup
+@
+
+
+1.9
+log
+@none
+@
+text
+@d1 2
+a2 2
+%META:TOPICINFO{author="PeterThoeny" date="1093970022" format="1.0" version="1.9"}%
+*TWiki Administrator Group*
+d4 4
+a7 4
+	* Set GROUP = PeterThoeny
+	* #Set ALLOWTOPICCHANGE = TWikiAdminGroup
+
+(Setup Note: (a) Verify that user authentication is working, (b) set the members of TWiki Administrator Group in GROUP, (c) enable the ALLOWTOPICCHANGE variable by removing # sign, (d) set the ALLOWTOPICHANGE in TWiki.TWikiPreferences to this group (e) remove this note after you have done the setup)
+d11 1
+a11 1
+-- %MAINWEB%.PeterThoeny - 28 Oct 2000 <br>
+d13 14
+@
+
+
+1.8
+log
+@none
+@
+text
+@d1 12
+a12 11
+%META:TOPICINFO{author="PeterThoeny" date="1071644714" format="1.0" version="1.8"}%
+*TWiki Administrator Group*
+
+	* Set GROUP = AndreaSterbini, JohnTalintyre, NicholasLee, PeterThoeny, RichardDonkin, SvenDowideit
+	* #Set ALLOWTOPICCHANGE = TWikiAdminGroup
+
+(Note: Set the members of TWiki Administrator Group in GROUP, then enable the ALLOWTOPICCHANGE variable by removing # sign)
+
+__Related topics:__ %WIKIUSERSTOPIC%, TWikiGroups, %TWIKIWEB%.TWikiAccessControl
+
+-- %MAINWEB%.PeterThoeny - 28 Oct 2000 <br>
+@
+
+
+1.7
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1042329453" format="1.0" version="1.7"}%
+d4 1
+a4 1
+	* Set GROUP = AndreaSterbini, GrantBow, JohnTalintyre, MikeMannix, NicholasLee, PeterThoeny, RichardDonkin
+@
+
+
+1.6
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1016500956" format="1.0" version="1.6"}%
+d4 1
+a4 1
+	* Set GROUP = PeterThoeny, JohnTalintyre, AndreaSterbini, NicholasLee, MikeMannix, RichardDonkin
+@
+
+
+1.5
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="AndreaSterbini" date="1008297690" format="1.0" version="1.5"}%
+d4 1
+a4 1
+	* Set GROUP = PeterThoeny, JohnTalintyre, AndreaSterbini
+@
+
+
+1.4
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="JohnTalintyre" date="997199312" format="1.0beta2" version="1.4"}%
+d4 1
+a4 1
+	* Set GROUP = PeterThoeny, JohnTalintyre
+@
+
+
+1.3
+log
+@none
+@
+text
+@d1 1
+d4 1
+a4 1
+	* Set GROUP = PeterThoeny
+@
+
+
+1.2
+log
+@none
+@
+text
+@d8 1
+a8 1
+__Related topics:__ TWikiUsers, TWikiGroups, %TWIKIWEB%.TWikiAccessControl
+@
+
+
+1.1
+log
+@none
+@
+text
+@d8 1
+a8 1
+Related topics: TWikiUsers, %TWIKIWEB%.TWikiAccessControl
+d10 1
+a10 1
+-- Main.PeterThoeny - 28 Oct 2000 <br>
+@

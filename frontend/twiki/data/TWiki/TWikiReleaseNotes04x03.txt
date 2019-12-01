@@ -1,0 +1,209 @@
+%META:TOPICINFO{author="TWikiContributor" date="1294118002" format="1.1" version="6"}%
+---+!! Release Notes of TWiki-4.3.2 (Georgetown), 2009-09-02
+
+__Note:__ _This is the release note for the previous major release version 4.3.X. This note, TWikiReleaseNotes04x00, TWikiReleaseNotes04x01 and TWikiReleaseNotes04x02 are included with 5.0.X because they contain valuable information for people upgrading from earlier versions. Both for the admin and the users. See TWikiReleaseNotes05x00 for the 5.0.X release notes._
+
+%TOC%
+
+---++ Introduction
+
+TWiki-4.3.0 released on 2009-03-30 introduces security enhancements, usability enhancements, feature enhancements, and adds extensions to strengthen TWiki as an enterprise collaboration platform.
+
+TWiki-4.3.1 released on 2009-04-29 introduces security enhancements. This release also introduces use of ISO date format by default.
+
+TWiki-4.3.2 released on 2009-09-02 introduces security enhancements.
+
+It is highly recommended to upgrade to TWiki-4.3.2. Users will find this release much more stable and secure in daily use.
+
+---++ Pre-installed Extensions
+
+TWiki-4.3.2 ships with:
+
+   * *Plugins:* !CommentPlugin, !EditTablePlugin, !EmptyPlugin, !HeadlinesPlugin, !InterwikiPlugin, !PreferencesPlugin, !RenderListPlugin, !SlideShowPlugin, !SmiliesPlugin, !SpreadSheetPlugin, !TablePlugin, !TinyMCEPlugin, !TWikiNetSkinPlugin, !TwistyPlugin, !WysiwygPlugin
+   * *Contribs:* !BehaviourContrib, !JSCalendarContrib, !MailerContrib, !TipsContrib, !TWikiUserMappingContrib, !TwistyContrib
+   * *Skins:* !ClassicSkin, !PatternSkin, !TWikiNetSkin,
+
+__Note:__ !HeadlinesPlugin, !TWikiNetSkin and !TWikiNetSkinPlugin are new in TWiki-4.3.0.
+
+---++ Supported User Interface Languages
+
+The user interface of this TWiki version is localized to 19 languages:
+
+English (default), Bulgarian (=bg=), Chinese simplified (=zh-cn=), Chinese traditional (=zh-tw=), Czechoslovakian (=cs=), Danish (=da=), Dutch (=nl=), German (=de=), Finnish (=fi=), French (=fr=), Italian (=it=), Japanese (=ja=), Korean (=ko=), Polish (=pl=), Portuguese (=pt=), Russian (=ru=), Slovakian (=sv=), Spanish (=es=), Ukrainian (=uk=).
+
+__Note:__ TWiki needs to be configured properly to display user interface languages other than the default English language. Details in TWiki:TWiki.InstallationWithI18N and TWiki:TWiki.InternationalizationSupplement.
+
+---++ New Features Highlights
+
+   * *Security Enhancements*
+      * Reduced risk of XSS ([[http://en.wikipedia.org/wiki/Cross-site_scripting][cross-site scripting]])
+      * Reduced risk CSRF ([[http://en.wikipedia.org/wiki/Cross-site_request_forgery][cross-site request forgery]]) - added in TWiki-4.3.1
+      * S/MIME support to sign administrative e-mails
+   * *Usability Enhancements*
+      * Replace question mark links with red-links to point to non-existing topics
+      * Use ISO date format by default - added in TWiki-4.3.1
+   * *Enterprise Collaboration Enhancements*
+      * Pre-installed !HeadlinesPlugin to show headline newsfeeds in TWiki topics
+      * Pre-installed !TWikiNetSkin, !TWikiNetSkinPlugin for corporate look and feel
+   * *Search Enhancements*
+      * Add footer parameter to Formatted Search
+      * Add number of topics to Formatted Search
+   * *Miscellaneous Feature Enhancements*
+      * Control over variable expansion at topic creation time
+      * 17 new !TWikiDocGraphics images
+      * Include URL supports list of domains to exclude from proxy
+      * Adding Korean language
+   * *Plugin Enhancements*
+      * !SpreadSheetPlugin: 5 new functions
+
+See the full list of bug fixes at the bottom of this topic.
+
+---++ Deprecation Notices
+
+The %<nop>MAINWEB% and %<nop>TWIKIWEB% variables have been deprecated. For compatibility reasons they are unlikely to ever be removed completely, but you should use the %<nop>USERSWEB% and %<nop>SYSTEMWEB% variables instead.
+
+In Func getOopsUrl and permissionsSet have been declared deprecated. There is no plan to remove them yet.
+
+---++  TWiki-4.3.0 Minor Release - Details
+
+TWiki-4.3.0 was built from SVN http://svn.twiki.org/svn/twiki/branches/TWikiRelease04x03 revision 17948 (2009-03-30)
+
+---+++ Highlights
+
+<noautolink>
+   * Security:
+      * Review code for robustness and security
+      * Secure configure script with taint mode turned on
+   * Rendering:
+      * %<nop>TOC% does not distinguish two headlines that have the same text
+      * TablePlugin produces bad links for sorting when using "short" URLs
+      * %<nop>SCRIPTSUFFIX% is added twice in %<nop>TOC% links
+      * Incorrect Content-length breaks HTTP headers, a.o. pound fail results
+      * TablePlugin: Date sorting is broken
+      * Bullet lists in form fields are not rendered properly
+      * TWiki Forms expand variables like $nop, $quote $percnt
+      * TwistyPlugin: Twisty can't be placed in TWiki table cells
+   * Users and groups:
+      * !TWikiGroups shows all members twice
+   * Editing:
+      * WysiwygPlugin: Bolding single character within a word introduces spaces around bolded character
+   * Miscellaneous:
+      * configure's get more extensions does not work well without LWP
+      * CommentPlugin: Lost data if it's targeted before/after a missing anchor
+      * Plugin installation fails on windows: extender.pl line 684
+      * Statistics script does not handle properly topics with special characters
+</noautolink>
+
+---+++ Enhancements
+
+<noautolink>
+| [[%BUGS%/Item3647][Item3647]] | Usability: Control over variable expansion in topic templates |
+| [[%BUGS%/Item5025][Item5025]] | InterwikiPlugin: Allow special characters in "Page" of Site:Page |
+| [[%BUGS%/Item6148][Item6148]] | HeadlinesPlugin: Support for {PROXY}{HOST} and {PROXY}{PORT} configure settings |
+| [[%BUGS%/Item6176][Item6176]] | Search: Add footer parameter to Formatted Search |
+| [[%BUGS%/Item6180][Item6180]] | HeadlinesPlugin: Support for {PROXY}{SkipProxyForDomains} configure setting, USERAGENTNAME plugin setting |
+| [[%BUGS%/Item6184][Item6184]] | Search: Add Number of Topics to Formatted Search |
+| [[%BUGS%/Item6189][Item6189]] | Usability: Replace question mark links with red links to point to non-existing topics |
+| [[%BUGS%/Item6199][Item6199]] | Enhancement: Add TWikiNetSkin to Distribution |
+| [[%BUGS%/Item6200][Item6200]] | Enhancement: Add HeadlinesPlugin to Distribution  |
+| [[%BUGS%/Item6222][Item6222]] | SpreadSheetPlugin: New functions $EMPTY(), $INSERTSTRING(), $LEFTSTRING(), $RIGHTSTRING(), $SUBSTRING() functions |
+| [[%BUGS%/Item6226][Item6226]] | Include: Specify a list of domains to exclude from proxy with {PROXY}{SkipProxyForDomains} setting |
+| [[%BUGS%/Item6227][Item6227]] | Documentation: 17 new !TWikiDocGraphics images |
+| [[%BUGS%/Item6228][Item6228]] | Security: Option to send signed e-mail with S/MIME |
+</noautolink>
+
+---+++ Fixes
+
+<noautolink>
+| [[%BUGS%/Item1607][Item1607]] | %<nop>TOC% does not distinguish two headlines that have the same text |
+| [[%BUGS%/Item2525][Item2525]] | TablePlugin produces bad links for sorting when using "short" URLs |
+| [[%BUGS%/Item4835][Item4835]] | SpreadSheetPlugin: SUBSTITUTE error when text=old and replace is empty |
+| [[%BUGS%/Item5176][Item5176]] | %<nop>SCRIPTSUFFIX% is added twice in %<nop>TOC% links |
+| [[%BUGS%/Item5471][Item5471]] | SpreadSheetPlugin: The character 0 cannot be replaced using the REPLACE-funtion |
+| [[%BUGS%/Item5910][Item5910]] | TablePlugin: %<nop>TOC% variable creates links with unecessary query string |
+| [[%BUGS%/Item5914][Item5914]] | TWiki::Request::url() must support -rewrite, -absolute and -relative |
+| [[%BUGS%/Item5920][Item5920]] | !TWikiGroups shows all members twice |
+| [[%BUGS%/Item5939][Item5939]] | Rogue &lt;p /&gt; below &lt;/html&gt; on every topic in every web |
+| [[%BUGS%/Item5960][Item5960]] | Incorrect Content-length breaks HTTP headers, a.o. pound fail results |
+| [[%BUGS%/Item5961][Item5961]] | WysiwygPlugin: Bolding single character within a word introduces spaces around bolded character |
+| [[%BUGS%/Item5991][Item5991]] | JSCalendarContrib: Does not work correctly in IE7 |
+| [[%BUGS%/Item5994][Item5994]] | Secure configure script with taint mode turned on |
+| [[%BUGS%/Item6005][Item6005]] | EditTablePlugin: "label"-formatted cell changed in unexpected way |
+| [[%BUGS%/Item6022][Item6022]] | %<nop>ENCODE{}% treats % as safe character |
+| [[%BUGS%/Item6026][Item6026]] | With header format emtpy table is initialized with one column only |
+| [[%BUGS%/Item6031][Item6031]] | TablePlugin: Date sorting is broken. |
+| [[%BUGS%/Item6041][Item6041]] | TinyMCE bug with Firefox 3 and bulleted lists |
+| [[%BUGS%/Item6050][Item6050]] | statistics script fails when cuid is not equal login name (as login name is what's in the log files...) |
+| [[%BUGS%/Item6054][Item6054]] | TwistyPlugin: No longer possible to have a twisty on one line without linebreak |
+| [[%BUGS%/Item6060][Item6060]] | configure's get more extensions does not work well without LWP |
+| [[%BUGS%/Item6061][Item6061]] | TWiki::Func::getContext documention |
+| [[%BUGS%/Item6138][Item6138]] | Bullet lists in form fields are not rendered properly |
+| [[%BUGS%/Item6163][Item6163]] | CommentPlugin: Lost data if it's targeted before/after a missing anchor. |
+| [[%BUGS%/Item6167][Item6167]] | TWiki Forms expand variables like $nop, $quote $percnt  |
+| [[%BUGS%/Item6170][Item6170]] | Plugin installation fails on windows: extender.pl line 684 |
+| [[%BUGS%/Item6171][Item6171]] | Per RFC 5321, single quote is allwed in e-mail addresses |
+| [[%BUGS%/Item6178][Item6178]] | Statistics script does not handle properly topics with special characters |
+| [[%BUGS%/Item6185][Item6185]] | Missing newline in Formatted Search if footer used |
+| [[%BUGS%/Item6186][Item6186]] | Review code for robustness and security |
+| [[%BUGS%/Item6208][Item6208]] | WebChanges does not work on Windows |
+| [[%BUGS%/Item6220][Item6220]] | TwistyPlugin: Twisty can't be placed in TWiki table cells |
+| [[%BUGS%/Item6223][Item6223]] | Users can't edit content in Main web |
+</noautolink>
+
+---++  TWiki 4.3.1 Patch Release - Details
+
+TWiki-4.3.1 was built from SVN http://svn.twiki.org/svn/twiki/branches/TWikiRelease04x03 revision 18054 (2009-04-29)
+
+---+++ Highlights
+
+   * Security:
+      * TWiki:Codev/SecurityAlert-CVE-2009-1339:  A remote user may gain TWiki admin privileges with a specially crafted image tag. This cross-site request forgery vulnerability existed because TWiki allowed HTTP GET to save content.
+   * Usability:
+      * Use of ISO format date promoted in this release
+   * Handling URLPARAM:
+      * The handling of URLPARAM for empty or missing was corrected in this release. 
+
+---+++ Enhancements
+
+<noautolink>
+| [[%BUGS%/Item6239][Item6239]] | Fix TWIKIWEB to SYSTEMWEB, MAINWEB to USERSWEB |
+| [[%BUGS%/Item6254][Item6254]] | Feature: Use ISO Date Format by Default |
+</noautolink>
+
+---+++ Fixes
+
+<noautolink>
+| [[%BUGS%/Item5453][Item5453]] | Value of "0" improperly handled in ENCODE variable |
+| [[%BUGS%/Item6232][Item6232]] | Use of uninitialized value $1 in concatenation (.) or string at lib/TWiki.pm |
+| [[%BUGS%/Item6240][Item6240]] | unhelpful error message when sysCommand fails |
+| [[%BUGS%/Item6243][Item6243]] | URLPARAM "empty or missing" |
+| [[%BUGS%/Item6251][Item6251]] | CSRF vulnerability CVE-2009-1339: Possible to gain TWiki admin privileges with a specially crafted image tag |
+</noautolink>
+
+---++  TWiki 4.3.2 Patch Release - Details
+
+TWiki-4.3.2 was built from SVN http://svn.twiki.org/svn/twiki/branches/TWikiRelease04x03 revision 18148 (2009-09-02)
+
+---+++ Highlights
+
+   * Security:
+      * TWiki:Codev/SecurityAuditTokenBasedCsrfFix: Crypt Token Based Fix for CSRF Vulnerability
+   * Usability:
+      * Upgrade TinyMCEPlugin with latest tinyMCE WYSIWYG editor
+
+---+++ Enhancements
+
+<noautolink>
+TODO
+</noautolink>
+
+---+++ Fixes
+
+<noautolink>
+TODO
+</noautolink>
+
+<!-- Note: Do not use TWikibug: interwiki links because interwiki rule might not be defined
+   * Set BUGS = http://develop.twiki.org/~twiki4/cgi-bin/view/Bugs
+-->
+__Related Topics:__ TWikiHistory, TWikiInstallationGuide, TWikiUpgradeGuide, %SEARCH{ "TWikiReleaseNotes" scope="topic" topic="TWikiReleaseNotes*" excludetopic="%TOPIC%" nonoise="on" format="$topic" separator=", " }%

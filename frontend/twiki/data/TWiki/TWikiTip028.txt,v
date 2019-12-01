@@ -1,0 +1,103 @@
+head	1.4;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.4
+date	2010.06.28.06.02.01;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2010.05.29.14.44.52;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.01.22.03.21.30;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.24;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1277704921" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiTipsOfTheDay"}%
+---+ Keyword search
+
+[[WebSearch][Interactive search]] uses keyword search by default. For example, to search for all topics that contain "SOAP", "WSDL", a literal "web service", but not "shampoo", enter this:
+
+=soap +wsdl "web service" -shampoo=
+
+More [[SearchHelp][search help]]
+
+[[TWikiTipsOfTheDay][See More Tips...]]
+
+-- __Contributors:__ TWiki:Main.PeterThoeny
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1273973210" format="1.1" version="3"}%
+d5 1
+a5 1
+[[WebSearch][Interactive search]] is a keyword search by default. For example, to search for all topics that contain "SOAP", "WSDL", a literal "web service", but not "shampoo", enter this:
+d13 1
+a13 1
+-- __Contributor:__ TWiki:Main/PeterThoeny - 2010-05-15
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1107726758" format="1.0" version="2"}%
+d5 1
+a5 1
+Interactive [[WebSearch][search]] is a keyword search by default. For example, to search for all topics that contain "SOAP", "WSDL", a literal "web service", but not "shampoo", enter this:
+d11 1
+a11 3
+[[%SYSTEMWEB%.TWikiTipsOfTheDay][See More Tips...]]
+
+-- TWiki:Main.PeterThoeny - 06 Feb 2005
+d13 1
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1107726758" format="1.0" version="1"}%
+d11 1
+a11 1
+[[%TWIKIWEB%.TWikiTipsOfTheDay][See More Tips...]]
+@

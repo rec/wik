@@ -1,0 +1,72 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2014.12.30.00.18.19;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2012.12.16.06.11.13;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1419898699" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarCOLORPICKER
+---+++ COLORPICKER{} --  color picker for use in HTML forms for TWiki applications
+   * The =%<nop>COLORPICKER{}%= variable is handled by the ColorPickerPlugin.
+   * Syntax: =%<nop>COLORPICKER{ name="..." value="..." }%=
+   * Parameters:%STARTSECTION{parameters}%
+     | *Parameter* | *Description* | *Default* | *Example* |
+     | =name= | Name of input field | (required) | =name="text_color"= |
+     | =value= | Initial color value, in hexadecimal notation for the combination of Red, Green, and Blue color values (RGB). | (none) | =value="#0000ff"= |
+     | =size= | Size of input field, in number of characters | (browser default) | =size="8"= |
+     | =class= | CSS class of input field or the rectangular color block | (none) | =class="twikiInputField"= |
+     | =style= |Style of input field or the rectangular color block | (none) | =style="width: 190px; height: 32px"= |
+     | =type= | Type of color widget:%BB% ="below"= - color picker is located below the input field;%BB% ="popup"= - pop-up a color picker window when clicking the button next to the input field %BR% &nbsp; &nbsp; (this uses very little vertical space);%BB% ="view"= - a read-only rectangular block colored in the color value (no color picker);%BB% ="view-hex"= - like =view=, in addition shows the color value as an RGB hexadecimal code (no color picker); | =type="below"= | =type="view-hex"= |
+     | Additional parameters can be supplied; they will be added to the HTML input field or the rectangular color block. ||||%ENDSECTION{parameters}%
+   * Example:
+     %BR% =&lt;form action="..."&gt;=
+     %BR% =%<nop>COLORPICKER{ name="text_color" value="#123456" class="twikiInputField" type="popup" }%=
+     %BR% =&lt;form&gt;=
+     %BR% Renders as:
+     %BR% <form> %COLORPICKER{ name="text_color" value="#123456" class="twikiInputField" type="popup" }% </form>
+   * Category: ApplicationsAndComponentsVariables, DatabaseAndFormsVariables, EditingAndContentUpdateVariables, FormattingAndRenderingVariables, UIAndVisualizationVariables
+   * Related: ColorPickerPlugin, %SYSTEMWEB%.TWikiForms
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1354609444" format="1.1" version="1"}%
+d11 5
+a15 3
+     | =size= | Size of input field | (browser default) | =size="12"= |
+     | =class= | CSS class of input field | (none) | =class="twikiInputField"= |
+     | Additional parameters can be supplied; they will be added to the HTML input field. ||||%ENDSECTION{parameters}%
+d18 1
+a18 1
+     %BR% =%<nop>COLORPICKER{ name="text_color" size="12" value="#123456" class="twikiInputField" }%=
+d20 2
+@

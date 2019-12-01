@@ -1,0 +1,88 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2015.04.09.20.44.52;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2012.11.13.01.41.15;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2012.01.15.06.06.29;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1428612292" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarSETGETDUMP
+---+++ SETGETDUMP{...} -- dump variables
+   * Dump volatile or persistent name/values previously set with =%<nop>SET{}%=.  %IF{"'%INCLUDINGTOPIC%'!='SetGetPlugin'" then="The =%<nop>SETGETDUMP{}<nop>%=, =%<nop>SET{}<nop>%=, and =%<nop>GET{}<nop>%= variables are handled by the SetGetPlugin." }%
+   * Syntax: =%<nop>SETGETDUMP{ remember="1" format="..." separator="..." }%=
+   * Parameters:
+     | *Parameter* | *Description* | *Default* |
+     | =remember="1"= | Dump all persistent variables | (volatile variables) |
+     | =store="..."= | Dump variables of a specific store | (volatile variables) |
+     | =format="..."= | Format output using variables =$<nop>name= and =$<nop>value= | ="name: $<nop>name, value: $<nop>value &lt;br /&gt;"= |
+     | =separator="..."= | String used for separating entries | ="&#92;n"= |
+   * Example: =%<nop>SETGETDUMP{"| $<nop>name | $<nop>value |" separator="$<nop>n"}%=%IF{"'%INCLUDINGTOPIC%'!='SetGetPlugin'" then=" - [[SetGetPlugin#SetGetExamples][see more examples]]." }%
+   * Category: ApplicationsAndComponentsVariables, DevelopmentVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables' OR '%INCLUDINGTOPIC%'='SetGetPlugin'" then="#"}%VarGET][GET]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarIF][IF]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables' OR '%INCLUDINGTOPIC%'='SetGetPlugin'" then="#"}%VarSET][SET]], %IF{"'%INCLUDINGTOPIC%'!='SetGetPlugin'" then="SetGetPlugin, "}%SpreadSheetPlugin#FuncSET
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1352770875" format="1.1" version="2"}%
+d4 3
+a6 3
+---+++ SETGETDUMP{...} -- dump persistent variables
+   * Dump _persistent_ name/values previously set with =%<nop>SET{}%=.  %IF{"'%INCLUDINGTOPIC%'!='SetGetPlugin'" then="The =%<nop>SETGETDUMP{}<nop>%=, =%<nop>SET{}<nop>%=, and =%<nop>GET{}<nop>%= variables are handled by the SetGetPlugin." }%
+   * Syntax: =%<nop>SETGETDUMP{ format="..." separator="..." }%=
+d9 2
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1325883668" format="1.1" version="1"}%
+d5 1
+a5 1
+   * Dump _persistent_ key/values previously set with =%<nop>SET{}%=.  %IF{"'%INCLUDINGTOPIC%'!='SetGetPlugin'" then="The =%<nop>SETGETDUMP{}<nop>%=, =%<nop>SET{}<nop>%=, and =%<nop>GET{}<nop>%= variables are handled by the SetGetPlugin." }%
+d7 3
+a9 3
+   * Supported attributes:
+     | *Attribute* | *Comment* | *Default* |
+     | =format="..."= | Format output using variables =$<nop>key= and =$<nop>value= | ="key: $<nop>key, value: $<nop>value &lt;br /&gt;"= |
+d11 2
+a12 1
+   * Example: =%<nop>SETGETDUMP{"| $<nop>key | $<nop>value |" separator="$<nop>n"}%=%IF{"'%INCLUDINGTOPIC%'!='SetGetPlugin'" then=" - [[SetGetPlugin#SetGetExamples][see more examples]]." }%
+@

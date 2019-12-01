@@ -1,0 +1,8 @@
+%META:TOPICINFO{author="TWikiContributor" date="1352959804" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarREMOTEADDR
+---+++ REMOTE_ADDR -- environment variable
+   * Syntax: =%<nop>REMOTE_ADDR%=
+   * Expands to: =%REMOTE_ADDR%=
+   * Category: DevelopmentVariables, SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENV][ENV]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarHTTPHOST][HTTP_HOST]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarREMOTEPORT][REMOTE_PORT]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarREMOTEUSER][REMOTE_USER]]

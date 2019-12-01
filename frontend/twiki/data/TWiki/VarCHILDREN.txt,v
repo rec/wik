@@ -1,0 +1,41 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2015.11.29.10.26.57;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1429834354" format="1.1" version="1"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarCHILDREN
+---+++ CHILDREN -- find children of a topic
+   * Find direct children of a topic, as defined by the parent-child relationship between topics.
+   * To find children recursively (topic tree) use the %IF{ "istopic 'TWiki.TreePlugin'" then="TWiki.TreePlugin" else="TWiki:Plugins.TreePlugin (not yet installed)" }%.
+   * Syntax: =%<nop>CHILDREN{...}%=
+   * Supported parameters:
+     | *Parameter:* | *Description:* | *Default:* |
+     | =web="%<nop>WEB%"= | Wiki web. | Current web |
+     | =topic="%<nop>TOPIC%"= | The topic to find the children. | Current topic |
+     | =format="..."= | Custom format for each topic found. Supports same format strings as [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]].%BR% See *[[FormattedSearch]]* for usage, variables &amp; examples | ="$topic"= |
+     | =separator="..."= | Separator between topics. | =", "= |
+     | =default="none"= | Default text shown if no children found. | =""= (empty) |
+   * Example: =%<nop>CHILDREN{ topic="%<nop>TOPIC%" }%=
+   * Category: SearchingAndListingVariables, SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETA][META]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarPARENTTOPIC][PARENTTOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETASEARCH][METASEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]]
+@

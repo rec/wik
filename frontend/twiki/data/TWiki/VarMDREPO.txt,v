@@ -1,0 +1,65 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2013.10.14.08.02.50;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1365149092" format="1.1" version="1"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarMEREPO
+---+++ MDREPO -- retrieve data from metadata repository
+   * __Attention:__ This variable works only if MetadataRepository is in use. Otherwise, it always returns a zero length string.
+   * This retrieves data from the specified metadata repository table.
+   * Syntax: =%<nop>MDREPO{ "table" ...}%= (generic form), =%<nop>MDREPO{ web="..." ...}%= (web specific form)
+   * Parameters (generic form without =web="..."= parameter):
+     %TABLE{columnwidths=",,100px"}%
+     | *Parameter* | *Description* | *Default* |
+     | ="..."= | Specify the table to retrieve | This or below is required |
+     | =table="..."= | (Alternative to above) | This or above is required |
+     | =separator="..."= | The separator string of records | ="$n"= (new line) |
+     | =format="..."= | Format of one record. It may contain the following items. In addtion, [[FormatTokens][the standard special tokens]] are handled accordingly.\
+       <table class="twikiTable">\
+       <tr><td width="144px"> *Item* </td><td> *Description* </td></tr>\
+       <tr><td> =$_= or =$_()= </td><td> the record ID </td></tr>\
+       <tr><td> =$__= or =$__()= </td> <td> The record value in the following format:%BR% <i>FIELD_NAME</i>=<i>FIELD_VALUE</i> <i>FIELD_NAME</i>=<i>FIELD_VALUE</i> ... </td></tr>\
+       <tr><td> =$marker= or =$marker()= </td><td> Expands to =marker= for the item matching =selection= only </td></tr>\
+       <tr><td> =$_FILED_NAME= or =$_FIELD_NAME()= </td><td> Please be noted that you need to put _ (underscore) in front of a field name. =$_FIELD_NAME$= yields the value of the specified field. If the specified field does not exist in the record, it returns the null string (""). </td></tr>\
+       <tr><td> =?FIELD_NAME?IF_FIELD_HAS_VALUE?= </td><td> If the specified field has value and it's neither 0 nor the null string (""), it's evaluated as IF_FIELD_HAS_VALUE. Otherwise, it's evaluated as the null string. This is like q/.../ in Perl. A non-word character following =?FIELD_NAME= becomes the terminator; i.e. you can write: =?FIELD_NAME:IF_TRUE:= <br/> Specifically, the following characters can be used as the delimiter: <code>! # % ' / : ? @@  ^ ` &#124; ~</code><br/> <code>=</code> is excluded because it clashes with a parameter specification in a URL (?name=value). </td></tr>\
+       <tr><td> =?!FIELD_NAME?IF_FIELD_HAS_NO_VALUE?= </td><td> Similar to above but it's opposite. If the field has value, it's evaluated as the null string. Otherwise, it's evaluated as IF_FIELD_HAS_NO_VALUE. </td></tr>\
+       <tr><td> =$question= </td><td> Replaced with =?= after the =?FIEL_DNAME= and =?!FIELD_ANME= constructs are processed. </td></tr>\
+       </table>\
+       | ="&#124; $_ &#124; $__ &#124;"= |
+     | =selection="..."= | The record ID to be regarded as the selected. It affects how =$marker= in the format is evaluated. | _none_ |
+     | =marker="..."= | Text for =$marker= in the format if the item matches =selection= | ="selected"= |
+     | =filter="..."= | The regular expression of record IDs to filter records. Matching is case-insensitive | _none_ |
+     | =exclude="..."= | Comma separated list of record IDs to be excluded. You can use regular expression. If you specify Trash\d*, then Trash, Trash1, Trash2, ... are exluded but !LightTrash and !TrashBag are not excluded | _none_ |
+   * Example: <code>%<nop>MDREPO{"webs" filter="^A" format="| $_ | $_admin | $_master |"}%</code> %BR%
+     This would show the metadata of webs whose names start with A.
+   * Paramerers (web specific form):
+     %TABLE{columnwidths=",,100px"}%
+     | *Parameter* | *Description* | *Default* |
+     | =web="..."= | Specify the web. If it's a subweb, the corresponding top level web is specified | This is required |
+     | ="..."= | Specify the format of the return value in the same manner as the =format= parameter in the generic form | =$__= |
+     | =default="..."= | Specify the value to be returned when the specified or implied top level web does not exist in MDREPO | =""= (null string) |
+   * Example: <code>%<nop>MDREPO{web="Foo/Bar" "$_admin"}%</code> %BR%
+     This would show the admin field of the Foo web.
+   * Category: AdministrationVariables, SystemInformationVariables
+   * Related: MetadataRepository
+@

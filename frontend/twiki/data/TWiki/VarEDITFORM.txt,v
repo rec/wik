@@ -1,0 +1,56 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2018.07.16.03.20.41;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1402464361" format="1.1" version="1"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarEDITFORM
+---+++ EDITFORM{} -- render a TWiki form for edit
+   * Show an HTML form to update the [[TWikiForms][TWiki form]] data of a topic.
+   * Syntax to update a TWiki form: =%<nop>EDITFORM{topic="..." formfields="..."}%=
+   * Supported parameters:
+     | *Parameter:* | *Description:* | *Default:* |
+     | ="..."= or%BR% =topic="..."= | Name of topic containing the TWiki form, such as ="Bug1234"=. Specify topic name or =Web.TopicName= | Either ="..."=, =topic=""= %BR% or =formtemplate=""= %BR% is required |
+     | =formtemplate="..."= | Name of form template topic, such as ="BugForm"=. Specify topic name or =Web.TopicName= |^|
+     | =elements="..."= | Elements of edit form: =formstart= is the HTML form tag, =header= the form header, =formfields= the form fields, =submit= the submit button, =hiddenfields= are hidden input fields, =formend= is the HTML form end tag. | ="formstart, header, %BR% formfields, submit, hiddenfields, formend"= |
+     | =header="..."= | Form header, typically containing the form name. If ="on"=, the default format is used:%BR% ="%VBAR%  <nop>*[<nop>[$formweb.$formtopic][$formtopic]]*<nop>  %VBAR%%VBAR%"= %BR% Supported variables: %BB% =$formweb= - name of web containing the form definition. %BB% =$formtopic= - name of topic containing the form definition. | ="on"= |
+     | =formfields="..., ..."= | Specify names of TWiki form fields to use, in sequence. The =all= token shows all remaining fields. | ="all"= |
+     | =format="..."= | Format of one form field. Supported variables: %BB% =$inputfield= - rendered form input field. %BB% =$title= - raw field name (includes space and other special characters). %BB% =$name= - field name (sanitized title). %BB% =$size= - size of field or selector. %BB% =$value= - initial value, or select options. %BB% =$tooltip= - tooltip message. %BB% =$attributes= - type attributes, such as H for hidden, M for mandatory. %BB% =$extra= - extra information, such as %RED%*%ENDCOLOR% for mandatory field. %BB% =$formweb= - name of web containing the form definition. %BB% =$formtopic= - name of topic containing the form definition. %BR% See details in TWikiForms#FormFieldTypes. | ="%VBAR% $title: $extra %VBAR% $inputfield %VBAR%"= |
+     | =hiddenfields="..., ..."= | List of form field names to use as hidden fields. For each name listed in =hiddenfields=""=, add a =name="value"= parameter to specify the value of the hidden input field. If you omit the =name="value"= parameter for a hidden input field, it will be _excluded_ as a form field, even with a =formfields="all"=. | =""= |
+     | =submit="..."= | Format of submit button row. Line separator. Variable =$submit= expands to submit input field with label "Save", =$submit(Save)= to a submit input field with specific label. | ="%VBAR% %VBAR% $submit %VBAR%"= |
+     | =onsubmit="..."= | Execute !JavaScript when the form is submitted, optional. | =""= |
+     | =action="..."= | Specify a [[TWikiScripts][TWiki script]] (=view=, =edit=, =save=, ...), or the full URL of an action to take on form submit. | ="save"= |
+     | =method="..."= | HTML form action method. | ="post"= for save%BR% action, else ="get"= |
+     | =separator="..."= | Line separator. Variable =$br= expands to =&lt;br /&gt;= tag, and =$n= to a newline. | ="$n"= |
+     | =default="..."= | Text shown when no form or form fields are found | =""= |
+   * Example: =%<nop>EDITFORM{ topic="%<nop>INCLUDINGTOPIC%" }%= - show HTML form to update form data of the including topic (typically used in an included header)
+   * Example: Custom form in an included header to update some form field values of the base topic, including one hidden field:
+     %BR% =%<nop>EDITFORM{=
+     %BR% =<nop>  topic="%<nop>BASEWEB%.%<nop>BASETOPIC%"=
+     %BR% =<nop>  formfields="Priority, Status"=
+     %BR% =<nop>  hiddenfields="Updated"=
+     %BR% =<nop>  Updated="%<nop>SERVERTIME{$year-$mo-$day}%"=
+     %BR% =<nop>  submit=" | | $submit(Update) |"=
+     %BR% =}%=
+   * Category: DatabaseAndFormsVariables, DevelopmentVariables, EditingAndContentUpdateVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarEDITFORMFIELD][EDITFORMFIELD]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENCODE][ENCODE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENTITY][ENTITY]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarFORM][FORM]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarFORMFIELD][FORMFIELD]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETA][META]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETASEARCH][METASEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]], TWikiForms, FormattedSearch, QuerySearch, SearchHelp, TWikiScripts, TWikiTemplates
+@

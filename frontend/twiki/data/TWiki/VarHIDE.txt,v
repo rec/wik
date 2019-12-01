@@ -1,0 +1,76 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2014.05.16.00.46.28;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2012.11.13.08.55.38;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2011.08.21.04.15.57;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1400201188" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarHIDE
+---+++ HIDE{text} -- hide content in topic view
+   * Text inside the HIDE is removed when viewing the topic. This can be used to remove large amounts of text from being sent to the browser, such as the user list in [[%USERSWEB%.%WIKIUSERSTOPIC%]] if there are many thousands of users.
+   * Syntax: =%<nop>HIDE{ any text }%=
+   * Expands to: (empty string)
+   * Notes:
+      * Using HIDE is not a replacement for [[TWikiAccessControl][access control]], because edit and raw view still show the content.
+      * Variables inside HIDE still get expanded because variables execute inside out, e.g. you can't use it to speed up slow variables.
+      * =&lt;!-- HTML comments --&gt;= also hide content from the user, but unlike HIDE, HTML comments are sent to the browser.
+   * Category: FormattingAndRenderingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarHIDEINPRINT][HIDEINPRINT]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarNOP][NOP]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSTARTSECTION][STARTSECTION]]
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1352796938" format="1.1" version="2"}%
+d4 1
+a4 1
+---+++ HIDE -- hide content in topic view
+d13 1
+a13 1
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarNOP][NOP]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSTARTINCLUDE][STARTINCLUDE]]
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1301342624" format="1.1" version="1"}%
+d12 1
+@

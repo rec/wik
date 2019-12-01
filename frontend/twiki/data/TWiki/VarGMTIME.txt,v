@@ -1,0 +1,96 @@
+head	1.4;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.4
+date	2012.11.13.08.29.43;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2010.12.29.23.23.37;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.01.22.03.21.26;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.06.25.16.26.28;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1352795383" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarGMTIME
+---+++ GMTIME -- GM time
+   * Syntax: =%<nop>GMTIME%=
+   * Expands to: =%GMTIME%=
+   * Date format defined as {DefaultDateFormat} in [[%SCRIPTURLPATH{"configure"}%][configure]], default =$year-$mo-$day=
+   * Note: When used in a template topic, this variable will be expanded when the template is used to create a new topic. See TWikiTemplates#TemplateTopicsVars for details.
+   * Category: DateAndTimeVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarDISPLAYTIME][DISPLAYTIME]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarGMTIME2][GMTIME{"format"}]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSERVERTIME][SERVERTIME]]
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1293665017" format="1.1" version="3"}%
+d8 2
+a9 1
+   * __%X% Note:__ When used in a template topic, this variable will be expanded when the template is used to create a new topic. See TWikiTemplates#TemplateTopicsVars for details.
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.1" version="2"}%
+d7 1
+a7 1
+   * Date format defined as {DefaultDateFormat} in [[%SCRIPTURLPATH{"configure"}%][configure]]
+a9 1
+
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.2" version="1"}%
+a3 1
+
+d7 1
+d9 1
+a9 1
+   * Related: [[#VarDISPLAYTIME][DISPLAYTIME]], [[#VarGMTIME2][GMTIME{"format"}]], [[#VarSERVERTIME][SERVERTIME]]
+@

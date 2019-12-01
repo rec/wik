@@ -1,0 +1,34 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2011.08.21.04.15.25;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1308728002" format="1.1" version="1"}%
+%META:TOPICPARENT{name="UserBookmarks"}%
+---+ Bookmarks of !%WIKINAME%
+%INCLUDE{%SYSTEMWEB%.UserBookmarks}%
+%EDITTABLE{ include="%SYSTEMWEB%.UserBookmarks" }%
+| *<nop>* | *Link: &nbsp; Web.Topic or URL* | *Link Label* |
+| <!--BOOKMARK--> | http://twiki.org/ | TWiki.org |
+%COMMENT{ type="bookmark_page_comment_template" templatetopic="%SYSTEMWEB%.UserBookmarks" }% 
+
+__Return to:__ [[%WIKINAME%]]
+@

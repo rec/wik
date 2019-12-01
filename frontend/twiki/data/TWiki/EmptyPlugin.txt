@@ -1,0 +1,113 @@
+%META:TOPICINFO{author="TWikiContributor" date="1530840437" format="1.1" version="25"}%
+---+!! Empty TWiki Plugin
+<!--
+   Contributions to this plugin are appreciated. Please update the plugin page at
+   http://twiki.org/cgi-bin/view/Plugins/EmptyPlugin or provide feedback at
+   http://twiki.org/cgi-bin/view/Plugins/EmptyPluginDev.
+   If you are a TWiki contributor please update the plugin in the SVN repository.
+-->
+<sticky>
+<div class="twikiTocFloat">
+%TOC{title="Page contents"}%
+</div>
+</sticky>
+%SHORTDESCRIPTION%
+
+---++ Introduction
+
+This is an empty plugin. Use it as a template to build your own %SYSTEMWEB%.TWikiPlugins. This plugin does nothing, but is ready to be extended and used.
+
+To create your own plugin:
+
+   * Copy file ==lib/TWiki/Plugins/EmptyPlugin.pm== to ==&lt;name&gt;Plugin.pm== and customize the plugin. Add your own code; remove all handlers you do not plan to use.
+   * Create a ==&lt;name&gt;Plugin== documentation topic in the %SYSTEMWEB% web. Do so by visiting http://twiki.org/cgi-bin/view/Plugins/PluginPackageHowTo and starting a new topic to get the default plugin topic text (don't save the topic on twiki.org yet). Customize your plugin topic to your needs.
+   * Please consider contributing your plugin back to the TWiki community by publishing it in the Plugins web on twiki.org.
+   * See details in %SYSTEMWEB%.TWikiPlugins.
+
+---++ Syntax Rules
+
+=%<nop>EXAMPLEVAR{"..."}%=
+
+| *Parameter* | *Explanation* | *Default* |
+| ="..."= | Default parameter. | (none) |
+| =format="..."= | Format: ... | "$name" |
+
+---++ Examples
+
+   * =%<nop>EXAMPLEVAR{}%= expands to: %EXAMPLEVAR{}%
+
+---++ Plugin Installation Instructions
+
+__Note:__ You do not need to install anything on the browser to use this plugin. The following instructions are for the administrator who installs the plugin on the TWiki server. 
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}% "
+ hidelink="Hide details %ICONURL{toggleclose}% "
+}%
+
+   * For an __automated installation__, run the [[%SCRIPTURL{configure}%][configure]] script and follow "Find More Extensions" in the in the __Extensions__ section.
+ 
+   * Or, follow these __manual installation__ steps:
+      * Download the ZIP file from the Plugins home (see below).
+      * Unzip ==%TOPIC%.zip== in your twiki installation directory. Content:
+        | *File:* | *Description:* |
+        | ==data/TWiki/%TOPIC%.txt== | Plugin topic |
+        | ==data/TWiki/VarEXAMPLEVAR.txt== | Variable documentation topic |
+        | ==lib/TWiki/Plugins/%TOPIC%.pm== | Plugin Perl module |
+        | ==lib/TWiki/Plugins/%TOPIC%/Config.spec== | Plugin Config spec |
+      * Set the ownership of the extracted directories and files to the webserver user.
+      * Install the dependencies (if any).
+
+   * Plugin __configuration and testing__:
+      * Run the [[%SCRIPTURL{configure}%][configure]] script and enable the plugin in the __Plugins__ section
+      * Configure additional plugin settings in the __Extensions__ section if needed.
+      * Test if the installation was successful: See example above.
+
+%ENDTWISTY%
+
+---++ Plugin Info
+
+   * One line description, is shown in the %SYSTEMWEB%.TextFormattingRules topic:
+      * Set SHORTDESCRIPTION = Empty Plugin used as a template for new plugins
+
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  Plugin Author: | TWiki:Main.AndreaSterbini, TWiki:Main.PeterThoeny, TWiki:Main.CrawfordCurrie |
+|  Copyright: | &copy; 2001-2018 TWiki:Main.PeterThoeny, [[http://twiki.org/][TWiki.org]];%BR% &copy; 2001-2018 TWiki:TWiki.TWikiContributor |
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+|  Plugin Version: | 2018-05-07 |
+%TWISTY{
+ mode="div"
+ showlink="Show Change History %ICONURL{toggleopen}%"
+ hidelink="Hide Change History %ICONURL{toggleclose}%"
+}%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  2018-07-05: | TWikibug:Item7841: Copyright update to 2018 |
+|  2016-01-08: | TWikibug:Item7708: Copyright update to 2016 |
+|  2015-09-18: | TWikibug:Item7689: Introducing topicTitleHandler() in plugins |
+|  2015-07-02: | TWikibug:Item7604: Fix source code comment about parameters of TWiki variables |
+|  2015-01-10: | TWikibug:Item7604: Switch from GPL v2 to v3 |
+|  2013-09-27: | TWikibug:Item7354: Align TWiki::Plugins::VERSION with TWiki release version, e.g. 6.00 for TWiki-6.0.0 |
+|  2013-02-16: | TWikibug:Item7123: Use TWISTY in installation instructions and change history |
+|  2013-02-11: | TWikibug:Item7142: iewRedirectHandler() in plug-ins -- TWiki:Main.HideyoImazu |
+|  2012-12-12: | TWikibug:Item7077: Small doc fix -- TWiki:Main.PeterThoeny |
+|  2012-11-15: | TWikibug:Item7020: Add category to VarEXAMPLEVAR variable doc -- TWiki:Main.PeterThoeny |
+|  2011-05-22: | TWikibug:Item6724: Pass text and meta data to registerTagHandler callback -- TWiki:Main.PeterThoeny |
+|  2011-05-17: | TWikibug:Item6725: Change global package variables from "use vars" to "ours"; doc improvements -- TWiki:Main.PeterThoeny |
+|  2011-03-06: | TWikibug:Item6656: Add meta data to attachment save handlers |
+|  2011-02-08: | TWikibug:Item6593: Doc improvements; adding VarEXAMPLEVAR variable documentation |
+|  2010-05-08: | TWikibug:Item6433: Doc improvements; replacing TWIKIWEB with SYSTEMWEB |
+|  2007-05-20: | Added renderWikiWordHandler |
+|  2006-02-01: | Dakar changes |
+|  2004-03-21: | Added afterSaveHandler |
+|  2001-07-14: | Changed to plug&amp;play |
+|  2001-02-27: | Initial version |
+%ENDTWISTY%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  TWiki Dependency: | $TWiki::Plugins::VERSION 1.4 |
+|  Dependencies: | %$DEPENDENCIES |
+|  [[TWiki:Plugins.Benchmark][Plugin Benchmark]]: | %SYSTEMWEB%.GoodStyle 99%, %SYSTEMWEB%.FormattedSearch 99%, %TOPIC% 99% |
+|  Plugin Home: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC% |
+|  Feedback: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Dev |
+|  Appraisal: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Appraisal |
+
+__Related Topics:__ VarEXAMPLEVAR, %SYSTEMWEB%.TWikiPlugins, %SYSTEMWEB%.TWikiFuncDotPm, %SYSTEMWEB%.DeveloperDocumentationCategory, %SYSTEMWEB%.AdminDocumentationCategory, %SYSTEMWEB%.TWikiPreferences

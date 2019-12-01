@@ -1,0 +1,110 @@
+%META:TOPICINFO{author="TWikiContributor" date="1531614114" format="1.1" version="14"}%
+---+!! Tips Contrib Package
+<!--
+   Contributions to this contrib are appreciated. Please update the contrib page at
+   http://twiki.org/cgi-bin/view/Plugins/TWikiUserMappingContrib or provide feedback at
+   http://twiki.org/cgi-bin/view/Plugins/TWikiUserMappingContribDev.
+   If you are a TWiki contributor please update the contrib in the SVN repository.
+-->
+<sticky>
+<div class="twikiTocFloat">
+%TOC{title="Page contents"}%
+</div>
+</sticky>
+Displays a rotating "TWiki Tip of the Day" to help familiarize new users with TWiki features. Includes an application for creating custom tips for local installation.
+
+---++ Summary of Contents
+
+   * Set on =TWikiTip= topics providing brief lessons on TWiki features. See %SYSTEMWEB%.TWikiTips.
+   * Set of topics for creating and managing =TWikiTipXXX= topics. See %SYSTEMWEB%.TWikiTipsOfTheDayAdmin.
+
+---++ Detailed Documentation
+
+   * See %SYSTEMWEB%.TWikiTipsOfTheDayAdmin for instructions on managing and displaying tips.
+   * See %SYSTEMWEB%.TWikiTipsOfTheDayAddNew for instructions for adding new custom tips.
+
+---++ Settings
+
+This extension requires no settings.  See %SYSTEMWEB%.TWikiTipsOfTheDayAdmin for administration details.
+
+   * One line description:
+   * Set SHORTDESCRIPTION = Displays rotating list of "TWiki Tip-of-the-day"
+
+---++ CSS used by !TipsContrib
+
+   * .tipsOfTheDay - overall container
+   * .tipsOfTheDayContents - container for tipsOfTheDayHeader and tipsOfTheDayText
+   * strong.tipsOfTheDayHeader - header that says "TWiki Tip of the Day"
+   * .tipsOfTheDayText - the tip; contains title and tip summary and link "Read on"
+   * .tipsOfTheDayTitle - title of the tip; the link to the tip topic
+
+---++ Installation Instructions
+
+__Note:__ You do not need to install anything on the browser to use this contrib package. The following instructions are for the administrator who installs the package on the server where TWiki is running.
+
+   * Download the ZIP file from the Plugin web (see below)
+   * Unzip ==%TOPIC%.zip== in your twiki installation directory. Content:
+     | *File:* | *Description:* |
+        | ==lib/TWiki/Contrib/TipsContrib.pm== |  |
+   | ==data/TWiki/TipsContrib.txt== |  |
+   | ==data/TWiki/TWikiTip001.txt== |  |
+   | ==data/TWiki/TWikiTip002.txt== |  |
+   | ==data/TWiki/TWikiTip003.txt== |  |
+   | ==data/TWiki/TWikiTip004.txt== |  |
+   | ==data/TWiki/TWikiTip005.txt== |  |
+   | ==data/TWiki/TWikiTip006.txt== |  |
+   | ==data/TWiki/TWikiTip007.txt== |  |
+   | ==data/TWiki/TWikiTip008.txt== |  |
+   | ==data/TWiki/TWikiTip009.txt== |  |
+   | ==data/TWiki/TWikiTip010.txt== |  |
+   | ==data/TWiki/TWikiTip011.txt== |  |
+   | ==data/TWiki/TWikiTip012.txt== |  |
+   | ==data/TWiki/TWikiTip013.txt== |  |
+   | ==data/TWiki/TWikiTip014.txt== |  |
+   | ==data/TWiki/TWikiTip015.txt== |  |
+   | ==data/TWiki/TWikiTip016.txt== |  |
+   | ==data/TWiki/TWikiTip017.txt== |  |
+   | ==data/TWiki/TWikiTip018.txt== |  |
+   | ==data/TWiki/TWikiTip019.txt== |  |
+   | ==data/TWiki/TWikiTip020.txt== |  |
+   | ==data/TWiki/TWikiTip021.txt== |  |
+   | ==data/TWiki/TWikiTip022.txt== |  |
+   | ==data/TWiki/TWikiTip023.txt== |  |
+   | ==data/TWiki/TWikiTip024.txt== |  |
+   | ==data/TWiki/TWikiTip025.txt== |  |
+   | ==data/TWiki/TWikiTip026.txt== |  |
+   | ==data/TWiki/TWikiTip027.txt== |  |
+   | ==data/TWiki/TWikiTip028.txt== |  |
+   | ==data/TWiki/TWikiTip029.txt== |  |
+   | ==data/TWiki/TWikiTips.txt== |  |
+   | ==data/TWiki/TWikiTipsOfTheDay.txt== |  |
+   | ==data/TWiki/TWikiTipsOfTheDayAddNew.txt== |  |
+   | ==data/TWiki/TWikiTipsOfTheDayAdmin.txt== |  |
+   | ==data/TWiki/TWikiTipsOfTheDayInclude.txt== |  |
+   | ==data/TWiki/TWikiTipsOfTheDayTemplate.txt== |  |
+
+
+---++ Contrib Info
+
+|  Author: | TWiki:Main.PeterThoeny, TWiki:Main.PaulineCheung |
+|  Copyright: | &copy; 2005-2018 Peter Thoeny, [[http://twiki.org/][TWiki.org]]%BR% &copy; 2005-2018 TWiki:TWiki.TWikiContributor |
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+|  Dependencies: | TWiki:Plugins.SpreadSheetPlugin |
+|  Version: | 2018-07-14 |
+|  Change History: | <!-- versions below in reverse order -->&nbsp; |
+|  2018-07-14: | TWikibug:Item7834: Sanitation of search |
+|  2018-07-06: | TWikibug:Item7841: Copyright update to 2018 |
+|  2016-01-09: | TWikibug:Item7708: Copyright update to 2016 |
+|  2013-10-25: | TWikibug:Item7376: Suppress header in tips of the day with noheader="on" parameter |
+|  2013-01-23: | TWikibug:Item6977: !TWiki.TWikiTip029 timed out on a large site, which is fixed |
+|  2012-09-04: | TWikibug:Item6837: Doc fixes |
+|  2011-07-07: | TWikibug:Item6711: Change "user homepage" to "profile page" |
+|  2010-06-27: | TWikibug:Item6479: More doc improvements |
+|  2010-05-15: | TWikibug:Item6433: Doc improvements; replacing TWIKIWEB with SYSTEMWEB |
+|  2007-01-04: | Performance improvement |
+|  2005-10-10: | Initial version - Packaging by TWiki:Main.LynnwoodBrown |
+|  Home: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC% |
+|  Feedback: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Dev |
+|  Appraisal: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Appraisal |
+
+__Related Topics:__ %SYSTEMWEB%.TWikiPreferences

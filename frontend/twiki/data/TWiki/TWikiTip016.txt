@@ -1,0 +1,13 @@
+%META:TOPICINFO{author="TWikiContributor" date="1277689748" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiTipsOfTheDay"}%
+---+ TWiki Skins 
+
+Skins overlay regular templates with alternate header/footer layouts. You can use Skins to change the look of a TWiki topic, for example, the layout of the header and footer. Rendered text between header and footer does not change. You can also use Skins to define an alternate view, like a view optimized for printing.
+
+TWiki's default skin is the TopMenuSkin, which is based on the PatternSkin.
+
+To see the installed TWikiSkins, see TWikiSkinBrowser.
+
+[[TWikiTipsOfTheDay][See More Tips...]]
+
+-- __Contributors:__ TWiki:Main.PaulineCheung, TWiki:Main.PeterThoeny

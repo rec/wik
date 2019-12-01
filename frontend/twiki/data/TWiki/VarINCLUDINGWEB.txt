@@ -1,0 +1,10 @@
+%META:TOPICINFO{author="TWikiContributor" date="1354777469" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarINCLUDINGWEB
+---+++ INCLUDINGWEB -- web that includes current topic
+   * The web name of the topic that includes the current topic - same as =%<nop>WEB%= if there is no INCLUDE.
+   * Syntax: =%<nop>INCLUDINGWEB%=
+   * Syntax: =%<nop>INCLUDINGWEB{format="..."}%= -- see [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWEB][WEB]] for format documentation
+   * Example: If topic A includes B, and B includes C, then a =%<nop>INCLUDINGWEB%= in topic C is reported as web of topic B when looking at topics A or B, and as of topic C when looking at topic C itself.
+   * Category: SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBASEWEB][BASEWEB]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarINCLUDINGTOPIC][INCLUDINGTOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarINCLUDE][INCLUDE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWEB][WEB]]

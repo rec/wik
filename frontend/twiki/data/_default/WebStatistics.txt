@@ -1,0 +1,8 @@
+%META:TOPICINFO{author="TWikiContributor" date="1378945778" format="1.1" version="4"}%
+%META:TOPICPARENT{name="WebHome"}%
+---+ Statistics for <nop>%WEB% Web
+
+| *Month:* | *Topic <br /> views:* | *Topic <br /> saves:* | *File <br /> uploads:* | *Most popular <br /> topic views:* | *Top viewers:* | *Top contributors for <br /> topic save and uploads:* |
+| <!--statDate--> | <!--statViews--> | <!--statSaves--> | <!--statUploads--> | <!--statTopViews--> | <!--statTopViewers--> | <!--statTopContributors--> |
+
+%INCLUDE{%SYSTEMWEB%.WebStatisticsFooter}%

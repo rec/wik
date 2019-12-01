@@ -1,0 +1,13 @@
+%META:TOPICINFO{author="TWikiContributor" date="1277689751" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiTipsOfTheDay"}%
+---+ Revision control
+
+TWiki has "soft security" - anyone can change anything, but changes are logged. There is a complete audit trail:
+   * Version
+   * Date of last revision
+   * Person who made change
+is recorded. At the footer of each topic one can access previous versions, as well as differences between revisions by clicking on the <u>&gt;</u> sign located between revisions of a topic.
+
+[[TWikiTipsOfTheDay][See More Tips...]]
+
+-- __Contributors:__ TWiki:Main.PaulineCheung

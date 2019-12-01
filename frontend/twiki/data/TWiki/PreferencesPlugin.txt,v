@@ -1,0 +1,700 @@
+head	1.20;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.20
+date	2018.07.06.05.01.58;	author TWikiContributor;	state Exp;
+branches;
+next	1.19;
+
+1.19
+date	2015.01.14.08.19.09;	author TWikiContributor;	state Exp;
+branches;
+next	1.18;
+
+1.18
+date	2014.05.30.22.13.51;	author TWikiContributor;	state Exp;
+branches;
+next	1.17;
+
+1.17
+date	2013.09.08.23.56.43;	author TWikiContributor;	state Exp;
+branches;
+next	1.16;
+
+1.16
+date	2013.01.29.03.59.56;	author TWikiContributor;	state Exp;
+branches;
+next	1.15;
+
+1.15
+date	2012.12.16.05.35.10;	author TWikiContributor;	state Exp;
+branches;
+next	1.14;
+
+1.14
+date	2012.10.05.22.56.56;	author TWikiContributor;	state Exp;
+branches;
+next	1.13;
+
+1.13
+date	2011.08.21.03.24.29;	author TWikiContributor;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2011.08.21.03.24.29;	author TWikiContributor;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2011.02.10.03.19.09;	author TWikiContributor;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2010.05.29.14.44.54;	author TWikiContributor;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2009.09.02.13.43.18;	author TWikiContributor;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2009.04.29.20.53.55;	author TWikiContributor;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2009.03.30.09.18.22;	author TWikiContributor;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2008.12.06.09.02.30;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2008.08.03.22.17.48;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2008.01.22.03.21.31;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2007.01.16.04.11.59;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2006.04.01.05.55.33;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.23;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.20
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1530853318" format="1.1" version="20"}%
+---+!! <nop>%TOPIC%
+<!--
+   Contributions to this TWiki plugin are appreciated. Please update the plugin page
+   at http://twiki.org/cgi-bin/view/Plugins/PreferencesPlugin or provide feedback
+   at http://twiki.org/cgi-bin/view/Plugins/PreferencesPluginDev.
+   If you are a TWiki contributor please update the plugin in the SVN repository.
+-->
+<sticky>
+<div class="twikiTocFloat">
+%TOC{title="Page contents"}%
+</div>
+</sticky>
+%SHORTDESCRIPTION%
+
+---++ Introduction
+
+Allows editing of preferences using fields predefined in a %SYSTEMWEB%.TWikiForms. However, the edit fields are inlined in the text, similar to how tables are edited in EditTablePlugin.
+
+Insert the =%<nop>EDITPREFERENCES%= variable (see below) anywhere in your topic. It will be replaced by a button that allows editing each preference in its predefined input format (or a text box, when no format is defined for this preference).
+
+In edit mode, the edit button is replaced by Save and Cancel buttons, with their obvious meanings.
+
+---++ Syntax Rules
+
+   * =%<nop>EDITPREFERENCES{ "topic" editbutton="..." }%=
+      * =topic= references a [[%SYSTEMWEB%.TWikiForms][TWikiForm]] defining the format of the edit fields for preferences. It may be prefixed by a web.
+      * Optional =editbutton= parameter: Custom edit button label. Default: Edit Preferences.
+      * If a preference setting is not mentioned in the form referenced by _topic_, a text input box of the specified length is provided.
+      * Otherwise, the input can be through textareas, select, radio, checkbox, date, or text, as provided by %SYSTEMWEB%.TWikiForms.
+   * =%<nop>EDITPREFERENCES%=
+      * Edit existing preferences in the topic using a simple text field.
+
+---++ Examples
+
+   * =%<nop>EDITPREFERENCES%=
+   * =%<nop>EDITPREFERENCES{ "%<nop>SYSTEMWEB%.TWikiPreferencesForm" }%=
+   * =%<nop>EDITPREFERENCES{ "%<nop>SYSTEMWEB%.TWikiPreferencesForm" editbutton="Edit Group Settings" }%=
+
+---++ Caveat
+
+When the "Edit Preferences" button is clicked, the page is rendered in such a manner that it makes a big HTML form to update preferences.
+This form generation processing assumes that there is no HTML form tags (form, input, select, option, textarea tags) are present in the !WebPreferences content.
+If HTML forms are present on !WebPreferences, "Edit Preferences" may generate an HTML form not functioning well.
+
+Meanwhile you may put HTML forms in [[%SYSTEMWEB%.WebPreferences]], which is included in every !WebPreferences.
+To cope with that, inclusion of that topic is suppressed when "Edit Prefereces" is clicked.
+
+---++ Plugin Installation Instructions
+
+This plugin is pre-installed. TWiki administrators can upgrade the plugin as needed on the TWiki server.
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}% "
+ hidelink="Hide details %ICONURL{toggleclose}% "
+}%
+
+   * For an __automated installation__, run the [[%SCRIPTURL{configure}%][configure]] script and follow "Find More Extensions" in the in the __Extensions__ section.
+      * See the [[http://twiki.org/cgi-bin/view/Plugins/BuildContribInstallationSupplement][installation supplement]] on TWiki.org for more information.
+
+   * Or, follow these __manual installation__ steps:
+      * Download the ZIP file from the extension home on twiki.org (see below).
+      * Unzip ==%TOPIC%.zip== in your twiki installation directory.
+      * Set the ownership of the extracted directories and files to the webserver user.
+      * Install the dependencies (if any).
+
+   * Plugin __configuration and testing__: 
+      * Run the [[%SCRIPTURL{configure}%][configure]] script and enable the plugin in the __Plugins__ section.
+      * Configure additional plugin settings in the __Extensions__ section if needed.
+      * Test if the installation was successful using the examples provided.
+
+   * If the installation was successful, an edit button should appear below:
+%EDITPREFERENCES%
+%ENDTWISTY%
+
+---++ Plugin Info
+
+   * One line description, shown in the %SYSTEMWEB%.TextFormattingRules topic:
+      * Set SHORTDESCRIPTION = Allows editing of preferences using fields predefined in a form
+
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  Plugin Author: | TWiki:Main.ThomasWeigert |
+|  Copyright: | &copy; 2005 TWiki:Main.ThomasWeigert %BR% &copy; 2005-2018 TWiki:TWiki.TWikiContributor |
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+|  Plugin Version: | 2018-07-05 |
+%TWISTY{
+ mode="div"
+ showlink="Show Change History %ICONURL{toggleopen}%"
+ hidelink="Hide Change History %ICONURL{toggleclose}% "
+}%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  2018-07-05: | TWikibug:Item7841: Copyright update to 2018 |
+|  2016-01-09: | TWikibug:Item7708: Copyright update to 2016 |
+|  2015-01-15: | TWikibug:Item7604: Switch from GPL v2 to v3 -- TWiki:Main.PeterThoeny |
+|  2014-05-30: | TWikibug:Item7504: Fix for Use of uninitialized value in lc error -- TWiki:Main.PeterThoeny |
+|  2014-03-24: | TWikibug:Item7467: Fix for editbutton parameter not working as expected -- TWiki:Main.PeterThoeny |
+|  2013-09-08: | TWikibug:Item7337: Fix for Uninitialized value warning when Local setting is used -- TWiki:Main.PeterThoeny |
+|  2013-05-30: | TWikibug:Item7272: It may malfunction if %<nop>SYSTEMWEB%.WebPreferencesHelp contains an HTML form -- TWiki:Main.HideyoImazu |
+|  2013-04-19: | TWikibug:Item7236: It should not touch a variable whose type is label -- TWiki:Main.HideyoImazu |
+|  2013-04-16: | TWikibug:Item7231: It was confused by Set and Local of a same variable -- TWiki:Main.HideyoImazu |
+|  2013-04-08: | TWikibug:Item7219: Preserve order of type checkbox and select+multi as defined; support select+multi+values -- TWiki:Main.PeterThoeny |
+|  2013-04-08: | TWikibug:Item7202: Make "#" transparent so it also works when bgcolor is not white; Show "#" when the checkbox is disabled -- TWiki:Main.MahiroAndo |
+|  2013-04-05: | TWikibug:Item7202: Stylesheet tweaks -- TWiki:Main.PeterThoeny |
+|  2013-04-04: | TWikibug:Item7202: Use checkboxes to enable/disable variables -- TWiki:Main.MahiroAndo |
+|  2013-04-01: | TWikibug:Item7208: Put radio buttons and checkboxes on same line like "Set NAME = ", not below -- TWiki:Main.HideyoImazu |
+|  2013-03-27: | TWikibug:Item7204: Suppress verbatim during editing preferences -- TWiki:Main.MahiroAndo |
+|  2013-03-26: | TWikibug:Item7202: Support "Set" variants: "#Set", "Local", and "#Local" -- TWiki:Main.MahiroAndo |
+|  2013-01-28: | TWikibug:Item7091: Use TWISTY in installation instructions and change history |
+|  2012-11-15: | TWikibug:Item7029: Redirect to master site when current site mode is slave. -- TWiki:Main.YaojunFei |
+|  2012-11-15: | TWikibug:Item7028: Disable submit button when current site is mode read-only or slave. -- TWiki:Main.YaojunFei |
+|  2012-10-25: | TWikibug:Item7009: "Edit Preferences" button is to fail if the user does not have change permission -- TWiki:Main.HideyoImazu |
+|  2012-10-24: | TWikibug:Item7008: Radio buttons were not displayed inline on webkit browsers -- TWiki:Main.HideyoImazu |
+|  2012-10-12: | TWikibug:Item6969: Various edge cases were not handled properly. All of those problems were fixed and the unit test enhanced accordingly. -- TWiki:Main.HideyoImazu |
+|  2012-10-05: | TWikibug:Item6957: radio buttons, checkboxes, and labels are now displayed on the same line as Set VAR =. All unit tests were failing due to test code problems. All of them were fixed. -- TWiki:Main.HideyoImazu |
+|  2012-09-16: | TWikibug:Item6934: Option for auto-hidden or fixed top menu-bar with FIXEDTOPMENU preferences setting -- TWiki:Main.PeterThoeny |
+|  2012-04-12: | TWikibug:Item6711: Fix for broken checkbox and select+multi input types -- TWiki:Main.PeterThoeny |
+|  2011-08-20: | TWikibug:Item6711: Fix topic meta timestamp (needed for proper build) -- TWiki:Main.PeterThoeny |
+|  2011-07-27: | TWikibug:Item6777: Scroll to preferences section on edit; adding EDITMETHOD; changing LINKTOOLTIPINFO to select -- TWiki:Main.PeterThoeny |
+|  2011-07-08: | TWikibug:Item6725: Change global package variables from "use vars" to "our" -- TWiki:Main.PeterThoeny |
+|  2011-06-10: | TWikibug:Item6748: New =editbutton= parameter -- TWiki:Main.PeterThoeny |
+|  2011-02-09: | TWikibug:Item6593: Larger size for URL fields -- TWiki:Main.PeterThoeny |
+|  2011-02-01: | TWikibug:Item6615: Adding type 'color' to WEBBGCOLOR because TWiki:Plugins.ColorPickerPlugin is part of the core distribution since TWiki-5.1 -- TWiki:Main.PeterThoeny |
+|  2010-05-15: | TWikibug:Item6433: Doc improvements; replacing TWIKIWEB with SYSTEMWEB -- TWiki:Main.PeterThoeny |
+|  17 Apr 2009: | Save of preferences can only be done with http POST method, not GET -- TWiki:Main.PeterThoeny |
+|  05 Nov 2007: | Kenneth Lavrsen fixed problem when settings are hidden in html comments. These settings are now ignored. |
+|  23 Jun 2007: | Crawford Currie added testcases, recoded to work without a form definition, fixed for TWiki 4.2 |
+|  08 Feb 2007: | Arthur Clemens added access keys for Save and Cancel, bold style for editable preference names, and a descriptive Save button label. |
+|  15 Apr 2006: | Adding css classes to buttons. Removed debug print statement causing 500s on !SunOne. Prevent extra space in settings on saves. Switched to earlier handler. Converted all SCRIPTURL to SCRIPTURLPATH, and added support. The only SCRIPTURLs should be the one in the BASE tag and those in mail notification templates. Because the forms package was throwing an exception when it failed to create a form, the edit preferences plugin was aborting the whole of the session whenever the form specified in EDITPREFERENCES didn't exist. Changed it so that the Form constructor does not throw, but returns undef on a non-existant form, and changed preferences plugin to be tolerant of missing forms (ie defaults all fields to text if the form is missing, of is a Set exists which is not in the form). | 
+|  26 May 2005: | Crawford Currie recoded to use code from Form.pm to render form fields. |
+|  08 May 2005: | Add plugin preference to define default input length  |
+|  07 May 2005: | Initial version |
+%ENDTWISTY%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  TWiki Dependency: | $TWiki::Plugins::VERSION 1.026 |
+|  CPAN Dependencies: | none |
+|  Other Dependencies: | none |
+|  Perl Version: | 5.005 |
+|  TWiki:Plugins/Benchmark: | %SYSTEMWEB%.GoodStyle nn%, %SYSTEMWEB%.FormattedSearch nn%, %TOPIC% nn% |
+|  Plugin Home: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC% |
+|  Feedback: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Dev |
+|  Appraisal: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Appraisal |
+
+__Related Topics:__ %SYSTEMWEB%.TWikiPreferencesForm, %SYSTEMWEB%.TWikiPreferences, %SYSTEMWEB%.TWikiForms, %SYSTEMWEB%.TWikiPlugins
+@
+
+
+1.19
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1421223549" format="1.1" version="19"}%
+d83 1
+a83 1
+|  Copyright: | &copy; 2005 TWiki:Main.ThomasWeigert %BR% &copy; 2005-2015 TWiki:TWiki.TWikiContributor |
+d85 1
+a85 1
+|  Plugin Version: | 2015-01-14 |
+d92 2
+@
+
+
+1.18
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1401488031" format="1.1" version="18"}%
+d9 2
+a10 1
+<sticky><div style="float:right; background-color:#EBEEF0; margin:0 0 20px 20px; padding: 0 10px 0 10px;">
+d12 2
+a13 1
+</div></sticky>
+d83 1
+a83 1
+|  Copyright: | &copy; 2005 TWiki:Main.ThomasWeigert %BR% &copy; 2005-2014 TWiki:TWiki.TWikiContributor |
+d85 1
+a85 1
+|  Plugin Version: | 2014-05-30 |
+d92 1
+@
+
+
+1.17
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1378684603" format="1.1" version="17"}%
+d81 1
+a81 1
+|  Copyright: | &copy; 2005 TWiki:Main.ThomasWeigert %BR% &copy; 2005-2013 TWiki:TWiki.TWikiContributor |
+d83 1
+a83 1
+|  Plugin Version: | 2013-09-08 |
+d90 2
+@
+
+
+1.16
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1359431996" format="1.1" version="16"}%
+d38 9
+d81 1
+a81 1
+|  Copyright: | &copy; 2005 TWiki:Main.ThomasWeigert, %BR% &copy; 2005-2013 TWiki:TWiki.TWikiContributor |
+d83 1
+a83 1
+|  Plugin Version: | 2013-01-28 |
+d90 11
+@
+
+
+1.15
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1355636110" format="1.1" version="15"}%
+d34 3
+a36 8
+   * =%<nop>EDITPREFERENCES%= 
+   * =%<nop>EDITPREFERENCES{ "%<nop>SYSTEMWEB%.TWikiPreferencesForm" }%= 
+   * =%<nop>EDITPREFERENCES{ "%<nop>SYSTEMWEB%.TWikiPreferencesForm" editbutton="Edit Group Settings" }%= 
+
+---++ Plugin Settings
+
+   * One line description, shown in the %SYSTEMWEB%.TextFormattingRules topic:
+      * Set SHORTDESCRIPTION = Allows editing of preferences using fields predefined in a form
+d40 6
+a45 1
+__Note:__ You do not need to install anything on the browser to use this extension. The following instructions are for the administrator who installs the extension on the TWiki server.
+d63 1
+d67 4
+d72 1
+a72 1
+|  Copyright: | &copy; 2005 TWiki:Main.ThomasWeigert, %BR% &copy; 2005-2012 TWiki:TWiki.TWikiContributor |
+d74 8
+a81 2
+|  Plugin Version: | 2012-11-15 |
+|  Change History: | <!-- versions below in reverse order -->&nbsp; |
+d105 2
+@
+
+
+1.14
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1349477816" format="1.1" version="14"}%
+d69 1
+a69 1
+|  Plugin Version: | 2012-10-05 |
+d71 5
+@
+
+
+1.13
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1313897069" format="1.1" version="13"}%
+d45 1
+a45 1
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server where TWiki is running.
+d47 1
+a47 3
+Like many other TWiki extensions, this module is shipped with a fully
+automatic installer script written using the Build<nop>Contrib.
+   * If you have TWiki 4.2 or later, you can install from the =configure= interface (Go to Plugins->Find More Extensions)
+a48 10
+   * If you have any problems, then you can still install manually from the command-line:
+      1 Download one of the =.zip= or =.tgz= archives
+      1 Unpack the archive in the root directory of your TWiki installation.
+      1 Run the installer script ( =perl &lt;module&gt;_installer= )
+      1 Run =configure= and enable the module, if it is a plugin.
+      1 Repeat for any missing dependencies.
+   * If you are *still* having problems, then instead of running the installer script:
+      1 Make sure that the file permissions allow the webserver user to access all files.
+      1 Check in any installed files that have existing =,v= files in your existing install (take care *not* to lock the files when you check in)
+      1 Manually edit !LocalSite.cfg to set any configuration variables.
+d50 10
+a59 1
+%IF{"defined 'SYSTEMWEB'" else="<div class='twikiAlert'>%X% WARNING: SYSTEMWEB is not defined in this TWiki. Please add these definitions to your %MAINWEB%.TWikiPreferences, if they are not already there:<br><pre>   * <nop>Set SYSTEMWEB = %<nop>TWIKIWEB%<br>   * <nop>Set USERSWEB = %<nop>MAINWEB%</pre></div>"}%
+d67 1
+a67 1
+|  Copyright: | &copy; 2005 TWiki:Main.ThomasWeigert, %BR% &copy; 2005-2011 TWiki:TWiki.TWikiContributor |
+d69 1
+a69 1
+|  Plugin Version: | 22124 (2012-01-14) |
+d71 3
+@
+
+
+1.12
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1313897069" format="1.1" version="12"}%
+d72 1
+a72 1
+|  Plugin Version: | 22124 (2011-08-20) |
+@
+
+
+1.11
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1297307949" format="1.1" version="11"}%
+d24 3
+a26 2
+   * =%<nop>EDITPREFERENCES{ "= _topic_ =" }%=
+      * _topic_ references a [[%SYSTEMWEB%.TWikiForms][TWikiForm]] defining the format of the edit fields for preferences. It may be prefixed by a web.
+d31 1
+d33 1
+d36 1
+d72 1
+a72 1
+|  Plugin Version: | 20898 (2011-05-03) |
+d74 4
+d79 1
+@
+
+
+1.10
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1273980162" format="1.1" version="10"}%
+d9 3
+a11 3
+<div style="float:right; background-color:#EBEEF0; margin:0 0 20px 20px; padding: 0 10px 0 10px;">
+%TOC%
+</div>
+d66 1
+a66 1
+|  Copyright: | &copy; 2005TWiki:Main.ThomasWeigert, %BR% &copy; 2005-2010 TWiki:TWiki/TWikiContributor |
+d68 1
+a68 1
+|  Plugin Version: | 18690 (2010-05-29) |
+d70 3
+a72 2
+|  2010-05-15: | TWikibug:Item6433 - doc improvements; replacing TWIKIWEB with SYSTEMWEB |
+|  17 Apr 2009: | Peter Thoeny: Save of preferences can only be done with http POST method, not GET |
+@
+
+
+1.9
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1240032470" format="1.1" version="9"}%
+d3 10
+d14 1
+a14 1
+Allows editing of preferences using fields predefined in a %SYSTEMWEB%.TWikiForms. However, the edit fields are inlined in the text, similar to how tables are edited in TWiki:Plugins/EditTablePlugin.
+d16 1
+a16 1
+%TOC%
+d35 1
+d40 1
+d66 3
+a68 1
+|  Plugin Version: | 18016 (02 Sep 2009) |
+d70 1
+a82 1
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+d88 1
+a88 1
+__Related Topics:__ %SYSTEMWEB%.TWikiPreferences, %SYSTEMWEB%.TWikiForms
+@
+
+
+1.8
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1240032470" format="1.1" version="8"}%
+d54 1
+a54 1
+|  Plugin Version: | 18016 (29 Apr 2009) |
+@
+
+
+1.7
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1115527529" format="1.0" version="7"}%
+d14 4
+a17 4
+	* =%<nop>EDITPREFERENCES{ "= _topic_ =" }%=
+		* _topic_ references a [[%SYSTEMWEB%.TWikiForms][TWikiForm]] defining the format of the edit fields for preferences. It may be prefixed by a web.
+		* If a preference setting is not mentioned in the form referenced by _topic_, a text input box of the specified length is provided.
+		* Otherwise, the input can be through textareas, select, radio, checkbox, date, or text, as provided by %SYSTEMWEB%.TWikiForms.
+d21 2
+a22 2
+	* =%<nop>EDITPREFERENCES%= 
+	* =%<nop>EDITPREFERENCES{ "%<nop>SYSTEMWEB%.TWikiPreferencesForm" }%= 
+d25 2
+a26 2
+	* One line description, shown in the %SYSTEMWEB%.TextFormattingRules topic:
+		* Set SHORTDESCRIPTION = Allows editing of preferences using fields predefined in a form
+d48 1
+a48 1
+	* If the installation was successful, an edit button should appear below:
+d54 1
+a54 1
+|  Plugin Version: | 17889 (30 Mar 2009) |
+d56 1
+a74 2
+
+
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1115527529" format="1.0" version="6"}%
+d54 1
+a54 1
+|  Plugin Version: | 15487 (06 Dec 2008) |
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1115527529" format="1.0" version="5"}%
+d54 1
+a54 1
+|  Plugin Version: | 15487 (04 Aug 2008) |
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1115527529" format="1.0" version="4"}%
+d54 1
+a54 1
+|  Plugin Version: | 15487 (22 Jan 2008) |
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1115527529" format="1.0" version="3"}%
+d4 1
+a4 1
+Allows editing of preferences using fields predefined in a %TWIKIWEB%.TWikiForms. However, the edit fields are inlined in the text, similar to how tables are edited in TWiki:Plugins/EditTablePlugin.
+d10 1
+a10 1
+In edit mode, the edit button is replaced by save and cancel buttons, with their obvious meanings.
+d15 1
+a15 1
+		* _topic_ references a %TWIKIWEB%.TWikiForms defining the format of the edit fields for preferences. It may be prefixed by a web.
+d17 3
+a19 2
+		* Otherwise, the input can be through textareas, select, radio, checkbox, date, or text, as provided by %TWIKIWEB%.TWikiForms.
+
+d21 2
+a22 2
+
+	* =%<nop>EDITPREFERENCES{ "%<nop>TWIKIWEB%.TWikiPreferencesForm" }%= 
+d25 1
+a25 4
+
+Plugin settings are stored as preferences variables. To reference a plugin setting write ==%<nop>&lt;plugin&gt;_&lt;setting&gt;%==, i.e. ==%<nop>PREFERENCESPLUGIN_SHORTDESCRIPTION%==
+
+	* One line description, is shown in the %TWIKIWEB%.TextFormattingRules topic:
+d29 16
+d46 1
+a46 1
+__Note:__ You do not need to install anything on the browser to use this plugin. The following instructions are for the administrator who installs the plugin on the server where TWiki is running. 
+d48 2
+a49 9
+	* Download the ZIP file from the Plugin web (see below)
+	* Unzip ==%TOPIC%.zip== in your twiki installation directory. Content:
+	  | *File:* | *Description:* |
+	  | ==data/TWiki/%TOPIC%.txt== | Plugin topic |
+	  | ==data/TWiki/%TOPIC%.txt,v== | Plugin topic repository |
+	  | ==lib/TWiki/Plugins/%TOPIC%.pm== | Plugin Perl module |
+	  | ==data/TWiki/TWikiPreferencesForm.txt== | Example form |
+	* (Dakar) Visit =configure= in your TWiki installation, and enable the plugin in the {Plugins} section.
+	* If the installation was successful, an edit button should appear below: %EDITPREFERENCES{ "%TWIKIWEB%.TWikiPreferencesForm" }%
+d54 1
+a54 1
+|  Plugin Version: | 15 Apr 2006 |
+d56 3
+d68 1
+a68 1
+|  TWiki:Plugins/Benchmark: | %TWIKIWEB%.GoodStyle nn%, %TWIKIWEB%.FormattedSearch nn%, %TOPIC% nn% |
+d73 1
+a73 1
+__Related Topics:__ %TWIKIWEB%.TWikiPreferences, %TWIKIWEB%.TWikiForms
+a74 1
+-- TWiki:Main.ThomasWeigert - 08 May 2005
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1115527529" format="1.0" version="2"}%
+d47 1
+a47 1
+|  Plugin Version: | 08 May 2005 |
+d49 1
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="guest" date="1115527529" format="1.0" version="1"}%
+@

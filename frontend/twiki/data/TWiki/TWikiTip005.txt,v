@@ -1,0 +1,68 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2010.06.27.07.19.04;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.23;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1277623144" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiTipsOfTheDay"}%
+---+ Re-parenting a topic
+
+The breadcrumb displayed with a particular TWiki topic is constructed with a topic's *parent*. The footer of each page has a link called ==[More topic actions]==.  Within this page there is a section that will allow you to set a new parent for the page.
+
+To re-parent a page:
+
+   1 Enter name of new parent topic, or pick from a list
+   1 Click on the ==[Set new parent]== button
+
+You will notice that the breadcrumb will now reflect the new parent.
+
+[[TWikiTipsOfTheDay][See More Tips...]]
+
+-- __Contributors:__ TWiki:Main.PaulineCheung
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1107569013" format="1.0" version="1"}%
+d5 1
+a5 1
+The breadcrumb displayed with a particular TWiki topic is constructed with a topic's *Parent*. On the footer to each page there is a link called *More*.  Within this page there is a topic action that will allow you to select a new parent for the page. 
+d8 3
+a10 3
+	1 Select a new topic from the list of topics to be the topic's parent
+	1 Click on the *Edit* button below the list of topics
+	1 Click on the *Save* button
+d16 1
+a16 2
+-- TWiki:Main.PaulineCheung - 19 Jan 2005
+
+@

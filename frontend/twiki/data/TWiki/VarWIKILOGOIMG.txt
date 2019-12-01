@@ -1,0 +1,10 @@
+%META:TOPICINFO{author="TWikiContributor" date="1352965175" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarWIKILOGOIMG
+---+++ WIKILOGOIMG -- site logo image URL
+   * Syntax: =%<nop>WIKILOGOIMG%=
+   * Expands to: =%WIKILOGOIMG%=
+   * Renders as: %WIKILOGOIMG%
+   * Defined in: TWikiPreferences
+   * Category: AdministrationVariables, SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWIKILOGOALT][WIKILOGOALT]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWIKILOGOURL][WIKILOGOURL]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWIKITOOLNAME][WIKITOOLNAME]]

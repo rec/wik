@@ -1,0 +1,612 @@
+head	1.7;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.7
+date	2018.07.06.05.44.14;	author TWikiContributor;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2015.07.09.23.59.31;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2013.01.29.04.17.47;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2012.11.13.01.42.17;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2012.09.26.06.41.30;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2012.01.15.05.02.19;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2011.08.21.04.15.51;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.7
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1530855854" format="1.1" version="7"}%
+---+!! !SetGetPlugin
+<!--
+   Contributions to this plugin are appreciated. Please update the plugin page at
+   http://twiki.org/cgi-bin/view/Plugins/SetGetPlugin or provide feedback at
+   http://twiki.org/cgi-bin/view/Plugins/SetGetPluginDev.
+   If you are a TWiki contributor please update the plugin in the SVN repository.
+-->
+<sticky>
+<div class="twikiTocFloat">
+%TOC{title="Page contents"}%
+</div>
+</sticky>
+%SHORTDESCRIPTION%
+
+---++ Introduction
+
+Use =%<nop>SET{}%= to store a JSON object or arbitrary text in a named variable, and reuse it with =%<nop>GET{}%= later on within the topic or an included topic. By default, variables live only during topic rendering time, e.g. they do not persist between topic views. It is also possible to make variables persist, e.g. to remember them between topic views.
+
+=%<nop>SET{}%= and =%<nop>GET{}%= can be nested inside other TWiki variables and get handled as expected, e.g. inside out, and left to right.
+
+Alternatives to this plugin:
+
+   * __TWiki preferences settings:__ Can be defined on a site level (%USERSWEB%.TWikiPreferences), web level (WebPreferences) and topic level. Preferences settings persist until changed.
+   * __[[%SYSTEMWEB%.SpreadSheetPlugin][SpreadSheetPlugin]] variables:__ Variables can be set with =%<nop>CALCULATE{$SET(some_name, any value)}%= and retrieved with =$GET()=. These variables persist during page rendering time.
+
+---++ Syntax Rules
+
+%INCLUDE{"VarSET"}%
+
+#RememberNotes
+%X% __Important notes when using the remember or store option:__
+   * Use descriptive variable names: Keep in mind that the remember option sets a variable with TWiki-global scope, e.g. for all pages and all users. To avoid name clashes, use a descriptive variable name which might include web &amp; topic name and user or group name. For example, instead of variable name ="campaign"=, use a more descriptive name ="Marketing-Europe-%SERVERTIME{$year}%-Campaign"=.
+   * Do not store confidential content: The remembered variables are not aware of access control. If a user stores access controlled content in a variable, anyone who knows the variable name or uses the SETGETDUMP variable can read the content.
+   * Variables are not version controlled, e.g. you do not get the audit trail available elsewhere in TWiki (topics, attachments, meta data, etc). Consider storing content in [[%SYSTEMWEB%.TWikiForms][TWiki form fields]] if you need an audit trail.
+
+%INCLUDE{"VarGET"}%
+
+%INCLUDE{"VarSETGETDUMP"}%
+
+#JsonObjects
+---++ JSON Objects
+
+[[http://json.org/][JSON]] (<nop>JavaScript Object Notation) is a lightweight data-interchange format based on a subset of the <nop>JavaScript Programming Language. It is easy for humans to read and write, and easy for machines to parse and generate.
+
+A JSON object can contain:
+
+   * ={ "key1": "value1", "key2": "value2", ... }= - hash with key/value pairs; the value can be another JSON object
+   * =[ "va1", "val2", "val3", ... ]= - array with values; the value can be another JSON object
+   * ="String"= - text string enclosed in double quotes
+
+A JSON object can be nested to any depth.
+
+Using SET and GET it is possible to store and retrieve JSON objects, and parts thereof using a JSON path. A JSON path describes the path to an object within a JSON object.
+
+JSON objects are useful in advanced TWiki applications that use !JavaScript and Ajax calls. This plugin makes it easy to store and manipulate JSON objects.
+
+__Note:__ The CPAN:JSON module needs to be installed on the TWiki server.
+
+---+++ SET a JSON Object
+
+The syntax to set a JSON object is =%<nop>SET{ name = object }%= or =%<nop>SET{ name.path = object }%=.
+
+   * =name= - variable name, such as: =menu=
+      * supported characters: alphanumeric, dash and underscore
+   * =.path= - JSON path, such as: =.File.Open[1]= in =menu.File.Open[1]=
+      * JSON path fragment for a hash object is =.hashName=, such as: =.File=
+         * supported characters for hash object name: alphanumeric, dash, underscore and dollar sign
+      * JSON path fragment for an array object is =[n]=, such as: =[1]=
+         * supported characters for array index: non-negative integers
+   * =object= - JSON object, simple (hash, array, string) or nested, such as:
+      * ={ "Breakfast": "cereal", "Lunch": "salad", "Dinner": "Sushi" }= - hash with key/value pairs; the value can be another JSON object
+      * =[ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ]= - array with values; the value can be another JSON object
+      * ="Sushi"= - text string enclosed in double quotes
+
+Setting a JSON object returns an empty string. In case of a parse error, the named variable contains the error message starting with =ERROR:=
+
+An optional =remember="1"= or =store="some_name"= parameter can be added. Use one or the other, not both. If specified, the JSON object will be stored persistently so that it can be used later in any TWiki topic. The =remember="1"= option stores the JSON object in the default store; with =store="..."= you can specify a store name to save the JSON object.
+
+---+++ GET a JSON Object
+
+The syntax to get a JSON object is =%<nop>GET{ name }%= to get the full object, or =%<nop>GET{ name.path }%= to get a sub-part of the object using a JSON path.
+
+   * =name= - variable name, such as: =menu=
+      * supported characters: alphanumeric, dash and underscore
+   * =.path= - JSON path, such as: =.File.Open[1]= in =menu.File.Open[1]=
+      * JSON path fragment for a hash object is =.hashName=, such as: =.File=
+         * supported characters for hash object name: alphanumeric, dash, underscore and dollar sign
+      * JSON path fragment for an array object is =[n]=, such as: =[1]=
+         * supported characters for array index: non-negative integers =[0]...[9999]= and asterisk =[*]=
+         * use an =[*]= asterisk wildcard to indicate all array items (only one wildcard can be used in a JSON path)
+
+GET returns the JSON object or an object within it. The format depends on the type of object:
+
+   * hash object: ={"key1":"value1","key2":"value2"}= - hash with key/value pairs; space trimmed; nondeterministic sequence; the value can be another JSON object
+   * array object: =["va1","val2","val3"]= - array with values; space trimmed; the value can be another JSON object
+   * string object: =String= - text string, __without enclosing double quotes__
+
+---+++ JSON Examples
+
+__Example to set, modify and get a JSON object:__
+
+   * =%<nop>SET{ menu = { "File": { "New": [ "new", "F" ], "Open": [ "open", "F" ] }, "Edit": { "Copy": [ "cpy", "F" ], "Paste": [ "pst", "F" ] } } }%= - set a JSON object
+   * =%<nop>GET{ menu }%= - get the JSON object, returns: ={"File":{"New":["new","F"],"Open":["open","F"]},"Edit":{"Copy":["cpy","F"],"Paste":["pst","F"]}}=
+   * =%<nop>GET{ menu.File.Open }%= - get a JSON object using JSON path, returns: =["open","F"]=
+   * =%<nop>SET{ menu.File.Open[1] = "T" }%= - modify a JSON object
+   * =%<nop>GET{ menu }%= - get the JSON object, returns: ={"File":{"New":["new","F"],"Open":["open","T"]},"Edit":{"Copy":["cpy","F"],"Paste":["pst","F"]}}=
+   * =%<nop>SET{ menu.Edit.Cut = [ "cut", "T" ] }%= - add to a JSON object
+   * =%<nop>GET{ menu }%= - get the JSON object, returns: ={"File":{"New":["new","F"],"Open":["open","T"]},"Edit":{"Copy":["cpy","F"],"Paste":["pst","F"],"Cut":["cut","T"]}}=
+
+__Example to set and get a JSON array of hashes object, using JSON path with =[*]= wildcard:__
+
+   * =%<nop>SET{ projects = [ { "name": "Prj A", "key": "PrjA", "owner": { "name": "Aaron", "id": 1 } }, { "name": "Prj B", "key": "PrjB", "owner": { "name": "Boris", "id": 2 } }, { "name": "Prj C", "key": "PrjC", "owner": { "name": "Charlie", "id": 3 } } ] }<nop>%= - set a JSON array of hashes object
+   * =%<nop>GET{ projects[1] }<nop>%= - get the second array item of the JSON object using JSON path, returns: ={"owner":{"name":"Boris"},"name":"Prj B","key":"PrjB"}=
+   * =%<nop>GET{ projects[1].name }<nop>%= - get the project name of the second array item, returns: =Prj B=
+   * =%<nop>GET{ projects[*].name }<nop>%= - use wildcard to get all project names, returns: =["Prj A","Prj B","Prj C"]=
+   * =%<nop>GET{ projects[*].owner }<nop>%= - use wildcard to get all project owner objects, returns: =[{"name":"Aaron"},{"name":"Boris"},{"name":"Charlie"}]=
+   * =%<nop>GET{ projects[*].owner.name }<nop>%= - use wildcard to get all project owner names, returns: =["Aaron","Boris","Charlie"]=
+
+#SetGetExamples
+---++ SET/GET Examples
+
+---+++ Set several times
+
+A variable can be set and used several times.
+
+<table><tr><td valign="top">
+__Raw text:__
+
+<verbatim>
+   * Set "demo" to "uno": %SET{ "demo" value="uno" }%
+   * Get "demo": %GET{ "demo" }%
+   * Set "demo" to "due": %SET{ "demo" value="due" }%
+   * Get "demo": %GET{ "demo" }%
+   * Set "demo" to "tre": %SET{ "demo" value="tre" }%
+   * Get "demo": %GET{ "demo" }%
+</verbatim>
+
+</td><td>&nbsp;</td><td valign="top">
+__Rendered text:__
+
+   * Set "demo" to "uno": %SET{ "demo" value="uno" }%
+   * Get "demo": %GET{ "demo" }%
+   * Set "demo" to "due": %SET{ "demo" value="due" }%
+   * Get "demo": %GET{ "demo" }%
+   * Set "demo" to "tre": %SET{ "demo" value="tre" }%
+   * Get "demo": %GET{ "demo" }%
+</td></tr></table>
+
+---+++ Search and save result
+
+A SEARCH result can be assigned to a variable for later use. This can be useful for performance reasons if you need the result multiple times. The result can also be post-processed, such as with a =[[SpreadSheetPlugin#FuncLISTMAP][$LISTMAP()]]= of the SpreadSheetPlugin.
+
+<table><tr><td valign="top">
+__Raw text:__
+
+<verbatim>
+%SET{
+ "result"
+ value="%SEARCH{
+  "."
+  topic="*Skin"
+  nonoise="on"
+  format="$topic"
+  separator=", "
+ }%"
+}%
+   * Result: %GET{result}%
+   * Again: %GET{result}%
+</verbatim>
+
+</td><td>&nbsp;</td><td valign="top">
+__Rendered text:__
+
+%SET{
+ "result"
+ value="%SEARCH{
+  "."
+  topic="*Skin"
+  nonoise="on"
+  format="$topic"
+  separator=", "
+ }%"
+}%
+   * Result: %GET{result}%
+   * Again: %GET{result}%
+</td></tr></table>
+
+---+++ Last topic view
+
+In a topic, set a variable to save the current using the remember flag. Add also a GET before the SET, it will show the time the topic has last been viewed.
+
+<table><tr><td valign="top">
+__Raw text:__
+
+<verbatim>
+   * Last view: %GET{ "SetGetPlugin-lastview" }%
+   * Now: %SET{ "SetGetPlugin-lastview" remember="1" 
+      value="%SERVERTIME{$year-$mo-$day $hou:$min:$sec}%"
+     }%
+     %GET{ "SetGetPlugin-lastview" }%
+</verbatim>
+
+</td><td>&nbsp;</td><td valign="top">
+__Rendered text:__
+
+   * Last view: %GET{ "SetGetPlugin-lastview" }%
+   * Now: %SET{ "SetGetPlugin-lastview" remember="1" 
+      value="%SERVERTIME{$year-$mo-$day $hou:$min:$sec}%"
+     }%
+     %GET{ "SetGetPlugin-lastview" }%
+</td></tr></table>
+
+#MyMood
+---+++ Remember my mood
+
+This example shows how you can remember the mood of users. The form shows a picklist to select a mood. The mood is stored persistently per user, and shown.
+
+<table><tr><td valign="top">
+__Raw text:__
+
+<verbatim>
+%IF{
+ "defined 'mood'"
+ then="$percntSET{
+  \"SetGetPlugin-mood-%WIKINAME%\" remember=\"1\" 
+  value=\"%URLPARAM{mood}%\"
+ }$percnt"
+}%
+My current mood:
+&nbsp; %GET{ "SetGetPlugin-mood-%WIKINAME%" }%
+for %WIKIUSERNAME%
+
+<form action="%SCRIPTURL{view}%/%WEB%/%TOPIC%#MyMood">
+Change my mood: <select name="mood">
+<option>%URLPARAM{mood}%</option>
+<option>:-D</option> <option>:-)</option>
+<option>:-I</option> <option>:-(</option>
+<option>:mad:</option>
+</select>
+<input type="submit" value="Set" class="twikiSubmit" />
+</form>
+</verbatim>
+
+</td><td>&nbsp;</td><td valign="top">
+__Rendered text:__
+
+%IF{
+ "defined 'mood'"
+ then="$percntSET{
+  \"SetGetPlugin-mood-%WIKINAME%\" remember=\"1\" 
+  value=\"%URLPARAM{mood}%\"
+ }$percnt"
+}%
+My current mood:
+&nbsp; %GET{ "SetGetPlugin-mood-%WIKINAME%" }%
+for %WIKIUSERNAME%
+
+<form action="%SCRIPTURL{view}%/%WEB%/%TOPIC%#MyMood">
+Change my mood: <select name="mood">
+<option>%URLPARAM{mood}%</option>
+<option>:-D</option> <option>:-)</option>
+<option>:-I</option> <option>:-(</option>
+<option>:mad:</option>
+</select>
+<input type="submit" value="Set" class="twikiSubmit" />
+</form>
+</td></tr></table>
+
+#RestInterface
+---++ REST Interface
+
+Variables can also be set and retrieved by invoking a REST (REpresentational State Transfer) request on the TWiki server using the [[%SYSTEMWEB%.TWikiScripts#rest][rest script]]. To persistently remember the state of interactive browser-based !JavaScript applications, you can set and get variables using this REST interface via Ajax calls.
+
+The rest script requires authentication, e.g. the user agent is prompted to authenticate if needed.
+
+#RestSet
+---+++ rest/SetGetPlugin/set -- set a variable
+
+To set a variable call =%<nop>SCRIPTURL{rest}%/SetGetPlugin/set=. It accepts the following URL parameters:
+   * =name= - name of variable (required)
+   * =value= - value of variable (required, may be empty)
+   * =remember= - persistently remember if set to 1 (optional)
+   * =store= - specify a store name to persistently store the variable (optional)
+
+__Example:__
+%BR% %SCRIPTURL{rest}%/SetGetPlugin/set?name=rest-test;value=This+is+REST;remember=1
+
+#RestGet
+---+++ rest/SetGetPlugin/get -- get a variable
+
+To get a variable call =%<nop>SCRIPTURL{rest}%/SetGetPlugin/get=. It accepts the following URL parameters:
+   * =name= - name of variable (required)
+   * =default= - default returned if variable is not found (optional)
+   * =store= - specify a store name that holds a persistent variable (optional)
+
+__Example:__
+%BR% %SCRIPTURL{rest}%/SetGetPlugin/get?name=rest-test;default=rest-test+variable+not+found
+
+---++ Plugin Installation Instructions
+
+This plugin is pre-installed. TWiki administrators can upgrade the plugin as needed on the TWiki server.
+
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}% "
+ hidelink="Hide details %ICONURL{toggleclose}% "
+}%
+
+   * For an __automated installation__, run the [[%SCRIPTURL{configure}%][configure]] script and follow "Find More Extensions" in the in the __Extensions__ section.
+
+   * Or, follow these __manual installation__ steps:
+      * Download the ZIP file from the Plugins home (see below).
+      * Unzip ==%TOPIC%.zip== in your twiki installation directory. Content:
+        | *File:* | *Description:* |
+        | ==data/TWiki/%TOPIC%.txt== | Plugin topic |
+        | ==data/TWiki/VarGET.txt== | GET documentation |
+        | ==data/TWiki/VarSET.txt== | SET documentation |
+        | ==data/TWiki/VarSETGETDUMP.txt== | SETGETDUMP documentation |
+        | ==lib/TWiki/Plugins/%TOPIC%.pm== | Plugin Perl module |
+        | ==lib/TWiki/Plugins/%TOPIC%/Core.pm== | Core Perl module |
+        | ==lib/TWiki/Plugins/%TOPIC%/Config.spec== | Configuration file |
+      * Set the ownership of the extracted directories and files to the webserver user.
+
+   * Plugin dependencies:
+      * Install the CPAN:JSON module in case JSON objects are used.
+      * Install the CPAN:Clone module if JSON path with [*] wildcard array index is used.
+
+   * Plugin __configuration and testing__:
+      * Run the [[%SCRIPTURL{configure}%][configure]] script and enable the plugin in the __Plugins__ section.
+      * Test if the installation was successful: The next bullet should show: =Result: TWiki rocks!= %SET{ "test" value="TWiki rocks!" }%
+         * Result: %GET{ "test" }%
+%ENDTWISTY%
+
+---++ Plugin Info
+
+   * One line description, is shown in the %SYSTEMWEB%.TextFormattingRules topic:
+      * Set SHORTDESCRIPTION = Set and get variables and JSON objects in topics, optionally persistently across topic views
+
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  Plugin Author: | TWiki:Main.PeterThoeny |
+|  Copyright: | &copy; 2015 Alba Power Quality Solutions %BR% &copy; 2015 Wave Systems Corp. %BR% &copy; 2010-2018 TWiki:Main.PeterThoeny <br /> &copy; 2010-2018 TWiki:TWiki.TWikiContributor |
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+|  Sponsor: | [[http://www.wave.com/][Wave Systems Corp.]] |
+|  Plugin Version: | 2018-07-05 |
+%TWISTY{
+ mode="div"
+ showlink="Show Change History %ICONURL{toggleopen}%"
+ hidelink="Hide Change History %ICONURL{toggleclose}% "
+}%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  2018-07-05: | TWikibug:Item7841: Copyright update to 2018 |
+|  2016-01-09: | TWikibug:Item7708: Copyright update to 2016 |
+|  2015-07-09: | TWikibug:Item7675: GET with support for JSON path using [*] wildcard array index |
+|  2015-06-17: | TWikibug:Item7639: Document CPAN:JSON dependency |
+|  2015-04-09: | TWikibug:Item7639: Use file locking for persistent store files to prevent corruption of store |
+|  2015-04-09: | TWikibug:Item7635: SETGETDUMP can now dump volatile variables |
+|  2015-04-09: | TWikibug:Item7636: Init variables at plugin init time (was not the case in a mod_perl environment) |
+|  2015-04-07: | TWikibug:Item7635: Ability to specify store name to persistently store variables |
+|  2015-03-31: | TWikibug:Item7611: Small doc fix |
+|  2015-03-27: | TWikibug:Item7611: Support for JSON objects and JSON path |
+|  2015-03-25: | TWikibug:Item7611: Switch debug flag from preferences setting to configure setting |
+|  2015-01-15: | TWikibug:Item7604: Switch from GPL v2 to v3 |
+|  2013-01-28: | TWikibug:Item7091: Use TWISTY in installation instructions and change history |
+|  2012-11-12: | TWikibug:Item7032: GET variable with format parameter |
+|  2012-11-12: | TWikibug:Item7020: Categorize TWiki Variable SET, GET, SETGETDUMP |
+|  2012-10-11: | TWikibug:Item6978: SetGetPlugin::Core::_savePersistentVar() may fail at Data::Dumper-&gt;Dump(). "require Data::Dumper;" line added before that. -- TWiki:Main.HideyoImazu |
+|  2012-09-25: | TWikibug:Item6943: Add REST interface |
+|  2012-01-06: | TWikibug:Item6828: Removing write to persistent if already exists, and adding data dump -- TWiki:Main.AaronLWalker |
+|  2011-07-09: | TWikibug:Item6725: Change global package variables from "use vars" to "our" |
+|  2011-04-04: | TWikibug:Item6638: Small doc improvements |
+|  2011-03-26: | TWikibug:Item6670: Make variables persistent across topic invocations |
+|  2010-10-17: | TWikibug:Item6597: Initial version |
+%ENDTWISTY%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  TWiki Dependency: | $TWiki::Plugins::VERSION 1.1 |
+|  CPAN Dependencies: | CPAN:JSON - optional, required if JSON objects are used; %BR% CPAN:Clone - optional, required if JSON path with [*] wildcard array index is used |
+|  Other Dependencies: | none |
+|  Perl Version: | 5.005 |
+|  [[TWiki:Plugins/Benchmark][Benchmarks]]: | %SYSTEMWEB%.GoodStyle 100%, %SYSTEMWEB%.FormattedSearch 99%, %TOPIC% 99% |
+|  Plugin Home: | http://TWiki.org/cgi-bin/view/Plugins/SetGetPlugin |
+|  Feedback: | http://TWiki.org/cgi-bin/view/Plugins/SetGetPluginDev |
+|  Appraisal: | http://TWiki.org/cgi-bin/view/Plugins/SetGetPluginAppraisal |
+
+__Related Topics:__ VarSET, VarGET, VarSETGETDUMP, %SYSTEMWEB%.TWikiPlugins, %SYSTEMWEB%.DeveloperDocumentationCategory, %SYSTEMWEB%.AdminDocumentationCategory, %SYSTEMWEB%.TWikiPreferences, SpreadSheetPlugin
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1436486371" format="1.1" version="6"}%
+d342 1
+a342 1
+|  Copyright: | &copy; 2015 Alba Power Quality Solutions %BR% &copy; 2015 Wave Systems Corp. %BR% &copy; 2010-2015 TWiki:Main.PeterThoeny <br /> &copy; 2010-2015 TWiki:TWiki.TWikiContributor |
+d345 1
+a345 1
+|  Plugin Version: | 2015-07-09 |
+d352 2
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1359433067" format="1.1" version="5"}%
+d10 1
+a10 1
+<div style="float:right; background-color:#EBEEF0; margin:0 0 20px 20px; padding: 0 10px 0 10px;">
+d18 1
+a18 1
+Use =%<nop>SET{}%= to store arbitrary text in a named variable, and reuse it with =%<nop>GET{}%= later on within the topic or an included topics. By default, variables live only during topic rendering time, e.g. they do not persist between topic views. It is also possible to remember the variables between topic views, however they are not version controlled like other content in TWiki.
+d22 1
+a22 1
+Alternatives to this plugin are:
+d24 2
+a25 2
+   * TWiki preferences settings: Can be defined on a site level (%USERSWEB%.TWikiPreferences), web level (WebPreferences) and topic level. Preferences settings persist until changed.
+   * %SYSTEMWEB%.SpreadSheetPlugin variables: Variables can be set with =%<nop>CALC{$SET(some_name, anything)}%= and retrieved with =$GET()=. These variables persist during page rendering time. A limitation of =%<nop>CALC{}= is that it does not follow the standard TWiki variable evaluation order (nesting inside out, left to right).
+d32 2
+a33 2
+%X% __Important notes when using the remember option:__
+   * Use descriptive variable names: Keep in mind that the remember option sets a variable with TWiki-global scope, e.g. for all pages and all users. To avoid name clashes, use a descriptive variable name which might include web &amp; topic name and user or group name. For example, instead of variable named ="campaign"=, use a more descriptive name ="Marketing-Europe-%SERVERTIME{$year}%-Campaign"=.
+d35 1
+a35 1
+   * Variables are not version controlled, e.g. you do not get the audit trail you have elsewhere in TWiki (topics, attachments, meta data, etc). Consider storing content in [[%SYSTEMWEB%.TWikiForms][TWiki form fields]] if you need an audit trail.
+d41 79
+d121 1
+a121 1
+---++ Examples
+d191 1
+a191 1
+In a topic, set a variable with the remember flag set that stores the current time. Add also a GET before the SET, it will show the time the topic has last been viewed.
+d284 1
+d295 1
+a299 16
+---++ Plugin Settings
+
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}% "
+ hidelink="Hide details %ICONURL{toggleclose}% "
+}%
+Plugin settings are stored as preferences variables. To reference a plugin setting write ==%<nop>&lt;plugin&gt;_&lt;setting&gt;%==, i.e. ==%<nop>NEWPLUGIN_SHORTDESCRIPTION%==
+
+   * One line description, is shown in the %SYSTEMWEB%.TextFormattingRules topic:
+      * Set SHORTDESCRIPTION = Set and get variables in topics, optionally persistently across topic views
+
+   * Debug plugin: (See output in =data/debug.txt=)
+      * Set DEBUG = 0
+%ENDTWISTY%
+
+d303 1
+d322 1
+d325 4
+d337 3
+d342 4
+a345 3
+|  Copyright: | &copy; 2010-2013 TWiki:Main.PeterThoeny <br /> &copy; 2010-2013 TWiki:TWiki.TWikiContributor |
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public Licen:se]]) |
+|  Plugin Version: | 2013-01-28 |
+d352 10
+d375 1
+a375 1
+|  CPAN Dependencies: | none |
+d383 1
+a383 1
+__Related Topics:__ VarSET, VarGET, %SYSTEMWEB%.TWikiPlugins, %SYSTEMWEB%.DeveloperDocumentationCategory, %SYSTEMWEB%.AdminDocumentationCategory, %SYSTEMWEB%.TWikiPreferences, SpreadSheetPlugin
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1352770937" format="1.1" version="4"}%
+d221 5
+d233 1
+d237 6
+a242 1
+__Note:__ You do not need to install anything on the browser to use this plugin. The following instructions are for the administrator who installs the plugin on the TWiki server.
+d262 1
+d266 1
+d268 1
+a268 1
+|  Copyright: | &copy; 2010-2012 TWiki:Main.PeterThoeny <br /> &copy; 2010-2012 TWiki:TWiki.TWikiContributor |
+d270 8
+a277 2
+|  Plugin Version: | 2012-11-12 |
+|  Change History: | <!-- versions below in reverse order -->&nbsp; |
+d287 2
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1348641690" format="1.1" version="3"}%
+d257 1
+a257 1
+|  Plugin Version: | 2012-09-25 |
+d259 3
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1326603739" format="1.1" version="2"}%
+d191 28
+d249 1
+a249 1
+      * Test if the installation was successful: The next bullet should show: =Result: Yes, it works!= %SET{ "test" value="Yes, it works!" }%
+d257 1
+a257 1
+|  Plugin Version: | 2012-01-06 |
+d259 1
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1310273804" format="1.1" version="1"}%
+d34 1
+a34 1
+   * Do not store confidential content: The remembered variables are not aware of access control. If a user stores access controlled content in a variable, anyone who knows the variable name can read the content.
+d39 2
+d214 1
+d227 3
+a229 3
+|  Copyright: | &copy; 2010-2011 TWiki:Main.PeterThoeny <br /> &copy; 2010-2011 TWiki:TWiki.TWikiContributor |
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+|  Plugin Version: | 2011-07-09 |
+d231 1
+@

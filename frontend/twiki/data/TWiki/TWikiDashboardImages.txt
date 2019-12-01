@@ -1,0 +1,480 @@
+%META:TOPICINFO{author="TWikiContributor" date="1376634592" format="1.1" version="1"}%
+%META:TOPICPARENT{name="TWikiDashboardAddOn"}%
+<sticky>
+<div style="float:right; background-color:#EBEEF0; margin:0 0 20px 20px; padding: 0 10px 0 10px;">
+%TOC{title="Image Categories"}%
+</div>
+</sticky>
+---+!! <span style="font-size: 60%"> TWikiDashboardAddOn &#187;</span> TWiki Dashboard Banner Images
+
+You can use these banner images for your own dashboards. If you use your own image, attach it directly to your dashboard topic, not here.
+
+There are currently
+%CALCULATE{$LISTSIZE(%SEARCH{
+ "[^\[]<img src=.[%]PUBURL"
+ type="regex"
+ multiple="on"
+ topic="%TOPIC%"
+ nonoise="on"
+ format="$topic"
+ separator=", "
+}%)}%
+banner images organized in categories. All images are 1026 x 150 pixels, for use in standard 1024 pixels wide dashboards with three column layout of 300 pixels wide boxes. To [[TWikiDashboardAddOn#Section_banner][create a banner and reference an image]], specify:
+<verbatim>
+%DASHBOARD{ section="banner"
+ image="%PUBURL%/%SYSTEMWEB%/TWikiDashboardImages/<image>"
+ title="..."
+}%
+</verbatim>
+<!--
+%CALCULATE{$SET(CC-BY, [[http://creativecommons.org/licenses/by/2.0/][<img src="%PUBURLPATH%/%WEB%/%TOPIC%/cc-by.png" alt="cc-by" title="Creative Commons Attribution 2.0 Generic (CC BY 2.0)" width="14" height="14" /> CC BY 2.0]])}%
+%CALCULATE{$SET(CC-BY-NC, [[http://creativecommons.org/licenses/by-nc/3.0/][<img src="%PUBURLPATH%/%WEB%/%TOPIC%/cc-by-nc.png" alt="cc-by-nc" title="Creative Commons Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0)" width="28" height="14" /> CC BY-NC 3.0]])}%
+%CALCULATE{$SET(CC-BY-NC-ND, [[http://creativecommons.org/licenses/by-nc-nd/2.0/][<img src="%PUBURLPATH%/%WEB%/%TOPIC%/cc-by-nc-nd.png" alt="cc-by-nc-nd" title="Creative Commons Attribution-NonCommercial-NoDerivs 2.0 Generic (CC BY-NC-ND 2.0)" width="42" height="14" /> CC BY-NC-ND 2.0]])}%
+%CALCULATE{$SET(CC-BY-SA, [[http://creativecommons.org/licenses/by-sa/3.0/][<img src="%PUBURLPATH%/%WEB%/%TOPIC%/cc-by-sa.png" alt="cc-by-sa" title="Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)" width="28" height="14" /> CC BY-SA 3.0]])}%
+%CALCULATE{$SET(CC-BY-NC-SA, [[http://creativecommons.org/licenses/by-nc-sa/3.0/][<img src="%PUBURLPATH%/%WEB%/%TOPIC%/cc-by-nc-sa.png" alt="cc-by-nc-sa" title="Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Generic (CC BY-NC-SA 3.0)" width="42" height="14" /> CC BY-NC-SA 3.0]])}%
+-->
+
+---++ Urban Area
+
+Image: =bay-night-colors.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.facebook.com/davidyuphotography][David Yu Photography]], %CALCULATE{$GET(CC-BY-NC)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/bay-night-colors.jpg" alt="" width="1026" height="150" />
+
+Image: =sunrise-colors.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.facebook.com/davidyuphotography][David Yu Photography]], %CALCULATE{$GET(CC-BY-NC)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/sunrise-colors.jpg" alt="" width="1026" height="150" />
+
+Image: =golden-gate-sunrise.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.facebook.com/davidyuphotography][David Yu Photography]], %CALCULATE{$GET(CC-BY-NC)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/golden-gate-sunrise.jpg" alt="" width="1026" height="150" />
+
+Image: =golden-gate-dawn.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.facebook.com/davidyuphotography][David Yu Photography]], %CALCULATE{$GET(CC-BY-NC)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/golden-gate-dawn.jpg" alt="" width="1026" height="150" />
+
+Image: =dawn-blue.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.facebook.com/davidyuphotography][David Yu Photography]], %CALCULATE{$GET(CC-BY-NC)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/dawn-blue.jpg" alt="" width="1026" height="150" />
+
+Image: =marin-headlands.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.facebook.com/davidyuphotography][David Yu Photography]], %CALCULATE{$GET(CC-BY-NC)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/marin-headlands.jpg" alt="" width="1026" height="150" />
+
+Image: =moonlight-over-city.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.facebook.com/davidyuphotography][David Yu Photography]], %CALCULATE{$GET(CC-BY-NC)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/moonlight-over-city.jpg" alt="" width="1026" height="150" />
+
+Image: =san-francisco-cityscape.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.facebook.com/davidyuphotography][David Yu Photography]], %CALCULATE{$GET(CC-BY-NC)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/san-francisco-cityscape.jpg" alt="" width="1026" height="150" />
+
+Image: =san-francisco-skyline.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.facebook.com/davidyuphotography][David Yu Photography]], %CALCULATE{$GET(CC-BY-NC)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/san-francisco-skyline.jpg" alt="" width="1026" height="150" />
+
+Image: =new-years-eve.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.facebook.com/davidyuphotography][David Yu Photography]], %CALCULATE{$GET(CC-BY-NC)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/new-years-eve.jpg" alt="" width="1026" height="150" />
+
+Image: =seasons-greetings.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.facebook.com/davidyuphotography][David Yu Photography]], %CALCULATE{$GET(CC-BY-NC)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/seasons-greetings.jpg" alt="" width="1026" height="150" />
+
+Image: =golden-gate-sunset.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/golden-gate-sunset.jpg" alt="" width="1026" height="150" />
+
+Image: =silicon-valley-sunrise.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://about.me/goro][Goro Kosaka]] <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/silicon-valley-sunrise.jpg" alt="" width="1026" height="150" />
+
+Image: =silicon-valley-colors.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/silicon-valley-colors.jpg" alt="" width="1026" height="150" />
+
+Image: =silicon-valley-night.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/silicon-valley-night.jpg" alt="" width="1026" height="150" />
+
+Image: =new-york-sky.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/new-york-sky.jpg" alt="" width="1026" height="150" />
+
+Image: =new-york-highrises.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/new-york-highrises.jpg" alt="" width="1026" height="150" />
+
+Image: =new-york-buildings.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/new-york-buildings.jpg" alt="" width="1026" height="150" />
+
+Image: =new-york-cabs.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/new-york-cabs.jpg" alt="" width="1026" height="150" />
+
+Image: =rio-de-janeiro.jpg= &nbsp; &nbsp; -- copyright 2007, [[http://en.wikipedia.org/wiki/File:Panorama_from_Rio_de_Janeiro.jpg][Jens Hausherr]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/rio-de-janeiro.jpg" alt="" width="1026" height="150" />
+
+Image: =zurich-at-dawn.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.flickr.com/photos/meckert75/][Martin Eckert]], %CALCULATE{$GET(CC-BY-NC-ND)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/zurich-at-dawn.jpg" alt="" width="1026" height="150" />
+
+Image: =venice-grand-canal.jpg= &nbsp; &nbsp; -- copyright 2007, [[http://en.wikipedia.org/wiki/File:Venedig_Pano_AM.jpg][Koppi2]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/venice-grand-canal.jpg" alt="" width="1026" height="150" />
+
+Image: =sydney-harbour-bridge.jpg= &nbsp; &nbsp; -- copyright 2005, [[http://en.wikipedia.org/wiki/File:Sydney_Harbour_Bridge_night.jpg][David Iliff]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/sydney-harbour-bridge.jpg" alt="" width="1026" height="150" />
+
+Image: =tokyo-skyline.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.flickr.com/photos/joi/][Joi Ito]], %CALCULATE{$GET(CC-BY)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/tokyo-skyline.jpg" alt="" width="1026" height="150" />
+
+Image: =tokyo-roppongi-district.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.flickr.com/photos/joi/][Joi Ito]], %CALCULATE{$GET(CC-BY)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/tokyo-roppongi-district.jpg" alt="" width="1026" height="150" />
+
+Image: =tokyo-roppongi-hill.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.flickr.com/photos/joi/][Joi Ito]], %CALCULATE{$GET(CC-BY)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/tokyo-roppongi-hill.jpg" alt="" width="1026" height="150" />
+
+Image: =hong-kong-skyline.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/hong-kong-skyline.jpg" alt="" width="1026" height="150" />
+
+Image: =shanghai-by-night.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.flickr.com/photos/blackstation/][Blackstation]], <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/shanghai-by-night.jpg" alt="" width="1026" height="150" />
+
+Image: =chur-by-night.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/chur-by-night.jpg" alt="" width="1026" height="150" />
+
+---++ Country Side & Nature
+
+Image: =above-silicon-valley.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/above-silicon-valley.jpg" alt="" width="1026" height="150" />
+
+Image: =wine-tasting.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/wine-tasting.jpg" alt="" width="1026" height="150" />
+
+Image: =saratoga-evening.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/saratoga-evening.jpg" alt="" width="1026" height="150" />
+
+Image: =hakone-garden.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/hakone-garden.jpg" alt="" width="1026" height="150" />
+
+Image: =sakura-garden.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/sakura-garden.jpg" alt="" width="1026" height="150" />
+
+Image: =sakura-trees.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/sakura-trees.jpg" alt="" width="1026" height="150" />
+
+Image: =sakura-and-bee.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/sakura-and-bee.jpg" alt="" width="1026" height="150" />
+
+Image: =niagara-falls.jpg= &nbsp; &nbsp; -- copyright 2007, [[http://en.wikipedia.org/wiki/File:Niagara_falls_panorama.jpg][Sbittante]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/niagara-falls.jpg" alt="" width="1026" height="150" />
+
+Image: =lake-tahoe-blue.jpg= &nbsp; &nbsp; -- copyright 2006, [[http://www.flickr.com/photos/romainguy/4247339382/][Romain Guy]], %CALCULATE{$GET(CC-BY-NC-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/lake-tahoe-blue.jpg" alt="" width="1026" height="150" />
+
+Image: =lake-tahoe-lakes.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.flickr.com/photos/jeffpang/7498921986/][Jeffrey Pang]], %CALCULATE{$GET(CC-BY)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/lake-tahoe-lakes.jpg" alt="" width="1026" height="150" />
+
+Image: =lake-tahoe-winter.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.flickr.com/photos/42507736@N02/8478369695/][Steve Dunleavy]], %CALCULATE{$GET(CC-BY-NC)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/lake-tahoe-winter.jpg" alt="" width="1026" height="150" />
+
+Image: =sierra-nevada.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/sierra-nevada.jpg" alt="" width="1026" height="150" />
+
+Image: =boreal-by-night.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/boreal-by-night.jpg" alt="" width="1026" height="150" />
+
+Image: =swiss-castle.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.flickr.com/photos/meckert75/][Martin Eckert]], %CALCULATE{$GET(CC-BY-NC-ND)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/swiss-castle.jpg" alt="" width="1026" height="150" />
+
+Image: =swiss-chalet.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/swiss-chalet.jpg" alt="" width="1026" height="150" />
+
+Image: =barns-in-winter.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/barns-in-winter.jpg" alt="" width="1026" height="150" />
+
+Image: =baergli-swiss-alps.jpg= &nbsp; &nbsp; -- copyright 2012, Burga Joos <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/baergli-swiss-alps.jpg" alt="" width="1026" height="150" />
+
+Image: =summit-panorama.jpg= &nbsp; &nbsp; -- copyright 2007, [[http://www.flickr.com/photos/signalkuppe/1016382302/][Matteo Leoni]], %CALCULATE{$GET(CC-BY-NC-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/summit-panorama.jpg" alt="" width="1026" height="150" />
+
+Image: =flute-cave.jpg= &nbsp; &nbsp; -- copyright 2012, Anjela Ju <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/flute-cave.jpg" alt="" width="1026" height="150" />
+
+---++ People & Teamwork
+
+Image: =code-camp.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/code-camp.jpg" alt="" width="1026" height="150" />
+
+Image: =community-leaders.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/community-leaders.jpg" alt="" width="1026" height="150" />
+
+Image: =brainstorm-session.jpg= &nbsp; &nbsp; -- copyright 2010, [[http://www.flickr.com/photos/bowbrick/4794568702/][Steve Bowbrick]], %CALCULATE{$GET(CC-BY-NC-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/brainstorm-session.jpg" alt="" width="1026" height="150" />
+
+Image: =teamwork-office.jpg= &nbsp; &nbsp; -- copyright 2011, [[http://www.flickr.com/photos/yandle/6324807227/][Danny Hope]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/teamwork-office.jpg" alt="" width="1026" height="150" />
+
+Image: =workplace.jpg= &nbsp; &nbsp; -- copyright 2007, [[http://www.flickr.com/photos/raindog/442307371/in/photostream/][Jim Crossley]], %CALCULATE{$GET(CC-BY-NC-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/workplace.jpg" alt="" width="1026" height="150" />
+
+Image: =meeting.jpg= &nbsp; &nbsp; -- copyright 2010, [[http://www.flickr.com/photos/bowbrick/4994901471/][Steve Bowbrick]], %CALCULATE{$GET(CC-BY)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/meeting.jpg" alt="" width="1026" height="150" />
+
+Image: =brainstorming-meeting.jpg= &nbsp; &nbsp; -- copyright 2010, [[http://www.flickr.com/photos/joi/4705171446/][Joi Ito]], %CALCULATE{$GET(CC-BY)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/brainstorming-meeting.jpg" alt="" width="1026" height="150" />
+
+Image: =all-hands-meeting.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.flickr.com/photos/joi/6959836998/][Joi Ito]], %CALCULATE{$GET(CC-BY)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/all-hands-meeting.jpg" alt="" width="1026" height="150" />
+
+Image: =community-team.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.flickr.com/photos/joi/8060445992/][Joi Ito]], %CALCULATE{$GET(CC-BY)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/community-team.jpg" alt="" width="1026" height="150" />
+
+Image: =design-boards.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.flickr.com/photos/joi/8060440091/][Joi Ito]], %CALCULATE{$GET(CC-BY)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/design-boards.jpg" alt="" width="1026" height="150" />
+
+Image: =cubicle-panorama.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.flickr.com/photos/brownpau/][Paulo Ordoveza]], %CALCULATE{$GET(CC-BY)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/cubicle-panorama.jpg" alt="" width="1026" height="150" />
+
+Image: =conference-room.jpg= &nbsp; &nbsp; -- copyright 2010, [[http://www.flickr.com/photos/bionicteaching/5199966037/][Tom Woodward]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/conference-room.jpg" alt="" width="1026" height="150" />
+
+Image: =conference-session.jpg= &nbsp; &nbsp; -- copyright 2006, [[http://www.flickr.com/photos/psd/315309324/][Paul Downey]], %CALCULATE{$GET(CC-BY)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/conference-session.jpg" alt="" width="1026" height="150" />
+
+Image: =conference-talk.jpg= &nbsp; &nbsp; -- copyright 2009, [[http://www.flickr.com/photos/vissago/4047272403/][Dan Tentler]], %CALCULATE{$GET(CC-BY-NC)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/conference-talk.jpg" alt="" width="1026" height="150" />
+
+Image: =lecture-room.jpg= &nbsp; &nbsp; -- copyright 2010, [[http://www.flickr.com/photos/juhansonin/4844084952/][Juhan Sonin]], %CALCULATE{$GET(CC-BY)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/lecture-room.jpg" alt="" width="1026" height="150" />
+
+Image: =teamwork-amish.jpg= &nbsp; &nbsp; -- copyright 2009, [[http://www.flickr.com/photos/cindy47452/3682949582/][Cindy Cornett Seigle]], %CALCULATE{$GET(CC-BY-NC-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/teamwork-amish.jpg" alt="" width="1026" height="150" />
+
+Image: =teamwork-patrouille-suisse.jpg= &nbsp; &nbsp; -- copyright 2010, [[http://www.flickr.com/photos/azso/4885093449/][Zsolt Andrasi]], %CALCULATE{$GET(CC-BY-NC)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/teamwork-patrouille-suisse.jpg" alt="" width="1026" height="150" />
+
+---++ Science & Technology
+
+Image: =nasa-airfield.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/nasa-airfield.jpg" alt="" width="1026" height="150" />
+
+Image: =nasa-shed-orange.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/nasa-shed-orange.jpg" alt="" width="1026" height="150" />
+
+Image: =solar-surface.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.nasa.gov/][NASA]] <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/solar-surface.jpg" alt="" width="1026" height="150" />
+
+Image: =solar-flare.jpg= &nbsp; &nbsp; -- copyright 2011, [[http://www.nasa.gov/][NASA]] <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/solar-flare.jpg" alt="" width="1026" height="150" />
+
+Image: =endeavour-cockpit.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://gigapan.com/gigapans/116096][Jon Brack]] <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/endeavour-cockpit.jpg" alt="" width="1026" height="150" />
+
+Image: =cern-control-room.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://cdsweb.cern.ch/][CERN]] <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/cern-control-room.jpg" alt="" width="1026" height="150" />
+
+Image: =cern-datacenter.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://cdsweb.cern.ch/][CERN]] <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/cern-datacenter.jpg" alt="" width="1026" height="150" />
+
+Image: =datacenter-racks.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://cdsweb.cern.ch/][CERN]] <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/datacenter-racks.jpg" alt="" width="1026" height="150" />
+
+Image: =datacenter-desk.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://cdsweb.cern.ch/][CERN]] <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/datacenter-desk.jpg" alt="" width="1026" height="150" />
+
+Image: =computer-cables.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://cdsweb.cern.ch/][CERN]] <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/computer-cables.jpg" alt="" width="1026" height="150" />
+
+Image: =computer-wires.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://cdsweb.cern.ch/][CERN]] <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/computer-wires.jpg" alt="" width="1026" height="150" />
+
+Image: =cern-atlas-construction.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://cdsweb.cern.ch/][CERN]] <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/cern-atlas-construction.jpg" alt="" width="1026" height="150" />
+
+Image: =cern-atlas-detector.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://cdsweb.cern.ch/][CERN]] <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/cern-atlas-detector.jpg" alt="" width="1026" height="150" />
+
+Image: =cern-cms-cavern.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://cdsweb.cern.ch/][CERN]] <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/cern-cms-cavern.jpg" alt="" width="1026" height="150" />
+
+Image: =cern-lhc-tunnel.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://cdsweb.cern.ch/][CERN]] <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/cern-lhc-tunnel.jpg" alt="" width="1026" height="150" />
+
+---++ Infrastructure & Traffic
+
+Image: =san-francisco-airport.jpg= &nbsp; &nbsp; -- copyright 2000, [[http://www.dcresource.com/][Jeff Keller]] <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/san-francisco-airport.jpg" alt="" width="1026" height="150" />
+
+Image: =boarding-swiss.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/boarding-swiss.jpg" alt="" width="1026" height="150" />
+
+Image: =glacier-express.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/glacier-express.jpg" alt="" width="1026" height="150" />
+
+Image: =stadelhofen-station.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/stadelhofen-station.jpg" alt="" width="1026" height="150" />
+
+Image: =grand-central.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/grand-central.jpg" alt="" width="1026" height="150" />
+
+Image: =subway-station.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/subway-station.jpg" alt="" width="1026" height="150" />
+
+Image: =boeing-factory.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/boeing-factory.jpg" alt="" width="1026" height="150" />
+
+---++ Leisure
+
+Image: =monterey-by-bike.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/monterey-by-bike.jpg" alt="" width="1026" height="150" />
+
+Image: =empire-state.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/empire-state.jpg" alt="" width="1026" height="150" />
+
+Image: =venetian-macau.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/venetian-macau.jpg" alt="" width="1026" height="150" />
+
+Image: =museum-ceiling.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/museum-ceiling.jpg" alt="" width="1026" height="150" />
+
+Image: =gold-dagger.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/gold-dagger.jpg" alt="" width="1026" height="150" />
+
+Image: =terra-cotta-warriors.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/terra-cotta-warriors.jpg" alt="" width="1026" height="150" />
+
+Image: =picture-gallery.jpg= &nbsp; &nbsp; -- copyright 2011, [[http://seanfitzgibbon.blogspot.com/][Sean Fitzgibbon]] <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/picture-gallery.jpg" alt="" width="1026" height="150" />
+
+Image: =sports-shoes.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/sports-shoes.jpg" alt="" width="1026" height="150" />
+
+Image: =merz-bakery.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/merz-bakery.jpg" alt="" width="1026" height="150" />
+
+Image: =baseball-game.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/baseball-game.jpg" alt="" width="1026" height="150" />
+
+---++ Patterns
+
+Image: =new-york-colors.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/new-york-colors.jpg" alt="" width="1026" height="150" />
+
+Image: =color-patterns.jpg= &nbsp; &nbsp; -- copyright 2008, [[http://www.flickr.com/photos/jakerome/3065903183/sizes/l/in/photostream/][Jake Rome]], %CALCULATE{$GET(CC-BY-NC-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/color-patterns.jpg" alt="" width="1026" height="150" />
+
+Image: =autumn-leaves.jpg= &nbsp; &nbsp; -- copyright 2006, [[http://fotos.blindcow.org/][Andreas Schaefer]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/autumn-leaves.jpg" alt="" width="1026" height="150" />
+
+Image: =ferries-wheel-light.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/ferries-wheel-light.jpg" alt="" width="1026" height="151" />
+
+Image: =salt-flats.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.google.com/][Google]] <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/salt-flats.jpg" alt="" width="1026" height="150" />
+
+Image: =river-pebbles.jpg= &nbsp; &nbsp; -- copyright 2012, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/river-pebbles.jpg" alt="" width="1026" height="150" />
+
+Image: =bubbling-blob.gif= &nbsp; &nbsp; -- copyright 2012, [[http://www.caad.arch.ethz.ch/][CAAD, ETH Zurch]] <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/bubbling-blob.gif" alt="" width="1026" height="150" />
+
+Image: =wood-floor.jpg= &nbsp; &nbsp; -- copyright 2013, [[http://www.thoeny.org/][Peter Thoeny]], %CALCULATE{$GET(CC-BY-SA)}% <br />
+     <img src="%PUBURLPATH%/%WEB%/%TOPIC%/wood-floor.jpg" alt="" width="1026" height="150" />
+
+__Note:__ Images are copyrighted by respective authors, and are licensed under the [[http://www.gnu.org/licenses/gpl.html][GNU General Public License]] unless noted otherwise.
+
+__Related:__ TWikiDashboardAddOn
+
+%META:FILEATTACHMENT{name="above-silicon-valley.jpg" attachment="above-silicon-valley.jpg" attr="h" comment="Image copyright 2012, Peter Thoeny" date="1350108167" path="above-silicon-valley.jpg" size="53618" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="all-hands-meeting.jpg" attachment="all-hands-meeting.jpg" attr="h" comment="Image copyright 2012, Joi Ito" date="1360793717" path="all-hands-meeting.jpg" size="52508" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="autumn-leaves.jpg" attachment="autumn-leaves.jpg" attr="h" comment="Image copyright 2006, Andreas Schaefer" date="1353542986" path="autumn-leaves.jpg" size="62553" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="baergli-swiss-alps.jpg" attachment="baergli-swiss-alps.jpg" attr="h" comment="Image copyright 2012, Burga Joos" date="1350108167" path="baergli-swiss-alps.jpg" size="50943" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="barns-in-winter.jpg" attachment="barns-in-winter.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny" date="1359693034" path="barns-in-winter.jpg" size="47802" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="baseball-game.jpg" attachment="baseball-game.jpg" attr="h" comment="Image copyright 2012, Peter Thoeny" date="1353542988" path="baseball-game.jpg" size="83673" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="bay-night-colors.jpg" attachment="bay-night-colors.jpg" attr="h" comment="Image copyright 2012, David Yu" date="1353215972" path="bay-night-colors.jpg" size="63974" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="brainstorming-meeting.jpg" attachment="brainstorming-meeting.jpg" attr="h" comment="Image copyright 2010, Joi Ito" date="1360793718" path="brainstorming-meeting.jpg" size="50884" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="brainstorm-session.jpg" attachment="brainstorm-session.jpg" attr="h" comment="Image copyright 2010, Steve Bowbrick, CC BY-NC-SA" date="1359788046" path="brainstorm-session.jpg" size="63776" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="boarding-swiss.jpg" attachment="boarding-swiss.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny" date="1359693035" path="boarding-swiss.jpg" size="62779" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="boeing-factory.jpg" attachment="boeing-factory.jpg" attr="h" comment="Image copyright 2012, Peter Thoeny" date="1350108167" path="boeing-factory.jpg" size="55166" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="boreal-by-night.jpg" attachment="boreal-by-night.jpg" attr="h" comment="Image copyright 2012, Peter Thoeny" date="1350108167" path="boreal-by-night.jpg" size="38030" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="bubbling-blob.gif" attachment="bubbling-blob.gif" attr="h" comment="Image copyright 2012, CAAD, ETH, Zurich" date="1356591172" path="bubbling-blob.gif" size="255459" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="cc-by.png" attachment="cc-by.png" attr="h" comment="" date="1354091776" path="cc-by.png" size="534" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="cc-by-nc.png" attachment="cc-by-nc.png" attr="h" comment="" date="1354092123" path="cc-by-nc.png" size="749" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="cc-by-nd.png" attachment="cc-by-nd.png" attr="h" comment="" date="1354092123" path="cc-by-nd.png" size="640" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="cc-by-nc-nd.png" attachment="cc-by-nc-nd.png" attr="h" comment="" date="1354091776" path="cc-by-nc-nd.png" size="828" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="cc-by-nc-sa.png" attachment="cc-by-nc-sa.png" attr="h" comment="" date="1354092123" path="cc-by-nc-sa.png" size="923" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="cc-by-sa.png" attachment="cc-by-sa.png" attr="h" comment="" date="1354091776" path="cc-by-sa.png" size="719" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="cern-atlas-construction.jpg" attachment="cern-atlas-construction.jpg" attr="h" comment="Image copyright 2012, CERN" date="1354690819" path="cern-atlas-construction.jpg" size="87635" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="cern-atlas-detector.jpg" attachment="cern-atlas-detector.jpg" attr="h" comment="Image copyright 2012, CERN" date="1354690820" path="cern-atlas-detector.jpg" size="77857" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="cern-cms-cavern.jpg" attachment="cern-cms-cavern.jpg" attr="h" comment="Image copyright 2012, CERN" date="1354690818" path="cern-cms-cavern.jpg" size="77684" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="cern-control-room.jpg" attachment="cern-control-room.jpg" attr="h" comment="Image copyright 2012, CERN" date="1354690817" path="cern-control-room.jpg" size="66678" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="cern-datacenter.jpg" attachment="cern-datacenter.jpg" attr="h" comment="Image copyright 2012, CERN" date="1354690815" path="cern-datacenter.jpg" size="83830" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="cern-lhc-tunnel.jpg" attachment="cern-lhc-tunnel.jpg" attr="h" comment="Image copyright 2012, CERN" date="1354690818" path="cern-lhc-tunnel.jpg" size="69114" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="chur-by-night.jpg" attachment="chur-by-night.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny" date="1359693037" path="chur-by-night.jpg" size="60961" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="code-camp.jpg" attachment="code-camp.jpg" attr="h" comment="Image copyright 2012, Peter Thoeny" date="1350108167" path="code-camp.jpg" size="124898" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="color-patterns.jpg" attachment="color-patterns.jpg" attr="h" comment="Image copyright 2008, Jake Rome, CC BY-NC-SA" date="1359788047" path="color-patterns.jpg" size="79889" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="community-leaders.jpg" attachment="community-leaders.jpg" attr="h" comment="Image copyright 2012, Peter Thoeny" date="1350171065" path="community-leaders.jpg" size="91846" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="community-team.jpg" attachment="community-team.jpg" attr="h" comment="Image copyright 2012, Joi Ito" date="1360793719" path="community-team.jpg" size="51802" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="computer-cables.jpg" attachment="computer-cables.jpg" attr="h" comment="Image copyright 2012, CERN" date="1354690817" path="computer-cables.jpg" size="82703" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="computer-wires.jpg" attachment="computer-wires.jpg" attr="h" comment="Image copyright 2012, CERN" date="1354690816" path="computer-wires.jpg" size="58233" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="conference-room.jpg" attachment="conference-room.jpg" attr="h" comment="Image copyright 2010, Tom Woodward, CC BY-SA" date="1359788048" path="conference-room.jpg" size="75919" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="conference-session.jpg" attachment="conference-session.jpg" attr="h" comment="Image copyright 2006, Paul Downey, CC BY" date="1359788048" path="conference-session.jpg" size="67566" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="conference-talk.jpg" attachment="conference-talk.jpg" attr="h" comment="Image copyright 2009, Dan Tentler, CC BY-NC" date="1359788049" path="conference-talk.jpg" size="70834" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="cubicle-panorama.jpg" attachment="cubicle-panorama.jpg" attr="h" comment="Image copyright 2012, Paulo Ordoveza" date="1353299042" path="cubicle-panorama.jpg" size="57243" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="datacenter-desk.jpg" attachment="datacenter-desk.jpg" attr="h" comment="Image copyright 2012, CERN" date="1354690814" path="datacenter-desk.jpg" size="87513" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="datacenter-racks.jpg" attachment="datacenter-racks.jpg" attr="h" comment="Image copyright 2012, CERN" date="1354690815" path="datacenter-racks.jpg" size="74495" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="dawn-blue.jpg" attachment="dawn-blue.jpg" attr="h" comment="Image copyright 2012, David Yu" date="1356591173" path="dawn-blue.jpg" size="40093" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="design-boards.jpg" attachment="design-boards.jpg" attr="h" comment="Image copyright 2012, Joi Ito" date="1360793718" path="design-boards.jpg" size="45036" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="empire-state.jpg" attachment="empire-state.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny, CC BY-SA" date="1367017443" path="empire-state.jpg" size="83736" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="endeavour-cockpit.jpg" attachment="endeavour-cockpit.jpg" attr="h" comment="Image copyright 2012, Jon Brack" date="1360793717" path="endeavour-cockpit.jpg" size="89113" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="ferries-wheel-light.jpg" attachment="ferries-wheel-light.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny, CC BY-SA" date="1367017442" path="ferries-wheel-light.jpg" size="60935" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="flute-cave.jpg" attachment="flute-cave.jpg" attr="h" comment="Image copyright 2012, Angela Ju" date="1353542988" path="flute-cave.jpg" size="92111" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="glacier-express.jpg" attachment="glacier-express.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny" date="1359693034" path="glacier-express.jpg" size="69265" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="gold-dagger.jpg" attachment="gold-dagger.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny, CC BY-SA" date="1365284787" path="gold-dagger.jpg" size="96301" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="golden-gate-dawn.jpg" attachment="golden-gate-dawn.jpg" attr="h" comment="Image copyright 2012, David Yu" date="1350108167" path="golden-gate-dawn.jpg" size="57708" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="golden-gate-sunrise.jpg" attachment="golden-gate-sunrise.jpg" attr="h" comment="Image copyright 2012, David Yu" date="1353215972" path="golden-gate-sunrise.jpg" size="35864" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="golden-gate-sunset.jpg" attachment="golden-gate-sunset.jpg" attr="h" comment="Image copyright 2012, Peter Thoeny" date="1349156456" path="golden-gate-sunset.jpg" size="36489" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="grand-central.jpg" attachment="grand-central.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny, CC BY-SA" date="1367017442" path="grand-central.jpg" size="70817" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="hakone-garden.jpg" attachment="hakone-garden.jpg" attr="h" comment="Image copyright 2012, Peter Thoeny" date="1349156454" path="hakone-garden.jpg" size="82948" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="hong-kong-skyline.jpg" attachment="hong-kong-skyline.jpg" attr="h" comment="Image copyright 2012, Peter Thoeny" date="1350108167" path="hong-kong-skyline.jpg" size="74086" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="lake-tahoe-blue.jpg" attachment="lake-tahoe-blue.jpg" attr="h" comment="Image copyright 2006, Romain Guy, CC BY-NC-SA" date="1365281187" path="lake-tahoe-blue.jpg" size="58149" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="lake-tahoe-lakes.jpg" attachment="lake-tahoe-lakes.jpg" attr="h" comment="Image copyright 2012, Jeffrey Pang, CC BY" date="1365281187" path="lake-tahoe-lakes.jpg" size="72777" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="lake-tahoe-winter.jpg" attachment="lake-tahoe-winter.jpg" attr="h" comment="Image copyright 2012, Steve Dunleavy, CC BY-NC" date="1365281186" path="lake-tahoe-winter.jpg" size="67014" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="lecture-room.jpg" attachment="lecture-room.jpg" attr="h" comment="Image copyright 2010, Juhan Sonin, CC BY" date="1359788051" path="lecture-room.jpg" size="85128" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="marin-headlands.jpg" attachment="marin-headlands.jpg" attr="h" comment="Image copyright 2012, David Yu" date="1349156457" path="marin-headlands.jpg" size="34304" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="meeting.jpg" attachment="meeting.jpg" attr="h" comment="Image copyright 2010, Steve Bowbrick, CC BY" date="1359788049" path="meeting.jpg" size="67722" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="merz-bakery.jpg" attachment="merz-bakery.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny" date="1359693037" path="merz-bakery.jpg" size="82553" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="moonlight-over-city.jpg" attachment="moonlight-over-city.jpg" attr="h" comment="Image copyright 2012, David Yu" date="1356591174" path="moonlight-over-city.jpg" size="54281" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="monterey-by-bike.jpg" attachment="monterey-by-bike.jpg" attr="h" comment="Image copyright 2012, Peter Thoeny" date="1350108167" path="monterey-by-bike.jpg" size="51252" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="museum-ceiling.jpg" attachment="museum-ceiling.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny, CC BY-SA" date="1365284786" path="museum-ceiling.jpg" size="73365" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="nasa-airfield.jpg" attachment="nasa-airfield.jpg" attr="h" comment="Image copyright 2012, Peter Thoeny" date="1376634215" path="nasa-airfield.jpg" size="73873" user="TWikiContr" version="1"}%
+%META:FILEATTACHMENT{name="nasa-shed-orange.jpg" attachment="nasa-shed-orange.jpg" attr="h" comment="Image copyright 2012, Peter Thoeny" date="1349156455" path="nasa-shed-orange.jpg" size="103835" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="new-years-eve.jpg" attachment="new-years-eve.jpg" attr="h" comment="Image copyright 2012, David Yu" date="1357522887" path="new-years-eve.jpg" size="78518" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="new-york-buildings.jpg" attachment="new-york-buildings.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny, CC BY-SA" date="1367017441" path="new-york-buildings.jpg" size="107628" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="new-york-cabs.jpg" attachment="new-york-cabs.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny, CC BY-SA" date="1367017440" path="new-york-cabs.jpg" size="99999" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="new-york-colors.jpg" attachment="new-york-colors.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny, CC BY-SA" date="1367017439" path="new-york-colors.jpg" size="44675" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="new-york-highrises.jpg" attachment="new-york-highrises.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny, CC BY-SA" date="1367017439" path="new-york-highrises.jpg" size="101673" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="new-york-sky.jpg" attachment="new-york-sky.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny, CC BY-SA" date="1367017438" path="new-york-sky.jpg" size="76022" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="niagara-falls.jpg" attachment="niagara-falls.jpg" attr="h" comment="Image copyright 2008, Koppi2" date="1351830764" path="niagara-falls.jpg" size="61423" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="picture-gallery.jpg" attachment="picture-gallery.jpg" attr="h" comment="Image copyright 2011, Sean Fitzgibbon" date="1353364773" path="picture-gallery.jpg" size="45523" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="rio-de-janeiro.jpg" attachment="rio-de-janeiro.jpg" attr="h" comment="Image copyright 2007, Jens Hausherr" date="1351832294" path="rio-de-janeiro.jpg" size="68059" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="river-pebbles.jpg" attachment="river-pebbles.jpg" attr="h" comment="Image copyright 2012, Peter Thoeny" date="1356591172" path="river-pebbles.jpg" size="78719" user="PeterThoeny" version="1"}%
+%META:FILEATTACHMENT{name="sakura-and-bee.jpg" attachment="sakura-and-bee.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny, CC BY-SA" date="1365284785" path="sakura-and-bee.jpg" size="49127" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="sakura-garden.jpg" attachment="sakura-garden.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny, CC BY-SA" date="1365284785" path="sakura-garden.jpg" size="115401" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="sakura-trees.jpg" attachment="sakura-trees.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny, CC BY-SA" date="1365284784" path="sakura-trees.jpg" size="114398" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="salt-flats.jpg" attachment="salt-flats.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny, CC BY-SA" date="1367017568" path="salt-flats.jpg" size="51736" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="san-francisco-airport.jpg" attachment="san-francisco-airport.jpg" attr="h" comment="Image copyright 2000, Jeff Keller" date="1353215973" path="san-francisco-airport.jpg" size="68727" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="san-francisco-cityscape.jpg" attachment="san-francisco-cityscape.jpg" attr="h" comment="Image copyright 2012, David Yu" date="1351827528" path="san-francisco-cityscape.jpg" size="50918" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="san-francisco-skyline.jpg" attachment="san-francisco-skyline.jpg" attr="h" comment="Image copyright 2012, David Yu" date="1356648978" path="san-francisco-skyline.jpg" size="59281" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="saratoga-evening.jpg" attachment="saratoga-evening.jpg" attr="h" comment="Image copyright 2012, Peter Thoeny" date="1350108167" path="saratoga-evening.jpg" size="49410" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="seasons-greetings.jpg" attachment="seasons-greetings.jpg" attr="h" comment="Image copyright 2012, David Yu" date="1356591174" path="seasons-greetings.jpg" size="83501" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="shanghai-by-night.jpg" attachment="shanghai-by-night.jpg" attr="h" comment="Image copyright 2013, Blackstation" date="1373956377" path="shanghai-by-night.jpg" size="98364" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="sierra-nevada.jpg" attachment="sierra-nevada.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny, CC BY-SA" date="1367017567" path="sierra-nevada.jpg" size="63106" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="silicon-valley-colors.jpg" attachment="silicon-valley-colors.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny, CC BY-SA" date="1367095821" path="silicon-valley-colors.jpg" size="54723" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="silicon-valley-night.jpg" attachment="silicon-valley-night.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny, CC BY-SA" date="1367017567" path="silicon-valley-night.jpg" size="62110" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="subway-station.jpg" attachment="subway-station.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny, CC BY-SA" date="1367017566" path="subway-station.jpg" size="66777" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="silicon-valley-sunrise.jpg" attachment="silicon-valley-sunrise.jpg" attr="h" comment="Image copyright 2012, Goro Kosaka" date="1352158061" path="silicon-valley-sunrise.jpg" size="44000" user="TWikiContributor" version="2"}%
+%META:FILEATTACHMENT{name="solar-flare.jpg" attachment="solar-flare.jpg" attr="h" comment="Image copyright 2011, NASA" date="1353542987" path="solar-flare.jpg" size="51546" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="solar-surface.jpg" attachment="solar-surface.jpg" attr="h" comment="Image copyright 2012, NASA" date="1353542986" path="solar-surface.jpg" size="40745" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="sports-shoes.jpg" attachment="sports-shoes.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny" date="1359693036" path="sports-shoes.jpg" size="83890" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="stadelhofen-station.jpg" attachment="stadelhofen-station.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny" date="1359693038" path="stadelhofen-station.jpg" size="58243" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="summit-panorama.jpg" attachment="summit-panorama.jpg" attr="h" comment="Image copyright 2007, Matteo Leoni, CC BY-NC-SA" date="1359788051" path="summit-panorama.jpg" size="45951" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="sunrise-colors.jpg" attachment="sunrise-colors.jpg" attr="h" comment="Image copyright 2012, David Yu" date="1356591173" path="sunrise-colors.jpg" size="45368" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="swiss-castle.jpg" attachment="swiss-castle.jpg" attr="h" comment="Image copyright 2012, Martin Eckert, CC BY-NC-ND 2.0" date="1354083353" path="swiss-castle.jpg" size="65390" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="swiss-chalet.jpg" attachment="swiss-chalet.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny" date="1359693038" path="swiss-chalet.jpg" size="75788" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="sydney-harbour-bridge.jpg" attachment="sydney-harbour-bridge.jpg" attr="h" comment="Image copyright 2005, Diliff" date="1351831457" path="sydney-harbour-bridge.jpg" size="54322" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="teamwork-amish.jpg" attachment="teamwork-amish.jpg" attr="h" comment="Image copyright 2009, Cindy Cornett Seigle, CC BY-NC-SA 2.0" date="1359963820" path="teamwork-amish.jpg" size="67865" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="teamwork-office.jpg" attachment="teamwork-office.jpg" attr="h" comment="Image copyright 2011, Danny Hope, CC BY-SA 2.0" date="1359963820" path="teamwork-office.jpg" size="61330" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="teamwork-patrouille-suisse.jpg" attachment="teamwork-patrouille-suisse.jpg" attr="h" comment="Image copyright 2010, Zsolt Andrasi, CC BY-NC 2.0" date="1359963819" path="teamwork-patrouille-suisse.jpg" size="26727" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="terra-cotta-warriors.jpg" attachment="terra-cotta-warriors.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny, CC BY-SA" date="1365284783" path="terra-cotta-warriors.jpg" size="39059" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="tokyo-roppongi-district.jpg" attachment="tokyo-roppongi-district.jpg" attr="h" comment="Image copyright 2012, Joi Ito" date="1357522169" path="tokyo-roppongi-district.jpg" size="102069" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="tokyo-roppongi-hill.jpg" attachment="tokyo-roppongi-hill.jpg" attr="h" comment="Image copyright 2012, Joi Ito" date="1357522170" path="tokyo-roppongi-hill.jpg" size="102420" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="tokyo-skyline.jpg" attachment="tokyo-skyline.jpg" attr="h" comment="Image copyright 2012, Joi Ito" date="1357522171" path="tokyo-skyline.jpg" size="58987" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="venetian-macau.jpg" attachment="venetian-macau.jpg" attr="h" comment="Image copyright 2012, Peter Thoeny" date="1349156456" path="venetian-macau.jpg" size="65434" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="venice-grand-canal.jpg" attachment="venice-grand-canal.jpg" attr="h" comment="Image copyright 2007, Sbittante" date="1351830193" path="venice-grand-canal.jpg" size="59440" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="wine-tasting.jpg" attachment="wine-tasting.jpg" attr="h" comment="Image copyright 2012, Peter Thoeny" date="1350108167" path="wine-tasting.jpg" size="68924" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="wood-floor.jpg" attachment="wood-floor.jpg" attr="h" comment="Image copyright 2013, Peter Thoeny, CC BY-SA" date="1367017566" path="wood-floor.jpg" size="83411" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="workplace.jpg" attachment="workplace.jpg" attr="h" comment="Image copyright 2007, Jim Crossley, CC BY-NC-SA" date="1359788050" path="workplace.jpg" size="69974" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="zurich-at-dawn.jpg" attachment="zurich-at-dawn.jpg" attr="h" comment="Image copyright 2012, Martin Eckert, CC BY-NC-ND 2.0" date="1354173236" path="zurich-at-dawn.jpg" size="68500" user="TWikiContributor" version="1"}%

@@ -1,0 +1,182 @@
+head	1.6;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.6
+date	2016.03.28.04.06.53;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2012.11.09.09.28.29;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2012.10.15.06.00.13;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2011.09.02.05.08.24;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2011.01.29.05.37.02;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2010.05.29.14.44.30;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1459138013" format="1.1" version="6"}%
+<div style="float:right; margin:0 0 20px 20px; padding: 10px 20px 10px 20px; border: solid #dddddd 1px; background-image: url(%PUBURLPATH%/%SYSTEMWEB%/WebChangesRightBox/gradient-title.png); background-repeat: repeat-x; background-color:#fbfbfd; color:#333333; font-size: 90%; max-width: 35em; overflow: hidden; white-space: nowrap;">
+*Recent changes in <nop>%BASEWEB{ format="$current" }% web:*
+%SEARCH{
+ "^."
+ web="%BASEWEB%"
+ type="regex"
+ scope="topic"
+ nonoise="on"
+ sort="modified"
+ limit="%IF{ "defined 'limit'" then="%limit%" else="16" }%"
+ reverse="on"
+ format="%BB% <a href=\"%SCRIPTURL{view}%/$web/$topic\" title=\"By <nop>$wikiname: $summary\">$percntSPACEOUT{$topic}$percnt</a>"
+ separator=" "
+}%
+%BB% [[%BASEWEB%.WebChanges][%MAKETEXT{"more..."}%]]
+</div>%STOPINCLUDE%
+---+ Web Changes Box on the Right Side
+
+This box is included in the <nop>%HOMETOPIC% of every web, except for the TWiki documentation web.
+
+To update existing webs, add the following at the very top of <nop>%HOMETOPIC%:
+<verbatim>
+%INCLUDE{%SYSTEMWEB%.WebChangesRightBox}%
+</verbatim>
+
+<div style="display: %IF{ "istopic 'TWikiDashboardAddOn'" then="block" else="none" }%">
+---++ Web Changes in Dashboard Box
+
+To show a recent changes bullet list in a [[TWikiDashboardAddOn][dashboard box]], add the following box to the dashboard:
+<verbatim>
+%DASHBOARD{ section="box_start"
+ title="Recent Changes in <nop>%WEB% Web"
+ contentstyle="overflow: hidden;"
+}%
+%INCLUDE{ "%SYSTEMWEB%.WebChangesRightBox" section="bullet_list" }%
+%DASHBOARD{ section="box_end" }%
+</verbatim>
+<!--
+%STARTSECTION{bullet_list}%<nop>
+%SEARCH{
+ "^."
+ web="%BASEWEB%"
+ type="regex"
+ scope="topic"
+ nonoise="on"
+ sort="modified"
+ limit="%IF{ "defined 'limit'" then="%limit%" else="32" }%"
+ reverse="on"
+ format="   * <a href=\"%SCRIPTURL{view}%/$web/$topic\" title=\"By <nop>$wikiname: $summary\">$percntSPACEOUT{$topic}$percnt</a>"
+}%
+<nop>%ENDSECTION{bullet_list}%
+-->
+</div>
+
+<br clear="all">
+-- __Contributors:__ Main.PeterThoeny - 2012-10-14
+
+%META:FILEATTACHMENT{name="gradient-title.png" attachment="gradient-title.png" attr="h" comment="" date="1314939113" path="gradient-title.png" size="207" user="TWikiContributor" version="1"}%
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 2
+a2 2
+%META:TOPICINFO{author="TWikiContributor" date="1352453309" format="1.1" version="5"}%
+<div style="float:right; margin:0 0 20px 20px; padding: 10px 20px 10px 20px; border: solid #dddddd 1px; background-image: url(%PUBURLPATH%/%SYSTEMWEB%/WebChangesRightBox/gradient-title.png); background-repeat: repeat-x; background-color:#fbfbfd; color:#333333; font-size: 90%">
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1350280813" format="1.1" version="4"}%
+d10 1
+a10 1
+ order="modified"
+d47 1
+a47 1
+ order="modified"
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1314940104" format="1.1" version="3"}%
+d11 1
+a11 1
+ limit="16"
+d27 29
+d57 1
+a57 1
+-- __Contributors:__ Main.PeterThoeny - 2010-05-06
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 2
+a2 2
+%META:TOPICINFO{author="TWikiContributor" date="1296279422" format="1.1" version="2"}%
+<div style="float:right; background-color:#EBEEF0; margin:0 0 20px 20px; padding: 5px 15px 5px 15px; font-size: 90%">
+d29 2
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1273185328" format="1.1" version="1"}%
+d4 12
+a15 1
+%SEARCH{"^." web="%BASEWEB%" type="regex" nonoise="on" noheader="on" order="modified" limit="16" reverse="on" format="%BB% <a href=\"%SCRIPTURL{view}%/$web/$topic\" title=\"By <nop>$wikiname: $summary\">$percntSPACEOUT{$topic}$percnt</a>" separator=" " }%
+@

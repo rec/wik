@@ -1,0 +1,6 @@
+%META:TOPICINFO{author="TWikiContributor" date="1297235194" format="1.0" version="2"}%
+---+!! Testing !EmptyPlugin
+
+SOME EXAMPLES OF THE PLUGIN
+
+__Related:__ %SYSTEMWEB%.EmptyPlugin

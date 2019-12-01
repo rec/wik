@@ -1,0 +1,9 @@
+%META:TOPICINFO{author="TWikiContributor" date="1416004046" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarJQENDTAB
+---+++ JQENDTAB -- end a JQuery tab within a tab pane
+   * This variable is handled by the JQueryPlugin. For description see [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarJQTABPANE][JQTABPANE]]
+   * Syntax: =%<nop>JQTABPANE% %<nop>JQTAB{"Tab 1"}% ... %<nop>JQENDTAB% %<nop>JQTAB{"Tab 2"}% ... %<nop>JQENDTAB% ... %<nop>JQENDTABPANE%=
+   * Example: See [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarJQTABPANE][JQTABPANE]]
+   * Category: ApplicationsAndComponentsVariables, FormattingAndRenderingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarJQENDTABPANE][JQENDTABPANE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarJQTAB][JQTAB]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarJQTABPANE][JQTABPANE]], JQueryPlugin

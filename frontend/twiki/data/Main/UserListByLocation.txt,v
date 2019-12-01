@@ -1,0 +1,119 @@
+head	1.5;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.5
+date	2012.11.09.09.31.25;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2012.05.01.06.52.56;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2008.01.22.03.21.37;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2007.01.16.04.12.07;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.14;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1352453485" format="1.1" version="5"}%
+---+ User List sorted by location
+
+%INCLUDE{"UserListHeader"}%
+
+%TABLE{initsort="1"}%
+%SEARCH{
+ "form.name~'*UserForm'"
+ type="query"
+ excludetopic="UserList*, *Template"
+ header="|*Country* | *Location* | *FirstName* | *LastName* | *Organization* |"
+ format="| $formfield(Country) | $formfield(Location), $formfield(Region) | [[$topic][$formfield(FirstName)]] | [[$topic][$formfield(LastName)]] | $formfield(Organization) |"
+ nosearch="on"
+ sort="formfield(Country)"
+}%
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1335855176" format="1.0" version="4"}%
+d11 2
+a12 2
+ header="|*Country* | *State* | *FirstName* | *LastName* | *Organization* |"
+ format="| $formfield(Country) | $formfield(State) | [[$topic][$formfield(FirstName)]] | [[$topic][$formfield(LastName)]] | $formfield(OrganisationName) |"
+d14 1
+a14 1
+ order="formfield(Country)"
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1163619832" format="1.0" version="3"}%
+d7 9
+a15 1
+%SEARCH{"form.name~'*UserForm'" type="query" header="|*Country* | *State* | *FirstName* | *LastName* | *Organization* |" format="| $formfield(Country) | $formfield(State) | [[$topic][$formfield(FirstName)]] | [[$topic][$formfield(LastName)]] | $formfield(OrganisationName) |" excludetopic="Web*, *Template" nosearch="on" order="formfield(Country)"}%
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1163619832" format="1.0" version="2"}%
+d7 1
+a7 1
+%SEARCH{"%META:FORM.*[U]serForm" type="regex" header="|*Country* | *State* | *FirstName* | *LastName* | *Organization* |" format="| $formfield(Country) | $formfield(State) | [[$topic][$formfield(FirstName)]] | [[$topic][$formfield(LastName)]] | $formfield(OrganisationName) |" excludetopic="Web*" nosearch="on" order="formfield(Country)"}%
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1104771314" format="1.0" version="1"}%
+d7 1
+a7 1
+%SEARCH{"%META:FORM.*[U]serForm" regex="on" header="|*Country* | *State* | *FirstName* | *LastName* | *Organization* |" format="| $formfield(Country) | $formfield(State) | [[$topic][$formfield(FirstName)]] | [[$topic][$formfield(LastName)]] | $formfield(Organization) |" excludetopic="Web*" nosearch="on" order="formfield(Country)"}%
+@

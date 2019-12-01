@@ -1,0 +1,339 @@
+head	1.13;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.13
+date	2018.07.14.23.31.25;	author TWikiContributor;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2015.04.22.03.26.13;	author TWikiContributor;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2014.04.01.19.59.33;	author TWikiContributor;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2013.03.30.01.55.40;	author TWikiContributor;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2011.01.09.06.43.41;	author TWikiContributor;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2011.01.09.06.43.41;	author TWikiContributor;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2009.09.02.13.43.05;	author TWikiContributor;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2009.03.30.09.17.56;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2008.08.03.22.17.48;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2008.01.22.03.21.31;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2007.01.16.04.12.03;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2006.10.25.00.22.00;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.06.25.16.26.29;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.13
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1531611085" format="1.1" version="13"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarSEARCH
+---+++ SEARCH{"text"} -- search content
+   * Inline search, shows a search result embedded in a topic
+   * Syntax: =%<nop>SEARCH{"text" ...}%=
+   * Supported parameters:
+     | *Parameter:* | *Description:* | *Default:* |
+     | ="text"= | Search term. Is a keyword search, literal search, regular expression search, or query, depending on the =type= parameter. SearchHelp has more | required |
+     | =search="text"= | (Alternative to above) | N/A |
+     | =web="Name"= <br /> =web="%USERSWEB%, Know"= %IF{"{NoInAllPublicWebs}" else="<br /> =web=\"all\"="}% | Comma-separated list of webs to search. %IF{"{NoInAllPublicWebs}" else="You can specifically \*exclude\* webs from an =all= search using a minus sign - for example, =web=\"all,-Secretweb\"=. The special word =all= means all webs that do *not* have the =NOSEARCHALL= variable set to =on= in their %WEBPREFSTOPIC%."}% Note that TWikiAccessControls are respected when searching webs; it is *much* better to use them than =NOSEARCHALL=. | Current web |
+     | =topic="%WEBPREFSTOPIC%"= <br /> =topic="*Bug"= | Limit search to topics: A topic, a topic with asterisk wildcards, or a list of topics separated by comma. __Note__ this is a list of *topic names* and must *not* include web names. | All topics in a web |
+     | =excludetopic="Web*"= <br /> =excludetopic="%HOMETOPIC%, <nop>WebChanges"= | Exclude topics from search: A topic, a topic with asterisk wildcards, or a list of topics separated by comma. __Note__ this is a list of *topic names* and must *not* include web names. | None |
+     | =scope="topic"= <br /> =scope="text"= <br /> =scope="all"= | Search topic name (title); the text (body) of topic; or all (title and body) | ="text"= |
+     | =type="keyword"= <br /> =type="word"= <br /> =type="literal"= <br /> =type="regex"= <br /> =type="query"= | Control how the search is performed when =scope="text"= or =scope="all"= <hr /> =keyword=: use Google-like controls as in =soap "web service" -shampoo=; searches word parts: using the example, topics with "soapsuds" will be found as well, but topics with "shampoos" will be excluded <hr /> =word=: identical to =keyword= but searches whole words: topics with "soapsuds" will not be found, and topics with "shampoos" will not be excluded <hr /> =literal=: search for the exact string, like =web service= <hr /> =regex=: use a RegularExpression search like =soap;web service;!shampoo=; to search on whole words use =\bsoap\b= <hr /> =query=: [[query search]] of form fields and other meta-data, like =(Firstname='Emma' OR Firstname='John') AND Lastname='Peel'= | =%<nop>SEARCHVAR- DEFAULTTYPE%= [[TWikiPreferences][preferences]] setting (%SEARCHVARDEFAULTTYPE%) |
+     | =sort="topic"= <br /> =sort="created"= <br />  =sort="modified"= <br /> =sort="editby"= <br /> =sort="parent"= <br /> =sort="parent(99)"= <br /> =sort="formfield(name)"= <br /> =sort="parent,<br />&nbsp;formfield(name)"= | Sort the search results by: %BB% =topic=: topic name, %BB% =created=: topic creation time, %BB% =modified=: last modified time, %BB% =editby=: last editor, %BB% =parent=: parent topic name, %BB% =parent(N)=: parent breadcrumb up to indicated level, %BB% =formfield(NAME)=: named TWikiForms field, %BB% or a combination to sort by more than one field using a comma list. %BR% The sorting is done web by web; if you want to sort across webs, create a [[FormattedSearch][formatted]] table and sort it with TablePlugin's initsort. Note that dates are sorted most recent date *last* (i.e at the bottom of the table). Legacy =order= parameter is used in case =sort= is not specified. | ="topic"= |
+     | =reverse="on"= <br /> =reverse="off, on"= | Reverse the direction of the search. Specify a comma list of on, off tokens to toggle direction by sort field. If sort has more fields than reverse tokens, the state of the last reverse token is taken for the remaining fields. | ="off"= |
+     | =start="0"= <br /> =start="20"= | Specify the number of results to skip. This is done after sorting if =sort= parameter is specified. This is intended for pagination of results. If this parameter is specified, =%<nop>NTOPICS%= in the search template is replaced with the number of topics matched. Without this parameter, =%<nop>NTOPICS%= doesn't exceed the =limit= value. | ="0"= |
+     | =limit="all"= <br /> =limit="16"= | Limit the number of results returned. This is done after sorting if =sort= parameter is specified. This parameter specifing the number of results remains the same in the presense of the =start= parameter. Assuming there are more than 20 results matched, =start="10" limit="10"= results in 11th to 20th results are returned | ="all"= |
+     | =date="..."= | limits the results to those pages with latest edit time in the given [[TimeSpecifications#TimeIntervals][time interval]].  | All results |
+     | =createdate="..."= | similar to =date= but it's about create time instead of last edit. You can specify both =date= and =createdate=, in which case topics matching both conditions are shown. | All results |
+     | =casesensitive="on"= | Case sensitive search | Ignore case |
+     | =bookview="on"= | BookView search, e.g. show complete topic text | Show topic summary |
+     | =nonoise="on"= | Shorthand for =nosummary="on" nosearch="on" nototal="on" zeroresults="off" noheader="on" noempty="on"= | Off |
+     | =nosummary="on"= | Show topic title only | Show topic summary |
+     | =nosearch="on"= | Suppress search string | Show search string |
+     | =noheader="on"= | Suppress default search header <br /> <span style='background: #FFB0B0;'> *Topics: Changed: By:* </span>, unless a =header= is explicitly specified  | Show default search header, unless search is inline and a format is specified (Cairo compatibility) |
+     | =nototal="on"= | Do not show number of topics found | Show number |
+     | =zeroresults="off"= | Suppress all output if there are no hits | =zeroresults="on"=, displays: "Number of topics: 0" |
+     | =noempty="on"= | Suppress results for webs that have no hits. | Show webs with no hits |
+     | =headingoffset="2"= | Adjust the level of headings in text of topics found, taking effect in =$text= and =$pattern()= of a FormattedSearch. A ="2"= or ="+2"= increases the level by two, e.g. a =---+= H1 turns into a =---+++= H3. Positive and negative values are supported. Adjusted min and max levels are H1 and H6, respectively. | no adjustment |
+     | =header="..."= <br /> =format="..."= <br /> =footer="..."= | Custom format results. See *[[FormattedSearch]]* for usage, variables &amp; examples | Results in table |
+     | =default="..."= | Default message if there are no hits in a web. See [[FormattedSearch]] for usage, variables &amp; examples | No output |
+     | =expandvariables="on"= | Expand variables before applying a FormattedSearch on a search hit. Useful to show the expanded text, e.g. to show the result of a SpreadSheetPlugin =%<nop>CALC{}%= instead of the formula | Raw text |
+     | =multiple="on"= | Multiple hits per topic. Each hit can be [[FormattedSearch][formatted]]. The last token is used in case of a regular expression ";" _and_ search | Only one hit per topic |
+     | =nofinalnewline="on"= | If =on=, the search variable does not end in a line by itself. Any text continuing immediately after the search variable on the same line will be rendered as part of the table generated by the search, if appropriate. | =off= |
+     | =recurse="on"= | Recurse into subwebs, if subwebs are enabled. | =off= |
+     | =separator=", "= | Line separator _between_ search hits. Specify =format="$topic" separator=", "= to get a comma separated list of topic names. The following variables can be used in the separator value: =$n= expands to a newline, =$br= expands to a =&lt;br /&gt;= line break tag. | ="$n"= (Newline) |
+     | =newline="$br"= | Line separator _within_ a search hit. Useful if you want to put multi-line content into a table cell, for example if the format="" parameter contains a $pattern() that captures more than one line, or contains a $formfield() that returns a multi-line textfield. The following variables can be used in the newline value: =$n= expands to a newline, =$br= expands to a =&lt;br /&gt;= line break tag. | ="$n"= (Newline) |
+     | =encode="html"= | Encode special characters into HTML entities. If a FORMFIELD is passed into an HTML form field it should be encoded as ="html"=. Additional encodings available: =encode="quote"=, =encode="moderate"=, =encode="safe"=, =encode="entity"= and =encode="url"=. See [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENCODE][ENCODE]] for details. | no encoding |
+   * Example: =%<nop>SEARCH{"wiki" web="%USERSWEB%" scope="topic"}%=
+   * Example with [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarURLPARAM][URLPARAM]]: =%<nop>SEARCH{"%<nop>URLPARAM{"query" encode="search"}%" web="%USERSWEB%"}%=
+   * Example with format: =%<nop>SEARCH{"FAQ" scope="topic" nosearch="on" nototal="on" header="| *Topic: * | *Summary: * |" format="<nop>| $topic | $summary |"}%= _(displays results in a table with header - [[FormattedSearch][details]])_
+   * %H% Hint: If the TWiki:Plugins.TablePlugin is installed, you may set a =%<nop>TABLE{}%= variable just before the =%<nop>SEARCH{}%= to alter the output of a search.  Example: =%<nop>TABLE{ tablewidth="90%" }%=
+   * Category: DevelopmentVariables, DatabaseAndFormsVariables, ExportAndPublishingVariables, SearchingAndListingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarCHILDREN][CHILDREN]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarEDITFORM][EDITFORM]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarEDITFORMFIELD][EDITFORMFIELD]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarFORM][FORM]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarFORMFIELD][FORMFIELD]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETA][META]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETASEARCH][METASEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarPARENTTOPIC][PARENTTOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarTOPICLIST][TOPICLIST]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWEBLIST][WEBLIST]], FormattedSearch, SearchResultsPagination, QuerySearch, SearchHelp, SearchPatternCookbook, RegularExpression
+@
+
+
+1.12
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1429673173" format="1.1" version="12"}%
+d42 1
+@
+
+
+1.11
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1396382373" format="1.1" version="11"}%
+d11 1
+a11 1
+     | =web="Name"= <br /> =web="%USERSWEB%, Know"= <br /> =web="all"= | Comma-separated list of webs to search. You can specifically *exclude* webs from an =all= search using a minus sign - for example, =web="all,-Secretweb"=. The special word =all= means all webs that do *not* have the =NOSEARCHALL= variable set to =on= in their %WEBPREFSTOPIC%. Note that TWikiAccessControls are respected when searching webs; it is *much* better to use them than =NOSEARCHALL=. | Current web |
+d45 1
+a45 1
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarEDITFORMFIELD][EDITFORMFIELD]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarFORMFIELD][FORMFIELD]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETA][META]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETASEARCH][METASEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarTOPICLIST][TOPICLIST]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWEBLIST][WEBLIST]], FormattedSearch, SearchResultsPagination, QuerySearch, SearchHelp, SearchPatternCookbook, RegularExpression
+@
+
+
+1.10
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1364608540" format="1.1" version="10"}%
+d16 4
+a19 3
+     | =sort="topic"= <br /> =sort="created"= <br />  =sort="modified"= <br /> =sort="editby"= <br /> =sort="parent"= <br /> =sort=<br />&nbsp;"formfield(name)"= | Sort the results of search by the topic names, topic creation time, last modified time, last editor, parent topic name, or named field of TWikiForms. The sorting is done web by web; if you want to sort across webs, create a [[FormattedSearch][formatted]] table and sort it with TablePlugin's initsort. Note that dates are sorted most recent date *last* (i.e at the bottom of the table). Legacy =order= parameter is used in case =sort= is not specified. | Sort by topic name |
+     | =start="0"= <br /> =start="20"= | Specify the number of results to skip. This is done after sorting if =sort= parameter is specified. This is intended for pagination of results. If this parameter is specified, =%<nop>NTOPICS%= in the search template is replaced with the number of topics matched. Without this parameter, =%<nop>NTOPICS%= doesn't exceed the =limit= value. | No results skipped |
+     | =limit="all"= <br /> =limit="16"= | Limit the number of results returned. This is done after sorting if =sort= parameter is specified. This parameter specifing the number of results remains the same in the presense of the =start= parameter. Assuming there are more than 20 results matched, =start="10" limit="10"= results in 11th to 20th results are returned | All results |
+a21 1
+     | =reverse="on"= | Reverse the direction of the search | Ascending search |
+d38 2
+a39 2
+     | =separator=", "= | Line separator _between_ search hits | ="$n"= (Newline) |
+     | =newline="%<nop>BR%"= | Line separator _within_ a search hit. Useful if you want to put multi-line content into a table cell, for example if the format="" parameter contains a $pattern() that captures more than one line, or contains a $formfield() that returns a multi-line textfield. | ="$n"= (Newline) |
+@
+
+
+1.9
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1294555421" format="1.1" version="9"}%
+d16 3
+a18 2
+     | =order="topic"= <br /> =order="created"= <br />  =order="modified"= <br /> =order="editby"= <br /> =order=<br />&nbsp;"formfield(name)"= | Sort the results of search by the topic names, topic creation time, last modified time, last editor, or named field of TWikiForms. The sorting is done web by web; if you want to sort across webs, create a [[FormattedSearch][formatted]] table and sort it with TablePlugin's initsort. Note that dates are sorted most recent date *last* (i.e at the bottom of the table). | Sort by topic name |
+     | =limit="all"= <br /> =limit="16"= | Limit the number of results returned. This is done after sorting if =order= is specified | All results |
+d20 1
+d32 2
+a33 1
+     | =header="..."= <br /> =format="..."= <br /> =footer="..."= | Custom format results: see *[[FormattedSearch]]* for usage, variables &amp; examples | Results in table |
+d40 1
+d44 2
+a45 1
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarFORMFIELD][FORMFIELD]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETASEARCH][METASEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarTOPICLIST][TOPICLIST]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWEBLIST][WEBLIST]], FormattedSearch, QuerySearch, SearchHelp, SearchPatternCookbook, RegularExpression
+@
+
+
+1.8
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1294555421" format="1.1" version="8"}%
+d29 1
+@
+
+
+1.7
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1241731556" format="1.1" version="7"}%
+d39 1
+a39 1
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETASEARCH][METASEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarTOPICLIST][TOPICLIST]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWEBLIST][WEBLIST]], FormattedSearch, QuerySearch, SearchHelp, SearchPatternCookbook, RegularExpression
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1233147448" format="1.1" version="6"}%
+a3 1
+
+d35 1
+a35 1
+     | =newline="%<nop>BR%"= | Line separator _within_ a search hit. Useful if the format="" parameter contains a $pattern() that captures more than one line, i.e. contents of a textfield in a form.| ="$n"= (Newline) |
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1168735612" format="1.1" version="5"}%
+d30 1
+a30 1
+     | =header="..."= <br /> =format="..."= | Custom format results: see *[[FormattedSearch]]* for usage, variables &amp; examples | Results in table |
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1168735612" format="1.1" version="4"}%
+d38 1
+a38 1
+   * Example with format: =%<nop>SEARCH{"FAQ" scope="topic" nosearch="on" nototal="on" header="| *Topic: * | *Summary: * |" format="<nop>| $topic | $summary |"%= _(displays results in a table with header - [[FormattedSearch][details]])_
+d40 1
+a40 1
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETASEARCH][METASEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarTOPICLIST][TOPICLIST]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWEBLIST][WEBLIST]], FormattedSearch, SearchHelp, SearchPatternCookbook, RegularExpression
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1168735612" format="1.1" version="3"}%
+d10 1
+a10 1
+     | ="text"= | Search term. Is a keyword search, literal search or regular expression search, depending on the =type= parameter. SearchHelp has more | required |
+d12 1
+a12 1
+     | =web="Name"= <br /> =web="%MAINWEB%, Know"= <br /> =web="all"= | Comma-separated list of webs to search. You can specifically *exclude* webs from an =all= search using a minus sign - for example, =web="all,-Secretweb"=. The special word =all= means all webs that do *not* have the =NOSEARCHALL= variable set to =on= in their %WEBPREFSTOPIC%. Note that TWikiAccessControls are respected when searching webs; it is *much* better to use them than =NOSEARCHALL=. | Current web |
+d15 2
+a16 2
+     | =type="keyword"= <br /> =type="literal"= <br /> =type="regex"= | Do a keyword search like =soap "web service" -shampoo=; a literal search like =web service=; or RegularExpression search like =soap;web service;!shampoo= | =%<nop>SEARCHVAR- DEFAULTTYPE%= [[TWikiPreferences][preferences]] setting (%SEARCHVARDEFAULTTYPE%) |
+     | =scope="topic"= <br /> =scope="text"= <br /> =scope="all"= | Search topic name (title); the text (body) of topic; or all (both) | ="text"= |
+d19 1
+a19 1
+     | =date="..."= | limits the results to those pages with latest edit time in the given TimeInterval.  | All results |
+d37 1
+a37 1
+   * Example: =%<nop>SEARCH{"wiki" web="%MAINWEB%" scope="topic"}%=
+d40 1
+a40 1
+   * Related: [[#VarMETASEARCH][METASEARCH]], [[#VarTOPICLIST][TOPICLIST]], [[#VarWEBLIST][WEBLIST]], FormattedSearch, SearchHelp, SearchPatternCookbook, RegularExpression
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.2" version="2"}%
+d26 1
+a26 1
+     | =noheader="on"= | Suppress search header <br /> <span style='background: #FFB0B0;'> *Topics: Changed: By:* </span> | Show search header, unless seach is inline and a format is specified (Cairo compatibility) |
+d40 1
+a40 2
+   * Related: [[#VarMETASEARCH][METASEARCH]], [[#VarTOPICLIST][TOPICLIST]], [[#VarWEBLIST][WEBLIST]], FormattedSearch
+
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.2" version="1"}%
+d35 2
+a36 1
+     | =separator=", "= | Line separator between hits | Newline ="$n"= |
+@

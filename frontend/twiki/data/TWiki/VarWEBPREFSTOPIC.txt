@@ -1,0 +1,8 @@
+%META:TOPICINFO{author="TWikiContributor" date="1418697462" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarWEBPREFSTOPIC
+---+++ WEBPREFSTOPIC -- name of web preferences topic
+   * Syntax: =%<nop>WEBPREFSTOPIC%=
+   * Expands to: =%WEBPREFSTOPIC%=, renders as [[%WEBPREFSTOPIC%]]
+   * Category: AdministrationVariables, SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarHOMETOPIC][HOMETOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarLOCALSITEPREFS][LOCALSITEPREFS]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWIKIPREFSTOPIC][WIKIPREFSTOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarVAR][VAR]]

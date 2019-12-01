@@ -1,0 +1,112 @@
+%TMPL:INCLUDE{"view"}%
+
+%TMPL:DEF{"topbar"}%<div id="twTopBar" class="hideInPrint">%IF{
+ "istopic '%BASEWEB%.TopMenuSkinTopBar'"
+ then="$percntINCLUDE{%BASEWEB%.TopMenuSkinTopBar}$percnt"
+ else="$percntINCLUDE{%SYSTEMWEB%.TopMenuSkinTopBar}$percnt"
+}%</div><!-- /twTopBar-->%TMPL:END%
+
+
+%TMPL:DEF{"twtopbar"}%
+#twTopBar
+{
+  z-index: 1;  /*** Critical value for Moz/Opera Background Column colors fudge to work ***/
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 80px; /* top bar height; make room for header columns */
+  background: #e4e9f0;
+}
+#twTopBar img,
+#twTopBar a,
+#twTopBar a:hover {
+  background-color: transparent;
+}
+%TMPL:END%
+
+%TMPL:DEF{"twtopbarbuttons"}%
+#twTopBarButtons {
+  width: 165px;
+  height: 35px;
+  background-color: transparent;
+  background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TopMenuSkin/action-button-area.gif);
+  background-repeat: no-repeat;
+}
+#twTopBarButtons ul {
+  padding: 0px;
+  margin: 0 0 0 10px;
+  list-style: none;
+}
+#twTopBarButtons ul li {
+  margin: 11px 5px 0 6px;
+  float: left;
+  font: 15px Tahoma, Arial;
+  width: 60px;
+  height: 24px;
+  text-align: center;
+  white-space: nowrap;
+  background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TopMenuSkin/button-round-disabled.gif);
+  color: #888888;
+}
+#twTopBarButtons ul li a {
+  display: block;
+  margin: 0;
+  width: 60px;
+  height: 24px;
+  text-decoration: none;
+  background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TopMenuSkin/button-round-normal.gif);
+  color: #333333;
+}
+#twTopBarButtons ul li a:hover {
+  background-color: transparent;
+  background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TopMenuSkin/button-round-hover.gif);
+}
+%TMPL:END%
+
+%TMPL:DEF{"twtopbarpattern"}%
+#patternTopBar,
+#patternClearHeaderCenter,
+#patternClearHeaderLeft,
+#patternClearHeaderRight,
+#patternTopBarContentsOuter {
+  height: 80px; /* top bar height; make room for header columns */
+  overflow: hidden;
+}
+#patternOuter {
+  background: #fff;
+}
+%TMPL:END%
+
+%TMPL:DEF{"topbardimensions"}%%TMPL:P{"twtopbar"}%%IF{"context 'workflow_enabled' and context 'workflow_draftweb'" then="%TMPL:P{twtopbarbuttons_workflow}%" else="%TMPL:P{twtopbarbuttons}%"}%%TMPL:P{"twtopbarpattern"}%%TMPL:END%
+
+%TMPL:DEF{"top"}%%IF{
+ "defined BREADCRUMBS"
+ then="<div class=\"patternTop\" style=\"margin-bottom: 0.4em;\"><span class=\"patternHomePath twikiLeft\">$percntTMPL:P{\"breadcrumb\"}$percnt</span>
+<!-- /patternHomePath--><br class=\"twikiClear\" /></div><!--/patternTop-->"
+}%%TMPL:END%
+
+%TMPL:DEF{"leftbar"}%%IF{
+ "defined WEBLEFTBAR"
+ then="<div id=\"patternLeftBar\"><div id=\"patternClearHeaderLeft\"></div>
+<div id=\"patternLeftBarContents\">
+$percntINCLUDE{%WEBLEFTBAR%}$percnt
+</div><!-- /patternLeftBarContents--></div><!-- /patternLeftBar-->"
+ else=""
+}%%TMPL:END%
+%TMPL:DEF{"leftbardimensions"}%%IF{
+ "defined WEBLEFTBAR"
+ then="#patternOuter {
+        margin-left:14em;
+}
+#patternLeftBar {
+        width:14em;
+        margin-left:-14em;
+}"
+ else=""
+}%%TMPL:END%
+
+%TMPL:DEF{"topbarbuttons"}%
+   * %TMPL:P{"activatable_edit_or_create"}%
+   * %TMPL:P{"activatable_attach"}%
+%TMPL:END%
+

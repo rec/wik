@@ -1,0 +1,922 @@
+head	1.25;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.25
+date	2018.07.06.01.27.17;	author TWikiContributor;	state Exp;
+branches;
+next	1.24;
+
+1.24
+date	2015.09.18.00.16.11;	author TWikiContributor;	state Exp;
+branches;
+next	1.23;
+
+1.23
+date	2013.09.27.08.40.54;	author TWikiContributor;	state Exp;
+branches;
+next	1.22;
+
+1.22
+date	2013.02.16.08.22.22;	author TWikiContributor;	state Exp;
+branches;
+next	1.21;
+
+1.21
+date	2012.12.13.08.28.07;	author TWikiContributor;	state Exp;
+branches;
+next	1.20;
+
+1.20
+date	2011.05.23.04.13.46;	author TWikiContributor;	state Exp;
+branches;
+next	1.19;
+
+1.19
+date	2011.05.23.04.13.46;	author TWikiContributor;	state Exp;
+branches;
+next	1.18;
+
+1.18
+date	2011.05.23.04.13.46;	author TWikiContributor;	state Exp;
+branches;
+next	1.17;
+
+1.17
+date	2011.03.07.06.20.18;	author TWikiContributor;	state Exp;
+branches;
+next	1.16;
+
+1.16
+date	2010.05.29.14.44.50;	author TWikiContributor;	state Exp;
+branches;
+next	1.15;
+
+1.15
+date	2009.09.02.13.43.16;	author TWikiContributor;	state Exp;
+branches;
+next	1.14;
+
+1.14
+date	2009.04.29.20.53.53;	author TWikiContributor;	state Exp;
+branches;
+next	1.13;
+
+1.13
+date	2009.03.30.09.18.20;	author TWikiContributor;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2008.12.06.09.02.28;	author TWikiContributor;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2008.08.03.22.17.47;	author TWikiContributor;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2008.01.22.03.21.30;	author TWikiContributor;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2007.01.16.04.12.04;	author TWikiContributor;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2006.04.01.05.55.29;	author TWikiContributor;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2006.02.01.12.01.22;	author TWikiContributor;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2004.03.21.08.04.00;	author PeterThoeny;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2002.06.13.05.54.00;	author PeterThoeny;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2002.01.05.08.30.43;	author PeterThoeny;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2001.07.14.09.20.08;	author PeterThoeny;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2001.07.09.08.56.30;	author PeterThoeny;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2001.03.14.02.24.02;	author PeterThoeny;	state Exp;
+branches;
+next	;
+
+
+desc
+@none
+@
+
+
+1.25
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1530840437" format="1.1" version="25"}%
+---+!! Empty TWiki Plugin
+<!--
+   Contributions to this plugin are appreciated. Please update the plugin page at
+   http://twiki.org/cgi-bin/view/Plugins/EmptyPlugin or provide feedback at
+   http://twiki.org/cgi-bin/view/Plugins/EmptyPluginDev.
+   If you are a TWiki contributor please update the plugin in the SVN repository.
+-->
+<sticky>
+<div class="twikiTocFloat">
+%TOC{title="Page contents"}%
+</div>
+</sticky>
+%SHORTDESCRIPTION%
+
+---++ Introduction
+
+This is an empty plugin. Use it as a template to build your own %SYSTEMWEB%.TWikiPlugins. This plugin does nothing, but is ready to be extended and used.
+
+To create your own plugin:
+
+   * Copy file ==lib/TWiki/Plugins/EmptyPlugin.pm== to ==&lt;name&gt;Plugin.pm== and customize the plugin. Add your own code; remove all handlers you do not plan to use.
+   * Create a ==&lt;name&gt;Plugin== documentation topic in the %SYSTEMWEB% web. Do so by visiting http://twiki.org/cgi-bin/view/Plugins/PluginPackageHowTo and starting a new topic to get the default plugin topic text (don't save the topic on twiki.org yet). Customize your plugin topic to your needs.
+   * Please consider contributing your plugin back to the TWiki community by publishing it in the Plugins web on twiki.org.
+   * See details in %SYSTEMWEB%.TWikiPlugins.
+
+---++ Syntax Rules
+
+=%<nop>EXAMPLEVAR{"..."}%=
+
+| *Parameter* | *Explanation* | *Default* |
+| ="..."= | Default parameter. | (none) |
+| =format="..."= | Format: ... | "$name" |
+
+---++ Examples
+
+   * =%<nop>EXAMPLEVAR{}%= expands to: %EXAMPLEVAR{}%
+
+---++ Plugin Installation Instructions
+
+__Note:__ You do not need to install anything on the browser to use this plugin. The following instructions are for the administrator who installs the plugin on the TWiki server. 
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}% "
+ hidelink="Hide details %ICONURL{toggleclose}% "
+}%
+
+   * For an __automated installation__, run the [[%SCRIPTURL{configure}%][configure]] script and follow "Find More Extensions" in the in the __Extensions__ section.
+ 
+   * Or, follow these __manual installation__ steps:
+      * Download the ZIP file from the Plugins home (see below).
+      * Unzip ==%TOPIC%.zip== in your twiki installation directory. Content:
+        | *File:* | *Description:* |
+        | ==data/TWiki/%TOPIC%.txt== | Plugin topic |
+        | ==data/TWiki/VarEXAMPLEVAR.txt== | Variable documentation topic |
+        | ==lib/TWiki/Plugins/%TOPIC%.pm== | Plugin Perl module |
+        | ==lib/TWiki/Plugins/%TOPIC%/Config.spec== | Plugin Config spec |
+      * Set the ownership of the extracted directories and files to the webserver user.
+      * Install the dependencies (if any).
+
+   * Plugin __configuration and testing__:
+      * Run the [[%SCRIPTURL{configure}%][configure]] script and enable the plugin in the __Plugins__ section
+      * Configure additional plugin settings in the __Extensions__ section if needed.
+      * Test if the installation was successful: See example above.
+
+%ENDTWISTY%
+
+---++ Plugin Info
+
+   * One line description, is shown in the %SYSTEMWEB%.TextFormattingRules topic:
+      * Set SHORTDESCRIPTION = Empty Plugin used as a template for new plugins
+
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  Plugin Author: | TWiki:Main.AndreaSterbini, TWiki:Main.PeterThoeny, TWiki:Main.CrawfordCurrie |
+|  Copyright: | &copy; 2001-2018 TWiki:Main.PeterThoeny, [[http://twiki.org/][TWiki.org]];%BR% &copy; 2001-2018 TWiki:TWiki.TWikiContributor |
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+|  Plugin Version: | 2018-05-07 |
+%TWISTY{
+ mode="div"
+ showlink="Show Change History %ICONURL{toggleopen}%"
+ hidelink="Hide Change History %ICONURL{toggleclose}%"
+}%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  2018-07-05: | TWikibug:Item7841: Copyright update to 2018 |
+|  2016-01-08: | TWikibug:Item7708: Copyright update to 2016 |
+|  2015-09-18: | TWikibug:Item7689: Introducing topicTitleHandler() in plugins |
+|  2015-07-02: | TWikibug:Item7604: Fix source code comment about parameters of TWiki variables |
+|  2015-01-10: | TWikibug:Item7604: Switch from GPL v2 to v3 |
+|  2013-09-27: | TWikibug:Item7354: Align TWiki::Plugins::VERSION with TWiki release version, e.g. 6.00 for TWiki-6.0.0 |
+|  2013-02-16: | TWikibug:Item7123: Use TWISTY in installation instructions and change history |
+|  2013-02-11: | TWikibug:Item7142: iewRedirectHandler() in plug-ins -- TWiki:Main.HideyoImazu |
+|  2012-12-12: | TWikibug:Item7077: Small doc fix -- TWiki:Main.PeterThoeny |
+|  2012-11-15: | TWikibug:Item7020: Add category to VarEXAMPLEVAR variable doc -- TWiki:Main.PeterThoeny |
+|  2011-05-22: | TWikibug:Item6724: Pass text and meta data to registerTagHandler callback -- TWiki:Main.PeterThoeny |
+|  2011-05-17: | TWikibug:Item6725: Change global package variables from "use vars" to "ours"; doc improvements -- TWiki:Main.PeterThoeny |
+|  2011-03-06: | TWikibug:Item6656: Add meta data to attachment save handlers |
+|  2011-02-08: | TWikibug:Item6593: Doc improvements; adding VarEXAMPLEVAR variable documentation |
+|  2010-05-08: | TWikibug:Item6433: Doc improvements; replacing TWIKIWEB with SYSTEMWEB |
+|  2007-05-20: | Added renderWikiWordHandler |
+|  2006-02-01: | Dakar changes |
+|  2004-03-21: | Added afterSaveHandler |
+|  2001-07-14: | Changed to plug&amp;play |
+|  2001-02-27: | Initial version |
+%ENDTWISTY%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  TWiki Dependency: | $TWiki::Plugins::VERSION 1.4 |
+|  Dependencies: | %$DEPENDENCIES |
+|  [[TWiki:Plugins.Benchmark][Plugin Benchmark]]: | %SYSTEMWEB%.GoodStyle 99%, %SYSTEMWEB%.FormattedSearch 99%, %TOPIC% 99% |
+|  Plugin Home: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC% |
+|  Feedback: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Dev |
+|  Appraisal: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Appraisal |
+
+__Related Topics:__ VarEXAMPLEVAR, %SYSTEMWEB%.TWikiPlugins, %SYSTEMWEB%.TWikiFuncDotPm, %SYSTEMWEB%.DeveloperDocumentationCategory, %SYSTEMWEB%.AdminDocumentationCategory, %SYSTEMWEB%.TWikiPreferences
+@
+
+
+1.24
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1442535371" format="1.1" version="24"}%
+d75 1
+a75 1
+|  Copyright: | &copy; 2001-2015 TWiki:Main.PeterThoeny, [[http://twiki.org/][TWiki.org]];%BR% &copy; 2001-2015 TWiki:TWiki.TWikiContributor |
+d77 1
+a77 1
+|  Plugin Version: | 2015-09-18 |
+d84 2
+@
+
+
+1.23
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1380271254" format="1.1" version="23"}%
+d9 2
+a10 1
+<sticky><div style="float:right; background-color:#EBEEF0; margin:0 0 20px 20px; padding: 0 10px 0 10px;">
+d12 2
+a13 1
+</div></sticky>
+d75 1
+a75 1
+|  Copyright: | &copy; 2001-2013, TWiki:TWiki.TWikiContributor |
+d77 1
+a77 1
+|  Plugin Version: | 2013-09-27 |
+d84 3
+@
+
+
+1.22
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1361002942" format="1.1" version="22"}%
+d75 1
+a75 1
+|  Plugin Version: | 2013-02-16 |
+d82 1
+@
+
+
+1.21
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1355387287" format="1.1" version="21"}%
+d40 5
+d64 2
+d71 1
+d73 1
+a73 1
+|  Copyright: | &copy; 2001-2012, TWiki:TWiki.TWikiContributor |
+d75 9
+a83 2
+|  Plugin Version: | 24472 (2012-12-16) |
+|  Change History: | <!-- versions below in reverse order -->&nbsp; |
+d96 2
+d100 1
+a100 1
+|  TWiki:Plugins/Benchmark: | %SYSTEMWEB%.GoodStyle 99%, %SYSTEMWEB%.FormattedSearch 99%, %TOPIC% 99% |
+@
+
+
+1.20
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1306124026" format="1.1" version="20"}%
+d65 1
+a65 1
+|  Copyright: | &copy; 2001-2011, TWiki:TWiki.TWikiContributor |
+d67 1
+a67 1
+|  Plugin Version: | 21319 (2012-10-07) |
+d69 2
+@
+
+
+1.19
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1306124026" format="1.1" version="19"}%
+d67 1
+a67 1
+|  Plugin Version: | 21319 (2012-01-14) |
+@
+
+
+1.18
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1306124026" format="1.1" version="18"}%
+d67 1
+a67 1
+|  Plugin Version: | 21319 (2011-08-20) |
+@
+
+
+1.17
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1299478818" format="1.1" version="17"}%
+d16 1
+a16 1
+This is an empty plugin. Use it as a template to build your own %SYSTEMWEB%.TWikiPlugins. This plugin does nothing, but is ready to be used.
+d21 2
+a22 1
+   * Create a ==&lt;name&gt;Plugin== documentation topic in the %SYSTEMWEB% web. Do so by visiting http://twiki.org/cgi-bin/view/Plugins/PluginPackageHowTo and starting a new topic to get the default plugin topic text (don't save the topic). Customize your plugin topic to your needs.
+d27 9
+a35 1
+(none)
+d39 19
+a57 1
+   * This plugin is pre-installed, you do not need to install it.
+d67 1
+a67 1
+|  Plugin Version: | 20632 (2011-05-03) |
+d69 2
+d79 1
+a79 1
+|  TWiki Dependency: | $TWiki::Plugins::VERSION 1.1 |
+d86 1
+a86 1
+__Related Topics:__ VarEXAMPLEVAR, %SYSTEMWEB%.TWikiPlugins, %SYSTEMWEB%.DeveloperDocumentationCategory, %SYSTEMWEB%.AdminDocumentationCategory, %SYSTEMWEB%.TWikiPreferences
+@
+
+
+1.16
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1273362166" format="1.1" version="16"}%
+d9 3
+a12 3
+<div style="float:right; background-color:#EBEEF0; margin:0 0 20px 20px; padding: 0 10px 0 10px;">
+%TOC%
+</div>
+a27 13
+---++ Plugin Settings
+
+Plugin settings are stored as preferences variables. To reference a plugin setting write ==%<nop>&lt;plugin&gt;_&lt;setting&gt;%==, i.e. ==%<nop>EMPTYPLUGIN_SHORTDESCRIPTION%==
+
+   * One line description, is shown in the %SYSTEMWEB%.TextFormattingRules topic:
+      * Set SHORTDESCRIPTION = Empty Plugin used as a template for new plugins
+
+   * Your own setting, for example:
+      * Set EXAMPLE = got it!
+
+   * Debug plugin: ( TWiki sets =$debug= in your plugin. See output in =data/debug.txt=.)
+      * Set DEBUG = 0
+
+d34 5
+a38 2
+|  Plugin Author: | TWiki:Main/AndreaSterbini, TWiki:Main/PeterThoeny, TWiki:Main/CrawfordCurrie |
+|  Copyright: | &copy; 2001-2010, TWiki:TWiki/TWikiContributor |
+d40 1
+a40 1
+|  Plugin Version: | 18620 (2010-05-29) |
+d42 3
+a44 1
+|  2010-05-08: | TWikibug:Item6433 - doc improvements; replacing TWIKIWEB with SYSTEMWEB |
+d57 1
+a57 1
+__Related Topics:__ %SYSTEMWEB%.TWikiPlugins, %SYSTEMWEB%.DeveloperDocumentationCategory, %SYSTEMWEB%.AdminDocumentationCategory, %SYSTEMWEB%.TWikiPreferences
+@
+
+
+1.15
+log
+@buildrelease
+@
+text
+@d1 22
+a22 10
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="15"}%
+---+ Empty TWiki Plugin
+
+This is an empty Plugin you can use as a template to build your own %TWIKIWEB%.TWikiPlugins. This Plugin does nothing, but is ready to be used.
+
+To create your own Plugin:
+
+   * Copy file ==TWiki/Plugins/EmptyPlugin.pm== to ==&lt;name&gt;Plugin.pm== and customize the plugin.
+   * Create a  ==&lt;name&gt;Plugin== topic in the %TWIKIWEB% web. Do so by visiting http://TWiki.org/cgi-bin/view/Plugins/PluginPackage#NewPlugin and starting a new topic to get the default plugin topic text (don't save the topic). Customize your plugin topic to your needs.
+   * See details in %TWIKIWEB%.TWikiPlugins.
+d30 1
+a30 2
+Plugin settings are stored as preferences variables. To reference
+a plugin setting write ==%<nop>&lt;plugin&gt;_&lt;setting&gt;%==, i.e. ==%<nop>EMPTYPLUGIN_SHORTDESCRIPTION%==
+d32 2
+a33 2
+   * One line description, is shown in the %TWIKIWEB%.TextFormattingRules topic:
+      * Set SHORTDESCRIPTION = Empty Plugin used as a template for new Plugins
+d43 1
+a43 1
+   * This plugin is preinstalled, you do not need to install it.
+d47 2
+a48 2
+|  Plugin Author: | TWiki:Main.AndreaSterbini, TWiki:Main.PeterThoeny, TWiki:Main.CrawfordCurrie |
+|  Copyright: | &copy; 2001-2007, %TWIKIWEB%.TWikiContributor |
+d50 1
+a50 1
+|  Plugin Version: | 15942 (02 Sep 2009) |
+d52 6
+a57 5
+|  20 May 2007 | Added renderWikiWordHandler |
+|  01 Feb 2006: | Dakar changes |
+|  21 Mar 2004: | Added afterSaveHandler |
+|  14 Jul 2001: | Changed to plug&amp;play |
+|  27 Feb 2001: | Initial version |
+d60 1
+a60 1
+|  TWiki:Plugins/Benchmark: | %TWIKIWEB%.GoodStyle 99%, %TWIKIWEB%.FormattedSearch 99%, %TOPIC% 99% |
+d65 1
+a65 3
+__Related Topics:__ %TWIKIWEB%.TWikiPlugins, %TWIKIWEB%.DeveloperDocumentationCategory, %TWIKIWEB%.AdminDocumentationCategory, %TWIKIWEB%.TWikiPreferences
+
+-- %TWIKIWEB%.TWikiContributor - 01 Feb 2006
+@
+
+
+1.14
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="14"}%
+d39 1
+a39 1
+|  Plugin Version: | 15942 (29 Apr 2009) |
+@
+
+
+1.13
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="13"}%
+d39 1
+a39 1
+|  Plugin Version: | 15942 (30 Mar 2009) |
+@
+
+
+1.12
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="12"}%
+d39 1
+a39 1
+|  Plugin Version: | 15942 (06 Dec 2008) |
+@
+
+
+1.11
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="11"}%
+d39 1
+a39 1
+|  Plugin Version: | 15942 (04 Aug 2008) |
+@
+
+
+1.10
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="10"}%
+d39 1
+a39 1
+|  Plugin Version: | 15942 (22 Jan 2008) |
+@
+
+
+1.9
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="9"}%
+d16 14
+d37 1
+a37 1
+|  Copyright: | &copy; 2001-2006, %TWIKIWEB%.TWikiContributor |
+d39 1
+a39 1
+|  Plugin Version: | 01 Feb 2006 |
+d41 1
+d47 1
+a47 3
+|  CPAN Dependencies: | none |
+|  Other Dependencies: | none |
+|  Perl Version: | 5.005 |
+@
+
+
+1.8
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="8"}%
+a15 14
+---++ Plugin Settings
+
+Plugin settings are stored as preferences variables. To reference
+a plugin setting write ==%<nop>&lt;plugin&gt;_&lt;setting&gt;%==, i.e. ==%<nop>EMPTYPLUGIN_SHORTDESCRIPTION%==
+
+   * One line description, is shown in the %TWIKIWEB%.TextFormattingRules topic:
+      * Set SHORTDESCRIPTION = Empty Plugin used as a template for new Plugins
+
+   * Your own setting, for example:
+      * Set EXAMPLE = got it!
+
+   * Debug plugin: (See output in =data/debug.txt=)
+      * Set DEBUG = 0
+
+@
+
+
+1.7
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="7"}%
+d4 1
+a4 1
+This is an empty plugin you can use as a template to build your own %TWIKIWEB%.TWikiPlugins. This plugin does nothing, but is ready to be used.
+d6 1
+a6 1
+To create your own plugin:
+d8 3
+a10 3
+	* Copy file ==TWiki/Plugins/EmptyPlugin.pm== to ==&lt;name&gt;Plugin.pm== and customize the plugin.
+	* Create a  ==&lt;name&gt;Plugin== topic in the %TWIKIWEB% web. Do so by visiting http://TWiki.org/cgi-bin/view/Plugins/ and starting a new topic to get the default plugin topic text (don't save the topic). Customize your plugin topic to your needs.
+	* See details in %TWIKIWEB%.TWikiPlugins.
+d21 2
+a22 2
+	* One line description, is shown in the %TWIKIWEB%.TextFormattingRules topic:
+		* Set SHORTDESCRIPTION = This plugin does nothing, but can be used as a template for your own plugins.
+d24 2
+a25 2
+	* Your own setting, for example:
+		* Set EXAMPLE = got it!
+d27 2
+a28 2
+	* Debug plugin: (See output in =data/debug.txt=)
+		* Set DEBUG = 0
+d32 1
+a32 1
+	* This plugin is preinstalled, you do not need to install it.
+d36 4
+a39 2
+|  Plugin Author: | TWiki:Main.AndreaSterbini, TWiki:Main.PeterThoeny |
+|  Plugin Version: | 21 Mar 2004 |
+d41 1
+d45 1
+d48 1
+a48 1
+|  Perl Version: | 5.0 |
+d54 1
+a54 2
+__Related Topics:__ DeveloperDocumentationCategory, AdminDocumentationCategory, %TWIKIWEB%.TWikiPreferences, %TWIKIWEB%.TWikiPlugins
+
+d56 1
+@
+
+
+1.6
+log
+@none
+@
+text
+@d1 52
+a52 52
+%META:TOPICINFO{author="PeterThoeny" date="1079856240" format="1.0" version="1.6"}%
+---+ Empty TWiki Plugin
+
+This is an empty plugin you can use as a template to build your own %TWIKIWEB%.TWikiPlugins. This plugin does nothing, but is ready to be used.
+
+To create your own plugin:
+
+	* Copy file ==TWiki/Plugins/EmptyPlugin.pm== to ==&lt;name&gt;Plugin.pm== and customize the plugin.
+	* Create a  ==&lt;name&gt;Plugin== topic in the %TWIKIWEB% web. Do so by visiting http://TWiki.org/cgi-bin/view/Plugins/ and starting a new topic to get the default plugin topic text (don't save the topic). Customize your plugin topic to your needs.
+	* See details in %TWIKIWEB%.TWikiPlugins.
+
+---++ Syntax Rules
+
+(none)
+
+---++ Plugin Settings
+
+Plugin settings are stored as preferences variables. To reference
+a plugin setting write ==%<nop>&lt;plugin&gt;_&lt;setting&gt;%==, i.e. ==%<nop>EMPTYPLUGIN_SHORTDESCRIPTION%==
+
+	* One line description, is shown in the %TWIKIWEB%.TextFormattingRules topic:
+		* Set SHORTDESCRIPTION = This plugin does nothing, but can be used as a template for your own plugins.
+
+	* Your own setting, i.e.:
+		* Set EXAMPLE = got it!
+
+	* Debug plugin: (See output in =data/debug.txt=)
+		* Set DEBUG = 0
+
+---++ Plugin Installation Instructions
+
+	* This plugin is preinstalled, you do not need to install it.
+
+---++ Plugin Info
+
+|  Plugin Author: | TWiki:Main.AndreaSterbini, TWiki:Main.PeterThoeny |
+|  Plugin Version: | 21 Mar 2003 |
+|  Change History: | <!-- versions below in reverse order -->&nbsp; |
+|  21 Mar 2004: | Added afterSaveHandler |
+|  14 Jul 2001: | Changed to plug&amp;play |
+|  27 Feb 2001: | Initial version |
+|  CPAN Dependencies: | none |
+|  Other Dependencies: | none |
+|  Perl Version: | 5.0 |
+|  TWiki:Plugins/Benchmark: | %TWIKIWEB%.GoodStyle 99%, %TWIKIWEB%.FormattedSearch 99%, %TOPIC% 99% |
+|  Plugin Home: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC% |
+|  Feedback: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Dev |
+
+__Related Topics:__ %TWIKIWEB%.TWikiPreferences, %TWIKIWEB%.TWikiPlugins, DefaultPlugin
+
+-- TWiki:Main.AndreaSterbini - 27 Feb 2001 %BR% 
+-- TWiki:Main.PeterThoeny - 21 Mar 2004
+@
+
+
+1.5
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1023947640" format="1.0" version="1.5"}%
+d14 1
+a14 1
+(describe the syntax)
+d16 1
+a16 1
+---++ <nop>%TOPIC% Global Settings
+d18 2
+a19 1
+Plugin settings are stored as preferences variables. To reference a plugin setting write ==%<nop>&lt;plugin&gt;_&lt;setting&gt;%==, for example, ==%<nop>EMPTYPLUGIN_SHORTDESCRIPTION%==
+d21 1
+a21 1
+	* One line description, shown in the %TWIKIWEB%.TextFormattingRules topic:
+d24 1
+a24 1
+	* Your own settings, for example:
+d32 1
+a32 12
+(This plugin is preinstalled, you do not need to install it.)
+
+__Note:__ You do not need to install anything on the browser to use this plugin. The following instructions are for the administrator who installs the plugin on the server where TWiki is running.
+
+	* Download the ZIP file from the Plugin web (see below)
+	* Unzip ==%TOPIC%.zip== in your twiki installation directory. Content:
+	  | *File:* | *Description:* |
+	  | ==data/TWiki/%TOPIC%.txt== | Plugin topic |
+	  | ==data/TWiki/%TOPIC%.txt,v== | Plugin topic repository |
+	  | ==lib/TWiki/Plugins/%TOPIC%.pm== | Plugin Perl module |
+	* Test if the plugin is correctly installed:
+		* (describe tests here)
+d36 4
+a39 3
+|  Plugin Author: | %TWIKIWEB%.AndreaSterbini, %TWIKIWEB%.PeterThoeny |
+|  Plugin Version: | 14 Jul 2001 (V1.000) |
+|  Change History: | <!-- specify latest version first -->&nbsp; |
+d44 2
+a45 1
+|  Perl Version: | 5.005 |
+d51 2
+a52 2
+-- %TWIKIWEB%.AndreaSterbini - 27 Feb 2001 <br /> 
+-- %TWIKIWEB%.PeterThoeny - 14 Jul 2001
+@
+
+
+1.4
+log
+@none
+@
+text
+@d1 2
+a2 2
+%META:TOPICINFO{author="PeterThoeny" date="1010219443" format="1.0" version="1.4"}%
+---++ Empty TWiki Plugin
+d12 1
+a12 1
+---+++ Syntax Rules
+d14 1
+a14 1
+(none)
+d16 1
+a16 1
+---+++ <nop>%TOPIC% Settings
+d18 1
+a18 2
+Plugin settings are stored as preferences variables. To reference
+a plugin setting write ==%<nop>&lt;plugin&gt;_&lt;setting&gt;%==, for example, ==%<nop>EMPTYPLUGIN_SHORTDESCRIPTION%==
+d23 1
+a23 1
+	* Your own setting, i.e.:
+d29 1
+a29 1
+---+++ Plugin Installation Instructions
+d31 1
+a31 1
+	* This plugin is preinstalled, you do not need to install it.
+d33 12
+a44 1
+---+++ Plugin Info
+d47 4
+a50 2
+|  Plugin Version: | 14 Jul 2001 |
+|  Change History: | 14 Jul 2001: Changed to plug&play <br> 27 Feb 2001: Initial version |
+d53 1
+a53 1
+|  Perl Version: | 5.0 |
+d59 2
+a60 2
+-- %TWIKIWEB%.AndreaSterbini - 27 Feb 2001 <br> 
+-- %TWIKIWEB%.PeterThoeny - 14 Jul 2001 <br>
+@
+
+
+1.3
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="995149114" format="1.0beta2" version="1.3"}%
+d19 1
+a19 1
+a plugin setting write ==%<nop>&lt;plugin&gt;_&lt;setting&gt;%==, i.e. ==%<nop>EMPTYPLUGIN_SHORTDESCRIPTION%==
+d21 1
+a21 1
+	* One line description, is shown in the %TWIKIWEB%.TextFormattingRules topic:
+@
+
+
+1.2
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{version="1.2" date="994668989" author="PeterThoeny" format="1.0beta2"}%
+d9 1
+a9 1
+	* Copy this topic to ==&lt;name&gt;Plugin== and customize it.
+d16 1
+a16 1
+---+++ <nop>%TOPIC% Preferences
+d18 2
+a19 2
+Plugin preferences are stored as preferences variables. To reference
+a plugin preference write ==%<nop>&lt;plugin&nbsp;name&gt;_&lt;preference&nbsp;name&gt;%==, i.e. ==%<nop>EMPTYPLUGIN_SHORTDESCRIPTION%==
+d21 1
+a21 1
+	* One line description, is included in the %TWIKIWEB%.TextFormattingRules topic:
+d24 5
+a28 2
+	* Your own preferences, i.e.:
+		* Set COLOR = red
+d37 2
+a38 2
+|  Plugin Version: | 08 Jul 2001 |
+|  Change History: | 08 Jul 2001: Changed to plug&play <br> 27 Feb 2001: Initial version |
+d48 1
+a48 1
+-- %TWIKIWEB%.PeterThoeny - 08 Jul 2001 <br>
+@
+
+
+1.1
+log
+@none
+@
+text
+@d1 2
+a2 1
+*Empty TWiki Plugin*
+d4 1
+a4 1
+This is an empty plugin you can use as a template to build your own TWikiPlugins. This plugin does nothing, but is ready to be used.
+d6 1
+a6 1
+Copy file ==TWiki/Plugins/EmptyPlugin.pm== to ==&lt;name&gt;Plugin.pm== and customize the plugin.
+d8 3
+a10 1
+__Related Topics:__ TWikiPreferences, TWikiPlugins, DefaultPlugin
+d12 34
+a45 1
+-- Main.PeterThoeny - 13 Mar 2001 <br>
+@

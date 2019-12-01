@@ -1,0 +1,24 @@
+%META:TOPICINFO{author="TWikiContributor" date="1347771191" format="1.1" version="6"}%
+%META:TOPICPARENT{name="TopMenuSkinDefaultWebTopMenu"}%
+---+ Home Menu of !TopMenuSkin
+
+This topic defines the Home pulldown menu, used by the TopMenuSkin.
+
+-----
+%INCLUDE{"TopMenuSkin"}%
+<div class="twTopMenuTab">%STARTINCLUDE%<nop>
+   * <a href="%WEBLOGOURL%" title="TWiki home --- Tip: This menu-bar is also a 'You are here' breadcrumb">%MAKETEXT{"Home"}% %ICONURL{menu-down}%</a>
+      * <a href="%SCRIPTURLPATH{view}%/%SYSTEMWEB%/SiteMap" title="Site map listing all webs">%ICON{sitetree}% %MAKETEXT{"Site map"}%</a>
+%WEBLIST{
+ "      * <span style=\"white-space:nowrap\"><a href=\"%SCRIPTURLPATH{"view"}%/$name/%HOMETOPIC%\"><img src=\"%ICONURL{web-bg}%\" border=\"0\" alt=\"\" width=\"16\" height=\"16\" style=\"background-color:%$markerVAR{\"WEBBGCOLOR\" web=$qname}$marker%\" />&nbsp;<nop>$indentedname %MAKETEXT{web}%</a></span>"
+ limit="26" webs="%IF{"{NoInAllPublicWebs}" then="__NONEXISTENT__"}%"
+ overlimit="      * [[%SYSTEMWEB%.SiteMap][<img src=\"%ICONURL{dot_ur}%\" border=\"0\" alt=\"\" width=\"16\" height=\"16\" /> %MAKETEXT{"More..."}%]]"
+}%%IF{"{NoInAllPublicWebs}" then="<nop>"}%
+   * <img src='%PUBURL%/%SYSTEMWEB%/TopMenuSkin/menu-right.png' alt='' width='8' height='22' />
+<nop>%STOPINCLUDE%</div>
+-----
+
+   * Disable WYSIWYG editor for this page:
+      * Set EDITMETHOD = raw
+
+__Related topics:__ TopMenuSkin, TopMenuSkinTopBar, WebTopMenu, TopMenuSkinDefaultWebTopMenu, TopMenuSkinTopicMenu

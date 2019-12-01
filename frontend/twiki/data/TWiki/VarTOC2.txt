@@ -1,0 +1,19 @@
+%META:TOPICINFO{author="TWikiContributor" date="1402883306" format="1.1" version="7"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarTOC2
+---+++ TOC{"Topic"} -- table of contents
+%STARTSECTION{"summary"}%
+   * Table of Contents. Shows a TOC that is generated automatically based on headings of a topic. Headings in WikiSyntax (="---++ text"=) and HTML (="&lt;h2&gt;text&lt;/h2&gt;"=) are taken into account. Any heading text after ="!!"= is excluded from the TOC; for example, write ="---+!! text"= if you do _not_ want to list a header in the TOC. An abbreviated heading can be shown in the TOC, such as ="---++ text!! this is excluded from TOC"=.%ENDSECTION{"summary"}%
+   * Syntax: =%<nop>TOC{"SomeTopic" ...}%=
+   * Supported parameters:
+    | *Parameter:* | *Description:* | *Default:* |
+    | ="TopicName"= | Topic name | Current topic |
+    | =web="Name"= | Name of web | Current web |
+    | =depth="2"= | Limit depth of headings shown in TOC | TOC_MAX_DEPTH if defined. Otherwise 6 |
+    | =mindepth="2"= | Specify the minimum depth of headings | TOC_MIN_DEPTH if defined. Otherwise 1 |
+    | =title="Some text"= | Title to appear at top of TOC | none (TOC_TITLE setting) |
+    | =style="..."= | Style to apply to the TOC | none (TOC_STYLE setting) |
+   * Example: =%<nop>TOC{depth="2"}%=
+   * Example: =%<nop>TOC{"TWikiDocumentation" web="%SYSTEMWEB%" title="Contents:" style="float: right;"}%=
+   * Category: FormattingAndRenderingVariables, UIAndVisualizationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarINCLUDE][INCLUDE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarTOC][TOC]]

@@ -1,0 +1,157 @@
+%META:TOPICINFO{author="TWikiContributor" date="1432077376" format="1.1" version="1"}%
+%META:TOPICPARENT{name="WebSearch"}%
+---+ %MAKETEXT{"Search Attachments in [_1] Web" args="<nop>%BASEWEB%"}%
+
+<style type="text/css" media="all">
+.attName {
+  padding-left: 38px;
+  text-indent: -38px;
+}
+.attComment {
+  font-size:80%;
+  color:gray;
+}
+</style>
+<div class="twikiPageForm">
+<form name="search" action="%SCRIPTURLPATH{"view"}%/%BASEWEB%/%BASETOPIC%" method="get">
+<table id="twikiSearchTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="twikiFirstRow" style="width: 12em; text-align: right; vertical-align: top;">
+<b>%MAKETEXT{"Attachment name:"}%</b>
+</td>
+<td class="twikiFirstRow">
+<input type="text" name="af" value="%URLPARAM{ "af" encode="entity" }%" size="32" class="twikiInputField" />
+<input type="submit" class="twikiSubmit" value='%MAKETEXT{"Search"}%' />
+<span class="twikiSmall">&nbsp;&nbsp;[[%SCRIPTURLPATH{"view"}%/%BASEWEB%/%BASETOPIC%?tf=*;af=*][%MAKETEXT{"Show all"}%]] %VBAR% [[%SYSTEMWEB%.SearchHelp][%MAKETEXT{"Help"}%]]</span>
+<div class="twikiSmall" style="margin: 0.3em 0 -0.8em 0; color: gray;">
+%MAKETEXT{"Use wildcards, such as =*.doc="}%
+</div>
+</td>
+</tr>
+<tr>
+<th style="width: 12em; text-align: right; vertical-align: top;">
+%MAKETEXT{"Topic name:"}%
+</th>
+<td>
+<input type="text" name="tf" value="%URLPARAM{ "tf" encode="entity" }%" size="32" class="twikiInputField" />
+<div class="twikiSmall" style="margin: 0.3em 0 -0.8em 0; color: gray;">
+%MAKETEXT{"Use wildcards, such as =*= for all topics"}%
+</div>
+</td>
+</tr>
+</table>
+</form>
+</div>
+
+%SET{ "tf" value="%URLPARAM{ "tf" encode="quote" }%" }%
+%SET{
+ "af"
+ value="%CALCULATE{
+  $LOWER(
+    $SUBSTITUTE(
+      $SUBSTITUTE(
+        $SUBSTITUTE(
+          $SUBSTITUTE(
+            '''%URLPARAM{ "af" encode="off" }%''', ., \.,
+          ), +, \+
+        ), *, .*
+      ), ?, .
+    )
+  )}%"
+ note_to_developer="The CALCULATE functions change a wildcard to a regular expression"
+}%
+%CALCULATE{$SET(topics, 0)$SET(attachments, 0)}%
+%SEARCH{
+ "[%]META:FILEATTACHMENT{name=\"%GET{af}%\" a[a-z]+="
+ type="regex"
+ web="%BASEWEB%"
+ topic="%GET{tf}%"
+ format="$percntCALCULATE{
+  | *$NOP(%)ICON{viewtopic}$NOP(%)
+  $CHAR(32)
+  [[$web.$topic][$topictitle]] topic: $SETLIST(
+    attNames,
+    $LISTEACH(
+      $SETHASH(attNameIndex, $index, $item)$item,
+      $query(attachments.name)
+    )
+  )
+  $LIST2HASH(
+    attComments,
+    $LISTEACH(
+      $GETHASH(attNameIndex, $index)$CHAR(44)$CHAR(32)$item,
+      $query(attachments.comment, quote:''')
+    )
+  )
+  $LIST2HASH(
+    attDates,
+    $LISTEACH(
+      $GETHASH(attNameIndex, $index)$CHAR(44)$CHAR(32)$item,
+      $query(attachments.date)
+    )
+  )
+  $LIST2HASH(
+    attUsers,
+    $LISTEACH(
+      $GETHASH(attNameIndex, $index)$CHAR(44)$CHAR(32)$item,
+      $query(attachments.user)
+    )
+  )
+  $SETLIST(
+    afNames,
+    $LISTIF(
+      $SEARCH(
+        %GET{af}%,
+        $LOWER($item)
+      ),
+      $GETLIST(attNames)
+    )
+  )
+  $SET(
+    num,
+    $LISTSIZE(
+      $GETLIST(afNames)
+    )
+  )
+  $SETM(topics, +1)
+  $SETM(attachments, +$GET(num))* ||
+  $CHAR(10)
+  $LISTJOIN(
+    $CHAR(10),
+    $LISTEACH(
+      | <div class='attName'> $NOP(%)ICON{$IF($index<$GET(num), dot_udr, dot_ur)}$NOP(%)
+      $NOP(%)ICON{ \"$item\" default=\"else\" }$NOP(%)
+      $CHAR(32)
+      [[%PUBURL%/$web/$topic/$item][$item]] <span class='attComment'>
+      $SUBSTITUTE(
+        $GETHASH(attComments, $item),
+        |,
+        %VBAR%
+      )</span> | <span style='white-space:nowrap;'> $FORMATTIME(
+        $GETHASH(attDates, $item),
+        $year-$mo-$day
+      )''','''
+      $CHAR(32)
+      $NOP(%)USERINFO{
+        \"$GETHASH(attUsers, $item)\"
+        format=\"$wikiusername\"
+      }$NOP(%)
+      </span></div> |,
+      $GETLIST(afNames)
+    )
+  )}$percnt"
+ nonoise="on"
+}%
+<div style="padding-top: 0.3em;">
+%MAKETEXT{"Total:"}% %CALCULATE{$GET(topics) topic$IF($GET(topics)!=1, s), $GET(attachments) attachment$IF($GET(attachments)!=1, s)}%
+</div>
+
+<div class="twikiHelp">
+*%MAKETEXT{"Other search options:"}%*
+   * icon:searchtopic [[%BASEWEB%.WebSearch][%MAKETEXT{"Simple search"}%]]
+   * icon:searchtopic [[%BASEWEB%.WebSearchAdvanced][%MAKETEXT{"Advanced search"}%]]
+   * icon:arrowright %MAKETEXT{"If you already know the name of the topic, enter the name of the topic into the ~[~[[_1]~]~[Jump box~]~] at the top" args="%SYSTEMWEB%.JumpBox"}%
+   * icon:indexlist [[%BASEWEB%.WebTopicList][%MAKETEXT{"List all topics in the [_1] web in alphabetical order" args="<nop>%INCLUDINGWEB%"}%]]
+   * icon:filter %MAKETEXT{"List topics that start with the letter:"}% %CALCULATE{$LISTEACH(<a href="%SCRIPTURLPATH{"search"}%/%INCLUDINGWEB%/?scope=topic&amp;regex=on&amp;search=%5E$item">$item</a><span class="twikiSeparator">, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z)}%
+   * icon:recentchanges [[%INCLUDINGWEB%.WebChanges][%MAKETEXT{"Recently changed topics"}%]]
+</div>

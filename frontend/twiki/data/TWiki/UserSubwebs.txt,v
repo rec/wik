@@ -1,0 +1,121 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2017.01.23.08.08.34;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2015.02.24.05.38.02;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2013.10.14.08.02.49;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1485158914" format="1.1" version="3"}%
+---+!! User Subwebs
+TWiki provides each user with their own topic having their information and configuration.
+You may want to provide each user with a subweb Main/FirstLast having a topic having the user's information and configuration.
+
+---++ Motivation
+On a TWiki site having thousands of webs, web accountability is crucial.
+Each web needs to have clearly defined owners so that TWiki admins can take actions such as deletion of unused webs.
+
+On a TWiki site having thousands of users, the %USERSWEB% web needs to be locked down to prevent random topics from accumulating.
+For that, a user should be able to have only !FirstLast, !FirstLastLeftBar, and !FirstLastBookmarks topics on the Main web.
+This is inconvenient for users who want to have more topics for their personal use.
+
+You may allow users to have a web for their personal use, but that would be messy on a large site - webs for personal use and team use co-existing at the same level.
+If you have thousands of top level webs (non subweb) and thousands of users, then you may end up having much more top level webs than otherwise.
+
+If users have Main/FirstLast subwebs instead of !Main.FirstLast topics, it would be a good compromise between accountability, convenience, and tidiness of the site.
+
+---++ How it works
+In general, if the !TopLevel/SecondLevel subweb exists, !TopLevel.SecondLevel becomes a link to !TopLevel/SecondLevel.WebHome.
+As such, if the user !FirstLast has the subweb <nop>%USERSWEB%/FirstLast, <nop>%USERSWEB%.FirstLast becomes the link to <nop>%USERSWEB%/FirstLast.WebHome.
+
+If user subwebs are enabled, user configration is read first from the user's subweb.
+If it fails, the user's topic is tried.
+This way, you can have some users having their subwebs while the other users having user topics.
+
+Please note that a user's topic and the subweb of the same user cannot coexist.
+Because you cannot create the !subweb !TopLevel/SecondLevel if the topic !TopLevel.SecondLevel exists. (SubwebAndTopicNames)
+
+---++ Setup
+---+++ User subweb creation
+If your TWiki site requires user registration, the registration mechanism needs to create the user's subweb instead of topic.
+
+If there is no user registration on your TWiki site, there needs to be a mechanism to create a user subweb preferably on their own.
+
+---+++ TWiki configuration
+Needless to say, user subwebs requires =$TWiki::cfg{EnableHierarchicalWebs}= to be true in =lib/LocalSite.cfg=.
+Otherwise, you cannot use subwebs period.
+
+To enable user subwebs, you need to set =$TWiki::cfg{UserSubwebs}{Enabled}= to true.
+
+You may want to suppress [[%USERSWEB%.WebPreferences]] to be read before the preferences of a user subweb is read.
+If so, you need to set =$TWiki::cfg{UserSubwebs}{IgnoreParentPrefs}= to true.
+You may want to do so because users may not be happy with their user subwebs affected by changes in the %USERSWEB% web's preferences.
+In most cases, they can override preferences set in %USERSWEB%, still users need to do something to maintain their user subsites behavior.
+
+You can specify the topic name containing user preferences by =$TWiki::cfg{UserSubwebs}{UserPrefsTopicName}=, which is !WebHome by default.
+
+---+++ Customize web creation/deletion/rename permission
+If all of the following are true, you need to have an appropriate =canCreateWeb($cUID, $web)= object method in the user mapping manager class.
+   * Your TWiki doesn't have user registration
+   * You lock down the %USERSWEB% web for tidyness
+   * You want to have users create their subwebs on their own
+
+At the same time, you should have an appropriate =canRenameWeb($cUID, $oldWeb, $newWeb)= object method in the user mapping manager class to have users delete/rename their subwebs on their own.
+
+__Related Topics:__ AdminDocumentationCategory, SubwebAndTopicNames, AllowWebCreateByUserMappingManager, LargeSite
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1424756282" format="1.1" version="2"}%
+d49 2
+a50 2
+---+++ Customize web creation permission
+If all of the following are true, you need to have an appropriate canCreateWeb object method in the user mapping manager class.
+d55 2
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1365731281" format="1.1" version="1"}%
+d28 1
+a28 1
+Because you cannot create the !subweb TopLevel/SecondLevel if the topic !TopLevel.SecondLevel exists. (SubwebAndTopicNames)
+@

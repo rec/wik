@@ -1,0 +1,130 @@
+%META:TOPICINFO{author="TWikiContributor" date="1403146882" format="1.1" version="7"}%
+%META:TOPICPARENT{name="TopMenuSkin"}%
+---+ Top Bar of !TopMenuSkin
+
+Top bar of TopMenuSkin, replacing WebTopBar.
+
+-----
+%STARTINCLUDE%%INCLUDE{%SYSTEMWEB%.TopMenuSkin}%
+<div style="position: absolute; margin-left: 212px; margin-top: 30px; z-index: 1"><a href="http://twiki.org/?ref=twiki.org/topmenuskin.topbar" style="display: block; width: 100px; height: 48px;"><span></span></a></div>
+<div style="position: fixed; min-width: 35px; height: 22px; background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TopMenuSkin/menu-start.png); background-repeat: no-repeat;" id="topmenu-start">
+<div style="position: fixed; width: 100%; height: 22px; background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TopMenuSkin/menu-gray-bg.png); background-repeat: repeat-x; display: block;" id="topmenu-bar">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr style="background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TopMenuSkin/menu-gray-bg.png); background-repeat: repeat-x;">
+<td width="35"><img src="%PUBURLPATH%/%SYSTEMWEB%/TopMenuSkin/menu-start.png" width="35" height="22" alt="" /></td>
+<td width="80%">
+<div class="twTopMenuTab">%IF{
+ "istopic '%BASEWEB%.WebTopMenu'"
+ then="$percntINCLUDE{%BASEWEB%.WebTopMenu}$percnt"
+ else="$percntINCLUDE{%SYSTEMWEB%.TopMenuSkinDefaultWebTopMenu}$percnt"
+}%
+</div></td><td><div class="twTopMenuTab" style="float:right">
+   * [[%WIKIUSERNAME%][ %ICON{"person"}% %MAKETEXT{"Account"}% %ICON{menu-down}%]]
+%IF{
+ "context authenticated"
+ then='      * [[%WIKIUSERNAME%][%SPACEOUT{%WIKINAME%}%]]'
+ else="<nop>"
+}%
+%IF{
+ "$ LOGOUT != '' AND context authenticated"
+ then='      * %LOGOUT%'
+ else="<nop>"
+}%
+%IF{
+ "$ LOGIN != '' AND NOT context authenticated"
+ then='      * %LOGIN%'
+ else="<nop>"
+}%
+%IF{
+ "context registration_supported AND context registration_enabled"
+ then="      * [[%SYSTEMWEB%.TWikiRegistration][%MAKETEXT{"Register User"}%]]"
+ else="<nop>"
+}%
+%IF{
+ "'%USERNAME%'='guest' OR '%USERNAME%'='TWikiGuest'"
+ then="<nop>"
+ else="%IF{
+  "istopic '%USERSWEB%.%WIKINAME%Bookmarks'"
+  then="      * [[%USERSWEB%.%WIKINAME%Bookmarks][----- %MAKETEXT{Bookmarks}% -----]]$n      * [[%SCRIPTURL{viewauth}%/%USERSWEB%/%WIKINAME%Bookmarks?link=%BASEWEB%.%BASETOPIC%;label=%CALCULATE{$NOP(%)ENCODE{$PROPERSPACE($SUBSTRING(.%BASETOPIC%,2,20))}$NOP(%)}%#AddBookmark][Bookmark this page...]]"
+  else="      * [[%SCRIPTURL{viewauth}%/%USERSWEB%/%WIKINAME%Bookmarks?createifnotexist=1&amp;templatetopic=%SYSTEMWEB%.UserBookmarksTemplate&amp;topicparent=%WIKINAME%][----- %MAKETEXT{Bookmarks}% -----]]$n      * [[%SCRIPTURL{viewauth}%/%USERSWEB%/%WIKINAME%Bookmarks?createifnotexist=1&amp;templatetopic=%SYSTEMWEB%.UserBookmarksTemplate&amp;topicparent=%WIKINAME%&amp;redirectto=%SCRIPTURL{viewauth}%/%USERSWEB%/%WIKINAME%Bookmarks%3Flink%3D%BASEWEB%.%BASETOPIC%%26amp%3Blabel%3D%CALCULATE{$NOP(%)ENCODE{$PROPERSPACE($SUBSTRING(.%BASETOPIC%,2,20))}$NOP(%)}%#AddBookmark][Bookmark this page...]]"
+  }%"
+ }%
+%SEARCH{
+ "^\| *<\!\-\-BOOKMARK\-\-> *\|"
+ type="regex"
+ web="%USERSWEB%"
+ topic="%WIKINAME%Bookmarks"
+ multiple="on"
+ nonoise="on"
+ format="      * [[$pattern(\| *<\!\-\-BOOKMARK\-\-> *\| *(.*?) *\|.*)][$pattern(\| *<\!\-\-BOOKMARK\-\-> *\|[^\|]*\| *(.*?) *\|.*)]]"
+}%<nop>
+</div></td><td><div class="twTopMenuTab">
+   * [[%SYSTEMWEB%.%HOMETOPIC%][<img src="%ICONURLPATH{twiki-help}%" width="16" height="16" border="0" alt="Help" title="%MAKETEXT{"TWiki help"}%" style="margin: 1px;" />]]
+</div></td>
+<td width="40"><img src="%PUBURLPATH%/%SYSTEMWEB%/TopMenuSkin/spacer.gif" width="40" height="1" alt="" /></td>
+</tr>
+</table>
+</div>
+</div>
+<div style="height: 22px;"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr style="background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TopMenuSkin/banner-bg.png); background-repeat: repeat-x;"><td width="40"><img src="%PUBURLPATH%/%SYSTEMWEB%/TopMenuSkin/spacer.gif" width="40" height="58" alt="" /></td>
+<td width="30">
+<span id="twikiLogo" class="twikiImage"><a href="%WEBLOGOURL%"><img src="%WEBLOGOIMG%" border="0" alt="%WEBLOGOALT%" title="%WEBLOGOALT%" style="border:none;" /></a></span></td>
+<td align="right" style="background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TopMenuSkin/banner-net-bg.png); background-repeat: repeat-x;" class="patternMetaMenu">
+<noautolink>
+   * <form name="jumpForm" action="%SCRIPTURLPATH{"view"}%/%BASEWEB%/%BASETOPIC%"><input id="jumpFormField" type="text" class="twikiInputField" name="topic" value="" size="10" title="%MAKETEXT{"Jump to a topic by its name; browse to a topic by typing a partial name"}%" /><noscript>&nbsp;<input type="submit" class="twikiButton" size="5" name="submit" value="%MAKETEXT{"Jump"}%" />&nbsp;</noscript>
+   </form>
+   * <form name="quickSearchForm" action="%SCRIPTURLPATH{view}%/%INCLUDINGWEB%/WebSearch"><input type="text" class="twikiInputField" id="quickSearchBox" name="search" value="" size="10" title="%MAKETEXT{"Search in current web. For example, to search for all topics that contain &#34;SOAP&#34;, &#34;WSDL&#34;, a literal &#34;web service&#34;, but not &#34;shampoo&#34;, write: soap wsdl &#34;web service&#34; -shampoo"}%" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="%BASEWEB%" /><noscript>&nbsp;<input type="submit" size="5" class="twikiButton" name="submit" value="%MAKETEXT{"Search"}%" />&nbsp;</noscript>
+   </form>
+   * %INCLUDE{%SYSTEMWEB%.LanguageSelector}%
+</noautolink>
+</td>
+<td width="15"><img src="%PUBURLPATH%/%SYSTEMWEB%/TopMenuSkin/spacer.gif" width="15" height="1" alt="" /></td>
+%IF{ "defined 'READONLYSKINMODE' AND ($ READONLYSKINMODE > 0)" then="<!--" else="<nop>" }%
+<td width="165" valign="bottom"><div id="twTopBarButtons">%TMPL:P{"topbarbuttons"}%</div></td>
+%IF{ "defined 'READONLYSKINMODE' AND ($ READONLYSKINMODE > 0)" then="-->" else="<nop>" }%
+<td width="40"><img src="%PUBURLPATH%/%SYSTEMWEB%/TopMenuSkin/spacer.gif" width="40" height="1" alt="" /></td>
+</tr>
+</table>
+<script type="text/javascript">
+var twTopMenuBarCloseTimer = null;
+var twTopMenuBarTimerMsec = 1000;
+function twToggleTopMenuBar( isHover ) {
+  if( '%FIXEDTOPMENU%' == 'on' || '%FIXEDTOPMENU%' == '1' ) {
+    return;
+  }
+  var displayState = 'none';
+  if( $(window).scrollTop()<22 || isHover>0 ) {
+     displayState = 'block';
+     if(twTopMenuBarCloseTimer) { window.clearTimeout(twTopMenuBarCloseTimer); twTopMenuBarCloseTimer = null; } 
+  } else {
+    if(!twTopMenuBarCloseTimer && isHover>=0 ) {
+      twTopMenuBarCloseTimer = window.setTimeout(twCloseTopMenuBar, twTopMenuBarTimerMsec);
+      return;
+    }
+  }
+  if( $('#topmenu-bar').css('display') != displayState ) {
+    $('#topmenu-bar').css('display', displayState);
+  }
+};
+function twCloseTopMenuBar() {
+  twToggleTopMenuBar(-1);
+}
+$(document).ready(function () {
+  twToggleTopMenuBar(0);
+});
+$(window).scroll(function () {  
+  twToggleTopMenuBar(0);
+});
+$('#topmenu-start').hover(
+  function () { twToggleTopMenuBar(1); }, 
+  function () { twToggleTopMenuBar(0); }
+);
+</script>%STOPINCLUDE%
+-----
+
+   * Disable WYSIWYG editor for this page:
+      * Set EDITMETHOD = raw
+
+__Related topics:__ TopMenuSkin, TopMenuSkinTopBar, TopMenuSkinDefaultWebTopMenu, WebTopMenu

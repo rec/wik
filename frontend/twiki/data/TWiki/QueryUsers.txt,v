@@ -1,0 +1,34 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2011.08.21.04.16.10;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1285627816" format="1.1" version="1"}%
+%META:TOPICPARENT{name="ManagingUsers"}%
+---+!! Manage Users: Query Users
+
+<form action="%SCRIPTURLPATH{view}%/%WEB%/%TOPIC%">
+| Find users: <input type="text" name="filter" value="%URLPARAM{ "filter" encode="entity" }%" size="30" class="twikiInputField" /> <input type="submit" value="Search" class="twikiSubmit" /> &nbsp; [[%SCRIPTURL{view}%/%WEB%/%TOPIC%?filter=%2A][show all]] &nbsp; [[%TOPIC%][clear]] |
+</form>
+%USERMANAGER{ action="queryusers" filter="%URLPARAM{ "filter" encode="quote" }%" }%
+
+__%MAKETEXT{"Related topics:"}%__ ManagingUsers, EditUserAccount, AdminToolsCategory
+@

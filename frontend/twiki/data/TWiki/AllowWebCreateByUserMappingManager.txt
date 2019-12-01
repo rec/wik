@@ -1,0 +1,39 @@
+%META:TOPICINFO{author="TWikiContributor" date="1485159724" format="1.1" version="2"}%
+---+!! Allowing Web Creation, Deletion, & Rename by the User Mapping Manager
+
+---++ Motivation
+
+There are cases where DENYROOTCHANGE, ALLOWROOTCHANGE, DENYWEBCHANGE, and ALLOWWEBCHANGE are not capable enough to implement web creation/deletion/rename permission you want.
+Here are some of those situations.
+
+---+++ Making top level web creation and deletion self-service
+
+Usually, to create and delete a top level web, you need to be allowed by ALLOWROOTCHANGE and DENYROOTCHANGE.
+On a large TWiki site, it's desirable to make top level web creation and deletion self-service.
+
+---+++ Allowing users to create and delete their own UserSubwebs
+
+In a large orgnization having thousands or more users, the Main web needs to restrict topic creation to prevent random topics to accumulate.
+Instead, UserSubwebs are desirable for content accountability.
+This means that, on the Main web, users are not allowed to create topics but are allowed to create and delete the subweb of their wiki name.
+
+---++ How it works
+
+When a new web is created, the =canCreateWeb($cUID, $web)= method of the user mapping manager is called if the method exists.
+If the method returns true, the web is created without checking DENYROOTCHANGE and ALLOWROOTCHANGE (for a top level web) or DENYWEBCHANGE and ALLOWWEBCHANGE (of the parent of a subweb).
+If the method does not exist or the method returns false, web creation is permitted as usual based on *ROOTCHANGE or *WEBCHANGE.
+
+The method would be written as follows.
+<verbatim>
+sub canCreateWeb {
+    my( $this, $cUID, $web ) = @_;
+...
+}
+</verbatim>
+
+Similarly, when a web is renamed, the =canRenameWeb($cUID, $oldWeb, $newWeb)= method of the user mapping manager is called if the method exist.
+If it returns true, permission check on the parent web is omitted.
+If the method does not exist or the method returns false, permission check on the parent web is conducted as usual.
+Then, permission check on the rename destination takes place.
+
+__Related Topics:__ AdminDocumentationCategory, TWikiAccessControl, LargeSite, UserSubwebs

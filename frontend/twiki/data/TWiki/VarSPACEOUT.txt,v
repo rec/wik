@@ -1,0 +1,97 @@
+head	1.4;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.4
+date	2015.01.15.02.58.30;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2012.11.15.06.28.17;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.01.22.03.21.25;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.06.25.16.26.29;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1421290710" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarSPACEOUT
+---+++ SPACEOUT{"string"} -- renders string with spaces inserted in sensible places
+   * Inserts spaces between word components. Word component boundaries are transitions from lowercase to uppercase or numeric, from numeric to uppercase or lowercase, and from uppercase to numeric characters.
+   * Useful for spacing out WikiWords
+   * Syntax: =%<nop>SPACEOUT{ "%<nop>TOPIC%" }%=
+   * Expands to: =%SPACEOUT{ "%INCLUDINGTOPIC%" }%=
+   * Supported parameters:
+     | *Parameter:* | *Description:* | *Default:* |
+     | =separator= | The separator to put between words e.g. %<nop>SPACEOUT{"DogsCatsBudgies" separator=", "}% -> %SPACEOUT{"DogsCatsBudgies" separator=", "}% | ' ' |
+   * %T% Hint: Spaced out !WikiWords are not automatically linked. To SPACEOUT a !WikiWord but preserve the link use "double bracket" format. For example, =[<nop>[WebHome][%<nop>SPACEOUT{"Web<nop>Home"}%]]= expands to [[WebHome][%SPACEOUT{"WebHome"}%]]
+   * Category: FormattingAndRenderingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSPACEDTOPIC][SPACEDTOPIC]], [[SpreadSheetPlugin#FuncPROPERSPACE][$PROPERSPACE()]] of SpreadSheetPlugin
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1352960897" format="1.1" version="3"}%
+d5 1
+a5 1
+   * Inserts spaces after lower case letters that are followed by a digit or a capital letter, and after digits that are followed by a capital letter.
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.1" version="2"}%
+d13 1
+a14 1
+
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.2" version="1"}%
+a3 1
+
+d13 1
+a13 1
+   * Related: [[#VarSPACEDTOPIC][SPACEDTOPIC]], [[SpreadSheetPlugin#FuncPROPERSPACE][$PROPERSPACE()]] of SpreadSheetPlugin
+@

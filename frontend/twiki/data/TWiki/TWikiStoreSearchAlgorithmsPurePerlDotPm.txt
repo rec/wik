@@ -1,0 +1,11 @@
+---+ Package =TWiki::Store::SearchAlgorithms::PurePerl=
+
+Pure perl implementation of the RCS cache search.
+
+
+%TOC%
+---++ StaticMethod *search* <tt>($searchString,$topics,$options,$sDir) -> \%seen</tt>
+Search .txt files in $dir for $string. See RcsFile::searchInWebContent
+for details.
+
+

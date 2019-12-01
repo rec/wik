@@ -1,0 +1,108 @@
+%META:TOPICINFO{author="TWikiContributor" date="1365617250" format="1.1" version="20"}%
+---++ My Links
+
+%STARTSECTION{ type="expandvariables" }%
+   * [[%SYSTEMWEB%.WelcomeGuest][WelcomeGuest]] - starting points on TWiki
+   * [[%SYSTEMWEB%.TWikiUsersGuide][TWikiUsersGuide]] - complete TWiki documentation, Quick Start to Reference
+   * [[Sandbox.%HOMETOPIC%][%HOMETOPIC%]] - try out TWiki on your own
+   * [[Sandbox.%TOPIC%Sandbox][%TOPIC%Sandbox]] - just for me
+
+---++ My Personal Preferences
+%ENDSECTION{ type="expandvariables" }%
+%EDITPREFERENCES{"%SYSTEMWEB%.TWikiPreferencesForm"}%
+%STARTSECTION{ type="expandvariables" }%
+   * Preference for the editor, default is the WYSIWYG editor. The options are raw, wysiwyg:
+      * Set EDITMETHOD = wysiwyg
+
+   * Fixed [[%SYSTEMWEB%.TopMenuSkin#FixedTopMenu][pulldown menu-bar]], on or off. If off, the menu-bar hides automatically when scrolling.
+      * Set FIXEDTOPMENU = off
+
+   * Show tool-tip topic info on mouse-over of [[%SYSTEMWEB%.WikiWord][WikiWord]] links, on or off:
+      * Set LINKTOOLTIPINFO = off
+%ENDSECTION{ type="expandvariables" }%
+%INCLUDE{%SYSTEMWEB%.PersonalPreferencesHelp}%
+%STARTSECTION{ type="expandvariables" }%
+---++ Related Topics
+
+   * [[%SYSTEMWEB%.ChangePassword][ChangePassword]] for changing your password
+   * [[%SYSTEMWEB%.ChangeEmailAddress][ChangeEmailAddress]] for changing your email address
+   * [[%USERSWEB%.UserList][UserList]] has a list of other TWiki users
+   * [[%SYSTEMWEB%.UserDocumentationCategory][UserDocumentationCategory]] is a list of TWiki user documentation
+   * [[%SYSTEMWEB%.UserToolsCategory][UserToolsCategory]] lists all TWiki user tools
+%SPLIT%
+   * %KEY%: %VALUE%%SPLIT%
+%ENDSECTION{ type="expandvariables" }%
+%STARTSECTION{type="templateonly"}%
+----
+Notes to TWiki Administrator:
+
+Anything inside this "templateonly" section will not be copied to the home topic of the new user. It is a resource for the administrator to tailor the users home topic.
+
+The default topic text above is for English speaking users. If you have a multilingual wiki community you can replace the "My Links", "Personal Preferences" and "Related Topics" sections above with the localized text below. Text enclosed in %MAKETEXT will be shown in the language selected by the user. Please note that the %MAKETEXT can be quite intimidating to new users. Consider translating above text to your own language if your community uses a non-English language. (Remove all text from =%<nop>STARTSECTION{type="templateonly"}%= to =%<nop>ENDSECTION{type="templateonly"}%= when you are done)
+
+Text for multilingual wiki community, copy from here to %<nop>ENDSECTION{type="templateonly"}%
+
+<!--
+   NOTE:
+
+   Text enclosed in '%MAKETEXT' below will be shown in your selected language 
+   when you view the topic.
+
+   When you edit this topic for your own purposes, you are advised not to
+   touch the MAKETEXT calls. If you want to change the text of one of the
+   MAKETEXTed strings, just delete the call completely and replace it with
+   your own text e.g. instead of:
+      ---++ %MAKETEXT{"Personal Preferences"}%
+   write:
+      ---++ My Own Setup
+-->
+---++ %MAKETEXT{"My Links"}%
+
+   * %MAKETEXT{"[_1] - starting points on TWiki" args="[[%SYSTEMWEB%.WelcomeGuest][WelcomeGuest]]"}%
+   * %MAKETEXT{"[_1] - complete TWiki documentation, Quick Start to Reference" args="[[%SYSTEMWEB%.TWikiUsersGuide][TWikiUsersGuide]]"}%
+   * %MAKETEXT{"[_1] - try out TWiki on your own" args="[[Sandbox.%HOMETOPIC%][%HOMETOPIC%]]"}%
+   * %MAKETEXT{"[_1] - just for me" args="[[Sandbox.%TOPIC%Sandbox][%TOPIC%Sandbox]]"}%
+
+---++ %MAKETEXT{"Personal Preferences"}%
+
+%EDITPREFERENCES{"%SYSTEMWEB%.TWikiPreferencesForm"}%
+
+   * %MAKETEXT{"Preference for the editor, default is the WYSIWYG editor. The options are raw, wysiwyg:"}%
+      * Set EDITMETHOD = wysiwyg
+
+   * %MAKETEXT{"Fixed pulldown menu-bar of [_1], on or off. If off, the menu-bar hides automatically when scrolling." args="[[%SYSTEMWEB%.TopMenuSkin#FixedTopMenu][TopMenuSkin]]"}%
+      * Set FIXEDTOPMENU = off
+
+   * %MAKETEXT{"Show tool-tip topic info on mouse-over of [_1] links, on or off:" args="[[%SYSTEMWEB%.WikiWord][WikiWord]]"
+}%
+      * Set LINKTOOLTIPINFO = off
+
+%INCLUDE{%SYSTEMWEB%.PersonalPreferencesHelp}%
+
+---++ %MAKETEXT{"Related Topics"}%
+
+   * %MAKETEXT{"[_1] for changing your password" args="[[%SYSTEMWEB%.ChangePassword][ChangePassword]]"}%
+   * %MAKETEXT{"[_1] for changing your email address" args="[[%SYSTEMWEB%.ChangeEmailAddress][ChangeEmailAddress]]"}%
+   * %MAKETEXT{"[_1] has a list of other TWiki users" args="[[%USERSWEB%.UserList][UserList]]"}%
+   * %MAKETEXT{"[_1] is a list of TWiki user documentation" args="[[%SYSTEMWEB%.UserDocumentationCategory][UserDocumentationCategory]]"}%
+   * %MAKETEXT{"[_1] lists all TWiki user tools" args="[[%SYSTEMWEB%.UserToolsCategory][UserToolsCategory]]"}%
+
+%ENDSECTION{type="templateonly"}%
+
+%META:FORM{name="%25SYSTEMWEB%25.UserForm"}%
+%META:FIELD{name="FirstName" attributes="" title="First Name" value=""}%
+%META:FIELD{name="LastName" attributes="" title="Last Name" value=""}%
+%META:FIELD{name="Titles" attributes="" title="Titles" value=""}%
+%META:FIELD{name="Email" attributes="" title="Email" value=""}%
+%META:FIELD{name="Telephone" attributes="" title="Telephone" value=""}%
+%META:FIELD{name="Mobile" attributes="" title="Mobile" value=""}%
+%META:FIELD{name="SkypeID" attributes="" title="Skype ID" value=""}%
+%META:FIELD{name="Department" attributes="" title="Department" value=""}%
+%META:FIELD{name="Organization" attributes="" title="Organization" value=""}%
+%META:FIELD{name="URL" attributes="" title="URL" value=""}%
+%META:FIELD{name="Location" attributes="" title="Location" value=""}%
+%META:FIELD{name="Region" attributes="" title="Region" value=""}%
+%META:FIELD{name="Country" attributes="" title="Country" value=""}%
+%META:FIELD{name="Image" attributes="H" title="Image" value=""}%
+%META:FIELD{name="StatusUpdate" attributes="" title="Status Update" value=""}%
+%META:PREFERENCE{name="VIEW_TEMPLATE" title="VIEW_TEMPLATE" type="Local" value="UserView"}%

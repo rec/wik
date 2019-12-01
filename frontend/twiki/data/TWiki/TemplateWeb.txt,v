@@ -1,0 +1,165 @@
+head	1.6;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.6
+date	2010.06.05.06.40.25;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2008.01.22.03.21.31;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2006.02.01.12.01.20;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2004.08.15.21.37.02;	author PeterThoeny;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2003.07.26.21.28.39;	author PeterThoeny;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2003.01.19.08.30.38;	author PeterThoeny;	state Exp;
+branches;
+next	;
+
+
+desc
+@none
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1275720025" format="1.1" version="6"}%
+%META:TOPICPARENT{name="ManagingWebs"}%
+%TOC%
+
+---+!! Template Web
+
+---++ Purpose
+
+Template webs contain a set of default topics and act as templates when creating a new web. Names of template webs begin with an underscore "_" character, such as =_default=. Names of regular webs begin with an uppercase letter, such as =%USERSWEB%=. 
+
+An administrator can select a template web from the "based on web" picklist when creating a new web in the ManagingWebs topic. Template webs are otherwise invisible.
+
+The [[_default.%HOMETOPIC%][_default]] web template contains the following topics: =<nop>%HOMETOPIC%, <nop>WebAtom, <nop>WebChanges, <nop>WebCreateNewTopic, <nop>WebIndex, <nop>WebLeftBar, <nop>WebNotify, <nop>WebPreferences, <nop>WebRss, <nop>WebSearch, <nop>WebSearchAdvanced, <nop>WebStatistics, <nop>WebTopicList and <nop>WebTopMenu.=
+
+---++ Customizing
+
+The web template is useful for administrators to design for creating webs of a certain type.  Departmental webs can at least begin with a similar look and feel.
+
+Simply create a web with an underscore for the first character.  These can be used by authorized users to create webs from this template.
+
+__Related topics:__ ManagingWebs, AdminToolsCategory
+
+-- __Contributor:__ TWiki:Main/GrantBow, TWiki:Main/PeterThoeny
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="5"}%
+d9 5
+a13 1
+Template webs were created to act as templates in creating webs.  It is now possible to create webs via the %SYSTEMWEB%.ManagingWebs topic.  In the not so distant past TWiki webs were created by hand.  The data directory contains the different webs such as *Main* and *TWiki*.  A web that begins with an underscore &quot;_&quot; character is considered invisible and a template.  All files in the *_default* (or any other web that begins with an underscore) template web will be copied into your new web.  The [[_default.%HOMETOPIC%][_default]] web template contains the following topics: =<nop>%HOMETOPIC%, <nop>WebChanges, <nop>WebIndex, <nop>WebNotify, <nop>WebPreferences, <nop>WebSearch, <nop>WebStatistics and <nop>WebTopicList.=
+d21 1
+d23 1
+a23 2
+
+
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="4"}%
+d9 1
+a9 1
+Template webs were created to act as templates in creating webs.  It is now possible to create webs via the %TWIKIWEB%.ManagingWebs topic.  In the not so distant past TWiki webs were created by hand.  The data directory contains the different webs such as *Main* and *TWiki*.  A web that begins with an underscore &quot;_&quot; character is considered invisible and a template.  All files in the *_default* (or any other web that begins with an underscore) template web will be copied into your new web.  The [[_default.%HOMETOPIC%][_default]] web template contains the following topics: =<nop>%HOMETOPIC%, <nop>WebChanges, <nop>WebIndex, <nop>WebNotify, <nop>WebPreferences, <nop>WebSearch, <nop>WebStatistics and <nop>WebTopicList.=
+@
+
+
+1.3
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1092605822" format="1.0" version="1.3"}%
+d9 1
+a9 1
+Template webs were created to act as templates in creating webs.  It is now possible to creation webs via the %TWIKIWEB%.ManagingWebs topic.  In the not so distant past TWiki webs were created by hand.  The data directory contains the different webs such as *Main* and *TWiki*.  A web that begins with an underscore &quot;_&quot; character is considered invisible and a template.  All files in the *_default* (or any other web that begins with an underscore) template web will be copied into your new web.  The [[_default.%HOMETOPIC%][_default]] web template contains the following topics: =<nop>%HOMETOPIC%, <nop>WebChanges, <nop>WebIndex, <nop>WebNotify, <nop>WebPreferences, <nop>WebSearch, <nop>WebStatistics and <nop>WebTopicList.=
+d17 2
+a18 2
+-- TWiki:Main.GrantBow - 16 Jan 2003 %BR%
+-- TWiki:Main.PeterThoeny - 15 Aug 2004
+@
+
+
+1.2
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1059254919" format="1.0" version="1.2"}%
+d3 17
+a19 15
+%TOC%
+
+---+ Template Web
+
+---++ Purpose
+
+Template webs were created to act as templates in creating webs.  It is now possible to creation webs via the %TWIKIWEB%.ManagingWebs topic.  In the not so distant past TWiki webs were created by hand.  The data directory contains the different webs such as *Main* and *TWiki*.  A web that begins with an underscore &quot;_&quot; character is considered invisible and a template.  All files in the *_default* (or any other web that begins with an underscore) template web will be copied into your new web.  The *_default* web template contains the following topics: =<nop>%HOMETOPIC%, <nop>WebChanges, <nop>WebIndex, <nop>WebNotify, <nop>WebPreferences, <nop>WebSearch, <nop>WebStatistics and <nop>WebTopicList.=
+
+---++ Customizing
+
+The web template is useful for administrators to design for creating webs of a certain type.  Departmental webs can at least begin with a similar look and feel.
+
+Simply create a web with an underscore for the first character.  These can be used by authorized users to create webs from this template.
+
+-- Main.GrantBow - 16 Jan 2003
+@
+
+
+1.1
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1042965038" format="1.0" version="1.1"}%
+d9 1
+a9 1
+Template webs were created to act as templates in creating webs.  It is now possible to creation webs via the %TWIKIWEB%.ManagingWebs topic.  In the not so distant past TWiki webs were created by hand.  The data directory contains the different webs such as *Main* and *TWiki*.  A web that begins with an underscore &quot;_&quot; character is considered invisible and a template.  All files in the *_default* (or any other web that begins with an underscore) template web will be copied into your new web.  The *_default* web template contains the following topics: =<nop>WebChanges, <nop>WebHome, <nop>WebIndex, <nop>WebNotify, <nop>WebPreferences, <nop>WebSearch, <nop>WebStatistics and <nop>WebTopicList.=
+@

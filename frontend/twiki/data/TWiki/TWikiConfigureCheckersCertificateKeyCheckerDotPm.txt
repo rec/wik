@@ -1,0 +1,22 @@
+---+ Package =TWiki::Configure::Checkers::Certificate::KeyChecker=
+Configure GUI checker for Certificate Key items.
+
+This checker validates files that contain private key files
+such as for the S/MIME signatures and for the Tasks framework.
+
+It must be subclassed for the various certificate types, as the requirements
+are slightly different.
+
+
+%TOC%
+
+---++ ObjectMethod *check* <tt>($valueObject,$password) -> $errorString</tt>
+Validates a Key item for the configure GUI
+   * =$valueObject= - configure value object
+   * =$password= - Optional password key name for this file
+
+A lot of checking is done here to prevent mystery errors at runtime.
+
+Returns empty string if OK, error string with any errors
+
+

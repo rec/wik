@@ -1,0 +1,160 @@
+head	1.6;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.6
+date	2013.11.15.21.54.05;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2012.11.09.09.28.29;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2010.05.29.14.44.27;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2007.01.16.04.11.58;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2006.06.25.16.26.26;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.18;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1384552445" format="1.1" version="6"}%
+---+ %URLPARAM{"limit" default="20"}% most recent topic changes in %URLPARAM{"web" default="all"}% webs
+
+%CALCULATE{$SET(now, $TIME())}%<nop>
+%TABLE{sort="on" initsort="1" initdirection="up"}%
+| *Modified (now %GMTIME{$hou:$min}%)* | *Topic in Web* | *Last Modified By* |
+%SEARCH{
+ "." 
+ type="regex" 
+ nonoise="on" 
+ limit="%URLPARAM{"limit" default="20"}%" 
+ web="%URLPARAM{"web" default="all"}%" 
+ excludetopic="WebStatistics" 
+ reverse="on"
+ sort="modified" 
+ format="| <span style='white-space: nowrap;'>$percntCALCULATE{<span style='display:none'>$SET(epoch, $TIME($date GMT)) $GET(epoch)</span> $FORMATTIMEDIFF(min, 1, $TIMEDIFF($GET(epoch), $GET(now), minute)) ago}$percnt [[%SCRIPTURL{rdiff}%/$web/$topic#_foo=$rev][diff]] ([[%SCRIPTURL{rdiff}%/$web/$topic?type=last&render=sequential&context=9000&_foo=$rev#diff001][in-line]]) r$rev </span> | [[%SCRIPTURLPATH{"view"}%/$web/$topic#foo_$rev][$topic]] <span style='font-size:80%; color:#888888'>in *$web* web</span> | $wikiusername |" 
+}%
+
+---++ Modify changes listing
+
+<form name="sitechanges" action="%SCRIPTURL{view}%/%WEB%/%TOPIC%">
+| Number of%BR% changes%BR% per web: | <input type="radio" name="limit" value="20" id="limit20" %IF{" '%URLPARAM{"limit" encode="entity" default="20"}%' = '20' " then="checked=\"checked\""}% /> 20%BR% <input type="radio" name="limit" value="50" id="limit50" %IF{" '%URLPARAM{"limit" encode="entity"}%' = '50' " then="checked=\"checked\""}% /> 50%BR% <input type="radio" name="limit" value="100" id="limit100" %IF{" '%URLPARAM{"limit" encode="entity"}%' = '100' " then="checked=\"checked\""}% /> 100%BR% <input type="radio" name="limit" value="200" id="limit200" %IF{" '%URLPARAM{"limit" encode="entity"}%' = '200' " then="checked=\"checked\""}% /> 200%BR% <input type="radio" name="limit" value="500" id="limit500" %IF{" '%URLPARAM{"limit" encode="entity"}%' = '500' " then="checked=\"checked\""}% /> 500 |
+| Layout: | <input type="radio" name="skin" value="%SKIN%" id="skinnormal" %IF{" '%URLPARAM{"skin" encode="entity" default="%SKIN%"}%' = '%SKIN%' " then="checked=\"checked\""}% /> Normal skin%BR% <input type="radio" name="skin" value="print,pattern" id="skinplain" %IF{" '%URLPARAM{"skin" encode="entity"}%' = 'print,pattern' " then="checked=\"checked\""}% /> Print skin with reduced page decoration |
+| Webs: | <input type="text" class="twikiInputField" name="web" value="%URLPARAM{"web" default="all"}%" size="80" /> %BR% Specify =all= for all webs, or a comma separated list of webs from <noautolink> =%WEBLIST{"$name" separator=", "}%= </noautolink> |
+| | <input type="submit" class="twikiSubmit" name="search" value="View Changes" /> |
+</form>
+
+__%T% Tip:__ Bookmark your favorite site changes query
+
+__Related topics:__ SiteMap, WebChanges, UserDocumentationCategory
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1352453309" format="1.1" version="5"}%
+d4 1
+d16 1
+a16 1
+ format="| <span style='white-space:nowrap'>$percntCALC{<span style='display:none'>$SET(epoch, $TIME($date)) $GET(epoch)</span> $FORMATTIME($GET($epoch), $year-$mo-$day $hour:$min)}$percnt [[%SCRIPTURL{rdiff}%/$web/$topic#_foo=$rev][diff]] ([[%SCRIPTURL{rdiff}%/$web/$topic?type=last&render=sequential&context=9000&_foo=$rev#diff001][in-line]]) r$rev</span> | [[%SCRIPTURLPATH{"view"}%/$web/$topic#foo_$rev][$topic]] <span style='font-size:80%; color:#888888'>in *$web* web</span> | $wikiusername |" 
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1274925732" format="1.1" version="4"}%
+d14 1
+a14 1
+ order="modified" 
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 2
+a2 2
+%META:TOPICINFO{author="TWikiContributor" date="1163619832" format="1.0" version="3"}%
+---++ %URLPARAM{"limit" default="25"}% most recent topic changes in %URLPARAM{"web" default="all"}% webs
+d5 11
+a15 11
+| *Last Modified* | *Web.Topic* | *Last Editor* |
+%SEARCH{ "." 
+type="regex" 
+nosearch="on" 
+nototal="on" 
+limit="%URLPARAM{"limit" default="25"}%" 
+web="%URLPARAM{"web" default="all"}%" 
+excludetopic="WebStatistics" 
+reverse="on"
+order="modified" 
+format="| $date - [[%SCRIPTURLPATH{"rdiff"}%/$web/$topic?_foo=$rev][diff]] / [[%SCRIPTURLPATH{"rdiff"}%/$web/$topic?type=last&render=sequential&context=1000&_foo=$rev][in-line diff]] - $rev | [[%SCRIPTURLPATH{"view"}%/$web/$topic#foo_$rev][$web.$topic]] | $wikiusername |" 
+d18 12
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1104760059" format="1.0" version="2"}%
+d7 1
+a7 1
+regex="on" 
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1104760059" format="1.0" version="1"}%
+d13 1
+@

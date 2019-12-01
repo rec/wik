@@ -1,0 +1,17 @@
+%META:TOPICINFO{author="TWikiContributor" date="1274919112" format="1.1" version="6"}%
+%META:TOPICPARENT{name="TWikiFAQ"}%
+---++ FAQ:
+
+Why does the topic revision not increase when I edit a topic?
+
+---++ Answer:
+
+The same topic revision will be used when you save a topic again within a certain time frame (one hour by default). This is to prevent unnecessary topic revisions when you do several edit cycles in a row. To force a new revision when saving again within a short time frame, check the "Force new revision" checkbox below the ==[Save]== button.
+
+Note that a new revision __is__ created if another person edits the same topic, regardless of the time.
+
+TWiki administrators can modify the time frame with the ={ReplaceIfEditedAgainWithin}= configure setting.
+
+__Back to:__ TWikiFAQ
+
+__Related Topics:__ UserDocumentationCategory

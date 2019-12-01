@@ -1,0 +1,74 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2010.06.28.01.49.16;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.24;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1277689756" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiTipsOfTheDay"}%
+---+ Commenting with hidden text
+
+To hide some text within a TWiki topic, use HTML comments. 
+
+Example comment within a sentence:
+
+=Visible &lt;!--- and hidden ---&gt; text=
+
+Example spanning multiple lines:
+<verbatim>
+<!--
+   * Useful to hide settings:
+      * Set EXAMPLE = This is hidden
+-->
+</verbatim>
+
+[[TWikiTipsOfTheDay][See More Tips...]]
+
+-- __Contributors:__ TWiki:Main.PaulineCheung
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1107571231" format="1.0" version="1"}%
+d5 1
+a5 1
+To hide sections of a TWiki topic, use HTML comments. 
+d14 2
+a15 2
+	* Useful to hide settings:
+		* Set EXAMPLE = This is hidden
+a18 1
+
+d21 1
+a21 2
+-- TWiki:Main.PaulineCheung - 29 Jan 2005
+
+@

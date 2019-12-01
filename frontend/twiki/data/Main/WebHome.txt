@@ -1,0 +1,64 @@
+%META:TOPICINFO{author="TWikiContributor" date="1383862313" format="1.1" version="30"}%
+%DASHBOARD{ section="dashboard_start" }%
+%DASHBOARD{ section="banner"
+ image="%PUBURL%/%SYSTEMWEB%/TWikiDashboardImages/golden-gate-dawn.jpg"
+ title="TWiki<sup>&reg;</sup> - the Open Source Enterprise Wiki and Web Application Platform"
+ titlestyle="color:#800000;"
+ button1="TWiki Help|%SYSTEMWEB%.%HOMETOPIC%"
+}%
+<!--===== WELCOME ============================================-->
+%DASHBOARD{ section="box_start"
+ title="Welcome to TWiki"
+}%
+Congratulations, you have finished installing TWiki! Edit and customize this dashboard.
+
+TWiki<sup>&reg;</sup> is a flexible, powerful, secure, yet simple Enterprise Wiki and Web Application Platform. Use TWiki for team collaboration, project management, document management, as a knowledge base and more on an intranet or on the Internet. [[%SYSTEMWEB%.%HOMETOPIC%][Learn more]].
+
+%DASHBOARD{ section="box_end" }%
+<!--===== MAIN WEB LINKS ============================================-->
+%DASHBOARD{ section="box_start"
+ title="Main Web Links"
+ contentstyle="overflow: hidden;"
+}%
+   * icon:tip [[%SYSTEMWEB%.WelcomeGuest][Welcome Guest - look here first]]
+   * icon:persons [[TWikiGroups][TWiki Groups - for access control]]
+   * icon:searchtopic [[WebSearch][Web Search]]
+   * icon:index [[WebTopicList][Web Topic List]] - all topics
+   * icon:mail [[WebNotify][Web Notify]] - subscribe to e-mail alerts
+   * icon:rss [[WebRss][RSS]] &amp; [[WebAtom][ATOM]] feeds of topic changes
+   * icon:statistics [[WebStatistics][Web Statistics]] %IF{ "istopic 'SiteStatistics'" then="&amp; [[SiteStatistics][Site Statistics]]" }%
+   * icon:wrench [[WebPreferences][Web Preferences]] - preferences of this web
+   * icon:mechanics [[%LOCALSITEPREFS%][TWiki Preferences]] - site level preferences
+
+%DASHBOARD{ section="box_end" }%
+<!--===== TWIKI USERS ============================================-->
+%DASHBOARD{ section="box_start"
+ title="[[%BASEWEB%.UserList][TWiki Users]]"
+ contentstyle="overflow: hidden; margin-right: -10px; margin-bottom: -10px; padding-bottom: 10px;"
+}%
+%INCLUDE{ "%USERSWEB%.UserList" section="search_box" size="16" }%
+&nbsp; [[%SYSTEMWEB%.TWikiRegistration][Register]]
+%USERREPORT{ action="slim_box_css" }%
+%USERREPORT{ action="slim_box_start" style="background-color: white;" }%
+%USERREPORT{ action="slim_box_list" users="%USERREPORT{ action="user_list" limit="10" sort="modified" reverse="on" }%" }%
+%USERREPORT{ action="slim_box_end" }%
+
+%DASHBOARD{ section="box_end" }%
+<!--===== SITE MAP ============================================-->
+%DASHBOARD{ section="box_start"
+ title="[[%SYSTEMWEB%.SiteMap][Site Map]]"
+ width="646" height="600"
+}%
+%INCLUDE{%SYSTEMWEB%.SiteMap}%
+
+%DASHBOARD{ section="box_end" }%
+<!--===== RECENT CHANGES ============================================-->
+%DASHBOARD{ section="box_start"
+ title="[[%BASEWEB%.WebChanges][Recent Changes in Main Web]]"
+ contentstyle="overflow: hidden;"
+ height="600"
+}%
+%INCLUDE{ "%SYSTEMWEB%.WebChangesRightBox" section="bullet_list" limit="30" }%
+
+%DASHBOARD{ section="box_end" }%
+%DASHBOARD{ section="dashboard_end" }%

@@ -1,0 +1,525 @@
+%META:TOPICINFO{author="TWikiContributor" date="1432943037" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiUserMappingContrib"}%
+---+!! TWiki User Reports
+
+<sticky>
+<div class="twikiTocFloat">
+%TOC{ title="Page contents" depth="2" }%
+</div>
+</sticky>
+This page contains user reports you can use in TWiki application. Create appealing TWiki applications in a no time!
+
+Reports are of format =%<nop>USERREPORT{ action="..." ... }%=, where the action determines the kind of report. Each report supports additional parameters.
+
+---++ Action: user_list
+
+Show a simple list of registered users. The output is a comma-space delimited sorted list of WikiWords of users (without web prefix), which can be used as input for other reports on this page.
+
+   * Action "user_list": Show a list of users as comma-space delimited list of !WikiWords.
+      * Parameter =search=: Apply filter by searching all form fields, but not the main topic text. Optional; all users are returned if missing.
+      * Parameter =limit=: Limits the number of users returned. Optional; all users are returned if missing.
+      * Parameter =sort=: Sort the result by the topic name, topic creation date, last modified date, last editor, or named field of TWikiForms. For details see =sort= parameter of [[VarSEARCH][SEARCH]].
+      * Parameter =reverse=: Reverse the direction of the search result
+
+This report also sets a ="UserReports_users"= variable to the number of users found. To retrieve, write =%<nop>GET{UserReports_users}%=.
+
+<div style="display:none;">
+   * Set limit = 100
+<!--==============================================-->
+%STARTSECTION{"user_list" disablefixlinks="on"}%%SET{ "UserReports_users" value="0" }%%SET{ "UserReports_%IF{ "defined 'limit'" then="%limit%" else="all" }%_users" value="%SEARCH{
+ "META:FORM.*[U]serForm%IF{ "defined 'search'" then=";META:FIELD.*value=.*$percntsearch$percnt" }%"
+ web="%USERSWEB%"
+ type="regex"
+ limit="%IF{   "defined 'limit'"   then="%limit%" }%"
+ sort="%IF{   "defined 'sort'"   then="%sort%" }%"
+ reverse="%IF{ "defined 'reverse'" then="%reverse%" }%"
+ nonoise="on"
+ excludetopic="UserList*, *Template"
+ format="$topic"
+ separator=", "
+ footer="$percntSET{ \"UserReports_users\" value=\"$ntopics\" }$percnt"
+}%" }%%GET{UserReports_%IF{ "defined 'limit'" then="%limit%" else="all" }%_users}%%ENDSECTION{user_list}%
+<!--==============================================-->
+%SET{ "UserReports_5_users" value="%CALCULATE{$LISTTRUNCATE(5, %GET{UserReports_100_users}%)}%" }%
+</div>
+
+*Usage example:*
+<pre>
+%<nop>USERREPORT{ action="user_list" search="jane" limit="5" }%
+</pre>
+
+*Sample output:* %BR%
+<noautolink>
+%GET{UserReports_5_users}%
+</noautolink>
+
+---++ Action: profile_picture
+
+Show the profile picture image of a user. A default image is returned in case the image is not defined in the Image form field of the user. The output is an =&lt;img /&gt;= tag that can be embedded in other tags such as links.
+
+   * Action "profile_picture": Show the profile picture image of a user.
+      * Parameter =user=: !WikiWord of user, required.
+      * Parameter =width=: Width of image, optional.
+      * Parameter =height=: Height of image, optional. The aspect ratio is preserved unless width and height are specified. If width and height are missing, a height of 100 pixels is used.
+      * Parameter =title=: Title parameter of img tag, optional.
+
+*Usage example:*
+<pre>
+%<nop>USERREPORT{ action="profile_picture" user="%WIKINAME%" height="40" title="%WIKINAME%" }%
+%<nop>USERREPORT{ action="profile_picture" user="AmandaBoris" height="40" title="AmandaBoris" }%
+</pre>
+
+*Sample output:* %BR%
+<noautolink>
+%USERREPORT{ action="profile_picture" user="%WIKINAME%" height="40" title="%WIKINAME%" }%
+%CALCULATE{$LISTJOIN($sp, $LISTMAP(&nbsp; $NOP(%)INCLUDE{ "%SYSTEMWEB%.UserReports" section="profile_picture" user="$item" height="40" title="$item" }$NOP(%), %GET{UserReports_5_users}%))}%
+</noautolink>
+
+<div style="display:none;">
+<!--==============================================-->
+%STARTSECTION{"profile_picture"}%<img src="%IF{ "'%FORMFIELD{ "Image" topic="%USERSWEB%.%user%" }%'!=''" then='%PUBURLPATH%/%USERSWEB%/%user%/%FORMFIELD{ "Image" topic="%USERSWEB%.%user%" }%' else='%PUBURLPATH%/%USERSWEB%/UserProfileHeader/default-user-profile.jpg' }%" %IF{ "defined 'width'" then="width=\"%width%\" " }%%IF{ "defined 'height'" then="height=\"%height%\" " }%%IF{ "NOT defined 'width' AND NOT defined 'height'" then="height=\"100\" " }%alt="%user%" title="%IF{ "defined 'title'" then="%title%" }%" border="0" />%ENDSECTION{"profile_picture"}%
+<!--==============================================-->
+</div>
+
+---++ Action: user_sig
+
+Show a user signature with profile picture, optionally followed by a date or other text. A default image is shown in case the image is not defined in the Image form field of the user.
+
+   * Action "user_sig": Show a user signature with profile picture.
+      * Parameter =user=: !WikiWord of user, required. Optionally followed by a date or other text.
+      * Parameter =width=: Width of image, optional.
+      * Parameter =height=: Height of image, optional. The aspect ratio is preserved unless width and height are specified. If width and height are missing, a height of 18 pixels is used.
+
+In addition, a USERSIG preferences setting is defined as a shortcut, so that a simple =%<nop>USERSIG{%WIKINAME%}%= can be used.
+
+*Usage example:*
+<pre>
+-- %<nop>USERREPORT{ action="user_sig" user="%WIKINAME% - %DATE%" }%
+
+-- %<nop>USERSIG{%WIKINAME%}%
+
+-- %<nop>USERSIG{%WIKINAME% - %DATE%}%
+</pre>
+
+*Sample output:* %BR%
+-- %USERREPORT{ action="user_sig" user="%WIKINAME% - %DATE%" }%
+
+-- %USERSIG{%WIKINAME%}%
+
+-- %USERSIG{%WIKINAME% - %DATE%}%
+
+<div style="display:none;">
+<!--==============================================-->
+%STARTSECTION{"user_sig"}%%CALCULATE{$SET(sPos, $FIND( , %user%))$IF($GET(sPos)>0, $SET(sUser, $LEFTSTRING(%user%, $INT($GET(sPos)-1)))$SET(sExtra, $RIGHTSTRING(%user%, $INT($LENGTH(%user%)-$GET(sPos)))), $SET(sUser, %user%)$SET(sExtra,))$SET(sPos, $FIND(., $GET(sUser)))$IF($GET(sPos)>0, $SET(sUser, $RIGHTSTRING($GET(sUser), $INT($LENGTH($GET(sUser))-$GET(sPos)))),)$IF($EXACT($GET(sUserSigStyleSet),),<style> .userReportsSig { display: inline-block; white-space: nowrap; padding: 0 2px 0 0; border: 1px solid #e8e8eb; background-color: #f4f4fa; -moz-box-shadow: 1px 1px 2px #e8e8e8; -webkit-box-shadow: 1px 1px 2px #e8e8e8; box-shadow: 1px 1px 2px #e8e8e8; -moz-border-radius: 4px; border-radius: 4px; } .userReportsSig a:link { border: 0 none; } .userReportsSig img { vertical-align: middle; } .userReportsBubble { position: absolute; background-image: url(%PUBURLPATH%/%SYSTEMWEB%/UserReports/faded-bubble.png); background-repeat: no-repeat; margin-top: -57px; margin-left: -18px; width: 920px; height: 90px; z-index: -1; } </style>$SET(sUserSigStyleSet, 1))}%<span class="userReportsSig"> [[%USERSWEB%.%CALCULATE{$GET(sUser)}%][<img src="%IF{ "'%FORMFIELD{ "Image" topic="%USERSWEB%.%CALCULATE{$GET(sUser)}%" }%'!=''" then='%PUBURLPATH%/%USERSWEB%/%CALCULATE{$GET(sUser)}%/%FORMFIELD{ "Image" topic="%USERSWEB%.%CALCULATE{$GET(sUser)}%" }%' else='%PUBURLPATH%/%USERSWEB%/UserProfileHeader/default-user-profile.jpg' }%" %IF{ "defined 'width'" then="width=\"%width%\" " }%%IF{ "defined 'height'" then="height=\"%height%\" " }%%IF{ "NOT defined 'width' AND NOT defined 'height'" then="height=\"24\" " }%alt="" /> %FORMFIELD{ "FirstName" topic="%USERSWEB%.%CALCULATE{$GET(sUser)}%" default="%SPACEOUT{%CALCULATE{$GET(sUser)}%}%" alttext="%SPACEOUT{%CALCULATE{$GET(sUser)}%}%" }% %FORMFIELD{ "LastName" topic="%USERSWEB%.%CALCULATE{$GET(sUser)}%" }% %CALCULATE{$GET(sExtra)}%]] </span>%ENDSECTION{"user_sig"}%
+<!--==============================================-->
+</div>
+
+---++ Action: bubble_sig
+
+Show a faded comment bubble and user signature with profile picture, optionally followed by a date or other text. A default image is shown in case the image is not defined in the Image form field of the user. This is used for CommentPlugin signatures.
+
+   * Action "bubble_sig": Show a user signature with profile picture.
+      * Parameter =user=: !WikiWord of user, required. Optionally followed by a date or other text.
+
+In addition, a BUBBLESIG preferences setting is defined as a shortcut, so that a simple =%<nop>BUBBLESIG{%WIKINAME%}%= can be used.
+
+*Usage example:*
+<pre>
+Test comment using USERREPORT
+
+-- %<nop>USERREPORT{ action="bubble_sig" user="%WIKINAME% - %DATE%" }%
+
+Test comment using BUBBLESIG
+
+-- %<nop>BUBBLESIG{%WIKINAME% - %DATE%}%
+</pre>
+
+*Sample output:* %BR%
+Test comment using USERREPORT
+
+-- %USERREPORT{ action="bubble_sig" user="%WIKINAME% - %DATE%" }%
+
+Test comment using BUBBLESIG
+
+-- %BUBBLESIG{%WIKINAME% - %DATE%}%
+
+<div style="display:none;">
+<!--==============================================-->
+%STARTSECTION{"bubble_sig"}%%CALCULATE{$SET(sPos, $FIND( , %user%))$IF($GET(sPos)>0, $SET(sUser, $LEFTSTRING(%user%, $INT($GET(sPos)-1)))$SET(sExtra, $RIGHTSTRING(%user%, $INT($LENGTH(%user%)-$GET(sPos)))), $SET(sUser, %user%)$SET(sExtra,))$SET(sPos, $FIND(., $GET(sUser)))$IF($GET(sPos)>0, $SET(sUser, $RIGHTSTRING($GET(sUser), $INT($LENGTH($GET(sUser))-$GET(sPos)))),)$IF($EXACT($GET(sUserSigStyleSet),),<style> .userReportsSig { display: inline-block; white-space: nowrap; padding: 0 2px 0 0; border: 1px solid #e8e8eb; background-color: #f4f4fa; -moz-box-shadow: 1px 1px 2px #e8e8e8; -webkit-box-shadow: 1px 1px 2px #e8e8e8; box-shadow: 1px 1px 2px #e8e8e8; -moz-border-radius: 4px; border-radius: 4px; } .userReportsSig a:link { border: 0 none; } .userReportsSig img { vertical-align: middle; } .userReportsBubble { position: absolute; background-image: url(%PUBURLPATH%/%SYSTEMWEB%/UserReports/faded-bubble.png); background-repeat: no-repeat; margin-top: -57px; margin-left: -18px; width: 920px; height: 90px; z-index: -1; } </style>$SET(sUserSigStyleSet, 1))}%<span class="userReportsSig"> [[%USERSWEB%.%CALCULATE{$GET(sUser)}%][<img src="%IF{ "'%FORMFIELD{ "Image" topic="%USERSWEB%.%CALCULATE{$GET(sUser)}%" }%'!=''" then='%PUBURLPATH%/%USERSWEB%/%CALCULATE{$GET(sUser)}%/%FORMFIELD{ "Image" topic="%USERSWEB%.%CALCULATE{$GET(sUser)}%" }%' else='%PUBURLPATH%/%USERSWEB%/UserProfileHeader/default-user-profile.jpg' }%" %IF{ "defined 'width'" then="width=\"%width%\" " }%%IF{ "defined 'height'" then="height=\"%height%\" " }%%IF{ "NOT defined 'width' AND NOT defined 'height'" then="height=\"24\" " }%alt="" /> %FORMFIELD{ "FirstName" topic="%USERSWEB%.%CALCULATE{$GET(sUser)}%" default="%SPACEOUT{%CALCULATE{$GET(sUser)}%}%" alttext="%SPACEOUT{%CALCULATE{$GET(sUser)}%}%" }% %FORMFIELD{ "LastName" topic="%USERSWEB%.%CALCULATE{$GET(sUser)}%" }% %CALCULATE{$GET(sExtra)}%]] </span><div class="userReportsBubble"></div><div style='height: 5px;'></div>%ENDSECTION{"bubble_sig"}%
+<!--==============================================-->
+</div>
+
+---++ Action: slim_box
+
+<div style="float:right; width:297px; margin:0 0 10px 20px;">
+<img src="%ATTACHURLPATH%/slim-box-example.png" alt="Slim box example" width="297" height="108" />
+</div>
+Show slim, one line height user boxes. Several actions are provided:
+
+   * Action "slim_box_css": Defines the style sheets of the slim boxes. Optionally include it once per page; it is done for you by the "slim_box_start" action if needed.
+   * Action "slim_box_start": Defines the start of a set of slim boxes.
+      * Parameter =style=: Optional, overrides the css of the container div of slim boxes. Default: =padding:0 5px 0 5px; background-color:#f0f0f4;=.
+   * Action "slim_box": Show a single slim box.
+      * Parameter =user=: Specify the !WikiWord of a single user.
+      * Parameter =style=: Optional, overrides the css of the slim box. Default: =float: left; width: 130px; border: solid 1px #d0d0d8; background-color: #f8f8fb;=.
+   * Action "slim_box_list": Show a set of slim boxes.
+      * Parameter =users=: Specify a list of !WikiWords of users. The list may be provided by including the "user_list" action.
+      * Parameter =style=: Optional, same as action "slim_box".
+   * Action "slim_box_end": Defines the end of a set of slim boxes.
+
+*Usage example:*
+<pre>
+%<nop>USERREPORT{ action="slim_box_start" }%
+  %<nop>USERREPORT{ action="slim_box" user="%WIKINAME%" }%
+  %<nop>USERREPORT{ action="slim_box" user="JaneSmith" }%
+%<nop>USERREPORT{ action="slim_box_end" }%
+%<nop>USERREPORT{ action="slim_box_start" style="background-color: #f0f0e8;" }%
+  %<nop>USERREPORT{ action="slim_box_list" users="UserOne, UserTwo, UserThree" }%
+%<nop>USERREPORT{ action="slim_box_end" }%
+</pre>
+
+*Sample output:* %BR%
+<noautolink>
+%USERREPORT{ action="slim_box_start" }%
+%USERREPORT{ action="slim_box" user="%WIKINAME%" }%
+%USERREPORT{ action="slim_box_list" users="%GET{UserReports_5_users}%" }%
+%USERREPORT{ action="slim_box_end" }%
+</noautolink>
+
+<div style="display:none;">
+<!--==============================================-->
+%STARTSECTION{slim_box_css}%<style> .userBoxSlim { float: left; width: 134px; height: 20px; border: solid 1px #d0d0d8; background-color: #f8f8fb; display: inline-block; padding: 1px 1px; margin: 5px 9px 5px 0; text-align: center; overflow: hidden; font-size: 14px; line-height:20px; white-space: nowrap; box-shadow: 2px 2px 4px #bbb; } .userBoxSlim a:link { border: 0 none; text-decoration: none; } </style>%SET{ "UserReports_slim_box_css_set" value="1" }%%ENDSECTION{slim_box_css}%
+<!--==============================================-->
+%STARTSECTION{slim_box_start}%%IF{ "'%GET{UserReports_slim_box_css_set}%'='1'" else="$percntINCLUDE{ \"%SYSTEMWEB%.UserReports\" section=\"slim_box_css\" }$percnt" }%<div style="padding:0 5px 0 5px; background-color:#f0f0f4; %IF{ "defined 'style'" then="%style%" }%">%ENDSECTION{slim_box_start}%
+<!--==============================================-->
+%STARTSECTION{slim_box_end}%<div style="clear:left;"></div></div>%ENDSECTION{slim_box_end}%
+<!--==============================================-->
+%STARTSECTION{slim_box_list}%%CALCULATE{$LISTJOIN($sp, $LISTMAP($NOP(%)INCLUDE{ "%SYSTEMWEB%.UserReports" section="slim_box" user="$item" }$NOP(%), %users%))}%%ENDSECTION{slim_box_list}%
+<!--==============================================-->
+%STARTSECTION{slim_box}%<div class='userBoxSlim'%IF{ "defined 'style'" then=" style='%style%'" }%><a href='%SCRIPTURLPATH{view}%/%USERSWEB%/%user%'><img src='%IF{ "'%FORMFIELD{ "Image" topic="%USERSWEB%.%user%" }%'!=''" then='%PUBURLPATH%/%USERSWEB%/%user%/%FORMFIELD{ "Image" topic="%USERSWEB%.%user%"}%' else='%PUBURLPATH%/%USERSWEB%/UserProfileHeader/default-user-profile.jpg' }%' alt='%user%' title='' height='20' align='left' style='margin: 0 3px 0 0; vertical-align:middle;' /> %SPACEOUT{%user%}%</a></div>%ENDSECTION{slim_box}%
+<!--==============================================-->
+</div>
+
+---++ Action: small_box
+
+<div style="float:right; width:439px; margin:0 0 10px 20px;">
+<img src="%ATTACHURLPATH%/small-box-example.png" alt="Small box example" width="439" height="113" />
+</div>
+Show small, two line height user boxes. Several actions are provided:
+
+   * Action "small_box_css": Defines the style sheets of the small boxes. Optionally include it once per page; it is done for you by the "small_box_start" action if needed.
+   * Action "small_box_start": Defines the start of a set of small boxes.
+      * Parameter =style=: Optional, overrides the css of the container div of small boxes. Default: =padding:0 5px 0 5px; background-color:#f0f0f4;=.
+   * Action "small_box": Show a single small box.
+      * Parameter =user=: Specify the !WikiWord of a single user.
+      * Parameter =style=: Optional, overrides the css of the small box. Default: =float: left; width: 130px; border: solid 1px #d0d0d8; background-color: #f8f8fb;=.
+   * Action "small_box_list": Show a set of small boxes.
+      * Parameter =users=: Specify a list of !WikiWords of users. The list may be provided by including the "user_list" action.
+      * Parameter =style=: Optional, same as action "small_box".
+   * Action "small_box_end": Defines the end of a set of small boxes.
+
+*Usage example:*
+<pre>
+%<nop>USERREPORT{ action="small_box_start" }%
+  %<nop>USERREPORT{ action="small_box" user="%WIKINAME%" }%
+  %<nop>USERREPORT{ action="small_box" user="JaneSmith" }%
+%<nop>USERREPORT{ action="small_box_end" }%
+%<nop>USERREPORT{ action="small_box_start" style="background-color: #f0f0e8;" }%
+  %<nop>USERREPORT{ action="small_box_list" users="UserOne, UserTwo, UserThree" }%
+%<nop>USERREPORT{ action="small_box_end" }%
+</pre>
+
+*Sample output:* %BR%
+<noautolink>
+%USERREPORT{ action="small_box_start" }%
+%USERREPORT{ action="small_box" user="%WIKINAME%" }%
+%USERREPORT{ action="small_box_list" users="%GET{UserReports_5_users}%" }%
+%USERREPORT{ action="small_box_end" }%
+</noautolink>
+
+<div style="display:none;">
+<!--==============================================-->
+%STARTSECTION{small_box_css}%<style> .userBox130 { float: left; width: 130px; height: 38px; border: solid 1px #d0d0d8; background-color: #f8f8fb; display: inline-block; padding: 3px 3px 3px 3px; margin: 5px 9px 5px 0; text-align: center; overflow: hidden; font-size: 14px; line-height: 18px; box-shadow: 2px 2px 4px #bbb; } .userBox130 a:link { border: 0 none; text-decoration: none; } </style>%SET{ "UserReports_small_box_css_set" value="1" }%%ENDSECTION{small_box_css}%
+<!--==============================================-->
+%STARTSECTION{small_box_start}%%IF{ "'%GET{UserReports_small_box_css_set}%'='1'" else="$percntINCLUDE{ \"%SYSTEMWEB%.UserReports\" section=\"small_box_css\" }$percnt" }%<div style="padding:0 5px 0 5px; background-color:#f0f0f4; %IF{ "defined 'style'" then="%style%" }%">%ENDSECTION{small_box_start}%
+<!--==============================================-->
+%STARTSECTION{small_box_end}%<div style="clear:left;"></div></div>%ENDSECTION{small_box_end}%
+<!--==============================================-->
+%STARTSECTION{small_box_list}%%CALCULATE{$LISTJOIN($sp, $LISTMAP($NOP(%)INCLUDE{ "%SYSTEMWEB%.UserReports" section="small_box" user="$item" }$NOP(%), %users%))}%%ENDSECTION{small_box_list}%
+<!--==============================================-->
+%STARTSECTION{small_box}%<div class='userBox130'%IF{ "defined 'style'" then=" style='%style%'" }%><a href='%SCRIPTURLPATH{view}%/%USERSWEB%/%user%'><img src='%IF{ "'%FORMFIELD{ "Image" topic="%USERSWEB%.%user%" }%'!=''" then='%PUBURLPATH%/%USERSWEB%/%user%/%FORMFIELD{ "Image" topic="%USERSWEB%.%user%"}%' else='%PUBURLPATH%/%USERSWEB%/UserProfileHeader/default-user-profile.jpg' }%' alt='%user%' title='' height='38' align='left' style='margin: 0 3px 0 0;' /> %SPACEOUT{%user%}%</a></div>%ENDSECTION{small_box}%
+<!--==============================================-->
+</div>
+
+---++ Action: business_card
+
+<div style="float:right; width:439px; margin:0 0 10px 20px;">
+<img src="%ATTACHURLPATH%/business-card-example.png" alt="Business card example" width="439" height="174" />
+</div>
+Show users in business card format. Several actions are provided:
+
+   * Action "business_card_css": Defines the style sheets of the business cards. Optionally include it once per page; it is done for you by the "business_card_start" action if needed.
+   * Action "business_card_start": Defines the start of a set of business cards.
+      * Parameter =style=: Optional, overrides the css of the container div of business cards. Default: =padding:10px 15px 1px 15px; background-color:#f0f0f4;=.
+   * Action "business_card": Show a single business card.
+      * Parameter =user=: Specify the !WikiWord of a single user.
+      * Parameter =style=: Optional, overrides the css of the business card. Default: =float: left; width: 410px; border: solid 1px #d0d0d8; background-color: #fff;=.
+   * Action "business_card_list": Show a set of business cards.
+      * Parameter =users=: Specify a list of !WikiWords of users. The list may be provided by including the "user_list" action.
+      * Parameter =style=: Optional, same as action "business_card".
+   * Action "business_card_end": Defines the end of a set of business cards.
+
+*Usage examples:*
+<pre>
+%<nop>USERREPORT{ action="business_card_start" }%
+  %<nop>USERREPORT{ action="business_card" user="%WIKINAME%" }%
+  %<nop>USERREPORT{ action="business_card" user="JaneSmith" }%
+%<nop>USERREPORT{ action="business_card_end" }%
+%<nop>USERREPORT{ action="business_card_start" style="background-color: #f0f0e8;" }%
+  %<nop>USERREPORT{ action="business_card_list" users="UserOne, UserTwo, UserThree" }%
+%<nop>USERREPORT{ action="business_card_end" }%
+</pre>
+
+*Sample output:*
+%USERREPORT{ action="business_card_start" style="background-color: #f0f0e8;" }%
+%USERREPORT{ action="business_card_list" users="%GET{UserReports_5_users}%" }%
+%USERREPORT{ action="business_card_end" }%
+
+<div style="display:none;">
+<!--==============================================-->
+%STARTSECTION{business_card_css}%<style type="text/css">
+.userBoxOuter {
+ float: left;
+ width: 410px;
+ height: 150px;
+ padding: 0;
+ margin: 0px 15px 15px 0px;
+ border: solid 1px #d0d0d8;
+ border-right-color: #707078;
+ border-bottom-color: #707078;
+ background-color: #fff;
+ box-shadow: 3px 3px 6px #bbb;
+}
+.userBoxOuter :hover {
+ border: solid 1px #707078;
+ border-right-color: #303038;
+ border-bottom-color: #303038;
+ box-shadow: 3px 3px 6px #999;
+}
+.userBoxContainer {
+ position: relative;
+ width: 100%;
+ height: 100%;
+ padding: 0;
+ margin: 0;
+ border: 0 none;
+}
+.userBoxContainer :hover {
+ border: 0 none;
+}
+.userBoxImage {
+ position: absolute;
+ width: 124px;
+ height: 124px;
+ top: 10px;
+ left: 10px;
+ padding: 3px;
+ background-color: #f0f0f8;
+ border: solid 1px #d0d0d8;
+ z-index: 0;
+ overflow: hidden;
+}
+.userBoxImageH {
+ height: 324px;
+ display: table;
+ width: 100%;
+ margin: -100px 0;
+}
+.userBoxImageP {
+ display: table-cell;
+ vertical-align: middle;
+ width: 100%;
+ text-align: center;
+}
+</style>
+<!--[if IE]><style type="text/css">
+.userBoxImageH {
+ position: relative;
+}
+.userBoxImageP {
+ position: absolute;
+ top: 50%;
+}
+.userBoxImageC {
+ position: relative;
+ top: -50%;
+}
+.userBoxImage :hover {
+ border: solid 1px #d0d0d8;
+}
+</style><![endif]-->
+<style type="text/css">
+.userBoxImgMask {
+ position: absolute;
+ width: 130px;
+ height: 3px;
+ top: 11px;
+ left: 11px;
+ background-color: #f0f0f8;
+ border: 0 none;
+ z-index: 0;
+}
+.userBoxInfo {
+ position: absolute;
+ width: 236px;
+ height: 130px;
+ top: 10px;
+ left: 160px;
+ margin: 0;
+ z-index: 0;
+ white-space: nowrap;
+ color: #333;
+ overflow: hidden;
+}
+.userBoxName {
+ font-weight: 600;
+ font-size: 120%;
+ color: #000;
+}
+.userBoxLinkC {
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ top: 0;
+ left: 0;
+ padding: 0;
+ margin: 0;
+ z-index: 0;
+}
+.userBoxLink {
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ top: 0;
+ left: 0;
+ z-index: 10;
+}
+</style>%SET{ "UserReports_business_card_css_set" value="1" }%%ENDSECTION{business_card_css}%
+<!--==============================================-->
+%STARTSECTION{business_card_start}%%IF{ "'%GET{UserReports_business_card_css_set}%'='1'" else="$percntINCLUDE{ \"%SYSTEMWEB%.UserReports\" section=\"business_card_css\" }$percnt" }%<div style="padding:10px 15px 1px 15px; background-color:#f0f0f4; %IF{ "defined 'style'" then="%style%" }%">%ENDSECTION{business_card_start}%
+<!--==============================================-->
+%STARTSECTION{business_card_end}%<div style="clear:left;"></div></div>%ENDSECTION{business_card_end}%
+<!--==============================================-->
+%STARTSECTION{business_card_list}%%CALCULATE{$LISTJOIN($sp, $LISTMAP($NOP(%)INCLUDE{ "%SYSTEMWEB%.UserReports" section="business_card" user="$item" }$NOP(%), %users%))}%%ENDSECTION{business_card_list}%
+<!--==============================================-->
+%STARTSECTION{business_card}%<noautolink>
+<div class="userBoxOuter"%IF{ "defined 'style'" then=" style=\"%style%\"" }%>
+<div class="userBoxContainer">
+<div class="userBoxImage">
+<div class="userBoxImageH">
+<div class="userBoxImageP">
+<div class="userBoxImageC">
+<a href="%SCRIPTURLPATH{view}%/%USERSWEB%/%USER%"><img src="%IF{ "'%FORMFIELD{ "Image" topic="%USERSWEB%.%user%" }%'!=''" then='%PUBURLPATH%/%USERSWEB%/%user%/%FORMFIELD{ "Image" topic="%USERSWEB%.%user%" }%' else='%PUBURLPATH%/%USERSWEB%/UserProfileHeader/default-user-profile.jpg' }%" width="124" alt="" border="0" /></a>
+</div>
+</div>
+</div>
+</div>
+<div class="userBoxImgMask">
+</div>
+<div class="userBoxImgMask" style="top: 138px;">
+</div>
+<div class="userBoxInfo">
+<span class="userBoxName">%FORMFIELD{ "FirstName" topic="%USERSWEB%.%user%" }% %FORMFIELD{ "LastName" topic="%USERSWEB%.%user%" }%</span>
+%BR%
+%FORMFIELD{ "Titles" topic="%USERSWEB%.%user%" }%%IF{ "'%FORMFIELD{ "Titles" topic="%USERSWEB%.%user%" }%'!='' AND '%FORMFIELD{ "Department" topic="%USERSWEB%.%user%" }%'!=''" then=', '}% %FORMFIELD{ "Department" topic="%USERSWEB%.%user%" }%
+%BR%
+%FORMFIELD{ "Organization" topic="%USERSWEB%.%user%" }%, %FORMFIELD{ "Location" topic="%USERSWEB%.%user%" }%, %FORMFIELD{ "Country" topic="%USERSWEB%.%user%" }%
+%BR%
+%ICON{mail}% <nop>%FORMFIELD{ "Email" topic="%USERSWEB%.%user%" }% %IF{ "'%FORMFIELD{ "Telephone" topic="%USERSWEB%.%user%" }%'!=''" then='%BR% %ICON{phone}% %FORMFIELD{ "Telephone" topic="%USERSWEB%.%user%" }%' }% %IF{ "'%FORMFIELD{ "Mobile" topic="%USERSWEB%.%user%" }%'!=''" then='%BR% %ICON{mobile}% %FORMFIELD{ "Mobile" topic="%USERSWEB%.%user%" }%'
+ }%
+</div>
+<div class="userBoxLinkC">
+<a href="%SCRIPTURLPATH{view}%/%USERSWEB%/%user%"><span class="userBoxLink"></span></a>
+</div>
+</div>
+</div>
+</noautolink>%ENDSECTION{business_card}%
+<!--==============================================-->
+</div>
+
+---++ Action: select_one_user
+
+Show a selector to pick a user, for use in HTML forms.
+
+   * Action "select_one_user": Selector to pick a user.
+      * Parameter =name=: Name of form field, required.
+      * Parameter =selected=: !WikiWord name of a user, optional.
+      * Parameter =users=: Specify a list of !WikiWords of users, optional. The list may be provided by including the "user_list" action. All registered users are shown if the parameter is missing.
+      * Parameter =firstoption=: Label of first option, optional. Default: =Select...=
+      * Parameter =firstvalue=: Value of first option, optional. Default: empty value
+
+*Usage example:*
+<pre>
+&lt;form&gt;
+%<nop>USERREPORT{ action="select_one_user" name="Owner" selected="%WIKINAME%" }%
+&lt;/form&gt;
+</pre>
+
+*Sample output:* %BR%
+<form>
+%USERREPORT{ action="select_one_user" name="Owner" selected="%WIKINAME%" users="%GET{UserReports_100_users}%" }%
+</form>
+
+<div style="display:none;">
+<!--==============================================-->
+%STARTSECTION{select_one_user}%<select name="%name%"> <option value="%IF{ "defined 'firstvalue'" then="%firstvalue%" }%">%IF{ "defined 'firstoption'" then="%firstoption%" else="Select..." }%</option> %CALCULATE{$SET(selected_sp, $LISTJOIN($sp, %selected%))$LISTJOIN($sp, $LISTMAP(<option value='$item' $IF($FIND($item, $GET(selected_sp)), selected='selected')>$PROPERSPACE($item)</option>, %IF{ "defined 'users'" then="%users%" else="%IF{ "'%GET{UserReports_all_users}%'=''" then="$percntSET{ \"UserReports_all_users\" value=\"$percntINCLUDE{ $quot%SYSTEMWEB%.UserReports$quot section=$quotuser_list$quot }$percnt\" }$percnt" }%%GET{UserReports_all_users}%" }%))}% </select>%ENDSECTION{select_one_user}%
+<!--==============================================-->
+</div>
+
+---++ Action: select_users
+
+<div style="float:right; width:410px; margin:0 0 10px 20px;">
+<img src="%PUBURLPATH%/%WEB%/%TOPIC%/select-users-example.png" alt="Select users example" width="410" height="216" />
+</div>
+Show rows of checkboxes to select users, for use in HTML forms.
+
+   * Action "select_users": Set of checkboxes to select users.
+      * Parameter =name=: Name of form field, required.
+      * Parameter =selected=: List of !WikiWord names indicating the selected users, optional.
+      * Parameter =users=: Specify a list of !WikiWords of users, optional. The list may be provided by including the "user_list" action. All registered users are shown if the parameter is missing.
+      * Parameter =colums=: Define number of columns, optional. Default: =5=
+      * Parameter =style=: Set the css of the container div, optional. Default: =margin: 0; border: 1px solid transparent;=
+
+*Usage example:*
+<pre>
+&lt;form&gt;
+%<nop>USERREPORT{ action="select_users" name="Members" selected="%WIKINAME%, AmandaBoris" }%
+&lt;/form&gt;
+</pre>
+
+*Sample output:* %BR%
+<form>
+%USERREPORT{ action="select_users" name="Members" selected="%WIKINAME%, AmandaBoris" users="%GET{UserReports_100_users}%" style="background-color: #f0f0f4;" }%
+</form>
+
+<div style="display:none;">
+<!--==============================================-->
+%STARTSECTION{select_users}%<style> .selectUsersTable { border: 0 none; padding: 0; } .selectUsersTable td { border: 0 none; padding: 0 1em 0 0; } </style> %IF{ "defined 'users'" then="$percntSET{ \"UserReports_the_users\" value=\"%users%\" }$percnt" else="%IF{ "'%GET{UserReports_all_users}%'=''" then="$percntSET{ \"UserReports_all_users\" value=\"$percntINCLUDE{ $quot%SYSTEMWEB%.UserReports$quot section=$quotuser_list$quot }$percnt\" }$percnt" }%$percntSET{ \"UserReports_the_users\" value=\"%GET{UserReports_all_users}%\" }$percnt" }%<div style="margin: 0; border: 1px solid transparent; %IF{ "defined 'style'" then="%style%" }%"><div style="margin: -1.5em 0 0 0; overflow: hidden;"><table border="0" cellpadding="0" callspacing="0" class="selectUsersTable"><tr><td valign='top'>%CALCULATE{$SET(selected_sp, $LISTJOIN($sp, %selected%))$SET(rows, $INT($EVAL(0.99999+$MAX(1, $LISTSIZE(%GET{UserReports_the_users}%))/%IF{ "defined 'columns'" then="%columns%" else="5" }%))) $LISTJOIN($sp, $LISTMAP(<br /><label style='white-space: nowrap'><input type='checkbox' name='%name%' value='$item' $IF($FIND($item, $GET(selected_sp)), checked='checked') class='twikiEditFormCheckboxField' /> $PROPERSPACE($item) </label>$IF($MOD($index, $GET(rows)), , </td><td valign='top'>), %GET{UserReports_the_users}%))}% </td></tr></table><input type="hidden" name="%name%" value="" /></div></div>%ENDSECTION{select_users}%
+<!--==============================================-->
+</div>
+
+__Note to Maintainer:__
+
+   * This topic has user report sections intended for TWiki application developers.
+   * This topic uses more user friendly ParameterizedVariables =%<nop>USERREPORT{ action="foo" ... }%= instead of the more verbose parameterized include =%<nop>INCLUDE{ "%<nop>SYSTEMWEB%.UserReports" section="foo" ... }%=.
+   * If you add a section to this topic, or add a parameter to a section, make sure to keep the parameterized variables settings in TWikiPreferences#ParameterizedVariables in sync.
+
+%INCLUDE{%USERSWEB%.UserListHeader}%, VarUSERREPORT, TWikiUserMappingContrib
+
+-- TWiki:Main.PeterThoeny - 2014-10-04
+
+%META:FILEATTACHMENT{name="business-card-example.png" attachment="business-card-example.png" attr="h" comment="" date="1338678337" path="business-card-example.png" size="42890" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="faded-bubble.png" attachment="faded-bubble.png" attr="h" comment="Faded bubble for BUBBLESIG comments" date="1360196652" path="faded-bubble.png" size="12985" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="small-box-example.png" attachment="small-box-example.png" attr="h" comment="" date="1343433327" path="small-box-example.png" size="28290" user="TWikiContributor" version="2"}%
+%META:FILEATTACHMENT{name="slim-box-example.png" attachment="slim-box-example.png" attr="h" comment="" date="1343432567" path="slim-box-example.png" size="16868" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="select-users-example.png" attachment="select-users-example.png" attr="h" comment="" date="1343446655" path="select-users-example.png" size="30862" user="TWikiContributor" version="1"}%

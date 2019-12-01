@@ -1,0 +1,213 @@
+head	1.7;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.7
+date	2014.03.16.07.22.27;	author TWikiContributor;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2013.03.30.01.55.46;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2010.07.01.04.13.59;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2010.05.29.14.44.21;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2008.01.22.03.21.30;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2007.01.16.04.12.03;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.06.25.16.26.29;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.7
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1394954547" format="1.1" version="7"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarMETA
+---+++ META -- displays meta-data
+   * Provided mainly for use in templates, this variable generates the parts of the topic view that relate to meta-data (attachments, forms etc.) The =formfield= item is the most likely to be useful to casual users.
+   * Syntax: =%<nop>META{ "item" ...}%=
+   * Parameters:
+     | *Item* | *Options* | *Description* |
+     | ="formfield"= | =name="..."=: name of the field. The field value can be shortened as described in %SYSTEMWEB%.FormattedSearch for =$formfield=. %BR% \
+                       =newline="..."=: by default, each newline character will be rewritten to =&lt;br /&gt;= to allow metadata that contains newlines to be used in tables, etc. =$n= indicates a newline character.%BR% \
+                       =bar="..."=: by default, each vertical bar is rewritten to an HTML entity so as to not be mistaken for a table separator.%BR% \
+                       =encode="<i>type</i>"=: have the value encoded in the specified _type_. Possible types are the same as [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENCODE][ENCODE]]'s. If this is specified, =newline= and =bar= options are ignored. %BR% \
+                       =topic="..."=: Get meta info of "Topic" or "Web.Topic"; default ="%<nop>BASEWEB%.%<nop>BASETOPIC%"=. \
+                    | Show a single form field |
+     | ="form"= | =topic="..."=: Get meta info of "Topic" or "Web.Topic"; default ="%<nop>BASEWEB%.%<nop>BASETOPIC%"=. \
+                        | Generates the table showing the form fields. See [[TWikiDocumentation#Form_Templates][Form Templates]] |
+     | ="attachments"= | =all="on"= to show hidden attachments.%BR% \
+                         =title="..."= to show a title - only if attachments are displayed.%BR% \
+                         =template="..."= to use a custom template for the rendering of attachments; default =attachtables= is used.%BR% \
+                         =topic="..."=: Get meta info of "Topic" or "Web.Topic"; default ="%<nop>BASEWEB%.%<nop>BASETOPIC%"=. \
+                        | Generates the list of attachments |
+     | ="moved"= | =topic="..."=: Get meta info of "Topic" or "Web.Topic"; default ="%<nop>BASEWEB%.%<nop>BASETOPIC%"=. \
+                        | Details of any topic moves |
+     | ="parent"= | =dontrecurse="on"=: By default recurses up tree, this has some cost.%BR% \
+                    =nowebhome="on"=: Suppress <nop>%HOMETOPIC%. %BR% \
+                    =prefix="..."=: Prefix that goes before parents, but only if there are parents, default =""=. %BR% \
+                    =format="..."=: Format string used to display each parent topic where =$web= expands to the web name, and =$topic= expands to the topic name; default: ="[<nop>[$web.$topic][$topic]]"= %BR% \
+                    =suffix="..."=: Suffix, only appears if there are parents; default =""=. %BR% \
+                    =separator="..."=: Separator between parents; default =" &gt; "=. %BR% \
+                    =topic="..."=: Get meta info of "Topic" or "Web.Topic"; default ="%<nop>BASEWEB%.%<nop>BASETOPIC%"=. \
+                  | Generates the parent link |
+   * Attention: The base topic, not the current topic, is used if =%<nop>META{}%= is placed in an included topic. Add a =topic="%<nop>WEB%.%<nop>TOPIC%"= parameter if you need meta info of the current topic.
+   * Note: [[FormatTokens][Formatting tokens]] can be used for =newline=, =prefix=, =format=, =suffix= and =separator= options, such as =separator="$n   * "=
+   * Category: AttachmentsAndFilesVariables, SearchingAndListingVariables, SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarEDITFORM][EDITFORM]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarEDITFORMFIELD][EDITFORMFIELD]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarFORM][FORM]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarFORMFIELD][FORMFIELD]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETASEARCH][METASEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarPARENTTOPIC][PARENTTOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENCODE][ENCODE]], FormattedSearch
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1364608546" format="1.1" version="6"}%
+d35 1
+a35 1
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarEDITFORMFIELD][EDITFORMFIELD]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarFORMFIELD][FORMFIELD]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETASEARCH][METASEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarPARENTTOPIC][PARENTTOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENCODE][ENCODE]], FormattedSearch
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1277957639" format="1.1" version="5"}%
+d12 1
+d32 4
+a35 3
+   * __Attention:__ The base topic, not the current topic, is used if =%<nop>META{}%= is placed in an included topic. Add a =topic="%<nop>WEB%.%<nop>TOPIC%"= parameter if you need meta info of the current topic.
+   * __Note:__ [[FormatTokens][Formatting tokens]] can be used for =newline=, =prefix=, =format=, =suffix= and =separator= options, such as =separator="$n   * "=
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETASEARCH][METASEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarPARENTTOPIC][PARENTTOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]], FormattedSearch
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1272429972" format="1.1" version="4"}%
+d33 1
+a33 1
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETASEARCH][METASEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]], FormattedSearch
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.1" version="3"}%
+d9 4
+a12 3
+     | ="formfield"= | =name="..."=: name of the field. The field value can be shortened as described in %SYSTEMWEB%.FormattedSearch for =$formfield= %BR% \
+                       =newline="..."=: by default, each newline character will be rewritten to =&lt;br /&gt;= to allow metadata that contains newlines to be used in tables, etc. =$n= indicates a newline character. %BR% \
+                       =bar="..."=: by default, each vertical bar is rewritten to an HTML entity so as to not be mistaken for a table separator. \
+d14 10
+a23 7
+     | ="form"= | _none_ | Generates the table showing the form fields. See [[TWikiDocumentation#Form_Templates][Form Templates]] |
+     | ="attachments"= | =all="on"= to show hidden attachments. %BR% \
+     					 =title="..."= to show a title - only if attachments are displayed. %BR% \
+     					 =template="..."= to use a custom template for the rendering of attachments; default =attachtables= is used. \
+      			| Generates the list of attachments |
+     | ="moved"= | _none_ | Details of any topic moves |
+     | ="parent"= | =dontrecurse="on"=: By default recurses up tree, this has some cost. %BR% \
+d25 5
+a29 4
+		    =prefix="..."=: Prefix that goes before parents, but only if there are parents, default =""=. %BR% \
+		    =format="..."=: Format string used to display each parent topic where =$web= expands to the web name, and =$topic= expands to the topic name; default: ="[<nop>[$web.$topic][$topic]]"= %BR% \
+		    =suffix="..."=: Suffix, only appears if there are parents; default =""=. %BR% \
+		    =separator="..."=: Separator between parents; default =" &gt; "=. \
+d31 3
+a33 2
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETASEARCH][METASEARCH]]
+
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.2" version="2"}%
+a3 1
+
+d9 1
+a9 1
+     | ="formfield"= | =name="..."=: name of the field. The field value can be shortened as described in %TWIKIWEB%.FormattedSearch for =$formfield= %BR% \
+d26 1
+a26 1
+   * Related: [[#VarMETASEARCH][METASEARCH]]
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.2" version="1"}%
+d10 4
+a13 1
+     | ="formfield"= | =name="..."= - name of the field. The field value can be shortened as described in %TWIKIWEB%.FormattedSearch for =$formfield= | Show a single form field |
+d15 4
+a18 1
+     | ="attachments"= | =all="on"= to show hidden attachments | Generates the table showing the attachments |
+d20 6
+a25 6
+     | ="parent"= | ==dontrecurse="on"==: By default recurses up tree, this has some cost. %BR% \
+                    ==nowebhome="on"==: Suppress <nop>%HOMETOPIC%. %BR% \
+		    ==prefix="..."==: Prefix that goes before parents, but only if there are parents, default =""=. %BR% \
+		    ==format="..."==: format string used to display each partent topic, default ="[<nop>[$web.$topic][$topic]]"= %BR% \
+		    ==suffix="..."==: Suffix, only appears if there are parents, default =""=. %BR% \
+		    ==separator="..."==: Separator between parents, default =" &gt; "=. \
+@

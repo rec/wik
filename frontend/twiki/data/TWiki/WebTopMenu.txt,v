@@ -1,0 +1,113 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2011.07.28.22.00.57;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2010.09.23.07.05.51;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2010.05.29.14.44.24;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1311890457" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TopMenuSkin"}%
+---+ Top Menu of <nop>%WEB% Web
+
+This topic defines the menu structure of the <nop>%WEB% web, used by the [[TopMenuSkin]].
+
+-----
+%INCLUDE{"%SYSTEMWEB%.TopMenuSkin"}%
+<div class="twTopMenuTab">%STARTINCLUDE%
+%INCLUDE{%SYSTEMWEB%.TopMenuSkinHomeMenu}%
+   * [[%BASEWEB%.%HOMETOPIC%][ <img src="%ICONURL{web-bg}%" border="0" alt="" width="16" height="16" style="background-color:%WEBBGCOLOR%" /> <nop>%MAKETEXT{"[_1] Web" args="%BASEWEB{format="$current"}%"}% %ICONURL{menu-down}% ]]
+      * [[%BASEWEB%.TWikiRegistration][ %ICON{"edittable"}% %MAKETEXT{"User registration"}%]]
+      * [[%USERSWEB%.UserList][ %ICON{"person"}% %MAKETEXT{"Users"}%]]
+      * [[%USERSWEB%.TWikiGroups][ %ICON{"group"}% %MAKETEXT{"Groups"}%]]
+      * [[%BASEWEB%.WebTopicList][ %ICON{"index"}% %MAKETEXT{"Index"}%]]
+      * [[%BASEWEB%.WebSearch][ %ICON{"searchtopic"}% %MAKETEXT{"Search"}%]]
+      * [[%BASEWEB%.WebChanges][ %ICON{"changes"}% %MAKETEXT{"Changes"}%]]
+      * [[%BASEWEB%.WebNotify][ %ICON{"notify"}% %MAKETEXT{"Notifications"}%]]
+      * [[%BASEWEB%.WebRss][ %ICON{"feed"}% %MAKETEXT{"RSS Feed"}%]]
+      * [[%BASEWEB%.WebStatistics][ %ICON{"statistics"}% %MAKETEXT{"Statistics"}%]]
+      * [[%BASEWEB%.WebPreferences][ %ICON{"wrench"}% %MAKETEXT{"Preferences"}%]]
+%INCLUDE{%SYSTEMWEB%.TopMenuSkinTopicMenu}%
+   * [[UserDocumentationCategory][%MAKETEXT{"User Reference"}% %ICONURL{menu-down}% ]]
+      * [[ATasteOfTWiki]]
+      * [[TextFormattingRules]]
+      * [[TWikiVariables]]
+      * [[FormattedSearch]]
+      * [[QuerySearch]]
+      * [[TWikiDocGraphics]]
+      * [[TWikiSkinBrowser]]
+      * [[InstalledPlugins]]
+   * [[AdminToolsCategory][%MAKETEXT{"Admin Maintenance"}% %ICONURL{menu-down}% ]]
+      * [[TWikiReferenceManual][Reference Manual]]
+      * [[InterWikis]]
+      * [[ManagingUsers]]
+      * [[ManagingWebs]]
+      * [[TWikiSiteTools]]
+      * [[%WIKIPREFSTOPIC%]]
+      * [[%WEBPREFSTOPIC%]]
+   * [[CategoryCategory][%MAKETEXT{"Categories"}% %ICONURL{menu-down}% ]]
+      * [[AdminDocumentationCategory][Admin Documentation]]
+      * [[AdminToolsCategory][Admin Tools]]
+      * [[DeveloperDocumentationCategory][Developer Doc]]
+      * [[UserDocumentationCategory][User Documentation]]
+      * [[UserToolsCategory][User Tools]]
+%STOPINCLUDE%</div>
+-----
+
+   * Disable WYSIWYG editor for this page:
+      * Set EDITMETHOD = raw
+
+__Related topics:__ [[TopMenuSkin]], [[TopMenuSkinTopBar]], [[TopMenuSkinDefaultWebTopMenu]], [[TopMenuSkinHomeMenu]], [[TopMenuSkinTopicMenu]]
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1285225551" format="1.1" version="2"}%
+d13 1
+a13 1
+      * %IF{"istopic '%USERSWEB%.TWikiUsers'" else=" $percntICON{\"person\"}$percnt $percntMAKETEXT{\"Users\"}$percnt" then="[[$percntUSERSWEB$percnt.TWikiUsers][ $percntICON{\"person\"}$percnt $percntMAKETEXT{\"Users\"}$percnt]]"}%
+d49 3
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1274934250" format="1.1" version="1"}%
+d35 1
+@

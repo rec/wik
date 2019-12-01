@@ -1,0 +1,35 @@
+%META:TOPICINFO{author="TWikiContributor" date="1394954547" format="1.1" version="7"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarMETA
+---+++ META -- displays meta-data
+   * Provided mainly for use in templates, this variable generates the parts of the topic view that relate to meta-data (attachments, forms etc.) The =formfield= item is the most likely to be useful to casual users.
+   * Syntax: =%<nop>META{ "item" ...}%=
+   * Parameters:
+     | *Item* | *Options* | *Description* |
+     | ="formfield"= | =name="..."=: name of the field. The field value can be shortened as described in %SYSTEMWEB%.FormattedSearch for =$formfield=. %BR% \
+                       =newline="..."=: by default, each newline character will be rewritten to =&lt;br /&gt;= to allow metadata that contains newlines to be used in tables, etc. =$n= indicates a newline character.%BR% \
+                       =bar="..."=: by default, each vertical bar is rewritten to an HTML entity so as to not be mistaken for a table separator.%BR% \
+                       =encode="<i>type</i>"=: have the value encoded in the specified _type_. Possible types are the same as [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENCODE][ENCODE]]'s. If this is specified, =newline= and =bar= options are ignored. %BR% \
+                       =topic="..."=: Get meta info of "Topic" or "Web.Topic"; default ="%<nop>BASEWEB%.%<nop>BASETOPIC%"=. \
+                    | Show a single form field |
+     | ="form"= | =topic="..."=: Get meta info of "Topic" or "Web.Topic"; default ="%<nop>BASEWEB%.%<nop>BASETOPIC%"=. \
+                        | Generates the table showing the form fields. See [[TWikiDocumentation#Form_Templates][Form Templates]] |
+     | ="attachments"= | =all="on"= to show hidden attachments.%BR% \
+                         =title="..."= to show a title - only if attachments are displayed.%BR% \
+                         =template="..."= to use a custom template for the rendering of attachments; default =attachtables= is used.%BR% \
+                         =topic="..."=: Get meta info of "Topic" or "Web.Topic"; default ="%<nop>BASEWEB%.%<nop>BASETOPIC%"=. \
+                        | Generates the list of attachments |
+     | ="moved"= | =topic="..."=: Get meta info of "Topic" or "Web.Topic"; default ="%<nop>BASEWEB%.%<nop>BASETOPIC%"=. \
+                        | Details of any topic moves |
+     | ="parent"= | =dontrecurse="on"=: By default recurses up tree, this has some cost.%BR% \
+                    =nowebhome="on"=: Suppress <nop>%HOMETOPIC%. %BR% \
+                    =prefix="..."=: Prefix that goes before parents, but only if there are parents, default =""=. %BR% \
+                    =format="..."=: Format string used to display each parent topic where =$web= expands to the web name, and =$topic= expands to the topic name; default: ="[<nop>[$web.$topic][$topic]]"= %BR% \
+                    =suffix="..."=: Suffix, only appears if there are parents; default =""=. %BR% \
+                    =separator="..."=: Separator between parents; default =" &gt; "=. %BR% \
+                    =topic="..."=: Get meta info of "Topic" or "Web.Topic"; default ="%<nop>BASEWEB%.%<nop>BASETOPIC%"=. \
+                  | Generates the parent link |
+   * Attention: The base topic, not the current topic, is used if =%<nop>META{}%= is placed in an included topic. Add a =topic="%<nop>WEB%.%<nop>TOPIC%"= parameter if you need meta info of the current topic.
+   * Note: [[FormatTokens][Formatting tokens]] can be used for =newline=, =prefix=, =format=, =suffix= and =separator= options, such as =separator="$n   * "=
+   * Category: AttachmentsAndFilesVariables, SearchingAndListingVariables, SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarEDITFORM][EDITFORM]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarEDITFORMFIELD][EDITFORMFIELD]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarFORM][FORM]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarFORMFIELD][FORMFIELD]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETASEARCH][METASEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarPARENTTOPIC][PARENTTOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENCODE][ENCODE]], FormattedSearch

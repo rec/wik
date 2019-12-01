@@ -1,0 +1,69 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2014.06.05.19.36.57;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2013.10.14.08.02.46;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1401997017" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiGroups"}%
+---+ %PARENTBC% All Users Group
+
+This is a special group literally all users belong. The main use of this group is to lift a web level restriction at the topic level.
+
+This is close to [[AllAuthUsersGroup]]. The difference is that unauthenticated users belong to [[AllUsersGroup]] but not to [[AllAuthUsersGroup]]. 
+
+Let's say a web is viewable only by the members of the !DarkSideGroup by the following line on !WebPreferences.
+<pre>
+   * <nop>Set ALLOWWEBVIEW = %USERSWEB%.DarkSideGroup
+</pre>
+By putting the following line on a topic, you can make it viewable by anybody.
+<pre>
+   * <nop>Set ALLOWTOPICVIEW = %USERSWEB%.AllUsersGroup
+</pre>
+
+This topic is not necessary for the group to work because the group is implemented in the code instead of a topic that has members.
+
+<!--
+   * Set READONLYSKINMODE = 1
+-->
+__Related topics:__ [[TWikiGroups]], [[AllAuthUsersGroup]], [[%SYSTEMWEB%.TWikiAccessControl][TWikiAccessControl]]
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1378176568" format="1.1" version="1"}%
+d3 1
+a3 1
+---+ [[TWikiGroups]] &#187; All Users Group
+d20 4
+a23 1
+__Related topics__: [[%SYSTEMWEB%.TWikiAccessControl][TWikiAccessControl]], [[AllAuthUsersGroup]]
+@

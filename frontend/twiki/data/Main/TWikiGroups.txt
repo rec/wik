@@ -1,0 +1,26 @@
+%META:TOPICINFO{author="TWikiContributor" date="1401997934" format="1.1" version="13"}%
+---+ TWiki Groups
+
+Use these groups to define fine grained [[%SYSTEMWEB%.TWikiAccessControl][access control]] in <nop>%WIKITOOLNAME%:
+
+%GROUPS%
+
+<form action="%SCRIPTURLPATH{"save"}%/%WEB%/" method="post" onsubmit="if( /^[A-Z]+[a-z0-9]+[A-Z-a-z0-9]*Group$/.test( this.topic.value ) ) { return true; }; alert( 'A group topic name must be a !WikiWord and must end in ...Group' ); return false;">
+%TABLE{databg="#f4f4f8" cellpadding="10"}%
+| <span style="white-space: nowrap;">New Group:</span> |<input type="text" name="topic" value="NameGroup" size="40" class="twikiInputField" />&nbsp;<input class="twikiSubmit" type="submit" value="Add"/> |
+|^|%ICON{"warning"}% A group topic name must be a [[%SYSTEMWEB%.WikiWord][WikiWord]] and __must__ end in =...Group=. %BR% %ICON{"tip"}% New topics are based on [[TWikiGroupTemplate]] |
+<input type="hidden" name="templatetopic" value="TWikiGroupTemplate"/>
+<input type="hidden" name="topicparent" value="%TOPIC%"/>
+<input type="hidden" name="onlywikiname" value="on" />
+<input type="hidden" name="onlynewtopic" value="on" />
+</form>
+
+*IMPORTANT NOTE:* Think twice before restricting write access to a web or a topic, because an open system where everybody can contribute is the essence of [[%SYSTEMWEB%.WikiCulture][WikiCulture]]. Experience shows that unrestricted write access works very well because:
+   * There is enough peer pressure to post only appropriate content.
+   * Content does not get lost because topics are under revision control.
+   * A topic can be rolled back to a previous version.
+
+<!--
+   * Set READONLYSKINMODE = 1
+-->
+__Related topics:__ [[%SYSTEMWEB%.TWikiAccessControl][TWikiAccessControl]], [[%WEBPREFSTOPIC%]], [[UserList]], [[%WIKIUSERSTOPIC%]], [[%SYSTEMWEB%.WikiCulture][WikiCulture]]

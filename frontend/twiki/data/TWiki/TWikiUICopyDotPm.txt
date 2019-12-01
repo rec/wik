@@ -1,0 +1,17 @@
+---+ Package =TWiki::UI::Copy=
+
+UI delegate for copy function
+
+
+%TOC%
+
+---++ StaticMethod *copy* <tt>($session)</tt>
+
+=copy= command handler.
+This method is designed to be
+invoked via the =UI::run= method.
+Copy the given topic in its entirety including its history and attachments.
+
+See TWiki.TWikiScripts for details of parameters.
+
+

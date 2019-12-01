@@ -1,0 +1,8 @@
+%META:TOPICINFO{author="TWikiContributor" date="1352959191" format="1.1" version="5"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarPUBURLPATH
+---+++ PUBURLPATH -- the base URL path of attachments
+   * Syntax: =%<nop>PUBURLPATH%=
+   * Expands to: =%PUBURLPATH%=
+   * Category: AttachmentsAndFilesVariables, SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarATTACHURL][ATTACHURL]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarATTACHURLPATH][ATTACHURLPATH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarPUBURL][PUBURL]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSCRIPTURL][SCRIPTURL]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSCRIPTURLPATH][SCRIPTURLPATH]], FileAttachments

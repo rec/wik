@@ -1,0 +1,8 @@
+%META:TOPICINFO{author="TWikiContributor" date="1275629766" format="1.1" version="8"}%
+---+ TWiki Enhancement Requests
+
+The TWiki community is looking forward to getting feedback from the actual TWiki user base. You can help make TWiki a better product by posting your enhancement requests to TWiki:Codev/FeatureEnhancementRequest. If you discovered a bug please file a report at TWikibug:WebHome.
+
+__Related Topics:__
+   * TWikiHistory has a list of added features in TWiki.
+   * TWikiDocumentation is the implementation documentation. 

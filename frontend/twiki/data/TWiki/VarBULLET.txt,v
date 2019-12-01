@@ -1,0 +1,97 @@
+head	1.4;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.4
+date	2013.10.02.21.27.09;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2010.05.29.14.44.45;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.01.22.03.21.28;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2007.01.16.04.12.01;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1380749229" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarBULLET
+---+++ BULLET -- bullet sign
+   * Bullet sign, useful to create a bullet list in a TWiki table, such as =| %<nop>BULLET% One %<nop>BB% Two %<nop>BB% Three |=
+   * Type: Preference variable - TWikiRenderingShortcut.
+   * Syntax: =%<nop>BULLET%=
+   * Expands to: %BULLET%
+   * Category: FormattingAndRenderingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB][BB]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB2][BB2]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB3][BB3]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB4][BB4]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBR][BR]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarCARET][CARET]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarLAQUO][LAQUO]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarNBSP][NBSP]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarPARENTBC][PARENTBC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarRAQUO][RAQUO]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarVBAR][VBAR]], [[TWikiPreferences#RenderingShortcuts][TWikiPreferences rendering shortcuts]]
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1274763999" format="1.1" version="3"}%
+d9 2
+a10 1
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB][BB]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB2][BB2]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB3][BB3]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB4][BB4]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBR][BR]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarCARET][CARET]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarVBAR][VBAR]], [[TWikiPreferences#RenderingShortcuts][TWikiPreferences rendering shortcuts]]
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 2
+a2 2
+%META:TOPICINFO{author="TWikiContributor" date="1176595670" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiPreferences"}%
+d4 2
+a5 2
+
+---+++ BULLET -- bullet character
+d7 3
+a9 2
+   * Current value: BULLET = %BULLET%
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBR][BR]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB][BB]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB2][BB2]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB3][BB3]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB4][BB4]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarCARET][CARET]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarVBAR][VBAR]]
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1152047758" format="1.2" version="1"}%
+d8 1
+a8 1
+   * Related: [[#VarBR][BR]], [[#VarBB][BB]], [[#VarBB2][BB2]], [[#VarBB3][BB3]], [[#VarBB4][BB4]], [[#VarVBAR][VBAR]]
+@

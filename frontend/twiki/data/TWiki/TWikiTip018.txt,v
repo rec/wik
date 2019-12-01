@@ -1,0 +1,61 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2010.06.28.01.49.14;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.24;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1277689754" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiTipsOfTheDay"}%
+---+ Inline search
+
+To embed a search in a topic, use the =%<nop>SEARCH{ &lt;parameters&gt; }%= TWiki Variable. The search variable is used by many TWiki applications.
+
+__Related Topics:__ VarSEARCH, FormattedSearch, QuerySearch
+
+[[TWikiTipsOfTheDay][See More Tips...]]
+
+-- __Contributors:__ TWiki:Main.PaulineCheung, TWiki:Main.PeterThoeny
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1107571155" format="1.0" version="1"}%
+d5 1
+a5 1
+To embed a search in a topic, use the =%<nop>SEARCH{ &lt;parameters&gt; }%= TWiki Variable. The search variable is used by many TWiki based applications.
+d7 1
+a7 1
+[[TWikiVariables#VarSEARCH][More Information...]]
+d11 1
+a11 2
+-- TWiki:Main.PaulineCheung - 01 Feb 2005
+
+@

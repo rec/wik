@@ -1,0 +1,31 @@
+%META:TOPICINFO{author="TWikiContributor" date="1366689596" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiDocGraphics"}%
+---+!! Site Documentation Graphics
+%NOP{
+<sticky><div style="background-color:yellow"></sticky> *Do not modify this system topic. This is the template topic for %USERSWEB%.SiteDocGraphics, instantiated in [[%SYSTEMWEB%.TWikiDocGraphics]].* <sticky></div></sticky>
+}%
+Site specific documentation graphics are defined in this topic. Add your own graphic images here, they will survive a TWiki system update. (The [[%SYSTEMWEB%.TWikiDocGraphics]] topic has documentation graphic images provided by the TWiki system).
+
+To add an image, create an image with a lower case name, attach it to this topic, and add a new line in the table below to let TWiki know about the image. It is also possible to overload (e.g. redefine) an image defined in !TWikiDocGraphics.
+
+<noautolink>
+%TABLE{headeralign="left" databg="#ffffff,#ffffff" databgsorted="#f5f5f5"}%
+| *<nop>* | *Variable* | *Description* | *Type* | *Size* | *Alias* |
+| %ICON{example}% | =%<nop>ICON{example}%= | Example (replace this row) | gif | 16x16 |  |
+</noautolink>
+
+Format of above table:
+<verbatim>
+   * Column 1: ICON variable, must be of format: %ICON{example}%
+   * Column 2: Escaped variable for display, typically of format: =%<nop>ICON{example}%=
+   * Column 3: Description, shown in alt parameter and title parameter of img tag
+   * Column 4: Type, must match the file type of the attached image (gif, png, jpg)
+   * Column 5: Size, must be of format width x height, such as: 16x16
+   * Column 6: Alias, alternative names for the image (if any)
+</verbatim>
+
+__Note:__ Documentation graphics are defined in topics %CALCULATE{$SET(icontopics, $LISTJOIN(, $LISTMAP($IF($EXISTS($item), [[$item]]), %ICONTOPIC%)))$GET(icontopics)}%. This list is defined by the ICONTOPIC setting in [[%SYSTEMWEB%.TWikiPreferences]] and can be overloaded in [[%LOCALSITEPREFS%]].
+
+__See also:__ %CALCULATE{$GET(icontopics)}%
+
+-- __Contributors:__ %WIKIUSERNAME% - %DATE%

@@ -1,0 +1,28 @@
+%{ This is the view template of the MovedSkin }%%TMPL:INCLUDE{"twiki"}%
+%TMPL:DEF{"titleaction"}% %REVTITLE% %TMPL:END%
+%TMPL:DEF{"webaction"}% %TMPL:END%
+%TMPL:DEF{"form"}% %TMPL:END%
+%TMPL:DEF{"attachments"}% %TMPL:END%
+%TMPL:DEF{"main"}%
+%TMPL:P{"content"}%
+%TMPL:END%
+
+%TMPL:DEF{"content"}%
+<style type='text/css' media='all'>
+.messageBox {
+  border: solid #e2e416 2px;
+  -moz-box-shadow: 10px 10px 6px #ccc;
+  -webkit-box-shadow: 10px 10px 6px #ccc;
+  box-shadow: 10px 10px 6px #ccc;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+</style>
+<center>
+<table cellspacing="0" cellpadding="20" width="80%" class="messageBox">
+<tr style="background-color:#faed5c; font-size:130%;">
+<td> <img src="%WIKILOGOIMG%" alt="" /> </td>
+<td> <noautolink> %MOVEDMESSAGE% </noautolink> </td>
+</td></tr></table>
+</center>
+%TMPL:END%

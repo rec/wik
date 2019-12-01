@@ -1,0 +1,35 @@
+%META:TOPICINFO{author="TWikiContributor" date="1352962713" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarSCRIPTURL2
+---+++ SCRIPTURL{"script"} -- URL of TWiki script
+   * Expands to the URL of the specified script.
+     Optionally, you can specify a web and/or a topic.
+     In that case, the URL of the script for the specified web and topic is returned.
+   * If ReadOnlyAndMirrorWebs is in effect and a web is specified, whether the web is a slave or not is taken into account.
+     For a slave web, with scripts =edit=, =save=, =attach=, =upload=, and =rename=, the URL on the master site is returned. %BR%
+     For the other scripts, if the =master="on"= parameter is specified, the URL on the master site is returned.
+   * Syntax: =%<nop>SCRIPTURL{"script" ...}%=
+   * Supported parameters:
+     | *Parameter:* | *Description:* | *Default:* |
+     | ="script"= | The name of the script | |
+     | =web="WEB"= | Specifies a web | When a topic name is specified and a web is not, the current web is assumed |
+     | =topic="TOPIC"= or =topic="WEB.TOPIC"= | Specifies a topic or both a web and a topic | |
+     | =master="on"= | A URL on the master site is needed or not | =off= |
+   * If =web="WEB"= is specified but =topic= is not specified, the resulting URL ends with =WEB=.
+   * Example: To get the authenticated version of the current topic you can write  =%<nop>SCRIPTURL{"viewauth"}%/%<nop>WEB%/%<nop>TOPIC%= which expands to =%SCRIPTURL{"viewauth"}%/%WEB%/%INCLUDINGTOPIC%=.
+     It can be written =%<nop>SCRIPTURL{"viewauth" topic="%<nop>TOPIC%"}%= as well.
+   * Example: Let's assume this site has a web named 'Flowers' whose master site is =http:<nop>//florawiki/cgi-bin=. Then =%<nop>SCRIPTURL{"edit" web="Flowers"}%= expands to =http<nop>://florawiki/cgi-bin/edit/Flowers=. This is because the 'Flower' web on this site is a slave and editing needs to happen on the master site.
+   * Example: Asuming above, =%<nop>SCRIPTURL{"view" web="Flowers" master="on"}%= expands to =http<nop>://florawiki/cgi-bin/view/Flowers=. The =view= script works on a slave site, but =master="on"= parameter forces to yield the master site URL.
+   * Example: How to link to another topic with a URL parameter: =[<nop>[%<nop>SCRIPTURL{view}%/%<nop>WEB%/MyQuery?food=sushi][Sushi]]=
+   * Note: In most cases you should use =%<nop>SCRIPTURLPATH{"script"}%= instead, as it works with URL rewriting much better
+   * Category: DevelopmentVariables, SystemInformationVariables
+   * Related:
+     [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarCONTENTMODE][CONTENTMODE]],
+     [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarPUBURL][PUBURL]],
+     [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSCRIPTNAME][SCRIPTNAME]],
+     [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSCRIPTSUFFIX][SCRIPTSUFFIX]],
+     [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSCRIPTURL][SCRIPTURL]],
+     [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSCRIPTURLPATH][SCRIPTURLPATH]],
+     [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSCRIPTURLPATH2][SCRIPTURLPATH{"script"}]],
+     [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSITENAME][SITENAME]],
+     ReadOnlyAndMirrorWebs, MetadataRepository, TWikiScripts

@@ -1,0 +1,43 @@
+%META:TOPICINFO{author="TWikiContributor" date="1363665439" format="1.1" version="1"}%
+---+ TWiki External Links
+
+URLs starting with =file=, =ftp=, =gopher=, =http=, =https=, =irc=, =mailto=, =news=, =nntp= and =telnet= are linked automatically if preceded by whitespace or parenthesis. External links are indicated with a trailing %ICON{external-link}% icon, and open up in a new browser tab or window; the behavior of both can be set in configure or preferences variables. Links can be prevented with an =!= exclamation point prefix.
+
+Note: if a link is written directly as HTML (=&lt;a href="http://..."&gt;...&lt;/a&gt;=), it is not subject to the external link conversion.
+
+---++ Preferences Variables
+
+Users can customize the behavior of the external links (typically in the !WebPreferences page).
+
+| *Variable* | *Value* | *Description* |
+| =EXTERNALLINKSINNEWWINDOW= | on/off | Open external links in a new browser tab or window |
+| =EXTERNALLINKSICON= | on/off | Show a trailing %ICON{external-link}% icon |
+| =INTERNALLINKDOMAINS= | (see below) | Add domain names that should not be regarded as "external" |
+
+The value of =INTERNALLINKDOMAINS= is expected to be a comma-separated list of domain names.
+
+Each domain name entry should be any of the below:
+   * A proper domain name (such as =www.example.com=) - _not_ including any of the subdomains
+   * A domain name with a preceding dot (such as =.example.com=) - indicating any subdomains (e.g. =foo.example.com=) but _not_ including the domain itself (=example.com=)
+   * A single dot (.) - indicating any "one-word" domain names, typically used in an intranet.
+   * A topic name in the format =topic:<i>TopicName</i>= or =topic:<i>WebName.TopicName</i>=. The <i>WebName</i> defaults to the base web (%<nop>BASEWEB%) in the current context.
+
+If a topic name is specified, the topic is expected to contain a table, where the left-most column is for the domains.
+
+<verbatim>
+| *Domain* |
+| twiki1.example.com |
+| twiki2.example.com |
+| twiki3.example.com |
+</verbatim>
+
+---++ Configuration
+
+Administrators can configure the default settings of the external link behaviors. ([[%SCRIPTURL{configure}%][configure]])
+
+| *Config* | *Default* | *Description* |
+| =$cfg{Links}{ExternalLinksInNewWindow}= | on | Open external links in a new browser tab or window |
+| =$cfg{Links}{ExternalLinksIcon}= | on | Show a trailing %ICON{external-link}% icon |
+| =$cfg{Links}{InternalLinkDomains}= | (unset) | Add domain names that should not be regarded as "external" |
+
+See above for the value of =InternalLinkDomains=. The <i>WebName</i> in the =topic:<i>TopicName</i>= defaults to the system web (%<nop>SYSTEMWEB%, or "%SYSTEMWEB%").

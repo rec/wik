@@ -1,0 +1,9 @@
+%META:TOPICINFO{author="TWikiContributor" date="1354777472" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarINCLUDINGTOPIC
+---+++ INCLUDINGTOPIC -- name of topic that includes current topic
+   * The name of the topic that includes the current topic - same as =%<nop>TOPIC%= in case there is no include.
+   * Syntax: =%<nop>INCLUDINGTOPIC%=
+   * Example: If topic A includes B, and B includes C, then a =%<nop>INCLUDINGTOPIC%= in topic C is reported as B when looking at topics A or B, and as C when looking at topic C itself.
+   * Category: SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBASETOPIC][BASETOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarINCLUDINGWEB][INCLUDINGWEB]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarINCLUDE][INCLUDE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarTOPIC][TOPIC]]

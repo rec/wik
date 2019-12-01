@@ -1,0 +1,34 @@
+%TMPL:INCLUDE{"copy"}%
+
+
+%TMPL:DEF{"script:skintemplate"}%%TMPL:END%
+
+
+%TMPL:DEF{"bodyclassname"}%patternNoViewPage patternCopyPage%TMPL:END%
+
+
+%TMPL:DEF{"toolbar"}%<div class="patternTop">%TWISTYBUTTON{id="copyhelp" mode="div" remember="on" link="%MAKETEXT{"Show help"}%" showimgleft="%ICONURLPATH{toggleopen}%"
+hideimgleft="%ICONURLPATH{toggleclose}%"}%</div><!--//patternTop-->%TMPL:END%
+
+
+%TMPL:DEF{"pagehelp"}%%TWISTYTOGGLE{id="copyhelp" mode="div" remember="on" noscript="hide"}%<div class="twikiHelp">%TMPL:P{"notes"}%</div>%ENDTWISTYTOGGLE%%TMPL:END%
+
+%TMPL:DEF{"pagehelp_nojavascript"}%<br />%TWISTYTOGGLE{id="pagehelp_nojavascript" mode="div" start="hide"}%<div class="twikiHelp">%TMPL:P{"notes"}%</div>%ENDTWISTYTOGGLE%%TMPL:END%
+
+
+%TMPL:DEF{"pagetitle"}%%TMPL:P{"webaction"}% %TOPIC%%TMPL:END%
+
+
+%TMPL:DEF{"copyformsteps"}%<div class="twikiFormSteps">
+<div class="twikiFormStep">%TMPL:P{"copysource"}%</div><!-- /twikiFormStep-->
+<div class="twikiFormStep">%TMPL:P{"toweb"}%</div><!-- /twikiFormStep-->
+<div class="twikiFormStep twikiLast">%TMPL:P{"totopic"}%%TMPL:P{"overwrite"}%%TMPL:P{"disablefixlinks"}%</div><!-- /twikiFormStep-->
+</div><!-- /twikiFormSteps-->%TMPL:END%
+
+
+%TMPL:DEF{"content"}%%TMPL:P{"toolbar"}%
+%TMPL:P{"pagehelp"}%
+%TMPL:P{"formstart"}%
+%TMPL:P{"copyformsteps"}%
+%TMPL:P{"topicaction"}%
+%TMPL:P{"formend"}%%TMPL:P{"pagehelp_nojavascript"}%%TMPL:END%

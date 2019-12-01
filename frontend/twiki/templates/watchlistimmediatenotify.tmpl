@@ -1,0 +1,15 @@
+%{ E-mail template of WatchlistPlugin }%From: %WIKIWEBMASTERNAME% <%WIKIWEBMASTER%>
+To: %WATCHLISTTO%
+Subject: TWiki Watchlist Notification: %WATCHWEB%.%WATCHTOPIC% Updated
+
+You are watching %WATCHWEB%.%WATCHTOPIC% and are subscribed to get immediate notification:
+
+%WATCHTITLE%
+
+Has been updated by %WATCHUSER% on %WATCHDATE%, rev %WATCHREV%.
+%SCRIPTURL{view}%/%WATCHWEB%/%WATCHTOPIC%
+
+Review your watchlist and e-mail preferences at:
+%SCRIPTURL{view}%/%USERSWEB%/%WATCHLISTUSER%Watchlist
+
+%MAKETEXT{"If you have any questions, please contact [_1]." args="%WIKIWEBMASTER%"}%

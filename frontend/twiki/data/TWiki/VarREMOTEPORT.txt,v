@@ -1,0 +1,88 @@
+head	1.4;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.4
+date	2012.11.15.06.10.21;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2008.01.22.03.21.33;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2007.02.05.00.18.39;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.06.25.16.26.29;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1352959821" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarREMOTEPORT
+---+++ REMOTE_PORT -- environment variable
+   * Syntax: =%<nop>REMOTE_PORT%=
+   * Expands to: <code>%REMOTE_PORT%</code>
+   * Category: DevelopmentVariables, SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENV][ENV]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarHTTPHOST][HTTP_HOST]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarREMOTEADDR][REMOTE_ADDR]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarREMOTEUSER][REMOTE_USER]]
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1170581353" format="1.1" version="3"}%
+d7 1
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1170581353" format="1.1" version="2"}%
+d7 1
+a7 1
+   * Related: [[#VarHTTPHOST][HTTP_HOST]], [[#VarREMOTEADDR][REMOTE_ADDR]], [[#VarREMOTEUSER][REMOTE_USER]]
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.2" version="1"}%
+a3 1
+
+a7 1
+
+@

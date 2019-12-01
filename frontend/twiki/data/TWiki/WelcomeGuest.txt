@@ -1,0 +1,56 @@
+%META:TOPICINFO{author="TWikiContributor" date="1419367591" format="1.1" version="30"}%
+---+!! Welcome, %WIKIUSERNAME%!
+
+Welcome to <nop>%WIKITOOLNAME%! This is a TWikiSite (pronounced _twee-kee site_), a meeting place to work on common interests. Anyone can contribute using any web browser. <nop>%WIKITOOLNAME% looks like a normal web site... except that it encourages contribution and *editing* of pages, questions, answers, comments, updates, etc.
+
+"Wiki" systems are fundamentally editable web pages.  It's a fun and useful way of communicating asynchronously over the web for many existing intranet and public Internet sites.  TWiki is simple to learn and use.  It aims to provide a transparent way for you to publish and exchange your ideas with others over the web.
+
+%TOC%
+
+---++ What's in a TWiki?
+
+   * *Webs:* A TWikiSite is divided into webs, each one represents a workspace for collaboration. This site has the following webs: %IF{ "{NoInAllPublicWebs}" then="[[%USERSWEB%.%HOMETOPIC%][%USERSWEB%]], [[%SYSTEMWEB%.%HOMETOPIC%][%SYSTEMWEB%]], [[Sandbox.%HOMETOPIC%][Sandbox]], and many others." else="$percntWEBLIST{ format=\"[[$name.%HOMETOPIC%][$name]]\" separator=\", \" }$percnt." }%
+   * *Topics:* Each web is made up of hyperlinked [[TWikiTopics][topics]] (wiki pages) that appear in your browser.
+
+---++ Some things to do
+
+   * *Browse.* This is a site like other sites. Read and follow interesting links.
+   * *Write.* Speak your mind! From your browser you can change or add to anything you see in a TWiki topic. Modify content with an easy to use WYSIWYG editor.
+   * *Experiment.* Visit the Sandbox.%HOMETOPIC% web and create as many topics as you like.
+   * *Organize.* You can learn to use TWikiForms and [[FormattedSearch][formatted searches]] with [[QuerySearch][SQL-like queries]] to include topic information - for example, classify pages by subject, status, or date.
+   * *Learn more.* Some good places to start:
+      * TWikiTutorial is a 20-minute tour of TWiki essentials. 
+      * ATasteOfTWiki is a short introduction training course for beginners. 
+      * WikiReferences links to selected articles and books about wiki technology and online collaboration.
+      * WikiSyntax - simple wiki syntax for those using raw edit instead of WYSIWYG editor
+      * GoodStyle - recommendations for edits
+ 
+---++ Some basics
+
+---+++ Editing a topic
+
+   * Click ==Edit== at the top or bottom of any topic and make your changes.
+     %BR% __Note:__ Don't worry if you make a mistake. Everything is version controlled, you can easily go back in time.
+   * Click ==Save== - you've now updated the topic!
+
+---+++ Creating a new topic
+
+   * See a red-colored WikiWord? That means that there's no topic yet for that Sandbox.NewWikiWord%CALCULATE{$INT($RAND(100000))}%. Simply click on the red-link to create a topic with that name. Add your content and save. Done!
+   * To create your own topic, invent a !BrandNewWikiWord name and put it into an existing topic. Click on the red-link of !BrandNewWikiWord to create the topic. 
+
+---+++ Viewing the history of a topic
+
+   * Click ==History== at the bottom of a topic.
+
+---+++ Attaching files and images
+
+   * Click ==Attach== to upload and attach any type of file.
+   * When attaching an image file (=.gif=, =.png=, =.jpg=), check the "link" checkbox to embed the image into the topic. Edit the topic to move/resize the image.
+
+---+++ Embedding objects
+
+   * ==Raw edit== a topic and paste !YouTube videos, Twitter feeds and other objects.
+
+__Related topics:__ UserDocumentationCategory, TWikiTutorial, ATasteOfTWiki, TWikiVariables, WikiSyntax, TWikiDocGraphics
+
+-- __Contributors:__ TWiki:Main/GrantBow, TWiki:Main/JonReid, TWiki:Main/MikeMannix, TWiki:Main/PeterThoeny

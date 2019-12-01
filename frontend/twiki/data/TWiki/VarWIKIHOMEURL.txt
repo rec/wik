@@ -1,0 +1,11 @@
+%META:TOPICINFO{author="TWikiContributor" date="1352965131" format="1.1" version="5"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarWIKIHOMEURL
+---+++ WIKIHOMEURL -- site home URL
+   * DEPRECATED, please use %<nop>WIKILOGOURL% instead.
+   * Syntax: =%<nop>WIKIHOMEURL%=
+   * Expands to: =%WIKIHOMEURL%=
+   * Defined in: TWikiPreferences, default =%<nop>SCRIPTURLPATH{"view"}%/%<nop>USERSWEB%/%<nop>HOMETOPIC%=
+   * Note: For the top bar logo URL use =%<nop>WIKILOGOURL%= defined in WebPreferences instead.
+   * Category: AdministrationVariables, SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWIKILOGOURL][WIKILOGOURL]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWIKITOOLNAME][WIKITOOLNAME]]

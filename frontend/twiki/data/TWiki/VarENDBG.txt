@@ -1,0 +1,10 @@
+%META:TOPICINFO{author="TWikiContributor" date="1352966430" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarENDBG
+---+++ ENDBG -- end background color section
+   * =ENDBG= is a rendering shortcut settings predefined in TWikiPreferences. See the section [[TWikiPreferences#RenderingShortcuts][rendering shortcut settings]] in that topic for a complete list of background colors.
+   * Syntax: =%<nop>REDBG% red background %<nop>ENDBG%=
+   * Expands to: %REDBG% red background %ENDBG%
+   * Note: =%&lt;color&gt;BG%= section must end with =%<nop>ENDBG%=. If you want to switch from one background color to another one you first need to end the active background color with =%<nop>ENDBG%=, such as =%<nop>REDBG% some text %<nop>ENDBG% %<nop>GREENBG% more text %<nop>ENDBG%=.
+   * Category: FormattingAndRenderingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENDCOLOR][VarENDCOLOR]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarREDBG][VarREDBG]], [[TWikiPreferences#RenderingShortcuts][TWikiPreferences rendering shortcuts]], StandardColors

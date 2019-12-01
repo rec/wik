@@ -1,0 +1,62 @@
+#!/ms/dist/perl5/bin/perl5.26.1 -w
+#
+# TWiki Backup & Restore Utility, part of the
+# TWiki Enterprise Collaboration Platform, http://TWiki.org/
+#
+# Copyright (C) 2011-2018 Peter Thoeny, peter[at]thoeny.org and
+# TWiki Contributors. All Rights Reserved. TWiki Contributors are
+# listed in the AUTHORS file in the root of this distribution.
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 3
+# of the License, or (at your option) any later version. For
+# more details read LICENSE in the root of this distribution.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#
+# As per the GPL, removal of this notice is prohibited.
+
+use strict;
+use warnings;
+
+my $cfg;
+my $params;
+
+BEGIN {
+    if ( ( $ENV{GATEWAY_INTERFACE} || $ENV{MOD_PERL} ) && ! $ARGV[0] ) {
+        $cfg->{ScriptType} = 'cgi';
+        use CGI::Carp qw(fatalsToBrowser);
+        $SIG{__DIE__} = \&CGI::Carp::confess;
+    } else {
+        $cfg->{ScriptType} = 'cli';
+        require Carp;
+        $SIG{__DIE__} = \&Carp::confess;
+    }
+    @INC = ('.', grep { $_ ne '.' } @INC);
+    require 'setlib.cfg';
+    do 'LocalSite.cfg';
+}
+
+$cfg->{BaseWeb}   = $TWiki::cfg{SystemWebName} || 'TWiki';
+$cfg->{BaseTopic} = 'BackupRestoreConsole';
+
+if( $cfg->{ScriptType} eq 'cgi' ) {
+    require CGI;
+    my $query = CGI->new();
+    $params->{action} = $query->param( 'action' ) || $ARGV[0] || 'usage';
+    $params->{file}   = $query->param( 'file' )   || $ARGV[1] || '';
+    $params->{magic}  = $query->param( 'magic' )  || $ARGV[2] || '';
+
+} else {
+    $params->{action} = $ARGV[0] || 'usage';
+    $params->{file}   = $ARGV[1] || '';
+    $params->{magic}  = $ARGV[2] || '';
+}
+
+use TWiki::Plugins::BackupRestorePlugin::Core;
+my $core = new TWiki::Plugins::BackupRestorePlugin::Core( $cfg );
+print $core->backuprestore( $params );
+exit 0;

@@ -1,0 +1,130 @@
+#!/usr/bin/perl
+#
+# TWiki Collaboration Platform, http://TWiki.org/
+#
+# Copyright (C) 2004 Wind River Systems Inc.
+# Copyright (C) 2004-2018 Peter Thoeny, peter[at]thoeny.org and
+# TWiki Contributors. All Rights Reserved. TWiki Contributors are
+# listed in the AUTHORS file in the root of this distribution.
+# NOTE: Please extend that file, not this notice.
+#
+# For licensing info read LICENSE file in the TWiki root.
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 3
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details, published at
+# http://www.gnu.org/copyleft/gpl.html
+#
+# As per the GPL, removal of this notice is prohibited.
+
+# This tool is expected to be run after a TWiki site is upgraded from pre
+# 6.0 to post 6.0. It modifies !WebStatistics and !SiteStatistics in the
+# following manner.
+#    * Insert a column for the list of top viewers 
+#    * On the template row, remove one space preceding the following markers.
+#       * <!--statWebsViewed-->
+#       * <!--statWebsUpdated-->
+#       * <!--statViews-->
+#       * <!--statSaves-->
+#       * <!--statUploads-->
+
+# You must add the TWiki bin dir to the search path for this script,
+# so it can find the rest of TWiki e.g.
+# perl -I /usr/local/twiki/bin /usr/local/twiki/tools/convert_stats_twiki6
+
+# SYNOPSIS
+#    convert_stats_twiki6 [WEB ...]
+#
+# DESCRIPTION
+#    If you specify web names, only those specified are processed. Otherwise,
+#    all writable webs are processed.
+#
+#    It checks if a stats topic has the top viewers column or not.
+#    If the column exists, this program does nothing to the topic.
+
+use warnings;
+use strict;
+
+BEGIN {
+    require 'setlib.cfg';
+}
+
+require TWiki;
+require TWiki::Time;
+
+$TWiki::cfg{Plugins}{RTNotifyPlugin}{Enabled} = 0;
+    # To suppress real-time notification in case it's enabled.
+    # I know It's bad to have a line for an unbundled plug-in in a file in
+    # TWiki core, especially if the plug-in is not contributed to twiki.org.
+    # Please forgive me since the line above is harmless.
+    # -- Main.HideyoImazu
+my $session = new TWiki($TWiki::cfg{SuperAdminGroup});
+my $store = $session->{store};
+my $user = $session->{user};
+
+sub convert {
+    my ($web, $topic) = @_;
+    unless ( $store->topicExists($web, $topic) ) {
+        print STDERR "$web.$topic does not exist\n";
+        return;
+    }
+    my ($meta, $text) = $store->readTopic(undef, $web, $topic);
+    if ( $text =~ /<!--statTopViewers-->/ ) {
+        print STDERR "$web.$topic no need to add the column\n";
+        return;
+    }
+    print STDERR "$web.$topic\n";
+    my @lines;
+    for my $line ( split(/\n/, $text) ) {
+        if ( $line =~ /(\|\s*\*Top contributors)/ ) {
+            $line =~ s//| *Top viewers:* $1/g;
+        }
+        elsif ( $line =~ /(\|\s*\*Top Contributors)/ ) {
+            $line =~ s//| *Top Viewers* $1/;
+        }
+        elsif ( $line =~ /(\|\s*<!--statTopContributors-->\s*\|)/ ) {
+            $line =~ s//| <!--statTopViewers--> $1/;
+            $line =~
+                s{ ( <!--stat(WebsViewed|WebsUpdated|Views|Saves|Uploads)--> )}
+                 {$1}g;
+        }
+        elsif ( $line =~ /(\|[^\|]+\|\s*$)/ ) {
+            $line =~ s//| $1/;
+        }
+        push(@lines, $line);
+    }
+    $text = join("\n", @lines);
+    $store->saveTopic($user, $web, $topic, $text, $meta, {minor => 1});
+}
+
+my @weblist;
+if ( @ARGV ) {
+    @weblist = @ARGV;
+}
+else {
+    @weblist = $store->getListOfWebs('user,writable');
+}
+
+my $statsTopicSuffix = '';
+if ( $TWiki::cfg{Stats}{TopicPerYear} ) {
+    $statsTopicSuffix = TWiki::Time::formatTime(time(), '$year', 'gmtime');
+}
+
+if ( grep { $_ eq $TWiki::cfg{UsersWebName} } @weblist ) {
+    my $siteStatsTopic =
+        $TWiki::cfg{Stats}{SiteStatsTopicName} || 'SiteStatistics';
+    $siteStatsTopic .= $statsTopicSuffix;
+    convert($TWiki::cfg{UsersWebName}, $siteStatsTopic);
+}
+my $webStatsTopic = $TWiki::cfg{Stats}{TopicName} || 'WebStatistics';
+$webStatsTopic .= $statsTopicSuffix;
+foreach my $web ( @weblist ) {
+    convert($web, $webStatsTopic);
+}
+
+exit 0;

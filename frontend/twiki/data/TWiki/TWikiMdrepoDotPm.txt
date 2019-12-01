@@ -1,0 +1,23 @@
+---+ Package =TWiki::Mdrepo=
+
+
+%TOC%
+
+---++ ClassMethod *new* <tt>($session)</tt>
+
+Construct a Mdrepo module.
+
+It's a caller's responsibility to guarantee all of the followings defined:
+   * $TWiki::cfg{Mdrepo}{Store} - 'DB_File' or other module name
+   * $TWiki::cfg{Mdrepo}{Dir} - absolute path to the directory where files are located
+   * $TWiki::cfg{Mdrepo}{Tables} - [qw(sites webs:b)]
+      * Each table name can be followed by : and option letters. Currently only 'b' is valid.
+      'b' is for browser, meaning the table can be updated from browser through the mdrepo script.
+      By default, tables are updatable only from command line.
+
+
+
+---++ ObjectMethod *finish* <tt>()</tt>
+Break circular references.
+
+

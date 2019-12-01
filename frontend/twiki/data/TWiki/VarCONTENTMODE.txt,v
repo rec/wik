@@ -1,0 +1,37 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2013.10.14.08.02.50;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1354261847" format="1.1" version="1"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarCONTENTMODE
+---+++ CONTENTMODE{web="WEB"} -- content mode
+   * Returns the content mode of the specified web.
+     It's either 'local', 'read-only', 'master', or 'slave'.
+     Read ReadOnlyAndMirrorWebs#Content_modes for more detail.
+   * Syntax: =%<nop>CONTENTMODE{web="WEB"}%=
+   * Supported parameters:
+     | *Parameter:* | *Description:* | *Default:* |
+     | =web= | The name of the web. | The current web |
+   * Category: SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSITENAME][SITENAME]], ReadOnlyAndMirrorWebs, MetadataRepository
+@

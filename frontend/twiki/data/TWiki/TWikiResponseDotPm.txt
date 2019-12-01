@@ -1,0 +1,121 @@
+---+ Package =TWiki::Response=
+
+Class to encapsulate response data.
+
+Fields:
+    * =status=  - response status
+    * =headers= - hashref to response headers
+    * =body=    - response body
+    * =cookies= - hashref to response cookies
+
+
+%TOC%
+
+---++ ClassMethod *new* <tt>() -> $response</tt>
+
+Constructs a TWiki::Response object.
+
+
+
+---++ ObjectMethod *status* <tt>($status) -> $status</tt>
+
+Gets/Sets response status.
+   * =$status= is a three digit code, optionally followed by a status string
+
+
+
+---++ ObjectMethod *charset* <tt>([$charset]) -> $charset</tt>
+
+Gets/Sets response charset. If not defined, defaults to ISO-8859-1, 
+just like CGI.pm
+
+
+
+---++ ObjectMethod *header* <tt>(-type=>$type,</tt>
+                          -status     => $status,
+                          -cookie     => $cookie || \@cookies,
+                          -attachment => $attachName,
+                          -charset    => $charset,
+                          -expires    => $expires,
+                          -HeaderN    => ValueN )
+
+Sets response header. Resonably compatible with CGI. 
+Doesn't support -nph, -target and -p3p.
+
+
+
+---++ ObjectMethod *_header* <tt>(-type=>$type,</tt>
+                          -status     => $status,
+                          -cookie     => $cookie || \@cookies,
+                          -attachment => $attachName,
+                          -charset    => $charset,
+                          -expires    => $expires,
+                          -HeaderN    => ValueN )
+
+Private method to set response header like above 
+that doesn't include fix for Item6602. Resonably compatible with CGI. 
+Doesn't support -nph, -target and -p3p. 
+
+
+
+---++ ObjectMethod *headers* <tt>({...}) -> $headersHashRef</tt>
+
+Gets/Sets all response headers. Keys are headers name and values
+are scalars for single-valued headers or arrayref for multivalued ones.
+
+
+
+---++ ObjectMethod *getHeader* <tt>([$name]) -> $value</tt>
+
+If called without parameters returns all present header names,
+otherwise returns a list (maybe with a single element) of values
+associated with $name.
+
+
+
+---++ ObjectMethod *deleteHeader* <tt>($h1,$h2,...)</tt>
+
+Deletes headers whose names are passed.
+
+
+
+---++ ObjectMethod *pushHeader* <tt>($name,$value)</tt>
+
+Adds $value to list of values associated with header $name.
+
+
+
+---++ ObjectMethod *cookies* <tt>([\@cookies]) -> @cookies</tt>
+
+Gets/Sets response cookies. Parameter, if passed, *must* be an arrayref.
+
+Elements may be CGI::Cookie objects or raw cookie strings.
+
+
+
+---++ ObjectMethod *body* <tt>([$body]) -> $body</tt>
+
+Gets/Sets response body.
+
+
+
+---++ ObjectMethod *redirect* <tt>($uri,$status,$cookies|</tt>
+                             -Location => $uri, 
+                             -Status   => $status, 
+                             -Cookies  => $cookies )
+
+Populate object with redirect response headers.
+
+=$uri= *must* be passed. Others are optional.
+
+CGI Compatibility Note: It doesn't support -target or -nph
+
+
+
+---++ ObjectMethod *setDefaultHeaders* <tt>({$name=>$value,...})</tt>
+
+Sets the header, this does not modify the existing key=>value from  
+$this->{headers}. Sets only new values.
+ 
+
+

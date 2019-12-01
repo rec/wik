@@ -1,0 +1,82 @@
+%META:TOPICINFO{author="TWikiContributor" date="1384374104" format="1.1" version="6"}%
+%DASHBOARD{ section="dashboard_start" }%
+%DASHBOARD{ section="banner"
+ image="%PUBURL%/%SYSTEMWEB%/TWikiDashboardImages/nasa-airfield.jpg"
+ title="%MAKETEXT{"Welcome to the [_1] web" args="<nop>%WEB%"}%"
+ titlestyle="color:#800000;"
+}%
+<!--===== OVERVIEW ============================================-->
+%DASHBOARD{ section="box_start"
+ title="Overview"
+}%
+%MAKETEXT{"Use this web to try out TWiki. Go ahead and add or delete some stuff. Walk through the [_1] to learn the basics of TWiki. We recommend to sign your contributions with your [_2] and date, which is done automatically when you create a topic or add a comment." args="[[%SYSTEMWEB%.TWikiTutorial][TWiki Tutorial]], %SYSTEMWEB%.WikiName"}%
+
+%DASHBOARD{ section="box_end" }%
+<!--===== TEST TOPICS ============================================-->
+%DASHBOARD{ section="box_start"
+ title="%MAKETEXT{"Create Test Topics"}%"
+ contentstyle="overflow: hidden; margin-right: -10px;"
+}%
+<form action='%SCRIPTURLPATH{"edit"}%/%WEB%/'> 
+%ICON{"newtopic"}% %MAKETEXT{"Create a new document by name:"}% <br /> 
+%ICON{"empty"}% <input type="text" name="topic" size="32" class="twikiInputField" /> <br />
+%ICON{"empty"}% <input type="submit" value='%MAKETEXT{"Create by Name"}%' class="twikiSubmit" /> <br />
+%ICON{"empty"}% %GRAY% %MAKETEXT{"Use a [_1] for automatic linking." args="%SYSTEMWEB%.WikiWord"}% %ENDCOLOR%
+<input type="hidden" name="onlywikiname" value="on" />
+<input type="hidden" name="onlynewtopic" value="on" />
+<input type="hidden" name="nowysiwyg" value="%IF{"$ EDITMETHOD='wysiwyg'" then="0" else="1"}%" />
+</form>
+
+<form action='%SCRIPTURLPATH{"edit"}%/%BASEWEB%/TestTopicAUTOINC000' name="createNewTestTopic">
+%ICON{"newtopic"}% %MAKETEXT{"Create auto-numbered test topic:"}% <br />
+%ICON{"empty"}% <input type="submit" value='%MAKETEXT{"Create <nop>TestTopic###"}%' class="twikiSubmit" />
+<input type="hidden" name="t" value="%SERVERTIME{$hou$min$sec}%" />
+<input type="hidden" name="nowysiwyg" value="%IF{"$ EDITMETHOD='wysiwyg'" then="0" else="1"}%" />
+</form>
+
+%DASHBOARD{ section="box_end" }%
+<!--===== RECENT CHANGES ============================================-->
+%DASHBOARD{ section="box_start"
+ title="[[%BASEWEB%.WebChanges][Recent Changes]]"
+ contentstyle="overflow: hidden;"
+}%
+%INCLUDE{ "%SYSTEMWEB%.WebChangesRightBox" section="bullet_list" limit="30" }%
+
+%DASHBOARD{ section="box_end" }%
+<!--===== TIP OF DAY ============================================-->
+%DASHBOARD{ section="box_start"
+ title="<img src='%ICONURLPATH{tip}%' width='16' height='16' alt='' /> TWiki Tip of the Day"
+}%
+%INCLUDE{"%SYSTEMWEB%.TWikiTipsOfTheDayInclude" warn="off" noheader="on" }%
+
+%DASHBOARD{ section="box_end" }%
+<!--===== NEW USERS ============================================-->
+%DASHBOARD{ section="box_start"
+ title="For New Users"
+}%
+   * icon:twiki [[%SYSTEMWEB%.WelcomeGuest][Welcome Guest - look here first]]
+   * icon:useradd [[%SYSTEMWEB%.TWikiRegistration][Registration - become a <nop>%WIKITOOLNAME% user]]
+   * [[%SYSTEMWEB%.TWikiTutorial][Tutorial - 20 minutes]]
+   * [[%SYSTEMWEB%.TWikiUsersGuide][TWiki User's Guide]]
+   * [[%SYSTEMWEB%.TWikiFAQ][Frequently Asked Questions]]
+   * [[%SYSTEMWEB%.TextFormattingRules][Text formatting rules - for raw edit]]
+
+%DASHBOARD{ section="box_end" }%
+<!--===== WEB UTILITIES ============================================-->
+%DASHBOARD{ section="box_start"
+ title="%WEB% Web Utilities"
+ contentstyle="overflow: hidden;"
+}%
+   * icon:searchtopic [[WebSearch][Web search]] &amp; [[WebSearchAdvanced][advanced search]]
+   * icon:index [[WebTopicList][Web topic list]] - all topics
+   * icon:mail [[WebNotify][Web notify]] - subscribe to e-mail alerts
+   * icon:rss [[WebRss][RSS]] &amp; [[WebAtom][ATOM]] feeds of topic changes
+   * icon:statistics [[WebStatistics][Web statistics]]
+   * icon:wrench [[WebPreferences][Web preferences]] - preferences of this web
+   * icon:topmenu [[WebTopMenu]] - top menu definition
+
+%DASHBOARD{ section="box_end" }%
+<!--===== END ============================================-->
+%DASHBOARD{ section="dashboard_end" }%
+
+   * Set ALLOWTOPICCHANGE = %USERSWEB%.TWikiAdminGroup

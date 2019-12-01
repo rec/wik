@@ -1,0 +1,10 @@
+%META:TOPICINFO{author="TWikiContributor" date="1308728002" format="1.1" version="1"}%
+%META:TOPICPARENT{name="UserBookmarks"}%
+---+ Bookmarks of !%WIKINAME%
+%INCLUDE{%SYSTEMWEB%.UserBookmarks}%
+%EDITTABLE{ include="%SYSTEMWEB%.UserBookmarks" }%
+| *<nop>* | *Link: &nbsp; Web.Topic or URL* | *Link Label* |
+| <!--BOOKMARK--> | http://twiki.org/ | TWiki.org |
+%COMMENT{ type="bookmark_page_comment_template" templatetopic="%SYSTEMWEB%.UserBookmarks" }% 
+
+__Return to:__ [[%WIKINAME%]]

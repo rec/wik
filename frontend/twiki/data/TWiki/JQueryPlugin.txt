@@ -1,0 +1,229 @@
+%META:TOPICINFO{author="TWikiContributor" date="1530842381" format="1.1" version="10"}%
+---+!! JQuery Plugin
+<!--
+   Contributions to this plugin are appreciated. Please update the plugin page at
+   http://twiki.org/cgi-bin/view/Plugins/JQueryPlugin or provide feedback at
+   http://twiki.org/cgi-bin/view/Plugins/JQueryPluginDev.
+   If you are a TWiki contributor please update the plugin in the SVN repository.
+
+   * Set SHORTDESCRIPTION = jQuery <nop>JavaScript library for TWiki
+-->
+<sticky>
+<div class="twikiTocFloat">
+%TOC{title="Page contents"}%
+</div>
+</sticky>
+%SHORTDESCRIPTION%
+
+---++ Description
+
+This plugin packages the popular jQuery and jQuery UI <nop>JavaScript libraries. 
+
+   * [[http://jquery.com/][jQuery]] is a fast, small, and feature-rich !JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.
+      * Packaged version: jquery-1.10.2
+
+   * [[http://jqueryui.com/][jQuery UI]] is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery !JavaScript Library.
+      * Packaged version: jquery-ui-1.10.3
+
+See the Sandbox.JQueryPluginExamples page for a demo of a couple of widgets used by TWiki.
+
+---++ Included libraries
+
+   1 jquery - base [[http://jquery.com/][jQuery library]], loaded when !JQueryPlugin is enabled
+   1 jquery-ui - [[http://jqueryui.com/download][jQuery UI library]], load with =%<nop>JQSCRIPT{"jquery-ui.js"}%= or a =%<nop>JQTHEME{"..."}%= - content:
+      * UI Core:
+         * Core - the core of jQuery UI, required for all interactions and widgets
+         * Widget - the widget factory, base for all widgets
+         * Mouse - the mouse widget, a base class for all interactions and widgets with heavy mouse interaction
+         * Position - a utility plugin for positioning elements relative to other elements
+      * Interactions - adding basic behaviors to any element and are used by many components below
+         * Draggable - makes any element on the page draggable
+         * Droppable - generated drop targets for draggable elements
+         * Resizable - makes any element on the page resizable
+         * Selectable - makes a list of elements mouse selectable by dragging a box or clicking on them
+         * Sortable - makes a list of items sortable
+      * Widgets - full-featured UI Controls - each has a range of options and is fully themeable:
+         * Accordion - creates an accordion navigation widget
+         * Autocomplete - creates an autocomplete widget
+         * Button - creates an button widget
+         * Dialog - opens existing markup in a draggable and resizable dialog
+         * Slider - a flexible slider with ranges and accessibility via keyboard
+         * Tabs - transforms a set of container elements into a tab structure
+         * Datepicker - a datepicker than can be toggled from a input or displayed inline
+         * Progressbar - a status indicator that can be used for a loading state and standard percentage indicators
+      * Effects - a rich effect API and ready to use effects:
+         * Effects Core - extends the internal jQuery effects, includes morphing, easing and is required by all other effects
+         * Effect "Blind" - blinds the element
+         * Effect "Bounce" - bounces an element horizontally or vertically n-times
+         * Effect "Clip" - clips the element on and off like an old TV
+         * Effect "Drop" - a Drop out effect by moving the element in one direction and hiding it at the same time
+         * Effect "Explode" - the element explodes in all directions into n pieces. Also supports imploding again
+         * Effect "Fade" - fades the element
+         * Effect "Fold" - folds the element first horizontally and then vertically
+         * Effect "Highlight" - highlights the background of the element in a defined color for a custom duration
+         * Effect "Pulsate" - the element pulsates n times by changing the opacity to zero and back
+         * Effect "Scale" - grow or shrink any element and it's content and restore it again
+         * Effect "Shake" - shakes the element horizontally or vertically n times
+         * Effect "Slide" - the element slides in and out of the viewport
+         * Effect "Transfer" - transfer effect from one element to another
+   1 jquery.bgiframe.js - fix z-index issue in IE 6, loaded when !JQueryPlugin is enabled
+   1 jquery.blockUI.js - simulate synchronous behavior when using AJAX, without locking the browser, loaded when !JQueryPlugin is enabled
+   1 jquery.cookie.js - cookie managers, load with =%<nop>JQSCRIPT{"jquery.cookie.js"}%=
+   1 jquery.debug.js - debug, load with =%<nop>JQSCRIPT{"jquery.debug.js"}%=
+   1 jquery.dom.js - loaded when !JQueryPlugin is enabled
+   1 jquery.easing.js - set custom easing types for standard animations, loaded when !JQueryPlugin is enabled
+   1 jquery.hoverIntent.js - delay onMouseOver, loaded when !JQueryPlugin is enabled
+   1 jquery.innerfade.js - loaded when !JQueryPlugin is enabled
+   1 jquery.metadata.js - extract metadata from classes, random attributes, child elements and HTML5 data-* attributes, load with =%<nop>JQSCRIPT{"jquery.metadata.js"}%=
+   1 jquery.nifty.js - rounded corners, loaded when !JQueryPlugin is enabled
+   1 jquery.shrinkurls.js - shrink URLs, loaded when !JQueryPlugin is enabled
+   1 jquery.spinner.js - spinners, load with =%<nop>JQSCRIPT{"jquery.spinner.js"}%=
+   1 jquery.superfish.css
+   1 jquery.superfish.js - pulldown menues, load with =%<nop>JQSCRIPT{"jquery.superfish.js"}%=
+   1 jquery.tabpane.js - tapped panes, loaded when !JQueryPlugin is enabled
+   1 jquery.tooltip.js - tool tips, loaded when !JQueryPlugin is enabled
+   1 jquery.treeview.async.js - expandable trees, loaded when !JQueryPlugin is enabled
+   1 jquery.treeview.edit.js - expandable trees, load with =%<nop>JQSCRIPT{"jquery.treeview.edit.js"}%=
+   1 jquery.treeview.sortable.js - expandable trees, load with =%<nop>JQSCRIPT{"jquery.treeview.sortable.js"}%=
+   1 jquery.treeview.js - expandable trees, loaded when !JQueryPlugin is enabled
+   1 jquery.twiki.js - TWiki specific code, loaded when !JQueryPlugin is enabled
+
+---++ JQuery Library Documentation
+
+   * [[http://docs.jquery.com/How_jQuery_Works][Getting the feet wet]]
+   * [[http://docs.jquery.com/Tutorials][Tutorials]]
+   * [[http://docs.jquery.com/Main_Page][Reference API]]
+   * [[http://docs.jquery.com/Using_jQuery_with_Other_Libraries][Using jQuery with other libraries]]
+   * [[http://docs.jquery.com/Plugins][Plugin repository]]
+
+---++ Syntax Rules
+
+   * =%<nop>JQSCRIPT{"jquery.js"}%= - include the specified script. Keep in mind that the =jquery.js= script must be loaded before plug-ins scripts.
+   * =%<nop>JQTHEME{"mythemename"}%= - include the specified theme. Better load the desired theme before any script.
+   * =%<nop>JQIMAGESURLPATH{"myimage.png"}%= - expand to the specified image path.
+   * =%<nop>JQIMAGESURLPATH%/myimage.png= - Same result as the above. Available images:
+      * =spinner_arrows.gif=
+      * =spinner_big.png=
+      * =spinner.gif=
+      * =spinner.png=
+
+---++ Themes
+
+See [[http://jqueryui.com/themeroller/][jQuery Theme Roller]] for look & feel of available themes. The !JQueryPlugin ships with the following themes that can be activated using =%<nop>JQTHEME{...}%=:
+
+   * =black-tie=
+   * =cupertino=
+   * =redmond=
+   * =smoothness= - recommended for TWiki
+   * =ui-lightness=
+
+---++ Examples
+
+   * Sandbox.PluginTestJQueryPlugin 	 	
+   * Sandbox.JQueryPluginExamples
+
+---++ Known Issues
+
+   * jquery.treeview does not work in !JQueryPlugin version 2013-08-23
+
+---++ Note to Plugin Maintainer
+
+   * See =pub/TWiki/JQueryPlugin/readme.txt=
+
+---++ Installation Instructions
+
+This plugin is pre-installed. TWiki administrators can upgrade the plugin as needed on the TWiki server.
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}% "
+ hidelink="Hide details %ICONURL{toggleclose}% "
+}%
+
+   * Download the ZIP file from the Plugin web (see below)
+   * Unzip ==%TOPIC%.zip== in your twiki installation directory. Content:
+     | *File:* | *Description:* |
+     | =data/Sandbox/JQueryPluginExamples.txt= | Example topic |
+     | =data/Sandbox/PluginTestJQueryPlugin.txt= | Test topic |
+     | =data/TWiki/JQueryPlugin.txt= | Plugin documentation topic |
+     | =data/TWiki/VarJQ*.txt= | Variable documentation topics |
+     | =lib/CPAN/lib/CSS/Minifier.pm= | Perl module |
+     | =lib/CPAN/lib/JavaScript/Minifier.pm= | Perl module |
+     | =lib/TWiki/Plugins/JQueryPlugin.pm= | Perl module |
+     | =lib/TWiki/Plugins/JQueryPlugin/Core.pm= | Perl module |
+     | =pub/TWiki/JQueryPlugin/Makefile= | Makefile |
+     | =pub/TWiki/JQueryPlugin/jquery-all.css= | Main stylesheet file |
+     | =pub/TWiki/JQueryPlugin/jquery-all.js= | Main Javascript file |
+     | =pub/TWiki/JQueryPlugin/jquery-all.js.gz= | Main Javascript file, compressed |
+     | =pub/TWiki/JQueryPlugin/*.css= | Stylesheet files |
+     | =pub/TWiki/JQueryPlugin/*.js= | Javascript files |
+     | =pub/TWiki/JQueryPlugin/*.gif= and =.png= | Image files |
+     | =pub/TWiki/JQueryPlugin/i18n/*.js= | Style sheets for internationalization |
+     | =pub/TWiki/JQueryPlugin/images/*.gif= and =*.png=| Image library |
+     | =pub/TWiki/JQueryPlugin/themes/*= | Themes |
+     | =tools/minifycss= | Utility |
+     | =tools/minifyjs= | Utility |
+   * Visit =configure= in your TWiki installation, and enable the plugin in the {Plugins} section.
+   * Test [[Sandbox.JQueryPluginExamples]] for functionality.
+%ENDTWISTY%
+
+---++ Specifying where to insert !JavaScript and CSS loadling lines
+
+This plugin inserts lines to load !JavaScript and CSS files into the rendered HTML.
+By default, those lines are inserted at the beginning of the =&lt;head&gt;= tag content.
+That's fine for the skins bundled with TWiki releases.
+But you may want to specify where to insert those lines.
+In that case:
+   1. Put =&lt;!-- !JQueryPlugin placeholder --&gt;= at the place you want to have those lines
+   1. Set =$TWiki::cfg{Plugins}{JQueryPlugin}{CheckPlaceholder}= to "1" (or any other true value)
+
+---++ Plugin Info
+
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  Plugin Author: | TWiki:Main.MichaelDaum, TWiki:Main.PeterThoeny |
+|  Copyright: | &copy; 2007-2008 Michael Daum http://michaeldaumconsulting.com <br /> &copy; 2008-2018 TWiki:TWiki.TWikiContributor |
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+|  Plugin Version: | 2018-07-05 |
+%TWISTY{
+ mode="div"
+ showlink="Show Change History %ICONURL{toggleopen}%"
+ hidelink="Hide Change History %ICONURL{toggleclose}% "
+}%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  2018-07-05: | TWikibug:Item7841: Copyright update to 2018 |
+|  2016-01-08: | TWikibug:Item7708: Copyright update to 2016 |
+|  2015-09-11: | TWikibug:Item7686: !JQueryPlugin to be able to insert ~JavaScript and CSS loading lines at a specified place |
+|  2015-01-10: | TWikibug:Item7604: Switch from GPL v2 to v3 |
+|  2014-11-14: | TWikibug:Item7588: Option to load tab content asynchronously; select specific tab in jQuery tab pane; allow tab panes in bullet lists & TWiki table cells; allow HTML in tab title |
+|  2014-09-03: | TWikibug:Item7548: The CSS margin definition of tab(JQTAB) headers need to take precedence. |
+|  2014-08-26: | TWikibug:Item7544: JQTAB enhancement: Active tabs have gray gradient; slightly bigger container padding and inter-tab margin |
+|  2014-08-17: | TWikibug:Item7544: JQTAB enhancements: Show blue link instead of red link on hover over tab; make css overridable; remove dotted underline below tab -- TWiki:Main.PeterThoeny |
+|  2013-09-28: | TWikibug:Item6737: Fix broken nested tabs -- TWiki:Main.PeterThoeny |
+|  2013-08-23: | TWikibug:Item7317: Update JQueryPlugin to jquery-1.10.2 and jquery-ui-1.10.3 -- TWiki:Main.PeterThoeny |
+|  2013-01-28: | TWikibug:Item7091: Use TWISTY in installation instructions and change history |
+|  2012-11-13: | TWikibug:Item7020: Categorize TWiki Variable -- TWiki:Main.PeterThoeny |
+|  2011-07-08: | TWikibug:Item6725: Plugins: Change global package variables from "use vars" to "our" -- TWiki:Main.PeterThoeny |
+|  2011-03-01: | TWikibug:Item6675: Possible to specify JQTHEME more than once per page, but only first one takes effect -- TWiki:Main.PeterThoeny |
+|  2011-03-01: | TWikibug:Item6653: Update plugin to jquery-1.5.1 and jquery-ui-1.8.10 -- TWiki:Main.PeterThoeny |
+|  2010-06-08: | TWikibug:Item6486 - upgrade to latest jquery-1.4.2 release -- TWiki:Main/SopanShewale; add variable documentation topics !VarJQTABPANE, !VarJQTAB, !VarJQENDTAB, !VarJQENDTABPANE -- TWiki:Main/PeterThoeny |
+|  2010-04-25: | TWikibug:Item6436 - renamed too generic variable names BUTTON, TOGGLE, CLEAR, TABPANE, ENDTABPANE, TAB, ENDTAB to JQBUTTON, JQTOGGLE, JQCLEAR, JQTABPANE, JQENDTABPANE, JQTAB, JQENDTAB, respectively. Old variables names available if configure setting is set: =$TWiki::cfg{JQueryPlugin}{Legacy2008} = 1;= -- TWiki:Main/PeterThoeny |
+|  2010-04-22: | TWikibug:Item6433 - doc improvements, no code changes |
+|  15 Jul 2008: | updated to ui-1.5.2; added async treeview; added async options to tabpane |
+|  03 Jul 2008: | updated to ui-1.5.1 |
+|  05 Jun 2008: | updated to jquery-1.2.6 and ui-1.5-RC1 |
+|  30 Apr 2008: | repackaged to contain jquery UI |
+|  13 Feb 2008: | upgrade to jquery-1.2.3, as well as most plugins |
+|  17 Jan 2008: | added jquery.metadata plugin; \
+                  implemented a jquery.tabpane plugin; \
+                  updated jquery.dimensions plugin; \
+                  added jquery.empty plugin to ease development of new plugins |
+|  15 Nov 2007: | use skin independent way to add javascript files to header |
+|  10 Oct 2007: | upgraded to jQuery-1.1.4; compressed js and css |
+|  12 Jul 2007: | initial package containing jQuery-1.1.3.1 |
+%ENDTWISTY%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  Dependencies: | None |
+|  Plugin Home: | http://twiki.org/cgi-bin/view/Plugins/JQueryPlugin |
+|  Feedback: | http://twiki.org/cgi-bin/view/Plugins/JQueryPluginDev |
+|  Appraisal: | http://twiki.org/cgi-bin/view/Plugins/JQueryPluginAppraisal |
+
+__Related topics:__ VarJQTABPANE, VarJQTAB, VarJQENDTAB, VarJQENDTABPANE, Sandbox.PluginTestJQueryPlugin, Sandbox.JQueryPluginExamples, %SYSTEMWEB%.TWikiPlugins, %SYSTEMWEB%.DeveloperDocumentationCategory, %SYSTEMWEB%.AdminDocumentationCategory

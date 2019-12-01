@@ -1,0 +1,14 @@
+%META:TOPICINFO{author="TWikiContributor" date="1311826626" format="1.1" version="2"}%
+---+ Personal Preferences Help
+
+Below help text gets included by user profile pages instantiated from [[NewUserTemplate]] or [[%USERSWEB%.NewUserTemplate]] (if exists)
+
+-----
+%STARTINCLUDE%
+   * %TWISTY{
+showlink="More preferences "
+hidelink=""
+showimgright="%ICONURLPATH{toggleopen-small}%"
+hideimgleft="%ICONURLPATH{toggleclose-small}%"
+}% TWiki has system wide preferences settings defined in [[%WIKIPREFSTOPIC%]]. You can customize preferences settings to your needs: To overload a system setting, (1) do a "raw view" on [[%WIKIPREFSTOPIC%]], (2) copy a =Set VARIABLE = value= bullet, (3) do a "raw edit" of your user profile page, (4) add the bullet to the bullet list above, and (5) customize the value as needed. Make sure the settings render as real bullets (in "raw edit", a bullet requires 3 or 6 spaces before the asterisk). %ENDTWISTY%%STOPINCLUDE%
+-----

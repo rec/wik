@@ -1,0 +1,9 @@
+%META:TOPICINFO{author="TWikiContributor" date="1352960794" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarSLIDESHOWEND
+---+++ SLIDESHOWEND -- end slideshow
+   * The =%<nop>SLIDESHOWEND%= variable is handled by the SlideShowPlugin
+   * Syntax: =%<nop>SLIDESHOWEND%=
+   * Example: See SLIDESHOWSTART
+   * Category: FormattingAndRenderingVariables, UIAndVisualizationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSLIDESHOWSTART][SLIDESHOWSTART]], SlideShowPlugin

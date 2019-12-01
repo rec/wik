@@ -1,0 +1,4 @@
+%META:TOPICINFO{author="TWikiContributor" date="1275720427" format="1.1" version="5"}%
+---+ Tim Berners-Lee
+
+Tim Berners-Lee invented the World Wide Web while working at CERN in 1989. See his biography at http://www.w3.org/People/Berners-Lee/

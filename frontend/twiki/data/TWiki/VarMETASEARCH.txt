@@ -1,0 +1,22 @@
+%META:TOPICINFO{author="TWikiContributor" date="1429673169" format="1.1" version="5"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarMETASEARCH
+---+++ METASEARCH -- special search of meta data
+   * Syntax: =%<nop>METASEARCH{...}%=
+   * Supported parameters:
+     | *Parameter:* | *Description:* | *Default:* |
+     | =type="..."= | Type of search: %BB% ="topicmoved"= - search for a topic that may have been moved. %BB% ="parent"= - search for topics that have a specific parent i.e. its children. %BB% ="field"= - search for topics that have a particular form field value (use the =name= and =value= parameters to specify which field to search). | Required |
+     | =web="%<nop>WEB%"= | Wiki web to search: A web, a list of webs separated by whitespace, or =all= webs. | Current web |
+     | =topic="%<nop>TOPIC%"= | The topic the search relates to. | Current topic |
+     | =name="..."= | form field to search, for =type="field"= searches. May be a regular expression (see [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]]). | |
+     | =value="..."= | form field value, for =type="field"= searches. May be a regular expression (see [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]]). | |
+     | =title="Title"= | Text that is prefixed to any search results. | =""= (empty) |
+     | =format="..."= | Custom format of each search hit. Supports same format strings as [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]]. See *[[FormattedSearch]]* for usage, variables &amp; examples | ="$topic"= |
+     | =separator="..."= | Separator between search hits. | ="$n"= (newline) |
+     | =default="none"= | Default text shown if no search hit. | =""= (empty) |
+   * Example: =%<nop>METASEARCH{type="topicmoved" web="%<nop>WEB%" topic="%<nop>TOPIC%" title="This topic used to exist and was moved to: "}%=
+   * Example: You may want to use this in WebTopicViewTemplate and WebTopicNonWikiTemplate:<br /> =%<nop>METASEARCH{type="parent" web="%<nop>WEB%" topic="%<nop>TOPIC%" title="Children: "}%=
+   * Example: =%<nop>METASEARCH{type="field" name="Country" value="China"}%=
+   * Note: METASEARCH is deprecated in favor of the much more powerful query type search. See [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]] and QuerySearch.
+   * Category: SearchingAndListingVariables, SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarCHILDREN][CHILDREN]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarEDITFORM][EDITFORM]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarEDITFORMFIELD][EDITFORMFIELD]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarFORM][FORM]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarFORMFIELD][FORMFIELD]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETA][META]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarPARENTTOPIC][PARENTTOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]]

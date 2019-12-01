@@ -1,0 +1,223 @@
+head	1.6;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.6
+date	2015.11.29.10.27.03;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2013.10.14.08.02.47;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2012.10.07.08.00.43;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2008.01.22.03.21.28;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2007.01.16.04.11.59;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.25;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@---+ Package =TWiki::Net=
+
+Object that brokers access to network resources.
+
+
+%TOC%
+
+---++ ObjectMethod *finish* <tt>()</tt>
+Break circular references.
+
+
+
+---++ ObjectMethod *registerExternalHTTPHandler* <tt>(\&fn)</tt>
+
+See TWikiFuncDotPm#RegisterExternalHTTPHandler
+
+
+
+---++ ObjectMethod *getExternalResource* <tt>($url,\@@headers,\%params) -> $response</tt>
+
+See TWikiFuncDotPm#GetExternalResource
+
+
+
+---++ ObjectMethod *postExternalResource* <tt>($url,$content,\@@headers,\%params) -> $response</tt>
+
+See TWikiFuncDotPm#PostExternalResource
+
+
+
+---++ ObjectMethod *setMailHandler* <tt>(\&fn)</tt>
+
+   * =\&fn= - reference to a function($) (see _sendEmailBySendmail for proto)
+Install a handler function to take over mail sending from the default
+SMTP or sendmail methods. This is provided mainly for tests that
+need to be told when a mail is sent, without actually sending it. It
+may also be useful in the event that someone needs to plug in an
+alternative mail handling method.
+
+
+
+---++ ObjectMethod *sendEmail* <tt>($text,$tries) -> $error</tt>
+
+   * =$text= - text of the mail, including MIME headers
+   * =$tries= - number of times to try the send (default 1)
+
+Send an email specified as MIME format content.
+Date: ...\nFrom: ...\nTo: ...\nCC: ...\nSubject: ...\n\nMailBody...
+
+
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d42 1
+a42 1
+---++ ObjectMethod *sendEmail* <tt>($text,$retries) -> $error</tt>
+d45 1
+a45 1
+   * =$retries= - number of times to retry the send (default 1)
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d13 1
+a13 1
+---+++ getExternalResource( $url, @@headers ) -> $response
+d15 1
+a15 46
+Get whatever is at the other end of a URL (using an HTTP GET request). Will
+only work for encrypted protocols such as =https= if the =LWP= CPAN module is
+installed.
+
+Note that the =$url= may have an optional user and password, as specified by
+the relevant RFC. Any proxy set in =configure= is honored.
+
+Optional headers may be supplied of form 'name1', 'value1', 'name2', 'value2'.
+Do not add a User-Agent header, it will be added.
+
+The =$response= is an object that is known to implement the following subset of
+the methods of =LWP::Response=. It may in fact be an =LWP::Response= object,
+but it may also not be if =LWP= is not available, so callers may only assume
+the following subset of methods is available:
+| =code()= |
+| =message()= |
+| =header($field)= |
+| =content()= |
+| =is_error()= |
+| =is_redirect()= |
+
+Note that if LWP is *not* available, this function:
+   1 can only really be trusted for HTTP/1.0 urls. If HTTP/1.1 or another
+     protocol is required, you are *strongly* recommended to =require LWP=.
+   1 Will not parse multipart content
+
+In the event of the server returning an error, then =is_error()= will return
+true, =code()= will return a valid HTTP status code
+as specified in RFC 2616 and RFC 2518, and =message()= will return the
+message that was received from
+the server. In the event of a client-side error (e.g. an unparseable URL)
+then =is_error()= will return true and =message()= will return an explanatory
+message. =code()= will return 400 (BAD REQUEST).
+
+Note: Callers can easily check the availability of other HTTP::Response methods
+as follows:
+
+<verbatim>
+my $response = TWiki::Func::getExternalResource($url);
+if (!$response->is_error() && $response->isa('HTTP::Response')) {
+    $text = $response->content();
+    # ... other methods of HTTP::Response may be called
+} else {
+    # ... only the methods listed above may be called
+}
+</verbatim>
+d18 14
+a31 1
+---++ setMailHandler( \&fn )
+d41 1
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d13 1
+a13 1
+---+++ getExternalResource( $url ) -> $response
+d20 4
+a23 1
+the relevant RFC. Any proxy set in =configure= is honoured.
+d55 2
+a56 1
+    ... other methods of HTTP::Response may be called
+d58 1
+a58 1
+    ... only the methods listed above may be called
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d8 2
+a9 1
+---++ ObjectMethod *getUrl* <tt>($protocol,$host,$port,$url,$user,$pass) -> $text</tt>
+a10 1
+Get the text at the other end of a URL
+d13 45
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d8 1
+a8 1
+---++ ObjectMethod *getUrl* <tt>($host,$port,$url,$user,$pass,$header) -> $text</tt>
+d15 1
+d25 1
+@

@@ -1,0 +1,55 @@
+%META:TOPICINFO{author="TWikiContributor" date="1352798346" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TagMePlugin"}%
+---+!! Tag-me: Delete Tag
+
+%STARTINCLUDE%
+<table class="tagmeNavigation" border="0" cellpadding="3" cellspacing="0"><tr>
+<td>&nbsp; &nbsp;</td>
+<td bgcolor="#eef0f8" style="background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TagMePlugin/gray-gradient-2.png); border: solid 1px #d7dced;">&nbsp; [[%BASEWEB%.TagMeCreateNewTag][Create New Tag]] &nbsp;</td>
+<td>&nbsp;</td>
+<td bgcolor="#eef0f8" style="background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TagMePlugin/gray-gradient-2.png); border: solid 1px #d7dced;">&nbsp; [[%BASEWEB%.TagMeRenameTag][Rename Tag]] &nbsp;</td>
+<td>&nbsp;</td>
+<td bgcolor="#d7dced" style="background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TagMePlugin/gray-gradient-1.png); border: solid 1px #d7dced;">&nbsp; *Delete Tag* &nbsp;</td>
+</tr></table>
+<table border="0" cellpadding="5" cellspacing="0" style="width:100%;">
+<tr bgcolor="#d7dced"><td style="width:100%;"></td></tr>
+</table>
+%STARTSECTION{"delete"}%
+<noautolink><form name="renametag" action="%SCRIPTURL{viewauth}%/%BASEWEB%/%BASETOPIC%" method="post" onsubmit="return confirmDelete(this.oldtag.value, this.postChangeRequest);">%TAGME{ tpaction="%URLPARAM{"deleteaction" default="deletetaginit"}%" oldtag="%URLPARAM{oldtag}%" note="%URLPARAM{renametagnote}%" }%
+
+<div class="twikiFormSteps">
+<div class="twikiFormStep">
+Tag to delete: %BR%
+<select name="oldtag">
+<option>%URLPARAM{deletetag}%</option>
+%TAGME{ tpaction="showalltags" format="<option>$tag</option>" separator="$n" }%
+</select>
+</div>
+<div class="twikiFormStep twikiLast">
+<input %IF{"context inactive" then="disabled"}% type="submit" class="twikiSubmit" value="%MAKETEXT{"Delete"}%" />
+</div>
+</div>
+<input type="hidden" name="deleteaction" value="deletetag" />
+</form>
+</noautolink>
+%ENDSECTION{"delete"}%
+
+%BR%
+<span class="twikiGrayText">Other tag options: [[%BASEWEB%.TagMeViewAllTags][View all tags]], %IF{"'%TAGMEPLUGIN_USER_AGNOSTIC%' = 'on'" else="[[%BASEWEB%.TagMeViewMyTags][View my tags]], "}%[[%BASEWEB%.TagMeSearch][Search tags]]</span>
+
+%STARTSECTION{"dialogJavascript"}%
+<script language="javascript" type="text/javascript">
+<!-- // <pre>-hide
+function confirmDelete(inTagName, inSendsPostRequest) {
+   if (inSendsPostRequest) {
+      return true;
+   }
+   if (confirm("Are you sure you want to delete tag \"" + inTagName + "\"?")) {
+      return true;
+   }
+   return false;
+}
+// </pre>-hide -->
+</script>
+%ENDSECTION{"dialogJavascript"}%
+%STOPINCLUDE%

@@ -1,0 +1,15 @@
+%META:TOPICINFO{author="TWikiContributor" date="1428612292" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarSETGETDUMP
+---+++ SETGETDUMP{...} -- dump variables
+   * Dump volatile or persistent name/values previously set with =%<nop>SET{}%=.  %IF{"'%INCLUDINGTOPIC%'!='SetGetPlugin'" then="The =%<nop>SETGETDUMP{}<nop>%=, =%<nop>SET{}<nop>%=, and =%<nop>GET{}<nop>%= variables are handled by the SetGetPlugin." }%
+   * Syntax: =%<nop>SETGETDUMP{ remember="1" format="..." separator="..." }%=
+   * Parameters:
+     | *Parameter* | *Description* | *Default* |
+     | =remember="1"= | Dump all persistent variables | (volatile variables) |
+     | =store="..."= | Dump variables of a specific store | (volatile variables) |
+     | =format="..."= | Format output using variables =$<nop>name= and =$<nop>value= | ="name: $<nop>name, value: $<nop>value &lt;br /&gt;"= |
+     | =separator="..."= | String used for separating entries | ="&#92;n"= |
+   * Example: =%<nop>SETGETDUMP{"| $<nop>name | $<nop>value |" separator="$<nop>n"}%=%IF{"'%INCLUDINGTOPIC%'!='SetGetPlugin'" then=" - [[SetGetPlugin#SetGetExamples][see more examples]]." }%
+   * Category: ApplicationsAndComponentsVariables, DevelopmentVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables' OR '%INCLUDINGTOPIC%'='SetGetPlugin'" then="#"}%VarGET][GET]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarIF][IF]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables' OR '%INCLUDINGTOPIC%'='SetGetPlugin'" then="#"}%VarSET][SET]], %IF{"'%INCLUDINGTOPIC%'!='SetGetPlugin'" then="SetGetPlugin, "}%SpreadSheetPlugin#FuncSET

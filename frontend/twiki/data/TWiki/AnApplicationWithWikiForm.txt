@@ -1,0 +1,26 @@
+%META:TOPICINFO{author="TWikiContributor" date="1304624480" format="1.1" version="7"}%
+%META:TOPICPARENT{name="TWikiFAQ"}%
+---++ FAQ:
+
+How can I create a simple [[TWikiForms][TWiki Forms]] based application?
+
+---++ Answer:
+
+TWiki applications help automate workflows you have at the workplace. TWiki has a built-in database that can be used to write custom web applications. These are wiki applications that run in TWiki.
+
+A typical TWiki forms based application consists of the following pages:
+
+   * Application home page, typically containing links to other application pages. It may contain also a report showing data records.
+   * Form definition page, defining the fields of a record. Details in TWikiForms.
+   * Template page, used as a template for new data records. It is essentially a TWiki page with a form attached to it. Details in TWikiTemplates.
+   * Header page: Optional page included in each record page to summarize the record.
+   * Page with an HTML form to create new records.
+   * Report page(s). Details in VarSEARCH and FormattedSearch.
+
+TWiki.org has a blog post on [[TWiki:Blog.BlogEntry201009x1][How to Create a TWiki Application]] where you can learn the details.
+
+__Back to:__ TWikiFAQ
+
+__Related Topics:__ UserDocumentationCategory
+
+-- __Contributors:__ TWiki:Main.MiyokoTakushima, TWiki:Main.PeterThoeny

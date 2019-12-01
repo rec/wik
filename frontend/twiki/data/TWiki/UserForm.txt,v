@@ -1,0 +1,196 @@
+head	1.6;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.6
+date	2013.10.12.01.54.42;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2013.10.12.01.54.42;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2011.09.24.00.03.36;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2011.07.29.04.23.54;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2010.05.29.14.44.49;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2008.01.22.03.21.31;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1381542882" format="1.1" version="6"}%
+---+ User Form
+
+__Note:__ This is a maintenance topic, used by the TWiki administrator.
+
+This form defines the form of the user profile pages of registered TWiki users listed
+in %USERSWEB%.%WIKIUSERSTOPIC% and %USERSWEB%.UserList. *Do not edit this topic* - if you want to customize the
+user form, then:
+   1 Take a copy of this topic and save it to <nop>%USERSWEB%.UserForm in the <nop>%USERSWEB% web
+   1 Customize <nop>%USERSWEB%.UserForm
+   1 Take a copy of NewUserTemplate and save it to <nop>%USERSWEB%.NewUserTemplate
+   1 In <nop>%USERSWEB%.NewUserTemplate, go to "More topic actions", select "Edit topic preference settings", and add a VIEW_TEMPLATE setting like this:
+      * <nop>Local VIEW<nop>_TEMPLATE = <nop>UserView 
+   1 In <nop>%USERSWEB%.NewUserTemplate, go to "More topic actions" again, select "Add or replace form on this topic", and select your new user form
+
+|*Name*  |*Type*  |*Size*  |*Values*  |*Tooltip message*  |*Attributes*  |
+| First Name | text | 60 | | First name of person | |
+| Last Name | text | 60 | | Last name of person | |
+| Titles | text | 60 | | Titles or profession | |
+| Email | text | 60 | | E-mail address | |
+| Telephone | text | 60 | | Telephone number | |
+| Mobile | text | 60 | | Mobile number | |
+| Skype ID | text | 60 | | Skype ID | |
+| Department | text | 60 | | Department or group within organization | |
+| Organization | text | 60 | | Company, agency or educational institution | |
+| URL | text | 60 | | Website link of organization | |
+| Location | text | 60 | | Office location | |
+| Region | text | 60 | | State, province or region | |
+| Country | text | 60 | | Country | |
+| Image | text | 60 | | Name of image attached to the user profile page (for best result resize to 200 pixel width) | H |
+| Status Update | text | 60 | | Short status update (out of office etc.) | |
+
+__%X% Note:__ Please keep the %SYSTEMWEB%.TWikiRegistration form and this form definition in sync. When you update this form you need to edit/save the %SYSTEMWEB%.NewUserTemplate topic. This ensures that the fields are in the right order.
+
+__Related topics:__ %USERSWEB%.%WIKIUSERSTOPIC%, %USERSWEB%.UserList, %USERSWEB%.PatternSkinUserViewTemplate, %SYSTEMWEB%.NewUserTemplate, %USERSWEB%.UserProfileHeader, %SYSTEMWEB%.TWikiForms, %SYSTEMWEB%.TWikiRegistration
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1381542882" format="1.1" version="5"}%
+d18 1
+a18 1
+| Last Name | text | 60 | | First name of person | |
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1316822616" format="1.1" version="4"}%
+d10 1
+a10 1
+   1 Customise <nop>%USERSWEB%.UserForm
+d14 1
+a14 1
+   1 Edit <nop>%USERSWEB%.NewUserTemplate, click on the "Add form" button, and select your new user form - (if it does not show up, add =UserForm= to the WEBFORMS setting in <nop>%USERSWEB%.WebPreferences first)
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1311913434" format="1.1" version="3"}%
+d12 3
+a14 1
+   1 Modify <nop>%USERSWEB%.NewUserTemplate and change the form to select your new user form.
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1273956409" format="1.1" version="2"}%
+d6 2
+a7 2
+This form defines the form of the home pages of registered TWiki users listed
+in %USERSWEB%.%WIKIUSERSTOPIC%. *Do not edit this topic* - if you want to customise the
+d9 4
+a12 4
+   1 Take a copy of this topic and save it to %USERSWEB%.<nop>UserForm
+   1 Customise %USERSWEB%.<nop>UserForm
+   1 Take a copy of NewUserTemplate and save it to %USERSWEB%.<nop>NewUserTemplate
+   1 Modify %USERSWEB%.<nop>NewUserTemplate and change the form to select your new user form.
+d15 15
+a29 15
+| <nop>FirstName | text | 40 | | | |
+| <nop>LastName | text | 40 | | | |
+| <nop>OrganisationName | text | 40 | | | |
+| <nop>OrganisationURL | text | 40 | | | |
+| Profession | text | 40 | | | |
+| Country | text | 40 | | | |
+| State | text | 40 | | | |
+| Address | text | 40 | | | |
+| Location | text | 40 | | | |
+| Telephone | text | 40 | | | |
+| <nop>VoIP | text | 40 | | | |
+| <nop>InstantMessaging (IM) | textarea | 50x4 | | (One account per line, if several) | |
+| Email | text | 40 | | | |
+| <nop>HomePage | text | 40 | | | |
+| Comment | textarea | 50x6 | | | |
+d33 1
+a33 1
+__Related topics:__ %USERSWEB%.%WIKIUSERSTOPIC%, %SYSTEMWEB%.UserViewTemplate, %SYSTEMWEB%.NewUserTemplate, %USERSWEB%.UserHomepageHeader, %SYSTEMWEB%.TWikiForms, %SYSTEMWEB%.TWikiRegistration
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="1"}%
+d7 1
+a7 1
+in %MAINWEB%.%WIKIUSERSTOPIC%. *Do not edit this topic* - if you want to customise the
+d9 4
+a12 4
+   1 Take a copy of this topic and save it to %MAINWEB%.<nop>UserForm
+   1 Customise %MAINWEB%.<nop>UserForm
+   1 Take a copy of NewUserTemplate and save it to %MAINWEB%.<nop>NewUserTemplate
+   1 Modify %MAINWEB%.<nop>NewUserTemplate and change the form to select your new user form.
+d31 1
+a31 3
+__%X% Note:__ Please keep the %TWIKIWEB%.TWikiRegistration form and this form definition in sync. When you update this form you need to edit/save the %TWIKIWEB%.NewUserTemplate topic. This ensures that the fields are in the right order.
+
+__Related topics:__ %MAINWEB%.%WIKIUSERSTOPIC%, %MAINWEB%.UserViewTemplate, %TWIKIWEB%.NewUserTemplate, %MAINWEB%.UserHomepageHeader, %TWIKIWEB%.TWikiForms, %TWIKIWEB%.TWikiRegistration
+d33 1
+@

@@ -1,0 +1,113 @@
+%META:TOPICINFO{author="TWikiContributor" date="1366959063" format="1.1" version="1"}%
+---+!! Custom User/Group Notations
+
+Your TWiki site may be depending on a web user authentication mechanism provided in your environment.
+And your users are well accustomed to the user IDs of that environment.
+
+You may have an LDAP server or Active Directory, which defines groups. And your TWiki site may be connected that directory server using !LdapNgPlugin.
+
+This topic discusses how to have such custom notations and use them for [[TWikiAccessControl][access control]] and [[MailerContrib][change notification setting]].
+
+---++ Assumption
+
+Here's the basic assumption of this topic.
+   * The user and/or group information is stored in a kind of directory system and TWiki can make a query to it using LdapNgPlugin or something else
+   * A directory look-up web application is provided and people can look up user and/or group information there
+
+To make the discussion concrete, let's assume the following custom notations.
+
+---+++ User notation: USER:<i>user-id</i>
+
+TWiki gets an authenticated user ID in =$ENV{REMOTE_USER}= from a mechanismm provided by the environment.
+A user can be represented as =USER:<i>user-id</i>= in addition to a wikiname.
+=USER:<i>user-id</i>= in a topic becomes a hyper link to the directory look-up page of the user.
+
+---+++ Group notation: LDAPGROUP:<i>group-name</i>
+
+Groups are defined in LDAP and they are represented as =LDAPGROUP:<i>group-name</i>=.
+There is no wikiname corresponding to those groups.
+=LDAPGROUP:<i>group-name</i>= in a topic becomes a hyper link to the directory look-up page of the group.
+
+LDAP groups may be used in parallel to group defined by TWiki topics.
+
+---+++ How they are used
+
+For access control, the notations are used as follows.
+<pre>
+   * <nop>Set ALLOWWEBVIEW = LDAPGROUP:team-foo, USER:bar
+</pre>
+For change notification (in <nop>%NOTIFYTOPIC% topics), the notatons are used as follows.
+<pre>
+   * 'LDAPGROUP:team-foo'
+   * 'USER:bar'
+</pre>
+This is inconvenient because you need to put quotes for change notification, but you don't need to for access control.
+But you can [[MailerContrib][configure change notification]] so that you don't need to put quotes for the notations.
+
+---++ What's needed
+
+To make use of the notations mentioned above for [[TWikiAccessControl][access control]] and [[MailerContrib][change notification setting]], you need to have the following.
+   * A custom user mapping manager and set =$TWiki::cfg{UserMappingManager}= accordingly.
+   * A custom plug-in to render those notations to proper hyper links
+   If a string in the notation refers to a non-existent user or group, it needs to be rendered similarly to a missing topic but clicking it must not end up creating a new topic
+
+---++ How to implement a custome user mapping
+
+---+++ Custom user mapping 101
+
+If you simply utilize authenticated user IDs provided by the environment and map to wikinames and map wikinames to user IDs, you don't provide custom notations, and you stick to groups defined by TWiki topics, then you don't have to do a lot with your custom mapping manager.
+Creating a subclass of !TWikiUserMapping and implementing the following methods is enough.
+   * =handlesUser()= %BR%
+   A wikiname can be handed as a login name. In such a case, false needs to be returned.
+   * =login2cUID()=
+   * =getLoginName()=
+   * =getWikiName()=
+   * =findUserByEmail()=
+   * =getEmails()=
+   * =findUserByWikiName()=
+
+You don't have to have a plug-in for user wikinames, but it's nice if you have it.
+Because under the assumption, user registration in TWiki is not needed, hence many users leave their user topics (!Main.FirstLast) not created. Consequently, quite a few users' wikinames remain broken links.
+
+If user wikinames are converted into links to directory look-up web site's entries, you don't see such broken links of user wikinames.
+In addition, the wikiname of non-existent user is rendered like a broken link, it's even better.
+
+Since TWiki depends on user accounts provided by the environment, TWiki don't and cannot deal with user password. As such, =$TWiki::cfg{PasswordManager}= is set to ='none'=.
+
+---+++ Full-fledged user mapping manager
+
+In addition to above, the following have to be done to make a user mapping manager full-fledged and support the notations mentioned above.
+
+---++++ handlesUser()
+
+|                               | *Recognized as<br/>a login name* | *Recognized as<br/>a wikiname* |
+| =USER:<i>user-id</i>=         |  must be  |  must be  |
+| =LDAPGROUP:<i>group-name</i>= |  must not be |  must be  |
+
+---++++ login2cUID()
+
+Needs to return a proper cUID when =USER:<i>user-id</i>= is given.
+
+---++++ eachGroupMember()
+
+When =LDAPGROUP:<i>group-name</i>= is handed, the method needs to return the list whose only element is the one handed.
+
+Otherwise, expand the group.
+
+---++++ isGroup()
+
+In addition to groups defined by TWiki topics, =LDAPGROUP:<i>group-name</i>= needs to yield true.
+
+---++++ isInGroup()
+
+In addition to groups defined by TWiki topics, =LDAPGROUP:<i>group-name</i>= needs to be taken care of.
+
+---++++ getEmails()
+
+When =LDAPGROUP:<i>group-name</i>= is handed, the method needs to return the email address corresponding to the LDAP group.
+
+---++++ findUserByWikiName()
+
+When =USER:<i>user-id</i>= is handed, the method needs to return the corresponding cUID.
+
+__Related Topics:__ AdminDocumentationCategory, TWikiAccessControl, MailerContrib

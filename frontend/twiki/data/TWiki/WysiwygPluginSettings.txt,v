@@ -1,0 +1,228 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2013.09.12.05.06.39;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2010.05.29.14.44.30;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2008.01.22.03.21.36;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1378962399" format="1.1" version="3"}%
+%META:TOPICPARENT{name="WysiwygPlugin"}%
+---+ Settings for WysiwygPlugin that are common to most editor integrations
+%STARTINCLUDE%
+---++++ WYSIWYG_EXCLUDE - Prevent WYSIWYG editing 
+
+The *global* [[%SYSTEMWEB%.TWikiPreferences][preference setting]] =WYSIWYG_EXCLUDE= can be set to make the plugin sensitive to what is in a topic, before allowing it to be edited. The comma separated list to fall back to text edit can include:
+
+   * =html= - HTML tags (e.g. =&lt;div&gt;=, not including =&lt;br&gt;=), or 
+   * =variables= - simple variables (e.g. =%<nop>SOMEVAR%=) or 
+   * =calls= - variables with parameters e.g. =%<nop>SOMECALL{...}%=
+   * =pre= - pre-formatted blocks (=&lt;pre&gt;=)
+   * =comments= - HTML comments (=&lt;!--= ... =--&gt;=)
+   * =script= - inline HTML Script tags - _default_
+   * =style= - inline CSS style tags - _default_
+   * =table= - inline HTML tables (=&lt;table ..&gt;=. TML tables are not excluded)
+
+If the plugin detects an excluded construct in the topic, it will refuse to allow the edit and will redirect to the default editor.
+
+---+++++ WYSIWYG_EDITABLE_CALLS - Exceptions to WYSIWYG_EXCLUDE
+
+If you excluded =calls= in =WYSIWYG_EXCLUDE=, you can still define a subset of variables that do *not* block edits. this is done in the *global* preference setting =WYSIWYG_EDITABLE_CALLS=, which should be a list of variable names separated by vertical bars, with no spaces, e.g: =* Set WYSIWYG_EDITABLE_CALLS = COMMENT|CALENDAR|INCLUDE=
+
+You should set =WYSIWYG_EXCLUDE= and =WYSIWYG_EDITABLE_CALLS= in %USERSWEB%.TWikiPreferences, or in %WEBPREFSTOPIC% for each web.
+
+---++++ WYSIWYGPLUGIN_PROTECT_EXISTING_TAGS - Protect specific tags originally in the topic text
+
+The =WYSIWYGPLUGIN_PROTECT_EXISTING_TAGS= preference tells the translator that certain HTML tags which were originally in the topic text should _remain_ as HTML tags; the translator will not try to convert them to TML.  This protects the tags themselves, and not the contents enclosed between the =&lt;tag>= and =&lt;/tag>=
+
+The default setting for this preference is defined within the plugin. It corresponds to =div, span=.
+
+This feature may be disabled by setting the preference to a single comma. This does _not_ guarantee that HTML markup will be removed; the conversion of HTML tags to TML markup remains subject to the other controls provided by the !WysiwygPlugin, including the =WYSIWYGPLUGIN_STICKYBITS= preference, =&lt;sticky&gt;= blocks, =&lt;literal&gt;= blocks and the rules applied to tables and lists.
+
+---++++ WYSIWYGPLUGIN_PROTECT_TAG_BLOCKS - Protect specific tag blocks originally in the topic text
+
+The =WYSIWYGPLUGIN_PROTECT_TAG_BLOCKS= preference tells the translator that certain HTML tag blocks which were originally in the topic text should _remain_ as HTML blocks; the translator will not try to convert them to TML.
+
+The default setting for this preference is defined within the plugin. It corresponds to =script, style=.
+
+As an example, individual html tables can be protected by surrounding them with =&lt;sticky> .. &lt;/sticky> block.  However,if you want to have all =&lt;table> markup preserved as entered into topics by default, rather than subject to WYSIWYG editing,  add =table= to this list, and =&lt;table> markup will become
+automatically sticky.
+
+This feature may be disabled by setting the preference to a single comma.
+
+---++++ WYSIWYGPLUGIN_STICKYBITS - Protect tags based upon their arguments
+
+You can define the global preference =WYSIWYGPLUGIN_STICKYBITS= to stop the plugin from ever trying to convert specific HTML tags into TML when certain specific attributes are present on the tag. This is most useful when you have styling or alignment information in tags that must be preserved.
+
+This preference setting is used to tell the translator which attributes, when present on a tag, make it "stick" i.e. block conversion back to TML. <blockquote>For example, setting it to =table=background,lang;tr=valign= will stop the translator from trying to convert any =table= tag that has =background= or =lang= attributes, and any =tr= tag that has a =valign= attribute back to TWiki =| table | column |= markup (regardless of where that =table= tag comes from).</blockquote>
+
+This setting is used only after the page has been processed by the editor. If the editor does not support a particular tag or attribute and the editor corrupts the tag, this setting will not be helpful.  It is only used to prevent an HTML tag from being converted back to TML.
+
+Format of the setting is =tag1=attrib,attrib;tag2=attrib=. Attributes delimited by comma, and tags delimited by semicolon.
+
+   * The left side of the equal sign is the tag. 
+   * The right side of the equal sign is a comma delimited list of attributes to be matched.  
+
+If a matching tag is found, that matches any of the attributes listed, the tag will not be converted back to TML. You can use perl regular expressions to match tag and attribute names, so =.*=id,on.*= will ensure that any tag with an id or =on*= event handler is kept as HTML.   
+
+The default setting for this preference are hard coded in the plugin.  If you wish to change the settings, the following list is the default setting coded in the plugin:
+<pre class="tml">
+   * Set WYSIWYGPLUGIN_STICKYBITS = %INCLUDE{"%TOPIC%" section="WYSIWYGPLUGIN_STICKYBITS"}%
+</pre><!-- %JQREQUIRE{"chili"}%
+%STARTSECTION{"WYSIWYGPLUGIN_STICKYBITS"}%
+        (?!IMG).*=id,lang,title,dir,on.*;
+        A=accesskey,coords,shape,target;
+        BDO=dir;
+        BR=clear;
+        COL=char,charoff,span,valign,width;
+        COLGROUP=align,char,charoff,span,valign,width;
+        DIR=compact;
+        DIV=align,style;
+        DL=compact;
+        FONT=size,face;
+        H[0-9]=align;
+        HR=align,noshade,size,width;
+        LEGEND=accesskey,align;
+        LI=value;
+        OL=compact,start,type;
+        P=align;
+        PARAM=name,type,value,valuetype;
+        PRE=width;
+        Q=cite;
+        TABLE=align,bgcolor,frame,rules,summary,width;
+        TBODY=align,char,charoff,valign;
+        TD=abbr,align,axis,bgcolor,char,charoff,headers,height,nowrap,rowspan,scope,valign,width;
+        TFOOT=align,char,charoff,valign;
+        TH=abbr,align,axis,bgcolor,char,charoff,height,nowrap,rowspan,scope,valign,width,headers;
+        THEAD=align,char,charoff,valign;
+        TR=bgcolor,char,charoff,valign;
+        UL=compact,type
+%ENDSECTION{"WYSIWYGPLUGIN_STICKYBITS"}%
+-->
+
+If you edit using the plain-text editor, you can use the &lt;sticky&gt;..&lt;/sticky&gt; tags to delimit HTML (or TML) that you do *not* want to be WYSIWYG edited.
+
+%STOPINCLUDE%
+
+__Related Topics:__ WysiwygPlugin, WysiwygPluginTopicLister, TinyMCEPlugin, %SYSTEMWEB%.TWikiPreferences
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 2
+a2 1
+%META:TOPICINFO{author="TWikiContributor" date="1272178845" format="1.1" version="2"}%
+d5 13
+a17 6
+The *global* TWiki Variable =WYSIWYG_EXCLUDE= can be set to make the plugin sensitive to what is in a topic, before allowing it to be edited. You can set it up to veto an edit if the topic contains:
+   * =html= - HTML tags (e.g. =&lt;div&gt;=, not including &lt;br&gt;), or 
+   * =variables= - simple variables (e.g. =%<nop>VAR%=) or 
+   * =calls= - TWiki variables with parameters e.g. =%<nop>VARIABLE{...}%=
+   * =pre= blocks (=&lt;pre&gt;=)
+   * HTML =comments= (=&lt;!--= ... =--&gt;=)
+d20 3
+a22 1
+If you excluded =calls= in =WYSIWYG_EXCLUDE=, you can still define a subset of TWiki variables that do *not* block edits. this is done in the *global* TWiki variable =WYSIWYG_EDITABLE_CALLS=, which should be a list of TWiki variable names separated by vertical bars, with no spaces, e.g: =* Set WYSIWYG_EDITABLE_CALLS = COMMENT|CALENDAR|INCLUDE=
+d26 3
+a28 1
+You can define the global variable =WYSIWYGPLUGIN_STICKYBITS= to stop the plugin from ever trying to convert specific HTML tags into HTML when certain specific attributes are present on the tag. This is most useful when you have styling or alignment information in tags that must be preserved.
+d30 1
+a30 1
+This variable is used to tell the translator which attributes, when present on a tag, make it "stick" i.e. block conversion. For example, setting it to =table=background,lang;tr=valign= will stop the translator from trying to handle any =table= tag that has =background= or =lang= attributes, and any =tr= tag that has a =valign= attribute.
+d32 1
+a32 1
+You can use perl regular expressions to match tag and attribute names, so =.*=id,on.*= will ensure that any tag with an =on*= event handler is kept as HTML.
+d34 60
+a93 30
+The default setting for this variable is:
+<verbatim>
+    .*=id,lang,title,dir,on.*;
+    A=accesskey,coords,shape,target;
+    BDO=dir;
+    BR=clear;
+    COL=char,charoff,span,valign,width;
+    COLGROUP=align,char,charoff,span,valign,width;
+    DIR=compact;
+    DIV=align;
+    DL=compact;
+    FONT=size,face;
+    H\d=align;
+    HR=align,noshade,size,width;
+    LEGEND=accesskey,align;
+    LI=type,value;
+    OL=compact,start,type;
+    P=align;
+    PARAM=name,type,value,valuetype;
+    PRE=width;
+    Q=cite;
+    TABLE=align,bgcolor,border,cellpadding,cellspacing,frame,rules,summary,width;
+    TBODY=align,char,charoff,valign;
+    TD=abbr,align,axis,bgcolor,char,charoff,colspan,headers,height,nowrap,rowspan,scope,valign,width;
+    TFOOT=align,char,charoff,valign;
+    TH=abbr,align,axis,bgcolor,char,charoff,colspan,height,nowrap,rowspan,scope,valign,width,headers;
+    THEAD=align,char,charoff,valign;
+    TR=bgcolor,char,charoff,valign;
+    UL=compact,type
+</verbatim>
+d96 1
+d99 1
+a99 1
+__Related topics:__ WysiwygPlugin, WysiwygPluginTopicLister
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+d14 1
+a14 1
+You should set =WYSIWYG_EXCLUDE= and =WYSIWYG_EDITABLE_CALLS= in %MAINWEB%.TWikiPreferences, or in %WEBPREFSTOPIC% for each web.
+d16 3
+a18 11
+You can define the global variable =WYSIWYGPLUGIN_STICKYBITS= to stop the
+plugin from ever trying to convert specific HTML tags into
+HTML when certain specific attributes are present on the tag. This is most
+useful when you have styling or alignment information in tags that must be
+preserved.
+
+This variable is used to tell the translator which attributes, when present
+on a tag, make it "stick" i.e. block conversion. For example, setting it to
+=table=background,lang;tr=valign= will stop the translator from trying to
+handle any =table= tag that has =background= or =lang= attributes, and any
+=tr= tag that has a =valign= attribute.
+d54 1
+d56 1
+a56 1
+%STOPINCLUDE%@

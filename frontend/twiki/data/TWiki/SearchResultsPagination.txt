@@ -1,0 +1,132 @@
+%META:TOPICINFO{author="TWikiContributor" date="1433751478" format="1.1" version="2"}%
+---+ Search Results Pagination
+
+When a =%<nop>SEARCH{...}%= returns many results, you may want to paginate the results.
+
+---++ Overview
+
+You can achieve search results pagination by tweaking a =%<nop>SEARCH{...}%= as follows.
+(New lines are inserted for readability in =$SET(searchparams, ...)=. Please don't copy-paste it for real use.)
+As you can see, this is using the SpreadSheetPlugin.
+<verbatim>
+...
+%INCLUDE{"%SYSTEMWEB%.SearchResultsPagination" section="preamble"}%<nop>
+%SEARCH{ 
+"%URLPARAM{"search" encode="quote"}%"
+...
+start="%CALCULATE{$GET(start)}%"
+limit="%CALCULATE{$GET(limit)}%"
+footer="$percntCALCULATE{$SET(ntopics, $tntopics)$SET(nwebs, $nwebs)}$percnt"
+}%
+%CALCULATE{$SET(searchparams, search=%URLPARAM{"search" encode="url"}%;
+type=%URLPARAM{"type" encode="url" default="%SEARCHDEFAULTTYPE%"}%;
+scope=%URLPARAM{"scope" encode="url"}%;
+web=%URLPARAM{"web" encode="url"}%;
+nosearch=%URLPARAM{"nosearch" encode="url"}%;)}%<nop>
+%INCLUDE{"%SYSTEMWEB%.SearchResultsPagination" section="postamble"}%<nop>
+...
+</verbatim>
+
+This tweaking adds pagination link rows before and after the search results as follows:
+
+[[#A][&laquo;Previous]] &nbsp; [[#A][1]] &nbsp; *2* &nbsp; [[#A][3]] &nbsp; [[#A][4]] &nbsp; [[#A][5]] &nbsp; [[#A][Next&raquo;]]
+
+The =section="preamble"= and =section="postamble"= also support a =style=""= parameter to set the style of the pagination link row =&lt;div&gt;= tag. For example, to disable the pagination link row on top, write:%BR%
+=%<nop>INCLUDE{"%<nop>SYSTEMWEB%.SearchResultsPagination" section="preamble" style="display:none;"}%&lt;nop&gt;=
+
+Maximum 16 page links are shown &mdash; the "Next" link can be used to paginate beyond 16 pages if there are more than that. The pagination link rows are not shown if the number of results is below a one page threshold.
+
+WebChanges, WebSearch, and WebSearchAdvanced are using this technique.
+
+---++ Results per page
+
+By default, each page shows %SEARCHRESULTSPERPAGE% results, which is defined by the SEARCHRESULTSPERPAGE preferences setting.
+To change it to 10, change the initial part as follows.
+(The second line is inserted.)
+<verbatim>
+%INCLUDE{"%SYSTEMWEB%.SearchResultsPagination" section="preamble"}%<nop>
+%CALCULATE{$SET(limit, %URLPARAM{"limit" default="10" encode="entity"}%)}%<nop>
+%SEARCH{...
+</verbatim>
+If you specify =limit=20= URL parameter manually, that's observed.
+If you specify =limit=all= URL parameter, all results are shown without pagination.
+
+---++ Where in the topic you go afer clicking a pagination link
+
+By default, clicking a pagination link leads you to the top of the current set of search results.
+In other words, you see "&laquo;Previous 1 2 3 4 5 Next&raquo;" at the top of the web browser window followed by search results.
+
+If a topic has little other than search results, you may prefer seeing the top of the page after clicking pagination link.
+You can achieve that by the following lines.
+<verbatim>
+%INCLUDE{"%SYSTEMWEB%.SearchResultsPagination" section="preamble"}%<nop>
+%CALCULATE{$SET(plinkanchor, )}%<nop>
+%SEARCH{...
+</verbatim>
+
+I cannot imagine a real use but if you want to see the bottom of the search results after clicking a pagination link, put the following lines on the topic.
+<verbatim>
+%INCLUDE{"%SYSTEMWEB%.SearchResultsPagination" section="preamble"}%<nop>
+%CALCULATE{$SET(plinkanchor, #SearchPaginationBottom)}%<nop>
+%SEARCH{...
+</verbatim>
+
+---++ URL parameters
+
+All hyper links in the pagination apparatus point to the same page with some URL parameters.
+The parameters are %CALCULATE{$GET(searchparams)}% plus pagination parameters (namely =start= and =limit=).
+You need to =$SET(searchparams, ...)= having this in mind.
+
+---++ Multiple webs
+
+=%<nop>SEARCH{...}%= may take the =web= parameter to have multiple webs specified.
+In that case, it's strange to do pagination hence suppressed.
+
+---++ !SpreadSheetPlugin variables
+
+This feature uses the following SpreadSheetPlugin variables.
+Please beware of variable clashes if you use SpreadSheetPlugin for your own use on a page doing search result pagination
+
+   * limit
+   * linksText
+   * npages
+   * ntopics
+   * numlimit
+   * nextText
+   * nwebs
+   * paginate
+   * prevText
+   * searchparams
+   * start
+   * stepsText
+
+__Related Topics:__ UserDocumentationCategory, SearchHelp, VarSEARCH, FormattedSearch, SearchPatternCookbook
+
+<!--
+%STARTSECTION{"preamble"}%
+%CALCULATE{$SET(start, %URLPARAM{"start" default="0" encode="entity"}%)}%<nop>
+%CALCULATE{$SET(limit, %URLPARAM{"limit" default="%SEARCHRESULTSPERPAGE%" encode="entity"}%)}%<nop>
+%CALCULATE{$SET(ntopics, 0)}%<nop>
+%CALCULATE{$SET(nwebs, 1)}%<nop>
+#SearchPaginationTop
+<div id="searchTopNav%INCLUDINGTOPIC%" style="margin-bottom: 1em; %IF{ "defined 'style'" then="%style%" }%"></div>
+%CALCULATE{$SET(plinkanchor, #SearchPaginationTop)}%<nop>
+%ENDSECTION{"preamble"}%
+
+%STARTSECTION{"postamble"}%
+#SearchPaginationBottom
+<div id="searchBottomNav%INCLUDINGTOPIC%" style="%IF{ "defined 'style'" then="%style%" }%">
+%CALCULATE{$SET(gray, <span style='color: gray;'>)}%<nop>
+%CALCULATE{$SET(numlimit, $IF($VALUE($GET(limit)) > 0, $GET(limit), 100000))}%<nop>
+%CALCULATE{$SET(npages, $INT($GET(ntopics)/$GET(numlimit)+1))}%<nop>
+%CALCULATE{$SET(paginate, $AND($IF($GET(npages) > 1, 1, 0), $IF($GET(nwebs) < 2, 1, 0)))}%<nop>
+%CALCULATE{$SET(prevText, $IF($GET(start) >= $GET(numlimit), <a href='%SCRIPTURL{view}%/%BASEWEB%/%BASETOPIC%?$GET(searchparams)start=$INT($GET(start)-$GET(numlimit));limit=$GET(limit)%CALCULATE{$GET(plinkanchor)}%'>&laquo;%MAKETEXT{"Previous"}%</a>, $GET(gray)&laquo;%MAKETEXT{"Previous"}%</span>))$IF($GET(paginate), $GET(prevText)$SET(linksText, $GET(prevText)))}%
+%CALCULATE{$SET(stepsText, )$SET(pages, $INT(($GET(ntopics) - 1)/$GET(numlimit)+1))$SET(maxpages, $MIN($GET(pages), 16))$SET(i, 0)$WHILE($counter<=$GET(maxpages), $SET(stepsText, $GET(stepsText)$IF($GET(i)==$GET(start), &nbsp; <b>$counter</b>, &nbsp; <a href='%SCRIPTURL{view}%/%BASEWEB%/%BASETOPIC%?$GET(searchparams)start=$GET(i);limit=$GET(limit)%CALCULATE{$GET(plinkanchor)}%'>$counter</a>))$SETM(i, +$GET(numlimit)))$IF($GET(paginate), $GET(stepsText)$SET(linksText, $GET(linksText)$GET(stepsText)))$SET(linksText, $GET(linksText) &nbsp; )}% &nbsp;
+%CALCULATE{$SET(nextText,$IF($INT($GET(start)+$GET(numlimit))<$GET(ntopics), <a href='%SCRIPTURL{view}%/%BASEWEB%/%BASETOPIC%?$GET(searchparams)start=$INT($GET(start)+$GET(numlimit));limit=$GET(limit)%CALCULATE{$GET(plinkanchor)}%'>%MAKETEXT{"Next"}%&raquo;</a>, $GET(gray)%MAKETEXT{"Next"}%&raquo;</span>))$IF($GET(paginate), $GET(nextText)$SET(linksText, $GET(linksText)$GET(nextText)))}%
+</div>
+<script type="text/javascript">
+  %CALCULATE{$IF($GET(paginate), <nop>, $('#searchTopNav%INCLUDINGTOPIC%').hide(); $('#searchBottomNav%INCLUDINGTOPIC%').hide();)}%
+  $('#searchTopNav%INCLUDINGTOPIC%').html("%CALCULATE{$GET(linksText)"}%);
+</script>
+%ENDSECTION{"postamble"}%
+-->

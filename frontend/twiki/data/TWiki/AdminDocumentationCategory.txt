@@ -1,0 +1,7 @@
+%META:TOPICINFO{author="TWikiContributor" date="1346910628" format="1.1" version="5"}%
+%META:TOPICPARENT{name="CategoryCategory"}%
+---+ A List of TWiki Administrator Documentation
+
+%SEARCH{"%TOPIC%" excludetopic="%TOPIC%" nonoise="on" format="   * $web.$topic: $summary(100, noheader)"}%
+
+__Related topics:__ %SEARCH{".*Category\b" excludetopic="%TOPIC%" type="regex" scope="topic" nonoise="on" format="[[$topic]]" separator=", "}%

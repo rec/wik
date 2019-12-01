@@ -1,0 +1,56 @@
+%META:TOPICINFO{author="TWikiContributor" date="1356598991" format="1.1" version="1"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+---+!! INCLUDE a topic in the raw
+
+When a topic is included, normally TWiki variables in the included topic are expanded in the context of the inlcluded topic. But if =raw="on"= is specified, that variable expansion does not happen.
+
+This topic explains what it is for and what it really means.
+
+---++ When a new topic is created based on a template topic
+
+You can specify a template topic when you create a new topic.
+Variable expansion during topic creation is different from usual.
+It's explained [[TWikiTemplates#Variable_Expansion][here]].
+Basically, variables are not expanded for the most part but you can force variable expansion by prepending =EOTC__= to a variable name.
+
+Leveraging =INCLUDE= with =raw="on"=, a template topic can be composed of multiple topics.
+Let's say there is a topic named !ThreePartTemplate as follows.
+<verbatim>
+%EOTC__INCLUDE{"TmplPartA" raw="on"}%
+%EOTC__INCLUDE{"TmplPartB" raw="on"}%
+</verbatim>
+Thanks to =raw="on"=, TWiki variables in !TmplPartA and !TmplPartB are not expanded when those topics are included.
+Since most variables are not expanded in topic creation, most variables in !TmplPartA and !TmplPartB are put as they are in the new topic.
+
+Let's assume !TmplPartA contains =%<nop>CALENDAR%=. It will show up as is in a topic created based on !ThreePartTemplate.
+   1. When !TmplPartA is included, no variable expansion happens.
+   1. =%<nop>CALENDAR%= is not subject to expansion in topic creation, so it's left as is in the created topic.
+
+If =raw="on'= wasn't present,
+   1. When !TmplPartA was included, =%<nop>CALENDAR%= would be expanded in the context of !TmplPartA.
+   1. As a result, the created topic would have an HTML table of a calendar rather than =%<nop>CALENDAR%= on it.
+
+---++ When a topic is viewed
+
+In viewing a topic, variable expansion always happen.
+
+Let's say there is a topic named !IncludedTopic whose content is =%<nop>TOPIC%=.
+<blockquote>
+!IncludedTopic: =%<nop>TOPIC%=
+</blockquote>
+
+If that's included by another topic !IncludingTopic with =raw="on"= parameter and this enhancement is in effect, !IncludingTopic shows !IncludedTopic.
+<blockquote>
+!IncludingTopic: =%<nop>INCLUDE{"IncludedTopic" raw="on"}%= -&gt; !IncludingTopic
+</blockquote>
+
+This is because when !IncludedTopic is included by !IncludingTopic, the variable =%<nop>TOPIC%= is not expanded and
+the processing of =%<nop>INCLUDE{"IncludedTopic" raw="on"}%= ends there.
+Then, =%<nop>TOPIC%= is expanded in the !IncludingTopic's context.
+
+On the other hand, if you don't have =raw="on"=, =%<nop>TOPIC%= is expanded in !IncludedTopic's context.
+<blockquote>
+!IncludingTopic: =%<nop>INCLUDE{"IncludedTopic"}%= -&gt; !IncludedTopic
+</blockquote>
+
+__Related Topics:__ VarINCLUDE, TWikiTemplates#Variable_Expansion

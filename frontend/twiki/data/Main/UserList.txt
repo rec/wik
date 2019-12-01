@@ -1,0 +1,18 @@
+%META:TOPICINFO{author="TWikiContributor" date="1351492397" format="1.1" version="6"}%
+---+ <nop>%WIKITOOLNAME% User List
+
+%INCLUDE{"UserListHeader"}%
+
+%USERREPORT{ action="business_card_start" }%
+Filter:
+<!-- "search_box" section, included by "Main.WebHome" dashboard -->
+%STARTSECTION{search_box}%<form action="%SCRIPTURL{view}%/%WEB%/%TOPIC%"> <img src="%ICONURL{empty}%" width="3" height="16" alt="" /><input type="text" name="search" class="twikiInputField" size="%IF{ "defined 'size'" then="%size%" else="30" }%" value="%URLPARAM{"search" encode="entity"}%" /> <input type="submit" value="Search" class="twikiSubmit" /> </form>%ENDSECTION{search_box}% &nbsp; [[%TOPIC%][Clear]]
+
+%USERREPORT{ action="business_card_list" users="%USERREPORT{ action="user_list" search="%URLPARAM{"search" encode="quote"}%" limit="%IF{ "defined 'search'" then="all" else="200"}%" }%" }%
+
+<div style="clear:left;"></div>
+Total: %GET{UserReports_users}% %IF{ "'%GET{UserReports_users}%'='1'" then="entry" else="entries" }% %IF{ "'%GET{UserReports_users}%'='200' AND NOT defined 'search'" then="(search truncated)" }%
+
+%USERREPORT{ action="business_card_end" }%
+
+%INCLUDE{"UserListHeader"}%

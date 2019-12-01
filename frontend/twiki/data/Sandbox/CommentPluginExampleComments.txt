@@ -1,0 +1,16 @@
+%META:TOPICINFO{author="TWikiContributor" date="1269058626" format="1.1" version="2"}%
+---+!! Comments
+
+Example comment topic for [[%SYSTEMWEB%.CommentPluginExamples#return][CommentPluginExamples - "return"]]
+---
+%STARTINCLUDE%
+
+
+Target comment output 1
+
+-- Main.TWikiContributor - 03 Dec 2006
+
+
+Target comment output 2
+
+-- Main.TWikiContributor - 03 Dec 2006

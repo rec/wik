@@ -1,0 +1,184 @@
+head	1.7;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.7
+date	2013.01.23.07.51.40;	author TWikiContributor;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2012.09.05.06.16.13;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2010.06.28.06.02.03;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2010.05.29.14.44.14;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2008.01.22.03.21.27;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2006.04.01.05.55.37;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.24;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.7
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1358927500" format="1.1" version="7"}%
+%META:TOPICPARENT{name="TWikiTipsOfTheDay"}%
+---+ <nop>RSS news feed of topic changes
+
+You can use an RSS news reader to find out what is new in a TWiki web. This complements WebChanges that shows recent changes in a web, and WebNotify where people can subscribe to get notified of recent changes by e-mail.
+
+For the <nop>%USERSWEB% web, point your RSS news reader to:
+
+<code> %SCRIPTURL{view}%/%USERSWEB%/WebRss </code>
+
+For other TWiki webs, replace =/%USERSWEB%/= with the name of the web:
+
+%WEBLIST{ format="   * <code> %SCRIPTURL{view}%/$name/WebRss </code>" %IF{"{NoInAllPublicWebs}" then="webs=\"%SYSTEMWEB%\""}% limit="20" }%
+
+__See also:__
+   * WebRssBase - help on TWiki RSS news feeds
+   * TWiki:Codev/TWikiSyndication - TWiki RSS news feed documentation
+
+[[TWikiTipsOfTheDay][See More Tips...]]
+
+-- __Contributors:__ TWiki:Main.PeterThoeny
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1346825773" format="1.1" version="6"}%
+d13 1
+a13 1
+%WEBLIST{ format="   * <code> %SCRIPTURL{view}%/$name/WebRss </code>" limit="20" }%
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1277704923" format="1.1" version="5"}%
+d13 1
+a13 1
+%WEBLIST{ format="   * <code> %SCRIPTURL{view}%/$name/WebRss </code>" }%
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1273973125" format="1.1" version="4"}%
+d21 1
+a21 1
+-- __Contributor:__ TWiki:Main.PeterThoeny - 2005-05-15
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1107727656" format="1.0" version="3"}%
+d9 1
+a9 1
+<code> %SCRIPTURL%/view%SCRIPTSUFFIX%/%USERSWEB%/WebRss </code>
+d13 1
+a13 1
+%WEBLIST{ format="   * <code> %SCRIPTURL%/view%SCRIPTSUFFIX%/$name/WebRss </code>" }%
+d16 2
+a17 2
+	* WebRssBase - help on TWiki RSS news feeds
+	* TWiki:Codev/TWikiSyndication - TWiki RSS news feed documentation
+d19 1
+a19 3
+[[%SYSTEMWEB%.TWikiTipsOfTheDay][See More Tips...]]
+
+-- TWiki:Main.PeterThoeny - 06 Feb 2005
+d21 1
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1107727656" format="1.0" version="2"}%
+d3 1
+a3 1
+---+ RSS news feed of topic changes
+d7 1
+a7 1
+For the <nop>%MAINWEB% web, point your RSS news reader to:
+d9 1
+a9 1
+<code> %SCRIPTURL%/view%SCRIPTSUFFIX%/%MAINWEB%/WebRss </code>
+d11 1
+a11 1
+For other TWiki webs, replace =/%MAINWEB%/= with the name of the web:
+d19 1
+a19 1
+[[%TWIKIWEB%.TWikiTipsOfTheDay][See More Tips...]]
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1107727656" format="1.0" version="1"}%
+d13 1
+a13 1
+%WEBLIST{ format="	* <code> %SCRIPTURL%/view%SCRIPTSUFFIX%/$name/WebRss </code>" }%
+@

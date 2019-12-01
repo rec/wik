@@ -1,0 +1,105 @@
+head	1.5;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.5
+date	2012.09.06.05.56.15;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2010.08.29.08.11.28;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2010.05.29.14.44.47;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2006.04.01.05.55.18;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.20;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1346910975" format="1.1" version="5"}%
+%META:TOPICPARENT{name="CategoryCategory"}%
+---+ List of TWiki User Tools
+
+%SEARCH{"%TOPIC%" excludetopic="%TOPIC%" nonoise="on" format="   * $web.$topic: $summary(100, noheader)"}%
+
+__Related topics:__ %SEARCH{".*Category\b" excludetopic="%TOPIC%" type="regex" scope="topic" nonoise="on" format="[[$topic]]" separator=", "}%
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1283069488" format="1.1" version="4"}%
+d5 1
+a5 1
+%SEARCH{"%TOPIC%" excludetopic="%TOPIC%" nonoise="on" format="   * $web.$topic: $summary(80, noheader)"}%
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 2
+a2 1
+%META:TOPICINFO{author="TWikiContributor" date="1274515634" format="1.1" version="3"}%
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 2
+a2 2
+%META:TOPICINFO{author="TWikiContributor" date="1122409431" format="1.1" version="2"}%
+---+ A List of TWiki User Tools
+d4 3
+a6 1
+%SEARCH{"%TOPIC%" excludetopic="%TOPIC%" nonoise="on" format="   * $web.$topic$n      * $summary(100, noheader)"}%
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1122409431" format="1.1" version="1"}%
+d4 1
+a4 1
+%SEARCH{"%TOPIC%" excludetopic="%TOPIC%" nonoise="on" format="	* $web.$topic$n		* $summary(100, noheader)"}%
+@

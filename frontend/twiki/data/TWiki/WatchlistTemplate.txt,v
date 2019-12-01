@@ -1,0 +1,42 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2013.10.14.08.02.52;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1363331172" format="1.1" version="1"}%
+%META:TOPICPARENT{name="WatchlistPlugin"}%
+---+ %WLPARENT% Watchlist
+%JQTABPANE%
+%JQTAB{"Recent Changes"}%
+%WATCHLIST{showchanges}%
+%JQENDTAB%
+%JQTAB{"Watched Topics"}%
+%WATCHLIST{ "watched" topics="" }%
+%JQENDTAB%
+%JQTAB{"Preferences"}%
+%WATCHLIST{ "preferences" notification="n1" }%
+%JQENDTAB%
+%JQENDTABPANE%
+
+__Return to:__ [[%WIKINAME%]]
+
+%META:PREFERENCE{name="WLPARENT" title="WLPARENT" type="Set" value="<span style=%22font-size: 60%25;%22> [[%25PARENTTOPIC%25]] &#187; </span>"}%
+@

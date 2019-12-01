@@ -1,0 +1,45 @@
+%META:TOPICINFO{author="TWikiContributor" date="1365145277" format="1.1" version="32"}%
+---+!! <nop>%WEB% Web Preferences
+
+<sticky><div style="float:right; background-color:#EBEEF0; margin:0 0 20px 20px; padding: 0 10px 0 10px;">
+%TOC{ title="Page contents" }%
+</div></sticky>
+The following settings are __web preferences__ of the [[%WEB%.%HOMETOPIC%][%WEB%]] web. These preferences override the __site-level preferences__ in [[%SYSTEMWEB%.%WIKIPREFSTOPIC%]] and [[%LOCALSITEPREFS%]], and can be overwritten by __user preferences__ (your personal topic, such as [[%USERSWEB%.%WIKINAME%][%WIKINAME%]] in the [[%USERSWEB%.%HOMETOPIC%][%USERSWEB%]] web). These web preferences can be overridden by __topic preferences__, e.g. preferences in individual topics.
+
+%EDITPREFERENCES{"%SYSTEMWEB%.TWikiPreferencesForm"}%
+
+---++ Web Preferences Settings
+
+These settings override the defaults for this web only. See [[%SYSTEMWEB%.TWikiPreferences#DefaultWebPreferences][full list of defaults with explanation]].
+
+   * Web settings:
+      * Set WEBTOPICLIST = [[%WIKIUSERSTOPIC%][Users]] %SEP% [[TWikiGroups][Groups]] %SEP% [[WebChanges][Changes]] %SEP% [[WebIndex][Index]] %SEP% [[WebSearch][Search]] %SEP% Go <input type="text" name="topic" size="16" />
+      * Set WEBBGCOLOR = #FFEFA6
+      * Set SITEMAPWHAT = <nop>%WIKITOOLNAME% home with [[%USERSWEB%.UserList][users]] and [[%USERSWEB%.TWikiGroups][groups for access control]]
+      * Set SITEMAPLIST = on
+
+   * Default template for *new topics* in this web:
+      * [[%USERSWEB%.WebTopicEditTemplate]]: Site-level default topic template (if it exists, it overides the system-level template)
+      * [[%SYSTEMWEB%.WebTopicEditTemplate]]: System-level default topic template (do not modify! Create a site-level template in this web instead)
+
+---++ Access Control and Security
+
+   * Users or groups who __are not__ / __are__ allowed to __view__ / __change__ / __rename__ topics in the <nop>%WEB% web: (See [[%SYSTEMWEB%.TWikiAccessControl][TWikiAccessControl]]).
+      * Set DENYWEBVIEW = 
+      * Set ALLOWWEBVIEW = 
+      * Set DENYWEBCHANGE = 
+      * Set ALLOWWEBCHANGE = 
+      * Set DENYWEBRENAME = 
+      * Set ALLOWWEBRENAME = 
+   * %T% Note: If you restrict access to this web, make sure to add the TWikiRegistrationAgent so that users can register.
+
+   * Users or groups allowed to change or rename this <nop>%TOPIC% topic: (e.g., [[%USERSWEB%.TWikiAdminGroup][TWikiAdminGroup]])
+      * Set ALLOWTOPICCHANGE = %USERSWEB%.TWikiAdminGroup
+      * Set ALLOWTOPICRENAME = %USERSWEB%.TWikiAdminGroup
+
+   * Web preferences that are *not* allowed to be overridden by sub-web, user or topic preferences:
+      * Set FINALPREFERENCES = NOSEARCHALL, ATTACHFILESIZELIMIT, WIKIWEBMASTER, WEBCOPYRIGHT, WEBTOPICLIST, DENYWEBVIEW, ALLOWWEBVIEW, DENYWEBCHANGE, ALLOWWEBCHANGE, DENYWEBRENAME, ALLOWWEBRENAME
+
+%EDITPREFERENCES{"%SYSTEMWEB%.TWikiPreferencesForm"}%
+
+%INCLUDE{%SYSTEMWEB%.WebPreferencesHelp}%

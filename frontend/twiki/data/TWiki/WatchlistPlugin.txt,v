@@ -1,0 +1,403 @@
+head	1.4;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.4
+date	2018.07.10.21.31.56;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2015.01.15.08.18.18;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2014.05.20.06.48.30;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2013.10.14.08.02.52;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1531258316" format="1.1" version="4"}%
+---+!! Watchlist Plugin
+<!--
+   Contributions to this plugin are appreciated. Please update the plugin page at
+   http://twiki.org/cgi-bin/view/Plugins/WatchlistPlugin or provide feedback at
+   http://twiki.org/cgi-bin/view/Plugins/WatchlistPluginDev.
+   If you are a TWiki contributor please update the plugin in the SVN repository.
+-->
+<sticky><div style="float: right; background-color: #EBEEF0; margin: 0 0 20px 20px; padding: 0 10px 0 10px;">
+%TOC{title="Page contents"}%
+</div><div style="float:right; background-color: white; margin: 0 0 15px 15px;">
+<img src="%PUBURLPATH%/%WEB%/%TOPIC%/watchlist-changes-300.png" alt="watchlist-changes-300.png" width="300" height="240" />
+</div></sticky>
+
+%SHORTDESCRIPTION%
+
+---++ Introduction
+
+The !WatchlistPlugin adds watchlist feature to TWiki topics. Topics of interest can be watched and unwatched. A user can see recent changes of all watched topics. A user can also subscribe to get e-mail notification of changes, either on each topic save, or in digest mode. To reduce noise, a user is not notified if he or she changes a topic on his or her watchlist.
+
+This plugin is intended to augment the MailerContrib with a point and click watch and subscribe feature. At a later point, the !WatchlistPlugin will replace the MailerContrib, which operates on the not as easy to use WebNotify topics.
+
+---++ User Interface
+
+This plugin adds a "%BLUE%Watch%ENDCOLOR%" link to the topic action row at the bottom of every TWiki topic. Once watched, one can "%BLUE%Unwatch%ENDCOLOR%" the topic.
+
+It also adds a <span style="background-color: #c8c8cf; padding:1px 3px;"> Watch %ICON{menu-down}%</span> / <span style="background-color: #c8c8cf; padding:1px 3px;"> Unwatch %ICON{menu-down}%</span> pulldown menu to the top bar of the TopMenuSkin. This pulldown menu has a <span style="background-color: #c8c8cf; padding:1px 3px; white-space: nowrap;"> Watchlist Changes</span> menu item to see recent changes of watched topics.
+
+Each user has a &lt;WikiName&gt;Watchlist topic in the %USERSWEB% web based on their !WikiWord name, such as !JimmyNeutronWatchlist. The topic has three tabs:
+
+   * "Recent Changes" tab: Shows recent changes on all topics that are on the user's watchlist.
+   * "Watched Topics" tab: Shows the list of topics the user is watching.
+   * "Preferences" tab: Shows user's e-mail subscription preference, one of: None, Immediate, Digest.
+
+__Screenshot of "Recent Changes" tab:__
+
+<img src="%PUBURLPATH%/%WEB%/%TOPIC%/watchlist-changes.png" alt="watchlist-changes.png" width="573" height="391" />
+
+__Screenshot of "Watched Topics" tab:__
+
+<img src="%PUBURLPATH%/%WEB%/%TOPIC%/watchlist-topics.png" alt="watchlist-topics.png" width="407" height="515" />
+
+__Screenshot of "Preferences" tab:__
+
+<img src="%PUBURLPATH%/%WEB%/%TOPIC%/watchlist-preferences.png" alt="watchlist-preferences.png" width="670" height="230" />
+
+The user profile pages have a "Watchlist Changes" box that shows recently changed topics the user is watching.
+
+__Screenshot of user profile:__
+
+<img src="%PUBURLPATH%/%WEB%/%TOPIC%/watchlist-profile.png" alt="watchlist-profile.png" width="742" height="298" />
+
+---++ Syntax Rules
+
+This section is for application developers who want to create custom watchlist integrations.
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}%"
+ hidelink="Hide details %ICONURL{toggleclose}%"
+}%
+
+The !WatchlistPlugin handles the =%<nop>WATCHLIST{...}%= variable. All watchlist interaction is done using this variable.
+
+| *Parameter* | *Description* | *Default* |
+| ="..."= or%BR% =action="..."= | Action to take | ="showwatchlink"= |
+| *Action: "showwatchlink"*|| *Default* |
+| ="showwatchlink"= | Action: Show "Watch" / "Unwatch" link | |
+| =format="..."= | Format of link. Supported variables:%BB% =$url= - URL to toggle the watch state. %BB% =$watch= - "Watch" if page is not watched, else "Unwatch". | ="[<nop>[$url][$watch]]"= |
+| *Action: "showwatchlistlink"*|| *Default* |
+| ="showwatchlistlink"= | Action: Show link of a user's watchlist topic | |
+| =format="..."= | Format of link. Supported variables:%BB% =$url= - URL of the watchlist topic. In case the topic does not exist, a special URL is returned so that the topic with the proper format can be created. %BB% =$wikiname= - !WikiName of user. | ="[<nop>[$url][Watchlist Changes]]"= |
+| =wikiname="..."= | %SYSTEMWEB%.WikiName of user | logged-in user |
+| *Action: "togglewatch"*|| *Default* |
+| ="togglewatch"= | Action: Toggle the watch state of a topic. The URL parameter =watchlist_topic= must specify the =Web.TopicName=. | |
+| *Action: "showchanges"*|| *Default* |
+| ="showchanges"= | Action: Show watchlist changes of topics a user is watching | |
+| =header="..."= | Header of watchlist changes. Supported variable: %BB% =$n= or =$n()= - newline. | ={ChangesHeader}= |
+| =format="..."= | Format of one entry of watchlist changes. Supported variables: %BB% =$web= - name of web. %BB% =$topic= - topic name. %BB% =$title= - topic title, or spaced topic name if title does not exist. %BB% =$date= - change date of topic. %BB% =$rev= - revision of topic. %BB% =$wikiname= - !WikiName of last author. %BB% =$percnt= - percent sign. %BB% =$n= or =$n()= - newline. | ={ChangesFormat}= |
+| =footer="..."= | Footer of watchlist changes. Supported variable: %BB% =$n= or =$n()= - newline. | ={ChangesFooter}= |
+| =separator="..."= | Separator between entries. Supported variable: %BB% =$n= or =$n()= - newline. | ="$n"= |
+| =limit="..."= | Limit number of topics. | URL parameter =limit= %BR% or ="50"= |
+| =empty="..."= | Message shown if no topics are watched. Supported variable: %BB% =$percnt= - percent sign. | ={EmptyMessage}= |
+| *Action: "watched"*|| *Default* |
+| ="watched"= | Action: Show table of with all watched topics, with checkboxes to unwatch topics. The form action points to the "updatelist" action. | |
+| =topics="..."= | List of watched topics in =Web.TopicName= format. The plugin stores the watchlist using this variable action in the user's watchlist topic. | =""= |
+| *Action: "updatelist"*|| *Default* |
+| ="updatelist"= | Action: Update the watched topics list. The URL parameter =watchlist_topic= must specify the =Web.TopicName= of the topic to update. A list of URL parameters named =watchlist_item= represents the list of watched topics, each one of format =Web.TopicName=. | |
+| *Action: "preferences"*|| *Default* |
+| ="preferences"= | Action: Show a form with preferences options. The form action points to the "updatepreferences" action. | |
+| =notification="..."= | Notification preference: ="n0"= - none, ="n1"= immediate, ="n2"= digest. The plugin stores the notification preference using this variable action in the user's watchlist topic. | ="n0"= |
+| *Action: "updatepreferences"*|| *Default* |
+| ="updatepreferences"= | Action: Update the watchlist preferences. The URL parameter =watchlist_topic= must specify the =Web.TopicName= of the topic to update. The URL parameter named =notification= indicates the new preference, one of =n0=, =n1= or =n2=. | |
+
+__Notes:__
+   * Default values indicated by ={...}= are abbreviated configure settings. For example ={ChangesFormat}= is the ={Plugins}{WatchlistPlugin}{ChangesFormat}= configure setting.
+   * The plugin takes also action on a =watchlist_action= URL parameter. If present, one of the above actions are taken.
+
+%ENDTWISTY%
+
+---++ Watchlist Template
+
+This section is for site administrators who want to customize the watchlists.
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}%"
+ hidelink="Hide details %ICONURL{toggleclose}%"
+}%
+
+This plugin has a WatchlistTemplate topic and two e-mail templates.
+
+__1. !WatchlistTemplate:__
+
+The WatchlistTemplate topic is used as a template for user watchlist topics. It contains a tab interface with three tabs showing the recent changes, the watchlist topics, and the preferences.
+
+__2. watchlistdigestnotify.tmpl:__
+
+The =watchlistdigestnotify.tmpl= template file is the e-mail template for digest notification. It is located in the =twiki/templates= directory. The plugin handles the TWiki variables, and in addition these special variables:
+
+| *Variable* | *Expands to* |
+| =%<nop>WATCHLISTTO%= | E-mail "To" list, comma-space separated |
+| =%<nop>WATCHCHANGESTEXT%= | The watchlist changes in text format. The format of a changes entry is defined by the ={Plugins}{WatchlistPlugin}{NotifyTextFormat}= configure setting |
+| =%<nop>WATCHLISTUSER%= | !WikiName of user being notified |
+
+__3. watchlistimmediatenotify.tmpl:__
+
+The =watchlistimmediatenotify.tmpl= template file is the e-mail template for immediate notification. It is located in the =twiki/templates= directory. The plugin handles the TWiki variables, and in addition these special variables:
+
+| *Variable* | *Expands to* |
+| =%<nop>WATCHLISTTO%= | E-mail "To" list, comma-space separated |
+| =%<nop>WATCHLISTUSER%= | !WikiName of user being notified |
+| =%<nop>WATCHWEB%= | Name of updated topic |
+| =%<nop>WATCHTOPIC%= | Name of updated web |
+| =%<nop>WATCHTITLE%= | Title of updated topic |
+| =%<nop>WATCHUSER%= | !WikiName of last author of updated topic |
+| =%<nop>WATCHREV%= | Revision of updated topic |
+| =%<nop>WATCHDATE%= | Update date of of topic |
+
+%ENDTWISTY%
+
+---++ Installation & Configuration
+
+You do not need to install anything on the browser to use this plugin. These instructions are for the administrator who installs the plugin on the TWiki server. 
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}% "
+ hidelink="Hide details %ICONURL{toggleclose}% "
+}%
+
+__1. Plugin Installation:__
+
+   * For an __automated installation__, run the [[%SCRIPTURL{configure}%][configure]] script and follow "Find More Extensions" in the in the __Extensions__ section. 
+      * See the [[http://twiki.org/cgi-bin/view/Plugins/BuildContribInstallationSupplement][installation supplement]] on TWiki.org for more information.
+
+   * Or, follow these __manual installation__ steps: 
+      * Download the ZIP file from the Plugins home (see below).
+      * Unzip ==WatchlistPlugin.zip== in your twiki installation directory. Content:
+        | *File:* | *Description:* |
+        | ==data/TWiki/WatchlistPlugin.txt== | Plugin topic |
+        | ==data/TWiki/WatchlistTemplate.txt== | Template topic for watchlist topics |
+        | ==pub/TWiki/WatchlistPlugin/*png== | Screenshots |
+        | ==templates/watchlistdigestnotify.tmpl== | E-mail template for digest notification |
+        | ==templates/watchlistimmediatenotify.tmpl== | E-mail template for immediate notification |
+        | ==lib/TWiki/Plugins/WatchlistPlugin.pm== | Plugin Perl module |
+        | ==lib/TWiki/Plugins/WatchlistPlugin/Core.pm== | Plugin core module |
+        | ==lib/TWiki/Plugins/WatchlistPlugin/Config.spec== | Configure spec file |
+        | ==tools/watchlistnotify== | Command-line script for digest notification |
+      * Set the ownership of the extracted directories and files to the webserver user.
+
+__2. Plugin Configuration and Testing:__
+
+   * Run the [[%SCRIPTURL{configure}%][configure]] script and enable the plugin in the __Plugins__ section.
+   * Configure additional plugin settings in the __Extensions__ section if needed. Settings:
+     %BR% =$TWiki::cfg{Plugins}{WatchlistPlugin}{ChangesFormat}= # Format of one line of recently changed topics in the watchlist. Supported variables: $web: Name of web, $topic: Topic name, $title: Topic title, $date: Date of last change, $rev: Last revision number, $wikiname: WikiName of last user, $n or $n(): Newline.
+     %BR% =$TWiki::cfg{Plugins}{WatchlistPlugin}{ChangesHeader}= # Format of the header of the recently changed topic list. Supported variable: $n or $n(): Newline.
+     %BR% =$TWiki::cfg{Plugins}{WatchlistPlugin}{ChangesFooter}= # Format of the footer of the recently changed topic list. Supported variable: $n or $n(): Newline.
+     %BR% =$TWiki::cfg{Plugins}{WatchlistPlugin}{EmptyMessage}= # Text shown in the recent changes and watchlist topics screen if no topics are watched.
+     %BR% =$TWiki::cfg{Plugins}{WatchlistPlugin}{NotifyTextFormat}= # Format of one topic in the digest notification e-mail. Supported variables: $web: Name of web, $topic: Topic name, $title: Topic title, $date: Date of last change, $rev: Last revision number, $wikiname: WikiName of last user, $viewscript: URL of view script, $n: newline.
+     %BR% =$TWiki::cfg{Plugins}{WatchlistPlugin}{AnchorName}= # Anchor name to jump to after submit. Leave empty for no anchor jump.
+     %BR% =$TWiki::cfg{Plugins}{WatchlistPlugin}{UseEmailField}= # Use the "Email" form field of user profile topics instead of the e-mail stored in the password system. This is useful if LDAP authentication is used.
+     %BR% =$TWiki::cfg{Plugins}{WatchlistPlugin}{Debug}= # Debug plugin. See output in data/debug.txt
+
+__3. Configure Cron for Digest Notification:__
+
+You need to set up a =cron= (or equivalent) job to run the =tools/watchlistnotify= script. The script must be run as the webserver user and can be used as follows from the command-line:
+
+<verbatim>
+$ cd /var/www/twiki/bin
+$ ../tools/watchlistnotify
+</verbatim>
+
+Change first to the twiki bin directory so that the script can find the TWiki libraries.
+
+An optional =quiet=1= parameter can be specified to suppress progress output.
+
+This example shows a crontab entry for user =apache= on a !RedHat or !CentOS server that sends daily digest notification at 01:00, and logs the progress output:
+
+<verbatim>
+00 01 * * * (cd /var/www/twiki/bin; nice ../tools/watchlistnotify >/var/www/twiki/data/watchlistnotify-log.txt 2>&1)
+</verbatim>
+
+The tool can also be called from any directory if the twiki bin directory is specified. Example:
+
+<verbatim>
+00 00 * * * cd /var/www/twiki/tools && perl -I /var/www/twiki/bin ./watchlistnotify quiet=1
+</verbatim>
+
+%X% __Note:__ Multiple instances of the watchlistnotify script are not allowed to be executed simultaneously.
+
+__4. Upgrade the !TopMenuSkin to get a "Watch" Pulldown Menu:__
+
+To show a "Watch" pulldown menu next to the "Edit" pulldown, upgrade the %SYSTEMWEB%.TopMenuSkin to version 2013-02-26 or later, or add the following to %SYSTEMWEB%.TopMenuSkinTopicMenu just before the =%<nop>STOPINCLUDE%=:
+<verbatim>
+%IF{
+ "context WatchlistPluginEnabled AND context authenticated"
+ then="   * $percntWATCHLIST{ \"showwatchlink\" format=\"<a href='$url' title='$watch this topic'>$watch %ICON{ "menu-down" format="<img src='$urlpath' width='$width' height='$height' border='0' alt='' />" }%</a>\" }$percnt
+      * $percntWATCHLIST{ \"showwatchlistlink\" format=\"[[$url][Watchlist Changes]]\" }$percnt"
+ else="<nop>"
+}%
+</verbatim>
+
+__5. Upgrade the !TWikiUserMappingContrib to get the "Watchlist Changes" box in the user profile topics:__
+
+To add the "Watchlist Changes" box to the user profile topics, upgrade the %SYSTEMWEB%.TWikiUserMappingContrib to version 2013-02-26 or later, or update the [[%USERSWEB%.UserProfileHeader]] to the latest version at TWikisvn:TWikiUserMappingContrib/data/Main/UserProfileHeader.txt.
+
+__6. Patch viewtopicactionbuttons to get a "Watch" Link in the Topic Action Row:__
+
+To add a "Watch" link to the bottom topic action row, edit =templates/viewtopicactionbuttons.tmpl= and make the following two modifications.
+
+1. In template definition =%<nop>TMPL:DEF{"topicactionbuttons"}%=, add =%<nop>TMPL:P{"action_watch"}%= before =%<nop>TMPL:P{"action_printable"}%=.
+
+2. Add the following two template definitions:
+
+<verbatim>
+%TMPL:DEF{"action_watch"}%%TMPL:P{context="WatchlistPluginEnabled" then="watch_link" else=""}%%TMPL:END%
+
+%TMPL:DEF{"watch_link"}%<span>%IF{ "context authenticated" then="$percntWATCHLIST{showwatchlink}$percnt" else="<strike>Watch</strike>" }%</span>%TMPL:P{"sep"}%%TMPL:END%
+</verbatim>
+
+__7. Test the Plugin:__
+
+Test if the installation was successful by watching and unwatching topics.
+
+%X% Make sure you watch changes of *other* users, since you don't get mails for your own changes. If the plugin won't work, disable it in Configure, and than enable it again.
+
+%ENDTWISTY%
+
+---++ Plugin Info
+
+   * One line description, is shown in the %SYSTEMWEB%.TextFormattingRules topic: 
+      * Set SHORTDESCRIPTION = Watch topics of interest and get notified of changes by e-mail
+
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  Plugin Author: | TWiki:Main.PeterThoeny |
+|  Copyright: | &copy; 2013-2015 Wave Systems Corp. %BR% &copy; 2013-2018 TWiki:Main.PeterThoeny &amp; TWiki:TWiki.TWikiContributor |
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+|  Sponsor: | [[http://www.wave.com/][Wave Systems Corp.]] |
+|  Plugin Version: | 2018-07-10 |
+%TWISTY{
+ mode="div"
+ showlink="Show Change History %ICONURL{toggleopen}%"
+ hidelink="Hide Change History %ICONURL{toggleclose}%"
+}%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  2018-07-10: | TWikibug:Item7841: Copyright update to 2018 |
+|  2018-07-05: | TWikibug:Item7703: Doc updates |
+|  2016-02-13: | TWikibug:Item7723: Fix for save of watchlist preference no longer working |
+|  2016-01-09: | TWikibug:Item7708: Copyright update to 2016 |
+|  2015-11-29: | TWikibug:Item7699: Fix for unquoted string "useful" in apache error log |
+|  2015-01-15: | TWikibug:Item7607: Use TWiki API instead of internal function to space out topic name for title (code cleanup); switch from GPL v2 to v3 |
+|  2014-10-08: | TWikibug:Item7571: Fix bug where immediate notification no longer works (bug introduced 2014-02-06) |
+|  2014-05-20: | TWikibug:Item7411: In list of webs, exclude webs the current user has no view access |
+|  2014-05-19: | TWikibug:Item7495: Execute bit missing in tools/watchlistnotify; doc fix |
+|  2014-04-30: | TWikibug:Item7411: Layout improvements in watchlist topic; doc fixes |
+|  2014-02-06: | TWikibug:Item7411: Improve caching, correct order of change processing, fix table alignment, add watch all topics in web and watch new topics in web, apply perltidy, report last change date in verbose watchlistnotify, make watchlistnotify run under 4.x, fix for mod_perl & mod_perl-masked environment -- TWiki:Main.TimotheLitt |
+|  2014-01-16: | TWikibug:Item7409: Don't notify oneself -- TWiki:Main.TimotheLitt |
+|  2013-04-11: | TWikibug:Item7154: Minor doc fixes |
+|  2013-03-15: | TWikibug:Item7215: Log watchlist changes & e-mail notification actions |
+|  2013-03-15: | TWikibug:Item7143: Change default notification from "none" to "immediate" |
+|  2013-03-11: | TWikibug:Item7143: Sanitize watchlist_topic parameter |
+|  2013-03-06: | TWikibug:Item7143: Support new $title variable that expands to the topic title, or the spaced topic name if the title does not exist |
+|  2013-03-05: | TWikibug:Item7143: The "showwatchlistlink" action now returns full URL instead of Web.Topic link so that it can be used in a =a= HTML tag. |
+|  2013-03-04: | TWikibug:Item7143: Initial version |
+%ENDTWISTY%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  TWiki Dependency: | $TWiki::Plugins::VERSION 1.2 |
+|  CPAN Dependencies: | none |
+|  Other Dependencies: | none |
+|  Perl Version: | 5.005 |
+|  [[TWiki:Plugins.Benchmark][Plugin Benchmarks]]: | %SYSTEMWEB%.GoodStyle nn%, %SYSTEMWEB%.FormattedSearch nn%, %TOPIC% nn% |
+|  Plugin Home: | http://TWiki.org/cgi-bin/view/Plugins/WatchlistPlugin |
+|  Feedback: | http://TWiki.org/cgi-bin/view/Plugins/WatchlistPluginDev |
+|  Appraisal: | http://TWiki.org/cgi-bin/view/Plugins/WatchlistPluginAppraisal |
+
+__Related Topics:__ WatchlistTemplate, %SYSTEMWEB%.TWikiPlugins, %SYSTEMWEB%.UserDocumentationCategory, %SYSTEMWEB%.UserToolsCategory
+
+%META:FILEATTACHMENT{name="watchlist-changes-300.png" attachment="watchlist-changes-300.png" attr="h" comment="" date="1362433125" path="watchlist-changes-300.png" size="74283" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="watchlist-topics.png" attachment="watchlist-topics.png" attr="h" comment="" date="1362431924" path="watchlist-topics.png" size="44849" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="watchlist-changes.png" attachment="watchlist-changes.png" attr="h" comment="" date="1362431924" path="watchlist-changes.png" size="70951" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="watchlist-preferences.png" attachment="watchlist-preferences.png" attr="h" comment="" date="1362431923" path="watchlist-preferences.png" size="26434" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="watchlist-profile.png" attachment="watchlist-profile.png" attr="h" comment="" date="1362450432" path="watchlist-profile.png" size="163309" user="TWikiContributor" version="1"}%
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1421309898" format="1.1" version="3"}%
+d243 2
+d254 1
+a254 1
+|  Copyright: | &copy; 2013-2015 Wave Systems Corp. %BR% &copy; 2013-2015 TWiki:Main.PeterThoeny &amp; TWiki:TWiki.TWikiContributor |
+d257 1
+a257 1
+|  Plugin Version: | 2015-01-15 |
+d264 5
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1400568510" format="1.1" version="2"}%
+d252 1
+a252 1
+|  Copyright: | &copy; 2013-2014 Wave Systems Corp. %BR% &copy; 2014 TWiki:Main.PeterThoeny &amp; TWiki:TWiki.TWikiContributor |
+d255 1
+a255 1
+|  Plugin Version: | 2014-05-20 |
+d262 2
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1379282844" format="1.1" version="1"}%
+d19 1
+a19 1
+The !WatchlistPlugin adds watchlist feature to TWiki topics. Topics of interest can be watched and unwatched. A user can see recent changes of all watched topics. A user can also subscribe to get e-mail notification of changes, either on each topic save, or in digest mode.
+d29 1
+a29 1
+Each user has a &lt;WikiName&gt;Watchlist topic in the %USERSWEB% web, such as !JimmyNeutronWatchlist. The topic has three tabs:
+d198 1
+a198 1
+00 01 * * * (cd /var/www/twiki/tools; nice ../tools/watchlistnotify >/var/www/twiki/data/watchlistnotify-log.txt 2>&1)
+d252 1
+a252 1
+|  Copyright: | &copy; 2013 Wave Systems Corp. %BR% &copy; 2013 TWiki:Main.PeterThoeny &amp; TWiki:TWiki.TWikiContributor |
+d255 1
+a255 1
+|  Plugin Version: | 2013-09-15 |
+d262 5
+@

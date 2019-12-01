@@ -1,0 +1,5 @@
+%META:TOPICINFO{author="TWikiContributor" date="1431725540" format="1.0" version="5"}%
+%META:TOPICPARENT{name="WebSearch"}%
+%INCLUDE{ "%SYSTEMWEB%.%TOPIC%" disablefixlinks="on" }%
+
+%META:PREFERENCE{name="READONLYSKINMODE" title="READONLYSKINMODE" type="Set" value="1"}%

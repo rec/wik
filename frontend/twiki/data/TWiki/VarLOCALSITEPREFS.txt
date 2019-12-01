@@ -1,0 +1,9 @@
+%META:TOPICINFO{author="TWikiContributor" date="1352872445" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarLOCALSITEPREFS
+---+++ LOCALSITEPREFS -- web.topicname of site preferences topic
+   * The full name of the local site preferences topic. These local site preferences overload the system level preferences defined in [[%SYSTEMWEB%.%WIKIPREFSTOPIC%]].
+   * Syntax: =%<nop>LOCALSITEPREFS%=
+   * Expands to: =%LOCALSITEPREFS%=, renders as %LOCALSITEPREFS%
+   * Category: AdministrationVariables, SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWEBPREFSTOPIC][WEBPREFSTOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWIKIPREFSTOPIC][WIKIPREFSTOPIC]]

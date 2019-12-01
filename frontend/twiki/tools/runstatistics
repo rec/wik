@@ -1,0 +1,219 @@
+#!/bin/sh
+#
+# Automagic update for web statistics
+#
+# Run by URL since we can't login under apache - and in any case, we want
+# certficate-based authentication to work
+#
+# /twiki/bin/statistics - Current month for all webs
+# /twiki/bin/statistics/Main - Just the main web
+# Can also specify ?logdate=200801;webs=proj1,proj2,... (Would update proj1, proj2 for Jan 2008
+#
+# Since we use https authentication, wget uses the administrator's SMIME
+# e-mail certificates...The private key can be encrypted.
+#
+# If a private CA is used, it must be specified so that wget can validate
+# our server's certificate.
+#
+# Otherwise, despite all the options, everything should default for most sites.
+#
+# wget can succeed even if the update fails, so we check for the expected 
+# completion text.
+#
+# 30-Sep-2012 - Add support for encrypted private key files
+
+cd `dirname $0`
+
+P="`basename $0`"
+
+CFG="../lib/LocalSite.cfg"
+
+#
+# Get useful stuff from configuration
+#
+DefaultUrlHost='http://localhost:80'
+ScriptUrlPath='/twiki/bin'
+
+# Don't leave password world readable
+UM=`umask`
+umask 077
+grep -P '^\$TWiki::cfg{(DefaultUrlHost|ScriptUrlPath|SmimeCertificateFile|SmimeKeyFile|SmimeKeyPassword)}' $CFG | sed -e's|\$TWiki::cfg{\(.*\)} = \(.*\)\;|\1=\2|' >$P.tmp
+umask $UM
+. $P.tmp
+rm -f $P.tmp
+
+#
+WHOST="$DefaultUrlHost$ScriptUrlPath"
+#
+# Client certificate configuration defaults - use S/MIME from TWiki
+#
+CCF=
+CCK=
+if [ -n "$SmimeCertificateFile" ] && [ -n "$SmimeKeyFile" ]; then
+    CCF="$SmimeCertificateFile"
+    CCK="$SmimeKeyFile"
+fi
+#
+# Host certificate verification configuration default
+#
+# Would be nice to get this from LocalSite.cfg...
+HCSWS=
+HCSWS='--ca-directory=/etc/pki/tls/ca/'
+
+# Magic for debug logging
+
+WQ='-q'
+Q=
+T='cat' 
+Ta='cat'
+WA=
+
+# Parse command line
+
+while [ -n "$1" ];  do 
+    case "$1" in
+	-d)
+	    # debug
+	    WQ=
+	    T="tee $P.log"
+	    Ta="tee -a $P.log"
+	    ;;
+	-l)
+	    # logfile date to process
+	    shift
+	    if [ -z "$Q" ]; then Q="?logdate=$1" ; else Q="$Q;logdate=$1" ; fi
+	    ;;
+	-w)
+	    # webs to process
+	    shift
+	    if [ -z "$Q" ]; then Q="?webs=$1" ; else Q="$Q;webs=$1" ; fi
+	    ;;
+	-c)
+	    # Client certificate
+	    shift
+	    CCF="$1"
+	    ;;
+	-k)
+	    # Client private key
+	    shift
+	    CCK="$1"
+	    ;;
+	-p)
+	    # Client private key password
+	    shift
+	    SmimeKeyPassword="$1"
+	    ;;
+	-X)
+	    # Suppress X509 client certificate use
+	    CCF=
+	    CCK=
+	    ;;
+	-a)
+	    # CA certificate bundle for host verification
+	    shift
+	    HCSWS="$HCASWS --ca-certificate=$1"
+	    ;;
+	-A)
+	    # CA certificate directory for host verification
+	    shift
+	    HCSWS="$HCASWS --ca-directory=$1"
+	    ;;
+	-x)
+	    # Suppress host verification
+	    HCSWS='--no-check-certificate'
+	    ;;
+	-W)
+	    # wget advanced usage switches
+	    shift
+	    WA="$WA $1"
+	    ;;
+	*)
+	    cat <<EOF
+Usage: $P [-d] [-w web[,web...]] [-l logdate] [-X] [-x] [-c cert] [-k key] [-p password] [-a cafile] [-A cadir] [-W wgetswitch]
+Updates wiki statistics by touching the statistics update url.
+
+The hostname and script url are extracted from LocalSite.cfg.
+
+-w - comma-separated list of webs to update.  Default is all.
+-l - logifile dates to update,  Format is yyyymm 
+
+https considerations:
+  o wget will authenticate the host certificate using the default openssl CA.
+    To specify a private CA (or a restricted list),  specify your CA directory with -A.or your bundle with -a
+  o To disable host certificate authentication - not a good idea - use -x
+  o Your client certificate and key are specified with -c and -k.  They default to the S/MIME signing certificates in LocalSite.cfg (if you have them).  If the key is encrypted, a password can be specifie with -p.  (Not a good idea to have on a command line.)
+  o Client authentication is enabled if -c and -k are specified or defaulted.  You can disable it with -X,
+  o Some environments may need to specify more advanced wget switches.  -W lets you do that.
+-d enables debugging and will write $P.log.
+EOF
+	    exit 1;
+	    ;;
+	
+    esac
+    shift
+done
+
+# Client certificate configuration final setup
+
+if [ -n "$CCF$CCK" ]; then
+    # Client cert required, handle encrypted keys
+
+    if [ ! -r "$CCK" ]; then
+	echo "Private key $CCK not accessible"
+	exit 1;
+    fi
+    if [ -n "$SmimeKeyPassword" ]; then
+	# Need a temp private key file as can't redirect wget password prompt
+	# Make sure it's not readable by others.
+	UM=`umask`
+	umask 077
+	openssl rsa -in "$CCK" -out "$P.tmp" -passin stdin 2>/dev/null <<EOF
+$SmimeKeyPassword
+EOF
+	ZZ="$?"
+	unset SmimeKeyPassword
+	umask $UM
+	if [ $ZZ != 0 ]; then
+	    rm -f "$P.tmp"
+	    echo "Unable to decrypt $CCK"
+	    exit $ZZ
+	fi
+
+	CCSWS="--certificate=$CCF --private-key=$P.tmp"
+    else
+	CCSWS="--certificate=$CCF --private-key=$CCK"
+    fi
+fi
+
+# After all that, the actual work is quite simple:
+
+# Make sure we have a log file and that the wiki is on-line by touching the main page
+/usr/bin/wget $WQ $CCSWS $HCSWS $WA $WHOST/view -O - | $T | grep $WQ "<meta name=\"SCRIPTURLPATH\" content=\"$ScriptUrlPath\" />"
+#
+ZZ1="$?"
+#
+if [ $ZZ1 != 0 ]; then
+    echo "wiki online test $P failed with status $ZZ1 on `date -R`"
+    if [ "$T" == 'cat' ]; then echo "Rerun -d to generate a log with details"; fi
+else
+    if [ -z "$WQ" ]; then  echo "wiki online test $P succeeded on `date -R`" ; fi
+fi
+if [ "$T" != 'cat' ]; then echo "Check $P.log for details" ; fi
+
+# Run statistics
+
+/usr/bin/wget $WQ $CCSWS $HCSWS $WA $WHOST/statistics$Q -O - | $Ta | grep $WQ 'End creating usage statistics'
+#
+ZZ2="$?"
+#
+if [ $ZZ2 != 0 ]; then
+    echo "wiki update $P failed with status $ZZ2 on `date -R`"
+    if [ "$T" == 'cat' ]; then echo "Rerun -d to generate a log with details"; fi
+else
+    if [ -z "$WQ" ]; then  echo "wiki update $P succeeded on `date -R`" ; fi
+fi
+if [ "$T" != 'cat' ]; then echo "Check $P.log for details" ; fi
+
+rm -f "$P.tmp"
+# Non-zero, useful status if either fails.
+exit $(((ZZ2<<8)+ZZ1))

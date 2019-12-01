@@ -1,0 +1,12 @@
+%META:TOPICINFO{author="TWikiContributor" date="1275629017" format="1.1" version="6"}%
+%META:TOPICPARENT{name="TWikiFAQ"}%
+---++ FAQ:
+
+I would like to install TWiki on my server. Can I get the source?
+
+---++ Answer:
+
+TWiki is distributed under the GnuGeneralPublicLicense. You can get the source from http://TWiki.org/. Please review the AdminSkillsAssumptions.
+
+__Back to:__ TWikiFAQ, AdminDocumentationCategory
+

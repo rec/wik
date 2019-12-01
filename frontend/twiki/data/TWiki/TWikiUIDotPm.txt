@@ -1,0 +1,77 @@
+---+ Package =TWiki::UI=
+
+Coordinator of execution flow and service functions used by the UI packages
+
+
+%TOC%
+
+---++ StaticMethod *handleRequest* <tt>($req) -> $res</tt>
+
+Main coordinator of request-process-response cycle.
+
+
+
+---++ StaticMethod *execute* <tt>($req,$sub,%initialContext) -> $res</tt>
+
+Creates a TWiki session object with %initalContext and calls
+$sub method. Returns the TWiki::Response object generated
+
+
+
+---++ StaticMethod *logon* <tt>($session)</tt>
+
+Handler to "logon" action.
+   * =$session= is a TWiki session object
+
+
+
+---++ StaticMethod *checkWebExists* <tt>($session,$web,$topic,$op)</tt>
+
+Check if the web exists. If it does not, will throw an oops exception.
+ $op is the user operation being performed.
+
+
+
+---++ StaticMethod *topicExists* <tt>($session,$web,$topic,$op)=>boolean</tt>
+
+Check if the given topic exists, throwing an OopsException
+if it doesn't. $op is the user operation being performed.
+
+
+
+---++ StaticMethod *checkWebWritable* <tt>($session)</tt>
+
+Checks if this web is writable on this site, Throwing an exception
+if it is not.
+
+
+
+---++ StaticMethod *checkAccess* <tt>($web,$topic,$mode,$user)</tt>
+
+Check if the given mode of access by the given user to the given
+web.topic is permissible, throwing a TWiki::OopsException if not.
+
+
+
+---++ StaticMethod *readTemplateTopic* <tt>($session,$theTopicName) -> ($meta,$text)</tt>
+
+Search for a template topic in current web, Main web, and TWiki web, in that order.
+
+
+
+---++ StaticMethod *run* <tt>($method)</tt>
+
+Supported for bin scripts that were written for TWiki < 5.0. The
+parameter is a function reference to the UI method to call, and is ignored
+in TWiki >= 5.0, where it should be replaced by a Config.spec entry such as:
+
+# **PERL H**
+# Bin script registration - do not modify
+$TWiki::cfg{SwitchBoard}{publish} = [ "TWiki::Contrib::Publish", "publish", { publishing => 1 } ];
+
+
+
+---++ StaticMethod *verifyCryptToken* <tt>($session,$crypt_token)</tt>
+
+
+

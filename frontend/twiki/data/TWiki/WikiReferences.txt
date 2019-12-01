@@ -1,0 +1,77 @@
+%META:TOPICINFO{author="TWikiContributor" date="1380137801" format="1.1" version="9"}%
+%META:TOPICPARENT{name="TWikiSite"}%
+---+!! References on Wiki and Collaboration
+
+Some useful articles and books around collaboration and the Wiki technology in particular. 
+
+%TOC%
+
+---++ Wiki Technology and TWiki
+
+   * Presentation: Addressing Customer Value Using Structured Wikis - Personas and Kanban Approach; Presentation for Siemens, Munich, Germany; by Petr Thoeny; 2013-01-17; http://twiki.org/cgi-bin/view/Codev/TWikiPresentation2013x01x17
+
+   * Book: Information System Design Using TWiki; by Phil Gochenour; XML Press: ISBN:978-0982219171
+
+   * Book: Wikis for Dummies; by Dan Woods and Peter Thoeny; Whiley; ISBN:9780470043998
+
+   * Book: The Wiki Way, Quick Collaboration on the Web; by Bo Leuf and Ward Cunningham; Addison-Wesley Pub Co; ISBN:020171499X
+
+   * Book: Wiki: Web Collaboration; by Anja Ebersbach, Markus Glaser, Richard Heigl; Springer; ISBN:3540259953. The book is about TWiki and !MediaWiki; [[http://www.springerlink.com/content/978-3-540-29267-8/][Free eBook]] is available; German version is "[[http://www.wiki-tools.de/][WikiTools: Kooperation im Web]]".
+
+   * Article (German): Die Qual der Wiki-Wahl. Wikis f&uuml;r Wissensmanagement in Organisationen; Pumacy; 2011-08-09; http://www.pumacy.de/publikationen/wikis_fuer_wissensmanagement.html
+
+   * Article: Comparison between TWiki, !MediaWiki and Confluence; Lev Lafayette; 2009-09-17; http://www.levlafayette.com/node/49
+
+   * Article (German): F&uuml;nf freie Wiki-Systeme im Vergleich; Heise Open Source; 2009-04-15; http://www.heise.de/open/artikel/Freie-Wiki-Systeme-im-Vergleich-221792.html
+
+   * Article: TWiki vs !MediaWiki part 2 - the battle; Lean Architect; 2009-03-20; http://leanarchitect.blogspot.com/2009/03/twiki-vs-mediawiki-part-2-battle.html
+
+   * Article: TWiki vs !MediaWiki part 1 - wiki prehistory; Lean Architect; 2009-03-20; http://leanarchitect.blogspot.com/2009/03/twiki-versus-mediawiki-versus-rest-part.html
+
+   * Article (German): Wiki-Software im Test - Der Inhalt z&auml;hlt; by Peter Kreussel; Linux Magazin; 2008-04-01; http://www.linux-magazin.de/Ausgaben/2008/04/Der-Inhalt-zaehlt/%28language%29/ger-DE
+
+   * Article: Primer: Enterprise Wiki; by David F. Carr; Baseline Magazine; 2007-05-16; http://www.baselinemag.com/c/a/Tools-Primers-hold/Primer-Enterprise-Wiki/
+
+   * Article: Wikis Are Alive and Kicking in the Enterprise; by Stan Gibson; eWeek; 2006-11-20; http://www.eweek.com/c/a/Messaging-and-Collaboration/Wikis-Are-Alive-and-Kicking-in-the-Enterprise/
+
+   * Article: Team Builder - the TWiki wiki and the enterprise; by Peter Thoeny; Linux-Magazine UK; 2005-05-05; http://www.linux-magazine.com/Issues/2005/55/TWiki
+
+   * Article (German): Wie Sie TWiki im Unternehmen einf&uuml;hren und eine neue Kommunikationskultur schaffen,; by Peter Thoeny; Linux Magazin; 2005-02-01; https://www.linux-magazine.com/issue/55/TWiki.pdf
+
+   * Article: 'Wiki' May Alter How Employees Work Together; by Kara Swisher; Wall Street Journal; 2004-07-29; http://online.wsj.com/article/0,,SB109105974578777189,00.html (subscription required)
+
+   * Article: Something Wiki This Way Comes: They're Web sites anyone can edit -- and they could transform Corporate America; by Rob Hof; !BusinessWeek; 2004-06-07; http://www.businessweek.com/magazine/content/04_23/b3886138.htm
+
+   * Article: TWiki Extensions and Other Wikis; by Jeremy Zawodny; Linux Magazine; 2003-01-15 - http://www.linux-mag.com/id/1262/
+
+   * Article: Wiki Time; by Jeremy Zawodny; Linux Magazine; 2002-12-15 - http://www.linux-mag.com/id/1237/
+
+   * Article: Mr. TWiki's Collaboration Software; by Nancy Cohen; Open Magazine; 2002-08-01; http://www.open-mag.com/features/Vol_36/twiki/twiki.htm
+
+   * Article: Corporate Collaboration With TWiki; by Peter Thoeny; Web Techniques Magazine; 2000-12-01; http://www.drdobbs.com/corporate-collaboration-web-techniques-d/184413565?pgno=11
+
+   * Article: Tool of the Month: TWiki; by Joe "Zonker" Brockmeier; <nop>UnixReview.com; 2002-01-25; http://www.linuxtoday.com/infrastructure/2002012402220RVSVSW
+
+   * TWiki success stories: TWiki:Main.TWikiSuccessStories
+
+   * TWiki in the news: TWiki:Codev.TWikiInTheNews, TWiki:Codev.WikiInTheNews
+
+---++ Collaboration and Knowledge Management
+
+   * Book: Enabling Knowledge Creation: How to Unlock the Mystery of Tacit Knowledge and Release the Power of Innovation; by Georg von Krogh, Kazuo Ichijo, Ikujiro Nonaka; Oxford University Press; ISBN:0195126165
+
+   * Book: The Knowledge Management Toolkit: Practical Techniques for Building a Knowledge Management System; by Amrit Tiwana; Prentice Hall PTR; ISBN:0130128538
+
+   * Book: The Knowing-Doing Gap: How Smart Companies Turn Knowledge into Action; by Jeffrey Pfeffer and Robert I. Sutton; Harvard Business School Pr; ISBN:1578511240
+
+   * Book: Survival of the Smartest: Managing Information for Rapid Action and World-Class Performance; by Haim Mendelson, Johannes Ziegler; Wiley; ISBN:0471295604
+
+---++ Extreme Programming
+
+   * Book: Extreme Programming Examined; by Giancarlo Succi and Michele Marchesi; Addison-Wesley Pub Co; ISBN:0201710404
+
+   * Book: Extreme Programming in Practice; by James W. Newkirk and Robert C. Martin; Addison-Wesley Pub Co; ISBN:0201709376
+
+   * Book: Extreme Programming Explored; by William C. Wake and Bill Wake; Addison-Wesley Pub Co; ISBN:0201733978
+
+__Related topics:__ WhatIsWikiWiki, WikiCulture, WabiSabi, UserDocumentationCategory

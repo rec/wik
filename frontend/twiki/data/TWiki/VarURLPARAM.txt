@@ -1,0 +1,33 @@
+%META:TOPICINFO{author="TWikiContributor" date="1531610582" format="1.1" version="10"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarURLPARAM
+---+++ URLPARAM{"name"} -- get value of a URL parameter
+   * Returns the value of a URL parameter.
+   * Syntax: =%<nop>URLPARAM{"name"}%=
+   * Supported parameters:
+     | *Parameter:* | *Description:* | *Default:* |
+     | ="name"= | The name of a URL parameter | required |
+     | =newline="$br"= | Convert newlines in textarea to other delimiters. Variables =$br= (for =&lt;br /&gt;= tag), =$n= (for newline) are expanded. Other text is encoded based on =encode= parameter. | no conversion |
+     | =encode="off"= | Turn off encoding. See important security note below | =encode="safe"= |
+     | =encode="quote"= | Escape double quotes with backslashes (=\"=), does not change other characters; required when feeding URL parameters into other TWiki variables. This encoding does not protect against cross-site scripting. | =encode="safe"= |
+     | =encode="moderate"= | Encode special characters into HTML entities for moderate cross-site scripting protection: ="<"=, =">"=, single quote (='=) and double quote (="=) are encoded. Useful to allow TWiki variables in comment boxes. | =encode="safe"= |
+     | =encode="safe"= | Encode special characters into HTML entities for cross-site scripting protection: ="<"=, =">"=, ="%"=, single quote (='=) and double quote (="=) are encoded. | (this is the default) |
+     | =encode="entity"= | Encode special characters into HTML entities. See [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENCODE][ENCODE]] for details. | =encode="safe"= |
+     | =encode="html"= | Encode special characters into HTML entities. In addition to =encode="entity"=, it also encodes space, newline (=\n=) and linefeed (=\r=). Useful to encode text properly in HTML input fields. | =encode="safe"= |
+     | =encode="url"= | Encode special characters for URL parameter use, like a double quote into =%22= | =encode="safe"= |
+     | =encode="search"= | Special encoding used for [[%IF{"'%SEARCH%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]]: Substitute % characters into non-printable characters, so that TWikiVariables are no longer expanded. Also escapes quotes. Used to feed a search string from a URLPARAM into SEARCH without expanding any variables, such as when searching for =%<nop>BR%=. | =type="url"= |
+     | =multiple="on"= %BR% =multiple="[<nop>[$item]]"= | If set, gets all selected elements of a =&lt;select multiple="multiple"&gt;= tag. A format can be specified, with =$item= indicating the element, e.g. =multiple="Option: $item"= | first element |
+     | =separator=", "= | Separator between multiple selections. Only relevant if multiple is specified | ="\n"= (newline) |
+     | =format="..."= | Format the result. =$value= expands to the URL parameter. If multiple is specified, =$value= expands to the result of the concatenated items. | ="$value"= |
+     | =default="..."= | Default value in case parameter is empty or missing. The format parameter is not applied. | empty string |
+   * Example: =%<nop>URLPARAM{"skin"}%= returns =print= for a =.../view/%WEB%/%INCLUDINGTOPIC%?skin=print= URL
+   * __%X% Notes:__
+      * *IMPORTANT:* There is a risk that this variable can be misused for [[http://en.wikipedia.org/wiki/Cross-site_scripting][cross-site scripting]] (XSS) if the encoding is turned off. The =encode="safe"= is the default, it provides a safe middle ground. The =encode="entity"= is more aggressive, but some TWiki applications might not work.
+      * URL parameters passed into HTML form fields should be [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENCODE][encoded]] as ="html"=. %BR% Example: =&lt;input type="text" name="address" value="%<nop>URLPARAM{ "address" encode="html" }%" /&gt;=
+      * Double quotes in URL parameters must be escaped when passed into other TWiki variables.%BR% Example: =%<nop>SET{ "lunch" value="%<nop>ENCODE{ "string with "quotes"" type="quotes" }%" remember="1" }%=
+      * Percent characters and double quotes in URL parameters should be escaped when passed into a [[%IF{"'%SEARCH%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]] variable.%BR% Example: =%<nop>SEARCH{ "%<nop>URLPARAM{ "query" encode="search" }%" noheader="on" }%=
+      * When used in a template topic, this variable will be expanded when the template is used to create a new topic. See TWikiTemplates#TemplateTopicsVars for details.
+      * Watch out for TWiki internal parameters, such as =rev=, =skin=, =template=, =topic=, =web=; they have a special meaning in TWiki. Common parameters and view script specific parameters are documented at TWikiScripts.
+      * If you have =%<nop>URLPARAM{= in the value of a URL parameter, it will be modified to =%&lt;nop&gt;URLPARAM{=. This is to prevent an infinite loop during expansion.
+   * Category: DevelopmentVariables, SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENCODE][ENCODE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENTITY][ENTITY]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]], FormattedSearch, [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarQUERYSTRING][QUERYSTRING]]

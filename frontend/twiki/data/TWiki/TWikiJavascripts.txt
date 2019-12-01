@@ -1,0 +1,27 @@
+%META:TOPICINFO{author="TWikiContributor" date="1277357381" format="1.1" version="3"}%
+---+ TWiki Javascripts
+
+This topic contains !JavasSript files that are included by TWiki templates, and may be used by skin templates and in topics.
+
+   * Set ALLOWTOPICCHANGE = %USERSWEB%.TWikiAdminGroup
+
+__Related Topics:__ TWikiTemplates, TWikiSkins
+
+%META:FILEATTACHMENT{name="twikiArray.js" attr="" comment="" date="1277353299" path="twikiArray.js" size="1877" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twiki.compressed.js" attr="" comment="" date="1277353299" path="twiki.compressed.js" size="7012" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikiCSS.js" attr="" comment="" date="1277353299" path="twikiCSS.js" size="2762" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twiki_edit.js" attr="" comment="" date="1277353299" path="twiki_edit.js" size="4673" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikiEvent.js" attr="" comment="" date="1277353299" path="twikiEvent.js" size="875" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikiForm.js" attr="" comment="" date="1277353299" path="twikiForm.js" size="7252" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikiFunction.js" attr="" comment="" date="1277353299" path="twikiFunction.js" size="723" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikiHTML.js" attr="" comment="" date="1277353299" path="twikiHTML.js" size="6583" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twiki.js" attr="" comment="" date="1277353299" path="twiki.js" size="18602" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikilib.js" attr="" comment="" date="1277353299" path="twikilib.js" size="1245" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikiPref.js" attr="" comment="" date="1277353299" path="twikiPref.js" size="9354" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twiki_renamebase.js" attr="" comment="" date="1277353299" path="twiki_renamebase.js" size="317" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikiString.js" attr="" comment="" date="1277353299" path="twikiString.js" size="4705" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikiStringUnicodeChars.js" attr="" comment="" date="1277353299" path="twikiStringUnicodeChars.js" size="4087" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikiStyles.js" attr="" comment="" date="1277353299" path="twikiStyles.js" size="262" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikiuiToggle.js" attr="" comment="" date="1277353299" path="twikiuiToggle.js" size="11543" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikiWindow.js" attr="" comment="" date="1277353299" path="twikiWindow.js" size="4048" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="unicode_chars.js" attr="" comment="" date="1277353299" path="unicode_chars.js" size="10653" user="TWikiContributor" version="1"}%

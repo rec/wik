@@ -1,0 +1,15 @@
+%META:TOPICINFO{author="TWikiContributor" date="1352453485" format="1.1" version="5"}%
+---+ User List sorted by location
+
+%INCLUDE{"UserListHeader"}%
+
+%TABLE{initsort="1"}%
+%SEARCH{
+ "form.name~'*UserForm'"
+ type="query"
+ excludetopic="UserList*, *Template"
+ header="|*Country* | *Location* | *FirstName* | *LastName* | *Organization* |"
+ format="| $formfield(Country) | $formfield(Location), $formfield(Region) | [[$topic][$formfield(FirstName)]] | [[$topic][$formfield(LastName)]] | $formfield(Organization) |"
+ nosearch="on"
+ sort="formfield(Country)"
+}%

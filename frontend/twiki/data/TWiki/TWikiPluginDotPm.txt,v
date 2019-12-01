@@ -1,0 +1,86 @@
+head	1.4;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.4
+date	2013.10.14.08.02.47;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2008.01.22.03.21.29;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2007.01.16.04.11.58;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.25;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@---+ Package =TWiki::Plugin=
+
+
+%TOC%
+
+---++ ClassMethod *new* <tt>($session,$name,$module)</tt>
+
+   * =$session= - TWiki object
+   * =$name= - name of the plugin e.g. MyPlugin
+   * =$module= - (options) name of the plugin class. Default is TWiki::Plugins::$name
+
+
+
+---++ ObjectMethod *finish* <tt>()</tt>
+Break circular references.
+
+
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 2
+a2 1
+---+ Package ==
+d5 1
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d11 5
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d5 1
+@

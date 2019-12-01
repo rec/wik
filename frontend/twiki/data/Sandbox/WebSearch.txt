@@ -1,0 +1,4 @@
+%META:TOPICINFO{author="TWikiContributor" date="1431725544" format="1.0" version="2"}%
+%INCLUDE{ "%SYSTEMWEB%.%TOPIC%" disablefixlinks="on" }%
+
+%META:PREFERENCE{name="READONLYSKINMODE" title="READONLYSKINMODE" type="Set" value="1"}%

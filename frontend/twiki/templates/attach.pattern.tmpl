@@ -1,0 +1,144 @@
+%TMPL:INCLUDE{"attach"}%
+%TMPL:DEF{"logo"}%%TMPL:END%
+%TMPL:DEF{"bodyclassname"}%patternNoViewPage patternAttachPage%TMPL:END%
+%TMPL:DEF{"titleaction"}%%MAKETEXT{"(attach)"}% %TMPL:END%
+%TMPL:DEF{"pagetitle"}%%MAKETEXT{"Attach image or document on [_1]" args="[[%TOPIC%]]"}%%TMPL:END%
+%TMPL:DEF{"toolbar"}%<div class="patternTop">%TWISTYBUTTON{id="attachhelp" mode="div" remember="on" link="%MAKETEXT{"Attachments help"}%" showimgleft="%ICONURLPATH{toggleopen}%"
+hideimgleft="%ICONURLPATH{toggleclose}%"}%</div><!--//patternTop-->%TMPL:END%
+%TMPL:DEF{"pagehelp"}%%TWISTYTOGGLE{id="attachhelp" mode="div" remember="on" noscript="hide"}%<div class="twikiHelp">
+%TMPL:P{"notes"}%
+%TMPL:P{"extranotes"}%</div>%ENDTWISTYTOGGLE%%TMPL:END%
+%TMPL:DEF{"pagehelp_nojavascript"}%<br />%TWISTYTOGGLE{id="pagehelp_nojavascript" mode="div" start="hide"}%<div class="twikiHelp">
+%TMPL:P{"notes"}%
+%TMPL:P{"extranotes"}%</div>%ENDTWISTYTOGGLE%%TMPL:END%
+
+%TMPL:DEF{"formstart"}%<div class="patternAttachForm"><form name="main" enctype="multipart/form-data" class="dropzone" action="%SCRIPTURLPATH{"upload"}%/%WEB%/%TOPIC%" method="post" />%TMPL:END%
+%TMPL:DEF{"formend"}%</form></div><!-- /patternAttachForm-->%TMPL:END%
+%TMPL:DEF{"attachformstart"}%<div class="twikiFormSteps">%TMPL:END%
+%TMPL:DEF{"attachformend"}%</div><!-- /twikiFormSteps-->%TMPL:END%
+%TMPL:DEF{"newfile"}%<div class="twikiFormStep">
+---+++ %MAKETEXT{"Attach new file"}%
+
+%TMPL:P{"previous"}%%IF{"$ATTACHFILESIZELIMIT > 0" then="%MAKETEXT{"Upload up to [_1] KB." args="%ATTACHFILESIZELIMIT%"}%"}%
+%MAKETEXT{"Attach up to 10 files at a time."}%  <!-- Now multiple file upload possible-->
+<div id="mUpload"> <input type="file" id="element_input" class="upload" name="filepath" value="%FILEPATH%"  size="50" /><br />
+</div> <input type="hidden" name="filename" value="%FILENAME%" /> <div id="attachlist" name="attachlist"> </div> </div> <!-- /twikiFormStep-->%TMPL:END%
+%TMPL:DEF{"comment"}%<div class="twikiFormStep">
+---+++ %MAKETEXT{"Comment"}%
+<p>
+%MAKETEXT{"Describe the file so other people know what it is."}%
+</p>
+<input class="twikiInputField" type="text" name="filecomment" value="%FILECOMMENT%" size="70" />
+</div><!-- /twikiFormStep-->%TMPL:END%
+
+%TMPL:DEF{"properties"}%<div class="twikiFormStep twikiLast">
+---+++ %MAKETEXT{"Properties"}%
+
+<input type="checkbox" class="twikiCheckbox" id="createlink" name="createlink" %ATTACHLINKBOX% /><label for="createlink">%MAKETEXT{"Create a link to the attached file"}%</label> <span class="twikiGrayText">%MAKETEXT{"Images will be displayed, for other attachments a link will be created."}%</span>
+
+<input type="checkbox" class="twikiCheckbox" id="hidefile" name="hidefile" %HIDEFILE% /><label for="hidefile">%MAKETEXT{"Do not show attachment in table"}%</label> <span class="twikiGrayText">%MAKETEXT{"Attachments will not be shown in topic view page."}%</span>
+</div><!-- /twikiFormStep-->%TMPL:P{"changepropertiesaction"}%%TMPL:END%
+
+%TMPL:DEF{"multiple-file-javascript"}%
+<script src="%PUBURL%/%SYSTEMWEB%/PatternSkin/dropzone.min.js"></script>
+<link rel="stylesheet" href="%PUBURL%/%SYSTEMWEB%/PatternSkin/dropzone.css" />
+<style>
+#dropzonePreviews {
+    border-width: 5px;
+    border-style: dashed;
+    border-color: #aaa;
+    margin-top: 10px;
+    min-height: 220px;
+    position: relative;
+}
+#dropzoneMessage {
+    position: absolute;
+    top: 67px;
+    left: 0;
+    overflow: hidden;
+    color: #aaa;
+    font-size: 4em;
+    line-height: normal;
+    width: 100%;
+    text-align: center;
+}
+</style>
+<script type="text/javascript">
+function rmChPropButton() {
+  $('input[name="changeproperties"]').remove();
+}
+var myDropzone;
+Dropzone.autoDiscover = false;
+$(document).ready(
+  function(){
+    var fileMax = 10;
+    if ( Dropzone.isBrowserSupported() && %IF{"$DROPZONEJS_DISABLE='on'" then="false" else="true"}% ) {
+      $('#mUpload').replaceWith('<div id="dropzonePreviews" class="dropzone-previews"><div id="dropzoneMessage" class="dz-message" style="">%MAKETEXT{"Drop files or click"}%</div></div>');
+      $('#upload_file').replaceWith('<button type="button" class="twikiSubmit" onClick="rmChPropButton();myDropzone.processQueue();">%MAKETEXT{"Upload file"}%</button>');
+      myDropzone = new Dropzone("form.dropzone", {
+        maxFiles: fileMax,
+        maxFilesize: %IF{"$'ATTACHFILESIZELIMIT' = '' or $'ATTACHFILESIZELIMIT' = '0'" then="1024 * 1024" else="%ATTACHFILESIZELIMIT% / 1024"}%,
+        withCredentials: true,
+        paramName: function(n) {return "filepath" + (n || "");},
+        addRemoveLinks: true,
+        autoProcessQueue: false,
+        previewsContainer: "div#dropzonePreviews",
+        uploadMultiple: true,
+        parallelUploads: 10,
+        params: {noredirect: '1'},
+        clickable: "div#dropzonePreviews",
+        successmultiple: function(files, responseText, e) {
+          var xhr = files[0] && files[0].xhr;
+          if (xhr && xhr.getResponseHeader("Content-type").indexOf("text/html") != -1) {
+            document.open();
+            document.write(responseText);
+            document.close();
+          }
+          else {
+            window.location.href = '%SCRIPTURL{view}%/%WEB%/%TOPIC%';
+          }
+        }
+      });
+    }
+    else {
+      $('#attachlist').after('<div id="files_list"></div>');
+      $("input.upload").change(
+        function(){
+          doIt(this, fileMax);
+        }
+      );
+    }
+  }
+);
+function doIt(obj, fm) {
+  if($('input.upload').size() > fm) {
+    alert('Max files is '+fm);
+    obj.value='';
+    return true;
+  }
+  var fileNo = $('input.upload').size();
+  $(obj).hide();
+  $(obj).parent().prepend('<input type="file" class="upload" name="filepath'+fileNo+'" value="" size="50" onchange="doIt(this, '+fm+');" />');
+  var v = obj.value.replace( /.*[\/\\]/, "" );
+  if(v != '') {
+    $("div#files_list").append('<div>'+'<input type="image" src="%ICONURL{remove}%" width="12" height="12" border="0"  alt="Remove file" title="Remove file" value="" style="margin:-2px 0px 0px 0px; border:none; padding:0px; width:12px; height:12px; background-color:transparent;" /> '+v+'</div>').find("input").click(
+      function(){
+        $(this).parent().remove();
+        $(obj).remove();
+        return true;
+      }
+    );
+  }
+};
+</script> %TMPL:END%
+
+%TMPL:DEF{"content"}%%TMPL:P{"toolbar"}%
+%TMPL:P{"pagehelp"}%
+%TMPL:P{"multiple-file-javascript"}%
+%TMPL:P{"formstart"}%
+%TMPL:P{"attachform"}%
+%TMPL:P{"topicaction"}%%TMPL:P{"formend"}%
+%TMPL:P{"movedelete"}%
+%TMPL:P{"pagehelp_nojavascript"}%
+%TMPL:P{"versions"}%
+%TMPL:P{"existingattachments"}%%TMPL:END%

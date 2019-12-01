@@ -1,0 +1,70 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2012.11.15.07.42.30;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.01.22.03.21.24;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.06.25.16.26.30;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1352965350" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarWIKIVERSION
+---+++ WIKIVERSION -- the version of the installed TWiki engine
+   * Syntax: =%<nop>WIKIVERSION%=
+   * Expands to: =%WIKIVERSION%=
+   * Category: AdministrationVariables, SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarPLUGINVERSION][PLUGINVERSION]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWIKITOOLNAME][WIKITOOLNAME]]
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.1" version="2"}%
+d7 1
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.2" version="1"}%
+a3 1
+
+d7 1
+a7 1
+   * Related: [[#VarPLUGINVERSION][PLUGINVERSION]], [[#VarWIKITOOLNAME][WIKITOOLNAME]]
+@

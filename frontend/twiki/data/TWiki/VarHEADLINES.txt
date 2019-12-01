@@ -1,0 +1,32 @@
+%META:TOPICINFO{author="TWikiContributor" date="1446763985" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarHEADLINES
+---+++ HEADLINES{"url"} -- show RSS and ATOM feeds in TWiki pages
+   * The =%<nop>HEADLINES{"url"}%= variable is handled by the HeadlinesPlugin.
+   * Syntax: =%<nop>HEADLINES{ "http://..." }%=
+   * Parameters: (all but the first one are optional)
+     | ="..."= | Source of RSS or ATOM feed; this can be a URL (starting with http) or a <nop>web.topic location for internal feeds |
+     | =refresh="60"= | Refresh rate in minutes for caching feed; ="0"= for no caching |
+     | =limit="12"= | Maximum number of items shown |
+     | =header="..."= | Header. May include these variables: %BR% \
+             - =$channeltitle=, =$title=: title of channel (channel.title) %BR% \
+             - =$channellink=, =$link=: link of channel (channel.link) %BR% \
+             - =$channeldescription=, =$description=: description (channel.description) %BR% \
+             - =$channeldate=, =$date=: publication date of the channel (channel.pubDate) %BR% \
+             - =$rights=: copyrights of the channel (channel.copyright) %BR% \
+             - =$imagetitle=: title text for site (image.title) %BR% \
+             - =$imagelink=: link for site (image.link) %BR% \
+             - =$imageurl=: URL of image (image.url) %BR% \
+             - =$imagedescription=: description of image (image.description) |
+     | =format="..."= | Format of one item. May include these variables: %BR% \
+             - =$title=: news item title (item.title) %BR% \
+             - =$link=: news item link (item.link)  %BR% \
+             - =$description=: news item description (item.description) %BR% \
+             - =$date=: the publication date (item.pubDate, item.date) %BR% \
+             - =$category=: the article category (item.category) |
+     | =newline="$br"= | Convert newlines in feed; ="$br"= becomes =&lt;br /&gt;= tag, default ="$n"= (newline) |
+     | =filter="..."= | Filter out content from feed; for example to delete an encoded break tag specify ="&amp;lt;br&amp;gt;"= |
+     | [[HeadlinesPlugin#Syntax_Rules][Details]] ||
+   * Example: =%<nop>HEADLINES{ "http://slashdot.org/slashdot.rdf" header="*[<nop>[$link][$title]]:* $description" format="$t* [<nop>[$link][$title]]" limit="4" }%= shows the latest Slashdot news in bullet list format
+   * Category: ApplicationsAndComponentsVariables, ImportVariables
+   * Related: HeadlinesPlugin

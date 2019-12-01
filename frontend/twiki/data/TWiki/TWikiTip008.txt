@@ -1,0 +1,18 @@
+%META:TOPICINFO{author="TWikiContributor" date="1277624659" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiTipsOfTheDay"}%
+---+ Escaping TWiki rendering
+
+Use the verbatim tag to surround code excerpts and other formatted text with =&lt;verbatim&gt;= and =&lt;/verbatim&gt;= tags.
+
+Example:
+
+<pre>
+&lt;verbatim&gt;
+| *Header1* | *Header1* |
+| Data1     | Data2     |
+&lt;/verbatim&gt;
+</pre>
+
+[[TWikiTipsOfTheDay][See More Tips...]]
+
+-- __Contributors:__ TWiki:Main.PaulineCheung

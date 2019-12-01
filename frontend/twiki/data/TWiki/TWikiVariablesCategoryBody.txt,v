@@ -1,0 +1,57 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2013.10.14.08.02.49;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1352794319" format="1.1" version="1"}%
+%META:TOPICPARENT{name="TWikiVariablesSearch"}%
+---+ TWiki Variables Category Body
+
+This is a system topic used by TWikiVariablesSearch categories.
+
+-----
+%STARTINCLUDE%
+---+!! <span style="font-size: 60%;">[[TWikiVariables][TWiki Variables]] &raquo; [[TWikiVariablesSearch][Search]] &raquo; Category:</span> %CALCULATE{$SUBSTITUTE($PROPERSPACE($SUBSTITUTE(%BASETOPIC%, Variables,)), And , &amp; )}%
+%INCLUDE{ "TWikiVariablesSearch" section="categories" }%
+%CALCULATE{$NOP(%)TOC{ "%BASETOPIC%" title="Variables in this category:" }$NOP(%)}%
+%SEARCH{
+  "^\#Var[A-Z0-9];\* Category:.*?%BASETOPIC%"
+ topic="Var*"
+ type="regex"
+ nonoise="on"
+ format="$percntINCLUDE{$web.$topic}$percnt ([[$topic][this topic]])"
+ footer="$percntCALCULATE{$SET(found, __Total:__ $IF($ntopics>1, $ntopics variables, $ntopics variable))}$percnt"
+}%
+
+%CALCULATE{$GET(found)}%
+
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="scroll_box_engine" }%
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="static_box_start" boxstyle="width: auto;" }%
+__Categories:__
+%GET{twVarCategoriesLinks}%
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="static_box_end" }%
+
+__Related Topics:__ TWikiVariables, TWikiVariablesSearch, TWikiVariablesQuickStart
+%STOPINCLUDE%
+-----
+
+-- TWiki:Main.PeterThoeny - 2012-11-11
+@

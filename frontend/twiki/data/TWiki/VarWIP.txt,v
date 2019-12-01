@@ -1,0 +1,33 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2013.10.14.08.02.51;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1379143319" format="1.1" version="1"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarWIP
+---+++ WIP -- work in progress icon
+   * Type: Preference variable - TWikiRenderingShortcut.
+   * Syntax: =%<nop>WIP%=
+   * Expands to: %WIP%
+   * Category: FormattingAndRenderingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarH][H]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarI][I]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarICON][ICON]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarM][M]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarN][N]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarP][P]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarQ][Q]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarS][S]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarT][T]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarU][U]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarY][X]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarY][Y]], [[TWikiDocGraphics]]
+@

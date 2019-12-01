@@ -1,0 +1,78 @@
+%{ This is a default template }%%TMPL:INCLUDE{"twiki"}%
+
+
+%TMPL:DEF{"titleaction"}%%MAKETEXT{"(copy)"}% %TMPL:END%
+
+
+%TMPL:DEF{"webaction"}%%MAKETEXT{"Copy"}%%TMPL:END%
+
+
+%TMPL:DEF{"newwebhelp"}%%TMPL:END%
+
+
+%TMPL:DEF{"newtopic"}%<input name="newtopic" class="twikiInputField" value="%NEW_TOPIC%" size="36" /><br />
+%TMPL:P{"nonwikiword"}%%TMPL:END%
+
+
+%TMPL:DEF{"newweb"}%<select name="newweb" class="twikiSelect">%WEBLIST{"<option $marker value=$qname>$name</option>" webs="%NEW_WEB%,cancopyto" selection="%NEW_WEB%" separator=" "}%</select>%TMPL:END%
+
+
+%TMPL:DEF{"topicactionbuttons"}%<input type="submit" class="twikiSubmit" value='%MAKETEXT{"Copy"}%' /> %MAKETEXT{"or"}% %TMPL:P{"canceltopicaction"}%%TMPL:END%
+
+%{------------------------------------------------------------------------}%
+
+%TMPL:DEF{"formstart"}%<form method="post" name="copy" action="%SCRIPTURLPATH{"copy"}%/%WEB%/%TOPIC%">%TMPL:END%
+
+%TMPL:DEF{"formend"}%</form>%TMPL:END%
+
+
+%TMPL:DEF{"pagehelp"}%%TMPL:P{"notes"}%%TMPL:END%
+
+
+%TMPL:DEF{"pagetitle"}%%TMPL:P{"webaction"}% %TOPIC%%TMPL:END%
+
+
+%TMPL:DEF{"copysourcetitle"}%---++ %MAKETEXT{"Copy:"}% <nop>%WEB%.%TOPIC%%TMPL:END%
+
+%TMPL:DEF{"copysource"}%
+%TMPL:P{"copysourcetitle"}%
+%TMPL:END%
+
+
+%TMPL:DEF{"towebtitle"}%---+++ %MAKETEXT{"To web:"}% %TMPL:END%
+
+%TMPL:DEF{"toweb"}%
+%TMPL:P{"towebtitle"}%
+<p>%TMPL:P{"newweb"}%%TMPL:P{"newwebhelp"}%</p>%TMPL:END%
+
+
+%TMPL:DEF{"totopictitle"}%---+++ %MAKETEXT{"To topic:"}% %TMPL:END%
+
+%TMPL:DEF{"totopic"}%
+%TMPL:P{"totopictitle"}%
+<p>%TMPL:P{"newtopic"}%%TMPL:P{"newtopichelp"}%</p>%TMPL:END%
+
+
+%TMPL:DEF{"copyformsteps"}%%TMPL:P{"copysource"}%%TMPL:P{"toweb"}%%TMPL:P{"totopic"}%%TMPL:P{"overwrite"}%%TMPL:P{"disablefixlinks"}%%TMPL:END%
+
+
+%TMPL:DEF{"checkuncheck"}%%TMPL:END%
+
+
+%TMPL:DEF{"updatenote"}%%MAKETEXT{"Checked topics will be updated to point to the new topic location."}%%TMPL:END%
+
+
+%TMPL:DEF{"notes"}%%TMPL:P{"notegethelp"}%%TMPL:END%
+
+
+%TMPL:DEF{"notegethelp"}%
+   * %MAKETEXT{"Get help on <a target='CopyingTopics' class='twikiPopUp' href='[_1]' rel='nofollow'>Copying topics</a>." args="%SCRIPTURLPATH{"view"}%/%SYSTEMWEB%/CopyingTopics"}%
+%TMPL:END%
+
+
+%TMPL:DEF{"content"}%%TMPL:P{"toolbar"}%
+%TMPL:P{"pagehelp"}%
+%TMPL:P{"formstart"}%
+%TMPL:P{"copyformsteps"}%
+%TMPL:P{"topicinfo"}%
+%TMPL:P{"formend"}%%TMPL:END%

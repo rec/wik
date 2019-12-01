@@ -1,0 +1,50 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2010.05.29.14.44.11;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@---+ Package =TWiki::EngineException=
+
+Exception used to raise an engine related error. This exception has the
+following fields:
+   * =status= - status code to send to client
+   * =reason= a text string giving the reason for the refusal.
+
+
+%TOC%
+
+---++ ClassMethod *new* <tt>($status,$reason[,$response])</tt>
+
+   * =$status= - status code to send to client
+   * =$reason= - string reason for failure
+   * =$response= - custom TWiki::Response object to be sent to client. Optional.
+
+All the above fields are accessible from the object in a catch clause
+in the usual way e.g. =$e->{status}= and =$e->{reason}=
+
+
+
+---++ ObjectMethod *stringify* <tt>() -> $string</tt>
+
+Generate a summary string. This is mainly for debugging.
+
+
+@

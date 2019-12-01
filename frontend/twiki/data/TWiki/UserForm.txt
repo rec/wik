@@ -1,0 +1,35 @@
+%META:TOPICINFO{author="TWikiContributor" date="1381542882" format="1.1" version="6"}%
+---+ User Form
+
+__Note:__ This is a maintenance topic, used by the TWiki administrator.
+
+This form defines the form of the user profile pages of registered TWiki users listed
+in %USERSWEB%.%WIKIUSERSTOPIC% and %USERSWEB%.UserList. *Do not edit this topic* - if you want to customize the
+user form, then:
+   1 Take a copy of this topic and save it to <nop>%USERSWEB%.UserForm in the <nop>%USERSWEB% web
+   1 Customize <nop>%USERSWEB%.UserForm
+   1 Take a copy of NewUserTemplate and save it to <nop>%USERSWEB%.NewUserTemplate
+   1 In <nop>%USERSWEB%.NewUserTemplate, go to "More topic actions", select "Edit topic preference settings", and add a VIEW_TEMPLATE setting like this:
+      * <nop>Local VIEW<nop>_TEMPLATE = <nop>UserView 
+   1 In <nop>%USERSWEB%.NewUserTemplate, go to "More topic actions" again, select "Add or replace form on this topic", and select your new user form
+
+|*Name*  |*Type*  |*Size*  |*Values*  |*Tooltip message*  |*Attributes*  |
+| First Name | text | 60 | | First name of person | |
+| Last Name | text | 60 | | Last name of person | |
+| Titles | text | 60 | | Titles or profession | |
+| Email | text | 60 | | E-mail address | |
+| Telephone | text | 60 | | Telephone number | |
+| Mobile | text | 60 | | Mobile number | |
+| Skype ID | text | 60 | | Skype ID | |
+| Department | text | 60 | | Department or group within organization | |
+| Organization | text | 60 | | Company, agency or educational institution | |
+| URL | text | 60 | | Website link of organization | |
+| Location | text | 60 | | Office location | |
+| Region | text | 60 | | State, province or region | |
+| Country | text | 60 | | Country | |
+| Image | text | 60 | | Name of image attached to the user profile page (for best result resize to 200 pixel width) | H |
+| Status Update | text | 60 | | Short status update (out of office etc.) | |
+
+__%X% Note:__ Please keep the %SYSTEMWEB%.TWikiRegistration form and this form definition in sync. When you update this form you need to edit/save the %SYSTEMWEB%.NewUserTemplate topic. This ensures that the fields are in the right order.
+
+__Related topics:__ %USERSWEB%.%WIKIUSERSTOPIC%, %USERSWEB%.UserList, %USERSWEB%.PatternSkinUserViewTemplate, %SYSTEMWEB%.NewUserTemplate, %USERSWEB%.UserProfileHeader, %SYSTEMWEB%.TWikiForms, %SYSTEMWEB%.TWikiRegistration

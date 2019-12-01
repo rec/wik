@@ -1,0 +1,135 @@
+head	1.4;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.4
+date	2010.06.12.07.18.41;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2010.06.12.07.18.41;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2009.03.30.09.18.27;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2008.01.22.03.21.37;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1276327121" format="1.1" version="4"}%
+---+ TWiki Administrator User
+
+The <nop>%TOPIC% has been added to TWiki to make it possible to login without needing to create a TWiki User, or to temporarily login as <nop>%TOPIC% using the password set in configure, and then log back out to the same User and Group as before.
+
+This means it is no longer necessary to add yourself to the TWikiAdminGroup, and you will be able to quickly change to Admin User (and back to your user) only when you need to.
+
+%STARTSECTION{"sudo_login"}%
+---++ How to login as <nop>%TOPIC%
+
+   * Login as the internal TWiki administrator:
+      * %ADMINLOGIN%
+   * Logout from Administrator:
+      * [[%LOGOUTURL%][Logout]]
+
+__%X% NOTE:__ If you lock yourself out of <nop>TWikiAdminGroup during setup activities or have forgotten the configure password, you can unset the configure password by editing the =lib/LocalSite.cfg= file and deleting the line that starts with =$TWiki::cfg{Password}= and then set it again by saving your settings in =configure=.
+%ENDSECTION{"sudo_login"}%
+
+---++ Prerequisites
+
+   * =Security Setup : Sessions : {UserClientSession}= needs to be enabled in configure
+   * A configure password (otherwise the Admin login is automatically disabled.)
+   * If your TWiki is configured to use !ApacheLoginManager, you will need to log in as a valid user first.
+
+__Related topics:__ [[%WIKIUSERSTOPIC%]], [[TWikiAdminGroup]], [[TWikiGroups]], [[%SYSTEMWEB%.TWikiAccessControl][TWikiAccessControl]]
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1276327121" format="1.1" version="3"}%
+d6 1
+a6 1
+This means it is no longer necessary to add yourself to the TWikiAdminGroup, and you will be able to quicky change to Admin User (and back to your user) only when you need to.
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111931141" format="1.0" version="2"}%
+d4 1
+a4 2
+The %TOPIC% has been added to TWiki 4.2.0 to make it possible to login without needing to create a TWiki User,
+or to temporarily login as %TOPIC% using the password set in configure, and then log back out to the same User and Group as before.
+d6 1
+a6 2
+This means it is no longer necessary to add yourself to the TWikiAdminGroup, and you will be able to quicky
+change to Admin User (and back to your user) only when you need to.
+d9 2
+a10 1
+---+++ How to login as %TOPIC%
+d14 1
+a14 1
+      * click the [[%LOGOUTURL%][Logout link]]
+d16 1
+a16 3
+__%X% NOTE:__ If you lock yourself out of <nop>TWikiAdminUser during setup activities or have forgotten the configure password,
+you can unset the configure password by editing the =lib/LocalSite.cfg= file and deleting the line that starts
+with =$TWiki::cfg{Password}= and then set it again by saving your settings in =configure=.
+d19 2
+a20 1
+---+++ Prerequisites
+d22 1
+a22 1
+   * a configure password (otherwise the Admin login is automatically disabled.)
+d24 1
+a24 1
+   
+a25 3
+---
+
+
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111931141" format="1.0" version="1"}%
+d27 1
+a27 1
+__Related topics:__ %WIKIUSERSTOPIC%, TWikiAdminGroup, TWikiGroups, %SYSTEMWEB%.TWikiAccessControl
+@

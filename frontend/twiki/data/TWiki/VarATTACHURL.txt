@@ -1,0 +1,9 @@
+%META:TOPICINFO{author="TWikiContributor" date="1352702273" format="1.1" version="5"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarATTACHURL
+---+++ ATTACHURL -- full URL for attachments in the current topic
+   * Syntax: =%<nop>ATTACHURL%=
+   * Expands to: =%ATTACHURL%=
+   * Example: If you attach a file you can refer to it as =%<nop>ATTACHURL%/image.gif=
+   * Category: AttachmentsAndFilesVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarATTACHURLPATH][ATTACHURLPATH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarPUBURL][PUBURL]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarPUBURLPATH][PUBURLPATH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSCRIPTURL][SCRIPTURL]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSCRIPTURLPATH][SCRIPTURLPATH]], FileAttachments

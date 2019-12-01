@@ -1,0 +1,21 @@
+%META:TOPICINFO{author="TWikiContributor" date="1358927500" format="1.1" version="7"}%
+%META:TOPICPARENT{name="TWikiTipsOfTheDay"}%
+---+ <nop>RSS news feed of topic changes
+
+You can use an RSS news reader to find out what is new in a TWiki web. This complements WebChanges that shows recent changes in a web, and WebNotify where people can subscribe to get notified of recent changes by e-mail.
+
+For the <nop>%USERSWEB% web, point your RSS news reader to:
+
+<code> %SCRIPTURL{view}%/%USERSWEB%/WebRss </code>
+
+For other TWiki webs, replace =/%USERSWEB%/= with the name of the web:
+
+%WEBLIST{ format="   * <code> %SCRIPTURL{view}%/$name/WebRss </code>" %IF{"{NoInAllPublicWebs}" then="webs=\"%SYSTEMWEB%\""}% limit="20" }%
+
+__See also:__
+   * WebRssBase - help on TWiki RSS news feeds
+   * TWiki:Codev/TWikiSyndication - TWiki RSS news feed documentation
+
+[[TWikiTipsOfTheDay][See More Tips...]]
+
+-- __Contributors:__ TWiki:Main.PeterThoeny

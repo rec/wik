@@ -1,0 +1,135 @@
+%META:TOPICINFO{author="TWikiContributor" date="1363929964" format="1.1" version="1"}%
+---+!! User Masquerading
+%TOC%
+
+---++ Preface
+
+This topic describes how to configure your TWiki site for user masquerading.
+
+There are cases where it's handy to access TWiki on behalf of somebody else retaining a trace of your real identity rather than completely becoming a different user.
+We call it user masquerading.
+
+TWiki can provide user masquerading through a combination of a plug-in having a proper =initializeUserHandler()= and a proper user mapping manager.
+
+In an implementation, your login ID would be "REAL_ID/MASQUERADE_ID" while you are acting on behalf of MASQUERADE_ID.
+
+---++ Benefits
+
+User masquerading discussed here provides the following benefits.
+
+---+++ Minimizing exercise of privilege
+
+Usually, TWiki administrators are the members of !TWikiAdminGroup and can do anything on the TWiki site.
+This is like doing everything as root on Unix and doing everything as an administrator account on Windows, which is not regarded as a good practice now.
+TWiki Administrators are likely to be TWiki users and they shouldn't have privilege while they are *using* TWiki.
+They should exercise their privilege only when they administer.
+
+For that, instead of putting TWiki administrators into !TWikiAdminGroup, allowing them to act on behalf of "admin" is desirable assuming "admin" is a !TWikiAdminGroup member.
+
+---+++ Auditability
+
+Assuming the TWiki access log records both the real and masqueraded identities for individual operations, auditing of TWiki administrators is easier.
+
+You can see admin operations of joeschmoe by picking up joeschmoe/admin's entries in the log file.
+joeschmoe's ordinary use is supposed to be conducted as joeschmoe rather than joeschmoe/admin, you don't need to exclude non admin activities manually.
+
+---+++ Web autonomy
+
+On a large TWiki installation having thousands of webs, webs need to be as autonomous as possible.
+To that end, it's handy to have a set of users guaranteed to have access to a web regardless of access control settings -- it's like !TWikiAdminGroup members but for the web only.
+
+User masquerading can allow the web owners to act on behalf of "admin" on their web while not allowing that on the other webs.
+In case a web administrator kicks oneself out of the web due to access control mistake, the administrator can act on behalf of admin to fix it.
+The administrator can also fix a problem on a topic the administrator usually cannot see by acting on behalf of admin.
+
+---+++ Testing access control
+
+Usually, it's cumbersome to confirm access control setting is working as expected. Because you need to ask somebody else try.
+
+User masquerading makes it possible to test access control on your own.
+
+---++ How to set up masquerading
+
+Now that you understand the concept well, here's how to set up initialize user handler and user mapping handler for user masquerading.
+
+The requirements are:
+   * While user masquerading is in effect, both the real identity and the masquerade identity need to be reflected in the user's identity.
+   * Masquerading takes effect only on webs the user is entitled to.
+   * Access checking is conducted taking user masquerading into account.
+      * A topic may read/include other topics by %<nop>SEARCH{...}% and %<nop>INCLUDE{...}% and other TWiki variables. The masquerading needs to be observed with topics read/included from the current topic as well.
+
+---+++ Initialize user handler
+
+Let's say while a user joeschmoe (login name) is masquerading as janedoe, the user is identified as joeschmoe/janedoe.
+This should happen in initializeUserHandler() of a plug-in.
+You may think a login handler can have this feature, it's not practical to determine a user is allowed to masquerade or not in the login handler.
+This is because the login handler is called very early in a topic processing and the apparatus you can use is quite limited.
+
+One way to specify a masquerade destination is by an HTTP cookie - e.g. TWIKI_ON_BEHALF_OF.
+Assuming that, initializeUserHandler() returns the login name handed as it is if the TWIKI_ON_BEHALF_OF cookie does not exist.
+If its value is janedoe, then the handler determines whether joeschmoe is entitled to masquerading.
+If so it returns joeschmoe/janedoe. Otherwise it returns joeschmoe.
+
+---+++ User mapping handler
+
+Making the corresponding cUID for joeschmoe/janedoe login name shouldn't be an issue - the way !TWikiUserMapping employs for login to cUID mapping is fine (coding a non-alphanumeric character to '_' followed by the hexadecimal number of the character code; '/' is coded to '_2f').
+And let's say the corresponding wiki name is !JoeSchmoeOnBeHalfOfJaneDoe.
+For that, the following methods of the user mapping handler need to be implemented accordingly.
+   * getWikiName() (for cUID to wiki name mapping)
+   * findUserByWikiName() (for wiki name to cUID mapping)
+
+The following methods of the user mapping handler need to take two extra arguments $topic and $web compared to those methods in !TWikiUserMapping.
+   $ isAdmin(): it's similar to !TWikiUserMapping's but when it calls isInGroup(), $topic and $web need to be passed so that user masquerading is taken into account.
+   $ isInGroup(): it's similar to !TWikiUserMapping's but it takes masquerading into account.
+
+In addition, the user mapping handler needs the following new object method -
+=isEquivalentCUIDs($cUID, $identCUID, $topic, $web)=,
+which is called from TWiki::Users::isEquivalendCUIDS(), which is called from TWiki::Users::isInList().
+   * $cUID is the current the current; may be masquerading.
+   * $identCUID is a cUID of a wikiname in an access restriction setting; no masquerading.
+The isEquivalentCUIDs method determines the equivalency of $cUID and $identCUID taking user masquerading into consideration.
+
+As you've seen, =isInGroup()= and =isEquivalentCUIDs()= in the user mapping handler are the crux of user masquerading implmementation.
+
+---++ Who can masquerade
+
+Masquerading is a meta feature in the sense that it's something above topic access permission.
+It's a mechanism to skew the access control mechanism.
+
+Putting the theoretical thought aside, the practical way is to allow the web admins (cf. AutonomousWebs) to masquerade in a web.
+MetadataRepository or some topics in the %SYSTEMWEB% web would be used to specify who can masquerade in a web.
+
+Along the same line as !TWikiAdminGroup, it's handy to have a set of users who can masquerade in any web.
+[[#Minimizing_exercise_of_privilege][To minimize exercise of privilege]], TWiki administrators need to be able to masquerade in any web.
+
+---++ Logging while masquerading
+
+On the TWiki log, each entry has a user's login name.
+In the scenario described so far, while masquerading, the user's login name is in the joeschmoe/janedoe format.
+Consequently, login names for that format are put in the log file.
+
+---++ Topic reading another topic
+
+Masquerading takes effect for a topic only if the user is entitled to.
+Let's take a closer look at how it works when a topic reads another topic.
+
+Here's the scenario:
+   * !UserU1 is entitled to masquerading in the !WebEntitled but not in !WebNot.
+   * !UserU1's TWIKI_ON_BEHALF_OF cookie has 'admin' - trying to masquerade as the TWiki Adminstrator user.
+   * !WebEntitled.TopicIncluding doesn't allow !UserU1 to view and has:
+   <verbatim>%INCLUDE{WebNot.TopicIncluded}%</verbatim>
+      * !WebNot.TopicIncluded doesn't allow !UserU1 to view
+   * !WebNot.TopicIncluding can be viewed by !UserU1 and has:
+   <verbatim>
+   %INCLUDE{WebEntitled.TopicIncluded}%</verbatim>
+      * !WebEntitled.TopicIncluded doesn't allow !UserU1 to view
+
+Thanks to masquerading as admin, !UserU1 can view !WebEntitled.TopicIncluding.
+But the user cannot see the part included from !WebNot.TopicIncluded because the user cannot masquerade in !WebNot.
+
+!UserU1 can view !WebNot.TopicIncluding but masquerading doesn't take effect.
+Because of that, the user cannot see the part included from !WebEntitled.TopicIncluded even though the user can view !WebEntitled.TopicIncluded.
+
+A similar effect can be seen with %<nop>SEARCH{...}% and other mechanism reading other topics.
+
+__Related Topics:__ AdminDocumentationCategory, TWikiAccessControl, AutonomousWebs, MetadataRepository, LargeSite

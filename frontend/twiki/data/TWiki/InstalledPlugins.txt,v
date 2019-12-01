@@ -1,0 +1,205 @@
+head	1.8;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.8
+date	2013.03.01.23.41.54;	author TWikiContributor;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2008.08.03.22.17.43;	author TWikiContributor;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2008.01.22.03.21.26;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2007.01.16.04.12.01;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2006.04.01.05.55.07;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2006.02.01.12.01.17;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2004.05.18.06.44.20;	author PeterThoeny;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2002.05.12.06.46.15;	author MikeMannix;	state Exp;
+branches;
+next	;
+
+
+desc
+@none
+@
+
+
+1.8
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1362181314" format="1.1" version="8"}%
+---+ Installed Plugins
+Plugins are mainly user-contributed add-ons that enhance and extend TWiki features and capabilities. A limited number of plugins are included in the core TWiki distribution - and any of those can be removed - while the rest are optional, available from TWiki:Plugins.PluginPackage.
+
+---++ Plugins Currently Installed and Enabled
+
+%PLUGINDESCRIPTIONS%
+
+%ICON{"wrench"}% Administrators can install plugins, enable/disable plugins, and change the plugin evaluation order using [[%SCRIPTURLPATH{"configure"}%][configure]].
+
+---++ All Contrib Modules
+This list includs Plugins, some some of which may be disabed in configure, or due to other reasons.
+See %SYSTEMWEB%.TWikiSkinBrowser for an overview of the installed Skins.
+
+%SEARCH{ ".+(Contrib|AddOn|Plugin|Skin)$" type="regex" scope="topic" nonoise="on" format="   * [[$topic]]" }%
+
+
+---++ Plugin Diagnostics 
+%FAILEDPLUGINS%
+
+__Note:__ The diagnostics are provided by the =%<nop>FAILEDPLUGINS%= variable
+
+__Related Topics:__ TWikiPlugins, %WIKIPREFSTOPIC%, AdminDocumentationCategory, AdminToolsCategory, TWikiSkinBrowser
+@
+
+
+1.7
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1159249788" format="1.1" version="7"}%
+d5 1
+a5 1
+Here is a list of the plugins currently installed and enabled on this TWiki site:
+d9 1
+a9 1
+Administrators can enable and disable plugins using [[%SCRIPTURLPATH{"configure"}%][%ICON{"wrench"}% configure]].
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1159249788" format="1.1" version="6"}%
+d11 3
+a13 1
+---++ Contrib Modules
+d15 1
+a15 1
+%SEARCH{ ".+(Contrib|AddOn)$" type="regex" scope="topic" nonoise="on" format="   * [[$topic]]" }%
+d23 1
+a23 1
+__Related Topics:__ TWikiPlugins, %WIKIPREFSTOPIC%, AdminDocumentationCategory, AdminToolsCategory
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1159249788" format="1.1" version="5"}%
+d16 1
+a16 1
+---+ Plugin Diagnostics 
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 3
+a3 3
+%META:TOPICINFO{author="TWikiContributor" date="1125660044" format="1.1" version="4"}%
+---+ Installed Plugins 
+Plugins are mainly user-contributed add-ons that enhance and extend TWiki features and capabilities. A limited number of plugins are included in the core TWiki distribution - and any those can be removed - while the rest are optional, available from TWiki:Plugins.PluginPackage.
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1125660044" format="1.1" version="3"}%
+d13 1
+a13 1
+%SEARCH{ ".+(Contrib|AddOn)$" type="regex" scope="topic" nonoise="on" format="	* [[$topic]]" }%
+@
+
+
+1.2
+log
+@none
+@
+text
+@d1 3
+a3 4
+%META:TOPICINFO{author="PeterThoeny" date="1084862660" format="1.0" version="1.2"}%
+---+ Installed Plugins
+
+Plugins are mainly user-contributed add-ons that enhance and extend TWiki features and capabilities. A limited number of plugins are included in the core TWiki distribution - and most those can be removed - while the rest are optional, available from TWiki:Plugins/%HOMETOPIC%.
+d9 5
+a13 1
+---+ Plugin Diagnostics
+d15 2
+d21 1
+a21 5
+__Related Topics:__ TWikiPlugins, %WIKIPREFSTOPIC%
+
+-- TWiki:Main.MikeMannix - 12 May 2002 %BR%
+-- TWiki:Main.PeterThoeny - 18 May 2004
+
+@
+
+
+1.1
+log
+@none
+@
+text
+@d1 20
+a20 10
+%META:TOPICINFO{author="MikeMannix" date="1021185975" format="1.0" version="1.1"}%
+---++ Installed Plugins
+
+Plugins are mainly user-contributed add-ons that enhance and extend TWiki features and capabilities. A limited number of plugins are included in the core TWiki distribution - and most those can be removed - while the rest are optional, available from TWiki:Plugins/%HOMETOPIC%.
+
+Here is a list of the plugins currently installed on this TWiki site:
+
+%PLUGINDESCRIPTIONS%
+
+-- Main.MikeMannix - 12 May 2002
+@

@@ -1,0 +1,11 @@
+%META:TOPICINFO{author="TWikiContributor" date="1313208486" format="1.1" version="1"}%
+%META:TOPICPARENT{name="BackupRestorePlugin"}%
+---+!! TWiki Backup &amp; Restore Console
+%IF{ "$'URLPARAM{action}'='backup_detail'" then="[[%TOPIC%][Overview]] &raquo; <b>Detail</b>" else="<b>Overview</b>" }%
+
+%BACKUPRESTORE{
+ action="%URLPARAM{ "action" encode="quote" }%"
+ file="%URLPARAM{ "file" encode="quote" }%"
+}%
+
+__Related Topics:__ %IF{ "$'URLPARAM{action}'='backup_detail'" then="[[%TOPIC%]]," }% BackupRestorePlugin, %SYSTEMWEB%.AdminToolsCategory

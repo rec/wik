@@ -1,0 +1,199 @@
+head	1.6;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.6
+date	2012.10.21.06.19.37;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2010.06.01.05.33.26;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2008.01.22.03.21.24;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2006.04.01.05.55.08;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2006.02.01.12.01.17;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2002.08.04.02.58.08;	author PeterThoeny;	state Exp;
+branches;
+next	;
+
+
+desc
+@none
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1350800377" format="1.1" version="6"}%
+---+ Main Features of TWiki
+
+   * *Any web browser:* Edit existing pages or create new pages by using any web browser. There is no need to upload pages.
+   * *Edit link:* To edit a page, simply click on the =[Edit]= link at the top or bottom of the page.
+   * *Auto links:* Web pages are [[WikiWord][linked automatically]]. You do not need to learn HTML commands to link pages.
+   * *Text formatting:* Simple, powerful and easy-to-learn [[WikiSyntax][text formatting rules]]. Basically you write text like you would write an e-mail.
+   * *Webs:* Pages are grouped into [[SiteMap][TWiki webs]] (or workspaces). This allows you to set up separate collaboration groups.
+   * *Search:* [[WebSearch][Full text search]] with/without regular expressions. See a sample [[%SCRIPTURL{view}%/%WEB%/WebSearch?search=learn][search result]].
+   * *E-mail notification:* Get [[WebChangesAlert][automatically notified]] when something has changed in a TWiki web.
+   * *Structured content:* Use TWikiForms to classify and categorize unstructured web pages, and to create simple to complex web applications.
+   * *File attachments:* [[FileAttachment][Upload]] and download any file as an attachment to a page by using your browser. This is similar to file attachments in an e-mail, but it happens on web pages.
+   * *Revision control:* All changes to pages and attachments are tracked. Retrieve previous page revisions; compare differences; find out who changed what and when.
+   * *Access control:* Define groups and impose fine-grained read and write [[TWikiAccessControl][access restrictions]] based on groups and users.
+   * *Variables:* Use [[TWikiVariables][variables]] to dynamically compose your pages. This allows you for example to dynamically build a table of contents, include other pages, or show a search result embedded in a page.
+   * *TWiki plugins:* Easily install program enhancements using external [[TWikiPlugins][plug-in modules]]. Developers can create plugins in Perl using the TWiki Plugin API.
+   * *Templates and skins:* A flexible [[TWikiTemplates][templating system]] separates program logic and presentation. [[TWikiSkins][Skins]] overwrite template headers and footers; page content is unaffected.
+   * *Managing pages:* Individual [[TWikiTopics][pages]] can be renamed, moved and deleted through the browser.
+   * *Managing users:* Web-based [[TWikiRegistration][user registration]] and [[ChangePassword][change of password]].
+   * *Statistics:* Create statistics of TWiki webs. Find out most popular pages and top contributors.
+   * *Preferences:* Three levels of preferences: TWikiPreferences for site-level, WebPreferences for each web, and user level preferences.
+   * *Simultaneous page editing:* More than one person can [[SimultaneousEdits][edit a page at the same time]].
+   * *Backlinks:* Find the pages that contain links to a topic.
+
+__Related Topics:__ UserDocumentationCategory, AdminDocumentationCategory
+
+-- __Contributors:__ TWiki:Main/JonReid, TWiki:Main/PeterThoeny, TWiki:Main/MikeMannix
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1275370406" format="1.1" version="5"}%
+d11 1
+a11 1
+   * *Structured content:* Use TWikiForms to classify and categorize unstructured web pages and to create simple workflow applications.
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="4"}%
+d5 1
+a5 1
+   * *Edit link:* To edit a page, simply click on the ==Edit== link at the top or bottom of the page.
+d8 2
+a9 2
+   * *Webs:* Pages are grouped into [[%SYSTEMWEB%.SiteMap][TWiki webs]] (or collections). This allows you to set up separate collaboration groups.
+   * *Search:* [[WebSearch][Full text search]] with/without regular expressions. See a sample [[%SCRIPTURLPATH{"search"}%/TWiki/?scope=text&search=learn][search result]].
+d11 1
+a11 1
+   * *Structured content:* Use TWikiForms to classify and categorize unstructured web pages and to create simple workflow systems.
+d16 1
+a16 1
+   * *TWiki plugins:* Easily install program enhancements using external [[TWikiPlugins][plug-in modules]]. Developers can create plug-ins in Perl using the TWiki Plugin API.
+d22 2
+a23 2
+   * *[[SimultaneousEdits][simultaneous page editing]]:* 
+   * *Referred-By:* Find the pages that contain links to a topic.
+d26 2
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="3"}%
+d8 1
+a8 1
+   * *Webs:* Pages are grouped into [[%TWIKIWEB%.SiteMap][TWiki webs]] (or collections). This allows you to set up separate collaboration groups.
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="2"}%
+d4 20
+a23 20
+	* *Any web browser:* Edit existing pages or create new pages by using any web browser. There is no need to upload pages.
+	* *Edit link:* To edit a page, simply click on the ==Edit== link at the top or bottom of the page.
+	* *Auto links:* Web pages are [[WikiWord][linked automatically]]. You do not need to learn HTML commands to link pages.
+	* *Text formatting:* Simple, powerful and easy-to-learn [[WikiSyntax][text formatting rules]]. Basically you write text like you would write an e-mail.
+	* *Webs:* Pages are grouped into [[%TWIKIWEB%.SiteMap][TWiki webs]] (or collections). This allows you to set up separate collaboration groups.
+	* *Search:* [[WebSearch][Full text search]] with/without regular expressions. See a sample [[%SCRIPTURLPATH{"search"}%/TWiki/?scope=text&search=learn][search result]].
+	* *E-mail notification:* Get [[WebChangesAlert][automatically notified]] when something has changed in a TWiki web.
+	* *Structured content:* Use TWikiForms to classify and categorize unstructured web pages and to create simple workflow systems.
+	* *File attachments:* [[FileAttachment][Upload]] and download any file as an attachment to a page by using your browser. This is similar to file attachments in an e-mail, but it happens on web pages.
+	* *Revision control:* All changes to pages and attachments are tracked. Retrieve previous page revisions; compare differences; find out who changed what and when.
+	* *Access control:* Define groups and impose fine-grained read and write [[TWikiAccessControl][access restrictions]] based on groups and users.
+	* *Variables:* Use [[TWikiVariables][variables]] to dynamically compose your pages. This allows you for example to dynamically build a table of contents, include other pages, or show a search result embedded in a page.
+	* *TWiki plugins:* Easily install program enhancements using external [[TWikiPlugins][plug-in modules]]. Developers can create plug-ins in Perl using the TWiki Plugin API.
+	* *Templates and skins:* A flexible [[TWikiTemplates][templating system]] separates program logic and presentation. [[TWikiSkins][Skins]] overwrite template headers and footers; page content is unaffected.
+	* *Managing pages:* Individual [[TWikiTopics][pages]] can be renamed, moved and deleted through the browser.
+	* *Managing users:* Web-based [[TWikiRegistration][user registration]] and [[ChangePassword][change of password]].
+	* *Statistics:* Create statistics of TWiki webs. Find out most popular pages and top contributors.
+	* *Preferences:* Three levels of preferences: TWikiPreferences for site-level, WebPreferences for each web, and user level preferences.
+	* *[[SimultaneousEdits][simultaneous page editing]]:* 
+	* *Referred-By:* Find the pages that contain links to a topic.
+@
+
+
+1.1
+log
+@none
+@
+text
+@d1 25
+a25 23
+%META:TOPICINFO{author="PeterThoeny" date="1028429888" format="1.0" version="1.1"}%
+*Main Features of TWiki*
+
+	* *Any web browser:* Edit existing pages or create new pages by using any web browser. There is no need to upload pages.
+	* *Edit link:* To edit a page, simply click on the ==Edit== link at the bottom of the page.
+	* *Auto links:* Web pages are [[WikiWord][linked automatically]]. You do not need to learn HTML commands to link pages.
+	* *Text formatting:* Simple, powerful and easy-to-learn [[WikiSyntax][text formatting rules]]. Basically you write text like you would write an e-mail.
+	* *Webs:* Pages are grouped into [[%TWIKIWEB%.SiteMap][TWiki webs]] (or collections). This allows you to set up separate collaboration groups.
+	* *Search:* [[WebSearch][Full text search]] with/without regular expressions. See a sample [[%SCRIPTURL%/search/TWiki/?scope=text&search=learn][search result]].
+	* *E-mail notification:* Get [[WebChangesAlert][automatically notified]] when something has changed in a TWiki web.
+	* *Structured content:* Use TWikiForms to classify and categorize unstructured web pages and to create simple workflow systems.
+	* *File attachments:* [[FileAttachment][Upload]] and download any file as an attachment to a page by using your browser. This is similar to file attachments in an e-mail, but it happens on web pages.
+	* *Revision control:* All changes to pages and attachments are tracked. Retrieve previous page revisions; compare differences; find out who changed what and when.
+	* *Access control:* Define groups and impose fine-grained read and write [[TWikiAccessControl][access restrictions]] based on groups and users.
+	* *Variables:* Use [[TWikiVariables][variables]] to dynamically compose your pages. This allows you for example to dynamically build a table of contents, include other pages, or show a search result embedded in a page.
+	* *TWiki plugins:* Easily install program enhancements using external [[TWikiPlugins][plug-in modules]]. Developers can create plug-ins in Perl using the TWiki Plugin API.
+	* *Templates and skins:* A flexible [[TWikiTemplates][templating system]] separates program logic and presentation. [[TWikiSkins][Skins]] overwrite template headers and footers; page content is unaffected.
+	* *Managing pages:* Individual [[TWikiTopics][pages]] can be renamed, moved and deleted through the browser.
+	* *Managing users:* Web-based [[TWikiRegistration][user registration]] and [[ChangePassword][change of password]].
+	* *Statistics:* Create statistics of TWiki webs. Find out most popular pages and top contributors.
+	* *Preferences:* Three levels of preferences: TWikiPreferences for site-level, WebPreferences for each web, and user level preferences.
+	* *Topic locking:* Users are warned if a page is being edited by another person. This is to prevent [[SimultaneousEdits][simultaneous page editing]].
+	* *Referred-By:* Find the pages that contain links to a topic.
+@

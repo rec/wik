@@ -1,0 +1,24 @@
+%META:TOPICINFO{author="TWikiContributor" date="1443144314" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarVAR
+---+++ VAR{"NAME" ...} -- get a preference value from another web or topic and more
+   * Gets the value of a variable in various manners.
+      * If the =topic= parameter is specified, it gets the value of the specified preferences variable in the specified topic. Please note that the !WebPreferences of the web of the specified topic is not examined. So the returned value may not be the same as the value of the variable when the specified topic is viewed.
+      * If the =topic= parameter is not specified and the =web= parameter is specified, it gets the value of the specified preferences variable in the specified web, which means the specified web's !WebPreferences is examined for the variable.
+      * If the neither the =topic= nor =web= parameter is specified, it gets the value of the specified variable in the current context -- the variable can either be a preferences variable or a session variable but cannot be a tag with a tag handler (e.g. =%<nop>GMTIME%=). %BR%
+      =%<nop>VAR{"NAME"}%= is similar to =%<nop>NAME%=, but they differ if =NAME= is undefined, in which case =%<nop>VAR{"NAME"}%= is expanded to null (zero width string) while =%<nop>NAME%= remains as is (=%<nop>NAME%=).
+      =%<nop>VAR{"NAME"}%= yields the same value as =%<nop>IF{"defined NAME" then="$percntNAME$percnt"}%= if NAME is a variable, but the latter is cubmersome.
+   * Syntax: =%<nop>VAR{"NAME" ...}%=
+   * Supported parameters:
+     | *Parameter:* | *Description:* | *Default:* |
+     | ="Variable"= | The name of the variable to be retrieved. If not specified, =%<nop>VAR{...}%= is expanded to null. | required |
+     | =topic="Web.Topic"= | Specifies the topic in which the specified preferences vaiable is fetched. | none |
+     | =topic="Topic"= | Same as above, but the web is specified specified explicitly with the =web= parameter or the current web is specified. | none |
+     | =web="Web"= | Specifies the web in which the specified preferences variable is fetched. | none |
+     | =default="Value"= | Specifies the value to be returned if the specified variable is undefined. | =""= (null string) |
+     | =ignorenull="on"= | If specified, a null string ("") value is regarded as undefined. This affects whether or not the value specified by the =default= parameter is returned. | ="off"= |
+   * Example 1: To get the members of !TWikiAdminGroup, =%<nop>VAR{"GROUP" topic="%<nop>USERSWEB%.TWikiAdminGroup"}%=, which expands to =%VAR{"GROUP" topic="%USERSWEB%.TWikiAdminGroup"}%=.
+   * Example 2: To get =%<nop>WEBBGCOLOR%= of the %USERSWEB% web write =%<nop>VAR{"WEBBGCOLOR" web="%USERSWEB%"}%=, which expands to =%VAR{"WEBBGCOLOR" web="%USERSWEB%"}%=
+   * Example 3: Let's say you are writing the "foo" skin. And you want to have the users specify a string inserted in the head tag with FOOSKIN_HTML_HEAD_HOOK. That can be achived by the following:%BR% =%<nop>VAR{"FOOSKIN_HTML_HEAD_HOOK" default="&lt;nop&gt;" ignorenull="on"}%=
+   * Category: DevelopmentVariables, SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarALLVARIABLES][ALLVARIABLES]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWEBPREFSTOPIC][WEBPREFSTOPIC]]

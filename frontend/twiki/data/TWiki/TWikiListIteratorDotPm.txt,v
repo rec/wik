@@ -1,0 +1,80 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2008.01.22.03.21.26;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@---+ Package =TWiki::ListIterator=
+
+Iterator over a list
+
+
+%TOC%
+
+---++ new(\@@list)
+
+Create a new iterator over the given list. Designed primarily for operations
+over fully defined lists of object references. The list is not damaged in
+any way.
+
+
+---++ hasNext() -> $boolean
+
+Returns false when the iterator is exhausted.
+
+<verbatim>
+my $it = new TWiki::ListIterator(\@@list);
+while ($it->hasNext()) {
+   ...
+</verbatim>
+
+
+---++ next() -> $data
+
+Return the next entry in the list.
+
+The iterator object can be customised to pre- and post-process entries from
+the list before returning them. This is done by setting two fields in the
+iterator object:
+
+   * ={filter}= can be defined to be a sub that filters each entry. The entry
+     will be ignored (next() will not return it) if the filter returns false.
+   * ={process}= can be defined to be a sub to process each entry before it
+     is returned by next. The value returned from next is the value returned
+     by the process function.
+
+For example,
+<verbatim>
+my @@list = ( 1, 2, 3 );
+
+my $it = new TWiki::ListIterator(\@@list);
+$it->{filter} = sub { return $_[0] != 2 };
+$it->{process} = sub { return $_[0] + 1 };
+while ($it->hasNext()) {
+    my $x = $it->next();
+    print "$x, ";
+}
+</verbatim>
+will print
+<verbatim>
+2, 4
+</verbatim>
+
+@

@@ -1,0 +1,8 @@
+%META:TOPICINFO{author="TWikiContributor" date="1361661334" format="1.1" version="5"}%
+---++ %MAKETEXT{"Rename, Move or Delete this Web"}%
+%IF{ "'%BASEWEB%'='%SYSTEMWEB%' OR '%BASEWEB%'='%USERSWEB%'" then="<div>" else="<div style='display: none;'>" }%
+   * <strong><em> %MAKETEXT{"Note:"}% </em></strong> %MAKETEXT{"The [_1] web cannot be renamed." args="<nop>%BASEWEB%"}% %MAKETEXT{"See also:"}% [[%SYSTEMWEB%.ManagingWebs][ManagingWebs]]
+</div>
+%IF{ "'%BASEWEB%'='%SYSTEMWEB%' OR '%BASEWEB%'='%USERSWEB%'" then="<div style='display: none;'>" else="<div>" }%
+   * icon:move *<a href='%SCRIPTURLPATH{rename}%/%BASEWEB%/%BASETOPIC%?action=renameweb' rel='nofollow'>%MAKETEXT{"Rename/move/delete web..."}%</a>*, %MAKETEXT{"looking for references in _all public webs_."}% %MAKETEXT{"See also:"}% [[%SYSTEMWEB%.ManagingWebs][ManagingWebs]]
+</div>

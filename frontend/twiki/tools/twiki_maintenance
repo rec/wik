@@ -1,0 +1,88 @@
+#!/bin/sh
+#
+# Run TWiki maintenance tasks sequentially
+#
+# Independent crontab entries may run in parallel
+# and produce duplicate notifications per 
+# http://twiki.org/cgi-bin/view/Support/DuplicateNotificationsFromMailerCon
+#
+# One crontab entry runs this periodically
+#
+PG=`basename $0`
+TOOLS=`dirname $0`
+NOW=`date +"%a|%H"`
+TODAY=`echo $NOW  | sed -e 's/^\(.*\)|\(.*\)$/\1/'`
+HR_NOW=`echo $NOW | sed -e 's/^\(.*\)|\(.*\)$/\2/'`
+#
+# -d = enable debug messages
+#
+if [ "$1" = "-d" ]; then
+    DEBUG='-d'
+    shift
+fi
+#
+# $1 = Day of week (Mon ... Sun) to do weekly processing
+#
+WKLY_DAY=$1
+#
+if [ -z "$WKLY_DAY" ]; then WKLY_DAY="$TODAY" ; fi
+#
+# $2 = Hour (00-23) to do daily & weekly processing
+#      (Other hours do hourly only)
+#
+WKLY_HR=$2
+if [ -z "$WKLY_HR" ]; then WKLY_HR="$HR_NOW" ; fi
+#
+# Output debug message
+#
+function Debug () {
+    if [ -n "$DEBUG" ]; then
+	echo "`date` [$PG] $*"
+    fi
+}
+#
+#
+#
+Debug "Running on $TODAY @ $HR_NOW:xx"
+#
+# Stuff to do every day
+#
+if [ "$HR_NOW" -eq "$WKLY_HR" ]; then
+    #
+    # Daily at specified hour
+    #
+    Debug "Running statistics"
+    $TOOLS/runstatistics $DEBUG -A /etc/pki/tls/external-roots/ca 
+    Debug "Status: $?"
+
+    Debug "Cleaning up weather cache"
+    # Remove files > 1 day old (cache lifetime is 15 min, so this should be safe)
+    find $TOOLS/../working/GoogleWeatherPlugin/ -type f -mtime +1 -delete
+    Debug "Status: $?"
+
+    Debug "Cleaning up tides cache"
+    # Remove files > 1 day old - yesterday's tides will never be requested
+    find $TOOLS/../working/CapeTides/ -type f -mtime +1 -delete
+    Debug "Status: $?"
+
+    if [ "$TODAY" = "$WKLY_DAY" ]; then
+	#
+	# Weekly processing
+	#
+	Debug "Running ticktwiki"
+	$TOOLS/runticktwiki
+	Debug "Status: $?" 
+fi
+fi
+#
+# Every hour that cron runs this script
+#
+Debug "Running newsnotify"
+$TOOLS/runmailnewsnotify
+Debug "Status: $?"
+
+Debug "Running webnotify"
+$TOOLS/runmailwebnotify
+Debug "Status: $?"
+
+# [End of file]

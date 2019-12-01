@@ -1,0 +1,54 @@
+%META:TOPICINFO{author="TWikiContributor" date="1378963401" format="1.1" version="2"}%
+---+ TWiki Site Statistics
+%STARTSECTION{type="templateonly"}%
+ __NOTE:__ This is a template topic, do not change. [[%SCRIPTURL{"statistics"}%/%USERSWEB%/SiteStatistics][Update the site statistics]].
+%ENDSECTION{type="templateonly"}%
+<div style="%IF{ "context ChartPluginEnabled AND (%CALC{$INT(%SEARCH{ "^\| 2[0-9]" type="regex" topic="%TOPIC%" nonoise="on" multiple="on" reverse="on" format="1" separator="+" }%+0)}% >= 2)" then="display: block" else="display: none" }%">
+<table border="0" cellpadding="5"><tr>
+<td>
+%CHART{ %COMMON_CHART_PARAMS% name="ch2" data="R122:C2..R3:C2" title="Total Number of Webs" }%</td>
+<td>
+%CHART{ %COMMON_CHART_PARAMS% name="ch3" data="R122:C3..R3:C3" title="Number of Webs Viewed" }%</td>
+<td>
+%CHART{ %COMMON_CHART_PARAMS% name="ch4" data="R122:C4..R3:C4" title="Number of Webs Updated" }%</td>
+</tr><tr>
+<td>
+%CHART{ %COMMON_CHART_PARAMS% name="ch5" data="R122:C5..R3:C5" title="Total Number of Topics" }%</td>
+<td>
+%CHART{ %COMMON_CHART_PARAMS% name="ch6" data="R122:C6..R3:C6" title="Number of Topics Viewed" }%</td>
+<td>
+%CHART{ %COMMON_CHART_PARAMS% name="ch7" data="R122:C7..R3:C7" title="Number of Topics Updated" }%</td>
+</tr><tr>
+<td>
+%CHART{ %COMMON_CHART_PARAMS% name="ch8" data="R122:C8..R3:C8" title="Total Number of Attachments" }%</td>
+<td>
+%CHART{ %COMMON_CHART_PARAMS% name="ch15" data="R122:C15..R3:C15" title="Registered Users" }%</td>
+<td>
+%CHART{ %COMMON_CHART_PARAMS% name="ch16" data="R122:C16..R3:C16" title="TWiki Groups" }%</td>
+</tr><tr>
+<td>
+%CHART{ %COMMON_CHART_PARAMS% name="ch9" data="R122:C9..R3:C9" title="Topic Views" }%</td>
+<td>
+%CHART{ %COMMON_CHART_PARAMS% name="ch10" data="R122:C10..R3:C10" title="Topic Updates" }%</td>
+<td>
+%CHART{ %COMMON_CHART_PARAMS% name="ch11" data="R122:C11..R3:C11" title="File Uploads" }%</td>
+</tr><tr>
+<td>
+%CHART{ %COMMON_CHART_PARAMS% name="ch12" data="R122:C12..R3:C12" title="Data Size in MB" }%</td>
+<td>
+%CHART{ %COMMON_CHART_PARAMS% name="ch13" data="R122:C13..R3:C13" title="Pub Size in MB" }%</td>
+<td>
+%CHART{ %COMMON_CHART_PARAMS% name="ch14" data="R122:C14..R3:C14" ymax="100" title="% Disk Use" }%</td>
+</tr></table>
+%IF{ "%SERVE%NOP%RTIME{$day}%<28" then="__Note:__ Incomplete data is shown for the current month." else="<nop>"}%
+<!--
+   * Set COMMON_CHART_PARAMS = type="area" table="stats" xaxis="R122:C1..R3:C1" ymin="0" yaxis="on" numygrids="9" numxgrids="11" xaxisangle="90" xgrid="off" colors="#f2563a, #eff462" bgcolor="#E7E7E7" width="330" height="170"
+-->
+---++ Monthly Site Statistics Data
+</div>
+
+%TABLE{ name="stats" sort="off" }%
+| *Month* | *Webs%BR%Total* | *Webs%BR%Viewed* | *Webs%BR%updated* | *Topics%BR%Total* | *Topics%BR%Viewed* | *Topics%BR%Updated* | *Attach-%BR%ments* | *Topic%BR%Views* | *Topic%BR%Updates* | *Files%BR%Uploads* | *Data%BR%Size MB* | *Pub%BR%Size MB* | *Disk%BR%Use* | *Users* | *Groups* | *Plugins* | *Top Viewers* | *Top Contributors* |
+| <!--statDate--> |  <!--statWebs--> | <!--statWebsViewed--> | <!--statWebsUpdated--> |  <!--statTopics--> |  <!--statTopicsViewed--> |  <!--statTopicsUpdated--> |  <!--statAttachments--> | <!--statViews--> | <!--statSaves--> | <!--statUploads--> |  <!--statDataSize--> |  <!--statPubSize--> |  <!--statDiskUse--> |  <!--statUsers--> |  <!--statGroups--> |  <!--statPlugins--> | <!--statTopViewers--> | <!--statTopContributors--> |
+
+%INCLUDE{%SYSTEMWEB%.SiteStatisticsFooter}%

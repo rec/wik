@@ -1,0 +1,32 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2018.07.16.03.20.39;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1444178871" format="1.1" version="1"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarWIKIWEBMASTERNAME
+---+++ WIKIWEBMASTERNAME -- name of the administrator
+   * =%<nop>WIKIWEBMASTERNAME%= expands to the name of the administrator of %VAR{"WIKIWEBMASTERSCOPE" default="this TWiki installation"}%.
+   * Syntax: =%<nop>WIKIWEBMASTERNAME%=, expands to: =<nop>%WIKIWEBMASTERNAME%=
+   * Category: SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWIKIWEBMASTER][WIKIWEBMASTEMER]]
+@

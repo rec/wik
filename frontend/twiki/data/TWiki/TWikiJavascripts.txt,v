@@ -1,0 +1,93 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2010.06.24.05.29.41;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.01.22.03.21.33;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.19;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1277357381" format="1.1" version="3"}%
+---+ TWiki Javascripts
+
+This topic contains !JavasSript files that are included by TWiki templates, and may be used by skin templates and in topics.
+
+   * Set ALLOWTOPICCHANGE = %USERSWEB%.TWikiAdminGroup
+
+__Related Topics:__ TWikiTemplates, TWikiSkins
+
+%META:FILEATTACHMENT{name="twikiArray.js" attr="" comment="" date="1277353299" path="twikiArray.js" size="1877" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twiki.compressed.js" attr="" comment="" date="1277353299" path="twiki.compressed.js" size="7012" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikiCSS.js" attr="" comment="" date="1277353299" path="twikiCSS.js" size="2762" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twiki_edit.js" attr="" comment="" date="1277353299" path="twiki_edit.js" size="4673" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikiEvent.js" attr="" comment="" date="1277353299" path="twikiEvent.js" size="875" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikiForm.js" attr="" comment="" date="1277353299" path="twikiForm.js" size="7252" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikiFunction.js" attr="" comment="" date="1277353299" path="twikiFunction.js" size="723" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikiHTML.js" attr="" comment="" date="1277353299" path="twikiHTML.js" size="6583" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twiki.js" attr="" comment="" date="1277353299" path="twiki.js" size="18602" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikilib.js" attr="" comment="" date="1277353299" path="twikilib.js" size="1245" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikiPref.js" attr="" comment="" date="1277353299" path="twikiPref.js" size="9354" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twiki_renamebase.js" attr="" comment="" date="1277353299" path="twiki_renamebase.js" size="317" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikiString.js" attr="" comment="" date="1277353299" path="twikiString.js" size="4705" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikiStringUnicodeChars.js" attr="" comment="" date="1277353299" path="twikiStringUnicodeChars.js" size="4087" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikiStyles.js" attr="" comment="" date="1277353299" path="twikiStyles.js" size="262" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikiuiToggle.js" attr="" comment="" date="1277353299" path="twikiuiToggle.js" size="11543" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="twikiWindow.js" attr="" comment="" date="1277353299" path="twikiWindow.js" size="4048" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="unicode_chars.js" attr="" comment="" date="1277353299" path="unicode_chars.js" size="10653" user="TWikiContributor" version="1"}%
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+d4 3
+a6 1
+This topic contains javascript files that are included by TWiki templates, and may be used by skin templates and in topics.
+d10 18
+a27 4
+	* Set ALLOWTOPICCHANGE = %USERSWEB%.TWikiAdminGroup
+	
+%META:FILEATTACHMENT{name="twiki.js" attr="" autoattached="1" comment="" date="1130980328" path="twiki.js" size="2920" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="twiki_settings.js" attr="" autoattached="1" comment="" date="1130979890" path="twiki_settings.js" size="982" user="UnknownUser" version=""}%
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d5 1
+a5 1
+__Related Topics:__ TWikiTemplates, TWikiSkins, PatternJavascripts
+d7 1
+a7 1
+	* Set ALLOWTOPICCHANGE = %MAINWEB%.TWikiAdminGroup
+@

@@ -1,0 +1,51 @@
+---+ Package =TWiki::UI::Upload=
+
+UI delegate for attachment management functions
+
+
+%TOC%
+
+---++ StaticMethod *attach* <tt>($session)</tt>
+
+=attach= command handler.
+This method is designed to be
+invoked via the =UI::run= method.
+
+Generates a prompt page for adding an attachment.
+
+
+
+---++ StaticMethod *upload* <tt>($session)</tt>
+
+=upload= command handler.
+This method is designed to be
+invoked via the =UI::run= method.
+CGI parameters, passed in $query:
+
+| =hidefile= | if defined, will not show file in attachment table |
+| =filepath= | |
+| =filepath1= | |
+| =filepath2= | | upto
+| =filepath9= | | upto
+| =filename= | |
+| =filecomment= | comment to associate with file in attachment table |
+| =createlink= | if defined, will create a link to file at end of topic |
+| =changeproperties= | |
+| =redirectto= | URL to redirect to after upload. ={AllowRedirectUrl}= must be enabled in =configure=. The parameter value can be a =TopicName=, a =Web.TopicName=, or a URL. Redirect to a URL only works if it is enabled in =configure=. |
+
+Does the work of uploading a file to a topic. Designed to be useable for
+a crude RPC (it will redirect to the 'view' script unless the
+'noredirect' parameter is specified, in which case it will print a message to
+STDOUT, starting with 'OK' on success and 'ERROR' on failure.
+
+Your form should be defined similar to following: 
+<form  enctype="multipart/form-data" action="%SCRIPTURLPATH{upload}%/%WEB%/%TOPIC% method="post">
+<input  type="file" name="filepath" value="" size="70" />
+<input  type="file" name="filepath1" value="" size="70" />
+<input  type="file" name="filepath2" value="" size="70" />
+<input type="file" name="filepath3" value="" size="70" />
+....
+<input type="submit" value='Upload file' /> 
+</form>
+
+

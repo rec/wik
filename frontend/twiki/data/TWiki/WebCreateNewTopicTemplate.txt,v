@@ -1,0 +1,194 @@
+head	1.6;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.6
+date	2013.04.10.10.41.37;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2011.08.08.22.00.48;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2010.05.29.14.44.53;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2009.09.02.13.43.17;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.12.06.09.02.29;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2008.01.22.03.21.33;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1365590497" format="1.1" version="6"}%
+%TMPL:INCLUDE{"view"}%
+
+
+%TMPL:DEF{"content"}%
+---+ %MAKETEXT{"Create New Topic in [_1] Web" args="<nop>%BASEWEB%"}%
+%TMPL:P{"formstartstep"}%
+%TMPL:P{"topicnamestep"}%
+%TMPL:P{"topicparentstep"}%
+%TMPL:P{"topictemplatestep"}%
+%TMPL:P{"submitstep"}%
+%TMPL:P{"formendstep"}%
+%TMPL:END%
+
+
+%{ do not show the following elements }%
+%TMPL:DEF{"topicaction"}%%TMPL:END%
+%TMPL:DEF{"topicinfo"}%%TMPL:END%
+%TMPL:DEF{"toolbar"}%%TMPL:END%
+%TMPL:DEF{"topicpathinfo"}%%TMPL:END%
+%TMPL:DEF{"breadcrumb"}%%TMPL:END%
+%TMPL:DEF{"top:toolbarbuttons"}%%TMPL:END%
+
+
+%TMPL:DEF{"formstartstep"}%%TMPL:P{"formstart"}%%TMPL:END%
+
+%TMPL:DEF{"formendstep"}%%TMPL:P{"formend"}%%TMPL:END%
+
+%TMPL:DEF{"topicnamestep"}%---+++ %MAKETEXT{"Topic name:"}%
+<p>
+%TMPL:P{"topicname"}%%TMPL:P{"nonwikiword"}%
+</p>%TMPL:END%
+
+%TMPL:DEF{"topicparentstep"}%---+++ %MAKETEXT{"Topic parent:"}%
+<p>
+%TMPL:P{"topicparent"}%
+</p>%TMPL:END%
+
+%TMPL:DEF{"topictemplatestep"}%---+++ %MAKETEXT{"Use template:"}%
+<p>
+%TMPL:P{"topictemplate"}%
+</p>%TMPL:END%
+
+%TMPL:DEF{"submitstep"}%<p>
+%TMPL:P{"submit"}%
+</p>%TMPL:END%
+
+
+%TMPL:DEF{"formstart"}%<form name="newtopicform" id="newtopicform" action="%SCRIPTURLPATH{"edit" web="%BASEWEB%"}%/">
+<input type="hidden" name="onlynewtopic" value="on" />
+<input type="hidden" name="nowysiwyg" value="%IF{"$ EDITMETHOD='wysiwyg'" then="0" else="1"}%" />%TMPL:END%
+
+
+%TMPL:DEF{"topicname"}%<input type="text" class="twikiInputField" name="topic" id="topic" size="40" %IF{"'%PREFILLTOPIC%'='1'" then="value=\"%BASETOPIC%\""}% %IF{"'%URLPARAM{"newtopic" encode="entity"}%'" then="value=\"%URLPARAM{"newtopic" encode="entity"}%\""}% />%TMPL:END%
+
+
+%TMPL:DEF{"topicparent"}%%IF{"defined pickparent" then="<select name='topicparent' size='10' class='twikiSelect'>$percntTOPICLIST{$quot<option $marker value='$name'>$name</option>$quot marker=$quotselected$quot separator=$quot$quot selection=$quot$percntURLPARAM{ $quottopicparent$quot default=$quot%MAKETEXT{"(no parent, orphaned topic)"}%$quot encode=$quotentity$quot }$percnt$quot}$percnt<option value=$quot$quot>$percntMAKETEXT{$quot(no parent, orphaned topic)$quot}$percnt</option></select>" else="<input type='text' size='40' name='topicparent' class='twikiInputField' value='$percntURLPARAM{ $quottopicparent$quot encode=$quotentity$quot }$percnt' />&nbsp;<a id='pickparent' href='$percntSCRIPTURLPATH{view}$percnt/$percntBASEWEB$percnt/$percntBASETOPIC$percnt?$percntQUERYSTRING$percnt;pickparent=1'>%MAKETEXT{"Pick from a list"}%</a>"}%%TMPL:END%
+
+%TMPL:DEF{"topictemplate"}%<select name="templatetopic" class="twikiSelect">%IF{"'%URLPARAM{"templatetopic" encode="entity"}%'" then='<option selected="selected">%URLPARAM{"templatetopic" encode="entity"}%</option>'}%<option value="">%MAKETEXT{"Default template"}%</option>%SEARCH{".*Template$" scope="topic" excludetopic="WebTopicEditTemplate,WebCreateNewTopicTemplate,*ViewTemplate" type="regex" nonoise="on" format="<option>$topic</option>"}%</select> <a id="viewtemplates" href="%SCRIPTURL{view}%/%SYSTEMWEB%/WebTemplateTopics?web=%BASEWEB%">%MAKETEXT{"View templates"}%</a> %TMPL:END%
+
+%TMPL:DEF{"submit"}%<input id="submit" type="submit" class="twikiSubmit" value='%MAKETEXT{"Create this topic"}%' />%TMPL:END%
+
+%TMPL:DEF{"formend"}%</form>%TMPL:END%
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1312840848" format="1.1" version="5"}%
+d49 3
+a51 2
+%TMPL:DEF{"formstart"}%<form name="newtopicform" id="newtopicform" action="%SCRIPTURLPATH{edit}%/%BASEWEB%/">
+<input type="hidden" name="onlynewtopic" value="on" />%TMPL:END%
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1228163901" format="1.1" version="4"}%
+d53 1
+a53 1
+%TMPL:DEF{"topicname"}%<input type="text" class="twikiInputField" name="topic" id="topic" size="40" %IF{"'%PREFILLTOPIC%'='1'" then="value=\"%BASETOPIC%\""}% %IF{"'%URLPARAM{"newtopic" encode="quote"}%'" then="value=\"%URLPARAM{"newtopic" encode="entity"}%\""}% />%TMPL:END%
+d56 1
+a56 1
+%TMPL:DEF{"topicparent"}%%IF{"defined pickparent" then="<select name='topicparent' size='10' class='twikiSelect'>$percntTOPICLIST{$quot<option $marker value='$name'>$name</option>$quot marker=$quotselected$quot separator=$quot$quot selection=$quot$percntURLPARAM{ $quottopicparent$quot default=$quot%MAKETEXT{"(no parent, orphaned topic)"}%$quot }$percnt$quot}$percnt<option value=$quot$quot>$percntMAKETEXT{$quot(no parent, orphaned topic)$quot}$percnt</option></select>" else="<input type='text' size='40' name='topicparent' class='twikiInputField' value='%URLPARAM{topicparent}%' />&nbsp;<a id='pickparent' href='$percntSCRIPTURLPATH{view}$percnt/$percntBASEWEB$percnt/$percntBASETOPIC$percnt?$percntQUERYSTRING$percnt;pickparent=1'>%MAKETEXT{"Pick from a list"}%</a>"}%%TMPL:END%
+d58 1
+a58 1
+%TMPL:DEF{"topictemplate"}%<select name="templatetopic" class="twikiSelect">%IF{"'%URLPARAM{"templatetopic" encode="quote"}%'" then='<option selected="selected">%URLPARAM{"templatetopic"}%</option>'}%<option value="">%MAKETEXT{"Default template"}%</option>%SEARCH{".*Template$" scope="topic" excludetopic="WebTopicEditTemplate,WebCreateNewTopicTemplate,*ViewTemplate" type="regex" nonoise="on" format="<option>$topic</option>"}%</select> <a id="viewtemplates" href="%SCRIPTURL{view}%/%SYSTEMWEB%/WebTemplateTopics?web=%BASEWEB%">%MAKETEXT{"View templates"}%</a> %TMPL:END%
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1228163901" format="1.1" version="3"}%
+d50 2
+a51 2
+<input type="hidden" name="onlynewtopic" value="on" />
+<input type="hidden" name="nowysiwyg" value='%IF{ "$ EDITMETHOD='wysiwyg'" then="0" else="1" }%' />%TMPL:END%
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1228163901" format="1.1" version="2"}%
+d50 2
+a51 2
+<input type="hidden" name="onlynewtopic" value="on" />%TMPL:END%
+
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1131431859" format="1.1" version="1"}%
+d53 1
+a53 1
+%TMPL:DEF{"topicname"}%<input type="text" class="twikiInputField" name="topic" id="topic" size="40" %IF{"'%PREFILLTOPIC%'='1'" then="value=\"%BASETOPIC%\""}% %IF{"'%URLPARAM{"newtopic"}%'" then="value=\"%URLPARAM{"newtopic"}%\""}% />%TMPL:END%
+d58 1
+a58 1
+%TMPL:DEF{"topictemplate"}%<select name="templatetopic" class="twikiSelect">%IF{"'%URLPARAM{"templatetopic"}%'" then='<option selected="selected">%URLPARAM{"templatetopic"}%</option>'}%<option value="">%MAKETEXT{"Default template"}%</option>%SEARCH{".*Template$" scope="topic" excludetopic="WebTopicEditTemplate,WebCreateNewTopicTemplate,*ViewTemplate" type="regex" nonoise="on" format="<option>$topic</option>"}%</select> <a id="viewtemplates" href="%SCRIPTURL{view}%/%SYSTEMWEB%/WebTemplateTopics?web=%BASEWEB%">%MAKETEXT{"View templates"}%</a> %TMPL:END%
+@

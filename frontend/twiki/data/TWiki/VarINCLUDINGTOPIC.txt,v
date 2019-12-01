@@ -1,0 +1,77 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2012.12.06.07.04.32;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.01.22.03.21.24;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.06.25.16.26.28;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1354777472" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarINCLUDINGTOPIC
+---+++ INCLUDINGTOPIC -- name of topic that includes current topic
+   * The name of the topic that includes the current topic - same as =%<nop>TOPIC%= in case there is no include.
+   * Syntax: =%<nop>INCLUDINGTOPIC%=
+   * Example: If topic A includes B, and B includes C, then a =%<nop>INCLUDINGTOPIC%= in topic C is reported as B when looking at topics A or B, and as C when looking at topic C itself.
+   * Category: SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBASETOPIC][BASETOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarINCLUDINGWEB][INCLUDINGWEB]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarINCLUDE][INCLUDE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarTOPIC][TOPIC]]
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.1" version="2"}%
+d5 1
+a5 1
+   * The name of the topic that includes the current topic - same as =%<nop>TOPIC%= in case there is no include
+d7 2
+a9 2
+
+
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.2" version="1"}%
+a3 1
+
+d7 1
+a7 1
+   * Related: [[#VarBASETOPIC][BASETOPIC]], [[#VarINCLUDINGWEB][INCLUDINGWEB]], [[#VarINCLUDE][INCLUDE]], [[#VarTOPIC][TOPIC]]
+@

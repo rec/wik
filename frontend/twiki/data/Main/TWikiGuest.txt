@@ -1,0 +1,27 @@
+%META:TOPICINFO{author="TWikiContributor" date="1333438106" format="1.1" version="10"}%
+<div style="float:left; width:200px; margin-right:30px;">
+<img src="%ATTACHURLPATH%/twiki-guest.gif" alt="twiki-guest.gif" width="200" height="143" />
+</div>
+---+ The <nop>TWikiGuest User
+
+A guest of this TWiki site, or a user who is not logged in.
+
+%IF{ "$ LOGIN != '' AND NOT context authenticated" then='%ICON{empty}% %ICON{login}% %LOGIN% - if you already have an account <br />' }%
+%ICON{empty}% %ICON{useradd}% [[%SYSTEMWEB%.TWikiRegistration][Register]] - create an account to participate in this TWiki site
+<div style="clear:both"></div>
+
+__Starting points:__
+
+   * [[%SYSTEMWEB%.WelcomeGuest][Welcome Guest]] - look here first
+   * [[%SYSTEMWEB%.TWikiTutorial][Tutorial]] - 20 minutes TWiki tutorial
+   * [[%SYSTEMWEB%.TWikiUsersGuide][User's Guide]] - documentation for TWiki users
+   * [[%SYSTEMWEB%.TWikiFAQ][Frequently Asked Questions]] - about TWiki
+   * [[%SYSTEMWEB%.TWikiReferenceManual][Reference Manual]] - documentation for system administrators
+   * [[%SYSTEMWEB%.SiteMap][Site Map]] - to navigate to content
+
+To learn more about the TWiki Enterprise Collaboration Platform visit http://twiki.org/.
+
+__Related topics:__ [[UserList]], [[%SYSTEMWEB%.TWikiRegistration][TWikiRegistration]]
+
+%META:FILEATTACHMENT{name="twiki-guest.gif" attachment="twiki-guest.gif" attr="h" comment="" date="1333437744" path="twiki-guest.gif" size="4314" user="TWikiContributor" version="2"}%
+%META:PREFERENCE{name="ALLOWTOPICCHANGE" title="ALLOWTOPICCHANGE" type="Set" value="TWikiAdminGroup"}%

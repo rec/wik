@@ -1,0 +1,1075 @@
+head	1.17;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.17
+date	2018.07.10.21.48.30;	author TWikiContributor;	state Exp;
+branches;
+next	1.16;
+
+1.16
+date	2015.02.17.07.43.28;	author TWikiContributor;	state Exp;
+branches;
+next	1.15;
+
+1.15
+date	2013.09.19.01.22.13;	author TWikiContributor;	state Exp;
+branches;
+next	1.14;
+
+1.14
+date	2013.09.19.01.22.13;	author TWikiContributor;	state Exp;
+branches;
+next	1.13;
+
+1.13
+date	2011.07.10.21.52.04;	author TWikiContributor;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2011.07.10.21.52.04;	author TWikiContributor;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2011.07.10.21.52.04;	author TWikiContributor;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2011.07.10.21.52.04;	author TWikiContributor;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2011.07.10.21.52.04;	author TWikiContributor;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2010.11.06.00.19.07;	author TWikiContributor;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2010.05.29.14.44.22;	author TWikiContributor;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2009.09.02.13.43.07;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2009.04.29.20.53.27;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2009.03.30.09.17.58;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2008.12.06.09.02.15;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.08.03.22.17.44;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2008.01.22.03.21.27;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.17
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1531259310" format="1.1" version="17"}%
+---+!! !TinyMCEPlugin
+<!--
+   Contributions to this plugin are appreciated. Please update the plugin page at
+   http://twiki.org/cgi-bin/view/Plugins/TinyMCEPlugin or provide feedback at
+   http://twiki.org/cgi-bin/view/Plugins/TinyMCEPluginDev.
+   If you are a TWiki contributor please update the plugin in the SVN repository.
+
+   * Set SHORTDESCRIPTION = Integration of the !TinyMCE WYSIWYG Editor
+-->
+<sticky>
+<div class="twikiTocFloat">
+%TOC{ title="Page contents" depth="2" }%
+<img src="%PUBURLPATH%/%WEB%/%TOPIC%/screenshot.png" alt="screenshot.png" width="534" height="311" />
+</div>
+</sticky>
+%SHORTDESCRIPTION%
+
+---++ Introduction
+
+This is an integration of the fast and highly functional [[http://tinymce.moxiecode.com][TinyMCE]] WYSIWYG editor. It supports a wide range of browsers such as Firefox, IE, Safari, Opera and Google Chrome - see [[http://www.tinymce.com/wiki.php/TinyMCE3x:Browser_compatiblity][compatibility chart]]. This plugin includes !TinyMCE version 3.5.8.
+
+The integration uses the WysiwygPlugin to translate text to and from a format that !TinyMCE can edit.
+
+This plugin is able to swap out _standard_ text areas and replace them with WYSIWYG editors. This means you get WYSIWYG editors for textareas in forms, as well as for the main text of the topic. It can also co-exist alongside other WYSIWYG editors.
+
+The editor automatically "switches itself off" (i.e. reverts to the old text-only window) when editing topics that contain TWiki content it can't handle, such as complex TWiki variables.
+
+---++ Editor Notes
+
+The editor uses a translator module to convert from TWiki Markup Language (TML) to HTML and back. The translator converts special variables - such as %<nop>VARIABLES% - to plain text, and encloses them within HTML spans using a special style called =WYSIWYG_PROTECTED=. In this way the editor can detect text that is not meant to be HTML formatted. This style is _also_ used to protect special text you enter into the editor from being interpreted when the topic is translated back into TML. If you want to add any special features that are sensitive to formatting, such as =Set= statements, then you should format those regions using 'Protect on save' or 'Protect forever'.
+
+---++ Installation Instructions
+
+__NOTES:__
+
+   * This plugin is pre-installed in TWiki. You should only need to re-install if there is an upgrade to the plugin.
+   * It requires the very latest revision of the WysiwygPlugin.
+   * When installed, it *replaces* the old "textarea" editor. You may still access the plain text editor with the "Wiki Text" button provided in the toolbar, however this does not necessarily give you the original raw/wiki text version of the topic content. To bypass the TML to HTML conversion process entirely, use the =Raw Edit= link provided by the default TWiki skin at the bottom of the page.
+
+First follow the installation instructions to install the Plugin:
+
+   * For an __automated installation__, run the [[%SCRIPTURL{configure}%][configure]] script and follow "Find More Extensions" in the in the __Extensions__ section.
+      * See the [[http://twiki.org/cgi-bin/view/Plugins/BuildContribInstallationSupplement][installation supplement]] on TWiki.org for more information.
+
+   * Or, follow these __manual installation__ steps:
+      * Download the ZIP file from the extension home on twiki.org (see below).
+      * Unzip ==%TOPIC%.zip== in your twiki installation directory.
+      * Set the ownership of the extracted directories and files to the webserver user.
+      * Install the dependencies (if any).
+
+   * Plugin __configuration and testing__: 
+      * Run the [[%SCRIPTURL{configure}%][configure]] script and enable the plugin in the __Plugins__ section.
+      * Configure additional plugin settings in the __Extensions__ section if needed.
+      * Test if the installation was successful using the examples provided.
+
+
+   * *Enable* the WysiwygPlugin in =configure=.
+   * *Enable* the !TinyMCEPlugin in =configure=.
+   * *Click* on edit of any topic.
+
+---++ Preferences
+
+The default configuration of !TinyMCEPlugin should prove sufficient for most users. The !TinyMCE editor itself is customized through a Javascript object holding a substantial number of initialization parameters. Up to !TinyMCEPlugin version 2011-07-10, a text string making up the Javascript object was held in an ordinary =TINYMCEPLUGIN_INIT= preferences setting. This setting should be removed and replaced with =TINYMCEPLUGIN_INIT_TOPIC= (described below).
+
+---+++ TINYMCEPLUGIN_INIT_TOPIC
+
+To make configuration easier and less error-prone, configuration is held in a topic section. The name of the topic is set in the =TINYMCEPLUGIN_INIT_TOPIC= [[%SYSTEMWEB%.TWikiPreferences][preferences setting]], from which the [[VarSTARTSECTION][section]] named =TINYMCEPLUGIN_INIT= is used. =TINYMCEPLUGIN_INIT_TOPIC= setting is currently set to =%TINYMCEPLUGIN_INIT_TOPIC%=.
+
+For a full explanation and guidance on configuration of available !TinyMCE options, see the [[http://wiki.moxiecode.com/index.php/TinyMCE:Configuration][Moxicode TinyMCE Wiki]]. 
+
+Below is the default configuration. If it is to be modified, it should be copied (including =%<nop>START/ENDSECTION{}%= macros) to a different topic to avoid customizations being overwritten when !TinyMCEPlugin is upgraded.
+
+---++++ TINYMCEPLUGIN_INIT
+
+%TWISTY{
+ mode="div"
+ showlink="Show default parameters %ICONURL{toggleopen}% "
+ hidelink="Hide default parameters %ICONURL{toggleclose}% "
+}%
+<verbatim class="js">
+%STARTSECTION{"TINYMCEPLUGIN_INIT"}%
+"mode" : "textareas",
+"editor_selector" : "twikiTextarea",
+"save_on_tinymce_forms" : true,
+"table_default_cellpadding" : 0,
+"table_default_cellspacing" : 1,
+"table_default_border" : 1,
+"theme" : "advanced",
+"convert_urls" : true,
+"relative_urls" : false,
+"remove_script_host" : false,
+"dialog_type" : "modal",
+"extended_valid_elements" : "li[type],a[rel|rev|charset|hreflang|tabindex|accesskey|type|name|href|target|title|class|onfocus|onblur|data*]",
+"setupcontent_callback" : "TWikiTiny.setUpContent",
+"urlconverter_callback" : "TWikiTiny.convertLink",
+"twikipuburl_callback" : "TWikiTiny.convertPubURL",
+"save_callback" : "TWikiTiny.saveCallback",%IF{
+    "$TINYMCEPLUGIN_DEBUG"
+    then="
+\"debug\" : true,"
+}%
+"plugins" : "%IF{
+    "defined 'TINYMCEPLUGIN_MCEPLUGINS'"
+    then="%TINYMCEPLUGIN_MCEPLUGINS%"
+    else="%STARTSECTION{"MCEPLUGINS"}%contextmenu, table, searchreplace, autosave, paste, legacyoutput, inlinepopups, fullscreen, -twiki, -twikibuttons, -twikiimage%ENDSECTION{"MCEPLUGINS"}%"
+}%%IF{
+    "defined 'TINYMCEPLUGIN_ADDITIONAL_MCEPLUGINS'"
+    then=", %TINYMCEPLUGIN_ADDITIONAL_MCEPLUGINS%"
+}%",
+"twiki_plugin_urls" : {
+    "twiki" : "%PUBURLPATH%/%SYSTEMWEB%/TinyMCEPlugin/plugins/twiki/editor_plugin%IF{"$TINYMCEPLUGIN_DEBUG" then="_src"}%.js",
+    "twikibuttons" : "%PUBURLPATH%/%SYSTEMWEB%/TinyMCEPlugin/plugins/twikibuttons/editor_plugin%IF{"$TINYMCEPLUGIN_DEBUG" then="_src"}%.js",
+    "twikiimage" : "%PUBURLPATH%/%SYSTEMWEB%/TinyMCEPlugin/plugins/twikiimage/editor_plugin%IF{"$TINYMCEPLUGIN_DEBUG" then="_src"}%.js"
+ },
+"twiki_secret_id" : "%WYSIWYG_SECRET_ID%",
+"twiki_vars" : {
+    "PUBURLPATH" : "%PUBURLPATH%",
+    "PUBURL" : "%PUBURL%",
+    "WEB" : "%BASEWEB%",
+    "TOPIC" : "%BASETOPIC%",
+    "ATTACHURL" : "%PUBURL%/%BASEWEB%/%BASETOPIC%",
+    "ATTACHURLPATH" : "%PUBURLPATH%/%BASEWEB%/%BASETOPIC%",
+    "VIEWSCRIPTURL" : "%SCRIPTURL{view}%",
+    "SCRIPTSUFFIX" : "%SCRIPTSUFFIX%",
+    "SCRIPTURL" : "%SCRIPTURL%",
+    "SYSTEMWEB" : "%SYSTEMWEB%"
+},
+"theme_advanced_toolbar_align" : "left",
+"twikibuttons_formats" : {
+    /* Use 'attributes : { class : "foo" }' instead of 'classes: "foo"'
+     * because this is how it's done in the default advanced theme shipped
+     * with TinyMCE which seems to be a few ms faster on cursor movement
+     */
+    "Normal" : { "remove" : "all" },
+    "Heading 1" : { "block" : "h1",  "remove" : "all" },
+    "Heading 2" : { "block" : "h2",  "remove" : "all" },
+    "Heading 3" : { "block" : "h3",  "remove" : "all" },
+    "Heading 4" : { "block" : "h4",  "remove" : "all" },
+    "Heading 5" : { "block" : "h5",  "remove" : "all" },
+    "Heading 6" : { "block" : "h6",  "remove" : "all" },
+    "VERBATIM"  : { "block" : "pre", "remove" : "all", "attributes" : { "class" : "TMLverbatim" } }, 
+    "LITERAL"   : { "block" : "div", "remove" : "all", "attributes" : { "class" : "WYSIWYG_LITERAL" } },
+    "Protect on save" : { "block" : "div", "remove" : "all", "attributes" : { "class" : "WYSIWYG_PROTECTED" } },
+    "Protect forever" : { "block" : "div", "remove" : "all", "attributes" : { "class" : "WYSIWYG_STICKY" } }
+},
+"twikibuttons_cursoridletime" : 250,
+"paste_create_paragraphs" : true,
+"paste_create_linebreaks" : false,
+"paste_convert_middot_lists" : true,
+"paste_convert_headers_to_strong" : false,
+"paste_remove_spans" : true,
+"paste_remove_styles" : true,
+"paste_strip_class_attributes" : "all",
+"theme_advanced_buttons1" : "%IF{
+    "defined 'TINYMCEPLUGIN_BUTTONS1'"
+    then="%TINYMCEPLUGIN_BUTTONS1%"
+    else="%STARTSECTION{"BUTTONS1"}%twikiformat, separator, bold, italic, tt, colour, removeformat, separator, bullist, numlist, %IF{"context SUPPORTS_PARA_INDENT" then="fwexdent, fwindent" else="outdent, indent"}%, blockquote, separator, link, unlink, anchor, separator, undo, redo, separator, search, replace%ENDSECTION{"BUTTONS1"}%"
+}%%IF{
+    "defined 'TINYMCEPLUGIN_ADDITIONAL_BUTTONS1'"
+    then=", %TINYMCEPLUGIN_ADDITIONAL_BUTTONS1%"
+}%",
+"theme_advanced_buttons2" : "%IF{
+    "defined 'TINYMCEPLUGIN_BUTTONS2'"
+    then="%TINYMCEPLUGIN_BUTTONS2%"
+    else="%STARTSECTION{"BUTTONS2"}%tablecontrols, separator, attach, image, charmap, hr, separator, restoredraft, fullscreen, code, hide%ENDSECTION{"BUTTONS2"}%"
+}%%IF{
+    "defined 'TINYMCEPLUGIN_ADDITIONAL_BUTTONS2'"
+    then=", %TINYMCEPLUGIN_ADDITIONAL_BUTTONS2%"
+}%",
+"theme_advanced_buttons3" : "%IF{
+    "defined 'TINYMCEPLUGIN_BUTTONS3'"
+    then="%TINYMCEPLUGIN_BUTTONS3%"
+}%%IF{
+    "defined 'TINYMCEPLUGIN_ADDITIONAL_BUTTONS3'"
+    then=", %TINYMCEPLUGIN_ADDITIONAL_BUTTONS3%"
+}%",
+"setup" : function(ed) {
+    /* example custom button; list this named button in TINYMCEPLUGIN_ADDITIONAL_BUTTONS1 setting */
+    ed.addButton('helloworld', {
+        title : 'Hello world',
+        image : '%ICONURLPATH{globe}%',
+        onclick : function() {
+            ed.focus();
+            ed.selection.setContent('Hello world!');
+        }
+    });
+},
+"autosave_interval" : "%IF{
+    "defined 'TINYMCEPLUGIN_AUTOSAVE_INTERVAL'"
+    then="%TINYMCEPLUGIN_AUTOSAVE_INTERVAL%"
+    else="%STARTSECTION{"AUTOSAVE_INTERVAL"}%180s%ENDSECTION{"AUTOSAVE_INTERVAL"}%"
+}%",
+"autosave_retention" : "%IF{
+    "defined 'TINYMCEPLUGIN_AUTOSAVE_RETENTION'"
+    then="%TINYMCEPLUGIN_AUTOSAVE_RETENTION%"
+    else="%STARTSECTION{"AUTOSAVE_RETENTION"}%4320m%ENDSECTION{"AUTOSAVE_RETENTION"}%"
+}%",
+"entity_encoding" : "%IF{
+    "defined 'TINYMCEPLUGIN_ENTITY_ENCODING'"
+    then="%TINYMCEPLUGIN_ENTITY_ENCODING%"
+    else="%STARTSECTION{"ENTITY_ENCODING"}%numeric%ENDSECTION{"ENTITY_ENCODING"}%"
+}%",
+"theme_advanced_toolbar_location" : "top",
+"theme_advanced_resize_horizontal" : false,
+"theme_advanced_resizing" : true,
+"theme_advanced_path" : false,
+"theme_advanced_statusbar_location" : "bottom",
+"skin" : "%IF{
+    "defined 'TINYMCEPLUGIN_MCESKIN'"
+    then="%TINYMCEPLUGIN_MCESKIN%"
+    else="%STARTSECTION{"MCESKIN"}%o2k7%ENDSECTION{"MCESKIN"}%"
+}%",
+%IF{
+    "defined 'TINYMCEPLUGIN_MCESKIN_VARIANT' AND $'TINYMCEPLUGIN_MCESKIN_VARIANT'"
+    then="\"skin_variant\" : \"%TINYMCEPLUGIN_MCESKIN_VARIANT%\",$n"
+    else="%IF{
+      "NOT defined 'TINYMCEPLUGIN_MCESKIN' OR $'TINYMCEPLUGIN_MCESKIN'='o2k7'"
+      then="\\"skin_variant\\" : \\"%STARTSECTION{"MCESKIN_VARIANT"}%silver%ENDSECTION{"MCESKIN_VARIANT"}%\\",$dollarn"
+    }%"
+}%"keep_styles" : false,
+"content_css" : "%PUBURLPATH%/%SYSTEMWEB%/TinyMCEPlugin/wysiwyg%IF{
+    "$TINYMCEPLUGIN_DEBUG"
+    then="_src"
+}%.css,%PUBURLPATH%/%SYSTEMWEB%/TWikiTemplates/base.css,%TWIKISTYLEURL%,%TWIKICOLORSURL%"
+%ENDSECTION{"TINYMCEPLUGIN_INIT"}%
+</verbatim>
+%ENDTWISTY%
+
+__How to customize these settings:__
+   * Create a !TinyMCEPluginSettings topic in the %USERSWEB% web, and copying above text.
+   * Update the =TINYMCEPLUGIN_INIT_TOPIC= variable to point to the newly created topic, e.g. in Main.TWikiPreferences or <nop>MyWeb.WebPreferences:%BR%\
+   <verbatim class="tml">   * Set TINYMCEPLUGIN_INIT_TOPIC = Main.TinyMCEPluginSettings</verbatim>
+
+---+++ Settings
+
+| *Variable* | *Default* | *Description* |
+| =TINYMCEPLUGIN_INIT= | - | A string holding the !TinyMCE initialisation object. If set, =TINYMCEPLUGIN_INIT_TOPIC= is ignored |
+| =TINYMCEPLUGIN_INIT_TOPIC= | [[%SYSTEMWEB%.TinyMCEPlugin]] | The fully qualified Web.Topic containing a [[VarSTARTSECTION][section]] named =TINYMCEPLUGIN_INIT= which holds the !TinyMCE initialisation parameters |
+| =TINYMCEPLUGIN_MCEPLUGINS= | %INCLUDE{"%TOPIC%" section="MCEPLUGINS"}% | Comma separated list of !TinyMCE plugins to initialize |
+| =TINYMCEPLUGIN_ADDITIONAL_MCEPLUGINS= | | Comma separated list of additional !TinyMCE plugins to initialize. |
+| =TINYMCEPLUGIN_BUTTONS1= | %INCLUDE{"%TOPIC%" section="BUTTONS1"}% | Comma separated list of toolbar buttons (in order) for the first, second and third rows (of buttons) |
+| =TINYMCEPLUGIN_BUTTONS2= | %INCLUDE{"%TOPIC%" section="BUTTONS2"}% |^|
+| =TINYMCEPLUGIN_BUTTONS3= | |^|
+| =TINYMCEPLUGIN_ADDITIONAL_BUTTONS1,= %BR% =TINYMCEPLUGIN_ADDITIONAL_BUTTONS2,= %BR% =TINYMCEPLUGIN_ADDITIONAL_BUTTONS3= | | Comma separated list of toolbar buttons (in order) to be appended to the end of a button row |
+| =TINYMCEPLUGIN_AUTOSAVE_RETENTION= | %INCLUDE{"%TOPIC%" section="AUTOSAVE_RETENTION"}% | Autosave drafts stored in the web browser are expired after this length of time (<span style="font-weight: bold; text-decoration: underline">m</span>inutes or <span style="font-weight: bold; text-decoration: underline">s</span>econds). See =autosave= plugin notes |
+| =TINYMCEPLUGIN_AUTOSAVE_INTERVAL= | %INCLUDE{"%TOPIC%" section="AUTOSAVE_INTERVAL"}% | Frequency (in <span style="font-weight: bold; text-decoration: underline">m</span>inutes or <span style="font-weight: bold; text-decoration: underline">s</span>econds) that the autosave plugin updates the draft stored in the web browser |
+| =TINYMCEPLUGIN_INIT_browser= | See [[%TOPIC%#Browser_Specific_Settings][Browser Specific Settings]] below | Add extra parameters to =TINYMCEPLUGIN_INIT= string for a specific =_browser= |
+| =EDITMETHOD= | =wysiwyg= | Set to =wysiwyg= to use the WYSIWYG editor (default), or set to =raw= to use the raw text area editor |
+| =TINYMCEPLUGIN_DISABLE= | 0 | If set to 1, disables !TinyMCEPlugin. _Please use_ =EDITMETHOD= _instead_ |
+| =NOWYSIWYG= | 0 | If this global setting is set to 1, !TinyMCEPlugin (and all other WYSIWYG editors) will be disabled. _Please use_ =EDITMETHOD= _instead_ |
+| =TINYMCEPLUGIN_BAD_BROWSERS= | =(?i-xsm:Konqueror)= | A regular expression that matches the user-agent string of any browser for which !TinyMCE should not be loaded. |
+| =TINYMCEPLUGIN_DEBUG= | 0 | If set to 1, the uncompressed version of !TinyMCE Javascript and CSS sources will be loaded by the browser. Useful for debugging. |
+| =TINYMCEPLUGIN_ENTITY_ENCODING= | %INCLUDE{"%TOPIC%" section="ENTITY_ENCODING"}% | Controls how entities/characters get processed by !TinyMCE. Allowed values: =named, numeric, raw= |
+| =TINYMCEPLUGIN_MCESKIN= | %INCLUDE{"%TOPIC%" section="MCESKIN"}% | The !TinyMCE skin to use. Possible values: =default, highcontrast, o2k7= |
+| =TINYMCEPLUGIN_MCESKIN_VARIANT= | %INCLUDE{"%TOPIC%" section="MCESKIN_VARIANT"}% | A !TinyMCE skin may have _variants_. =o2k7= skin has =silver= and =black= variants. |
+
+---+++ Browser Specific Settings
+
+Additional options may be set for specific browsers. You can define extra options for MSIE, OPERA, GECKO and SAFARI. For example,
+<verbatim class="tml">   * Set TINYMCEPLUGIN_INIT_MSIE = "paste_auto_cleanup_on_paste" : false </verbatim>
+The defaults are:
+<verbatim class="perl">
+    MSIE => '',
+    OPERA => '',
+    GECKO => '"gecko_spellcheck" : true',
+    SAFARI => '',
+    CHROME => ''
+</verbatim>
+
+---++ !TinyMCE Plugins & Toolbar Buttons
+
+Documentation for standard plugins shipped with !TinyMCE can be found at [[http://wiki.moxiecode.com/index.php/TinyMCE:Plugins]].
+
+Documentation for standard theme_advanced toolbar buttons (Eg. superscript/subscript, strikethrough, highlight colours etc) can be found at [[http://wiki.moxiecode.com/index.php/TinyMCE:Control_reference]].
+
+---+++ Default Plugins
+
+These plugins are enabled by default in the standard distribution of TWiki.
+
+| *Plugin Name* | *Toolbar buttons* | *Description* | *Notes* |
+| [[http://tinymce.moxiecode.com/js/tinymce/docs/api/index.html#class_tinymce.plugins.AutoSave.html][autosave]] | restoredraft | Saves the editor content to your web browser's local storage periodically so that it may be restored later | See =TINYMCEPLUGIN_AUTOSAVE_INTERVAL= and defaults to %INCLUDE{"%TOPIC%" section="AUTOSAVE_INTERVAL"}%; =TINYMCEPLUGIN_AUTOSAVE_RETENTION= defaults to %INCLUDE{"%TOPIC%" section="AUTOSAVE_RETENTION"}% |
+| [[http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/contextmenu][contextmenu]] | | Provides context (right-click) menu capability | Allows the =table= plugin to offer copy & paste of rows & columns | |
+| =twiki= | - | Fixup !TinyMCE bugs, TWiki integration issues | init param =twiki_autosave_no_fixup= prevents fixup of autosave plugin if true; only works if =twiki= is after =autosave= in the plugins list |
+| =twikibuttons= | tt, colour, attach, hide | Provides toolbar buttons, dialogues and formatting styles for TWiki | List of formats populated from =twikibuttons_formats= init param; ms of cursor idle time required before update of toolbar buttons/format state is set from =twikibuttons_cursoridletime= param |
+| =twikiimage= | image | Provides image toolbar button, dialogue for TWiki |  |
+| [[http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/fullscreen][fullscreen]] | fullscreen | Provides fullscreen capability | |
+| [[http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/legacyoutput][legacyoutput]] | | Maintains compatibility for =&lt;font&gt;=, =&lt;u&gt;=, =&lt;b&gt;=, =&lt;strike&gt;= etc. tags | |
+| [[http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/paste][paste]] | pastetext, pasteword, selectall | "Cleans" content pasted from clipboard; useful when pasting from MS Office | |
+| [[http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/searchreplace][searchreplace]] | search, replace | Refer to !TinyMCE documentation | |
+| [[http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/table][table]] | tablecontrols, [[http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/table#Table_controls.2Fbuttons][others]] | Refer to !TinyMCE documentation | |
+
+---+++ Additional Plugins 
+
+To enable extra plugins, set the =TINYMCEPLUGIN_ADDITIONAL_MCEPLUGINS= variable in your [[%USERSWEB%.TWikiPreferences]]. If the plugin also offers a toolbar button, you will need to add it into the appropriate place in the =TINYMCEPLUGIN_ADDITIONAL_BUTTONS*= variables. 
+
+For example, to make use of the =emotions= and =wordcount= plugins add the following to [[%USERSWEB%.TWikiPreferences]]:
+
+<pre class="tml">
+---++ TinyMCE customizations
+
+&nbsp;&nbsp;&nbsp;* Set TINYMCEPLUGIN_ADDITIONAL_MCEPLUGINS = emotions, wordcount
+&nbsp;&nbsp;&nbsp;* Set TINYMCEPLUGIN_ADDITIONAL_BUTTONS2 = emotions
+</pre>
+
+Some notable plugins:
+
+| *Plugin Name* | *Toolbar buttons* | *Description* | *Notes* |
+| [[http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/autoresize][autoresize]] | - | Automatically resizes the editor to the content inside it | |
+| [[http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/emotions][emotions]] | emotions | Insert smiley images into the !TinyMCE editable area | |
+| [[http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/iespell][iespell]] | iespell | Provides spell check for Internet Explorers | |
+| [[http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/insertdatetime][insertdatetime]] | insertdate, inserttime | Provides buttons to insert customized date and time strings | |
+| [[http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/media][media]] | media | Handles embedded media such as !QuickTime, !Flash, !ShockWave, !RealPlayer and Windows Media Player | Requires customisation of edit templates |
+| [[http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/spellchecker][spellchecker]] | spellchecker | Adds spellchecker functionality to !TinyMCE by providing a new button that performs a AJAX call to a backend PHP page that uses PSpell/ASpell or Google spellchecker | |
+| [[http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/style][style]] | styleprops | Adds CSS style editing support to !TinyMCE, this will enable you to edit almost any CSS style property in a visual way. | Generally, HTML/CSS markup in topics is *not* desirable |
+| [[http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/visualchars][visualchars]] | visualchars | Adds the possibility to see invisible characters like =&amp;nbsp;= | |
+| [[http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/wordcount][wordcount]] | - | Display the number of words down in the right corner of the editor. | |
+| [[http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/xhtmlxtras][xhtmlxtras]] | cite, ins, del, abbr, acronym | Adds support for some XHTML elements, including cite, ins, del, abbr, and acronym. | Generally, XHTML markup in topics is *not* desirable. TWiki plugins exist to provide similar functions with more friendly TML markup |
+
+
+---++ Frequently Asked Questions
+
+The topic [[TinyMCEFrequentlyAskedQuestions]] contains more help with things like: "How do I configure the buttons in my skin?", "How do I disable the WYSIWYG?" etc.
+
+---+++ !WysiwygPlugin Settings
+
+See WysiwygPluginSettings for more information
+
+---++ Upgrading !TinyMCEPlugin older than version 2013-09-12
+
+The =TINYMCEPLUGIN_INIT= string needs to be built differently, due to the API change affecting the way custom formats are applied in !TinyMCE 3.3.x since 3.2.x
+
+If a customized =TINYMCEPLUGIN_INIT= string is in use, it should be re-built based on the content of this documentation. The customizations should be reviewed to determine if they are still necessary.
+
+---++ Known Issues of !TinyMCEPlugin
+
+   * TWiki introduces errant spaces into table cells
+   * X11 environments: !TinyMCEPlugin editor copies current topic onto the "Primary Selection"
+   * Outdenting list items in Firefox soemtimes does not work correctly
+      * Description: The list symbol (number, bullet, etc) sometimes disappears from the item after being outdented. When this happens, it is also not possible to outdent the item another level.
+      * Work-around: Position the cursor to the beginning of the line (where the symbol should appear) and press the enter key. The symbol should be restored and another outdent will be possible.
+   * After inserting new table at top of document: unable to position cursor above
+      * Work-around: Use 'Save and continue' or switch to !WikiText and back to WYSIWYG again to allow WysiwygPlugin to add an empty =&lt;p/&gt;= above the table
+   * International characters (example, &Scaron;) are converted to HTML entities (IE. =&amp;Scaron;= or =&amp;#352;=)
+      * Ensure you are using the latest version of WysiwygPlugin, check TWiki:Plugins.WysiwygPlugin.
+      * Work-around: Try changing the =TINYMCEPLUGIN_ENTITY_ENCODING= setting to =raw=. It's possible this may cause problems on older browsers.
+
+---++ Known Issues of !WysiwygPlugin (partial list)
+
+For the full list, consult [[WysiwygPlugin#Known_issues][WysiwygPlugin documentation]]
+%INCLUDE{"WysiwygPlugin" section="tinymceintegration"}%
+
+Check TWiki:Plugins.TinyMCEPlugin for updates.
+
+---++ Plugin Info
+
+%TABLE{ tablewidth="100%" columnwidths="180," }%
+|  Author: | [[http://c-dot.co.uk][Crawford Currie]] |
+|  Copyright: | &copy; 2007-2010 Crawford Currie http://c-dot.co.uk %BR% &copy; 2010-2012 Foswiki Contributors %BR% &copy; 2007-2018 Peter Thoeny and TWiki:TWiki.TWikiContributor |
+|  License: | [[http://www.gnu.org/licenses/gpl.html][GPL (Gnu General Public License)]] |
+|             | This package also includes the complete sources for version 3.4.9 of the !TinyMCE editor which is covered by [[http://tinymce.moxiecode.com/license.php][its own license]]. |
+|  Sponsors: | [[http://ilog.fr/][ILOG]], [[http://www.carrier.com/][Carrier Corporation]], [[http://twiki.net/][Twiki Inc]], [[http://www.wave.com/][Wave Systems Corp]] |
+|  Plugin Version: | 2018-07-10 |
+%TWISTY{
+ mode="div"
+ showlink="Show Change History %ICONURL{toggleopen}%"
+ hidelink="Hide Change History %ICONURL{toggleclose}% "
+}%
+%TABLE{ tablewidth="100%" columnwidths="180," }%
+|  2018-07-10: | TWikibug:Item7841: Copyright update to 2018 |
+|  2016-01-13: | TWikibug:Item7710: Document how to add custom toolbar button to !TinyMCE editor -- TWiki:Main.PeterThoeny |
+|  2016-01-09: | TWikibug:Item7708: Copyright update to 2016 |
+|  2015-02-16: | TWikibug:Item7604: Switch from GPL v2 to v3 |
+|  2013-09-18: | TWikibug:Item7339: Upgrade to !TinyMCE 3.5.8 -- TWiki:Main.PeterThoeny |
+|  2013-09-13: | TWikibug:Item7339: Import !TinyMCE plugin fixes 2008-2013; upgrade to !TinyMCE 3.4.9 -- TWiki:Main.PeterThoeny |
+|  2013-07-19: | TWikibug:Item7300: Plugin to be conditionally disabled -- TWiki:Main.HideyoImazu |
+|  21 Dec 2012 (1.2.9) | Changing a wikiword should not require visiting the !TinyMCE link dialog. *Changes TINYMCEPLUGIN_INIT settings* |
+|  28 Nov 2012 (1.2.8) | Add missing syntax highlighting classes, and make menus more user friendly.<br />\
+                         Convert to perl version strings <br />\
+                         Clean up hex markers left behind by !TinyMCEPlugin Editor |
+|  22 May 2012 (1.2.7) | Upgrade to !TinyMCE 3.4.9%BR%\
+                         Add watermark for hidden blocks%BR%\
+                         Set initial table defaults consistent with TWiki defaults |
+|  23 Mar 2012 (1.2.6) | Strike-out =&lt;del&gt;=, =&lt;s&gt;= tags are lost in WYSIWYG transition %BR%\
+                         Add Javascript callbacks to get notified after editor changes to/from Raw or WYSIWYG mode. %BR%\
+                         Allow templates to control WYSIWYG button placement. %BR%\
+                         "Please wait... retrieving page from server" looks too much like an error.  Change to "Loading" JS Animation %BR%\
+                         Cannot edit on IE8. |
+|  22 Dec 2011 (1.2.5) | Fix JS autosave error in IE7 when editing topics in nested webs |
+|  19 Dec 2011 (1.2.4) | Added support for indented plain paragraphs. NOTE: requires an update to TINYMCEPLUGIN_INIT, if you have customized it. |
+|  22 Nov 2011 (1.2.3) | Remove bogus dependency on !BehaviourContrib |
+|  08 Nov 2011 (1.2.2) | Update to !TinyMCE 3.4.7. |
+|  24 Sep 2011 (1.2.1) | Testing release of !TinyMCE 3.4.6. %BR%\
+                         Fixed in !TinyMCE 3.4 (copy and paste list items) |
+|  20 Aug 2011 (1.2.0) | Testing release of !TinyMCE 3.4.4 |
+|  05 Dec 2011 (1.1.12) | Prevent save if in fullscreen mode. Other minor code cleanup. |
+|  22 Nov 2011 (1.1.11) | Remove bogus dependency on !BehaviourContrib |
+|  10 May 2011 (1.1.10) | Revert back to !TinyMCE 3.3.9.3; 3.3.9.4 caused JS errors in IE8 |
+|  09 May 2011 (1.1.9) | Update to !TinyMCE 3.3.9.4 |
+|  11 Apr 2011 (1.1.8) | Version released with TWiki 1.1.3. Only a minor change related to how the plugin is being upgraded |
+|  19 Jan 2011 (1.1.7) | Update to !TinyMCE 3.3.9.3 and switch to using =x.y.z= version numbering %BR%\
+                 Fix problem where topic names with international characters prevented attach dialogue working correctly%BR% \
+                 Added =TINYMCEPLUGIN_ENTITY_ENCODING= setting; default to =numeric= %BR%\
+                 JS fix for deleting encoded-TML-whitespace on Firefox |
+|  2010-11-05 | TWikibug:Item6604: Add documentation for EDITMETHOD setting -- TWiki:Main.PeterThoeny |
+|  04 Nov 2010 | Upgrade to !TinyMCE 3.3.9.2%BR%\
+                 Fix JS error transitioning to !WikiText from fullscreen%BR%\
+                 Fix bold & italics buttons not activating on already bolded/italicized text properly%BR%\
+                 Fix JS error switching tabs on the attach dialogue |
+|  25 Oct 2010 | Fix JS error on Internet Explorers |
+|  28 Sep 2010 | Enable contextmenu !TinyMCE plugin, allows table row/column copy &amp; paste%BR%\
+                 Fix autosave breaking on IECollections' IE6%BR%\
+                 Use non-jQuery build to avoid IE8 resizing quirks on jquery-1.3.2%BR%\
+                 Only update button state if cursor has been idle &gt; 300ms, improves cursor movement responsiveness in &gt;250KiB documents on IE/slow PCs%BR%\
+                 Documentation updates%BR%\
+                 Make table text larger, to be the same size as normal paragraph text%BR%\
+                 Apply background to protected and literal text (similar to verbatim), so that it is easier to see these special regions |
+|  01 Jul 2010 | Fix colour formatting problem and JS error transitioning to fullscreen%BR%\
+                 Fix autosave implementation compatibility with TWiki 1.0.x JQueryPlugin%BR%\
+                 Upgrade to !TinyMCE 3.3.8 |
+|  28 Jun 2010 | Fix applying non-heading formats in !TinyMCE 3.3%BR%\
+                 Change attach dialogue button text from 'cancel' to 'close'%BR%\
+                 Improve attach dialogue usability: auto-refresh attachment list after switching from upload tab; auto-select upload tab if there are zero existing attachments%BR%\
+                 Fix dialogue window sizes are too small for link, attachments and colour dialogues%BR%\
+                 Replace =TINYMCEPLUGIN_INIT= in favour of =TINYMCEPLUGIN_INIT_TOPIC= sections%BR%\
+                 Fix misbehaving =%<nop>AQUA%= colour in the colours dialogue; grouped standard colours separate to extended colours%BR%\
+                 Make autosave plugin functional%BR%\
+                 Fixed in !TinyMCE 3.3: (IE only) Cursor jumps to beginning of document unintendedly%BR%\
+                 Fixed in !TinyMCE 3.3: !TinyMCE strips out 'type' arguments when pasting TWiki variables from MS Word |
+|  2010-04-24 | TWikibug:Item6433: Doc improvements, prepare for TWiki 5.0 release |
+|  20 Mar 2010 | Change TWiki integration to use more JQueryPlugin features. Fixes bug where IE6 users with latest NatSkin get: "Unable to install !TinyMCE; &lt;META..." |
+|  05 Mar 2010 | Upgrade to !TinyMCE 3.3, TWiki now uses jQuery version |
+|  19 Feb 2010 | Fix for sites with latest JQueryPlugin where IE users get: "Unable to install !TinyMCE; &lt;META..." |
+|  24 Jan 2010 | add TINYMCEPLUGIN_ADDITIONAL_MCEPLUGINS and TINYMCEPLUGIN_BUTTONS(123) to allow wiki, web and topic specific plugins to be added [[TWiki:Main.SvenDowideit][SD]] |
+|  29 Dec 2009 | Fix unable to apply "Normal" format in some browsers (notes added to System topic).%BR% Block attachments to unsaved AUTOINC topics |
+|  25 Nov 2009 | Inserting images - fixed a problem where it wasn't easy (impossible unless > 1 attachments) to select the first image in the attachment list; improved layout of dialog window where preview obscures insert/cancel buttons. |
+|  09 Nov 2009 | Added blockquote button and rearranged toolbars slightly; cleaned up System topic |
+|  29 Oct 2009 | Updated documentation, removed redundant setting: =paste_auto_cleanup_on_paste : true= for MSIE browsers (!TinyMCE now defaults to =true= for all browsers) |
+|  21 Oct 2009 | !TinyMCE project now supports Opera, so remove it from _BAD_BROWSERS |
+|  18 Oct 2009 | Fix wordcount plugin to show correct count when user first enters edit mode |
+|  17 Oct 2009 | Upgrade to !TinyMCE 3.2.7 |
+|  20 Sep 2009 | Remove 2 MB of developer files that are not used |
+|  19 Sep 2009 | Fix fullscreen-to-WikiText transition |
+|  18 Sep 2009 | Fixed a problem where editor wants to put text elements into blocks causing unwanted new lines. <br /> Fixed a problem so that editor does not convert TML lettered and roman numeral lists back to numbered lists. |
+|  2009-09-08 | TWikibug:Item6334: Upgrade plugin to latest !TinyMCE version 3.2.4.1 from 2.1.1.1 -- TWiki:Main.SopanShewale |
+|  03 Jul 2009 | Check that the help elements are present before hiding or showing them, as they are not present in all skins. |
+|  06 Jun 2009 | Make browser reload the javascript when this plugin is upgraded (Michael Tempest, Colas Nahaboo). Disable "Wiki text" button until editor has loaded topic text (Michael Tempest) |
+|  24 May 2009 | add support for global NOWYSIWYG flag. keep TML lettered & roman numeral lists (Michael Tempest). fix typewriter text (Michael Tempest). fix data-loss warning when saving from wiki-text (Michael Tempest) |
+|  10 Apr 2009 | fixed colour handling. added safari,inlinepopups,fullscreen plugins, fixed some minor bugs on IE |
+|  03 Apr 2009 | Optimized the preferences. fixed the pickaxe |
+|  15 Mar 2009 | Crawford Currie upgraded to Tiny MCE 3.2.2 and recoded all the standard plugins that had to be recoded |
+|  21 Jan 2009 | added SYSTEMWEB to twiki_vars, simplifying the activation of the twikilink dialog of !TinyMCEUsabilityUpgradePlugin - Eugen Mayer |
+|  06 Dec 2008 | removed XHR headers that were banjaxing NTLM - Eugen Mayer |
+|  03 Aug 2008 | TWiki 4.2.1 release version |
+|  04 May 2008 | TWikibug:Item5547: Change mechanism by which TMCE recognizes textareas to camp on. Use class instead of element name. |
+|  12 Apr 2008 | TWikibug:Item4946: I think I have finally fixed non-iso-8859-1 character sets. Painful. |
+|  31 Mar 2008 | TWikibug:Item5314: TWikibug:Item5457: Fixed pickaxe mode for editing UTF-8. Characters above 255 are converted to entitites, which is a bit of a PITA, but at least it no longer corrupts topics. *NOTE: YOU MUST UPGRADE WysiwygPlugin TO 16600 OR LATER* |
+|  28 Mar 2008 | TWikibug:Item5432: added upper case file extensions for images TWikibug:Item5206: fixed expansion of simple filenames entered in image popup TWikibug:Item5462: fixed hide attachment switch |
+|  25 Jan 2008 | TWikibug:Item5287: links entered through dialog weren't working |
+|  24 Jan 2008 | TWikibug:Item4840: TWikibug:Item5138: UTF8 fixes, TWikibug:Item5022: made TT font size same as verbatim. Had to add a new style to do it, as TMCE didn't want to play with TT or CODE tags. TWikibug:Item5138: post-conversion of 8-bit entities to characters to aid searching, TWikibug:Item5254: non-fatal JS error fixed, TWikibug:Item5263: remove preview on WYSIWYG edit, TWikibug:Item5116: added Opera to bad browsers filter |
+|  20 Dec 2007 | TWikibug:Item5047: disable save and preview during page load TWikibug:Item5111: make the entry in the format menu sensitive to where the cursor is TWikibug:Item5022: made TT font size same as verbatim. Had to add a new style to do it, as TMCE didn't want to play with TT or CODE tags. |
+|  19 Nov 2007 | TWikibug:Item4742: auto-disable if Wysiwyg is not enabled TWikibug:Item4820: validate mandatory fields on save TWikibug:Item4747: add &lt;sticky&gt; TWikibug:Item4811: noautolink *looks* like an HTML construct but in fact is not; the tag is infact an "on-off" switch and does not imply any HTML structure, so cannot be converted to a DIV or a span, so has to be removed. TWikibug:Item4817: added typewriter text button TWikibug:Item4850: added font colour controls TWikibug:Item4645: added attachment management features TWikibug:Item4945: added switch to raw and back |
+|  16 Sep 2007 | TWikibug:Item4630: polished up the way the secret string is done, to ensure synch between perl and JS. TWikibug:Item4622: added UTF-8 handling steps that fixup malformed UTF8 strings before presenting them to the editor (saves Moz) and stops the editor passing them back to TWiki (saves IE). TWikibug:Item4603: added the draft help, so we can at least build the beta without the nasty warning |
+|  13 Sep 2007 | TWikibug:Item4613 fixed navigate-away prompt when unchanged TWikibug:Item4583 TWikibug:Item4604 TWikibug:Item4614 TWikibug:Item4616 A clutch of issues caused by use of the wrong encoding function when passing UTF8 parameters to REST using !XMLHttpRequest. |
+|  12 Sep 2007 | TWikibug:Item4604 Converted to REST call for content conversion, to provide safe callback if JS is disabled in the browser TWikibug:Item4583 relaxed regex to try and make it work for UTF-8 topic names |
+|  11 Sep 2007 | TWikibug:Item4535 refinements to link handling to improve topic name recognition |
+|  07 Sep 2007 | TWikibug:Item4503 excess empty lines TWikibug:Item4486 no toc headers with unofficial syntax TWikibug:Item4560: empty lines lost TWikibug:Item4566: corrupted table on save |
+|  06 Sep 2007 | TWikibug:Item4557 added missing files to package |
+|  04 Sep 2007 | TWikibug:Item4534 TWikibug:Item4535 fixed |
+|  14679 | TWikibug:Item4481 TWikibug:Item4524 fixed |
+|  14668 | Bugfixes and refinements done as part of 4.2 release |
+|  14543 | Added PROTECTED style, to allow protection of special text. Disable on unsupported browsers (untested) |
+|  14538 | First release |
+%ENDTWISTY%
+%TABLE{ tablewidth="100%" columnwidths="180," }%
+|  Dependencies: | <table border="1"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">TWiki::Plugins::WysiwygPlugin</td><td align="left">&gt;=1</td><td align="left">Translator module</td></tr><tr><td align="left">TWiki::Plugins::JQueryPlugin</td><td align="left">&gt;=1</td><td align="left">jQuery library</td></tr></table> |
+|  Plugin Home: | http://twiki.org/cgi-bin/view/Plugins/TinyMCEPlugin |
+|  Feedback: | http://twiki.org/cgi-bin/view/Plugins/TinyMCEPluginDev |
+|  Appraisal: | http://twiki.org/cgi-bin/view/Plugins/TinyMCEPluginAppraisal |
+
+__Related Topics:__ TinyMCEFrequentlyAskedQuestions, TinyMCEQuickHelp, WysiwygPlugin, %SYSTEMWEB%.TWikiPreferences, %SYSTEMWEB%.TWikiPlugins
+
+%META:FILEATTACHMENT{name="screenshot.png" attachment="screenshot.png" attr="h" comment="" date="1379553081" path="screenshot.png" size="64688" user="TWikiContributor" version="1"}%
+@
+
+
+1.16
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1424159008" format="1.1" version="16"}%
+d178 11
+d239 1
+a239 1
+| =TINYMCEPLUGIN_INIT_TOPIC= | [[%SYSTEMWEB%.TinyMCEPlugin]] | The fully qualified Web.Topic containing a [[VarSTARTSECTION][section]] named =INIT= which holds the !TinyMCE initialisation parameters |
+d241 1
+a241 1
+| =TINYMCEPLUGIN_ADDITIONAL_MCEPLUGINS= || Comma separated list of additional !TinyMCE plugins to initialize. |
+d245 1
+a245 1
+| =TINYMCEPLUGIN_ADDITIONAL_BUTTONS1,= %BR% =TINYMCEPLUGIN_ADDITIONAL_BUTTONS2,= %BR% =TINYMCEPLUGIN_ADDITIONAL_BUTTONS3= || Comma separated list of toolbar buttons (in order) to be appended to the end of a button row |
+d359 1
+a359 1
+|  Copyright: | &copy; 2007-2010 Crawford Currie http://c-dot.co.uk %BR% &copy; 2010-2012 Foswiki Contributors %BR% &copy; 2007-2015 TWiki:TWiki.TWikiContributor |
+d363 1
+a363 1
+|  Plugin Version: | 2015-02-16 29584 (2015-11-29) |
+d370 3
+@
+
+
+1.15
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1379553733" format="1.1" version="15"}%
+d11 2
+a12 2
+<sticky><div style="float:right; margin:0 0 20px 20px;">
+<div style="background-color:#EBEEF0; padding: 0 10px 0 10px;">
+d14 1
+d16 1
+a16 2
+<img src="%PUBURLPATH%/%WEB%/%TOPIC%/screenshot.png" alt="screenshot.png" width="534" height="311" />
+</div></sticky>
+d348 1
+a348 1
+|  Copyright: | &copy; 2007-2010 Crawford Currie http://c-dot.co.uk %BR% &copy; 2010-2012 Foswiki Contributors %BR% &copy; 2007-2013 TWiki:TWiki.TWikiContributor |
+d352 1
+a352 1
+|  Plugin Version: | 2013-09-18 26799 (2014-10-05) |
+d359 1
+@
+
+
+1.14
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1379553733" format="1.1" version="14"}%
+d352 1
+a352 1
+|  Plugin Version: | 2013-09-18 26397 (2013-10-14) |
+@
+
+
+1.13
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1310334724" format="1.1" version="13"}%
+d13 1
+a13 1
+%TOC{title="Page contents"}%
+d15 1
+a15 1
+<img src="%ATTACHURL%/screenshot.gif" alt="" width="400" height="278" />
+d21 1
+a21 1
+This is an integration of the <a href="http://tinymce.moxiecode.com?id=powered_by_tinymce_mini"><img src="http://tinymce.sourceforge.net/buttons/tinymce_button.png" border="0" width="80" height="15" alt="TinyMCE" /></a> WYSIWYG editor. This is great little editor, fast and highly functional, and supporting a wide range of browsers, including Firefox, IE and Safari. At the time of writing it doesn't work with Opera or Konqueror.
+d23 1
+a23 1
+The integration uses the TWiki:Plugins.WysiwygPlugin to translate text to and from a format that !TinyMCE can edit.
+d25 1
+a25 1
+Unlike the other editor integrations in TWiki, which install "Word in a Browser" style editors, this plugin is able to swap out the _standard_ text areas in an edit and replace them with WYSIWYG editors. This means you get WYSIWYG editors for textareas in forms, as well as for the main text of the topic. It can also co-exist alongside other WYSIWYG editors, such as Kupu.
+d31 1
+a31 1
+The editor uses a translator module to convert from TWiki markup language (TML) to HTML and back. The translator converts special TWiki tags - such as %<nop>VARIABLES% - to plain text, and encloses them within HTML spans using a special style called =WYSIWYG_PROTECTED=. In this way the editor can detect text that is not meant to be HTML formatted. This style is _also_ used to protect special text you enter into the editor from being interpreted when the topic is translated back into TML. If you want to add any special TWiki features that are sensitive to formatting, such as =Set= statements, then you have to format those regions using 'Protect on save' or 'Protect forever'.
+d37 3
+a39 3
+   * This plugin comes pre-installed on TWiki. You should only need to re-install if there is an upgrade to the plugin.
+   * It requires the very latest revision of WysiwygPlugin. It will *not* work with the version shipped with TWiki 4.1.2.
+   * When installed, it *replaces* the old "textarea" editor. If you want to maintain access to the old editor from the standard screens, follow the instructions under [[#InstallingOnOldTWikis][Configuring the buttons on TWiki < 4.2.0]].
+d59 1
+a59 1
+   * *Enable* the TinyMCEPlugin in =configure=.
+d62 1
+a62 1
+---++ Settings
+d64 1
+a64 2
+You can override this setting by defining TINYMCEPLUGIN_DEBUG to enable some simple debug features.
+   * Set DEBUG = 0
+d66 1
+a66 1
+This setting contains all the options passed to the !TinyMCE editor on startup. For a full explanation of the available options, and guidance on reconfiguring !TinyMCE, see the [[http://wiki.moxiecode.com/index.php/TinyMCE:Configuration][Moxicode TinyMCE Wiki]]. Note the inclusion of the Pattern Skin standard CSS files in the =content_css= setting.
+d68 190
+a257 49
+<verbatim>
+   * Set INIT = mode:"textareas",
+   editor_selector : "twikiTextarea",
+   save_on_tinymce_forms: true,
+   cleanup : true,
+   theme : "advanced",
+   convert_urls : true,
+   relative_urls : false,
+   remove_script_host : false,
+   setupcontent_callback : TWikiTiny.setUpContent,
+   urlconverter_callback : "TWikiTiny.convertLink",
+   hide_instance_callback : TWikiTiny.switchToRaw,
+   show_instance_callback : TWikiTiny.switchToWYSIWYG,
+   twikipuburl_callback : "TWikiTiny.convertPubURL",
+   save_callback : "TWikiTiny.saveCallback",
+   %IF{"$TINYMCEPLUGIN_DEBUG" then="debug:true,"}%
+   plugins : "table,searchreplace,autosave,paste,twikibuttons,twikiimage%IF{"$TINYMCEPLUGIN_DEBUG" then=",devkit"}%",
+   twiki_secret_id : "%WYSIWYG_SECRET_ID%",
+   twiki_vars : { PUBURLPATH : "%PUBURLPATH%", PUBURL : "%PUBURL%", WEB : "%WEB%", TOPIC : "%TOPIC%", ATTACHURL : "%ATTACHURL%", ATTACHURLPATH : "%ATTACHURLPATH%", VIEWSCRIPTURL : "%SCRIPTURL{view}%", SCRIPTSUFFIX: "%SCRIPTSUFFIX%", SCRIPTURL : "%SCRIPTURL%" },
+   theme_advanced_toolbar_align : "left",
+   twikibuttons_formats : [
+   { name: "Normal", el: "", style: null },
+   { name: "Heading 1", el: "h1", style: false },
+   { name: "Heading 2", el: "h2", style: false },
+   { name: "Heading 3", el: "h3", style: false },
+   { name: "Heading 4", el: "h4", style: false },
+   { name: "Heading 5", el: "h5", style: false },
+   { name: "Heading 6", el: "h6", style: false },
+   { name: "VERBATIM", el: "pre", style: "TMLverbatim" },
+   { name: "LITERAL", el: "span", style: "WYSIWYG_LITERAL" },
+   { name: "Protect on save", el: null, style: "WYSIWYG_PROTECTED" },
+   { name: "Protect forever", el: null, style: "WYSIWYG_STICKY" }
+   ],
+   paste_create_paragraphs : true,
+   paste_create_linebreaks : false,
+   paste_convert_middot_lists : true,
+   paste_convert_headers_to_strong : false,
+   paste_remove_spans: true,
+   paste_remove_styles: true,
+   paste_strip_class_attributes: "all",
+   theme_advanced_buttons1 : "twikiformat,separator,bold,italic,tt,colour,removeformat,separator,bullist,numlist,outdent,indent,separator,link,unlink,anchor,separator,attach,image,charmap,hr,separator,undo,redo,separator,search,replace",
+   theme_advanced_buttons2: "tablecontrols,separator,code,hide",
+   theme_advanced_buttons3: "",
+   theme_advanced_toolbar_location: "top",
+   theme_advanced_resize_horizontal : false,
+   theme_advanced_resizing : true,
+   theme_advanced_path: false,
+   theme_advanced_statusbar_location : "bottom",
+   content_css : "%PUBURLPATH%/%SYSTEMWEB%/TinyMCEPlugin/wysiwyg%IF{"$TINYMCEPLUGIN_DEBUG" then="_src"}%.css,%PUBURLPATH%/%SYSTEMWEB%/TWikiTemplates/base.css,%TWIKISTYLEURL%,%TWIKICOLORSURL%"
+a258 13
+   * Additional settings for specific browsers.
+      * Warning: if you enable =paste_auto_cleanup_on_paste then it automatically implies =past_use_dialog= on all non-MSIE browsers.
+      * Set INIT_MSIE = paste_auto_cleanup_on_paste : true
+      * Set INIT_OPERA = 
+      * Set INIT_GECKO = 
+      * Set INIT_SAFARI = 
+
+You can override these settings in the same way as any other TWiki variable, by setting e.g. =TINYMCEPLUGIN_INIT= in the site, web or topic preferences. You are *not* recommended to edit the setting here.
+
+   * You can *disable* the plugin in any web or topic, or for any specific user, by setting the =TINYMCEPLUGIN_DISABLE= preferences setting to 1.
+      * Alternatively (preferred), you can give the user an option to use the WYSIWYG editor or raw editor with the =EDITMETHOD= preferences setting set to =wysiwyg= (default) or =raw=.
+   * Some browsers don't support !TinyMCE. You can prevent the editor from
+     being invoked on these browsers by setting =TINYMCEPLUGIN_BAD_BROWSERS= to a regular expression that matches the user-agent string for any broken browsers. The default is =(?i-xsm:Konqueror|Opera)=.   
+d260 36
+a295 1
+%INCLUDE{"%SYSTEMWEB%.WysiwygPluginSettings"}%
+d297 11
+a307 2
+#InstallingOnOldTWikis
+---++ Configuring the buttons on TWiki < 4.2.0
+d309 34
+a342 1
+When installed on TWiki versions before 4.2.0, this plugin *replaces* the old textarea editor with the !TinyMCE editor. The shock of this change can be too much for some older contributors, so we have written instructions for reconfiguring your templates in TWiki:Plugins.TinyMCEFrequentlyAskedQuestions.
+d346 3
+a348 8
+Many thanks to the following sponsors for supporting this work:
+   * [[http://ilog.fr/][ILOG]]
+   * [[http://www.carrier.com/][Carrier Corporation]]
+   * [[http://twiki.net/][Twiki, Inc.]]
+
+|  Plugin Author: | TWiki:Main.CrawfordCurrie |
+|  Copyright: | &copy; 2007-2008 Crawford Currie http://c-dot.co.uk, %BR% &copy; 2007-2011 TWiki:TWiki.TWikiContributor |
+|             | This package also includes the complete sources for version 3.2.4.1 of the !TinyMCE editor |
+d350 65
+a414 4
+|  Plugin Version: | 2011-07-10 24853 (2013-02-16) |
+|  Change History: | <!-- versions below in reverse order -->&nbsp; |
+|  2011-07-10: | TWikibug:Item6725: Change global package variables from "use vars" to "our" |
+|  2010-11-05 | TWikibug:Item6604: Add documentation for EDITMETHOD setting |
+d416 23
+a438 1
+|  2009-09-08 | TWikibug:Item6334: Upgrade plugin to latest !TinyMCE version 3.2.4.1 from 2.1.1.1 -- TWiki:Main/SopanShewale |
+d440 1
+a440 1
+|  04 May 2008 | TWikibug:Item5547: Change mechanism by which TMCE recognises textareas to camp on. Use class instead of element name. |
+d452 3
+a454 3
+|  7 Sep 2007 | TWikibug:Item4503 excess empty lines TWikibug:Item4486 no toc headers with unofficial syntax TWikibug:Item4560: empty lines lost TWikibug:Item4566: corrupted table on save |
+|  6 Sep 2007 | TWikibug:Item4557 added missing files to package |
+|  4 Sep 2007 | TWikibug:Item4534 TWikibug:Item4535 fixed |
+d459 3
+a461 1
+|  Dependencies: | <table border="1"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">TWiki::Plugins::BehaviourContrib</td><td align="left">&gt;=15357</td><td align="left">Javascript module</td></tr><tr><td align="left">TWiki::Plugins::WysiwygPlugin</td><td align="left">&gt;=16650</td><td align="left">Translator module</td></tr></table> |
+d466 3
+a468 2
+%META:FILEATTACHMENT{name="tinymce.gif" attr="h" comment="screenshot" version="1"}%
+%META:FILEATTACHMENT{name="screenshot.gif" attr="h" comment="" version="1"}%
+@
+
+
+1.12
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1310334724" format="1.1" version="12"}%
+a42 2
+__Note:__ You do not need to install anything on the browser to use this extension. The following instructions are for the administrator who installs the extension on the TWiki server.
+
+d151 1
+a151 1
+|  Plugin Version: | 2011-07-10 21643 (2012-12-16) |
+@
+
+
+1.11
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1310334724" format="1.1" version="11"}%
+d153 1
+a153 1
+|  Plugin Version: | 2011-07-10 21643 (2012-10-07) |
+@
+
+
+1.10
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1310334724" format="1.1" version="10"}%
+d43 1
+a43 1
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server where TWiki is running.
+d45 1
+a45 3
+Like many other TWiki extensions, this module is shipped with a fully
+automatic installer script written using the Build<nop>Contrib.
+   * If you have TWiki 4.2 or later, you can install from the =configure= interface (Go to Plugins->Find More Extensions)
+a46 10
+   * If you have any problems, then you can still install manually from the command-line:
+      1 Download one of the =.zip= or =.tgz= archives
+      1 Unpack the archive in the root directory of your TWiki installation.
+      1 Run the installer script ( =perl &lt;module&gt;_installer= )
+      1 Run =configure= and enable the module, if it is a plugin.
+      1 Repeat for any missing dependencies.
+   * If you are *still* having problems, then instead of running the installer script:
+      1 Make sure that the file permissions allow the webserver user to access all files.
+      1 Check in any installed files that have existing =,v= files in your existing install (take care *not* to lock the files when you check in)
+      1 Manually edit !LocalSite.cfg to set any configuration variables.
+d48 10
+a57 1
+%IF{"defined 'SYSTEMWEB'" else="<div class='twikiAlert'>%X% WARNING: SYSTEMWEB is not defined in this TWiki. Please add these definitions to your %MAINWEB%.TWikiPreferences, if they are not already there:<br><pre>   * <nop>Set SYSTEMWEB = %<nop>TWIKIWEB%<br>   * <nop>Set USERSWEB = %<nop>MAINWEB%</pre></div>"}%
+d153 1
+a153 1
+|  Plugin Version: | 2011-07-10 21643 (2012-01-14) |
+@
+
+
+1.9
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1310334724" format="1.1" version="9"}%
+d156 1
+a156 1
+|  Plugin Version: | 2011-07-10 21643 (2011-08-20) |
+@
+
+
+1.8
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1289002747" format="1.1" version="8"}%
+d153 1
+a153 1
+|  Copyright: | &copy; 2007-2008 Crawford Currie http://c-dot.co.uk, %BR% &copy; 2007-2010 TWiki:TWiki/TWikiContributor |
+d156 1
+a156 1
+|  Plugin Version: | 2010-11-05 20914 (2011-05-03) |
+d158 1
+@
+
+
+1.7
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1275122548" format="1.1" version="7"}%
+d11 6
+a16 1
+<img src="%ATTACHURL%/screenshot.gif" align="right" />
+d19 1
+a19 1
+%TOC%
+d133 2
+a134 1
+   * You can *disable* the plugin in any web or topic, or for any specific user, by setting the =TINYMCEPLUGIN_DISABLE= variable to 1.
+d156 1
+a156 1
+|  Plugin Version: | 2010-04-24 18853 (2010-05-29) |
+d158 1
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1251893236" format="1.1" version="6"}%
+d4 5
+a8 1
+One line description, required for extensions repository catalog.
+d11 1
+d14 1
+a14 1
+<img src="%ATTACHURL%/screenshot.gif"/>
+a15 1
+%TOC%
+d25 1
+d31 2
+a32 1
+   * This plugin comes pre-installed on TWiki 4.2.X. You should only need to re-install if there is an upgrade to the plugin.
+d63 1
+d67 2
+a68 2
+This setting contains all the options passed to the TinyMCE editor on startup. 
+For a full explanation of the available options, and guidance on reconfiguring TinyMCE, see the [[http://wiki.moxiecode.com/index.php/TinyMCE:Configuration][Moxicode TinyMCE Wiki]]. Note the inclusion of the Pattern Skin standard CSS files in the =content_css= setting.
+d117 1
+a117 1
+   content_css : "%PUBURLPATH%/%TWIKIWEB%/TinyMCEPlugin/wysiwyg%IF{"$TINYMCEPLUGIN_DEBUG" then="_src"}%.css,%PUBURLPATH%/%TWIKIWEB%/TWikiTemplates/base.css,%TWIKISTYLEURL%,%TWIKICOLORSURL%"
+d132 1
+a132 1
+%INCLUDE{"%TWIKIWEB%.WysiwygPluginSettings"}%
+d136 1
+d141 8
+a148 7
+
+
+|  Plugin Author(s): | TWiki:Main.CrawfordCurrie, TWiki:Main.SopanShewale (sponsored by Twiki Inc)|
+|  Plugin Version: | 02 Sept 2009 18146 (02 Sep 2009) |
+|  Copyright: | &copy; 2009-2010 Twiki Inc http://www.twiki.net |
+|  Copyright: | &copy; 2007-2009 Crawford Currie http://c-dot.co.uk |
+|             | This package also includes the complete sources for  Version 3.2.4.1 (2009-05-25) of the !TinyMCE editor |
+d150 1
+d152 2
+a153 1
+|  02 Sept 2009 | TWiki 4.3.2 release version, Upgraded Javascript Library !tinyMCE to Version 3.2.4.1 (2009-05-25)|
+d164 1
+a164 1
+|  13 Sep 2007 | TWikibug:Item4613 fixed navigate-away prompt when unchanged TWikibug:Item4583 TWikibug:Item4604 TWikibug:Item4614 TWikibug:Item4616 A clutch of issues caused by use of the wrong encoding function when passing UTF8 parameters to REST using XMLHttpRequest. |
+d179 1
+a179 9
+Many thanks to the following sponsors for supporting this work:
+   * [[http://ilog.fr][ILOG]]
+   * [[http://www.carrier.com][Carrier Corporation]]
+   * [[http://twiki.net][TWIKI.NET]]
+
+<!-- Do _not_ attempt to edit this topic; it is auto-generated. Please add comments/questions/remarks to the Dev topic instead. -->
+
+%META:FILEATTACHMENT{name="tinymce.gif" attr="h" comment="screenshot"}%
+%META:FILEATTACHMENT{name="wikiringlogo20x20.png" attr="h" comment="" version="1"}%
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 1
+a132 1
+Another great TWiki extension from the <a style="text-decoration:none" href="http://wikiring.com"><img src="%ATTACHURLPATH%/wikiringlogo20x20.png" alt="" /> *WikiRing* </a> - working together to improve your wiki experience!
+d134 6
+a139 4
+|  Plugin Author(s): | TWiki:Main.CrawfordCurrie |
+|  Plugin Version: | 03 Aug 2008 17302 (29 Apr 2009) |
+|  Copyright: | &copy; 2007-2008 Crawford Currie http://c-dot.co.uk |
+|             | This package also includes the complete sources for version 2.1.1.1 of the !TinyMCE editor |
+d142 1
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d135 1
+a135 1
+|  Plugin Version: | 03 Aug 2008 17302 (30 Mar 2009) |
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d135 1
+a135 1
+|  Plugin Version: | 03 Aug 2008 17302 (06 Dec 2008) |
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d135 1
+a135 1
+|  Plugin Version: | 03 Aug 2008 17302 (04 Aug 2008) |
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d25 1
+a25 1
+   * This plugin comes pre-installed on TWiki 4.2.0. You should only need to re-install if there is an upgrade to the plugin.
+d62 2
+a63 1
+   * Set INIT = mode : "exact",
+a64 1
+   elements : "text",
+d135 2
+a136 2
+|  Plugin Version: | 16268 (22 Jan 2008) |
+|  Copyright: | &copy; 2007 Crawford Currie http://c-dot.co.uk |
+d140 8
+a147 1
+| 20 Dec 2007 | TWikibug:Item5047: disable save and preview during page load TWikibug:Item5111: make the entry in the format menu sensitive to where the cursor is TWikibug:Item5022: made TT font size same as verbatim. Had to add a new style to do it, as TMCE didn't want to play with TT or CODE tags. |
+d160 1
+a160 1
+|  Dependencies: | <table border="1"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">TWiki::Plugins::BehaviourContrib</td><td align="left">&gt;=15357</td><td align="left">Javascript module</td></tr><tr><td align="left">TWiki::Plugins::WysiwygPlugin</td><td align="left">&gt;=14523</td><td align="left">Translator module</td></tr></table> |
+@

@@ -1,0 +1,4299 @@
+# TWiki translation for Japanese
+# This file is distributed under the same license as TWiki itself
+# Copyright (C) 2005-2013 Peter Thoeny and TWiki Contributors.
+# Translators:
+#   TWiki:Main/KenYuminaga, 2013-08-04
+#   TWiki:Main/HideyoImazu, 2013-10-02
+msgid ""
+msgstr ""
+"Project-Id-Version: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2013-10-02 00:00-0800\n"
+"Last-Translator: Hideyo Imazu <Hideyo.Imazu at morganstanley.com>\n"
+"Language-Team: TWiki Japanese Translation Team <none>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Country: JAPAN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#. ($days)
+#: ../core/lib/TWiki/Time.pm:314
+msgid "%*(%1,day) "
+msgstr "%*(%1,日) "
+
+#. ($hours)
+#: ../core/lib/TWiki/Time.pm:317
+msgid "%*(%1,hour) "
+msgstr "%*(%1,時間) "
+
+#. ($mins)
+#: ../core/lib/TWiki/Time.pm:320
+msgid "%*(%1,minute) "
+msgstr "%*(%1,分) "
+
+#. ($secs)
+#: ../core/lib/TWiki/Time.pm:323
+msgid "%*(%1,second) "
+msgstr "%*(%1,秒)"
+
+#: ../core/templates/oopsgeneric.tmpl:12 ../core/templates/oopsgeneric.tmpl:14
+#: ../core/templates/oopsgeneric.tmpl:16 ../core/templates/oopsgeneric.tmpl:7
+msgid "%1"
+msgstr "%1"
+
+#: ../core/data/TWiki/TWikiPreferences.txt:435
+msgid "%1 (this topic does not yet exist; you can create it)"
+msgstr "%1 (指定のトピックは存在しません。作成できます。)"
+
+#: ../core/templates/registernotifyadminfail.tmpl:3
+#: ../core/templates/registernotifyadminfailrem.tmpl:3
+msgid "%1 - Registration failure for %2 (%3)"
+msgstr "%1 - 登録エラー: %2 (%3) "
+
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:110
+#: ../core/templates/registernotify.tmpl:3
+#: ../core/templates/registernotifyadmin.tmpl:3
+msgid "%1 - Registration for %2 (%3)"
+msgstr "%1 - %2 (%3) の登録"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:62
+msgid "%1 - complete TWiki documentation, Quick Start to Reference"
+msgstr "%1 - TWikiの完全なドキュメント、入門の手引きから参照マニュアルまで"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:64
+msgid "%1 - just for me"
+msgstr "%1 - 自分専用"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:61
+msgid "%1 - starting points on TWiki"
+msgstr "%1 - TWikiの最初の一歩"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:63
+msgid "%1 - try out TWiki on your own"
+msgstr " %1 自分でTWikiを試す"
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:4
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:4
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:4
+#: ../PatternSkin/data/TWiki/WebLeftBarExample.txt:2
+#: ../PatternSkin/data/Trash/WebLeftBar.txt:3
+#: ../PatternSkin/data/_default/WebLeftBar.txt:3
+#: ../PatternSkin/templates/view.pattern.tmpl:43
+#: ../TWikiNetSkin/templates/view.twikinet.tmpl:21
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:10
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:10
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:45
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:11
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:11
+#: ../TopMenuSkin/data/Trash/WebTopMenu.txt:10
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:10
+msgid "%1 Web"
+msgstr "%1 ウェブ"
+
+#: ../PatternSkin/data/TWiki/WebLeftBarExample.txt:3
+msgid "%1 Web Home"
+msgstr "%1 トップページ"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:85
+msgid "%1 for changing your email address"
+msgstr "%1 :メールアドレスの変更"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:84
+msgid "%1 for changing your password"
+msgstr "%1 :パスワードの変更"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:43
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:38
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:86
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:31
+msgid "%1 has a list of other TWiki users"
+msgstr "%1 が、このTWikiサイトの利用者一覧です"
+
+#: ../core/templates/messages.tmpl:531
+msgid ""
+"%1 has been editing the topic for %2 and the lease is still active for "
+"another %3."
+msgstr "%1 がトピック %2 を編集中で、編集ロックは %3 の後に解除されます。"
+
+#: ../core/templates/registernotifyadmin.tmpl:10
+#: ../core/templates/registernotifyadminfail.tmpl:10
+#: ../core/templates/registernotifyadminfailrem.tmpl:10
+msgid "%1 has been registered with e-mail %2"
+msgstr "%1 はメールアドレス %2 で登録されました"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:87
+msgid "%1 is a list of TWiki user documentation"
+msgstr "%1 はTWikiの利用者向けドキュメントの一覧です"
+
+#: ../core/templates/messages.tmpl:141
+msgid "%1 is an invalid name for a new web"
+msgstr "%1 は新規のウェブの名前として使えません"
+
+#: ../core/templates/messages.tmpl:472
+msgid ""
+"%1 is copied to the identical topic. Copy destination is incorrect or "
+"missing."
+msgstr ""
+"%1 を、それ自身にコピーしようとしています。コピー先が誤っているか指定されてい"
+"ません。"
+
+#: ../core/templates/login.sudo.tmpl:4 ../core/templates/login.tmpl:6
+msgid "%1 is currently logged in"
+msgstr "%1 はログインしています"
+
+#: ../core/templates/messages.tmpl:502
+msgid "%1 is currently set to %2"
+msgstr "%1 を %2 にセットしました"
+
+#: ../core/templates/messages.tmpl:529
+msgid "%1 is editing %2."
+msgstr "%1 は %2 を編集中です。"
+
+#: ../core/templates/messages.tmpl:57
+msgid "%1 is in at least one group and cannot be removed"
+msgstr "%1 は少なくとも1つのグループに登録されており、削除できません"
+
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:40
+msgid "%1 is the default topic for deleted attachments."
+msgstr "添付ファイルを削除する際は %1 が既定の移動先トピックです。"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:88
+msgid "%1 lists all TWiki user tools"
+msgstr "%1 がTWiki利用者向けツールの一覧です"
+
+#: ../core/templates/messages.tmpl:537
+msgid "%1 may still be editing %2."
+msgstr "%1 はまだ %2を編集している可能性があります。"
+
+#   "&lt;nop&gt;$fromWeb.&lt;nop&gt;$fromTopic", $date, $by)
+#. ("<nop>$toWeb.<nop>$toTopic", "<nop>$fromWeb.<nop>$fromTopic", $date, $by)
+#: ../core/lib/TWiki/Render.pm:220
+msgid "%1 moved from %2 on %3 by %4"
+msgstr "%1 は %4 が %2 から %3 に移動させました"
+
+#: ../core/templates/messages.tmpl:26
+msgid "%1 to customize the web specific preferences"
+msgstr "%1 :新しいウェブの設定変更"
+
+#: ../core/templates/messages.tmpl:601 ../core/templates/messages.tmpl:612
+msgid "%1 topic does not exist"
+msgstr "トピック %1 は存在しません"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:56
+msgid "&Attach"
+msgstr "ファイルの添付"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:9
+msgid "&Cancel"
+msgstr "取消"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:21
+msgid "&Edit"
+msgstr "編集"
+
+#: ../core/templates/twiki.tmpl:108
+msgid "&History"
+msgstr "履歴"
+
+#: ../core/templates/messages.tmpl:305
+msgid "'%1' is not a valid %2 "
+msgstr "'%1' は無効な %2 です"
+
+#: ../core/data/TWiki/WebTopicCreator.txt:2
+msgid "'Create New Topic' page has moved"
+msgstr "'新規トピックス作成' ページは移動しました"
+
+#: ../core/templates/login.tmpl:12
+msgid "(%1 login)"
+msgstr "(%1 ログイン)"
+
+#: ../PatternSkin/templates/rdiff.pattern.tmpl:6
+#: ../core/templates/rdiff.tmpl:4
+msgid "(%1 vs. %2)"
+msgstr "(%1 と %2)"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:82
+msgid "(=all= to show all topics)"
+msgstr "(全てのトピックを表示するには =all= と入力)"
+
+#: ../core/templates/oopsinvalidtoken.tmpl:4
+msgid "(Invalid Crypt Token)"
+msgstr "(無効な暗号トークン)"
+
+#: ../WysiwygPlugin/lib/TWiki/Plugins/WysiwygPlugin/TML2HTML.pm:145
+msgid "(This message will be removed automatically)"
+msgstr "(この表示は自動的に削除されます)"
+
+#: ../core/templates/messages.tmpl:199
+msgid ""
+"(__Suggestion:__ How about uploading your picture to your profile page?)"
+msgstr "(__提案:__ プロフィールページにあなたの写真をアップロードしませんか?)"
+
+#: ../core/templates/oopsaccessdenied.tmpl:4
+msgid "(access denied)"
+msgstr "(アクセス拒否)"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:4
+#: ../core/templates/attachnew.tmpl:2
+msgid "(attach)"
+msgstr "(ファイルの添付)"
+
+#: ../core/templates/backlinksweb.tmpl:4
+msgid "(backlinks in %1 Web)"
+msgstr "(%1 ウェブ内のバックリンク)"
+
+#: ../core/templates/backlinksallwebs.tmpl:4
+msgid "(backlinks in all Webs)"
+msgstr "(全ウェブ中のバックリンク)"
+
+#: ../core/templates/searchbookview.tmpl:3
+msgid "(book view)"
+msgstr "(ブック表示)"
+
+#: ../core/templates/changeform.tmpl:4
+msgid "(change form)"
+msgstr "(フォームの変更)"
+
+#: ../core/templates/oopschangelanguage.tmpl:2
+#: ../core/templates/oopslanguagechanged.tmpl:3
+msgid "(change language)"
+msgstr "(言語の変更)"
+
+#: ../PatternSkin/templates/changes.pattern.tmpl:4
+#: ../core/templates/changes.tmpl:5
+msgid "(changes)"
+msgstr "(変更)"
+
+#: ../core/templates/copy.tmpl:4
+msgid "(copy)"
+msgstr "(コピー)"
+
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:5
+msgid "(delete attachment)"
+msgstr "(添付ファイルの削除)"
+
+#: ../core/templates/renamedelete.tmpl:4
+msgid "(delete)"
+msgstr "(削除)"
+
+#: ../core/templates/editform.tmpl:4 ../core/templates/editform.tmpl:5
+msgid "(edit form)"
+msgstr "(フォームの編集)"
+
+#: ../core/templates/edittext.tmpl:4 ../core/templates/edittext.tmpl:7
+msgid "(edit text)"
+msgstr "(テキストの編集)"
+
+#: ../core/templates/edit.tmpl:10 ../core/templates/edit.tmpl:4
+msgid "(edit)"
+msgstr "(編集)"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:107
+msgid "(how you log in) LoginName:"
+msgstr "(ログイン用) LoginName:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:102
+msgid "(identifies you to others) WikiName:"
+msgstr "(他利用者との識別用) WikiName:"
+
+#: ../core/templates/login.tmpl:4
+msgid "(login)"
+msgstr "(ログイン)"
+
+#: ../core/templates/oopsmore.tmpl:3
+msgid "(more)"
+msgstr "(様々な操作)"
+
+#: ../core/templates/moveattachment.tmpl:4
+msgid "(move attachment)"
+msgstr "(添付ファイルの移動)"
+
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:57
+msgid "(no parent, orphaned topic)"
+msgstr "(親トピックのないトピック)"
+
+#: ../core/lib/TWiki/UI/Manage.pm:1133 ../core/lib/TWiki/UI/Manage.pm:1159
+#: ../core/lib/TWiki/UI/Manage.pm:1274 ../core/lib/TWiki/UI/Manage.pm:1277
+#: ../core/lib/TWiki/UI/Manage.pm:1280 ../core/lib/TWiki/UI/Manage.pm:1314
+#: ../core/lib/TWiki/UI/Manage.pm:1337 ../core/lib/TWiki/UI/Manage.pm:808
+#: ../core/lib/TWiki/UI/Manage.pm:812 ../core/lib/TWiki/UI/Manage.pm:816
+#: ../core/lib/TWiki/UI/Manage.pm:820
+msgid "(none)"
+msgstr "(無)"
+
+#: ../core/templates/oopsnotfound.tmpl:4
+msgid "(not found)"
+msgstr "(見つかりません)"
+
+#: ../core/data/TWiki/WebSearch.txt:40
+#: ../core/data/TWiki/WebSearchAdvanced.txt:48
+msgid "(otherwise search %1 Web only)"
+msgstr "(そうでなければ %1 ウェブのみ)"
+
+#: ../PatternSkin/templates/view.pattern.tmpl:45
+#: ../TWikiNetSkin/templates/view.twikinet.tmpl:23
+msgid "(raw view)"
+msgstr "(ソース表示)"
+
+#: ../core/templates/oopsmore.tmpl:24 ../core/templates/oopsmore.tmpl:33
+msgid "(recommended)"
+msgstr "(推奨)"
+
+#: ../core/templates/rename.tmpl:4 ../core/templates/renameconfirm.tmpl:4
+#: ../core/templates/renameweb.tmpl:4
+#: ../core/templates/renamewebconfirm.tmpl:4
+msgid "(rename)"
+msgstr "(名前変更)"
+
+#: ../PatternSkin/templates/view.pattern.tmpl:45
+#: ../TWikiNetSkin/templates/view.twikinet.tmpl:23
+msgid "(revision %1)"
+msgstr "(バージョン %1)"
+
+#: ../core/templates/oopssaveerr.tmpl:8
+msgid "(save error)"
+msgstr "(保存エラー)"
+
+#: ../core/templates/searchformat.tmpl:3
+msgid "(search result)"
+msgstr "(検索結果)"
+
+#: ../PatternSkin/templates/search.pattern.tmpl:9
+#: ../core/templates/search.tmpl:3 ../core/templates/search.tmpl:6
+msgid "(search results)"
+msgstr "(検索結果)"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:65
+msgid "(semicolon =;= for and)"
+msgstr "(セミコロン =;= でand検索)"
+
+#: ../PatternSkin/templates/settings.pattern.tmpl:10
+#: ../core/templates/settings.tmpl:4
+msgid "(set preferences)"
+msgstr "(設定変更)"
+
+#: ../core/templates/messages.tmpl:318
+msgid "(single character first name)"
+msgstr "(名前として1文字しか入力されていない)"
+
+#: ../core/templates/messages.tmpl:317
+msgid "(single character last name)"
+msgstr "(苗字として1文字しか入力されていない)"
+
+#: ../core/lib/TWiki/UI/Manage.pm:1114
+msgid "(skipped)"
+msgstr "(スキップ)"
+
+#: ../core/templates/renamewebbase.tmpl:10
+msgid "(to delete the web, select %1)"
+msgstr "(このウェブを削除するには %1 を選んでください)"
+
+#: ../core/templates/attachagain.tmpl:18
+msgid ""
+"*Change comment:* If you use _Change Properties_ to change a comment, the "
+"comment shown in the topic will change, but the comment shown against the "
+"attachment history will be the comment when the file was uploaded."
+msgstr ""
+"*コメントの変更:* \"プロパティのみ変更\" ボタンでコメントを変更することがで"
+"き、新しいコメントがトピックの通常表示に反映されます。ただし、添付ファイルの"
+"履歴に表示されるのはアップロードされたときに入力されたコメントのままになりま"
+"す。"
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:11
+msgid "*Formatting help:*"
+msgstr "*書式指定の説明:*"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:15
+msgid ""
+"*Important:* the information provided in this form will be stored in a "
+"database on the TWiki server. This database is accessible to anyone who can "
+"access the server through the web (though passwords will be encrypted, and e-"
+"mail addresses will be obfuscated to help prevent spamming). Your country, "
+"or the country where the server is hosted, may have Data Protection laws "
+"governing the maintenance of such databases. If you are in doubt, you should "
+"contact %1 for details of the Data Protection Policy of this TWiki server "
+"before registering."
+msgstr ""
+"*重要:* このフォームで提供される情報はこのTWikiサーバーのデータベースに保存さ"
+"れます。そのデータベースはウェブ経由でこのサーバーにアクセスできる人なら誰で"
+"もアクセス可能です。ただし、パスワードは暗号化してあり、また迷惑メールを防ぐ"
+"ためにメールアドレスは変形されていますが。あなたの国またはサーバーが設置され"
+"ている国では当該データベースが関連する法律の管理下にある可能性があります。疑"
+"問があれば、登録前に %1 に連絡し、このTWikiサーバーのデータ保護ポリシーを確認"
+"してください。"
+
+#: ../core/templates/attachagain.tmpl:19
+msgid ""
+"*Local file:* If you select a different file in _Local file:_, it is this "
+"that will be updated or added."
+msgstr ""
+"*ファイルの指定:* 既存の添付ファイルと同じ名前のファイルをアップロードする"
+"と、その添付ファイルが更新されます。指定されたファイルと名前が一致する添付"
+"ファイルがなければ、新な添付ファイルとなります。"
+
+#: ../core/templates/attachagain.tmpl:17
+msgid ""
+"*Properties:* The comment and visibility (i.e. is attachment hidden) can be "
+"changed without uploading a file by pressing \"Change Properties only\"; see "
+"%1."
+msgstr ""
+"*プロパティ:* 添付ファイル一覧への掲載の有無の変更やコメントの変更は、\"プロ"
+"パティのみ変更\" のボタンをクリックことで行え、ファイルをアップロードする必要"
+"はありません。%1 を参照。"
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:12
+msgid "*bold* put word/phrase in asterisks: =<nop>*your phrase*="
+msgstr "*ボールド* 文字列をアスタリスクの間に入れる: =<nop>*文字列*="
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:13
+msgid ""
+"*bullet list* 3 spaces, asterisk, 1 space: =&&nbsp;&&nbsp;&&nbsp;*&&nbsp;"
+"your text="
+msgstr ""
+"*箇条書* 3つの空白、アスタリスク、1つのス空白: =&&nbsp;&&nbsp;&&nbsp;*&&nbsp;"
+"テキスト="
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:17
+msgid ""
+"*external links* =http://google.com/= or =[<nop>[http://google.com/][link to "
+"Google]]="
+msgstr ""
+"*外部リンク* =http://yahoo.com= または =[<nop>[http://yahoo.com/][Yahooへのリ"
+"ンク]]="
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:14
+msgid "*headings* 3 dashes, 1 to 6 pluses, 1 space: =---++&&nbsp;Your Heading="
+msgstr ""
+"*見出し* 3つのダッシュ、1～6個のプラス記号、1個の空白: =---++&&nbsp;見出し="
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:15
+msgid "*italic* put word/phrase in underscores: =_<nop>your words_="
+msgstr "*イタリック* 文字列をアンダースコアの間に入れる: =_<nop>文字列_="
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:18
+msgid "*monospaced* put word/phrase in equal signs: =<nop>=your words=="
+msgstr "*等幅* 文字列を等号の間に入れる: =<nop>=文字列=="
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:19
+msgid "*paragraphs* separate with blank line"
+msgstr "*段落* 空行で区切る"
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:16
+msgid "*site links* use topic name: =%1= or =[<nop>[%1][Our homepage]]="
+msgstr ""
+"*サイト内リンク* トピック名を使う: =%1= または =[<nop>[%1][私達のホームペー"
+"ジ]]="
+
+#: ../core/lib/TWiki/I18N/Extract.pm:107 ../core/lib/TWiki/Render.pm:1682
+msgid "..."
+msgstr "..."
+
+#: ../core/templates/oopsmore.tmpl:18
+msgid "<a href='%1' rel='nofollow'>Add or replace form on this topic...</a>"
+msgstr "<a href='%1' rel='nofollow'>このトピックのフォームを変更...</a>"
+
+#: ../core/templates/oopsmore.tmpl:13
+msgid "<a href='%1' rel='nofollow'>Edit settings</a> for this topic"
+msgstr "このトピックの<a href='%1' rel='nofollow'>設定を変更</a>"
+
+#: ../core/templates/oopsmore.tmpl:46
+msgid "<em>in %1 web</em> only"
+msgstr "<em> %1 ウェブ</em> のみ"
+
+#: ../core/templates/oopsmore.tmpl:44
+msgid "<em>in all public webs</em>"
+msgstr "全公開ウェブ"
+
+#: ../core/templates/messages.tmpl:584
+msgid ""
+"A %1 is divided into webs; each one represents one subject, one area of "
+"collaboration. You are trying to %2 a topic in a web that does not exist. "
+"Remember, web names and topic names are case sensitive."
+msgstr ""
+"%1 は幾つものウェブから成り、ウェブが共同作業の単位となります。あなたが %2 し"
+"ようとしているウェブは存在しません。ウェブの名前には大文字小文字の区別がある"
+"ことに留意してください。"
+
+#: ../core/templates/messages.tmpl:409
+msgid "A =.txt= extension is appended to some filenames for security reasons"
+msgstr "安全のため、幾つかのファイルに =.txt= 拡張子をつけました"
+
+#: ../core/templates/messages.tmpl:166
+msgid ""
+"A color starts with a # sign, followed by 6 hexadecimal numbers, e.g. "
+"=#FFFF00=."
+msgstr "色は # と、それに続く6桁の16進数で指定します。例: =#FFFF00="
+
+#. ($data->{Email})
+#: ../core/lib/TWiki/UI/Register.pm:865
+msgid "A confirmation e-mail has been sent to %1"
+msgstr "確認メールが %1 に送信されました"
+
+#: ../core/templates/messages.tmpl:588
+msgid ""
+"A link to a topic located in another web is written like %1. Verify that the "
+"name of the web is correct and has correct capitalisation in the topic "
+"containing the link; fix the link if necessary."
+msgstr ""
+"他のウェブに <nop>%WEB%.%TOPIC% へのリンクがあります。大文字小文字の違いを含"
+"めてウェブ名に間違いがないか確認してください。必要なら、リンクを修正してくだ"
+"さい。"
+
+#: ../core/templates/messages.tmpl:560
+msgid ""
+"A new system-generated password for your login name %1 (!WikiName %2) has "
+"been sent to your registered e-mail address. If your e-mail address is no "
+"longer valid, please contact %3"
+msgstr ""
+"あたなのログイン名 %1 (!WikiName %2)に対する新たなパスワードを自動生成して、"
+"登録されたメールアドレスに送信しました。そのアドレス宛のメールを受け取れない"
+"場合は、 %3 に連絡してください"
+
+#: ../core/data/TWiki/WebTemplateTopics.txt:4
+msgid "A topic template defines the initial content of a newly created topic."
+msgstr ""
+"トピックのテンプレートは新規に作成されるトピックの最初の中身を規定します。"
+
+#: ../core/templates/oopsaccessdenied.tmpl:6
+msgid "Access Denied"
+msgstr "アクセスが拒否されました"
+
+#: ../core/templates/messages.tmpl:568
+msgid "Access check on %1 failed"
+msgstr "%1 に対して必要な権限がありません"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:53
+#: ../PatternSkin/templates/preview.pattern.tmpl:14
+#: ../PatternSkin/templates/settings.pattern.tmpl:25
+msgid "Access keys"
+msgstr "アクセスキー"
+
+#: ../PatternSkin/data/TWiki/UserBookmarks.txt:23
+#: ../PatternSkin/data/TWiki/UserBookmarks.txt:67
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopBar.txt:22
+msgid "Account"
+msgstr "アカウント"
+
+#: ../core/templates/attachtables.tmpl:37
+#: ../core/templates/attachtables.tmpl:4 ../core/templates/changeform.tmpl:10
+msgid "Action"
+msgstr "操作"
+
+#: ../core/templates/messages.tmpl:569
+msgid "Action %1: %2."
+msgstr "操作 %1: %2."
+
+#: ../core/templates/addform.tmpl:1
+msgid "Add form"
+msgstr "フォームの追加"
+
+#: ../core/templates/oopsmore.tmpl:17
+#, fuzzy
+msgid "Add or replace form"
+msgstr "フォームを変更..."
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:198
+msgid "Add row"
+msgstr "行の追加"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:354
+msgid "Add your name to the list of users in the %1 topic in the %2 web."
+msgstr "%2 ウェブの %1 トピックにある利用者一覧にあなたの名前が追加されます。"
+
+#: ../core/templates/messages.tmpl:385
+msgid "Adding a %1 variable in WebPreferences"
+msgstr " %1 変数をWebPreferencesに追加します"
+
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:25
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:32
+msgid "Admin Maintenance"
+msgstr "管理者用"
+
+#: ../core/templates/login.sudo.tmpl:3
+msgid "Admin TWiki User Authentication"
+msgstr "TWiki管理者の認証"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:3
+msgid "Advanced Search"
+msgstr "高度な検索"
+
+#: ../core/data/TWiki/WebSearch.txt:30
+msgid "Advanced search"
+msgstr "高度な検索"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:20
+msgid ""
+"After submitting this form your e-mail will be changed, and you will be "
+"returned to this form."
+msgstr ""
+"このフォームを送信すると、メールアドレスが変更され、その後このフォームに戻さ"
+"れます。"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:16
+msgid "After submitting this form your password will be changed."
+msgstr "このフォームを送信すると、パスワードが変更されます。"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:12
+msgid ""
+"After submitting this form, you will receive an e-mail with your new, "
+"*system-generated* password, and a link to a page where you can change it."
+msgstr ""
+"このフォームを送信すると、あなた宛てにメールが送られます。そのメールにはTWiki"
+"が生成した新しいパスワードと、それを変更するためのページへのリンクが書かれて"
+"います。"
+
+#: ../core/lib/TWiki.pm:5228
+msgid "All authenticated users."
+msgstr "全認証済み利用者"
+
+#: ../core/data/TWiki/WebSearch.txt:40
+#: ../core/data/TWiki/WebSearchAdvanced.txt:48
+msgid "All public webs"
+msgstr "全公開ウェブ"
+
+#: ../core/data/TWiki/WebTopicList.txt:2
+msgid "All topics in %1 web"
+msgstr "%1　ウェブ内の全てのトピック"
+
+#: ../core/lib/TWiki.pm:5218
+msgid "All users including unauthenticated users."
+msgstr "認証されていない利用者を含めた全利用者"
+
+#: ../core/templates/twiki.tmpl:7
+msgid "Allow non <nop>WikiWord for the new topic name"
+msgstr "新しいトピックの名前はWikiWordでなくても良い"
+
+#: ../core/templates/messages.tmpl:299
+msgid ""
+"Alternatively hit back to go back to TWiki.TWikiRegistration and choose a "
+"different username."
+msgstr ""
+"また、「戻る」をクリックして TWiki.TWikiRegistration に戻って他の利用者名を選"
+"択することもできます。"
+
+#: ../core/templates/messages.tmpl:286
+msgid ""
+"An e-mail could not be delivered. Please notify your %1 administrator, %2"
+msgstr "メールが送信できませんでした。%1 の管理者 %2 へ連絡してください。"
+
+#: ../core/templates/moveattachment.tmpl:30
+msgid ""
+"An error page will be shown if either of the topics are locked by another "
+"user."
+msgstr ""
+"どちらかのトピックが他の利用者にロックされている場合、エラーページが表示され"
+"ます。"
+
+#: ../core/templates/messages.tmpl:17
+msgid "And populated with topics from the base web"
+msgstr "もととなるウェブからトピックがコピーされました。"
+
+#: ../core/templates/changeform.tmpl:23
+msgid ""
+"Any changes you made to the topic before coming to this page are preserved."
+msgstr "このページに移動する前に行われたトピックへ変更は保存されました。"
+
+#: ../TWikiNetSkin/templates/viewtopbar.twikinet.tmpl:111
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:136
+#: ../core/templates/viewtopicactionbuttons.tmpl:72
+msgid "Attach"
+msgstr "ファイルの添付"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:29
+msgid "Attach file or image"
+msgstr "ファイルまたは画像の添付"
+
+#: ../PatternSkin/templates/attachnew.pattern.tmpl:4
+#: ../core/templates/attachnew.tmpl:4
+msgid "Attach file to %1"
+msgstr "ファイルを %1 に添付"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:5
+msgid "Attach image or document on %1"
+msgstr "画像を %1 に添付"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:20
+#: ../core/templates/attach.tmpl:15 ../core/templates/attachnew.tmpl:6
+#: ../core/templates/attachnew.tmpl:8
+msgid "Attach new file"
+msgstr "新しいファイルの添付"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:23
+msgid "Attach up to 10 files at a time."
+msgstr "一度に最大10個までファイルを添付できます。"
+
+#: ../core/templates/attachtables.tmpl:4
+msgid "Attachment"
+msgstr "添付ファイル"
+
+#: ../core/templates/messages.tmpl:618
+msgid "Attachment '%1' does not exist"
+msgstr "添付ファイル'%1'が存在しません"
+
+#: ../core/lib/TWiki/UI/Manage.pm:479
+msgid "Attachment already exists in new topic"
+msgstr "添付ファイルは既に新トピックに存在しています"
+
+#: ../core/templates/messages.tmpl:70
+msgid "Attachment delete failed"
+msgstr "添付ファイルの削除に失敗しました"
+
+#: ../core/lib/TWiki/UI/Manage.pm:459
+msgid "Attachment does not exist"
+msgstr "添付ファイルが存在しません"
+
+#: ../core/templates/messages.tmpl:62
+msgid "Attachment move failed"
+msgstr "添付ファイルの移動に失敗しました"
+
+#: ../PatternSkin/templates/attachtables.pattern.tmpl:7
+msgid "Attachments"
+msgstr "添付ファイル"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:6
+msgid "Attachments help"
+msgstr "ファイル添付の説明"
+
+#: ../core/templates/attach.tmpl:5
+msgid "Attachments of %1"
+msgstr "%1 の添付ファイル "
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:39
+#: ../core/templates/attach.tmpl:46
+msgid "Attachments will not be shown in topic view page."
+msgstr "添付ファイルがトピックの通常表示の添付ファイル一覧に表示されません"
+
+#: ../core/templates/oopsaccessdenied.tmpl:5
+#: ../core/templates/oopsattention.tmpl:5
+#: ../core/templates/oopsinvalidtoken.tmpl:5
+#: ../core/templates/oopslanguagechanged.tmpl:13
+#: ../core/templates/oopsleaseconflict.tmpl:4
+#: ../core/templates/oopsnotfound.tmpl:5 ../core/templates/oopssaveerr.tmpl:10
+msgid "Attention"
+msgstr "お知らせ"
+
+#: ../core/templates/attachtables.tmpl:26
+msgid "Attribute"
+msgstr "プロパティ"
+
+#: ../MailerContrib/templates/mailnotify.tmpl:62
+msgid "Automated notification of topic changes"
+msgstr "トピックの変更の自動通知"
+
+#: ../PatternSkin/templates/changeform.pattern.tmpl:13
+#: ../core/templates/changeform.tmpl:29
+msgid "Available form templates"
+msgstr "選択可能なフォーム"
+
+#: ../core/data/TWiki/WebTemplateTopics.txt:6
+msgid "Available templates in %1 Web:"
+msgstr "%1 ウェブ中に存在するテンプレート:"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:9
+msgid "Back to topic"
+msgstr "トピックに戻る"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:163
+#: ../core/templates/oopsmore.tmpl:42
+#: ../core/templates/viewtopicactionbuttons.tmpl:107
+msgid "Backlinks"
+msgstr "バックリンク"
+
+#: ../core/templates/backlinksweb.tmpl:7
+msgid "Backlinks to %1 in %2 Web"
+msgstr "%2ウェブ中の%1へのバックリンク"
+
+#: ../core/templates/backlinksallwebs.tmpl:7
+msgid "Backlinks to %1 in all Webs"
+msgstr "全ウェブ中の%1へのバックリンク"
+
+#: ../core/templates/messages.tmpl:323
+msgid "Bad password"
+msgstr "パスワードが違います"
+
+#: ../core/templates/messages.tmpl:161
+msgid "Base web %1 is missing or does not exist"
+msgstr "ベースウェブ%1が失われたかまたは存在しません。"
+
+#: ../core/templates/messages.tmpl:477
+msgid ""
+"Before copying %1 to %2, the existing %2 needed to be moved to %3, which "
+"caused an error."
+msgstr ""
+
+#: ../core/data/TWiki/WebSearch.txt:37
+#: ../core/data/TWiki/WebSearchAdvanced.txt:45
+msgid "Both body and title"
+msgstr "内容とトピック名の両方"
+
+#: ../core/templates/changeform.tmpl:24
+msgid ""
+"But existing form data will be lost (you can always retrieve this data "
+"through the topic history)"
+msgstr ""
+"ただし、フォーム変更後、現在のフォームデータは失われます。そして、トピックの"
+"履歴を辿ることで以前のフォームデータは取り出せます。"
+
+#: ../core/data/Trash/WebHome.txt:10
+msgid ""
+"By default, viewing the Trash web is restricted to %1. If you would like to "
+"allow all users to view the Trash web, remove the =ALLOWWEBVIEW= restriction "
+"in WebPreferences."
+msgstr ""
+"デフォルトでは %1 のみがTrashウェブをアクセスできます。全利用者にアクセス権限"
+"を与えるには、Trashウェブ中の WebPreferences にある =ALLOWWEBVIEW= による制限"
+"を取り除いてください"
+
+#: ../core/templates/twiki.tmpl:15
+msgid "Bypass fixing <nop>WikiWord links if the destination is a different web"
+msgstr "移動先・コピー先が別ウェブの場合、<nop>WikiWord リンクの修正を行わない"
+
+#: ../core/templates/messages.tmpl:52 ../core/templates/messages.tmpl:558
+msgid "Can't find user %1"
+msgstr "利用者 %1 が見つかりません"
+
+#: ../core/templates/messages.tmpl:559
+msgid "Can't get an e-mail address for %1 (required for password reset)"
+msgstr " %1 のメールアドレスが確認できません(パスワードのリセットが必要です) "
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:200
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:73
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:156
+#: ../core/templates/twiki.tmpl:86
+msgid "Cancel"
+msgstr "取消"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:47
+msgid "Cancel editing and discard changes"
+msgstr "編集と変更を取り消します"
+
+#: ../core/templates/messages.tmpl:77
+msgid "Cannot create %1 because it already exists."
+msgstr "%1 は既に存在すので作成できません"
+
+#: ../core/templates/messages.tmpl:83 ../core/templates/messages.tmpl:89
+#, fuzzy
+msgid "Cannot create <nop>%1 because the %2 web already exists."
+msgstr "<nop>%1 は既に存在すので作成できません"
+
+#: ../core/templates/messages.tmpl:153
+msgid "Cannot create web %1 because it already exists"
+msgstr "%1ウェブは既に存在するので作成できません"
+
+#: ../core/templates/messages.tmpl:157
+#, fuzzy
+msgid "Cannot create web %1 because the topic %2 already exists"
+msgstr "%1ウェブは既に存在するので作成できません"
+
+#: ../core/templates/messages.tmpl:105 ../core/templates/messages.tmpl:93
+msgid "Cannot rename %1 to %2 because it already exists."
+msgstr "%2 は既に存在するので、 %1 を %2 に変更できません"
+
+#: ../core/templates/messages.tmpl:111
+#, fuzzy
+msgid "Cannot rename %1 to %2 because the topic %3 already exists."
+msgstr "%2 は既に存在するので、 %1 を %2 に変更できません"
+
+#: ../core/templates/messages.tmpl:99
+#, fuzzy
+msgid "Cannot rename %1 to <nop>%2 because the %3 web already exists."
+msgstr "%2 は既に存在するので、 %1 を <nop>%2 に変更できません"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:64
+msgid "Case sensitive"
+msgstr "大文字と小文字を区別する"
+
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:34
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:40
+msgid "Categories"
+msgstr "分野別"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:56
+msgid "Change"
+msgstr "変更"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:2
+msgid "Change Password"
+msgstr "パスワードを変更します"
+
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:2
+msgid "Change Profile Picture of %1"
+msgstr "プロフィールの写真を変更 %1"
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:16
+msgid "Change comment and properties only"
+msgstr "プロパティのみ変更"
+
+#: ../core/templates/renamebase.tmpl:15
+msgid "Change from:"
+msgstr "変更元："
+
+#: ../core/data/TWiki/LanguageSelector.txt:16
+#: ../core/templates/oopschangelanguage.tmpl:20
+#: ../core/templates/oopschangelanguage.tmpl:4
+#: ../core/templates/oopslanguagechanged.tmpl:5
+msgid "Change language"
+msgstr "言語の変更"
+
+#: ../core/templates/renamewebbase.tmpl:43
+msgid "Change links in topics that refer to !%1 in any Web:"
+msgstr "ウェブを問わず、トピック!%1へのリンク全てを変更します"
+
+#: ../core/templates/renamewebbase.tmpl:40
+msgid "Change links in topics that refer to !%1 in the %2 Web:"
+msgstr "トピック!%1へのリンクのうち %2 ウェブにあるもの全てを変更します:"
+
+#: ../core/templates/renamebase.tmpl:56
+msgid "Change links in topics that refer to %1 in any Web:"
+msgstr "ウェブを問わず、トピック!%1へのリンクを全て変更します"
+
+#: ../core/templates/renamebase.tmpl:53
+msgid "Change links in topics that refer to %1 in the %2 Web:"
+msgstr "トピック !%1 へのリンクのうち、 %2 ウェブにあるもの全てを変更します:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:30
+msgid "Change password"
+msgstr "パスワードの変更"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:56
+msgid "Change profile picture"
+msgstr "プロフィールの写真を変更"
+
+#: ../core/templates/attachagain.tmpl:21
+msgid "Change properties only"
+msgstr "プロパティのみ変更"
+
+#: ../core/templates/edit.tmpl:7
+msgid "Change topic"
+msgstr "トピックを変更"
+
+#: ../core/templates/search.tmpl:15
+msgid "Changed"
+msgstr "変更"
+
+#: ../MailerContrib/templates/mailnotify.tmpl:18
+#: ../core/templates/search.tmpl:16
+msgid "Changed by"
+msgstr "変更者:"
+
+#: ../MailerContrib/templates/mailnotify.tmpl:16
+msgid "Changed:"
+msgstr "変更点:"
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:8
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:8
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:9
+#: ../PatternSkin/data/TWiki/WebLeftBarExample.txt:4
+#: ../PatternSkin/data/Trash/WebLeftBar.txt:6
+#: ../PatternSkin/data/_default/WebLeftBar.txt:7
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:15
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:14
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:49
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:15
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:17
+#: ../TopMenuSkin/data/Trash/WebTopMenu.txt:14
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:14
+msgid "Changes"
+msgstr "変更"
+
+#. ($r2, $r1)
+#: ../core/lib/TWiki/UI/RDiff.pm:492
+msgid "Changes from r%1 to r%2"
+msgstr " r%1 から r%2に変更します"
+
+#: ../core/templates/messages.tmpl:500
+msgid ""
+"Check your configuration settings for {TemplateDir} and {TemplatePath}. If "
+"that's not the problem, it may be because you have a setting of %1 that is "
+"pointing to a template that doesn't exist."
+msgstr ""
+"{TemplateDir}と{TemplatePath}の設定を確認してください。それらに問題がない場合"
+"は、 %1 の設定が存在しないテンプレートを指している可能性があります。"
+
+#: ../core/templates/copy.tmpl:62 ../core/templates/renamebase.tmpl:42
+#: ../core/templates/renamedelete.tmpl:31
+msgid "Checked topics will be updated to point to the new topic location."
+msgstr ""
+"チェックされたトピックは更新され、名前変更あるいは移動後のトピックを参照する"
+"ようになります。"
+
+#: ../core/templates/renameweb.tmpl:29
+msgid "Checked topics will be updated to point to the new web name."
+msgstr ""
+"チェックされたトピックは更新され、新しいウェブ名を参照するようになります。"
+
+#: ../core/templates/oopsmore.tmpl:118
+msgid "Child topics in %1 web"
+msgstr "%1 ウェブ中の子トピック"
+
+#: ../core/templates/changeform.tmpl:7
+msgid "Choose a new form for %1"
+msgstr "%1 のフォームの変更"
+
+#: ../PatternSkin/templates/renamebase.pattern.tmpl:33
+#: ../core/lib/TWiki/Form/Checkbox.pm:60
+msgid "Clear all"
+msgstr "全てクリア"
+
+#: ../core/lib/TWiki/Render.pm:203
+msgid ""
+"Click to move topic back to previous location, with option to change "
+"references."
+msgstr ""
+"トピックを以前の場所へ移動する場合はクリックしてください。その際、リンクの更"
+"新をするかどうかを選べます。"
+
+#: ../TagMePlugin/lib/TWiki/Plugins/TagMePlugin.pm:958
+msgid "Click to refine the search"
+msgstr "検索内容を変更する場合はクリックしてください"
+
+#: ../TwistyPlugin/data/TWiki/TwistyPlugin.txt:578
+msgid "Close"
+msgstr "閉じる"
+
+#: ../core/templates/messages.tmpl:165
+msgid "Color %1 has an invalid format"
+msgstr "%1:　色指定としてフォーマットが正しくありません"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:27
+#: ../core/templates/attach.tmpl:25 ../core/templates/attachtables.tmpl:37
+#: ../core/templates/attachtables.tmpl:4
+msgid "Comment"
+msgstr "コメント"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:335
+msgid "Comment:"
+msgstr "コメント:"
+
+#: ../core/templates/oopsmore.tmpl:99
+msgid "Compare revisions"
+msgstr "バージョン比較"
+
+#: ../core/templates/messages.tmpl:242
+msgid "Confirm registration"
+msgstr "登録の確認"
+
+#: ../core/templates/renameconfirm.tmpl:7
+#: ../core/templates/renamewebconfirm.tmpl:7
+msgid "Confirm rename or move"
+msgstr "名前変更や移動の確認"
+
+#: ../core/templates/messages.tmpl:39
+msgid ""
+"Confirm your changes using TWiki's [[%1][topic history comparison tool "
+"(diff)]]."
+msgstr ""
+"行った変更を確認してください。TWikiの[[%1][topic history comparison tool "
+"(diff)]]を使って。"
+
+#: ../core/templates/oopsleaseconflict.tmpl:6
+msgid "Conflict"
+msgstr "衝突"
+
+#: ../core/templates/messages.tmpl:577 ../core/templates/messages.tmpl:598
+#: ../core/templates/messages.tmpl:609 ../core/templates/messages.tmpl:615
+#: ../core/templates/messages.tmpl:621 ../core/templates/messages.tmpl:630
+#: ../core/templates/messages.tmpl:644
+msgid "Contact %1 if you have any questions."
+msgstr "質問は %1 まで。"
+
+#: ../core/templates/messages.tmpl:466
+msgid "Continue and try to rename web?"
+msgstr "続いてウェブの名前を変更しますか？"
+
+#: ../core/data/TWiki/WebTopicCreator.txt:4
+msgid "Continue to create the new page"
+msgstr "トピック作成を続行する"
+
+#: ../WysiwygPlugin/lib/TWiki/Plugins/WysiwygPlugin/TML2HTML.pm:141
+msgid ""
+"Conversion to HTML for WYSIWYG editing is disabled because of the topic "
+"content."
+msgstr ""
+"トピックの内容によりWYSIWYG編集のためのHTMLへ変換が無効化されています。"
+
+#: ../core/templates/copy.tmpl:20 ../core/templates/copy.tmpl:7
+msgid "Copy"
+msgstr "コピー"
+
+#: ../core/templates/oopsmore.tmpl:39
+msgid "Copy this topic..."
+msgstr "このトピックをコピー..."
+
+#: ../core/templates/oopsmore.tmpl:38
+msgid "Copy topic"
+msgstr "コピー先トピックの指定:"
+
+#: ../core/templates/copy.tmpl:35
+msgid "Copy:"
+msgstr "コピー:"
+
+#: ../core/data/TWiki/TWikiPreferences.txt:40
+#: ../core/data/TWiki/WebPreferences.txt:33
+msgid ""
+"Copyright &&copy; %1 by the contributing authors. All material on this "
+"collaboration platform is the property of the contributing authors."
+msgstr ""
+"&&copy; %1 全てのコード・ドキュメント提供者。この共同作業プラットフォームの全"
+"構成要素はそれらを提供した人々に帰属します。"
+
+#: ../core/templates/messages.tmpl:175
+msgid "Could not create the new web %1"
+msgstr "新しいウェブ %1 を作成できませんでした"
+
+#: ../core/templates/messages.tmpl:498
+msgid "Could not find template"
+msgstr "テンプレートが見つかりませんでした"
+
+#: ../core/templates/messages.tmpl:563
+msgid "Could not perform search. Error was: %1"
+msgstr "検索が行えませんでした。エラー内容: %1"
+
+#: ../core/templates/messages.tmpl:355
+msgid "Could not save %1."
+msgstr "%1を保存できませんでした"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:164
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:92
+msgid "Country"
+msgstr "居住国"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:136
+msgid "Country:"
+msgstr "居住国:"
+
+#: ../TagMePlugin/data/TWiki/TagMeCreateNewTag.txt:23
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:27
+msgid "Create"
+msgstr "作成"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:36
+msgid "Create '%1'"
+msgstr "'%1' を作成"
+
+#: ../core/data/Sandbox/WebHome.txt:31
+msgid "Create <nop>TestTopic###"
+msgstr "<nop>TestTopic###を作成"
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:5
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:5
+#: ../PatternSkin/data/_default/WebLeftBar.txt:4
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:11
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:46
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:12
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:11
+msgid "Create New Topic"
+msgstr "新トピックの作成"
+
+#: ../PatternSkin/data/TWiki/PatternSkinWebCreateNewTopicTemplate.txt:43
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:6
+msgid "Create New Topic in %1 Web"
+msgstr "%1 ウェブでの新トピック作成"
+
+#: ../core/data/Sandbox/WebHome.txt:17
+#, fuzzy
+msgid "Create Test Topics"
+msgstr "新トピックの作成"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:37
+#: ../core/templates/attach.tmpl:38
+msgid "Create a link to the attached file"
+msgstr "添付ファイルへのリンクを作成"
+
+#: ../core/data/Sandbox/WebHome.txt:30
+msgid "Create a new auto-numbered test topic:"
+msgstr "自動番号付与によりテストトピックを作成:"
+
+#: ../core/data/Sandbox/WebHome.txt:20
+msgid "Create a new document by name:"
+msgstr "名前を指定して新しいトピックを作成:"
+
+#: ../core/data/Sandbox/WebHome.txt:22
+msgid "Create by Name"
+msgstr "名前を指定して作成"
+
+#: ../PatternSkin/data/TWiki/WebLeftBarExample.txt:11
+msgid "Create personal sidebar"
+msgstr "自分のサイドバーの作成"
+
+#: ../core/templates/messages.tmpl:596
+msgid "Create the topic"
+msgstr "トピックを作成"
+
+#: ../core/data/TWiki/TWikiPreferences.txt:437
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:61
+#: ../core/lib/TWiki/Render.pm:112
+msgid "Create this topic"
+msgstr "このトピックを作成"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:353
+msgid ""
+"Create your personal %1 topic using your WikiName as topic name, and add the "
+"data you submitted to the topic."
+msgstr ""
+"登録フォームへの入力を元にあなたの WikiName と同じ名前の個人トピックが作成さ"
+"れます。"
+
+#: ../core/templates/messages.tmpl:384
+msgid "Creating a suitable Form Definition topic"
+msgstr "フォーム定義トピックを作成"
+
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:9
+#: ../core/templates/renamedelete.tmpl:10
+msgid "Current location:"
+msgstr "現在の位置："
+
+#: ../core/templates/oopsmore.tmpl:57
+msgid "Current parent:"
+msgstr "現在の親トピック："
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:27
+msgid "Current password"
+msgstr "現在のパスワード"
+
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:51
+msgid "Current picture"
+msgstr "現在の画像："
+
+#: ../core/templates/attachtables.tmpl:37
+#: ../core/templates/attachtables.tmpl:4
+msgid "Date"
+msgstr "日付"
+
+#: ../core/templates/mailresetpassword.tmpl:5
+msgid "Dear %1"
+msgstr "%1 さん"
+
+#: ../core/templates/oopsmore.tmpl:103
+msgid "Debug"
+msgstr "デバッグ形式で"
+
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:59
+msgid "Default template"
+msgstr "デフォルトテンプレート"
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:24
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:25
+#: ../TagMePlugin/data/TWiki/TagMeDeleteTag.txt:29
+#: ../core/templates/renamedelete.tmpl:34
+#: ../core/templates/renamedelete.tmpl:7
+msgid "Delete"
+msgstr "削除"
+
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:28
+msgid "Delete attachment"
+msgstr "添付ファイルの削除"
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:199
+msgid "Delete last row"
+msgstr "最後の行を削除"
+
+#: ../core/templates/oopsmore.tmpl:22
+msgid "Delete topic"
+msgstr "このトピックの削除"
+
+#: ../core/templates/oopsmore.tmpl:23 ../core/templates/oopsmore.tmpl:25
+msgid "Delete topic..."
+msgstr "このトピックの削除..."
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:159
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:87
+msgid "Department"
+msgstr "所属部署"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:29
+msgid "Describe the file so other people know what it is."
+msgstr "どんなファイルか分かるように説明してください"
+
+#: ../core/lib/TWiki/Form.pm:350
+msgid "Details in separate window"
+msgstr "他のウィンドウに詳細を表示"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:20
+msgid "Did you spell the %1 correctly?"
+msgstr "%1 を正しく入力しましたか？"
+
+#: ../core/data/TWiki/VarMAKETEXT.txt:19
+msgid "Did you want to [[%1][reset %2's password]]?"
+msgstr " [[%1][%2のパスワードをリセット]]したいですか?"
+
+#: ../PatternSkin/templates/rdiff.pattern.tmpl:14
+msgid "Difference:"
+msgstr "差異："
+
+#: ../core/templates/preview.tmpl:11
+msgid "Do not forget to save your changes"
+msgstr "変更を保存することを忘れないでください"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:39
+#: ../core/templates/attach.tmpl:46
+msgid "Do not show attachment in table"
+msgstr "添付ファイルを一覧に非表示"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:76
+msgid "Do show:"
+msgstr "表示形式:"
+
+#: ../core/data/TWiki/ReadOnlyAndMirrorWebs.txt:86
+msgid ""
+"Do you really want to mirror to all slave sites now?\\nIt may take a while "
+"to complete."
+msgstr ""
+"本当に全てのスレーブサイトにミラーしますか。\\nかなりの時間を要する可能性があ"
+"ります。"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:35
+msgid "Do you wish to create the topic %1?"
+msgstr "トピック %1 を作成しますか?"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:6
+msgid "Do you wish to navigate quickly to a similar topic?"
+msgstr "似た名前のトピックを探しますか？"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:69
+msgid "Don't show:"
+msgstr "非表示項目:"
+
+#: ../core/templates/messages.tmpl:490
+msgid "During copy of %1 to %2 an error occurred."
+msgstr "トピック　%1　を %2 にコピーする際ににエラーが発生しました。"
+
+#: ../core/templates/messages.tmpl:71
+msgid ""
+"During deletion of attachment =%1= an error was found. Please notify your %2 "
+"administrator."
+msgstr ""
+"添付ファイル =%1= を削除する際にエラーが発生しました。管理者 %2 に連絡してく"
+"ださい。"
+
+#: ../core/templates/messages.tmpl:63
+msgid ""
+"During move of attachment %1 to %2 an error was found. Please notify your %3 "
+"administrator."
+msgstr ""
+"添付ファイル =%1= を %2 へ移動する際にエラーが発生しました。管理者 %3 に連絡"
+"してください。"
+
+#: ../core/templates/messages.tmpl:121
+msgid ""
+"During rename of topic %1 to %2 an error (%3) was found. Please notify your %"
+"4 administrator."
+msgstr ""
+"トピック名 %1 を %2 に変更する際にエラー(%3)が発生しました。管理者 %4 に連絡"
+"してください"
+
+#: ../core/templates/messages.tmpl:124
+msgid ""
+"During rename of web %1 to %2 an error (%3) was found. Please notify your %4 "
+"administrator."
+msgstr ""
+"ウェブ名 %1 を %2 に変更する際にエラー(%3)が発生しました。管理者 %4 に連絡し"
+"てください。"
+
+#: ../core/templates/messages.tmpl:443 ../core/templates/oopssaveerr.tmpl:17
+msgid ""
+"During save of %1 an error was found by the version control system. Please "
+"notify your %2 administrator."
+msgstr ""
+"%1 を保存する際にバージョンコントロールエラーが発生しました。管理者 %2 に連絡"
+"してください。"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:111
+msgid "E-mail address:"
+msgstr "メールアドレス："
+
+#: ../core/templates/messages.tmpl:226
+msgid "E-mail changed successfully!"
+msgstr "メールアドレスが変更されました。"
+
+#: ../core/templates/settings.tmpl:27
+msgid "Each preference has the syntax"
+msgstr "個々の設定は以下の書式で"
+
+#: ../TWikiNetSkin/templates/viewtopbar.twikinet.tmpl:97
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:112
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:83
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:27
+#: ../core/templates/viewtopicactionbuttons.tmpl:51
+msgid "Edit"
+msgstr "編集"
+
+#: ../core/templates/oopsleaseconflict.tmpl:21
+msgid "Edit Anyway"
+msgstr "強制編集"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:16
+msgid "Edit help"
+msgstr "編集の説明"
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:194
+msgid "Edit table"
+msgstr "表の編集"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:83
+msgid "Edit this record"
+msgstr "レコードの編集"
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:195
+msgid "Edit this table"
+msgstr "この表の編集"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:30
+#: ../core/templates/oopsmore.tmpl:12
+msgid "Edit topic preference settings"
+msgstr "トピック設定の編集"
+
+#: ../core/templates/messages.tmpl:340
+msgid ""
+"Either the code is not valid, or you have already confirmed your "
+"registration using it."
+msgstr ""
+"確認コードが間違っているか、または既にその確認コードを使って登録の確認を行っ"
+"ています。"
+
+#: ../core/templates/messages.tmpl:426
+msgid ""
+"Either you did not specify a file name, or the file you are trying to upload "
+"%1 has no content. You may not upload an empty file."
+msgstr ""
+"ファイル名を指定しなかったか、またはアップロードしようとしているファイル %1 "
+"に中身がありません。空のファイルはアップロードできません。"
+
+#: ../core/lib/TWiki/UI/Register.pm:433 ../core/lib/TWiki/UI/Register.pm:480
+msgid "Email has been disabled for this TWiki installation"
+msgstr "このTWikiではメール送信は無効にされています"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:76
+msgid "Enlarge edit box"
+msgstr "編集欄を拡大します"
+
+#: ../core/templates/login.tmpl:7
+msgid "Enter a new username and password to change identity"
+msgstr "別の利用者として使うには新しい利用者名とパスワードを入力してください"
+
+#: ../core/templates/login.sudo.tmpl:18
+msgid "Enter the TWiki Administrator user or login as set in %1"
+msgstr "%1 で設定したTWiki管理者の名前かログイン名を入力してください"
+
+#: ../core/templates/messages.tmpl:476 ../core/templates/messages.tmpl:489
+msgid "Error copying topic"
+msgstr "トピックのコピー中にエラーが発生しました"
+
+#: ../core/templates/messages.tmpl:276
+msgid "Error registering new user"
+msgstr "新規利用者を登録する際にエラーが発生しました"
+
+#: ../core/templates/messages.tmpl:267
+msgid "Error registering user %1"
+msgstr " %1 を登録する際にエラーが発生しました"
+
+#: ../core/templates/messages.tmpl:442
+msgid "Error saving topic"
+msgstr "トピックの保存中にエラーが発生しました"
+
+#: ../core/templates/login.tmpl:29
+msgid "Error: %1"
+msgstr "エラー: %1"
+
+#: ../core/templates/messages.tmpl:551
+msgid "Error: File attachment at %1,%2 does not exist"
+msgstr "エラー： 添付ファイルは %1, %2 に存在しません"
+
+#: ../core/templates/messages.tmpl:553
+msgid ""
+"Error: Unsupported content type: %1 (Must be =text/html=, =text/plain= or "
+"=text/css=)"
+msgstr ""
+"エラー: 非対応のコンテンツタイプ: %1 (=text/html=　または =text/plain=, "
+"=text/css= でなければなりません)"
+
+#: ../core/templates/messages.tmpl:552
+msgid "Error: Unsupported protocol. (Must be 'http://domain/...')"
+msgstr "エラー: 非対応のプロトコル ('http://domain/..'でなければなりません)"
+
+#: ../core/templates/messages.tmpl:290
+msgid "Errors"
+msgstr "エラー"
+
+#: ../core/templates/messages.tmpl:509
+msgid "Example:"
+msgstr "例:"
+
+#: ../core/templates/messages.tmpl:561
+msgid "Failed to include URL %1"
+msgstr "URL %1 の読み込みに失敗しました"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:32
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:25
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:23
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:92
+msgid "Fields marked %1 are required"
+msgstr " %1 が付いたフィールドは必須です"
+
+#: ../core/templates/messages.tmpl:417
+msgid "File type is different"
+msgstr "フィールドの型が違います"
+
+#: ../core/templates/messages.tmpl:391
+msgid "Files have been uploaded with different name"
+msgstr "ファイルは違う名前でアップロードされました"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:21
+msgid "Find backlinks"
+msgstr "バックリンク"
+
+#: ../core/templates/oopsmore.tmpl:43 ../core/templates/oopsmore.tmpl:45
+msgid "Find topics that link to %1 ..."
+msgstr "%1へリンクしているトピックを検索..."
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:352
+msgid ""
+"Finish creating an account for you, so that you can start editing pages "
+"using your WikiName."
+msgstr ""
+"アカウント登録が完了しました。登録した WikiName でページを編集できます。"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:95
+msgid "First Name:"
+msgstr "(アルファベット表記の)名前:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:73
+msgid ""
+"Fixed pulldown menu-bar of %1, on or off. If off, the menu-bar hides "
+"automatically when scrolling."
+msgstr ""
+"%1 の固定されたプルダウンメニューバーのon/off。offにするとスクロールした際に"
+"自動的にメニューバーが隠れます。"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:30
+msgid "Force new revision"
+msgstr "無条件に新バージョン"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:5
+msgid "Forgotten your password?"
+msgstr "パスワードを忘れましたか？"
+
+#: ../PatternSkin/data/TWiki/PatternSkinCustomization.txt:447
+msgid "Form"
+msgstr "フォーム"
+
+#: ../core/templates/messages.tmpl:362
+msgid "Form Definition %1 missing"
+msgstr "フォーム %1 が未定義です"
+
+#: ../core/templates/messages.tmpl:367
+msgid "Form definition missing"
+msgstr "フォームが未定義です"
+
+#: ../core/templates/copy.tmpl:69
+msgid ""
+"Get help on <a target='CopyingTopics' class='twikiPopUp' href='%1' "
+"rel='nofollow'>Copying topics</a>."
+msgstr ""
+"<a target='CopyingTopics' class='twikiPopUp' href='%1' rel='nofollow'>トピッ"
+"クのコピー</a>に関する説明を読む。"
+
+#: ../core/templates/renamebase.tmpl:66
+msgid ""
+"Get help on <a target='ManagingTopics' class='twikiPopUp' href='%1' "
+"rel='nofollow'>Renaming and moving topics</a>."
+msgstr ""
+"<a target='ManagingTopics' class='twikiPopUp' href='%1' rel='nofollow'>トピッ"
+"クの名前変更と移動</a>に関する説明を読む。"
+
+#: ../core/templates/renamewebbase.tmpl:50
+msgid ""
+"Get help on <a target='ManagingWebs' class='twikiPopUp' href='%1' "
+"rel='nofollow'>Renaming and moving webs</a>."
+msgstr ""
+"<a target='ManagingWebs' class='twikiPopUp' href='%1' rel='nofollow'>ウェブの"
+"名前変更と移動</a>に関する説明を読む。"
+
+#: ../core/templates/settings.tmpl:26
+msgid ""
+"Get help on <a target='TWikiVariables' class='twikiPopUp' href='%1' "
+"rel='nofollow'>Setting topic preferences</a>."
+msgstr ""
+"<a target='TWikiVariables' class='twikiPopUp' href='%1' rel='nofollow'>トピッ"
+"クの設定</a>に関する説明を読む。"
+
+#: ../core/data/TWiki/WebSearch.txt:5
+#: ../core/data/TWiki/WebSearchAdvanced.txt:5
+msgid "Get notified on changes on this search"
+msgstr "この検索結果の変化をウォッチする"
+
+#: ../core/templates/twiki.tmpl:88
+msgid "Go back"
+msgstr "戻る"
+
+#: ../core/templates/messages.tmpl:359
+msgid ""
+"Go back in your browser and insert information for all mandatory fields."
+msgstr "前のページに戻って全ての必須項目を入力してください"
+
+#: ../core/templates/messages.tmpl:449 ../core/templates/oopssaveerr.tmpl:21
+msgid "Go back in your browser and save your changes locally."
+msgstr "前のページに戻って全ての変更をローカルに保存してください。"
+
+#: ../core/templates/messages.tmpl:314
+msgid "Good examples:"
+msgstr "良い例:"
+
+#: ../core/lib/TWiki.pm:5173
+msgid "Group"
+msgstr "グループ"
+
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:6
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:12
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:14
+msgid "Groups"
+msgstr "グループ"
+
+#: ../PatternSkin/data/TWiki/WebLeftBarLogin.txt:3
+msgid "Hello %1"
+msgstr "こんにちは %1 さん"
+
+#: ../core/templates/twiki.tmpl:112
+msgid "Hello %1!"
+msgstr "こんにちは %1 さん"
+
+#: ../core/data/TWiki/WebSearch.txt:30
+#: ../core/data/TWiki/WebSearchAdvanced.txt:36 ../core/templates/login.tmpl:50
+msgid "Help"
+msgstr "操作説明"
+
+#: ../core/templates/attach.tmpl:44
+msgid "Hide file"
+msgstr "ファイルを隠す"
+
+#: ../core/templates/login.tmpl:50
+msgid "Hide help"
+msgstr "説明を隠す"
+
+#: ../core/templates/messages.tmpl:144
+msgid "Hierarchical Webs is currently disabled, you cannot create Nested webs."
+msgstr ""
+"ウェブの階層化は現在無効になっており、ウェブの中にウェブを作ることはできませ"
+"ん。"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:22
+#: ../core/templates/attachtables.tmpl:4
+msgid "History"
+msgstr "履歴"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinHomeMenu.txt:10
+msgid "Home"
+msgstr "ホーム"
+
+#: ../core/templates/registernotify.tmpl:16
+msgid "How about attaching your photo?"
+msgstr "あなたの写真を添付してはいかがですか?"
+
+#: ../core/templates/registerconfirm.tmpl:4
+msgid "How to activate your %1 registration"
+msgstr "%1　の利用者登録を完了するには"
+
+#: ../core/templates/registernotifyadminfail.tmpl:12
+msgid ""
+"However, confirmation e-mail to %2 failed, indicating probable fraudulent "
+"registration.  The %1 user could not be removed automatically."
+msgstr ""
+"しかし、 %2 へ送った確認メールは届きませんでした。これは虚偽の登録であること"
+"を示唆しています。利用者 %1 は自動的には削除されません。"
+
+#: ../core/templates/registernotifyadminfailrem.tmpl:12
+msgid ""
+"However, confirmation e-mail to %2 failed, indicating probable fraudulent "
+"registration.  The %1 was removed automatically, however you must remove the "
+"user's topic manually."
+msgstr ""
+"しかし、 %2 へ送った確認メールは届きませんでした。これは虚偽の登録であること"
+"を示唆しています。利用者 %1 の登録は自動的削除されましたが、その利用者のト"
+"ピックは手動で削除する必要があります。"
+
+#: ../core/templates/login.tmpl:65
+msgid "I forgot my password"
+msgstr "パスワードを忘れた"
+
+#: ../core/data/TWiki/TWikiPreferences.txt:40
+#: ../core/data/TWiki/WebPreferences.txt:33
+msgid "Ideas, requests, problems regarding %1? <a href='%2'>Send feedback</a>"
+msgstr "%1 に関する提案や、要望、問題点があれば<a href='%2'>こちら</a>まで。"
+
+#: ../core/templates/messages.tmpl:376
+msgid "If this line isn't present see _upgrade_ section below"
+msgstr ""
+"この行が表示されない場合、下の _アップグレード_ のセクションを見てください"
+
+#: ../core/templates/messages.tmpl:370
+msgid "If this topic is missing create it, otherwise check it for errors."
+msgstr ""
+"このトピックが作成されていない場合は作成してください。そうでなければ、エラー"
+"が起こっていないか確認してください。"
+
+#: ../core/data/TWiki/WebSearch.txt:51
+#: ../core/data/TWiki/WebSearchAdvanced.txt:92
+msgid ""
+"If you already know the name of the topic, enter the name of the topic into "
+"the [[%1][Jump box]] at the top"
+msgstr ""
+"トピック名が分かっている場合は、先頭の[[%1][ジャンプ欄]]に入力してください"
+
+#: ../core/templates/messages.tmpl:513 ../core/templates/messages.tmpl:522
+msgid ""
+"If you are developing a <nop>TWikiApplication, see %1 for a description of "
+"the correct parameters."
+msgstr ""
+"<nop>TWikiApplicationを開発しているのであれば、 %1 にあるパラメーターの説明を"
+"参照してください。"
+
+#: ../core/templates/messages.tmpl:586
+msgid "If you came here by clicking a topic creation link"
+msgstr "トピック作成のリンクをクリックしてここに来た場合"
+
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:40
+msgid "If you enter a different name, make sure the topic does  exist."
+msgstr ""
+"既定以外のトピック名を指定する場合、そのトピックが存在することを確認してくだ"
+"さい。"
+
+#: ../core/templates/registernotify.tmpl:25
+msgid ""
+"If you got this e-mail by mistake: Somebody (%1) registered at the %2 site "
+"using your mail address %3. Contact %4 if this is in error."
+msgstr ""
+"このメールに心当たりがない場合： サイト %2 で、%1 があなたがお使いのメールア"
+"ドレス %3 を使って利用登録をしました。心当たりがない旨を %4 に連絡していただ"
+"けると助かります。"
+
+#: ../core/templates/registerconfirm.tmpl:14
+msgid ""
+"If you got this e-mail by mistake: Somebody (%1, %5) registered at the %2 "
+"site using your mail address %3. Contact %4 if this is in error."
+msgstr ""
+"このメールに心当たりがない場合： サイト %2 で、%1 があなたがお使いのメールア"
+"ドレス %3 を使って利用登録をしました。心当たりがない旨を %4 に連絡していただ"
+"けると助かります。"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:366
+msgid "If you have any questions about registration, send an e-mail to %1."
+msgstr "登録に関する質問は %1 にメールで。"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:42
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:36
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:33
+#: ../core/templates/login.tmpl:76
+msgid "If you have any questions, please contact %1"
+msgstr "質問は、 %1 まで"
+
+#: ../WatchlistPlugin/templates/watchlistdigestnotify.tmpl:12
+#: ../WatchlistPlugin/templates/watchlistimmediatenotify.tmpl:15
+#: ../core/data/TWiki/VarMAKETEXT.txt:16
+#: ../core/templates/mailresetpassword.tmpl:14
+msgid "If you have any questions, please contact %1."
+msgstr "質問は、 %1 まで。"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:140
+#: ../core/templates/registernotify.tmpl:27
+msgid "If you haven't set a password yet or you want to reset it, go to: %1"
+msgstr ""
+"パスワードを設定していない場合、またはパスワードをリセットしたい場合は、 %1 "
+"へ行ってください"
+
+#: ../core/templates/messages.tmpl:520
+msgid ""
+"If you received a link to this topic in an e-mail or just want to look at "
+"the topic, [[%1][cancel save]] to go to %2."
+msgstr ""
+"このトピックへのリンクがメールで届いた場合、または単にこのトピックを見たいだ"
+"けの場合は、[[%1][保存を取り消し]] すれば %2 を通常表示できます。"
+
+#: ../core/templates/messages.tmpl:595
+msgid "If you want to create the topic"
+msgstr "トピックを作成したい場合"
+
+#: ../core/templates/messages.tmpl:591
+msgid "If you would like to create a new web"
+msgstr "新しいウェブを作成したい場合"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:13
+msgid ""
+"If your old e-mail addresses are all invalid (you can't receive mail there "
+"any more) and you have forgotten your password, please contact %1 for help."
+msgstr ""
+"以前使っていたメールアドレスが全て使用不能（メールも受け取れない）で、パス"
+"ワードも忘れた場合は、 %1 に連絡してください。"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:11
+msgid ""
+"If your user topic is not protected from changes by other people, and you "
+"don't register an e-mail address using this form, then your user account "
+"could be hijacked by someone else."
+msgstr ""
+"あなたの利用者トピックが他の利用者による変更を許していて、かつ、このフォーム"
+"でメールアドレスを登録していない場合、あなたのアカウントが他人に乗っ取られる"
+"可能性があります。"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:37
+#: ../core/templates/attach.tmpl:38
+msgid "Images will be displayed, for other attachments a link will be created."
+msgstr "画像の場合は表示され、それ以外の場合はリンクが作成されます"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:59
+msgid "In reverse order"
+msgstr "逆順で"
+
+#: ../core/templates/messages.tmpl:407
+msgid ""
+"In some cases, TWiki changes the name of the uploaded file to make it safe "
+"and accessible across all platforms:"
+msgstr ""
+"全てのプラットフォームでアクセスできるように、TWikiがアップロードされたファイ"
+"ルの名前を変更する場合があります。"
+
+#: ../core/templates/messages.tmpl:304 ../core/templates/messages.tmpl:311
+msgid "Incorrect %1"
+msgstr "間違った %1"
+
+#: ../core/templates/messages.tmpl:314
+msgid "Incorrect %1.WikiNames:"
+msgstr "間違った %1.WikiNames"
+
+#: ../core/templates/messages.tmpl:127
+msgid "Incorrect Password"
+msgstr "間違ったパスワード"
+
+#: ../core/templates/messages.tmpl:518
+msgid "Incorrect parameters to the =%1= script"
+msgstr "=%1= スクリプトの中の間違ったなパラメーター"
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:6
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:6
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:7
+#: ../PatternSkin/data/TWiki/WebLeftBarExample.txt:5
+#: ../PatternSkin/data/Trash/WebLeftBar.txt:4
+#: ../PatternSkin/data/_default/WebLeftBar.txt:5
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:13
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:12
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:47
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:13
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:15
+#: ../TopMenuSkin/data/Trash/WebTopMenu.txt:12
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:12
+msgid "Index"
+msgstr "索引"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:154
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:81
+msgid "Info"
+msgstr "情報"
+
+#: ../core/templates/messages.tmpl:278
+msgid "Internal error when sending email to %1."
+msgstr " %1 にメールを送信する際に内部エラーが発生しました。"
+
+#: ../core/templates/messages.tmpl:411
+msgid ""
+"International (8-bit) characters are removed (replaced by US-ASCII "
+"equivalents for Latin-1)"
+msgstr ""
+"非US-ASCII文字(8ビット)を、Latin-1と仮定して対応するUS-ASCII文字に置き換えま"
+"した"
+
+#: ../core/templates/messages.tmpl:337
+msgid "Invalid Activation Code"
+msgstr "無効な確認コード"
+
+#: ../core/templates/oopsinvalidtoken.tmpl:6
+msgid "Invalid Crypt Token"
+msgstr "無効な暗号トークン"
+
+#: ../core/templates/messages.tmpl:329
+msgid "Invalid e-mail address"
+msgstr "無効なメールアドレス"
+
+#: ../core/templates/messages.tmpl:533
+msgid ""
+"It is probably OK to go ahead and edit - unless you intend to change data in "
+"a form attached to the topic. If %1 actually _does_ save the topic while you "
+"are editing, your changes will be merged, and nothing will be lost. Form "
+"data cannot easily be merged though, so in this case you are recommended to "
+"check with %1 first."
+msgstr ""
+"フォームのデータを変更したい場合以外、編集してしまっても多分問題はありませ"
+"ん。あなたが編集している間に %1 がこのトピックを変更して保存し、その後あなた"
+"が変更を保存した場合でも、あなたが行った変更はマージされ、何も失われません。"
+"但し、フォームのデータは簡単にマージすることができないので、フォームのデータ"
+"を変更するのであれば、事前に %1 に確認することをお薦めします。"
+
+#: ../core/templates/twiki.tmpl:9
+msgid ""
+"It's usually best to choose a <a target='WikiWord' class='twikiPopUp' href='%"
+"1' rel='nofollow'>WikiWord</a> for the new topic name, otherwise automatic "
+"linking may not work. Characters not allowed in topic names, such as spaces "
+"will automatically be removed."
+msgstr ""
+"新しいトピックの名前には<a target='WikiWord' class='twikiPopUp' href='%1' "
+"rel='nofollow'>WikiWord</a>の使用が推奨されています。そうでないと、トピック名"
+"が自動的にはリンクにならないからです。トピック名に使えない文字、例えば空白は"
+"自動的に取り除かれます。"
+
+#: ../core/templates/renameweb.tmpl:17
+msgid ""
+"It's usually best to choose a short name for the new web, as it is easier to "
+"link to them later on. Characters not allowed in web names, such as spaces "
+"will automatically be removed."
+msgstr ""
+"新しいウェブには短い名前を付けることが推奨されています。そうすると、他のウェ"
+"ブからのリンクがより容易になるからです。ウェブ名に使えない文字、例えばス空白"
+"は自動的に削除されます。"
+
+#: ../PatternSkin/data/TWiki/WebLeftBarSearch.txt:2
+#: ../PatternSkin/data/TWiki/WebTopBar.txt:7
+#: ../PatternSkin/templates/twiki.pattern.tmpl:36
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopBar.txt:76
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:26
+msgid "Jump"
+msgstr "ジャンプ"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:99
+msgid "Last Name:"
+msgstr "(アルファベット表記の)苗字:"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:57
+msgid "Last editor"
+msgstr "最後に編集した利用者"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:56
+msgid "Last modified time"
+msgstr "最終更新日時"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:81
+msgid "Limit results to:"
+msgstr "結果表示数制限:"
+
+#. ($left)
+#. ($right)
+#: ../core/lib/TWiki/UI/RDiff.pm:158 ../core/lib/TWiki/UI/RDiff.pm:160
+#: ../core/lib/TWiki/UI/RDiff.pm:194
+msgid "Line: %1"
+msgstr "%1行目"
+
+#. ($left,$right)
+#: ../core/lib/TWiki/UI/RDiff.pm:308
+msgid "Line: %1 to %2"
+msgstr "%1から%2行目"
+
+#: ../core/templates/attach.tmpl:36
+msgid "Link"
+msgstr "リンク"
+
+#: ../core/data/TWiki/WebSearch.txt:52
+#: ../core/data/TWiki/WebSearchAdvanced.txt:93
+msgid "List all topics in the %1 web in alphabetical order"
+msgstr "アルファベット順に %1 ウェブ中の全トピックを表示"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:17
+msgid "List more similar topics in this web"
+msgstr "このウェブ中の似た名前のトピックの一覧"
+
+#: ../core/data/TWiki/WebSearch.txt:53
+#: ../core/data/TWiki/WebSearchAdvanced.txt:94
+msgid "List topics that start with the letter:"
+msgstr "指定した文字で始まる名前のトピックの一覧を表示:"
+
+#: ../core/data/Main/TWikiPreferences.txt:2
+msgid "Local customizations of site-wide preferences"
+msgstr "このサイト特有の設定"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:162
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:90
+msgid "Location"
+msgstr "居住地"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:4
+msgid "Log In"
+msgstr "ログイン"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:5
+msgid "Log Out"
+msgstr "ログアウト"
+
+#: ../core/templates/registernotify.tmpl:18
+msgid ""
+"Login as \"%1\". Please note that login and password are case sensitive."
+msgstr ""
+"\"%1\"としてログイン。ログイン名とパスワードでは大文字と小文字が区別されるこ"
+"とに注意してください。"
+
+#: ../core/templates/mailresetpassword.tmpl:9
+msgid "Login name %1"
+msgstr "ログイン名 %1"
+
+#: ../PatternSkin/data/TWiki/PatternSkinElements.txt:193
+#: ../core/templates/login.tmpl:71
+msgid "Logon"
+msgstr "ログオン"
+
+#: ../core/templates/messages.tmpl:288
+msgid "Mail to"
+msgstr "宛先"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:63
+msgid "Make search:"
+msgstr "検索:"
+
+#: ../core/lib/TWiki.pm:5174
+msgid "Members"
+msgstr "メンバー"
+
+#: ../core/templates/messages.tmpl:255
+msgid "Missing Fields"
+msgstr "未記入のフィールド"
+
+#: ../core/templates/messages.tmpl:44
+msgid "Missing action command"
+msgstr "actionが指定されていません"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:39
+msgid "Modify search"
+msgstr "検索方法の変更"
+
+#: ../core/templates/oopsmore.tmpl:7
+msgid "More Actions on Topic %1"
+msgstr "%1への様々な操作"
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:20
+msgid "More formatting help"
+msgstr "書式指定の詳しい説明"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:23
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:32
+msgid "More topic actions"
+msgstr "その他の操作"
+
+#: ../PatternSkin/templates/rdiff.pattern.tmpl:29
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:146
+#: ../core/templates/viewtopicactionbuttons.tmpl:82
+msgid "More topic actions..."
+msgstr "その他の操作..."
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinHomeMenu.txt:15
+#: ../TwistyPlugin/data/TWiki/TwistyPlugin.txt:576
+msgid "More..."
+msgstr "もっと…"
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:24
+#: ../core/templates/moveattachment.tmpl:36
+msgid "Move"
+msgstr "移動"
+
+#: ../core/templates/moveattachment.tmpl:10
+msgid "Move attachment"
+msgstr "添付ファイルの移動"
+
+#: ../core/templates/moveattachment.tmpl:22
+msgid "Move attachment to web:"
+msgstr "移動先のウェブ:"
+
+#: ../core/templates/moveattachment.tmpl:7
+msgid "Move file attachment"
+msgstr "添付ファイルの移動"
+
+#: ../core/templates/attachagain.tmpl:21
+msgid "Move or delete attachment"
+msgstr "添付ファイルの移動または削除"
+
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:21
+msgid "Move to web:"
+msgstr "移動先のウェブ:"
+
+#: ../core/templates/renamedelete.tmpl:16
+msgid "Move topic to web:"
+msgstr "トピックの移動先のウェブ:"
+
+#: ../core/lib/TWiki/UI/Manage.pm:1287
+msgid "Move/Rename"
+msgstr "移動/名前変更"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:126
+msgid "Must change password"
+msgstr "パスワードを変更しなければならない"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:59
+msgid "My Links"
+msgstr "マイリンク"
+
+#: ../core/lib/TWiki/Search.pm:945
+msgid "NEW"
+msgstr "新"
+
+#: ../core/templates/messages.tmpl:133
+msgid "Name of new web is missing"
+msgstr "新しいウェブの名前が指定されていません"
+
+#: ../core/templates/messages.tmpl:188
+msgid "New User Registration disabled"
+msgstr "新規利用者の登録はできません"
+
+#: ../core/templates/messages.tmpl:179
+msgid "New User Registration not supported"
+msgstr "新規利用者の登録はサポートされていません"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:35
+msgid "New e-mails (space-separated list)"
+msgstr "新メールアドレス(複数の場合は空白で区切って列挙)"
+
+#: ../MailerContrib/templates/mailnotify.tmpl:73
+#: ../MailerContrib/templates/mailnotify.tmpl:9
+msgid "New or changed topics in %1 web since %2:"
+msgstr "%2 以降、 %1 ウェブ内で新規作成または変更されたトピック"
+
+#: ../core/templates/renamewebbase.tmpl:10
+msgid "New parent web:"
+msgstr "新しい親ウェブ:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:28
+msgid "New password"
+msgstr "新いいパスワード"
+
+#: ../core/templates/messages.tmpl:117
+msgid "New topic name %1 is not a %2"
+msgstr "新トピック名 %1 は %2 ではありません"
+
+#: ../core/templates/renamewebbase.tmpl:7
+msgid "New web name:"
+msgstr "新しいウェブの名前:"
+
+#: ../core/templates/oopsmore.tmpl:102
+msgid "Newer revision:"
+msgstr "新しいバージョン:"
+
+#: ../core/data/TWiki/SearchResultsPagination.txt:102
+msgid "Next"
+msgstr "次へ"
+
+#: ../core/templates/oopsmore.tmpl:119
+msgid "No child topics"
+msgstr "子トピック無し"
+
+#: ../core/templates/messages.tmpl:550
+msgid "No permission to view %1"
+msgstr " %1 を見る権限がありません"
+
+#: ../core/templates/oopsmore.tmpl:114
+msgid "No previous revision exists."
+msgstr "それより以前のバージョンは存在しません。"
+
+#: ../core/templates/messages.tmpl:248
+msgid "No users to reset passwords for."
+msgstr "パスワードをリセットする利用者が指定されていません。"
+
+#: ../core/templates/oopsnotfound.tmpl:6
+msgid "Not Found"
+msgstr "見つかりません"
+
+#: ../core/templates/renamedelete.tmpl:31
+msgid "Not recommended when deleting a topic."
+msgstr "トピックを削除する時は非推奨。"
+
+#: ../core/templates/moveattachment.tmpl:31
+msgid ""
+"Note that any URLs that refer to the attachment will be broken after this "
+"move."
+msgstr "注意： 移動後は、その添付ファイルの現在のURLはどれも使えなくなります。"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:171
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:177
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:138
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:13
+#: ../core/data/TWiki/RenameWeb.txt:4 ../core/templates/messages.tmpl:342
+#: ../core/templates/messages.tmpl:406
+#: ../core/templates/registerconfirm.tmpl:13
+#: ../core/templates/registernotify.tmpl:24
+msgid "Note:"
+msgstr "注意:"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:2
+msgid "Note: This topic does not exist"
+msgstr "注意： 指定されたトピックは存在しません"
+
+#: ../core/data/TWiki/VarMAKETEXT.txt:13
+msgid "Notes:"
+msgstr "注意:"
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:9
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:9
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:10
+#: ../PatternSkin/data/_default/WebLeftBar.txt:8
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:16
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:15
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:50
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:16
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:18
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:15
+msgid "Notifications"
+msgstr "通知"
+
+#: ../PatternSkin/templates/searchbase.pattern.tmpl:5
+#: ../PatternSkin/templates/twiki.pattern.tmpl:38
+#: ../core/templates/search.text.tmpl:15
+#: ../core/templates/searchformat.tmpl:10
+msgid "Number of topics:"
+msgstr "トピック数:"
+
+#: ../core/templates/messages.tmpl:216 ../core/templates/messages.tmpl:223
+#: ../core/templates/messages.tmpl:422 ../core/templates/messages.tmpl:429
+#: ../core/templates/messages.tmpl:438
+#: ../core/templates/oopsaccessdenied.tmpl:7
+#: ../core/templates/oopsinvalidtoken.tmpl:7
+#: ../core/templates/oopsnotfound.tmpl:7 ../core/templates/oopssaveerr.tmpl:14
+#: ../core/templates/twiki.tmpl:87
+msgid "OK"
+msgstr "OK"
+
+#: ../core/templates/oopsmore.tmpl:102
+msgid "Older revision:"
+msgstr "古いバージョン:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:360
+msgid "Once registered you can login using your %1 and password."
+msgstr "登録した後、 %1 とパスワードでログインできます"
+
+#: ../core/templates/messages.tmpl:575
+msgid "Only members of the %1 are allowed to perform this action."
+msgstr "%1 のメンバーのみがこの操作を行えます"
+
+#: ../core/templates/login.tmpl:8
+msgid ""
+"Oops: we could not recognize you. Try again or [[%1][reset your password]]."
+msgstr ""
+"あなたを認識できません。もう一度試すか[[%1][パスワードをリセット]]してくださ"
+"い。"
+
+#: ../core/templates/renamedelete.tmpl:19
+msgid "Optionally change topic name:"
+msgstr "(任意)トピック名を変更することもできます:"
+
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:32
+msgid "Optionally enter a different topic name:"
+msgstr "(任意)別のトピック名を指定することもできます:"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:160
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:88
+msgid "Organization"
+msgstr "所属組織"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:130
+msgid "Organization:"
+msgstr "所属組織："
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:330
+msgid "Other Country"
+msgstr "その他の国"
+
+#: ../core/data/TWiki/WebSearch.txt:50
+#: ../core/data/TWiki/WebSearchAdvanced.txt:91
+msgid "Other search options:"
+msgstr "その他の検索パラメーター:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:5
+msgid "Otherwise, use this form to get a new one e-mailed to you."
+msgstr ""
+"そうでなければ、このフォームで新しいパスワードを自分宛にメールで送ることがで"
+"きます。"
+
+#: ../core/templates/twiki.tmpl:19
+msgid "Overwrite the copy destination if exists"
+msgstr "コピー先トピックが存在する場合は上書きする。"
+
+#: ../PatternSkin/data/TWiki/PatternSkinElements.txt:188
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:34
+#: ../core/templates/login.tmpl:60
+msgid "Password"
+msgstr "パスワード"
+
+#: ../core/templates/messages.tmpl:209
+msgid "Password changed successfully!"
+msgstr "パスワードが変更されました"
+
+#: ../core/templates/messages.tmpl:219
+msgid "Password could not be changed"
+msgstr "パスワードが変更できませんでした"
+
+#: ../core/templates/messages.tmpl:247 ../core/templates/messages.tmpl:251
+msgid "Password reset failed"
+msgstr "パスワードがリセットできませんでした"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:116
+msgid "Password:"
+msgstr "パスワード:"
+
+#: ../core/templates/messages.tmpl:261
+msgid "Passwords do not match"
+msgstr "2つのパスワードが一致しません"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:55
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:66
+msgid "Personal Preferences"
+msgstr "個人設定"
+
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:57
+#: ../core/templates/oopsmore.tmpl:61
+msgid "Pick from a list"
+msgstr "一覧から選択"
+
+#: ../core/templates/messages.tmpl:168
+msgid "Pick one of the %1."
+msgstr "%1 から一つを選択する。"
+
+#: ../core/data/Trash/TrashAttachment.txt:3
+msgid "Placeholder for trashed attachments"
+msgstr "削除された添付ファイルの置き場所"
+
+#: ../core/templates/messages.tmpl:301 ../core/templates/messages.tmpl:351
+msgid "Please contact %1 if you have any questions."
+msgstr "質問は %1 まで。"
+
+#: ../core/templates/messages.tmpl:183 ../core/templates/messages.tmpl:192
+#: ../core/templates/messages.tmpl:271 ../core/templates/messages.tmpl:280
+msgid "Please contact %1."
+msgstr " %1 に連絡してください。"
+
+#: ../core/templates/login.sudo.tmpl:7
+msgid "Please enter the TWiki admin password"
+msgstr "TWiki adminのパスワードを入力してください"
+
+#: ../core/templates/login.tmpl:14
+msgid "Please enter your username and password"
+msgstr "利用者名とパスワードを入力してください"
+
+#: ../core/templates/messages.tmpl:101 ../core/templates/messages.tmpl:107
+#: ../core/templates/messages.tmpl:113 ../core/templates/messages.tmpl:79
+#: ../core/templates/messages.tmpl:85 ../core/templates/messages.tmpl:95
+msgid "Please go _back_ in your browser and try a new name."
+msgstr "前のページに戻って、別の名前を試してください。"
+
+#: ../core/templates/messages.tmpl:138
+#, fuzzy
+msgid "Please go back and try a different web."
+msgstr "前のページに戻って、別のウェブを試してください。"
+
+#: ../core/templates/messages.tmpl:420 ../core/templates/messages.tmpl:427
+msgid "Please go back in your browser and check again."
+msgstr "前のページに戻って再度確認してください。"
+
+#: ../core/templates/messages.tmpl:118
+msgid ""
+"Please go back in your browser and choose a topic name that is a %1.WikiWord "
+"or check the allow non-Wiki Word box"
+msgstr ""
+"前のページに戻って %1.WikiWord であるトピック名を入力するか、あるいは、non-"
+"Wiki Wordをチェックしてください。"
+
+#: ../core/templates/messages.tmpl:130 ../core/templates/messages.tmpl:134
+#: ../core/templates/messages.tmpl:146 ../core/templates/messages.tmpl:154
+#: ../core/templates/messages.tmpl:158 ../core/templates/messages.tmpl:162
+#: ../core/templates/messages.tmpl:172 ../core/templates/messages.tmpl:258
+#: ../core/templates/messages.tmpl:264 ../core/templates/messages.tmpl:308
+#: ../core/templates/messages.tmpl:320 ../core/templates/messages.tmpl:326
+#: ../core/templates/messages.tmpl:334 ../core/templates/messages.tmpl:45
+#: ../core/templates/messages.tmpl:49 ../core/templates/messages.tmpl:67
+msgid "Please go back in your browser and try again."
+msgstr "前のページに戻ってもう一度試してください"
+
+#: ../core/templates/messages.tmpl:53
+msgid ""
+"Please make sure you spelled the %1 correctly and try again. If you get "
+"stuck, please mail %2."
+msgstr ""
+"%1 が正確に入力されているか確認の上もう一度試してください。それでもだめな場合"
+"は、 %2 にメールで連絡してください。"
+
+#: ../core/templates/messages.tmpl:436
+msgid "Please try small size files or contact Administrator."
+msgstr "小さいファイルを試すか、管理者に連絡してください。"
+
+#: ../core/templates/mailresetpassword.tmpl:12
+msgid ""
+"Please visit %1 to change your password to something more memorable for you."
+msgstr "%1 に行ってパスワードを覚られるものに変更してください。"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:70
+msgid ""
+"Preference for the editor, default is the WYSIWYG editor. The options are "
+"raw, wysiwyg:"
+msgstr ""
+"エディターを指定します。可能な値は「raw」か「wysiwyg」で、デフォルトはwysiwyg"
+"です:"
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:12
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:12
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:13
+#: ../PatternSkin/data/_default/WebLeftBar.txt:11
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:19
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:18
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:53
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:19
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:21
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:18
+msgid "Preferences"
+msgstr "設定"
+
+#: ../PatternSkin/templates/settings.pattern.tmpl:13
+#: ../core/templates/settings.tmpl:7
+msgid "Preferences for"
+msgstr "設定"
+
+#: ../core/data/TWiki/SearchResultsPagination.txt:100
+msgid "Previous"
+msgstr "前へ"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:20
+msgid "Print version"
+msgstr "印刷用"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:35
+msgid "Properties"
+msgstr "プロパティ"
+
+#: ../core/data/Main/TWikiPreferences.txt:7
+msgid ""
+"Quick edit of existing preferences (edit the topic text to set new "
+"preferences)"
+msgstr ""
+"既存の設定項目のお手軽編集 (新しい設定項目を追加する場合は通常通りのトピック"
+"編集を行ってください)"
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:197
+msgid "Quiet save"
+msgstr "こっそり保存"
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:10
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:10
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:11
+#: ../PatternSkin/data/_default/WebLeftBar.txt:9
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:17
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:16
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:51
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:17
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:19
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:16
+msgid "RSS Feed"
+msgstr "RSSフィード"
+
+#: ../core/templates/viewtopicactionbuttons.tmpl:9
+msgid "Ra&w edit"
+msgstr "ソース編集"
+
+#: ../core/templates/viewtopicactionbuttons.tmpl:9
+msgid "Raw Edit this topic text"
+msgstr "このトピックのテキストをソース編集"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:19
+msgid "Raw View"
+msgstr "ソース表示"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:28
+#: ../core/templates/viewtopicactionbuttons.tmpl:67
+msgid "Raw edit"
+msgstr "ソース編集"
+
+#: ../core/templates/registernotify.tmpl:10
+msgid ""
+"Read %1 to get a quick overview of this collaboration platform. To learn "
+"more, study the TWikiTutorial, which is accessible from the same link."
+msgstr ""
+"%1 を読んで、この共同作業プラットフォームを大まかに理解してください。より詳し"
+"く知りたい場合は、同じリンク先にある TWikiTutorial を読んでください。"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:30
+msgid "Read new revision help text in new window"
+msgstr "新しいウィンドウでバージョン管理の説明を読む"
+
+#: ../TipsContrib/data/TWiki/TWikiTipsOfTheDayInclude.txt:12
+msgid "Read on"
+msgstr "読み進む"
+
+#: ../core/data/TWiki/WebChanges.txt:2
+msgid "Recent Changes in %1 Web"
+msgstr "%1 ウェブでの最近の変更"
+
+#: ../core/data/TWiki/WebSearch.txt:54
+#: ../core/data/TWiki/WebSearchAdvanced.txt:95
+msgid "Recently changed topics"
+msgstr "最近変更されたトピック"
+
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:75
+msgid ""
+"Recommended step before upload: Crop the image to about square size, and "
+"resize it to a width of 200 pixels. This makes it load faster."
+msgstr ""
+"(推奨)アップロードする前に: 画像を正方形に切り取り、幅を200ドットに変更する"
+"と、画像が軽くなります。"
+
+#: ../core/lib/TWiki/UI/Manage.pm:1286
+msgid "Refresh"
+msgstr "リフレッシュ"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:163
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:91
+msgid "Region"
+msgstr "居住地域"
+
+#: ../PatternSkin/data/TWiki/WebLeftBarLogin.txt:3
+#: ../core/templates/twiki.tmpl:112
+msgid "Register"
+msgstr "登録"
+
+#: ../PatternSkin/data/TWiki/UserBookmarks.txt:31
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopBar.txt:40
+msgid "Register User"
+msgstr "利用者登録"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:13
+msgid "Registered users can [[%1][change]] and [[%2][reset]] their passwords."
+msgstr ""
+"登録済の利用者は[[%1][パスワードの変更]]と[[%2][パスワードのリセット]]が行え"
+"ます。"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:2
+msgid "Registration"
+msgstr "利用者登録"
+
+#: ../core/templates/messages.tmpl:340
+msgid "Registration codes can only be used once."
+msgstr "確認コードが使えるのは一回だけです。"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:65
+msgid "Regular expression search"
+msgstr "正規表現による検索"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:82
+msgid "Related Topics"
+msgstr "関連トピック"
+
+#: ../TagMePlugin/lib/TWiki/Plugins/TagMePlugin.pm:957
+msgid "Related tags"
+msgstr "関連タグ"
+
+#: ../TWikiUserMappingContrib/data/Main/TWikiGroupTemplate.txt:23
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:48
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:42
+#: ../TWikiUserMappingContrib/data/TWiki/EditUserAccount.txt:15
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:149
+#: ../TWikiUserMappingContrib/data/TWiki/QueryUsers.txt:10
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:37
+#: ../core/data/Sandbox/WebNotify.txt:10 ../core/data/Trash/WebNotify.txt:10
+#: ../core/data/_default/WebNotify.txt:10 ../core/templates/messages.tmpl:573
+#: ../core/templates/messages.tmpl:580
+msgid "Related topics:"
+msgstr "関連トピック:"
+
+#: ../core/templates/login.tmpl:67
+msgid "Remember me on this computer"
+msgstr "このコンピューター上の自分を覚えておいてもらう"
+
+#: ../core/templates/messages.tmpl:228
+msgid ""
+"Remember to update your user topic if you want your e-mail change to be "
+"reflected there as well."
+msgstr ""
+"利用者トピックに掲載されているメールアドレスの変更も忘れないでください。"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:5
+msgid "Remember your password?"
+msgstr "パスワードを覚えていますか?"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:28
+msgid "Remember, a %1 is case sensitive."
+msgstr "注意: %1 では大文字と小文字が区別されます。"
+
+#: ../core/templates/messages.tmpl:59
+msgid "Remove the user from the group(s) %1 first."
+msgstr "まず、その利用者をグループ %1 から削除してください。"
+
+#: ../TagMePlugin/data/TWiki/TagMeRenameTag.txt:34
+#: ../core/templates/rename.tmpl:7
+msgid "Rename"
+msgstr "名前変更"
+
+#: ../core/templates/messages.tmpl:104 ../core/templates/messages.tmpl:110
+#: ../core/templates/messages.tmpl:92 ../core/templates/messages.tmpl:98
+msgid "Rename failed"
+msgstr "名前変更はできませんでした"
+
+#: ../core/templates/oopsmore.tmpl:31
+msgid "Rename or move topic"
+msgstr "トピックの名前変更または移動"
+
+#: ../core/data/TWiki/RenameWeb.txt:2
+msgid "Rename, Move or Delete this Web"
+msgstr "このウェブの名前変更・移動・削除"
+
+#: ../core/templates/rename.tmpl:20 ../core/templates/renameconfirm.tmpl:29
+#: ../core/templates/renameweb.tmpl:33
+msgid "Rename/Move"
+msgstr "名前変更/移動"
+
+#: ../core/templates/oopsmore.tmpl:32 ../core/templates/oopsmore.tmpl:34
+msgid "Rename/move topic..."
+msgstr "トピックの名前変更/移動..."
+
+#: ../core/templates/renameweb.tmpl:7
+msgid "Rename/move/delete"
+msgstr "名前変更/移動/削除..."
+
+#: ../core/data/TWiki/RenameWeb.txt:7
+msgid "Rename/move/delete web..."
+msgstr "ウェブの名前変更/移動/削除..."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:3
+msgid "Reset Password"
+msgstr "パスワードリセット:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:25
+msgid "Reset password"
+msgstr "パスワードリセット:"
+
+#: ../core/templates/oopsmore.tmpl:111
+msgid "Restore"
+msgstr "戻す"
+
+#: ../core/templates/oopsmore.tmpl:106
+msgid "Restore topic"
+msgstr "以前のバージョンに戻す"
+
+#: ../core/templates/oopsmore.tmpl:108
+msgid "Restore topic to revision:"
+msgstr "トピックを以下のバージョンに戻す:"
+
+#: ../core/templates/oopsmore.tmpl:111
+msgid "Restore topic to this revision"
+msgstr "トピックをこのバージョンに戻します"
+
+#: ../PatternSkin/templates/searchbase.pattern.tmpl:12
+msgid "Results from %1 web"
+msgstr "%1 ウェブでの結果"
+
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:87
+msgid "Return to"
+msgstr "戻る"
+
+#: ../core/templates/messages.tmpl:232
+msgid "Return to %1."
+msgstr "%1 に戻る"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:29
+msgid "Retype new password"
+msgstr "新しいパスワードを再度入力してください"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:117
+msgid "Retype password:"
+msgstr "パスワードを再度入力してください:"
+
+#: ../core/templates/messages.tmpl:35
+msgid "Rev %1 was saved by %2, while you were still editing."
+msgstr "あなたが編集中に、 %2 によってバージョン %1 が保存されました。"
+
+#: ../MailerContrib/templates/mailnotify.tmpl:44
+#: ../MailerContrib/templates/mailnotify.tmpl:76
+msgid "Review recent changes in:"
+msgstr "最近行われた変更:"
+
+#: ../PatternSkin/templates/rdiff.pattern.tmpl:19
+msgid "Revision"
+msgstr "バージョン"
+
+#: ../core/templates/oopsmore.tmpl:93
+msgid "Revisions"
+msgstr "バージョン管理"
+
+#: ../PatternSkin/templates/settings.pattern.tmpl:25
+msgid "S = Save, C = Cancel"
+msgstr "S = 保存, C = 取消"
+
+#: ../PatternSkin/templates/preview.pattern.tmpl:14
+msgid "S = Save, Q = Quiet save, K = Save and Continue, D = Discard"
+msgstr "S = 保存, Q = こっそり保存, K = 保存して続行, D = 破棄"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:53
+msgid ""
+"S = Save, Q = Quiet save, K = Save and Continue, P = Preview, C = Cancel"
+msgstr "S = 保存, Q = こっそり保存, K = 保存して続行, P = プレビュー, C = 取消"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:156
+msgid "Save"
+msgstr "保存"
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:196
+msgid "Save table"
+msgstr "表を保存"
+
+#: ../core/templates/registernotifyadmin.tmpl:16
+#: ../core/templates/registernotifyadminfail.tmpl:18
+#: ../core/templates/registernotifyadminfailrem.tmpl:18
+msgid "Saved to:"
+msgstr "保存先:"
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:7
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:7
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:8
+#: ../PatternSkin/data/TWiki/WebLeftBarExample.txt:6
+#: ../PatternSkin/data/TWiki/WebLeftBarSearch.txt:3
+#: ../PatternSkin/data/TWiki/WebTopBar.txt:9
+#: ../PatternSkin/data/Trash/WebLeftBar.txt:5
+#: ../PatternSkin/data/_default/WebLeftBar.txt:6
+#: ../PatternSkin/templates/twiki.pattern.tmpl:37
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:14
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:13
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:48
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:14
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopBar.txt:78
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:16
+#: ../TopMenuSkin/data/Trash/WebTopMenu.txt:13
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:13
+#: ../core/data/TWiki/WebSearch.txt:30
+#: ../core/data/TWiki/WebSearchAdvanced.txt:36
+msgid "Search"
+msgstr "検索"
+
+#: ../core/templates/backlinksallwebs.tmpl:7
+msgid "Search %1 Web only"
+msgstr "%1 ウェブのみを検索"
+
+#: ../core/templates/backlinksweb.tmpl:7
+msgid "Search all webs"
+msgstr "全てのウェブを検索"
+
+#: ../core/templates/backlinksallwebs.tmpl:7
+#: ../core/templates/backlinksweb.tmpl:7 ../core/templates/oopsmore.tmpl:43
+msgid "Search all webs for topics that link to here"
+msgstr "全てのウェブからここへリンクされるトピックを検索"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:18
+msgid "Search similar topics in all public webs"
+msgstr "全公開ウェブ中で似た名前のトピックを検索"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:70
+msgid "Search string"
+msgstr "検索する文字列"
+
+#: ../core/templates/oopsmore.tmpl:45
+msgid "Search the %1 web for topics that link to here"
+msgstr "%1 ウェブ中でここへのリンクを持つトピックを検索"
+
+#: ../core/data/TWiki/WebSearch.txt:35
+#: ../core/data/TWiki/WebSearchAdvanced.txt:41
+msgid "Search where:"
+msgstr "検索対象:"
+
+#: ../PatternSkin/templates/searchbase.pattern.tmpl:1
+#: ../core/templates/search.tmpl:10 ../core/templates/searchformat.tmpl:9
+msgid "Searched:"
+msgstr "検索結果:"
+
+#: ../core/data/Trash/WebHome.txt:8
+msgid "Security Note:"
+msgstr "セキュリティ上の注意:"
+
+#: ../core/templates/messages.tmpl:55
+msgid "See %1 for a list of existing users or register as new user in %2."
+msgstr "%1 で利用者一覧を見るか、または %2 で利用者登録を行ってください。"
+
+#: ../core/templates/messages.tmpl:363
+msgid "See %1 for information about Form Definitions."
+msgstr "%1 にフォームの定義方法の説明があります"
+
+#: ../core/data/TWiki/WebIndex.txt:4
+msgid "See also the faster %1"
+msgstr "より高速な %1 もあります"
+
+#: ../core/data/TWiki/WebTopicList.txt:6
+msgid "See also the verbose %1."
+msgstr "より情報量の多い %1 もあります。"
+
+#: ../core/data/TWiki/RenameWeb.txt:4 ../core/data/TWiki/RenameWeb.txt:7
+msgid "See also:"
+msgstr "参照:"
+
+#: ../core/templates/edit.tmpl:59
+msgid "See below for help in editing this page."
+msgstr "このページの編集方法については以下で説明しています。"
+
+#: ../core/templates/changeform.tmpl:13
+msgid "Select"
+msgstr "選択"
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:20
+msgid "Select a new local file to update attachment"
+msgstr "選択されている添付ファイルを上書きするローカルファイルを選んでください"
+
+#: ../PatternSkin/templates/renamebase.pattern.tmpl:33
+msgid "Select all"
+msgstr "全て選択"
+
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:82
+msgid "Select existing picture"
+msgstr "画像を選択"
+
+#: ../core/templates/oopsmore.tmpl:60
+msgid "Select topic parent:"
+msgstr "親トピックの選択:"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:71
+#: ../core/templates/edit.tmpl:48
+msgid "Select, copy and paste your signature text to the bottom of your entry"
+msgstr "署名をコピーして、追加した部分の末尾に貼り付けてください"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:355
+msgid "Send you a confirmation of your registration by e-mail."
+msgstr "登録完了通知をメールで送りまます。"
+
+#: ../core/templates/oopsmore.tmpl:103
+msgid "Sequential"
+msgstr "縦に並べて"
+
+#: ../core/lib/TWiki/Form/Checkbox.pm:55
+msgid "Set all"
+msgstr "全てチェック"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:31
+#: ../core/templates/oopsmore.tmpl:64
+msgid "Set new parent"
+msgstr "新しい親トピックの設定"
+
+#: ../core/templates/oopsmore.tmpl:52
+msgid "Set new topic parent"
+msgstr "新しい親トピックの設定"
+
+#: ../core/data/TWiki/WebChanges.txt:31
+msgid "Show %1 results per page, or %2show all%3."
+msgstr "1ページあたり %1 個の結果を表示、あるいは %2全て表示%3。"
+
+#: ../PatternSkin/templates/copy.pattern.tmpl:10
+#: ../PatternSkin/templates/renamebase.pattern.tmpl:10
+msgid "Show help"
+msgstr "操作説明"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:76
+msgid "Show tool-tip topic info on mouse-over of %1 links, on or off:"
+msgstr ""
+" %1 リンクをマウスオーバーした際に、トピックの情報をツールチップとして表示す"
+"るか否か:"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:76
+msgid "Shrink edit box"
+msgstr "編集欄を縮小します"
+
+#: ../core/templates/oopsmore.tmpl:103
+msgid "Side by side"
+msgstr "横に並べて"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:15
+msgid "Similar topics in this web (if any):"
+msgstr "このウェブ内の似た名前のトピック(もしあれば):"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:36
+msgid "Simple search"
+msgstr "簡易検索"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinHomeMenu.txt:11
+msgid "Site map"
+msgstr "サイトマップ"
+
+#: ../core/data/Main/TWikiPreferences.txt:4
+msgid ""
+"Site-level preferences are located in %1, however this %2 prefs topic has "
+"override priority and should be used for local customizations. This allows "
+"for easier upgrades as you don't need to worry about the shipped preferences "
+"clobbering yours. It's easier to keep a handle on if you only copy over the "
+"settings you actually change."
+msgstr ""
+"サイト全体の設定は %1 にあり、 %2 がそれを上書きします。ですから、このサイト"
+"特有の設定は %2 で行うことをお薦めします。そうすることで、アップグレードが容"
+"易になります。TWikiの一部として配布される設定が変わっても気にする必要がないか"
+"らです。自分が行った設定変更だけをコピーするのが楽です。"
+
+#: ../core/templates/attachtables.tmpl:4
+msgid "Size"
+msgstr "大きさ"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:132
+#: ../core/templates/registernotify.tmpl:15
+msgid "Some add schedule information and vacation notice."
+msgstr "休暇の通知や予定を書き込む人もいます。"
+
+#: ../core/templates/messages.tmpl:410
+msgid "Some characters such as =&#126;=, =$=, =@=, =%= are removed"
+msgstr "=&#126;=, =$=, =@=, =%= などの文字が削除されました"
+
+#: ../core/templates/messages.tmpl:393
+msgid "Some files have been renamed on upload:"
+msgstr "アップロードの際に幾つかのファイルの名前を変更しました:"
+
+#: ../core/templates/messages.tmpl:343
+msgid ""
+"Some mail tools have an error that causes them to send the same request "
+"twice when you click on a link. If you did this, it is possible that you "
+"actually *have* registered successfully."
+msgstr ""
+"幾つかのメールツールには以下のような不具合があります。メール中のリンクがク"
+"リックされた際に、同じリクエストを2回送ってしまうという不具合です。これが起"
+"こったとすれば、実際にはあなたは登録が完了していることになります。"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:131
+#: ../core/templates/registernotify.tmpl:14
+msgid ""
+"Some people turn it into a personal portal with favorite links, what they "
+"work on, what help they'd like, etc."
+msgstr ""
+"利用者の中には、それを個人のポータルとして、お気に入りのリンクや、仕事の内"
+"容、何をして欲しいか、などを書き込む人がいます。"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:5
+msgid "Sorry, Registration has been temporarily disabled"
+msgstr "申し訳ありませんが、利用者登録は一時的に中止しています"
+
+#: ../core/templates/messages.tmpl:136
+msgid "Sorry, system webs cannot be renamed, moved or deleted."
+msgstr ""
+"申し訳ありませんが、システムウェブは、名前変更・移動・削除どれもできません。"
+
+#: ../TWikiUserMappingContrib/data/TWiki/BulkRegistration.txt:83
+#: ../TWikiUserMappingContrib/data/TWiki/BulkResetPassword.txt:17
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:21
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:17
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:13
+msgid "Sorry, the password system is currently read only, please contact %1"
+msgstr ""
+"申し訳ありませんが、パスワード管理システムは現在 読み込み専用です。 %1 に連絡"
+"してください。"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:53
+msgid "Sort results by:"
+msgstr "結果の並べ替え:"
+
+#: ../core/templates/messages.tmpl:408
+msgid "Spaces are replaced by underscores"
+msgstr "空白をアンダースコアで置き換えました"
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:11
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:11
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:12
+#: ../PatternSkin/data/_default/WebLeftBar.txt:10
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:18
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:17
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:52
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:18
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:20
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:17
+msgid "Statistics"
+msgstr "統計"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:151
+msgid "Status update: Make a sentence, such as: =is out of office="
+msgstr "現在の状態を入力してください。例: 出社していません"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:345
+#: ../core/templates/messages.tmpl:348
+msgid "Submit"
+msgstr "登録"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:142
+#: ../core/templates/registernotify.tmpl:20
+#: ../core/templates/registernotifyadmin.tmpl:12
+#: ../core/templates/registernotifyadminfail.tmpl:14
+#: ../core/templates/registernotifyadminfailrem.tmpl:14
+msgid "Submitted content:"
+msgstr "確定した内容:"
+
+#: ../MailerContrib/templates/mailnotify.tmpl:47
+#: ../MailerContrib/templates/mailnotify.tmpl:79
+#: ../MailerContrib/templates/newsletter.tmpl:20
+msgid "Subscribe / Unsubscribe in:"
+msgstr "購読/購読の取消"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:71
+msgid "Summaries"
+msgstr "概要"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:76
+msgid "Switch to monotype or proportional font"
+msgstr "等幅フォントとプロポーショナルフォントの切り替え"
+
+#: ../core/templates/messages.tmpl:135
+msgid "System web %1 cannot be renamed or moved"
+msgstr "システムウェブ %1 は名前変更も移動もできません"
+
+#: ../core/data/TWiki/WebSearch.txt:31
+#: ../core/data/TWiki/WebSearchAdvanced.txt:37
+msgid ""
+"TIP: to search for all topics that contain =\"SOAP\"=, =\"WSDL\"=, a literal "
+"=\"web service\"=, but not =\"shampoo\"=, write:"
+msgstr ""
+"ヒント: =SOAP= と =WSDL= と =web service= の全てを含み、かつ、 =shampoo= を含"
+"まない全てのトピックを検索するには: "
+
+#: ../core/templates/login.tmpl:3
+msgid "TWiki User Authentication"
+msgstr "TWiki利用者認証"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopBar.txt:62
+msgid "TWiki help"
+msgstr "TWikiの説明"
+
+#: ../core/templates/mailresetpassword.tmpl:3
+msgid "TWiki password reset for %1"
+msgstr "%1 TWikiのパスワードをリセットします"
+
+#: ../core/templates/oopschangelanguage.tmpl:12
+msgid ""
+"TWiki's user interface is available in several languages. If you want to "
+"change the language for this session, choose one of the following and hit "
+"\"Change language\". Otherwise, follow the \"Cancel\" link on the bottom of "
+"the page to return to the previous topic."
+msgstr ""
+"Twikiではユーザーインターフェースの言語が選択できます。このセッションの言語を"
+"変えたい場合は、下記から一つを選択し、\"言語を変更\"をクリックしてください。"
+"それ以外の場合は \"取消\" をクリックして直前のトピックに戻ってください。"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:117
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:175
+msgid "Tag Cloud of %1:"
+msgstr "%1 のタグクラウド"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:178
+msgid "Tag topics to modify your tag cloud."
+msgstr "トピックにタグを付け、タグクラウドを変更する。"
+
+#: ../core/templates/messages.tmpl:606
+msgid "Template %1 does not exist"
+msgstr "テンプレート%1は存在しません"
+
+#: ../core/data/TWiki/WebSearch.txt:37
+#: ../core/data/TWiki/WebSearchAdvanced.txt:43
+msgid "Text body"
+msgstr "内容のテキスト"
+
+#: ../core/templates/messages.tmpl:197 ../core/templates/messages.tmpl:235
+msgid "Thank you for registering"
+msgstr "ご登録ありがとうございました"
+
+#: ../core/templates/registernotify.tmpl:8
+msgid ""
+"Thank you for registering in the %1 collaboration platform. Please save this "
+"e-mail for future reference."
+msgstr ""
+"共同作業プラットフォーム %1 に登録ありがとうございます。今後のために、この"
+"メールを保存しておいてください。"
+
+#: ../core/templates/registerconfirm.tmpl:9
+msgid ""
+"Thank you for registering in the %1 collaboration platform. Your "
+"verification code is:"
+msgstr ""
+"共同作業プラットフォーム %1 に登録ありがとうございます。あなたの確認コード"
+"は："
+
+#: ../core/templates/messages.tmpl:624
+msgid "That user has already been activated "
+msgstr "その利用者はすでに登録確認が完了しています"
+
+#: ../core/templates/messages.tmpl:312
+msgid ""
+"The %1 field must be your first and last name in %2, e.g. your capitalized "
+"first and last name with spaces removed."
+msgstr ""
+"%1 フィールドはあなたの名前と名字を %2 の形式にしたものでなければなりません。"
+"つまり、先頭を大文字にした名前と、先頭を大文字にした名字を空白なしにつなげた"
+"ものです。 "
+
+#: ../core/templates/messages.tmpl:306
+msgid "The %1 field must match the {LoginNameFilterIn} filter for this site"
+msgstr ""
+"%1 フィールドは、このサイトの {LoginNameFilterIn} フィルターと一致する必要が"
+"あります。"
+
+#: ../core/templates/messages.tmpl:76
+msgid "The %1 topic already exists"
+msgstr "トピック %1 は既に存在しています"
+
+#: ../core/templates/messages.tmpl:82 ../core/templates/messages.tmpl:88
+msgid "The %1 web already exists"
+msgstr "%1 ウェブは既に存在します"
+
+#: ../core/data/TWiki/RenameWeb.txt:4
+msgid "The %1 web cannot be renamed."
+msgstr "%1 ウェブは名前を変更できません"
+
+#: ../core/templates/messages.tmpl:583
+msgid "The %1 web does not exist"
+msgstr "%1 ウェブは存在しません"
+
+#: ../core/templates/messages.tmpl:642
+#, fuzzy
+msgid "The %1 web is not writable on this site"
+msgstr "%1 ウェブに、このサイトでは書き込めません"
+
+#: ../core/templates/messages.tmpl:149
+#, fuzzy
+msgid "The %1 web missing metadata"
+msgstr "%1 ウェブのメタデータが存在しません"
+
+#: ../core/data/Sandbox/WebRss.txt:5 ../core/data/Trash/WebRss.txt:5
+#: ../core/data/_default/WebAtom.txt:3 ../core/data/_default/WebRss.txt:5
+msgid ""
+"The %1 web of TWiki. TWiki is a Web-Based Collaboration Platform for the "
+"Enterprise."
+msgstr ""
+"TWikiの %1 ウェブです。 TWikiはウェブベースの組織向けオンライン共同作業プラッ"
+"トフォームです。"
+
+#: ../core/templates/messages.tmpl:508
+msgid "The =%1= script can only be called with POST method."
+msgstr "=%1= スクリプトはPOSTメソッドでしか呼び出せません。"
+
+#: ../core/templates/messages.tmpl:190
+msgid "The Administrator has disabled new user registration."
+msgstr "管理者が新規利用者登録を停止しています"
+
+#: ../core/templates/messages.tmpl:338
+msgid "The activation code %1 is invalid."
+msgstr "確認コード %1 が無効です。"
+
+#: ../core/templates/moveattachment.tmpl:29
+msgid "The attachment and any history will be moved to the new topic."
+msgstr "添付ファイルとその変更履歴は新トピックに移されます。"
+
+#: ../core/templates/messages.tmpl:541
+msgid ""
+"The chances are good that %1 has simply navigated away from the edit page "
+"without saving."
+msgstr "%1 は単に編集ページから保存せずに他のページへ移ったのでしょう。"
+
+#: ../core/templates/renamebase.tmpl:70
+msgid ""
+"The checkmarked topics will be updated (another form will appear which will "
+"_eventually_ allow you to rename any topics that were locked)"
+msgstr ""
+"チェックされたトピックは変更されます。これに続いて、もう一つフォームが表示さ"
+"れ、最終的にはロックされたトピックの名前の変更も行えます。"
+
+#: ../core/templates/messages.tmpl:485
+msgid "The copy destination %1 already exists."
+msgstr "コピー先である %1 は既に存在します。"
+
+#: ../core/templates/messages.tmpl:330
+msgid "The e-mail address for this account is not valid."
+msgstr "このアカウントのメールアドレスは無効です。"
+
+#: ../core/templates/messages.tmpl:557
+msgid "The entry for user %1 was missing in the password system."
+msgstr "利用者 %1 がパスワードシステムに登録されていません。"
+
+#: ../core/templates/messages.tmpl:392
+msgid "The files have been uploaded and attached properly to the %1 topic."
+msgstr "ファイルがアップロードされ、トピック %1 に添付されました。"
+
+#: ../core/templates/messages.tmpl:456
+msgid "The following topics are locked for edit, and cannot be moved:"
+msgstr "次のトピックは編集中でロックされており、移動できません:"
+
+#: ../core/templates/messages.tmpl:462
+msgid "The following topics refer to topics in this web, but are being edited:"
+msgstr "次のトピックは、このウェブ中のトピックを参照していますが、編集中です:"
+
+#: ../core/templates/messages.tmpl:459
+msgid ""
+"The following topics refer to topics in this web, but you are denied access "
+"to them:"
+msgstr ""
+"次のトピックは、このウェブ中のトピックを参照していますが、あたなにはアクセス"
+"する権限がありません:"
+
+#: ../core/templates/messages.tmpl:369
+msgid "The form should be defined in the topic %1"
+msgstr "指定されたフォームはトピック %1 で定義されなければなりません"
+
+#: ../core/templates/messages.tmpl:539
+msgid "The lease on this topic expired %1 ago."
+msgstr "このトピックに対する編集ロックは %1 前に期限が切れました。"
+
+#: ../core/templates/moveattachment.tmpl:16
+msgid "The new topic chosen must already exist."
+msgstr "移動先は存在するトピックである必要があります。"
+
+#: ../core/templates/messages.tmpl:16
+msgid "The new web has been created"
+msgstr "新しいウェブが作成されました"
+
+#: ../core/templates/messages.tmpl:128
+msgid "The password you entered in the *old password* field is incorrect."
+msgstr " *元のパスワード* に入力したパスワードが間違っています。"
+
+#: ../core/templates/messages.tmpl:357
+msgid "The required field %1 was not filled in."
+msgstr "必須項目 %1 が入力されていません。"
+
+#: ../core/templates/messages.tmpl:181
+msgid "The selected User System does not support new user registration."
+msgstr "現在の設定ではTWiki上で利用者登録が行えません。"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:4
+msgid "The topic %1 you are trying to access does not exist, yet."
+msgstr "指定されたトピック %1 は現在存在しません"
+
+#: ../core/templates/messages.tmpl:372
+msgid "The topic is in an old format"
+msgstr "トピックは古いフォーマットです"
+
+#: ../core/templates/messages.tmpl:262
+msgid "The two passwords you entered do not match."
+msgstr "二回入力されたパスワードが一致しません。"
+
+#: ../core/templates/messages.tmpl:626
+msgid "The user %1 has already been activated, and should be able to log in."
+msgstr "利用者 %1 は登録確認が完了しており、ログイン可能なはずです。"
+
+#: ../core/templates/messages.tmpl:452
+msgid "There are problems with renaming this web:"
+msgstr "このウェブの名前を変更する際にエラーが発生しました:"
+
+#: ../core/templates/messages.tmpl:269
+msgid "There has been a problem adding your user id to the Password system."
+msgstr "利用者名をパスワードシステムに追加する際に、エラーが発生しました。"
+
+#: ../core/templates/messages.tmpl:375
+msgid "There should be a line that includes %1, look for %2 (or %3)"
+msgstr "%1 を含む行が無ければなりません。 %2 (または %3)を参照してください "
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:6
+msgid "This TWiki does _not_ support new User Registration"
+msgstr "このTWikiでは利用者登録はできません"
+
+#: ../core/templates/messages.tmpl:150
+msgid ""
+"This TWiki employs TWiki.MetadataRepository and requires every web to have "
+"its metadata registered. But currently the metadata is missing for the %1 "
+"web to be created. Please register the metadata and try again."
+msgstr ""
+"このTWikiは TWiki.MetadataRepository　を利用しており、そこに、すべてのウェブ"
+"のメタデータが登録されている必要があります。しかるに、 %1 ウェブのメタデータ"
+"が登録されていないため、作成することができません。メタデータを登録してから、"
+"再度作成してください。"
+
+#: ../core/templates/messages.tmpl:382
+msgid "This can be automatically upgraded by:"
+msgstr "自動的に更新されます:"
+
+#: ../core/templates/messages.tmpl:365
+msgid "This could be for several reasons:"
+msgstr "いくつかの原因が考えられます:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:5
+#, fuzzy
+msgid ""
+"This form is used to change your registered e-mail addresses. Your "
+"registered e-mails are used by TWiki for sending you e-mails, including "
+"notifications of password changes. The addresses you register via this form "
+"are kept secret and will *not* be published anywhere on this site."
+msgstr ""
+"このフォームで登録されているメールアドレスが変更できます。Twikiはパスワード変"
+"更通知などを登録されているメールアドレスに送ります。このフォームで登録された"
+"メールアドレスは秘匿され、本サイトのどこにも掲載<b>されません</b>。"
+
+#: ../core/data/Sandbox/WebNotify.txt:4 ../core/data/Trash/WebNotify.txt:4
+#: ../core/data/_default/WebNotify.txt:4
+msgid ""
+"This is a subscription service to be automatically notified by e-mail when "
+"topics change in this %1 web. This is a convenient service, so you do not "
+"have to come back and check all the time if something has changed. To "
+"subscribe, please add a bullet with your %2 in alphabetical order to this "
+"list:"
+msgstr ""
+"これは通知サービスです。 %1 ウェブ内でトピックに変更が加えられたときに自動的"
+"にメールで通知します。これを使えば、何か変更があったか常に見張る必要はありま"
+"せん。登録するには、以下のリストに新たな箇条書き項目として自分の %2 をアル"
+"ファベット順の位置に加えてください。"
+
+#: ../MailerContrib/templates/mailnotify.tmpl:7
+#: ../MailerContrib/templates/mailnotify.tmpl:71
+msgid "This is an automated e-mail from %1."
+msgstr "これは %1 より自動的に送信されたメールです。"
+
+#: ../core/templates/registernotifyadmin.tmpl:8
+#: ../core/templates/registernotifyadminfail.tmpl:8
+#: ../core/templates/registernotifyadminfailrem.tmpl:8
+msgid "This is an automated e-mail notification of user registration in %1."
+msgstr "これは %1 の利用者登録に伴う自動通知メールです。"
+
+#: ../core/data/Trash/WebHome.txt:5
+msgid ""
+"This is the Trash. Here you can undelete topics; deleted attachments are in "
+"TrashAttachment."
+msgstr ""
+"これはごみ箱です。削除されたトピックをここから復活させることができます。削除"
+"された添付ファイルは TrashAttachment に添付されています"
+
+#: ../WysiwygPlugin/lib/TWiki/Plugins/WysiwygPlugin/TML2HTML.pm:143
+msgid "This is why the conversion is disabled:"
+msgstr "変換が無効化されている理由は以下のとおりです:"
+
+#: ../core/templates/renamedelete.tmpl:25
+msgid ""
+"This name has been chosen so it doesn't conflict with any other topics "
+"already in the %1 web."
+msgstr ""
+"このトピック名は %1 ウェブ中の他のトピックと重ならないように選ばれています。"
+
+#: ../core/templates/messages.tmpl:380
+msgid "This requires the form definition to be present."
+msgstr "フォームが定義されている必要があります。"
+
+#: ../core/templates/messages.tmpl:324
+msgid "This site requires at least %1 character passwords"
+msgstr "パスワードは %1 文字かそれ以上の長さにしてください"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:12
+msgid "This topic has moved to %1."
+msgstr "このトピックは %1 に移動しました。"
+
+#: ../core/data/TWiki/WebTopicNonWikiTemplate.txt:6
+msgid ""
+"This topic name is not recommended because it will not be linked "
+"automatically. See %1 for details"
+msgstr ""
+"このトピック名はお薦めしません。自動的にリンクにならないからです。詳しくは %"
+"1 を参照してください"
+
+#: ../core/templates/viewprint.tmpl:13
+msgid "This topic:"
+msgstr "このトピック:"
+
+#: ../core/templates/messages.tmpl:37
+msgid ""
+"Those changes have been merged with yours to create Rev %1. Text fields will "
+"have been merged, but other data such as form fields may have overwritten "
+"the other users changes. Please inspect the topic to make sure it is OK, "
+"especially if you made any changes to form fields."
+msgstr ""
+"変更をバージョン %1 とマージしました。テキストはマージされますが、他のデー"
+"タ、例えばフォームのデータは他の利用者に上書きされるかもしれません。フォーム"
+"のデータを変更した場合は確認してください。"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:158
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:86
+msgid "Title"
+msgstr "肩書"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:5
+msgid ""
+"To edit pages on this TWikiSite, you must have a registered user name and "
+"password."
+msgstr ""
+"この TWikiSite のページを編集するには、利用者名とパスワードの登録が必要です。"
+
+#: ../core/templates/oopsleaseconflict.tmpl:18
+msgid "To edit the topic anyway, click "
+msgstr "それでもこのトピックを編集する場合はクリックしてください"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:86
+msgid "To register as a new user, simply fill out this form:"
+msgstr "新規利用者登録は以下のフォームで行います:"
+
+#: ../core/templates/messages.tmpl:638
+msgid ""
+"To save your changes, press the browser back button, copy all content into "
+"the clipboard, cancel edit, edit again, and replace content with clipboard "
+"content. Whew ... nothing lost!"
+msgstr ""
+"行った変更を保存するには、ブラウザーの戻るボタンを押し、テキストをコピーして"
+"クリップボードに入れ、編集を取消し、再度編集し、テキストをクリップボードの中"
+"身と置き換えます。そうすれば何も失わずに済みます。"
+
+#: ../core/templates/oopsleaseconflict.tmpl:14
+msgid "To see if %1 has finished editing yet, click "
+msgstr " %1 が編集を完了したかどうかを確認するには、ここをクリックしてください"
+
+#: ../core/templates/copy.tmpl:49 ../core/templates/renamebase.tmpl:29
+#: ../core/templates/renameconfirm.tmpl:14
+msgid "To topic:"
+msgstr "移動先トピックの指定:"
+
+#: ../core/templates/copy.tmpl:42 ../core/templates/renamebase.tmpl:22
+#: ../core/templates/renameconfirm.tmpl:10
+msgid "To web:"
+msgstr "ウェブへ:"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:18
+msgid "Topic"
+msgstr "トピック"
+
+#: ../core/templates/messages.tmpl:354
+msgid "Topic Save Error"
+msgstr "トピック保存エラー"
+
+#: ../PatternSkin/templates/attachtables.pattern.tmpl:15
+msgid "Topic attachments"
+msgstr "トピック添付ファイル"
+
+#: ../core/templates/messages.tmpl:378
+msgid "Topic can not be upgraded from old style category table"
+msgstr "古いスタイルのカテゴリーテーブルからトピックを更新できません"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:55
+msgid "Topic name"
+msgstr "トピック名"
+
+#: ../PatternSkin/data/TWiki/PatternSkinWebCreateNewTopicTemplate.txt:47
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:29
+msgid "Topic name:"
+msgstr "トピック名:"
+
+#: ../PatternSkin/data/TWiki/PatternSkinWebCreateNewTopicTemplate.txt:54
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:34
+msgid "Topic parent:"
+msgstr "親トピック:"
+
+#: ../PatternSkin/templates/rdiff.pattern.tmpl:19
+#: ../PatternSkin/templates/view.pattern.tmpl:47
+#: ../PatternSkin/templates/view.pattern.tmpl:74
+#: ../TWikiNetSkin/templates/view.twikinet.tmpl:25
+#: ../core/templates/viewprint.tmpl:14
+msgid "Topic revision:"
+msgstr "トピックのバージョン:"
+
+#: ../core/templates/oopssaveerr.tmpl:12
+msgid "Topic save error"
+msgstr "トピック保存エラー"
+
+#: ../core/data/TWiki/WebTemplateTopics.txt:2
+msgid "Topic templates in %1 Web"
+msgstr " %1 ウェブにあるトピックテンプレート"
+
+#: ../core/data/TWiki/WebSearch.txt:37
+#: ../core/data/TWiki/WebSearchAdvanced.txt:44
+msgid "Topic title"
+msgstr "トピック名"
+
+#: ../core/templates/messages.tmpl:34
+msgid "Topic was merged"
+msgstr "トピックがマージされました"
+
+#: ../PatternSkin/data/TWiki/PatternSkinWebCreateNewTopicTemplate.txt:28
+msgid "Topic will be named: "
+msgstr "トピックは次の名前になります:"
+
+#: ../core/templates/search.tmpl:14
+msgid "Topics in %1 web"
+msgstr " %1 ウェブ中のトピック"
+
+#: ../MailerContrib/templates/mailnotify.tmpl:14
+#: ../core/templates/search.text.tmpl:4
+msgid "Topics in %1 web:"
+msgstr " %1 ウェブ中のトピック："
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:82
+msgid "Topics per web"
+msgstr "件のトピックまで、1つのウェブ当たり"
+
+#: ../core/templates/renamewebbase.tmpl:29
+msgid "Topics which are currently being edited by other users in the %1 Web:"
+msgstr "以下のトピックは %1ウェブの中で他の利用者が編集中です："
+
+#: ../core/templates/renamewebbase.tmpl:32
+msgid ""
+"Topics which refer to this web and are currently being edited by other users:"
+msgstr "このウェブを参照するトピックの中で、他の利用者が編集中のもの:"
+
+#: ../core/templates/renamewebbase.tmpl:35
+msgid ""
+"Topics which refer to this web that you do not have permission to change:"
+msgstr "このウェブを参照するトピックで、あなたが変更する権限がないもの:"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:72
+msgid "Total matches"
+msgstr "総一致数"
+
+#: ../core/templates/oopsleaseconflict.tmpl:15
+msgid "Try Again"
+msgstr "もう一度"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:161
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:89
+msgid "URL"
+msgstr "URL"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:133
+msgid "URL:"
+msgstr "URL:"
+
+#: ../core/templates/login.sudo.tmpl:5
+msgid "Unrecognised user and/or password"
+msgstr "利用者名が登録されていないか、パスワードが間違っています"
+
+#: ../core/templates/messages.tmpl:48
+msgid "Unrecognized action command %1"
+msgstr "認識できないアクションコマンド%1"
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:4
+msgid "Update attachment %1 on %2"
+msgstr " %2 の添付ファイル %1 の変更"
+
+#: ../core/templates/renamebase.tmpl:49
+#: ../core/templates/renamewebbase.tmpl:27
+msgid "Update links"
+msgstr "リンクの修正"
+
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:67
+msgid "Upload"
+msgstr "アップロード"
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:28
+#: ../PatternSkin/templates/attachnew.pattern.tmpl:7
+#: ../core/templates/attachagain.tmpl:21 ../core/templates/attachnew.tmpl:9
+msgid "Upload file"
+msgstr "ファイルをアップロード"
+
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:63
+msgid "Upload new picture"
+msgstr "新しい画像をアップロードします"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:22
+msgid "Upload up to %1 KB."
+msgstr "アップロードするファイルの大きさの上限: %1 KB。"
+
+#: ../core/templates/messages.tmpl:434
+msgid "Uploaded file %1 exceeds limit of %2 KB"
+msgstr "アップロードしようとしているファイル %1 は上限の %2 KBを超えています"
+
+#: ../core/templates/messages.tmpl:433
+msgid "Uploaded file is too big"
+msgstr "アップロードしようとしているファイルは大き過ぎます"
+
+#: ../core/templates/messages.tmpl:418
+msgid ""
+"Uploaded file type %1 differs from the existing type %2. They must be of the "
+"same type when updating an existing attachment."
+msgstr ""
+"アップロードされたファイルの種類 %1 は従来の種類 %2 と異なります。既存の添付"
+"ファイルを更新する際、両者の種類は同じでなければなりません。"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:5
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:5
+msgid "Use %1 instead."
+msgstr "そうであれば %1 を使ってください。"
+
+#: ../core/data/Sandbox/WebHome.txt:23
+msgid "Use a %1 for automatic linking."
+msgstr "%1 は自動的にリンクになります。"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:122
+msgid "Use system generated password"
+msgstr "システムが自動生成したパスワードを使用してください"
+
+#: ../PatternSkin/data/TWiki/PatternSkinWebCreateNewTopicTemplate.txt:61
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:39
+msgid "Use template:"
+msgstr "テンプレートとして使用するトピック："
+
+#: ../core/data/Sandbox/WebHome.txt:12
+msgid ""
+"Use this web to try out TWiki. Go ahead and add or delete some stuff. Walk "
+"through the %1 to learn the basics of TWiki. We recommend to sign your "
+"contributions with your %2 and date, which is done automatically when you "
+"create a topic or add a comment."
+msgstr ""
+"このウェブはTWikiを試す場です。自由に内容を追加・削除してください。%1でTWiki"
+"の基本を理解することをお勧めします。自分が加えた部分の末尾には、自分の %2 と"
+"日付を付けるのが慣例です。新しくトピックを作ったときとコメントを加えたときに"
+"は、自動的に付きます。"
+
+#: ../core/templates/messages.tmpl:10
+msgid "User Account %1 Deleted"
+msgstr "利用者 %1 の登録が抹消されました"
+
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:15
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:23
+msgid "User Reference"
+msgstr "利用者の手引"
+
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:12
+msgid "User registration"
+msgstr "利用者登録"
+
+#: ../PatternSkin/data/TWiki/PatternSkinElements.txt:182
+#: ../core/templates/login.tmpl:42
+msgid "Username"
+msgstr "利用者名"
+
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:5
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:11
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:13
+msgid "Users"
+msgstr "利用者"
+
+#: ../core/templates/messages.tmpl:206
+msgid ""
+"Users with automatically generated passwords should proceed immediately to "
+"[[%1][change password]] to change their password to something memorable."
+msgstr ""
+"自動生成されたパスワードを利用している利用者は直ちに[[%1][パスワード変更]]を"
+"行い、覚えられるパスワードに変更するべきです。"
+
+#: ../core/templates/attachtables.tmpl:37
+msgid "Version"
+msgstr "バージョン"
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:10
+msgid "Version history"
+msgstr "変更履歴"
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:8
+msgid "Version history of %1"
+msgstr "%1 の変更履歴"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:18
+#: ../core/templates/oopsmore.tmpl:97
+msgid "View"
+msgstr "表示"
+
+#: ../core/templates/oopsmore.tmpl:104
+msgid "View difference"
+msgstr "差分を表示"
+
+#: ../core/templates/oopsmore.tmpl:94
+msgid "View previous topic revision"
+msgstr "指定バージョンの表示"
+
+#: ../core/templates/oopsleaseconflict.tmpl:24
+msgid "View raw text without formatting"
+msgstr "未整形のソーステキストを表示"
+
+#: ../core/templates/oopsmore.tmpl:96
+msgid "View revision:"
+msgstr "バージョン:"
+
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:59
+msgid "View templates"
+msgstr "テンプレートを表示"
+
+#: ../PatternSkin/templates/rdiff.pattern.tmpl:29
+#: ../core/templates/oopsleaseconflict.tmpl:24
+msgid "View topic"
+msgstr "通常表示"
+
+#: ../core/templates/twiki.tmpl:108
+msgid "View total topic history"
+msgstr "全履歴の表示"
+
+#: ../core/data/TWiki/WebTopicNonWikiTemplate.txt:6
+msgid "WARNING:"
+msgstr "警告:"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:114
+#: ../core/templates/viewtopicactionbuttons.tmpl:9
+msgid "WYSIWYG"
+msgstr "WYSIWYG"
+
+#: ../core/templates/viewtopicactionbuttons.tmpl:9
+msgid "WYSIWYG editor"
+msgstr "WYSIWYG編集"
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:203
+msgid "Warning: 'include' topic does not exist!"
+msgstr "警告： 'include' トピックが存在しません。"
+
+#: ../core/templates/messages.tmpl:555
+msgid "Warning: Can't INCLUDE %1 repeatedly, topic is already included. %2"
+msgstr ""
+"警告: %1 はすでにINCLUDEされており複数回INCLUDEすることはできません。 %2"
+
+#: ../core/templates/messages.tmpl:554
+msgid "Warning: Can't find topic %1.%2"
+msgstr "警告: トピック %1.%2 が見つかりません"
+
+#: ../core/lib/TWiki/UI/Register.pm:862
+msgid "Warning: Could not send confirmation email"
+msgstr "警告： 確認のメールが送信できません"
+
+#: ../core/lib/TWiki/UI/Register.pm:869
+msgid "Warning: Could not send confirmation email, email has been disabled"
+msgstr ""
+"警告： 確認のメールが送信できませんでした。メールは利用不可になっています。"
+
+#: ../core/templates/messages.tmpl:562
+msgid "Warning: This site does not allow %<nop>INCLUDE% of URLs"
+msgstr "警告： このサイトでは指定したURLを %<nop>INCLUDE% することはできません"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:172
+msgid "Watch topics to see watchlist changes."
+msgstr "トピックの監視設定"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:169
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:99
+msgid "Watchlist Changes of %1:"
+msgstr "%1 の監視リストの変更"
+
+#: ../MailerContrib/data/TWiki/MailerContrib.txt:208
+#: ../MailerContrib/templates/mailnotify.tmpl:62
+msgid "Web"
+msgstr "ウェブ"
+
+#: ../core/data/Main/WebNotify.txt:2 ../core/data/Sandbox/WebNotify.txt:2
+#: ../core/data/TWiki/WebNotify.txt:2 ../core/data/Trash/WebNotify.txt:2
+#: ../core/data/_default/WebNotify.txt:2
+msgid "Web Notification"
+msgstr "ウェブ変更通知"
+
+#: ../core/data/TWiki/WebSearch.txt:3
+msgid "Web Search"
+msgstr "ウェブ検索"
+
+#: ../PatternSkin/data/TWiki/WebLeftBarExample.txt:8
+#: ../PatternSkin/data/TWiki/WebLeftBarWebsList.txt:2
+msgid "Webs"
+msgstr "ウェブ"
+
+#: ../core/data/Sandbox/WebHome.txt:5 ../core/data/_default/WebHome.txt:5
+msgid "Welcome to the %1 web"
+msgstr "%1 ウェブへようこそ"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:351
+msgid ""
+"When %1 receives the form, it will mail an account activation code to the e-"
+"mail address you gave above. Enter that activation code in the following "
+"screen, or follow the link in the e-mail, to activate your account. Once "
+"your account is activated, %1 will:"
+msgstr ""
+"このフォームの受領後、上記のアドレスに確認コードがメール送信されます。次の"
+"ページでその確認コードを入力するか、メール中の確認コードのリンクをクリックす"
+"れば、登録が有効になります。有効になると:"
+
+#: ../core/templates/attachtables.tmpl:37
+#: ../core/templates/attachtables.tmpl:4
+msgid "Who"
+msgstr "利用者"
+
+#: ../core/templates/messages.tmpl:19
+msgid "Would you like to go to:"
+msgstr "次のステップ:"
+
+#: ../core/templates/messages.tmpl:294
+msgid "You are already registered"
+msgstr "あなたは登録済です"
+
+#: ../core/templates/messages.tmpl:200
+msgid "You are also listed in the %1 topic"
+msgstr "あなたは %1 トピックに登録されました"
+
+#: ../core/templates/messages.tmpl:453
+msgid "You are denied access to the following topics in the web:"
+msgstr "あなたはこのウェブの次のトピックにはアクセスできません:"
+
+#: ../core/templates/messages.tmpl:543
+msgid ""
+"You are encouraged to go ahead and edit - unless you intend to change data "
+"in a form attached to the topic. If %1 actually _does_ save while you are "
+"editing, your changes will be merged, and nothing will be lost. Form data "
+"cannot easily be merged though, so in this case you are recommended to check "
+"with %1 first."
+msgstr ""
+"フォーム中のデータを変更するのでなければ編集しても構いません。あたなが編集し"
+"ている間に利用者 %1 が変更を保存したとしても、あなたが加えた変更は保存した際"
+"にマージされ、失われません。ただし、フォーム中のデータは簡単にはマージできな"
+"いので、その場合は、 %1 に確認されることをお薦めします。"
+
+#: ../PatternSkin/templates/view.pattern.tmpl:39
+#: ../TWikiNetSkin/templates/view.twikinet.tmpl:17
+msgid "You are here:"
+msgstr "現在位置:"
+
+#: ../core/templates/messages.tmpl:142
+msgid ""
+"You are recommended to choose short names, preferably less than 10 "
+"characters, starting with an upper-case alphabetic character and using only "
+"alphanumeric characters. If you want to create a template web (a web just "
+"used as a base to create new webs) choose a name that starts with an "
+"underscore and has only alphanumeric characters."
+msgstr ""
+"短い名前をお薦めします。10文字より短く、先頭が大文字の英数字が望ましいので"
+"す。テンプレートウェブ(新しいウェブのテンプレートとなるだけのウェブ)を作成す"
+"る場合は、アンダースコアで始まる英数字のみからなる名前を選んでください。"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:12
+msgid "You are required to change your password."
+msgstr "パスワードを変更してください。"
+
+#: ../core/templates/messages.tmpl:619
+msgid "You are trying to %1 an attachment that does not exist."
+msgstr ""
+"あなたは添付ファイルに対して %1　を行おうとしていますが、その添付ファイルは存"
+"在しません。"
+
+#: ../core/templates/messages.tmpl:607
+msgid "You are trying to create a topic from a template that does not exist."
+msgstr "存在しないテンプレートを元にトピックを作成しようとしています。"
+
+#: ../core/templates/messages.tmpl:602
+msgid ""
+"You are trying to perform an action on a topic that does not exist (action '%"
+"1')."
+msgstr "存在しないトピックに対して操作を行おうとしています (操作: %1)"
+
+#: ../core/templates/messages.tmpl:613
+msgid "You are trying to rename a topic that does not exist."
+msgstr "存在しないトピックの名前を変更しようとしています。"
+
+#: ../core/templates/messages.tmpl:170
+msgid ""
+"You can also use the names of the standard HTML colors (black, silver, gray, "
+"white, maroon, red, purple, fuchsia, green, lime, olive, yellow, navy, blue, "
+"teal, or aqua)"
+msgstr ""
+"HTMLで規定されている色の名前使うこともできます (black, silver, gray, white, "
+"maroon, red, purple, fuchsia, green, lime, olive, yellow, navy, blue, teal, "
+"aqua)"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:139
+#: ../core/templates/registernotify.tmpl:26
+msgid "You can change your password at %1"
+msgstr "%1 でパスワードを変更することができます"
+
+#: ../core/templates/renameweb.tmpl:21
+msgid "You can give this web a different name."
+msgstr "このウェブをほかの名前に変更することができます。"
+
+#: ../core/templates/oopschangelanguage.tmpl:7
+msgid ""
+"You can set your favorite language permanently by setting the %1 variable in "
+"your user topic."
+msgstr ""
+"自分の利用者トピックで %1 変数を設定することにより、表示言語を永続的に指定す"
+"ることができます"
+
+#: ../core/templates/messages.tmpl:295
+msgid "You cannot register twice, the name %1 is already registered."
+msgstr "重複登録はできません。　%1　という名前は既に登録されています。"
+
+#: ../core/templates/messages.tmpl:185 ../core/templates/messages.tmpl:194
+#: ../core/templates/messages.tmpl:273 ../core/templates/messages.tmpl:282
+msgid "You have *not* been registered."
+msgstr "あなたは未登録です。"
+
+#: ../core/templates/messages.tmpl:412
+msgid ""
+"You may be able to get your TWiki administrator to change the settings if "
+"they are inappropriate for your environment."
+msgstr ""
+"設定に不都合がある場合、TWikiの管理者に変更してもらうことができるかも知れませ"
+"ん。"
+
+#: ../core/templates/messages.tmpl:628
+msgid ""
+"You may have clicked a registration verification link that you had already "
+"visited."
+msgstr ""
+"すでにクリックしたことのある登録確認リンクをクリックしたのかも知れません。"
+
+#: ../core/templates/messages.tmpl:213
+msgid "You may need to close your browser to make this change take effect."
+msgstr "変更を有効にするにはブラウザを閉じる必要があります。"
+
+#: ../core/templates/registerconfirm.tmpl:11
+msgid ""
+"You now need to verify your e-mail address. You can do so by entering %1 in "
+"the form presented to you when this e-mail was sent, or by visiting %2"
+msgstr ""
+"メールアドレスを確認してください。確認するには、このメールが送信された際に表"
+"示されたフォームに %1 を入力すること、または、 %2 に行くことで行えます。"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:7
+msgid ""
+"You really ought to register a valid e-mail address. If TWiki can't find a "
+"registered e-mail for you in the secret database, it will look in your user "
+"topic for a line like this:"
+msgstr ""
+"有効なメールアドレスを登録しなければなりません。TWikiが内部データベースからあ"
+"なたのメールアドレスを見つけられない場合、あなたの利用者トピックから以下のよ"
+"うな行を探します："
+
+#: ../core/templates/oopsmore.tmpl:111
+msgid "You will be able to review the topic before saving it to a new revision"
+msgstr "新しいバージョンとして保存する前にトピックの内容を確認できます。"
+
+#: ../core/templates/messages.tmpl:387
+msgid "You will probably have to ask your administrator, %1, to do this."
+msgstr "これをするには管理者 %1 に連絡する必要があります"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:33
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:26
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:24
+msgid "Your %1.LoginName"
+msgstr "あなたの %1.LoginName"
+
+#: ../core/templates/messages.tmpl:237
+msgid ""
+"Your activation code has been sent to %1.  Either click on the link in your "
+"e-mail or enter the code in the box below to activate your membership. (This "
+"code is of the form \"YourName.xxxxxxxxxx\")"
+msgstr ""
+"あなたの登録確認コードは %1 に送信されています。メールの中のリンクをクリック"
+"するか、下に確認コードを入力し、利用者登録を有効にしてください。確認コードの"
+"フォーマットは \"YourName.xxxx\" です。"
+
+#: ../core/templates/oopslanguagechanged.tmpl:16
+msgid ""
+"Your language will be changed to %1 from the next screen. You will be "
+"redirected to there right now. If you aren't, [[%2][click to proceed]]."
+msgstr ""
+"表示言語が　%1 に切り替わります。このページから切り替わらない場合は、[[%2][こ"
+"こをクリック]]してください。"
+
+#: ../core/templates/mailresetpassword.tmpl:10
+msgid "Your password has been changed to %1."
+msgstr "あなたのパスワードは %1　に変更されました"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:129
+msgid ""
+"Your personal %1 topic is located at %2. You can customize it as you like:"
+msgstr ""
+"あなた個人の %1 は %2 にあります。これをカスタマイズすることができます "
+
+#: ../core/templates/registernotify.tmpl:12
+msgid ""
+"Your personal %1 user profile page is located at %2. You can customize it as "
+"you like:"
+msgstr "あなたの %1 利用者プロフィールは %2 にあります。変更はご自由に:"
+
+#: ../core/templates/messages.tmpl:198
+msgid "Your personal TWiki user profile page %1 has been created"
+msgstr "利用者プロフィール %1 を作成しました"
+
+#: ../core/templates/messages.tmpl:230
+msgid "Your registered e-mail address(es) are updated to: %1."
+msgstr "あなたの登録メールアドレスは %1 に更新されました"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:71
+#: ../core/templates/edit.tmpl:48
+msgid "Your signature to copy/paste:"
+msgstr "コピーして貼り付けるための署名:"
+
+#: ../core/templates/messages.tmpl:221
+msgid ""
+"Your system may not support changing passwords through TWiki. Check with "
+"your TWiki administrator."
+msgstr ""
+"お使いのシステムはTwikiでのパスワードを変更をサポートしないかもしれません。"
+"TWiki管理者に問い合わせてください。"
+
+#: ../core/templates/messages.tmpl:11
+msgid "Your user name has been removed from the Authentication System."
+msgstr "あなたの利用者名は認証システムから削除されました。"
+
+#: ../core/templates/messages.tmpl:13
+msgid "Your user topic has not been renamed. Please e-mail %1 to request this."
+msgstr ""
+"あなたの個人トピックの名前は変更されていません。 %1 にメールで依頼してくださ"
+"い。"
+
+#: ../core/templates/messages.tmpl:30
+msgid "[[%1][%2 home]]"
+msgstr "[[%1][%2 ホーム]]"
+
+#: ../core/templates/messages.tmpl:22
+msgid "[[%1][%2 home]] to start working on the new web"
+msgstr "[[%1][%2 ホーム]] :新しいウェブを使い始める"
+
+#: ../core/templates/messages.tmpl:374
+msgid "[[%1][Debug topic text]]."
+msgstr " [[%1][デバッグトピックテキスト]]。"
+
+#: ../core/templates/settings.tmpl:28
+msgid ""
+"[multiple of 3 spaces] * [space] Set [space] VARIABLENAME [space] = [value]"
+msgstr "[3の倍数個の空白 * [空白 Set [空白]ARIABLENNAME [空白] = [値]"
+
+# please enter the name of your language here (written in the native language):
+#: ../core/lib/TWiki/I18N.pm:297
+msgid "_language_name"
+msgstr "日本語"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:77
+msgid "about !BookView"
+msgstr "!BookViewについて"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:65
+msgid "about regular expression search"
+msgstr "正規表現検索について"
+
+#: ../core/lib/TWiki/Access.pm:585
+msgid "access denied on root"
+msgstr "rootへのアクセス権限がありません"
+
+#: ../core/lib/TWiki/Access.pm:457
+msgid "access denied on topic"
+msgstr "トピックへのアクセスが拒否されました"
+
+#: ../core/lib/TWiki/Access.pm:530
+msgid "access denied on web"
+msgstr "ウェブへのアクセスが拒否されました"
+
+#: ../core/lib/TWiki/Access.pm:602
+msgid "access not allowed on root"
+msgstr "rootへのアクセスは許可されていません"
+
+#: ../core/lib/TWiki/Access.pm:492
+msgid "access not allowed on topic"
+msgstr "トピックへのアクセスが許可されていません"
+
+#: ../core/lib/TWiki/Access.pm:567
+msgid "access not allowed on web"
+msgstr "ウェブへのアクセスが許可されていません"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:9
+msgid "accesskey='c'"
+msgstr "アクセスキー='c'"
+
+#: ../core/data/TWiki/WebHome.txt:44 ../core/data/Trash/WebHome.txt:16
+msgid "advanced search"
+msgstr "高度な検索"
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:20
+msgid "and"
+msgstr "と"
+
+#: ../core/templates/attachtables.tmpl:12
+msgid "change, update, previous revisions, move, delete..."
+msgstr "変更、更新、過去のバージョン、移動、削除..."
+
+#: ../PatternSkin/templates/renamebase.pattern.tmpl:33
+msgid "checkboxes of referenced topics"
+msgstr "関連トピックの選択"
+
+#: ../core/templates/messages.tmpl:504
+msgid "don't forget to check your Topic Settings"
+msgstr "トピック設定の確認を忘れないでください"
+
+#: ../core/templates/messages.tmpl:256
+msgid "fields are required."
+msgstr "フィールドは必須入力です"
+
+#: ../core/templates/attach.tmpl:3
+msgid "has more information about attaching files."
+msgstr "でファイル添付を解説しています。"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:27
+#: ../PatternSkin/templates/edit.pattern.tmpl:30
+msgid "help"
+msgstr "説明"
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:20
+msgid "hints on good style"
+msgstr "スタイルに関するヒント"
+
+#: ../core/templates/oopsmore.tmpl:97
+msgid "in raw text format"
+msgstr "ソーステキストで"
+
+#: ../core/templates/form.tmpl:1
+msgid "indicates mandatory fields"
+msgstr "必須入力項目を表します"
+
+#: ../core/data/TWiki/RenameWeb.txt:7
+#, fuzzy
+msgid "looking for references in _all public webs_."
+msgstr " _全ての公開ウェブ_ からのリンクを探します"
+
+#: ../core/templates/attachtables.tmpl:12
+msgid "manage"
+msgstr "管理"
+
+#: ../core/data/TWiki/WebChangesRightBox.txt:16
+msgid "more..."
+msgstr "もっと..."
+
+#: ../MailerContrib/templates/mailnotify.tmpl:16
+msgid "now %1"
+msgstr "現在 %1"
+
+#: ../PatternSkin/data/TWiki/WebLeftBarLogin.txt:3
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:24
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:28
+#: ../PatternSkin/templates/attachnew.pattern.tmpl:7
+#: ../PatternSkin/templates/edit.pattern.tmpl:36
+#: ../PatternSkin/templates/preview.pattern.tmpl:10
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:25
+#: ../PatternSkin/templates/settings.pattern.tmpl:22
+#: ../core/templates/changeform.tmpl:13 ../core/templates/copy.tmpl:20
+#: ../core/templates/moveattachment.tmpl:36 ../core/templates/preview.tmpl:18
+#: ../core/templates/rename.tmpl:20 ../core/templates/renameconfirm.tmpl:29
+#: ../core/templates/renamedelete.tmpl:34 ../core/templates/renameweb.tmpl:33
+#: ../core/templates/renamewebconfirm.tmpl:16 ../core/templates/twiki.tmpl:112
+msgid "or"
+msgstr "または"
+
+#: ../core/templates/preview.tmpl:13 ../core/templates/preview.tmpl:9
+msgid "preview"
+msgstr "プレビュー"
+
+#: ../core/lib/TWiki/Render.pm:213
+msgid "put it back"
+msgstr "戻る"
+
+#: ../PatternSkin/templates/searchbase.pattern.tmpl:12
+#: ../core/data/TWiki/WebChanges.txt:2
+msgid "retrieved at %1"
+msgstr " %1 現在"
+
+#: ../core/templates/oopsmore.tmpl:26 ../core/templates/oopsmore.tmpl:35
+msgid "scans links in _%1 web_ only"
+msgstr "_%1 ウェブ_ 中からのみリンクを探します"
+
+#: ../core/templates/oopsmore.tmpl:24 ../core/templates/oopsmore.tmpl:33
+msgid "scans links in _all public webs_"
+msgstr "_全公開ウェブ_ からリンクを探します"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:88
+msgid "title='%IF{ "
+msgstr ""
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:54
+msgid "title='Attach an image or document to this topic' accesskey='a'"
+msgstr "title='画像またはファイルをこのトピックに添付' accesskey='a'"
+
+#: ../core/templates/viewtopicactionbuttons.tmpl:16
+msgid "title='Attach an image or document to this topic' accesskey='a'>&Attach"
+msgstr "title='画像またはファイルをこのトピックに添付' accesskey='a'>添付"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:9
+#: ../core/templates/viewtopicactionbuttons.tmpl:4
+msgid "title='Create new topic' accesskey='c'>&Create"
+msgstr "title='新しいトピックを作成' accesskey='c'>作成"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:38
+msgid "title='Create this topic' accesskey='w'>Create (&WYSIWYG)"
+msgstr "title='このトピックを作成' accesskey='w'>作成(&WYSIWYG)"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:91
+#: ../core/templates/viewtopicactionbuttons.tmpl:19
+msgid ""
+"title='Delete or rename this topic; set parent topic; view and compare "
+"revisions' accesskey='m'>&More topic actions"
+msgstr ""
+"title='このトピックの削除、名前変更、親トピックの設定、他バージョンの表示、比"
+"較など' accesskey='m'>その他の操作"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:19
+msgid "title='Edit this topic text' accesskey='e'"
+msgstr "title='このトピックの編集' accesskey='e'"
+
+#: ../core/templates/viewtopicactionbuttons.tmpl:7
+msgid "title='Edit this topic text' accesskey='e'>%1 &Edit"
+msgstr "title='このトピックの編集' accesskey='e'>%1編集"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:30
+msgid "title='Edit this topic text' accesskey='w'>&WYSIWYG"
+msgstr "title='このトピックの編集' accesskey='w'>WYSIWYG "
+
+#: ../core/data/TWiki/ReadOnlyAndMirrorWebs.txt:86
+msgid "title='Mirror this web to all slave sites'>Mirror to all"
+msgstr ""
+"title='このウェブをすべてのスレーブサイトにミラーする'>他サイトへミラー"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:76
+msgid "title='PDF version of this topic'>&PDF version"
+msgstr "title='このトピックのPDFバージョン' accesskey='p'>PDFバージョン"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:66
+#: ../core/templates/viewtopicactionbuttons.tmpl:27
+msgid "title='Printable version of this topic' accesskey='p'>&Print version"
+msgstr "title='このトピックの印刷用表示' accesskey='p'>印刷用"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:97
+#: ../core/templates/viewtopicactionbuttons.tmpl:34
+msgid ""
+"title='Search all webs for topics that link to here' accesskey='l'>A&ll Webs"
+msgstr ""
+"title='全ウェブからこのトピックにリンクするトピックを探す' accesskey='l'>全て"
+"のウェブ"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:99
+#: ../core/templates/viewtopicactionbuttons.tmpl:36
+msgid ""
+"title='Search the %1 Web for topics that link to here' "
+"accesskey='b'>&Backlinks"
+msgstr ""
+"title='%1 ウェブ中で、このトピックにリンクするトピックを探す' accesskey='b'>"
+"バックリンク"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:95
+#: ../core/templates/viewtopicactionbuttons.tmpl:32
+msgid ""
+"title='Search the %1 Web for topics that link to here' accesskey='b'>We&b"
+msgstr ""
+"title='%1 ウェブ中で、ここにリンクするトピックを探す' accesskey='b'>ウェブ"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:81
+#: ../core/templates/viewtopicactionbuttons.tmpl:44
+msgid "title='View raw text without formatting' accesskey='r'>&Raw View"
+msgstr "title='未整形のソーステキストを表示' accesskey='r'>ソース表示"
+
+#: ../core/templates/viewtopicactionbuttons.tmpl:102
+msgid "title='View topic on the master site'>View master"
+msgstr ""
+"title='このトピックをマスターサイトで見る' accesskey='v'>マスターサイト"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:46
+#: ../core/templates/viewtopicactionbuttons.tmpl:13
+msgid "title='View topic' accesskey='v'>&View topic"
+msgstr "title='このトピックを通常表示します' accesskey='v'>通常表示"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:103
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:105
+#: ../core/templates/viewtopicactionbuttons.tmpl:39
+#: ../core/templates/viewtopicactionbuttons.tmpl:41
+msgid "title='View total topic history' accesskey='h'>&History"
+msgstr "title='このトピックの履歴を表示' accesskey='h'>履歴"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:47
+msgid "value='Cancel' accesskey='c'"
+msgstr "value='取消' accesskey='c'"
+
+#: ../PatternSkin/templates/preview.pattern.tmpl:12
+msgid "value='Discard' accesskey='d'"
+msgstr "value='破棄' accesskey='d'"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:45
+msgid "value='Preview' accesskey='p'"
+msgstr "value='プレビュー' accesskey='p'"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:41
+msgid "value='Quiet save' accesskey='q'"
+msgstr "value='こっそり保存' accesskey='q'"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:43
+msgid "value='Save and Continue' accesskey='k'"
+msgstr "value='保存して続行' accesskey='k'"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:39
+msgid "value='Save' accesskey='s'"
+msgstr "value='保存' accesskey='s'"
+
+#: ../core/templates/attachtables.tmpl:42
+msgid "view"
+msgstr "表示"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:19
+msgid ""
+"you *must* have at least one valid registered e-mail to be able to reset "
+"your password. If none of your registered e-mail addresses is valid, and you "
+"have forgotten your password, contact %1."
+msgstr ""
+"パスワードをリセットするには少なくとも1つは受信可能なメールアドレスが登録され"
+"ている必要があります。登録されたメールアドレスのどれも受信できず、かつ、パス"
+"ワードを忘れた場合は、 %1 に連絡してください。"
+

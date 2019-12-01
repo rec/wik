@@ -1,0 +1,11 @@
+%META:TOPICINFO{author="TWikiContributor" date="1352960592" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarSERVERTIME2
+---+++ SERVERTIME{"format"} -- formatted server time
+   * Same format qualifiers as =%<nop>GMTIME%=
+   * Syntax: =%<nop>SERVERTIME{"format"}%=
+   * [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarGMTIME2][Supported variables]]: =$seconds=, =$minutes=, =$hours=, =$day=, =$wday=, =$dow=, =$month=, =$mo=, =$year=, =$ye=, =$tz=, =$iso=, =$rcs=, =$http=, =$epoch=
+   * Example: =%<nop>SERVERTIME{"$hou:$min"}%= expands to =%SERVERTIME{"$hou:$min"}%=
+   * Note: When used in a template topic, this variable will be expanded when the template is used to create a new topic. See TWikiTemplates#TemplateTopicsVars for details.
+   * Category: DateAndTimeVariables, SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarDISPLAYTIME][DISPLAYTIME]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarGMTIME][GMTIME]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSERVERTIME][SERVERTIME]]

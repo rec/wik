@@ -1,0 +1,13 @@
+%META:TOPICINFO{author="TWikiContributor" date="1457032859" format="1.1" version="6"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarWEB
+---+++ WEB -- name of current web
+   * =%<nop>WEB%= expands to the name of the web where the topic is located. If you are looking at the text of an included topic, it is the web where the included topic is located.
+   * Syntax: =%<nop>WEB%=, expands to: =<nop>%WEB%=
+   * Syntax: =%<nop>WEB{"..."}%= or =%<nop>WEB{format="..."}%=
+   * Supported parameter:
+     | *Parameter:* | *Description:* | *Example:* | *Default:* |
+     | ="..."= or%BR% =format="..."= | Format of web name. Supported tokens: %BB% =$web= - the full web path, %BB% =$parents= - parent webs, if any, %BB% =$current= - current web without parent webs, %BB% =$last(<i>n</i>)= - last <i>n</i> webs, including current one, %BB% =$top= - top-level web only, %BB% =$top(<i>n</i>)= - <i>n</i> top-level webs, %BB% =$item(<i>n</i>)= - the <i>n</i>-th web from top %BB% =$list= - comma-space delimited list of webs %BB% =$size= - array size of webs | <span style="white-space: nowrap;"> &nbsp; %BR% =Engineering/TechPubs/Apps/Bugs= %BR% =Engineering/TechPubs/Apps= &nbsp; %BR% =Bugs= for =$current= %BR% =Apps/Bugs= for =$last(2)= %BR% =Engineering= for =$top= %BR% =Engineering/TechPubs= for =$top(2)= %BR% =TechPubs= for =$item(2)= %BR% =Engineering, !TechPubs, Apps, Bugs= %BR% =4= for =$size= </span> | ="$web"= |
+   * Example, assuming =%<nop>WEB%= is =Engineering/TechPubs/Apps/Bugs=: %BR% =%<nop>WEB{"Parent webs: $parents, current web: $current, top-level web: $top"}%= returns:%BR% =Parent webs: Engineering/TechPubs/Apps, current web: Bugs, top-level web: Engineering= 
+   * Category: SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBASEWEB][BASEWEB]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarINCLUDINGWEB][INCLUDINGWEB]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarTOPIC][TOPIC]]

@@ -1,0 +1,55 @@
+%META:TOPICINFO{author="TWikiContributor" date="1433468582" format="1.1" version="11"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarINCLUDE
+---+++ INCLUDE{"page"} -- include other topic, attachment, or web page
+   * Merges the content of a specified page into the current one before rendering.
+   * Syntax: =%<nop>INCLUDE{"page" ...}%=
+   * Supported parameters:
+     | *Parameter:* | *Description:* | *Default:* |
+     | ="SomeTopic"= | The name of a topic located in the current web, i.e. =%<nop>INCLUDE{"WebNotify"}%= | |
+     | ="Web.Topic"= | A topic in another web, i.e. =%<nop>INCLUDE{"%SYSTEMWEB%.SiteMap"}%= | |
+     | ="http://..."= | A full qualified URL, i.e. =%<nop>INCLUDE{"http://twiki.org:80/index.html"}%=. Supported content types are =text/html= and =text/plain= by default. See =allowanytype=.<br /> %I% if the URL resolves to an attachment file on the server this will _automatically_ translate to a server-side include. | |
+     | =attachment="filename.ext"= | Include the specified attachment instead of topic text. The attachment content is subject to processing just like when topic text is included. For example, text up to =%<nop>STARTINCLUDE%= is excluded. When including an attachment, you can do without topic specification - =%<nop>INCLUDE{attachment="filename.ext"}%= works, which results in including the attachment of the same topic. | |
+     | =allowanytype="on"= | Suppress the content type checking in including the web page specified by a URL. | disabled |
+     | =charset="CHARSET"= | Specify the charset of the included content so that a proper charset conversion happens when it's different from the site charset. Needless to say, this works for a TWiki topic, a topic attachment, and a content specified with a URL. This parameter overrides otherwise specified or implied charset. | none |
+     | =pattern="..."= |Include a subset of a topic or a web page. Specify a RegularExpression that scans from start (='^'=) to end and contains the text you want to keep in parenthesis, e.g., =pattern="^.*?(from here.*?to here).*"=. IncludeTopicsAndWebPages has more. | none |
+     | =headingoffset="2"= | Adjust the level of headings in the included topic. A ="2"= or ="+2"= increases the level by two, e.g. a =---+= H1 turns into a =---+++= H3. Positive and negative values are supported. Adjusted min and max levels are H1 and H6, respectively. | no adjustment |
+     | =hidetoc="on"= | Remove =%<nop>TOC%= in included content. Useful to show table of contents in individual topics, while suppressing them if included in a big master document. | =TOC_HIDE_IF_%BR%INCLUDED= setting |
+     | =rev="2"= | Include a previous topic revision; N/A for URLs | top revision |
+     | =raw="on"= (for HTTP inclusion) | When a page is included via HTTP, normally %WIKITOOLNAME% will process it, doing the following: 1) Alter relative links to point back to originating host, 2) Remove some basic HTML tags (html, head, body, script) and finally 3) Remove newlines from HTML tags spanning multiple lines. If you prefer to include _exactly_ what is in the source of the originating page set this to =on=. =raw="on"= is short for =disableremoveheaders="on"=, =disableremovescript="on"=, =disableremovebody="on"=, =disablecompresstags="on"= and =disablerewriteurls="on"=. | disabled |
+     | =raw="on"= (for topic or attachment inclusion) | When a topic is included, normally TWiki variables in the included topic are expanded in the context of the included topic. If =raw="on"= is specified, that variable expansion does not happen. You may wonder what's that for and what are the implications, which are found out on IncludeTopicRaw. %BR% Because of the "in the raw" nature of the parameter, if it's specified, parameters such as =encode=, =headingoffset=, =hidetoc=, =newline=, =nofinalnewline=, and =section= are ignored. | disabled |
+     | =literal="on"= | While using the =raw= option will indeed include the raw content, the included content will still be processed and rendered like regular topic content. To disable parsing of the included content, set the =literal= option to ="on"=. | disabled |
+     | =nofinalnewline="on"= | Delete the new line at the end of the result if exists | disabled |
+     | =newline="$br"= | Convert newlines in textarea to other delimiters. Variable =$br= expands to =&lt;br /&gt;= tag, and =$n= to a newline. Other text is encoded based on =encode= parameter. | no conversion |
+     | =encode="html"= | Encode special characters into HTML entities. If a FORMFIELD is passed into an HTML form field it should be encoded as ="html"=. Additional encodings available: =encode="quote"=, =encode="moderate"=, =encode="safe"=, =encode="entity"= and =encode="url"=. See [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENCODE][ENCODE]] for details. | no encoding |
+     | =disableremoveheaders="on"= | Bypass stripping headers from included HTML (everything until first =&lt;/head&gt;= tag) | disabled |
+     | =disableremovescript="on"= | Bypass stripping all =&lt;script&gt;= tags from included HTML | disabled |
+     | =disableremovebody="on"= | Bypass stripping the =&lt;/body&gt;= tag and everything around over and below it | disabled |
+     | =disablecompresstags="on"= | Bypass replacing newlines in HTML tags with spaces. This compression step rewrites unmatched &lt;'s into =&amp;lt;= entities unless bypassed | disabled |
+     | =disablerewriteurls="on"= | Bypass rewriting relative URLs into absolute ones | disabled |
+     | =disablefixlinks="on"= | Bypass fixing !WikiWord links if include is done across webs. Fixing links in included text such as from !SomeLink to !Otherweb.SomeLink is usually desirable so that links in included text still point to the same target | disabled |
+     | =warn="off"= | Warn if topic include fails: Fail silently (if =off=); output default warning (if set to =on=); else, output specific text (use =$topic= for topic name) | =%<nop>INCLUDEWARNING%= [[TWikiPreferences][preferences]] setting |
+     | =section="name"= | Includes only the specified named section, as defined in the included topic by the [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSTARTSECTION][STARTSECTION]] and [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENDSECTION][ENDSECTION]] variables. Nothing is shown if the named section does not exists. =section=""= is equivalent to not specifying a section | |
+     | =PARAMONE="val 1"<br />PARAMTWO="val 2"= | Any other parameter will be defined as a variable within the scope of the included topic. The example parameters on the left will result in =%<nop>PARAMONE%= and =%<nop>PARAMTWO%= being defined within the included topic. A default value for a variable can be specified in the included topic in case the corresponding parameter is not specified, such as =%<nop>PARAMONE{ default="..." }%= | |
+   * Security Considerations:
+      * The ability to INCLUDE arbitrary URLs, such as =%<nop>INCLUDE{"http://www.google.com/"}%= is turned *off* by default. To turn this on, ask your TWiki administrator to enable the ={INCLUDE}{AllowURLs}= flag in the _Security setup_ section of configure.
+      * !JavaScript in included web pages is filtered out as a security precaution per default. Disable filtering with =raw= or =disableremovescript= parameter.
+   * Infinite INCLUDE loop prevention:
+      * To prevent obvious infinite INCLUDE loop, =%<nop>INCLUDE{"http:<nop>//THIS_SERVER/.../THIS_WEB/THIS_TOPIC}%= is detected and blocked.
+      * If the server has aliases, =$TWiki::cfg{UrlHostRegex}= should be set so that it matches all possible server names. e.g. <verbatim>
+$TWiki::cfg{UrlHostRegex} = qr{http://(www\.)?domain\.com};
+</verbatim>
+   * INCLUDE attachment: %BR%
+     As described above, there are two ways to include an attachment. They are similar, but behave slightly differently.
+      * =attachment="filename.ext"= %BR%
+        This works in the same manner as ordinary topic text inclusion.
+        =%<nop>STARTINCLUDE%= and =%<nop>STOPINCLUDE%= in the attachment are observed. The =section= parameter is observed.
+        The variables are expanded in the context of the topic having the attachment.
+        For example, =%<nop>TOPIC%= is expanded to the name of the topic having the attachment.
+      * Specifying the URL of an attachment. (e.g. =%<nop>INCLUDE{%<nop>ATTACHURL%/foo.txt}%=) %BR%
+        The attachment content is processed in the same manner as when data is retrieved from another web server.
+        Unless =raw="on"= is specified, the content of =&lt;body&gt;...&lt;/body&gt;= is extracted, all occurrences of =&lt;script&gt;...&lt;/script&gt;= are removed.
+        Topic context change doesn't happen because in general inclusion via HTTP doesn't cause topic context change.
+   * Examples: See IncludeTopicsAndWebPages
+   * Category: ApplicationsAndComponentsVariables, DevelopmentVariables, ImportVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBASETOPIC][BASETOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBASEWEB][BASEWEB]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarINCLUDINGTOPIC][INCLUDINGTOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarINCLUDINGWEB][INCLUDINGWEB]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSTARTINCLUDE][STARTINCLUDE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSTOPINCLUDE][STOPINCLUDE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSTARTSECTION][STARTSECTION]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENDSECTION][ENDSECTION]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarTOC2][TOC]], IncludeTopicsAndWebPages, ParameterizedVariables

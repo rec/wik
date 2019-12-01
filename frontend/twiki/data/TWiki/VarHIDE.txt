@@ -1,0 +1,13 @@
+%META:TOPICINFO{author="TWikiContributor" date="1400201188" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarHIDE
+---+++ HIDE{text} -- hide content in topic view
+   * Text inside the HIDE is removed when viewing the topic. This can be used to remove large amounts of text from being sent to the browser, such as the user list in [[%USERSWEB%.%WIKIUSERSTOPIC%]] if there are many thousands of users.
+   * Syntax: =%<nop>HIDE{ any text }%=
+   * Expands to: (empty string)
+   * Notes:
+      * Using HIDE is not a replacement for [[TWikiAccessControl][access control]], because edit and raw view still show the content.
+      * Variables inside HIDE still get expanded because variables execute inside out, e.g. you can't use it to speed up slow variables.
+      * =&lt;!-- HTML comments --&gt;= also hide content from the user, but unlike HIDE, HTML comments are sent to the browser.
+   * Category: FormattingAndRenderingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarHIDEINPRINT][HIDEINPRINT]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarNOP][NOP]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSTARTSECTION][STARTSECTION]]

@@ -1,0 +1,17 @@
+%META:TOPICINFO{author="TWikiContributor" date="1352708512" format="1.1" version="1"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarENTITY
+---+++ ENTITY{string} -- encode a string to HTML entities
+   * Encode "special" characters to HTML entities. Useful to encode text properly for HTML input fields.
+   * Encoded characters:
+      * all non-printable ASCII characters below space, including newline (="\n"=) and linefeed (="\r"=)
+      * Space
+      * HTML special characters ="<"=, =">"=, ="&"=, single quote (='=) and double quote (="=)
+      * TWiki special characters ="%"=, ="["=, ="]"=, ="@"=, ="_"=, ="*"=, ="="= and ="|"=
+   * Syntax: =%<nop>ENTITY{string}%=
+   * Example: =%<nop>ENTITY{text with "quotes" and%BR%newline}%= expands to =text&amp;#32;with&amp;#32;&amp;#34;quotes&amp;#34;&amp;#32;and&amp;#10;newline=
+   * __Notes:__
+      * To protect against [[http://en.wikipedia.org/wiki/Cross-site_scripting][cross-site scripting]] (XSS), __always__ entity encode text intended for HTML input fields. This is especially true if text is received dynamically via URLPARAM or the like. %BR% Example: =&lt;input type="text" name="address" value="%<nop>ENTITY{any text}%" /&gt;=
+      * =%<nop>ENTITY{string}%= is roughly equivalent to =%<nop>ENCODE{ "string" type="html" }%=, but the latter cannot handle strings that have double quotes embedded in it.
+   * Category: DevelopmentVariables, FormattingAndRenderingVariables, ExportAndPublishingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENCODE][ENCODE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarFORMFIELD][FORMFIELD]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarQUERYPARAMS][QUERYPARAMS]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarURLPARAM][URLPARAM]]

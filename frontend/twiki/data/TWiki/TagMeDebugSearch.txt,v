@@ -1,0 +1,106 @@
+head	1.4;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.4
+date	2013.04.18.01.40.46;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2012.09.04.21.24.39;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2011.07.17.22.05.18;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2010.05.29.14.44.18;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1366249246" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TagMeDebugViewTags"}%
+---+!! Tag-me: Debug Tag Search
+
+<noautolink>
+<form action="%SCRIPTURL{view}%/%BASEWEB%/%BASETOPIC%">
+|  web: | <input name="qweb" value="%URLPARAM{ "qweb" encode="entity" }%" size="80" /> |
+|  topic: | <input name="qtopic" value="%URLPARAM{ "qtopic" encode="entity" }%" size="80" /> |
+|  tag: | <input name="qtag" value="%URLPARAM{ "qtag" encode="entity" }%" size="80" /> |
+|  by: | <input name="qby" value="%URLPARAM{ "qby" encode="entity" }%" size="80" /> |
+|  sort: | <input name="qsort" value="%URLPARAM{ "qsort" encode="entity" }%" size="80" /> |
+|  norelated: | <input name="qnorelated" value="%URLPARAM{ "qnorelated" encode="entity" }%" size="80" /> |
+|  nototal: | <input name="qnototal" value="%URLPARAM{ "qnototal" encode="entity" }%" size="80" /> |
+|  minsize: | <input name="qmin" value="%URLPARAM{ "qmin" encode="entity" }%" size="80" /> |
+|  maxsize: | <input name="qmax" value="%URLPARAM{ "qmax" encode="entity" }%" size="80" /> |
+|  format: | <input name="qformat" value="%URLPARAM{ "qformat" encode="entity" }%" size="80" />%BR% =&lt;span style='font-size:$size%;'&gt; [<nop>[$web.$topic][$topic]] $votecount&lt;/span&gt;= |
+|  separator: | <input name="qseparator" value="%URLPARAM{ "qseparator" encode="entity" }%" size="80" /> |
+|   | <input type="submit" class="twikiSubmit" /> |
+</form>
+</noautolink>
+
+__Result:__ %BR%
+%TAGME{ tpaction="query" web="%URLPARAM{qweb}%" topic="%URLPARAM{qtopic}%" tag="%URLPARAM{qtag}%" by="%URLPARAM{qby}%" sort="%URLPARAM{qsort}%" norelated="%URLPARAM{qnorelated}%" nototal="%URLPARAM{qnototal}%" minsize="%URLPARAM{qmin}%" maxsize="%URLPARAM{qmax}%" format="%URLPARAM{qformat}%" separator="%URLPARAM{qseparator}%" }%
+
+__See also:__ TagMePlugin, TagMeViewAllTags, TagMeViewMyTags, TagMeSearch, TagMeDebugViewTags
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1346793879" format="1.1" version="3"}%
+d3 1
+a3 1
+---+ Tag-me: Debug Tag Search
+d6 1
+a6 1
+<form action="%SCRIPTURL{view}%/%WEB%/%TOPIC%">
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1310940318" format="1.0" version="2"}%
+d18 1
+a18 1
+|	| <input type="submit" /> |
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1142985766" format="1.0" version="1"}%
+@

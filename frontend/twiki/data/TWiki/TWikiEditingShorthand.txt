@@ -1,0 +1,662 @@
+%META:TOPICINFO{author="TWikiContributor" date="1531569057" format="1.1" version="11"}%
+---+ TWiki Editing Shorthand
+
+_These instructions are for contributors who prefer to use the Raw Edit over the default WYSIWYG editor._
+
+%STARTINCLUDE%
+<style type='text/css' media='all'>
+/* Item7507: to avoid Chrome/Safari font baseline bug under some skins */
+table td img {
+    vertical-align: top;
+}
+</style>
+<table class="twikiTable" border="1" cellpadding="3" bgcolor="#ffffff">
+<tr bgcolor="#ffffff">
+<th width="50%" class="twikiFirstCol">
+ Formatting Command:
+</th>
+<th width="25%">
+ You write:
+</th>
+<th width="25%">
+ You get:
+</th>
+</tr>
+<tr valign="top">
+<td>
+#TheParagraphs
+ *Paragraphs:* %BR%
+ Blank lines will create new paragraphs.
+</td><td>
+<verbatim>
+1st paragraph
+
+2nd paragraph
+</verbatim>
+</td><td>
+<!-- TWikibugs:Item7687 -->
+%IF{"{OpenClosePTags}" then="<nop>"}%
+1st paragraph
+
+2nd paragraph
+</td>
+</tr>
+<tr valign="top">
+<td>
+#TheHeadings
+ *Headings:* %BR%
+Three or more dashes at the beginning of a line, followed by plus signs and the heading text. One plus creates a top level heading, two pluses a second level heading, etc. The maximum heading depth is 6.
+
+   * icon:tip You can create a table of contents with the [[VarTOC][%<nop>TOC%]] variable.
+   * icon:tip If you want to *exclude* a heading from the TOC, put =!!= after the =---+=.
+   * icon:warning Empty headings are allowed and won't appear in the table of contents.
+</td><td>
+<verbatim>
+---++ Sushi
+---+++ Maguro
+---+++!! Not in TOC
+</verbatim>
+</td><td>
+%IF{"{OpenClosePTags}" then="<nop>"}%
+<nop><h2>Sushi</h2>
+<nop><h3>Maguro</h3>
+<nop><h3>Not in TOC</h3>
+</td>
+</tr>
+<tr valign="top">
+<td>
+#BoldText
+ *Bold Text:* %BR%
+ Words get shown in *bold* by enclosing them in =*= asterisks.
+</td><td>
+<verbatim>
+*Bold*
+</verbatim>
+</td><td>
+%IF{"{OpenClosePTags}" then="<nop>"}%
+*Bold*
+</td>
+</tr>
+<tr valign="top">
+<td>
+#ItalicText
+ *Italic Text:* %BR%
+ Words get shown in _italic_ by enclosing them in =_= underscores.
+</td><td>
+<verbatim>
+_Italic_
+</verbatim>
+</td><td>
+%IF{"{OpenClosePTags}" then="<nop>"}%
+_Italic_
+</td>
+</tr>
+<tr valign="top">
+<td>
+#BoldItalic
+ *Bold Italic:* %BR%
+ Words get shown in __bold italic__ by enclosing them in =__= double-underscores.
+</td><td>
+<verbatim>
+__Bold italic__
+</verbatim>
+</td><td>
+%IF{"{OpenClosePTags}" then="<nop>"}%
+__Bold italic__
+</td>
+</tr>
+<tr valign="top">
+<td>
+#FixedFont
+ *Fixed Font:* %BR%
+ Words get shown in =fixed font= by enclosing them in =<nop>=<nop>= equal signs.
+</td><td>
+<verbatim>
+=Fixed font=
+</verbatim>
+</td><td>
+%IF{"{OpenClosePTags}" then="<nop>"}%
+=Fixed font=
+
+</td>
+</tr>
+<tr valign="top">
+<td>
+#BoldFixedFont
+ *Bold Fixed Font:* %BR%
+ Words get shown in ==bold fixed font== by enclosing them in ==<nop>== double equal signs.
+</td><td>
+<verbatim>
+==Bold fixed==
+</verbatim>
+</td><td>
+%IF{"{OpenClosePTags}" then="<nop>"}%
+==Bold fixed==
+</td>
+</tr>
+<tr valign="top">
+<td>
+   * icon:tip You can follow the closing bold, italic, or other (=* _ __ = ===) indicator with normal punctuation, such as commas and full stops.
+   * icon:warning Make sure there is no space between the text and the indicators.
+   * icon:warning All words enclosed by the indicators need to be on the same line.
+</td><td>
+<verbatim>
+_This works_,
+_this does not _
+_this fails
+too_
+</verbatim>
+</td><td>
+%IF{"{OpenClosePTags}" then="<nop>"}%
+_This works_, %BR%
+_this does not _ %BR%
+_this fails
+too_
+</td>
+</tr>
+<tr valign="top">
+<td>
+#HorizontalRule
+ *Separator (Horizontal Rule):* %BR%
+Three or more three dashes at the beginning of a line..
+</td><td>
+<verbatim>
+-------
+</verbatim>
+</td><td>
+%IF{"{OpenClosePTags}" then="<nop>"}%
+-------
+</td>
+</tr>
+<tr valign="top">
+<td>
+#BulletedList
+ *Bulleted List:* %BR%
+Multiple of three spaces, an asterisk, and another space.
+   * icon:help For all the list types, you can break a list item over several lines by indenting lines after the first one by *at least 3 spaces*.
+</td><td>
+<verbatim>
+   * level 1
+      * level 2
+   * back on 1
+   * A bullet
+     broken over
+     three lines
+   * last bullet
+</verbatim>
+</td><td>
+%IF{"{OpenClosePTags}" then="<nop>"}%
+   * level 1
+      * level 2
+   * back on 1
+   * A bullet
+     broken over
+     three lines
+   * last bullet
+</td>
+</tr>
+<tr valign="top">
+<td>
+#IconList
+ *Icon List:* %BR%
+Multiple of three spaces, an asterisk, text =icon:name= and another space.
+   * icon:help Use the =name= of any TWikiDocGraphics icon.
+</td><td>
+<verbatim>
+   * icon:tip Icon list
+      * icon:led-red Full
+      * icon:led-green OK
+   * icon:unchecked Item 1
+   * icon:checked Item 2
+   * icon:empty No bullet
+</verbatim>
+</td><td>
+%IF{"{OpenClosePTags}" then="<nop>"}%
+   * icon:tip Icon list
+      * icon:led-red Full
+      * icon:led-green OK
+   * icon:unchecked Item 1
+   * icon:checked Item 2
+   * icon:empty No bullet
+</td>
+</tr>
+<tr valign="top">
+<td>
+#NumberedList
+ *Numbered List:* %BR%
+ Multiple of three spaces, a type character, a dot, and another space. Several types are available besides a number:
+| *Type* | *Generated Style* | *Sample Sequence* |
+| 1. | Arabic numerals | 1, 2, 3, 4... |
+| A. | Uppercase letters | A, B, C, D... |
+| a. | Lowercase letters | a, b, c, d... |
+| I. | Uppercase Roman Numerals | I, II, III, IV... |
+| i. | Lowercase Roman Numerals | i, ii, iii, iv... |
+</td><td>
+<verbatim>
+   1. Sushi
+   1. Dim Sum
+   1. Fondue
+
+   A. Sushi
+   A. Dim Sum
+   A. Fondue
+
+   i. Sushi
+   i. Dim Sum
+   i. Fondue
+</verbatim>
+</td><td>
+%IF{"{OpenClosePTags}" then="<nop>"}%
+   1. Sushi
+   1. Dim Sum
+   1. Fondue
+
+   A. Sushi
+   A. Dim Sum
+   A. Fondue
+
+   i. Sushi
+   i. Dim Sum
+   i. Fondue
+</td>
+</tr>
+<tr valign="top">
+<td>
+#DefinitionList
+ *Definition List:* %BR%
+ Three spaces, a dollar sign, the term, a colon, a space, followed by the definition.
+
+ Deprecated syntax: Three spaces, the term with no spaces, a colon, a space, followed by the definition.
+</td><td>
+<verbatim>
+   $ Sushi: Japan
+   $ Dim Sum: S.F.
+</verbatim>
+</td><td>
+%IF{"{OpenClosePTags}" then="<nop>"}%
+   $ Sushi: Japan
+   $ Dim Sum: S.F.
+</td>
+</tr>
+<tr valign="top">
+<td>
+#TheTable
+ *Table:* %BR%
+Each row of the table is a line containing of one or more cells. Each cell starts and ends with a vertical bar '|'. Any spaces at the beginning of a line are ignored.
+   * =| <nop>*bold*<nop> |= header cell with text in asterisks
+   * =|   center-aligned   |= cell with two or more spaces on both sides. The number of spaces may be different between sides
+   * =|      right-aligned |= cell with two or more spaces on the left and one or zero space on the right
+   * =| 2 colspan ||= and multi-span columns with multiple <tt>|</tt>'s right next to each other
+   * =|^|= cell with caret indicating follow-up row of multi-span rows
+   * =|&gt;&gt; ... &lt;&lt;|= cell enclosed in double-square brackets can span multiple lines - useful for bullets and nested tables
+   * You can split rows over multiple lines by putting a backslash ='\'= at the end of each line
+   * Contents of table cells wrap automatically as determined by the browser
+   * Use =%<nop>VBAR%= or =&amp;#124;= to add =&#124;= characters in tables.
+   * Use =%<nop>CARET%= or =&amp;#94;= to add =&#94;= characters in tables.
+   * icon:tip The %SYSTEMWEB%.TablePlugin provides the =|^|= multiple-span row functionality, =|&gt;&gt; ... &lt;&lt;|= multi-line syntax, and additional rendering features
+</td><td>
+<verbatim>
+| *L* | *C* | *R* |
+| A2 |  B2  |  C2 |
+| A3 |  B3  |  C3 |
+| multi span |||
+| A5-7 |  5  |  5 |
+|^| six | six |
+|^| seven | seven |
+| split\
+  | over\
+  | 3 lines |
+| A9 |>>
+ | Nested |
+ | table |
+<<|  C9 |
+</verbatim>
+</td><td>
+%IF{"{OpenClosePTags}" then="<nop>"}%
+| *L* | *C* | *R* |
+| A2 |  B2  |  C2 |
+| A3 |  B3  |  C3 |
+| multi span |||
+| A5-7 |  5  |  5 |
+|^| six | six |
+|^| seven | seven |
+| split\
+  | over\
+  | 3 lines |
+| A9 |>>
+ | Nested |
+ | table |
+<<|  C9 |
+</td>
+</tr>
+<tr valign="top">
+<td>
+#WikiWordLinks
+ *<nop>WikiWord Links:* %BR%
+ <nop>CapitalizedWordsStuckTogether (or WikiWords) will produce a link automatically if preceded by whitespace or parenthesis.
+   * icon:tip If you want to link to a topic in a different web write =Otherweb.TopicName=.
+   * icon:tip To link to a topic in a subweb write =Otherweb.Subweb.TopicName=.
+   * icon:help The link label excludes the name of the web, e.g. only the topic name is shown. As an exception, the name of the web is shown for the <nop>%HOMETOPIC% topic.
+   * icon:warning Dots ='.'= are used to separate webs and subwebs from topic names and therefore cannot be used in topic names.
+   * icon:tip Links can be prevented with an =!= exclamation point prefix.
+
+It's generally a good idea to use the TWikiVariables %<nop>SYSTEMWEB% and %<nop>USERSWEB% instead of TWiki and Main.
+</td><td>
+<verbatim>
+WebStatistics
+
+Sandbox.WebNotify
+
+Sandbox.WebHome
+
+Sandbox.Subweb.TopicName
+
+!EscapedWikiWord
+</verbatim>
+</td><td>
+%IF{"{OpenClosePTags}" then="<nop>"}%
+WebStatistics
+
+Sandbox.WebNotify
+
+Sandbox.%HOMETOPIC%
+
+<a href="#MyAnchor" title="simulated link">TopicName</a>
+
+!EscapedWikiWord
+</td>
+</tr>
+<tr valign="top">
+<td>
+#TheAnchors
+ *Anchors:* %BR%
+ You can define a reference inside a TWiki topic (called an anchor name) and link to that. To __define__ an anchor write =#AnchorName= at the beginning of a line. The anchor name must be a WikiWord of no more than 32 characters. To __link__ to an anchor name use the =[<nop>[MyTopic#MyAnchor]]= syntax. You can omit the topic name if you want to link within the same topic.
+</td><td>
+<verbatim>
+[[WikiWord#NotThere]]
+
+[[#MyAnchor][Jump]]
+
+#MyAnchor
+To here
+</verbatim>
+</td><td>
+%IF{"{OpenClosePTags}" then="<nop>"}%
+[[WikiWord#NotThere]]
+
+[[#MyAnchor][Jump]]
+
+#MyAnchor
+To here
+</td>
+</tr>
+<tr valign="top">
+<td>
+#ExternalLinks
+ *External Links:* %BR%
+ URLs starting with =file=, =ftp=, =gopher=, =http=, =https=, =irc=, =mailto=, =news=, =nntp= and =telnet= are linked automatically if preceded by whitespace or parenthesis. External links are indicated with a trailing %ICON{external-link}% icon, and open up in a new browser tab or window; the behavior of both can be set in configure or preferences variables (see TWikiExternalLinks for details). Links can be prevented with an =!= exclamation point prefix.
+</td><td>
+<verbatim>
+http://twiki.org
+
+https://google.com
+
+!http://escaped-link
+</verbatim>
+</td><td>
+%IF{"{OpenClosePTags}" then="<nop>"}%
+http://twiki.org
+
+https://google.com
+
+!http://escaped-link
+</td>
+</tr>
+<tr valign="top">
+<td>
+#ForcedLinks
+#HeRe
+ *Forced Links:* %BR%
+ Use double square brackets to create forced links: Write =[<nop>[link]]= or =[<nop>[link][label]]= to force a link. Use the former for singleton words and if [[#DisableLinks][automatic linking is disabled]]. Use the latter one to specify a link label other than the link. For the link, you can use internal link references (e.g. WikiWords) and URLs (e.g. !http://TWiki.org/). 
+   * icon:tip URL parameters can follow a WikiWord
+   * icon:tip Anchor names can be added to create a link to a specific place in a document.
+   * icon:tip To "escape" double square brackets that would otherwise make a link, prefix the leading left square bracket with an exclamation point.
+   * icon:tip The [[VarTOPICTITLE][topic title]] instead of the topic name is shown for =[<nop>[WikiWord]]= links if the SHOWTOPICTITLELINK preferences setting is enabled.
+</td><td>
+<verbatim>
+[[WikiWord]]
+
+[[WikiWord?n1=v1;n2=v2]]
+
+[[WikiWord#TheAnchor]]
+
+[[WikiWord?n=5#TheAnchor]]
+
+[[WikiSyntax][wiki syntax]]
+
+[[http://gnu.org/][GNU]]
+
+[[Singleton]]
+
+escaped:
+![[WikiSyntax]]
+</verbatim>
+</td><td>
+%IF{"{OpenClosePTags}" then="<nop>"}%
+[[WikiWord]]
+
+[[WikiWord?n1=v1;n2=v2]]
+
+[[WikiWord#TheAnchor]]
+
+[[WikiWord?n=5#TheAnchor]]
+
+[[WikiSyntax][wiki syntax]]
+
+[[http://gnu.org/][GNU]]
+
+[[Singleton]]
+
+escaped:
+![[WikiSyntax]]
+</td>
+</tr>
+<tr valign="top">
+<td>
+#TopicTitleLinks
+ *Topic Title Links:* %BR%
+ Use double square brackets and a plus sign to create links with topic title: Write =[<nop>[+TopicName]]= or =[<nop>[+Web.TopicName]]= to show the [[VarTOPICTITLE][topic title]] instead of the topic name. The topic title is defined by the form field named "Title", the topic preferences setting named TITLE, or the topic name if neither exists.
+   * icon:tip An alternative syntax is =[<nop>[TopicName][$topictitle]]= or =[<nop>[Web.TopicName][$topictitle]]=.
+</td><td>
+<verbatim>
+[[+BugN1234]]
+
+[[+Bugs.BugN1234]]
+
+[[BugN1234][$topictitle]]
+</verbatim>
+</td><td>
+%IF{"{OpenClosePTags}" then="<nop>"}%
+[[%TOPIC%][The sky is falling]]
+
+[[%TOPIC%][The sky is falling]]
+
+[[%TOPIC%][The sky is falling]]
+</td>
+</tr>
+<tr valign="top">
+<td>
+#ReferToTopicOrAttachmentName
+ *Refer to Topic or Attachment Name in Double Square Brackets:* %BR%
+ =$name= in the link label in the double square brackets notation refers to the topic name or the attachment file name.
+
+=$name= is used for consistency with QuerySearch, in which =name= refers to the topic name and the attachment file name, respectively.
+</td><td>
+<verbatim>
+[[%SYSTEMWEB%.WikiWord\
+#TheSyntax][$name]]
+
+[[%PUBURL%/%WEB%/WabiSabi\
+/wabisabi.gif][$name]]
+</verbatim>
+</td><td>
+%IF{"{OpenClosePTags}" then="<nop>"}%
+[[%SYSTEMWEB%.WikiWord#TheSyntax][$name]]
+
+[[%PUBURL%/%WEB%/WabiSabi/wabisabi.gif][$name]]
+</td>
+</tr>
+<tr valign="top">
+<td>
+#PreventLink
+ *Prevent a Link:* %BR%
+ Prevent a WikiWord from being linked by prepending it with an exclamation point.
+</td><td>
+<verbatim>
+!RedHat
+</verbatim>
+</td><td>
+!RedHat
+</td>
+</tr>
+<tr valign="top">
+<td>
+#DisableLinks
+ *Disable Links:* %BR%
+ You can disable automatic linking of WikiWords by surrounding text with =&lt;noautolink&gt;= and =&lt;/noautolink&gt;= tags.
+   * icon:help It is possible to turn off all auto-linking with a NOAUTOLINK preferences setting.
+</td><td>
+<verbatim>
+ <noautolink>
+ RedHat & SuSE
+ </noautolink>
+</verbatim>
+</td><td>
+%IF{"{OpenClosePTags}" then="<nop>"}%
+ <noautolink>
+ RedHat & SuSE
+ </noautolink>
+</td>
+</tr>
+<tr valign="top">
+<td>
+#MailtoLinks
+ *Mailto Links:* %BR%
+ E-mail addresses are linked automatically. To create e-mail links that have more descriptive link text, specify subject lines or message bodies, or omit the e-mail address, you can write =[<nop>[mailto:user@domain][descriptive text]]=.
+</td><td>
+<verbatim>
+a@b.com
+
+[[mailto:a@b.com]\
+[Mail]]
+
+[[mailto:?subject=\
+Hi][Hi]]
+</verbatim>
+</td><td>
+%IF{"{OpenClosePTags}" then="<nop>"}%
+a@b.com
+
+[[mailto:a@b.com]\
+[Mail]]
+
+[[mailto:?subject=Hi][Hi]]
+</td>
+</tr>
+<tr valign="top">
+<td>
+#TwitterLinks
+ *Twitter Links:* %BR%
+ <nop>@twitter IDs are linked automatically. The link rule is defined by the ={Links}{TwitterUrlPattern}= configure setting.
+</td><td>
+<verbatim>
+@twiki
+
+!@escaped
+</verbatim>
+</td><td>
+%IF{"{OpenClosePTags}" then="<nop>"}%
+@twiki
+
+!@escaped
+</td>
+</tr>
+<tr valign="top">
+<td>
+#VerbatimText
+ *Verbatim Text:* %BR%
+ Surround code excerpts and other formatted text with =&lt;verbatim&gt;= and =&lt;/verbatim&gt;= tags.
+   * icon:tip The =verbatim= tag disables HTML code. Use =&lt;pre&gt;= and =&lt;/pre&gt;= tags instead if you want the HTML code within the tags to be interpreted.
+   * icon:warning Preferences variables (* Set NAME = value) are set within verbatim tags.
+</td><td>
+<verbatim>
+<verbatim>
+class CatAnimal {
+  void purr() {
+    <code here>
+  }
+}
+</verbatim>
+</verbatim>
+</td><td>
+<verbatim>
+class CatAnimal {
+  void purr() {
+    <code here>
+  }
+}
+</verbatim>
+</td>
+</tr>
+<tr valign="top">
+<td>
+#LiteralText
+ *Literal Text:* %BR%
+ TWiki generates HTML code from TWiki shorthand.
+ *Experts* surround anything that must be output literally in the HTML code, without the application of
+ TWiki shorthand rules, with =&lt;literal&gt;..&lt;/literal&gt;= tags.
+   * icon:warning Any HTML within literal tags *must* be well formed i.e. all tags must be properly closed before the end of the literal block.
+   * icon:tip TWiki Variables are expanded within literal blocks.
+</td><td>
+<pre>
+&lt;literal&gt;
+| Not | A | Table |
+&lt;literal&gt;
+</pre>
+</td>
+<td>
+<literal>
+| Not | A | Table |
+</literal>
+</td>
+</tr>
+<tr valign="top">
+<td>
+#ProtectedText
+ *Protected Text:* %BR%
+ *Experts* protect text from mangling by WYSIWYG editors using
+ =&lt;sticky&gt;..&lt;/sticky&gt;= tags. Sticky tags don't have any effect on normal
+ topic display; they are only relevant when content has to be
+ protected from a WYSIWYG editor (usually because it isn't well-formed HTML, or because it
+ is HTML that WYSIWYG would normally filter out or modify). Protected
+ content appears as plain text in the WYSIWYG editor.
+</td><td>
+<pre>
+&lt;sticky&gt;
+&lt;div&gt;
+This div is required
+&lt;/div&gt;
+&lt;/sticky&gt;
+</pre>
+</td>
+<td>
+<sticky>
+<div>
+This div is required
+</div>
+</sticky>
+</td>
+</tr>
+</table>
+%STOPINCLUDE%
+__Related topics:__ WikiSyntax, WikiWord, WikiNotation, TextFormattingRules, TWikiRenderingShortcut, TWikiShorthand

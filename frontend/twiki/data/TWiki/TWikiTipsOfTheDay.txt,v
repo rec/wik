@@ -1,0 +1,113 @@
+head	1.4;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.4
+date	2012.09.05.06.15.48;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2010.05.29.14.44.23;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.01.22.03.21.35;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.24;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1346825748" format="1.1" version="4"}%
+---+ TWiki Tips Of The Day
+
+These are all tips of the day. They are located in the %SYSTEMWEB% web (official TWiki tips) and %USERSWEB% web (custom tips).
+
+%SEARCH{
+ "^TWiki[Custom]*Tip[0-9A-Z]"
+ web="%SYSTEMWEB%, %USERSWEB%"
+ topic="TWiki*Tip*"
+ scope="topic"
+ type="regex"
+ casesensitive="on"
+ nosearch="on"
+ nototal="on"
+ format="   * [[$web.$topic][$pattern(.*?\-\-\-\+([^\n\r]+).*)]]:$n()   $summary(noheader, 80)$percntCALC{$SETM(total, +1)}$percnt"
+}%
+
+Total: %CALC{$GET(total)}% tips
+
+__See also:__ [[TWikiTipsOfTheDayAdmin][TWiki Tips Of The Day Administration]]
+
+-- __Contributors:__ TWiki:Main.PaulineCheung, TWiki:Main.PeterThoeny
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1273971578" format="1.1" version="3"}%
+d6 11
+a16 1
+%SEARCH{ "^TWiki[Custom]*Tip[0-9A-Z]" web="%SYSTEMWEB%, %USERSWEB%" topic="TWiki*Tip*" scope="topic" type="regex" casesensitive="on" nosearch="on" nototal="on" format="   * [[$web.$topic][$pattern(.*?\-\-\-\+([^\n\r]+).*)]]:$n()   $summary(noheader, 80)$percntCALC{$SETM(total, +1)}$percnt"}%
+d22 1
+a22 1
+-- __Contributors:__ TWiki:Main/PaulineCheung, TWiki:Main/PeterThoeny - 2010-05-15
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1107567082" format="1.0" version="2"}%
+d6 1
+a6 1
+%SEARCH{ "^TWiki[Custom]*Tip[0-9A-Z]" web="%SYSTEMWEB%, %USERSWEB%" topic="TWiki*Tip*" scope="topic" type="regex" casesensitive="on" nosearch="on" nototal="on" format="	* [[$web.$topic][$pattern(.*?\-\-\-\+([^\n\r]+).*)]]:$n()	$summary(noheader, 100)$n()$percntCALC{$SETM(total, +1)}$percnt"}%
+d12 1
+a12 2
+-- TWiki:Main.PaulineCheung - 06 Jan 2005
+
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1107567082" format="1.0" version="1"}%
+d4 1
+a4 1
+These are all tips of the day. They are located in the %TWIKIWEB% web (official TWiki tips) and %MAINWEB% web (custom tips).
+d6 1
+a6 1
+%SEARCH{ "^TWiki[Custom]*Tip[0-9A-Z]" web="%TWIKIWEB%, %MAINWEB%" topic="TWiki*Tip*" scope="topic" type="regex" casesensitive="on" nosearch="on" nototal="on" format="	* [[$web.$topic][$pattern(.*?\-\-\-\+([^\n\r]+).*)]]:$n()	$summary(noheader, 100)$n()$percntCALC{$SETM(total, +1)}$percnt"}%
+@

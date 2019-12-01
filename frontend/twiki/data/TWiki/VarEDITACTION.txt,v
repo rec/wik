@@ -1,0 +1,59 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2012.11.12.08.18.10;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2008.12.06.09.02.14;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1352708290" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarEDITACTION
+---+++ EDITACTION -- select an edit template
+   * EDITACTION defined in a topic or preference setting will define the use of an editaction template instead of the standard edit. If EDITACTION is defined as =text=, then hide the form. If EDITACTION is defined as =form= hide the normal text area and only edit the form.
+   * Syntax: =%<nop>EDITACTION%= (returning either =text= or =form=)
+   * Expands to: %EDITACTION%
+   * Note: When EDITACTION is defined as text or form the Edit and Edit Raw buttons simply add =;action=text= or =;action=form= to the URL for the edit script. If you have defined EDITACTION in a topic setting or preference setting you can still edit the topic content or the form by removing the =;action=form= or =;action=text= from the edit URL in the browser and reload.
+   * Category: AdministrationVariables, EditingAndContentUpdateVariables, SkinsAndTemplatesVariables
+   * Related: TWikiScripts#edit
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1217292809" format="1.1" version="1"}%
+d4 1
+a4 2
+---+++ EDITACTION -- Selects an edit template
+
+d6 1
+a6 1
+   * Syntax: Set EDITACTION = text|form
+d8 2
+a10 1
+   * %X% When EDITACTION is defined as text or form the Edit and Edit Raw buttons simply add =;action=text= or =;action=form= to the URL for the edit script. If you have defined EDITACTION in a topic setting or preference setting you can still edit the topic content or the form by removing the =;action=form= or =;action=text= from the edit URL in the browser and reload.@

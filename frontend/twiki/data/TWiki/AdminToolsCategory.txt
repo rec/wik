@@ -1,0 +1,63 @@
+%META:TOPICINFO{author="TWikiContributor" date="1391158400" format="1.1" version="12"}%
+%META:TOPICPARENT{name="CategoryCategory"}%
+---+ Admin Tools
+
+_Manage whole <b>TWiki</b> site from one screen._
+
+   * %ICON{help}% Documentation: [[TWikiReferenceManual][TWiki Reference Manual]]
+   * %ICON{wrench}% [[TWikiSiteTools][Site Tools]]: [[%SCRIPTURLPATH{"configure"}%][Configure script]], %WIKIPREFSTOPIC%, InterWikis, [[TWikiVariables][Variables]], [[TWikiDocGraphics][Doc Graphics]]
+   * %ICON{persons}% [[ManagingUsers][Manage Users]]: [[%USERSWEB%.%WIKIUSERSTOPIC%][All users]], %USERSWEB%.UserList, [[TWikiRegistration][Registration]], QueryUsers, ResetPassword, ChangePassword, ChangeEmailAddress
+   * %ICON{indexlist}% Manage Content: [[ManagingTopics][Topics]], [[ManagingWebs][Webs]]%IF{ "istopic '%TRASHWEB%.WebTrashManager'" then=", [[%TRASHWEB%.WebTrashManager][Trash Manager]]" }%
+   * %ICON{folder}% Webs: %TABLE{sort="off"}%
+     | *TWiki %MAKETEXT{web}%* | *Tools* |
+%WEBLIST{
+ "     | <span style=\"white-space:nowrap; font-weight:700\"><a href=\"%SCRIPTURLPATH{"view"}%/$name/%HOMETOPIC%\"><img src=\"%ICONURL{web-bg}%\" border=\"0\" alt=\"\" width=\"16\" height=\"16\" style=\"background-color:%$markerVAR{\"WEBBGCOLOR\" web=$qname}$marker%\" />&nbsp;<nop>$indentedname</a></span>: %$markerVAR{\"SITEMAPWHAT\" web=$qname}$marker% | <span style="white-space:nowrap">[[$name.%HOMETOPIC%][<img src=\"%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/home.gif\" alt=\"Home\" title=\"Home of <nop>$name web\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$name.WebSearch][<img src=\"%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/searchtopic.gif\" alt=\"Search\" title=\"Search <nop>$name web\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$name.WebChanges][<img src=\"%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/recentchanges.gif\" alt=\"Changes\" title=\"Recent changes in the <nop>$name web\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$name.%NOTIFYTOPIC%][<img src=\"%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/notify.gif\" alt=\"Notification\" title=\"Get notified of changes to the <nop>$name web\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$name.%WEBPREFSTOPIC%][<img src=\"%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/wrench.gif\" alt=\"Preferences\" title=\"Preferences of <nop>$name web\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$name.WebTopMenu][<img src=\"%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/topmenu.gif\" alt=\"Top menu\" title=\"Top menu of <nop>$name web\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$name.%STATISTICSTOPIC%][<img src=\"%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/statistics.gif\" alt=\"Statistics\" title=\"Statistics of <nop>$name web\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$name.WebTopicList][<img src=\"%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/indexlist.gif\" alt=\"All topics\" title=\"Bullet list of all topics\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$name.WebIndex][<img src=\"%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/index.gif\" alt=\"Topic details\" title=\"Index of all topics\" width=\"16\" height=\"16\" border=\"0\">]]</span> |"
+ webs="%IF{"{NoInAllPublicWebs}" then="%USERSWEB%,%SYSTEMWEB%" else=""public,webtemplate"}%"
+}%
+  <table border="0" cellspacing="2" cellpadding="3">
+  <tr bgcolor="#ffffff">
+    <td colspan="6"> %IF{"{NoInAllPublicWebs}" then="     The rest of the web list is ommited to avoid time out." else="This table is updated automatically based on <nop>WebPreferences settings of the individual webs."}% </td>
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td valign="top"> Legend: </td>
+    <td valign="top"> &nbsp;</td>
+    <td valign="top">
+      <img src="%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/home.gif" alt="Home of web" width="16" height="16" border="0"> !WebHome </td>
+    <td valign="top">
+      <img src="%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/searchtopic.gif" alt="Search web" width="16" height="16" border="0"> !WebSearch </td>
+    <td valign="top">
+      <img src="%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/recentchanges.gif" alt="Recent changes in the web" width="16" height="16" border="0"> !WebChanges </td>
+    <td valign="top">
+      <img src="%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/notify.gif" alt="Get notified of changes to the web" width="16" height="16" border="0"> !WebNotify </td>
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td valign="top"> &nbsp;</td>
+    <td valign="top"> &nbsp;</td>
+    <td valign="top">
+      <img src="%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/wrench.gif" alt="Preferences of web" width="16" height="16" border="0"> !WebPreferences </td>
+    <td valign="top">
+      <img src="%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/statistics.gif" alt="Statistics of web" width="16" height="16" border="0"> !WebStatistics </td>
+    <td valign="top">
+      <img src="%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/indexlist.gif" alt="Bullet list of all topics" width="16" height="16" border="0"> !WebTopicList </td>
+    <td valign="top">
+      <img src="%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/index.gif" alt="Index of all topics" width="16" height="16" border="0"> !WebIndex </td>
+  </tr>
+  </table>
+
+---++ All Admin Tools Category topics
+
+%SEARCH{"%TOPIC%" excludetopic="%TOPIC%" nonoise="on" format="   * $web.$topic: $summary(100, noheader)"}%
+
+---++ Plugins
+
+Administrators can enable and disable plugins using [[%SCRIPTURLPATH{"configure"}%][configure]].
+%PLUGINDESCRIPTIONS%
+
+See also: TWikiPlugins
+
+---++ TWiki Version
+
+   * TWiki engine: %WIKIVERSION%
+   * Plugin API: %PLUGINVERSION{}%
+
+__Related topics:__ %SEARCH{".*Category\b" excludetopic="%TOPIC%" type="regex" scope="topic" nonoise="on" format="[[$topic]]" separator=", "}%

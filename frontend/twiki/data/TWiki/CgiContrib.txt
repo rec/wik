@@ -1,0 +1,84 @@
+%META:TOPICINFO{author="TWikiContributor" date="1530834777" format="1.1" version="2"}%
+---+!! CGI Contrib Package
+<!--
+   Contributions to this contrib are appreciated. Please update the contrib page at
+   http://twiki.org/cgi-bin/view/Plugins/%TOPIC% or provide feedback at
+   http://twiki.org/cgi-bin/view/Plugins/%TOPIC%Dev.
+   If you are a TWiki contributor please update the contrib in the SVN repository.
+-->
+%SHORTDESCRIPTION%
+<sticky>
+<div style="float:right; background-color:#EBEEF0; margin:0 0 20px 20px; padding: 0 10px 0 10px;">
+%TOC%
+</div>
+</sticky>
+
+---++ Introduction
+
+This contrib does not add any features to TWiki.  Its purpose is to
+convert Perl's CGI module from being an external dependency to a
+component of TWiki.
+
+---++ Detailed Documentation
+
+This is the stub module of CgiContrib.  Its only purpose is to expose
+the version number of CGI under its expected package name, so that the
+TWiki dependency checking mechanism will find it.
+
+ 
+
+---++ Settings
+
+   * Set SHORTDESCRIPTION = CGI version 4.13 from CPAN:CGI
+
+---++ Installation Instructions
+
+This contrib ships with TWiki (versions 6.0.2 or newer).  You should
+only consider installing it yourself if 1) you experience problems
+with CGI in your installation, and 2) installing or upgrading this is
+recommended by the TWiki community as a fix for your problems.
+
+You do not need to install anything on the browser to use this contrib package. These instructions are for the administrator who installs the package on the server where TWiki is running.
+
+
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}% "
+ hidelink="Hide details %ICONURL{toggleclose}% "
+}%
+
+   * Download the ZIP file from the Plugin web (see below)
+   * Unzip ==%TOPIC%.zip== in your twiki installation directory. Content:
+     | *File:* | *Description:* |
+   | ==lib/CGI.pm== | unchanged CPAN module |
+   | ==lib/CGI/Carp.pm== | unchanged CPAN module |
+   | ==lib/CGI/Cookie.pm== | unchanged CPAN module |
+   | ==lib/CGI/File/Temp.pm== | unchanged CPAN module |
+   | ==lib/CGI/Pretty.pm== | unchanged CPAN module |
+   | ==lib/CGI/Push.pm== | unchanged CPAN module |
+   | ==lib/CGI/Util.pm== | unchanged CPAN module |
+   | ==lib/Fh.pm== | unchanged CPAN module |
+   | ==data/TWiki/CgiContrib.txt== | Documentation |
+   | ==lib/TWiki/Contrib/CgiContrib.pm== | Perl module |
+     
+   * Test if the installation was successful:
+      * Sorry, this is not yet easily possible.
+
+%ENDTWISTY%
+
+---++ Contrib Info
+
+|  Author: | TWiki:Main.TWikiContributor |
+|  Copyright: | &copy; 2015-2018 Peter Thoeny;%BR% &copy; 2015-2018 TWiki Contributors |
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+|  Dependencies: | <table border="1"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">HTML::Entities</td><td align="left">&gt;0</td><td align="left">Required by CGI module</td></tr></table>  |
+|  Version: | 2018-07-05 |
+|  Change History: | <!-- versions below in reverse order -->&nbsp; |
+|  2018-07-05: | TWikibug:Item7841: Copyright update to 2018 |
+|  2016-01-08: | TWikibug:Item7708: Copyright update to 2016 |
+|  2015-11-29: | Initial version |
+|  Home: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC% |
+|  Feedback: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Dev |
+|  Appraisal: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Appraisal |
+
+__Related Topics:__ %SYSTEMWEB%.TWikiContribs, %SYSTEMWEB%.SystemInformationVariables

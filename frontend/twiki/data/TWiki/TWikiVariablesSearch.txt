@@ -1,0 +1,51 @@
+%META:TOPICINFO{author="TWikiContributor" date="1366672173" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+---+!! <span style="font-size: 60%;">[[TWikiVariables][TWiki Variables]] &raquo;</span> Search TWiki Variables
+%STARTINCLUDE%%STARTSECTION{categories}%%SET{
+ "twVarCategories"
+ value="%SEARCH{ "INCLUDE.*[T]WikiVariablesCategoryBody" type="regex" topic="*Variables" nonoise="on" format="$topic" separator=", " }%"
+}%%SET{
+ "twVarCategoriesLinks"
+ value="%CALCULATE{$LISTMAP([[%SCRIPTURL{view}%/%WEB%/TWikiVariablesSearch?search=;category=$NOP(%)ENCODE{$item}$NOP(%)][$SUBSTITUTE($PROPERSPACE($SUBSTITUTE($item, Variables,)), And , &amp; )]], %GET{twVarCategories}%)}%"
+}%%ENDSECTION{categories}%
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="scroll_box_engine" }%
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="static_box_start" boxstyle="width: auto;" }%
+<form name="searchvars" action="%SCRIPTURL{view}%/%WEB%/%TOPIC%" method="get">
+<table style="width: 100%;"><tr><td>
+<input type="text" class="twikiInputField" name="search" value="%URLPARAM{ "search" encode="entity" }%" style="width: 95%" />
+</td><td>
+<input type="submit" class="twikiSubmit" value="Search" />
+</td><td style="width: 90%">
+%IF{ "'%BASETOPIC%'!='TWikiVariables'" then="&nbsp;&nbsp; [[%TOPIC%][Clear]]" }%
+&nbsp;&nbsp; [[%SCRIPTURL{view}%/%WEB%/%TOPIC%?search=.][Show all]]
+</td></tr><tr><td>
+<select name="category"> <option value="%URLPARAM{ "category" }%">%CALCULATE{$SUBSTITUTE($PROPERSPACE($SUBSTITUTE(%URLPARAM{ "category" }%, Variables,)), And , &amp; )}%</option>
+<option></option>
+%CALCULATE{$LISTJOIN($sp, $LISTMAP(<option value="$item">$SUBSTITUTE($PROPERSPACE($SUBSTITUTE($item, Variables,)), And , &amp; )</option>, %GET{twVarCategories}%))}%
+</select>
+</td><td>
+Category
+</td><td>
+</td></tr></table>
+</form>
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="static_box_end" }%%STOPINCLUDE%
+
+%CALCULATE{$SET(found, %IF{ "defined 'search'" then="__Note:__ No variables found." else="" }%)}%
+%TOC{ title="Found:" }%
+%SEARCH{
+  "^\#Var[A-Z0-9]%IF{ "defined 'search'" then=";$percntURLPARAM{ \"search\" encode=\"quote\" }$percnt" else=";don't_show_anything" }%%IF{ "'%URLPARAM{ "category" encode="quote" }%'!=''" then=";\* Category:.*?%URLPARAM{ "category" encode="quote" }%" }%"
+ topic="Var*"
+ type="regex"
+ nonoise="on"
+ format="$percntINCLUDE{$web.$topic}$percnt ([[$topic][this topic]])"
+ footer="$percntCALCULATE{$SET(found, __Total:__ $IF($ntopics>1, $ntopics variables, $ntopics variable))}$percnt"
+}%
+
+%CALCULATE{$GET(found)}%
+
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="static_box_start" boxstyle="width: auto;" }%
+__Categories:__
+%GET{twVarCategoriesLinks}%
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="static_box_end"}%
+
+__Related Topics:__ UserDocumentationCategory, TWikiVariables, TWikiVariablesWizard, TWikiVariablesQuickStart, SearchHelp

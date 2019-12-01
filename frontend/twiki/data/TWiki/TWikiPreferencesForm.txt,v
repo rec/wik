@@ -1,0 +1,258 @@
+head	1.8;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.8
+date	2013.03.26.11.07.07;	author TWikiContributor;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2012.09.16.07.00.32;	author TWikiContributor;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2011.08.21.03.21.45;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2011.02.10.03.19.09;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2010.05.29.14.44.29;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2009.03.30.09.18.13;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.01.22.03.21.29;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.23;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.8
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1364296027" format="1.1" version="8"}%
+---+ TWiki Preferences Form
+
+|*Name*|*Type*|*Size*|*Value*|*Tooltip message* |*Attributes*|
+| WEBBGCOLOR | color | 20 | #FFD8AA | HTML Color | S |
+| FAVICON | text | 80 | %PUBURL%/%WEB%/WebPreferences/favicon.ico | URL of an icon image | S |
+| WEBCOPYRIGHT | textarea | | Copyright &copy; 1999-%GMTIME{"$year"}% by the contributing authors. \nAll material on this collaboration platform is the property of the contributing authors. <br /> \nIdeas, requests, problems regarding <nop>%WIKITOOLNAME%? <a href="mailto:%WIKIWEBMASTER%?subject=%WIKITOOLNAME%&#32;Feedback&#32;on&#32;%WEB%.%TOPIC%">Send feedback</a> | Long form copyright | S |
+| WEBRSSCOPYRIGHT | text | 30 | Copyright %GMTIME{"$year"}% by contributing authors | Short form copyright | S |
+| SITEMAPLIST | select | 1 | ,on | List in site map | S |
+| NOSEARCHALL | select | 1 | ,on | Exclude web from a =web="all"= search| S |
+| NOAUTOLINK | select | 1 | ,on | Boolean | S |
+| EXTERNALLINKSINNEWWINDOW | select | 1 | ,on,off | Open external links in new windows | S |
+| EXTERNALLINKSICON | select | 1 | ,on,off | Show a trailing icon %ICON{external-link}% | S |
+| INTERNALLINKDOMAINS | text | 80 | | Set domains for which links should not be regarded as "external" | S |
+| INCLUDEWARNING | text | 30 | on, off | Boolean | S |
+| LINKTOOLTIPINFO | select | 1 | off, on, $username - $date - $rev: $summary, $topic: $summary ($date) | Format of tooltip info, on, off, or specific format | S |
+| EDITBOXWIDTH | text | 30 | 70 | Horizontal size of text edit box. | S |
+| EDITBOXHEIGHT | text | 30 | 15 | Vertical size of text edit box. | S |
+| EDITBOXSTYLE | text | 30 | width: 99% | CSS style | S |
+| EDITMETHOD | select | 1 | wysiwyg, raw | Edit in WYSIWYG mode or in raw mode | S |
+| FIXEDTOPMENU | select | 1 | off, on | Show top menu-bar fixed at the window top | S |
+| PREVIEWBGIMAGE | text | 80 | %PUBURLPATH%/%SYSTEMWEB%/PreviewBackground/preview2bg.gif | Image URL | S |
+| FORCENEWREVISIONCHECKBOX | select | 1 | , checked="checked" | Select checked to enable | S |
+| DONTNOTIFYCHECKBOX | select | 1 | ,checked="checked" | Select checked to enable | S |
+| ATTACHLINKBOX | select | 1 | ,checked="checked" | Select checked to enable | S |
+| ATTACHEDFILELINKFORMAT | text | 80 | \t* [[%ATTACHURL%/$name][$name]]: $comment | Text | S |
+| ATTACHEDIMAGEFORMAT | textarea | | \t* $comment: <br /><img src="%ATTACHURLPATH%/$name" alt="$comment" $size /> | Text | S |
+| WIKITOOLNAME | text | 30 | TWiki | Site name | S |
+| WEBLOGONAME | text | 30 | T-logo-158x45.gif | Filename of a logo image | S |
+| WEBLOGOIMG | text | 80 | %PUBURL%/%BASEWEB%/%WEBPREFSTOPIC%/%WEBLOGONAME% | URL of a logo image | S |
+| WEBLOGOURL | text | 80 | %SCRIPTURL%/view%SCRIPTSUFFIX%/%BASEWEB%/%HOMETOPIC% | URL under the logo | S |
+| WEBLOGOALT | text | 30 | Home | Logo tooltip text of the logo | S |
+| WIKILOGOIMG | text | 80 | %PUBURL%/%SYSTEMWEB%/TWikiLogos/T-logo-158x45-t.gif | URL of a logo image | S |
+| WIKILOGOURL | text | 80 | http://TWiki.org/ | URL under the logo| S |
+| WIKILOGOALT | text | 30 | Powered by TWiki | Logo tooltip text of the logo | S |
+| WIKIWEBLIST | textarea | | [[%USERSWEB%.%HOMETOPIC%][%USERSWEB%]] %SEP% [[%SYSTEMWEB%.%HOMETOPIC%][%SYSTEMWEB%]] %SEP% [[Sandbox.%HOMETOPIC%][Sandbox]] | | S |
+| ATTACHFILESIZELIMIT | text | 30 | 3000 | Maximum size of attachments in KB, 0 for no limit | S |
+| BROADCASTMESSAGE | textarea | |  | Broadcast message on every page, for skins that support it. | S |
+| SEARCHDEFAULTTYPE | select | 1 | keyword,literal,regex | Default type for search | S |
+| SEARCHVARDEFAULTTYPE | select | 1 | keyword,literal,regex | Default for =%<nop>SEARCH{}%= variable | S |
+| SEARCHSTOPWORDS | textarea | | a, all, am, an, and, any, as, at, b, be, by, c, d, e, for, from, g, h, how, i, i'm, i.e., in, is, isn't, it, it's, its, j, k, l, m, n, o, of, on, or, p, q, r, s, t, that, that's, the, this, to, u, v, w, was, wasn't, what, what's, when, where, who, who's, will, with, x, y, z | Stop words, e.g., common words and characters to exclude from a keyword search | S |
+| WIKIWEBMASTER | text | 30 | webmaster@@example.com | TWiki administrator e-mail address | S |
+| WIKIWEBMASTERNAME | text | 30 | TWiki Administrator | TWiki administrator name (first name and last name, e.g. =Fred Smith=) | S |
+| HTTP_EQUIV_ON_VIEW| textarea | 30x1 | <link rel='alternate' type='application/rss+xml' title='RSS Feed' href='%SCRIPTURL%/view%SCRIPTSUFFIX%/%WEB%/WebRss' /> | http-equiv== meta tags for ==view==, ==rdiff==, ==attach==, ==search*== scripts | S |
+| HTTP_EQUIV_ON_EDIT| textarea | 30x1 | =  | http-equiv== meta tags for ==edit== script | S |
+| HTTP_EQUIV_ON_PREVIEW| textarea | 30x1 | =  | http-equiv== meta tags for ==preview== script | S |
+| SKIN | text | 30 | pattern | Skin overriding the default TWiki templates. | S |
+| WEBTOPICLIST | textarea | 40x3 | [[WebChanges][Changes]] %SEP% [[WebIndex][Index]] %SEP% [[WebSearch][Search]] %SEP% Go <input type="text" name="topic" size="16" /> | Usually a list of topics | S |
+| TWIKILAYOUTURL | text | 80 | %PUBURL%/%SYSTEMWEB%/PatternSkin/layout.css | URL of a CSS | S |
+| TWIKISTYLEURL | text | 80 | %PUBURL%/%SYSTEMWEB%/PatternSkin/style.css | URL of a CSS | S |
+| USERLAYOUTURL | text | 80 |  | URL of a CSS | S |
+| USERSTYLEURL | text | 80 |  | URL of a CSS | S |
+| DS_THEME | text | 30 | gray | Theme: (gray, monochrome, tabstyle | S |
+| DS_QUICKLINKSHEADING | text | 30 |  | Quicklinks headings | S |
+| DS_QUICKLINKS | text | 30 |  | Quicklinks submenu | S |
+| DISABLEDPLUGINS | text | 30 | EmptyPlugin, DefaultPlugin, TestFixturePlugin | Comma-separated list | S |
+| INSTALLEDPLUGINS | text | 30 | | Plugin execution order, comma-separated list | S |
+| READTOPICPREFS | select | 1 | on,off | Boolean | S |
+| TOPICOVERRIDESUSER | select | 1 | on, off | Boolean | S |
+| FINALPREFERENCES | textarea | 60x5 | ATTACHFILESIZELIMIT, PREVIEWBGIMAGE, WIKITOOLNAME, WIKIWEBMASTER, SMTPMAILHOST, SMTPSENDERHOST, ALLOWWEBMANAGE, READTOPICPREFS, TOPICOVERRIDESUSER | Multiple select | S |
+
+__Related topics:__ [[%SYSTEMWEB%.TWikiPreferences]], [[%USERSWEB%.TWikiPreferences]], WebPreferences, %SYSTEMWEB%.PreferencesPlugin, %SYSTEMWEB%.TWikiPlugins
+@
+
+
+1.7
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1347778832" format="1.1" version="7"}%
+d12 3
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1313896905" format="1.1" version="6"}%
+d18 1
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1297307949" format="1.1" version="5"}%
+d5 1
+a5 1
+| WEBBGCOLOR | text | 20 | #FFD8AA | HTML Color | S |
+d13 1
+a13 1
+| LINKTOOLTIPINFO | text | 80 | | Format of tooltip info | S |
+d17 1
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1273979813" format="1.1" version="4"}%
+d6 1
+a6 1
+| FAVICON | text | 30 | %PUBURL%/%WEB%/WebPreferences/favicon.ico | URL of an icon image | S |
+d9 3
+a11 2
+| NOSEARCHALL | select | 1 | off,on | Exclude web from a =web="all"= search| S |
+| NOAUTOLINK | select | 1 | off,on | Boolean | S |
+d13 1
+a13 1
+| LINKTOOLTIPINFO | text | 30 | | Format of tooltip info | S |
+d17 1
+a17 1
+| PREVIEWBGIMAGE | text | 30 | %PUBURLPATH%/%SYSTEMWEB%/PreviewBackground/preview2bg.gif | Image URL | S |
+d21 1
+a21 1
+| ATTACHEDFILELINKFORMAT | text | 30 | \t* [[%ATTACHURL%/$name][$name]]: $comment | Text | S |
+d25 2
+a26 2
+| WEBLOGOIMG | text | 30 | %PUBURL%/%BASEWEB%/%WEBPREFSTOPIC%/%WEBLOGONAME% | URL of a logo image | S |
+| WEBLOGOURL | text | 30 | %SCRIPTURL%/view%SCRIPTSUFFIX%/%BASEWEB%/%HOMETOPIC% | URL under the logo | S |
+d28 2
+a29 2
+| WIKILOGOIMG | text | 30 | %PUBURL%/%SYSTEMWEB%/TWikiLogos/T-logo-158x45-t.gif | URL of a logo image | S |
+| WIKILOGOURL | text | 30 | http://TWiki.org/ | URL under the logo| S |
+d33 1
+a33 1
+| BROADCASTMESSAGE | textarea| |  | Broadcast message on every page, for skins that support it. | S |
+d44 4
+a47 4
+| TWIKILAYOUTURL | text | 30 | %PUBURL%/%SYSTEMWEB%/PatternSkin/layout.css | URL of a CSS | S |
+| TWIKISTYLEURL | text | 30 | %PUBURL%/%SYSTEMWEB%/PatternSkin/style.css | URL of a CSS | S |
+| USERLAYOUTURL | text | 30 |  | URL of a CSS | S |
+| USERSTYLEURL | text | 30 |  | URL of a CSS | S |
+d57 1
+a57 1
+__Related topics:__ %SYSTEMWEB%.TWikiPreferences, TWikiPreferences, %SYSTEMWEB%.PreferencesPlugin, %SYSTEMWEB%.TWikiPlugins
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 3
+d27 1
+a27 1
+| WIKILOGOIMG | text | 30 | %PUBURL%/%SYSTEMWEB%/TWikiLogos/horzTWiki.gif | URL of a logo image | S |
+d55 2
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d30 1
+a30 1
+| SEARCHDEFAULTTTYPE | select | 1 | keyword,literal,regex | Default type for search | S |
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@a3 2
+| NEWTOPICBGCOLOR | text | 20 | #FFFFCE | HTML Color | S |
+| NEWTOPICFONTCOLOR | text | 20 | #0000FF | HTML Color | S |
+d13 1
+a13 1
+| PREVIEWBGIMAGE | text | 30 | %PUBURLPATH%/%TWIKIWEB%/PreviewBackground/preview2bg.gif | Image URL | S |
+d24 1
+a24 1
+| WIKILOGOIMG | text | 30 | %PUBURL%/%TWIKIWEB%/TWikiLogos/horzTWiki.gif | URL of a logo image | S |
+d27 1
+a27 1
+| WIKIWEBLIST | textarea | | [[%MAINWEB%.%HOMETOPIC%][%MAINWEB%]] %SEP% [[%TWIKIWEB%.%HOMETOPIC%][%TWIKIWEB%]] %SEP% [[Sandbox.%HOMETOPIC%][Sandbox]] | | S |
+d40 2
+a41 2
+| TWIKILAYOUTURL | text | 30 | %PUBURL%/%TWIKIWEB%/PatternSkin/layout.css | URL of a CSS | S |
+| TWIKISTYLEURL | text | 30 | %PUBURL%/%TWIKIWEB%/PatternSkin/style.css | URL of a CSS | S |
+@

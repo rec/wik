@@ -1,0 +1,11 @@
+%META:TOPICINFO{author="TWikiContributor" date="1277622630" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiTipsOfTheDay"}%
+---+ Creating a Table of Contents
+
+The [[TWikiVariables][TWiki variable]] =[[VarTOC][%<nop>TOC%]]= will automatically create a table of contents for a topic based on the headings of the topic.
+
+To exclude a heading from a =%<nop>TOC%= add =!!= to the end of the syntax for a header, e.g. write =---+!!= for a =---+= heading.
+
+[[TWikiTipsOfTheDay][See More Tips...]]
+
+-- __Contributors:__ TWiki:Main.PaulineCheung

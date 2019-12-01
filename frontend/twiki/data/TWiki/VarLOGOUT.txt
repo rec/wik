@@ -1,0 +1,9 @@
+%META:TOPICINFO{author="TWikiContributor" date="1352872508" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarLOGOUT
+---+++ LOGOUT -- present a full logout link to authenticated user
+   * Present a logout link only to logged in users
+   * Syntax: =%<nop>LOGOUT%=
+   * Expand to: %LOGOUT%
+   * Category: LinkingAndNavigationVariables, UsersAndAuthenticationVariables
+   * Related: TWikiUserAuthentication, [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarLOGIN][LOGIN]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarLOGINURL][LOGINURL]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarLOGOUTURL][LOGOUTURL]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSESSIONID][SESSIONID]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSESSIONVAR][SESSIONVAR]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSESSIONVARIABLE][SESSION_VARIABLE]]

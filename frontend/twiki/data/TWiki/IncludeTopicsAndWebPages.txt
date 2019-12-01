@@ -1,0 +1,118 @@
+%META:TOPICINFO{author="TWikiContributor" date="1372224891" format="1.1" version="14"}%
+---+!! Include Topics and Web Pages Using =%<nop>INCLUDE{...}%= Variable
+
+Use the =%<nop>INCLUDE{...}%= variable to embed the content of another topic or web page inside a TWiki topic. The whole content or only parts of a page can be included. If needed, set a proxy server in %WIKIPREFSTOPIC%.
+
+%TOC%
+
+---++ Syntax Example
+
+=%<nop>INCLUDE{ "page" pattern="reg-exp" rev="2" warn="off" section="clients" PARAMETER1="value" PARAMETER2="Some value"}%=
+
+The =pattern= parameter is optional and allows you to extract some parts of a web page. Specify a %SYSTEMWEB%.RegularExpression that scans from start (='^'=) to end and contains the text you want to keep in parenthesis, e.g., =pattern="^.*?(from here.*?to here).*"=. You need to make sure that the integrity of a web page is not compromised; for example, if you include an HTML table, make sure to include everything including the table end tag.
+
+The example parameters PARAMETER1 and PARAMETER2 will be defined as a variable within the scope of the included topic. The example parameters shown will result in %<nop>PARAMETER1% and %<nop>PARAMETER2% being defined within the included topic. A default value can be specified such as %<nop>PARAMETER1{ default="..." }% in case the INCLUDE does not specify the parameter. Parametrized includes can be used to define and use macros, which is an alternative to [[ParameterizedVariables][parameterized variables]].
+
+VarINCLUDE explains the other parameters.
+
+__Note:__ All text of a topic is included unless it contains a =%<nop>STARTINCLUDE%= and =%<nop>STOPINCLUDE%=, or you specify a =section= parameter and/or a =pattern= parameter. A pattern will only search between =%<nop>STARTINCLUDE%= and =%<nop>STOPINCLUDE%=.
+
+---++ Usage Examples
+
+---+++ 1. Display regression test results in a TWiki page
+<pre>
+  &lt;pre&gt;
+  %<nop>INCLUDE{"http://domain/~qa/v1.1/REDTest.log.txt"}%
+  &lt;/pre&gt;
+</pre>
+
+---+++ 2. Display Google's robot.txt file
+
+<pre>
+  %<nop>INCLUDE{"http://www.google.com/robots.txt"}%
+</pre>
+
+---+++ 3. Display the current time in Tokyo in a TWiki page
+
+   * You type:
+      * ==Tokyo: %<nop>INCLUDE{"http://TWiki.org/cgi-bin/xtra/tzdate?tz=Asia/Tokyo" pattern="^.*&lt;\!--tzdate:date--&gt;(.*?)&lt;\!--/tzdate:date--&gt;.*"}%==
+   * You get:
+      * Tokyo: %INCLUDE{"http://TWiki.org/cgi-bin/xtra/tzdate?tz=Asia/Tokyo" pattern="^.*<\!--tzdate:date-->(.*?)<\!--/tzdate:date-->.*"}%
+
+---+++ 4. Create a big document of many included topics
+
+If you create a big document (such as a manual or book) it is better to split up content into topics. You can do that by chapter or sub-section. If needed you can adjust the heading level when you include the chapters into the master document. For example, in the master document you might want to show chapter's H1 heading as H2. Example:
+
+<verbatim>
+  ---+!! Breadslicer Users Guide
+  %TOC{ depth="3" }%
+  %INCLUDE{ "UsersGuidePreface"  headingoffset="1" }%
+  %INCLUDE{ "UsersGuideChapter1" headingoffset="1" }%
+  %INCLUDE{ "UsersGuideChapter2" headingoffset="1" }%
+  %INCLUDE{ "UsersGuideChapter3" headingoffset="1" }%
+  %INCLUDE{ "UsersGuideChapter4" headingoffset="1" }%
+  %INCLUDE{ "UsersGuideAppendix" headingoffset="1" }%
+  %INCLUDE{ "UsersGuideIndex"    headingoffset="1" }%
+</verbatim>
+
+---+++ 5. Include a topic !MyTopic with two parameters
+
+You include the topic with this line
+<verbatim>
+  %INCLUDE{ "MyTopic" BETTER="apples" WORSE="Oranges"}%
+</verbatim>
+
+An example of a very simple !MyTopic could contain
+
+<verbatim>
+   * I like %BETTER% better than %WORSE%.
+</verbatim> 
+
+The result would be
+
+   * I like apples better than oranges.
+
+%T% __Tip:__ [[ParameterizedVariables][Parameterized variables]] are a somewhat easier to use alternative to parametrized includes.
+
+---+++ 6. Alert Box using Parameterized Include
+
+Create a topic called !AlertBox with the following content:
+
+<verbatim>
+-----
+%STARTINCLUDE%
+<div style="border-color:#FF9933; border-style:solid; border-width:thin; width:85%;  margin: 0 auto">
+<table cellpadding="5" width="100%" cellspacing="0" cellpadding="12" border="0">
+<tr bgcolor="#FFBB55">
+<td valign="top" width="16"><img src="%ICONURL{warning}%" width="16" height="16" align="absmiddle" alt="" border="0"></td>
+<td><b> %TITLE{ default="Alert!" }% </b></td>
+</tr>
+<tr bgcolor="#FFCC66">
+<td>&nbsp;</td>
+<td> %MESSAGE{ default="Please specify a MESSAGE parameter." }% </td>
+</tr>
+</table>
+</div>
+%STOPINCLUDE%
+-----
+</verbatim>
+
+Now you can write =%<nop>INCLUDE{ "AlertBox" TITLE="Alert" MESSAGE="This a test message" }%= to get this:
+
+%INCLUDE{ "%TOPIC%" TITLE="Alert" MESSAGE="This a test message" }%
+
+The =TITLE=""= and =MESSAGE=""= parameters are passed into the include. Using this approach, you can create a library of boxes in the %USERSWEB% web, such as <nop>%USERSWEB%.NoteBox, <nop>%USERSWEB%.InfoBox.
+
+---+++ 7. Create a Widget Library
+
+You can create a library of [[http://en.wikipedia.org/wiki/GUI_widget][GUI widgets]] using a topic with named sections:
+
+   1. Create a <nop>%USERSWEB%.WidgetLibrary topic
+   2. Create widgets in that topic, such as alert boxes, submit forms, queries, etc. Widgets are defined as named sections and may process parameters. For example, above alert box can be a widget enclosed in =%<nop>STARTSECTION{AlertBox}%= ... =%<nop>ENDSECTION{AlertBox}%= (instead of the =%<nop>STOPINCLUDE%= ... =%<nop>STOPINCLUDE%=)
+   3. Place a widget in any topic. For example, to use the alert box widget write:%BR% =%<nop>INCLUDE{ "%USERSWEB%.WidgetLibrary" section="AlertBox" TITLE="Alert" MESSAGE="The sky is the limit!" }%=
+
+In essence, you are building a library of functions with parameters that people can use. Use your imagination, the sky is the limit!
+
+__Related Topics:__ VarINCLUDE, VarSTARTSECTION, VarENDSECTION, IncludeTopicRaw, UserDocumentationCategory, ParameterizedVariables
+
+-- __Contributors:__ TWiki:Main.PeterThoeny, TWiki:Main.KennethLavrsen

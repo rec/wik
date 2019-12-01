@@ -1,0 +1,20 @@
+---+ Package =TWiki::Configure::Checkers::CertificateChecker=
+Configure GUI checker for Certificate items.
+
+This checker validates files that contain X.509 certificates,
+such as for the S/MIME signatures and for the Tasks framework.
+
+It must be subclassed for the various certificate types, as the requirements
+are slightly different.
+
+
+%TOC%
+
+---++ ObjectMethod *checkUsage* <tt>($valueObject,$usage) -> $errorString</tt>
+Validates a Certificate item for the configure GUI
+   * =$valueObject= - configure value object
+   * =$usage= - Required use (email, client, server, clientserver)
+
+Returns empty string if OK, error string with any errors
+
+

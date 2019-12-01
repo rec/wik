@@ -1,0 +1,4510 @@
+# translation of bg.po to Bulgarian
+# Krassimir Berov <k.berov@gmail.com>, 2009.
+# TWiki translation for Bulgarian  (Български)
+# This file is distributed under the same license as TWiki itself
+# Copyright (C) 2005-2013 Peter Thoeny and TWiki Contributors.
+# Translators:
+#   TWiki:Main/KrassimirBerov, 2006, 2007,2008, 2009.
+# Discussions and Updates for Bulgarian Translation:
+# http://twiki.org/cgi-bin/view/Codev/BulgarianTranslation
+msgid ""
+msgstr ""
+"Project-Id-Version: bg\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2011-08-04 22:03+0200\n"
+"Last-Translator: Krasimir Berov <k.berov@gmail.com>\n"
+"Language-Team: Bulgarian <k.berov@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Bulgarian\n"
+"X-Poedit-Country: Bulgaria\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#. ($days)
+#: ../core/lib/TWiki/Time.pm:314
+msgid "%*(%1,day) "
+msgstr "%*(%1,ден) "
+
+#. ($hours)
+#: ../core/lib/TWiki/Time.pm:317
+msgid "%*(%1,hour) "
+msgstr "%*(%1,час) "
+
+#. ($mins)
+#: ../core/lib/TWiki/Time.pm:320
+msgid "%*(%1,minute) "
+msgstr "%*(%1,минута) "
+
+#. ($secs)
+#: ../core/lib/TWiki/Time.pm:323
+msgid "%*(%1,second) "
+msgstr "%*(%1,секунда) "
+
+#: ../core/templates/oopsgeneric.tmpl:12 ../core/templates/oopsgeneric.tmpl:14
+#: ../core/templates/oopsgeneric.tmpl:16 ../core/templates/oopsgeneric.tmpl:7
+msgid "%1"
+msgstr "%1"
+
+#: ../core/data/TWiki/TWikiPreferences.txt:435
+#, fuzzy
+msgid "%1 (this topic does not yet exist; you can create it)"
+msgstr "$text (тази страница не съществува; може да я създадете)"
+
+#: ../core/templates/registernotifyadminfail.tmpl:3
+#: ../core/templates/registernotifyadminfailrem.tmpl:3
+msgid "%1 - Registration failure for %2 (%3)"
+msgstr "%1 - Регистрацията за %2 (%3) се провали"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:110
+#: ../core/templates/registernotify.tmpl:3
+#: ../core/templates/registernotifyadmin.tmpl:3
+msgid "%1 - Registration for %2 (%3)"
+msgstr "%1 - Регистрация за %2 (%3)"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:62
+msgid "%1 - complete TWiki documentation, Quick Start to Reference"
+msgstr "%1 - Пълната документация на TWiki"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:64
+msgid "%1 - just for me"
+msgstr "%1 - само за мен"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:61
+msgid "%1 - starting points on TWiki"
+msgstr "%1 - първи стъпки с TWiki"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:63
+msgid "%1 - try out TWiki on your own"
+msgstr "%1 - за да пробвате TWiki"
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:4
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:4
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:4
+#: ../PatternSkin/data/TWiki/WebLeftBarExample.txt:2
+#: ../PatternSkin/data/Trash/WebLeftBar.txt:3
+#: ../PatternSkin/data/_default/WebLeftBar.txt:3
+#: ../PatternSkin/templates/view.pattern.tmpl:43
+#: ../TWikiNetSkin/templates/view.twikinet.tmpl:21
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:10
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:10
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:45
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:11
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:11
+#: ../TopMenuSkin/data/Trash/WebTopMenu.txt:10
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:10
+msgid "%1 Web"
+msgstr "Раздел %1"
+
+#: ../PatternSkin/data/TWiki/WebLeftBarExample.txt:3
+msgid "%1 Web Home"
+msgstr "Раздел %1 - Начало"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:85
+msgid "%1 for changing your email address"
+msgstr "%1 за да промените вашия e-mail"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:84
+msgid "%1 for changing your password"
+msgstr "%1 за да промените вашата парола"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:43
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:38
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:86
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:31
+msgid "%1 has a list of other TWiki users"
+msgstr "на %1 има списък с TWiki потребители"
+
+#: ../core/templates/messages.tmpl:531
+msgid ""
+"%1 has been editing the topic for %2 and the lease is still active for "
+"another %3."
+msgstr "%1 променя страницата от %2, и сесията му е валидна за още %3."
+
+#: ../core/templates/registernotifyadmin.tmpl:10
+#: ../core/templates/registernotifyadminfail.tmpl:10
+#: ../core/templates/registernotifyadminfailrem.tmpl:10
+msgid "%1 has been registered with e-mail %2"
+msgstr "%1 е регистриран с електронна поща %2"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:87
+msgid "%1 is a list of TWiki user documentation"
+msgstr "%1 съдържа документация за потребители на TWiki."
+
+#: ../core/templates/messages.tmpl:141
+msgid "%1 is an invalid name for a new web"
+msgstr "%1 е невалидно име за нов раздел"
+
+#: ../core/templates/messages.tmpl:472
+msgid ""
+"%1 is copied to the identical topic. Copy destination is incorrect or "
+"missing."
+msgstr ""
+
+#: ../core/templates/login.sudo.tmpl:4 ../core/templates/login.tmpl:6
+msgid "%1 is currently logged in"
+msgstr "%1 в момента е влязъл"
+
+#: ../core/templates/messages.tmpl:502
+msgid "%1 is currently set to %2"
+msgstr "%1 сега е настроено на %2"
+
+#: ../core/templates/messages.tmpl:529
+msgid "%1 is editing %2."
+msgstr " %1 сега редактира %2."
+
+#: ../core/templates/messages.tmpl:57
+msgid "%1 is in at least one group and cannot be removed"
+msgstr "%1 е член на поне една група и не може да бъде изтрит"
+
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:40
+msgid "%1 is the default topic for deleted attachments."
+msgstr "%1 е подразбиращата се страница за изтрити прикачени файлове."
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:88
+msgid "%1 lists all TWiki user tools"
+msgstr "%1 предоставя списък с инструменти за потребители"
+
+#: ../core/templates/messages.tmpl:537
+msgid "%1 may still be editing %2."
+msgstr "%1 може би все още редактира %2."
+
+#. ("<nop>$toWeb.<nop>$toTopic",                                             "<nop>$fromWeb.<nop>$fromTopic",                                             $date,                                             $by)
+#: ../core/lib/TWiki/Render.pm:220
+msgid "%1 moved from %2 on %3 by %4"
+msgstr "%1 е преместен(а) от %2 на %3 от %4"
+
+#: ../core/templates/messages.tmpl:26
+msgid "%1 to customize the web specific preferences"
+msgstr "%1, за да промените настройките за раздела"
+
+#: ../core/templates/messages.tmpl:601 ../core/templates/messages.tmpl:612
+msgid "%1 topic does not exist"
+msgstr "Страница %1 не съществува"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:56
+msgid "&Attach"
+msgstr "Прикачване"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:9
+msgid "&Cancel"
+msgstr "Отказ"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:21
+msgid "&Edit"
+msgstr "Редактиране"
+
+#: ../core/templates/twiki.tmpl:108
+msgid "&History"
+msgstr "История"
+
+#: ../core/templates/messages.tmpl:305
+msgid "'%1' is not a valid %2 "
+msgstr "'%1' е невалидно %2 "
+
+#: ../core/data/TWiki/WebTopicCreator.txt:2
+msgid "'Create New Topic' page has moved"
+msgstr "Страницата \"Създаване на нова страница\" е преместена"
+
+#: ../core/templates/login.tmpl:12
+msgid "(%1 login)"
+msgstr "(%1 вход)"
+
+#: ../PatternSkin/templates/rdiff.pattern.tmpl:6
+#: ../core/templates/rdiff.tmpl:4
+msgid "(%1 vs. %2)"
+msgstr "(%1 с-у %2)"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:82
+msgid "(=all= to show all topics)"
+msgstr "(=всички= за показване на всички страници)"
+
+#: ../core/templates/oopsinvalidtoken.tmpl:4
+msgid "(Invalid Crypt Token)"
+msgstr "(Невалиден ключ за криптиране)"
+
+#: ../WysiwygPlugin/lib/TWiki/Plugins/WysiwygPlugin/TML2HTML.pm:145
+msgid "(This message will be removed automatically)"
+msgstr ""
+
+#: ../core/templates/messages.tmpl:199
+msgid ""
+"(__Suggestion:__ How about uploading your picture to your profile page?)"
+msgstr "(__Предложение:__ Защо не прикачите Ваша снимка към страницата?)"
+
+#: ../core/templates/oopsaccessdenied.tmpl:4
+msgid "(access denied)"
+msgstr "(достъпът отказан)"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:4
+#: ../core/templates/attachnew.tmpl:2
+msgid "(attach)"
+msgstr "(прикачване)"
+
+#: ../core/templates/backlinksweb.tmpl:4
+msgid "(backlinks in %1 Web)"
+msgstr "(обратни връзки в раздел %1)"
+
+#: ../core/templates/backlinksallwebs.tmpl:4
+msgid "(backlinks in all Webs)"
+msgstr "(връзки \"назад\" във всички раздели)"
+
+#: ../core/templates/searchbookview.tmpl:3
+msgid "(book view)"
+msgstr "(книжен изглед)"
+
+#: ../core/templates/changeform.tmpl:4
+msgid "(change form)"
+msgstr "(промяна на форма)"
+
+#: ../core/templates/oopschangelanguage.tmpl:2
+#: ../core/templates/oopslanguagechanged.tmpl:3
+msgid "(change language)"
+msgstr "(промяна на език)"
+
+#: ../PatternSkin/templates/changes.pattern.tmpl:4
+#: ../core/templates/changes.tmpl:5
+msgid "(changes)"
+msgstr "(промени)"
+
+#: ../core/templates/copy.tmpl:4
+#, fuzzy
+msgid "(copy)"
+msgstr "(опаа)"
+
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:5
+msgid "(delete attachment)"
+msgstr "(изтриване на прикачения файл)"
+
+#: ../core/templates/renamedelete.tmpl:4
+msgid "(delete)"
+msgstr "(изтриване)"
+
+#: ../core/templates/editform.tmpl:4 ../core/templates/editform.tmpl:5
+msgid "(edit form)"
+msgstr "(редакция на формата)"
+
+#: ../core/templates/edittext.tmpl:4 ../core/templates/edittext.tmpl:7
+msgid "(edit text)"
+msgstr "(редакция на текста)"
+
+#: ../core/templates/edit.tmpl:10 ../core/templates/edit.tmpl:4
+msgid "(edit)"
+msgstr "(редакция)"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:107
+msgid "(how you log in) LoginName:"
+msgstr "(име за вход) ИмеЗаВход :"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:102
+msgid "(identifies you to others) WikiName:"
+msgstr "(име, видимо в сайта) WikiName :"
+
+#: ../core/templates/login.tmpl:4
+msgid "(login)"
+msgstr "(вход)"
+
+#: ../core/templates/oopsmore.tmpl:3
+msgid "(more)"
+msgstr "(още)"
+
+#: ../core/templates/moveattachment.tmpl:4
+msgid "(move attachment)"
+msgstr "(преместване на прикаченеия файл)"
+
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:57
+msgid "(no parent, orphaned topic)"
+msgstr "(няма родителска страница, страница сираче)"
+
+#: ../core/lib/TWiki/UI/Manage.pm:1133 ../core/lib/TWiki/UI/Manage.pm:1159
+#: ../core/lib/TWiki/UI/Manage.pm:1274 ../core/lib/TWiki/UI/Manage.pm:1277
+#: ../core/lib/TWiki/UI/Manage.pm:1280 ../core/lib/TWiki/UI/Manage.pm:1314
+#: ../core/lib/TWiki/UI/Manage.pm:1337 ../core/lib/TWiki/UI/Manage.pm:808
+#: ../core/lib/TWiki/UI/Manage.pm:812 ../core/lib/TWiki/UI/Manage.pm:816
+#: ../core/lib/TWiki/UI/Manage.pm:820
+msgid "(none)"
+msgstr "(нищо)"
+
+#: ../core/templates/oopsnotfound.tmpl:4
+msgid "(not found)"
+msgstr ""
+
+#: ../core/data/TWiki/WebSearch.txt:40
+#: ../core/data/TWiki/WebSearchAdvanced.txt:48
+msgid "(otherwise search %1 Web only)"
+msgstr "(в противен случай, търсете само в раздел %1)"
+
+#: ../PatternSkin/templates/view.pattern.tmpl:45
+#: ../TWikiNetSkin/templates/view.twikinet.tmpl:23
+msgid "(raw view)"
+msgstr "(суров изглед)"
+
+#: ../core/templates/oopsmore.tmpl:24 ../core/templates/oopsmore.tmpl:33
+msgid "(recommended)"
+msgstr "(препоръчително)"
+
+#: ../core/templates/rename.tmpl:4 ../core/templates/renameconfirm.tmpl:4
+#: ../core/templates/renameweb.tmpl:4
+#: ../core/templates/renamewebconfirm.tmpl:4
+msgid "(rename)"
+msgstr "(преименуване)"
+
+#: ../PatternSkin/templates/view.pattern.tmpl:45
+#: ../TWikiNetSkin/templates/view.twikinet.tmpl:23
+msgid "(revision %1)"
+msgstr "(версия %1)"
+
+#: ../core/templates/oopssaveerr.tmpl:8
+msgid "(save error)"
+msgstr "(грешка при запис)"
+
+#: ../core/templates/searchformat.tmpl:3
+msgid "(search result)"
+msgstr "(резултати от търсенето)"
+
+#: ../PatternSkin/templates/search.pattern.tmpl:9
+#: ../core/templates/search.tmpl:3 ../core/templates/search.tmpl:6
+msgid "(search results)"
+msgstr "(резултати от търсенето)"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:65
+msgid "(semicolon =;= for and)"
+msgstr "(точка и запетая =;= означава И)"
+
+#: ../PatternSkin/templates/settings.pattern.tmpl:10
+#: ../core/templates/settings.tmpl:4
+msgid "(set preferences)"
+msgstr "(настройки)"
+
+#: ../core/templates/messages.tmpl:318
+msgid "(single character first name)"
+msgstr "(една буква за име)"
+
+#: ../core/templates/messages.tmpl:317
+msgid "(single character last name)"
+msgstr "(една буква за фамилия)"
+
+#: ../core/lib/TWiki/UI/Manage.pm:1114
+msgid "(skipped)"
+msgstr "(пропуснато)"
+
+#: ../core/templates/renamewebbase.tmpl:10
+msgid "(to delete the web, select %1)"
+msgstr ""
+
+#: ../core/templates/attachagain.tmpl:18
+msgid ""
+"*Change comment:* If you use _Change Properties_ to change a comment, the "
+"comment shown in the topic will change, but the comment shown against the "
+"attachment history will be the comment when the file was uploaded."
+msgstr ""
+"*Промяна на коментар:* Ако използвате _Промяна на характеристики_ за да "
+"промените коментар, коментарът, покзан на страницата ще се промени, но "
+"коментараът показан срещу историята на пртурката  ще си остане същия както е "
+"бил при качваненто на файла."
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:11
+msgid "*Formatting help:*"
+msgstr "*Как да форматирате*"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:15
+#, fuzzy
+msgid ""
+"*Important:* the information provided in this form will be stored in a "
+"database on the TWiki server. This database is accessible to anyone who can "
+"access the server through the web (though passwords will be encrypted, and e-"
+"mail addresses will be obfuscated to help prevent spamming). Your country, "
+"or the country where the server is hosted, may have Data Protection laws "
+"governing the maintenance of such databases. If you are in doubt, you should "
+"contact %1 for details of the Data Protection Policy of this TWiki server "
+"before registering."
+msgstr ""
+"*Важно:* Информацията, предоставена в тази форма ще бъде записана в базта "
+"данни на сървъра. Тази база данни е достъпна за всеки, който има достъп до "
+"сървъра (все пак паролите са криптирани и e-mail адресите са замаскирани, за "
+"да се предотврати спам). Вашата страна или страната, където се хоства може "
+"да има закони за защита на данните,  отнасящи се до управлението на такива "
+"бази от данни. Ако се съмнявате, трябва "
+
+#: ../core/templates/attachagain.tmpl:19
+msgid ""
+"*Local file:* If you select a different file in _Local file:_, it is this "
+"that will be updated or added."
+msgstr ""
+"*Локален файл:*Ако изберете различен файл в _Локален файл:_, той ще бъде "
+"заместен или добавен."
+
+#: ../core/templates/attachagain.tmpl:17
+msgid ""
+"*Properties:* The comment and visibility (i.e. is attachment hidden) can be "
+"changed without uploading a file by pressing \"Change Properties only\"; see "
+"%1."
+msgstr ""
+"*Свойства:* Коментарът и видимостта (например скрит ли е прикрепения файл) "
+"могат да бъдат променени без да се качва файл като щракнете върху \"Промени "
+"само свойстват\"; вижте %1"
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:12
+msgid "*bold* put word/phrase in asterisks: =<nop>*your phrase*="
+msgstr "*удебелено* сложете звездички около думата/израза: =<nop>*думи*="
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:13
+msgid ""
+"*bullet list* 3 spaces, asterisk, 1 space: =&&nbsp;&&nbsp;&&nbsp;*&&nbsp;"
+"your text="
+msgstr ""
+"*списък с водачи* 3 паузи, звездичка, 1 пауза: =&&nbsp;&&nbsp;&&nbsp;*&&nbsp;"
+"вашия текст="
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:17
+msgid ""
+"*external links* =http://google.com/= or =[<nop>[http://google.com/][link to "
+"Google]]="
+msgstr ""
+"*външни връзки* =http://google.com= или =[<nop>[http://google.com/][връзка "
+"към Google]]="
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:14
+msgid "*headings* 3 dashes, 1 to 6 pluses, 1 space: =---++&&nbsp;Your Heading="
+msgstr ""
+"*заглавия* 3 тирета, 1 до 6 плюса, 1 пауза: =---++&&nbsp;Вашето Заглавие="
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:15
+msgid "*italic* put word/phrase in underscores: =_<nop>your words_="
+msgstr ""
+"*италичен* поставете думата/фразата между подчертавки: =_<nop>вашите думи_="
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:18
+msgid "*monospaced* put word/phrase in equal signs: =<nop>=your words=="
+msgstr ""
+"*шрифт с фиксирана ширина*  сложете знак за равенство около думата/израза: "
+"=<nop>=вашите думи=="
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:19
+msgid "*paragraphs* separate with blank line"
+msgstr "*абзаци* разделете с празен ред"
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:16
+msgid "*site links* use topic name: =%1= or =[<nop>[%1][Our homepage]]="
+msgstr ""
+"*връзки в сайта* използвайте име на страница: =%1= или =[<nop>[%1][вашата "
+"страница]]="
+
+#: ../core/lib/TWiki/I18N/Extract.pm:107 ../core/lib/TWiki/Render.pm:1682
+msgid "..."
+msgstr "..."
+
+#: ../core/templates/oopsmore.tmpl:18
+#, fuzzy
+msgid "<a href='%1' rel='nofollow'>Add or replace form on this topic...</a>"
+msgstr ""
+"<a href='%1' rel='nofollow'>Промяна на настройките</a> за тази страница"
+
+#: ../core/templates/oopsmore.tmpl:13
+msgid "<a href='%1' rel='nofollow'>Edit settings</a> for this topic"
+msgstr ""
+"<a href='%1' rel='nofollow'>Промяна на настройките</a> за тази страница"
+
+#: ../core/templates/oopsmore.tmpl:46
+msgid "<em>in %1 web</em> only"
+msgstr "само <em>в раздел %1</em>"
+
+#: ../core/templates/oopsmore.tmpl:44
+msgid "<em>in all public webs</em>"
+msgstr "<em>във всички общодостъпни раздели</em>"
+
+#: ../core/templates/messages.tmpl:584
+#, fuzzy
+msgid ""
+"A %1 is divided into webs; each one represents one subject, one area of "
+"collaboration. You are trying to %2 a topic in a web that does not exist. "
+"Remember, web names and topic names are case sensitive."
+msgstr ""
+"Едно %1 се състои от раздели. Всеки раздел представлява някаква сфера на "
+"сътрудничество. Опитвате се да  %2 в раздел, който не съществува"
+
+#: ../core/templates/messages.tmpl:409
+msgid "A =.txt= extension is appended to some filenames for security reasons"
+msgstr ""
+"Разширение =.txt= се добавя към някои имена на файлове от съображения за "
+"сигурност"
+
+#: ../core/templates/messages.tmpl:166
+msgid ""
+"A color starts with a # sign, followed by 6 hexadecimal numbers, e.g. "
+"=#FFFF00=."
+msgstr ""
+"Описание то на цвета започва със знак # , последван от 6 числа в "
+"шестнадесетичната бройна система, например: =#FFFF00=."
+
+#. ($data->{Email})
+#: ../core/lib/TWiki/UI/Register.pm:865
+msgid "A confirmation e-mail has been sent to %1"
+msgstr "e-mail с потвърждение бе изпратен на %1"
+
+#: ../core/templates/messages.tmpl:588
+#, fuzzy
+msgid ""
+"A link to a topic located in another web is written like %1. Verify that the "
+"name of the web is correct and has correct capitalisation in the topic "
+"containing the link; fix the link if necessary."
+msgstr ""
+"Връзка към страница в друг раздел се изписва като  %1. Уверете се, че сте "
+"написали правилно името на раздела на предната страница; поправете връзката "
+"ако е необходимо."
+
+#: ../core/templates/messages.tmpl:560
+msgid ""
+"A new system-generated password for your login name %1 (!WikiName %2) has "
+"been sent to your registered e-mail address. If your e-mail address is no "
+"longer valid, please contact %3"
+msgstr ""
+"Нова генерирана от системата парола за вход %1 (!WikiName %2) бе изпратена "
+"на вашия регистриран e-mail-адрес. Ако вашият e-mail-адрес вече е невалиден,"
+"моля свържете се с %3"
+
+#: ../core/data/TWiki/WebTemplateTopics.txt:4
+msgid "A topic template defines the initial content of a newly created topic."
+msgstr ""
+"Шаблонът за страница определя първоначалното съдържание на новосъздадената "
+"страница."
+
+#: ../core/templates/oopsaccessdenied.tmpl:6
+msgid "Access Denied"
+msgstr "Достъпът отказан"
+
+#: ../core/templates/messages.tmpl:568
+msgid "Access check on %1 failed"
+msgstr "Достъпът до %1 бе отказан"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:53
+#: ../PatternSkin/templates/preview.pattern.tmpl:14
+#: ../PatternSkin/templates/settings.pattern.tmpl:25
+msgid "Access keys"
+msgstr "Клавиши за достъп"
+
+#: ../PatternSkin/data/TWiki/UserBookmarks.txt:23
+#: ../PatternSkin/data/TWiki/UserBookmarks.txt:67
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopBar.txt:22
+msgid "Account"
+msgstr "Сметка"
+
+#: ../core/templates/attachtables.tmpl:37
+#: ../core/templates/attachtables.tmpl:4 ../core/templates/changeform.tmpl:10
+msgid "Action"
+msgstr "Действие"
+
+#: ../core/templates/messages.tmpl:569
+msgid "Action %1: %2."
+msgstr "Действие %1 : %2."
+
+#: ../core/templates/addform.tmpl:1
+msgid "Add form"
+msgstr "Добавяне на форма"
+
+#: ../core/templates/oopsmore.tmpl:17
+#, fuzzy
+msgid "Add or replace form"
+msgstr "Замести форма"
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:198
+msgid "Add row"
+msgstr "Добавяне на ред"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:354
+msgid "Add your name to the list of users in the %1 topic in the %2 web."
+msgstr ""
+"Добавете вашето име към списъка от потребители на страница %1, в раздел %2."
+
+#: ../core/templates/messages.tmpl:385
+msgid "Adding a %1 variable in WebPreferences"
+msgstr "Добавяне на променлива %1 в страница WebPreferences"
+
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:25
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:32
+msgid "Admin Maintenance"
+msgstr "Администрация"
+
+#: ../core/templates/login.sudo.tmpl:3
+msgid "Admin TWiki User Authentication"
+msgstr "Автентикация за TWiki-администратора"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:3
+msgid "Advanced Search"
+msgstr "Разширено Търсене"
+
+#: ../core/data/TWiki/WebSearch.txt:30
+msgid "Advanced search"
+msgstr "Разширено търсене"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:20
+msgid ""
+"After submitting this form your e-mail will be changed, and you will be "
+"returned to this form."
+msgstr ""
+"След като изпратите тази форма вашата електронна поща ще бъде променена и ще "
+"бъдете върнати обратно на формата"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:16
+msgid "After submitting this form your password will be changed."
+msgstr "След изпращането на тази форма, паролата ви ще бъде променена"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:12
+msgid ""
+"After submitting this form, you will receive an e-mail with your new, "
+"*system-generated* password, and a link to a page where you can change it."
+msgstr ""
+"След изпращането на тази форма, ще получите  e-mail с новата ви *генереирана "
+"от системата* парола и връзка към страница, където можете да я промените"
+
+#: ../core/lib/TWiki.pm:5228
+msgid "All authenticated users."
+msgstr ""
+
+#: ../core/data/TWiki/WebSearch.txt:40
+#: ../core/data/TWiki/WebSearchAdvanced.txt:48
+msgid "All public webs"
+msgstr "Всички публични рздели"
+
+#: ../core/data/TWiki/WebTopicList.txt:2
+msgid "All topics in %1 web"
+msgstr "Всички страници в раздел %1"
+
+#: ../core/lib/TWiki.pm:5218
+msgid "All users including unauthenticated users."
+msgstr ""
+
+#: ../core/templates/twiki.tmpl:7
+msgid "Allow non <nop>WikiWord for the new topic name"
+msgstr "Разреши не-<nop>WikiWord в името на новата страница"
+
+#: ../core/templates/messages.tmpl:299
+msgid ""
+"Alternatively hit back to go back to TWiki.TWikiRegistration and choose a "
+"different username."
+msgstr ""
+"Също така може да отидете на TWiki.TWikiRegistration и да изберете различно "
+"потребителско име."
+
+#: ../core/templates/messages.tmpl:286
+msgid ""
+"An e-mail could not be delivered. Please notify your %1 administrator, %2"
+msgstr ""
+"Съобщението не може да бъде доставено. Моля уведомете вашия %1 "
+"администратор, %2"
+
+#: ../core/templates/moveattachment.tmpl:30
+msgid ""
+"An error page will be shown if either of the topics are locked by another "
+"user."
+msgstr ""
+"Ще бъде показано съобщение за грешка ако някоя от страниците е заключена от "
+"друг потребител."
+
+#: ../core/templates/messages.tmpl:17
+msgid "And populated with topics from the base web"
+msgstr "И запълнен със страници от основния раздел."
+
+#: ../core/templates/changeform.tmpl:23
+msgid ""
+"Any changes you made to the topic before coming to this page are preserved."
+msgstr ""
+"Всички промени, направени от вас по страницата преди да дойдете на тази "
+"страница , са запазени."
+
+#: ../TWikiNetSkin/templates/viewtopbar.twikinet.tmpl:111
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:136
+#: ../core/templates/viewtopicactionbuttons.tmpl:72
+msgid "Attach"
+msgstr "Прикрепи"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:29
+msgid "Attach file or image"
+msgstr "Прикачване на файл или картинка"
+
+#: ../PatternSkin/templates/attachnew.pattern.tmpl:4
+#: ../core/templates/attachnew.tmpl:4
+msgid "Attach file to %1"
+msgstr "Прикачване на файл към %1"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:5
+msgid "Attach image or document on %1"
+msgstr "Прикaчване на картинка или документ към %1"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:20
+#: ../core/templates/attach.tmpl:15 ../core/templates/attachnew.tmpl:6
+#: ../core/templates/attachnew.tmpl:8
+msgid "Attach new file"
+msgstr "Прикaчване на нов файл"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:23
+msgid "Attach up to 10 files at a time."
+msgstr "Можете да прикачите до 10 файла едновременно."
+
+#: ../core/templates/attachtables.tmpl:4
+msgid "Attachment"
+msgstr "Прикaчен файл"
+
+#: ../core/templates/messages.tmpl:618
+msgid "Attachment '%1' does not exist"
+msgstr "Прикaченият файл '%1' не съществува"
+
+#: ../core/lib/TWiki/UI/Manage.pm:479
+msgid "Attachment already exists in new topic"
+msgstr "Прикaчения файл вече съществува в нова страница"
+
+#: ../core/templates/messages.tmpl:70
+msgid "Attachment delete failed"
+msgstr "Изтриването на прикаения файл се провали"
+
+#: ../core/lib/TWiki/UI/Manage.pm:459
+msgid "Attachment does not exist"
+msgstr "Притурката не съществува"
+
+#: ../core/templates/messages.tmpl:62
+msgid "Attachment move failed"
+msgstr "Преместването на прикачения файл се провали"
+
+#: ../PatternSkin/templates/attachtables.pattern.tmpl:7
+msgid "Attachments"
+msgstr "Притурки"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:6
+msgid "Attachments help"
+msgstr "Помощ относно притурките"
+
+#: ../core/templates/attach.tmpl:5
+msgid "Attachments of %1"
+msgstr "Притурки към %1"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:39
+#: ../core/templates/attach.tmpl:46
+msgid "Attachments will not be shown in topic view page."
+msgstr "Притурките няма да се показват в страницата."
+
+#: ../core/templates/oopsaccessdenied.tmpl:5
+#: ../core/templates/oopsattention.tmpl:5
+#: ../core/templates/oopsinvalidtoken.tmpl:5
+#: ../core/templates/oopslanguagechanged.tmpl:13
+#: ../core/templates/oopsleaseconflict.tmpl:4
+#: ../core/templates/oopsnotfound.tmpl:5 ../core/templates/oopssaveerr.tmpl:10
+msgid "Attention"
+msgstr "Внимание"
+
+#: ../core/templates/attachtables.tmpl:26
+msgid "Attribute"
+msgstr "Атрибут"
+
+#: ../MailerContrib/templates/mailnotify.tmpl:62
+msgid "Automated notification of topic changes"
+msgstr "Автоматично известяване при промяна на страницата"
+
+#: ../PatternSkin/templates/changeform.pattern.tmpl:13
+#: ../core/templates/changeform.tmpl:29
+msgid "Available form templates"
+msgstr "Налични шаблони за форми"
+
+#: ../core/data/TWiki/WebTemplateTopics.txt:6
+msgid "Available templates in %1 Web:"
+msgstr "Налични шаблони в Раздел %1 :"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:9
+msgid "Back to topic"
+msgstr "Обратно в страницата"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:163
+#: ../core/templates/oopsmore.tmpl:42
+#: ../core/templates/viewtopicactionbuttons.tmpl:107
+msgid "Backlinks"
+msgstr "Обратни връзки"
+
+#: ../core/templates/backlinksweb.tmpl:7
+msgid "Backlinks to %1 in %2 Web"
+msgstr "Обратни връзки към %1 в %2 Раздел"
+
+#: ../core/templates/backlinksallwebs.tmpl:7
+msgid "Backlinks to %1 in all Webs"
+msgstr "Обратни връзки към %1 във всички раздели"
+
+#: ../core/templates/messages.tmpl:323
+msgid "Bad password"
+msgstr "Грешна парола"
+
+#: ../core/templates/messages.tmpl:161
+msgid "Base web %1 is missing or does not exist"
+msgstr "Основния раздел %1 липсва или не съществува"
+
+#: ../core/templates/messages.tmpl:477
+msgid ""
+"Before copying %1 to %2, the existing %2 needed to be moved to %3, which "
+"caused an error."
+msgstr ""
+
+#: ../core/data/TWiki/WebSearch.txt:37
+#: ../core/data/TWiki/WebSearchAdvanced.txt:45
+msgid "Both body and title"
+msgstr "В заглавието и в текста"
+
+#: ../core/templates/changeform.tmpl:24
+msgid ""
+"But existing form data will be lost (you can always retrieve this data "
+"through the topic history)"
+msgstr ""
+"Но съществуващите данни от формата ще се загубят (винаги може да извлечете "
+"тези данни от историята на страницата)"
+
+#: ../core/data/Trash/WebHome.txt:10
+msgid ""
+"By default, viewing the Trash web is restricted to %1. If you would like to "
+"allow all users to view the Trash web, remove the =ALLOWWEBVIEW= restriction "
+"in WebPreferences."
+msgstr ""
+"По подразбиране виждането на страницата Trash (Кошче) е забранено за %1. Ако "
+"желаете да рарешите на всички потребители да я виждат, премахнете забраната "
+"=ALLOWWEBVIEW= в WebPreferences."
+
+#: ../core/templates/twiki.tmpl:15
+msgid "Bypass fixing <nop>WikiWord links if the destination is a different web"
+msgstr ""
+
+#: ../core/templates/messages.tmpl:52 ../core/templates/messages.tmpl:558
+msgid "Can't find user %1"
+msgstr "Потребителят %1  не бе открит"
+
+#: ../core/templates/messages.tmpl:559
+msgid "Can't get an e-mail address for %1 (required for password reset)"
+msgstr "Няма e-mail-адрес за %1 (задължителен за нулиране на паролата)"
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:200
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:73
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:156
+#: ../core/templates/twiki.tmpl:86
+msgid "Cancel"
+msgstr "Отказ"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:47
+msgid "Cancel editing and discard changes"
+msgstr "Откажи редакцията и отмени промените"
+
+#: ../core/templates/messages.tmpl:77
+msgid "Cannot create %1 because it already exists."
+msgstr "Страницата %1 не може да бъде създадена, тъй като вече съществува."
+
+#: ../core/templates/messages.tmpl:83 ../core/templates/messages.tmpl:89
+#, fuzzy
+msgid "Cannot create <nop>%1 because the %2 web already exists."
+msgstr "Страницата %1 не може да бъде създадена, тъй като вече съществува."
+
+#: ../core/templates/messages.tmpl:153
+msgid "Cannot create web %1 because it already exists"
+msgstr "Разделът %1 не може да бъде създаден, тъй като вече съществува."
+
+#: ../core/templates/messages.tmpl:157
+#, fuzzy
+msgid "Cannot create web %1 because the topic %2 already exists"
+msgstr "Разделът %1 не може да бъде създаден, тъй като вече съществува."
+
+#: ../core/templates/messages.tmpl:105 ../core/templates/messages.tmpl:93
+msgid "Cannot rename %1 to %2 because it already exists."
+msgstr "%1 не може да бъде преименуван/а на %2 , тъй като %2  вече съществува."
+
+#: ../core/templates/messages.tmpl:111
+#, fuzzy
+msgid "Cannot rename %1 to %2 because the topic %3 already exists."
+msgstr "%1 не може да бъде преименуван/а на %2 , тъй като %2  вече съществува."
+
+#: ../core/templates/messages.tmpl:99
+#, fuzzy
+msgid "Cannot rename %1 to <nop>%2 because the %3 web already exists."
+msgstr "%1 не може да бъде преименуван/а на %2 , тъй като %2  вече съществува."
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:64
+msgid "Case sensitive"
+msgstr "Чуствително към регистъра"
+
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:34
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:40
+msgid "Categories"
+msgstr "Категории"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:56
+msgid "Change"
+msgstr "Променяне"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:2
+msgid "Change Password"
+msgstr "Промяна на паролата"
+
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:2
+msgid "Change Profile Picture of %1"
+msgstr "Подмяна на снимката на профила на %1"
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:16
+msgid "Change comment and properties only"
+msgstr "Промяна само на коментар и свойства"
+
+#: ../core/templates/renamebase.tmpl:15
+msgid "Change from:"
+msgstr "Промяна от:"
+
+#: ../core/data/TWiki/LanguageSelector.txt:16
+#: ../core/templates/oopschangelanguage.tmpl:20
+#: ../core/templates/oopschangelanguage.tmpl:4
+#: ../core/templates/oopslanguagechanged.tmpl:5
+msgid "Change language"
+msgstr "Смяна на език"
+
+#: ../core/templates/renamewebbase.tmpl:43
+msgid "Change links in topics that refer to !%1 in any Web:"
+msgstr "Промяна на връзки в страници, рефериращи %1 във всеки раздел:"
+
+#: ../core/templates/renamewebbase.tmpl:40
+msgid "Change links in topics that refer to !%1 in the %2 Web:"
+msgstr "Промяна на връзки в страници, рефериращи %1 Раздел %2:"
+
+#: ../core/templates/renamebase.tmpl:56
+msgid "Change links in topics that refer to %1 in any Web:"
+msgstr "Промяна на връзки в страници, рефериращи %1 във всеки раздел:"
+
+#: ../core/templates/renamebase.tmpl:53
+msgid "Change links in topics that refer to %1 in the %2 Web:"
+msgstr "Промяна на връзки в страници, рефериращи %1 Раздел %2:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:30
+msgid "Change password"
+msgstr "Смяна на парола"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:56
+msgid "Change profile picture"
+msgstr "Смяна на снимката на профила"
+
+#: ../core/templates/attachagain.tmpl:21
+msgid "Change properties only"
+msgstr "Промяна само на свойствата"
+
+#: ../core/templates/edit.tmpl:7
+msgid "Change topic"
+msgstr "Смяна на страница"
+
+#: ../core/templates/search.tmpl:15
+msgid "Changed"
+msgstr "Променен"
+
+#: ../MailerContrib/templates/mailnotify.tmpl:18
+#: ../core/templates/search.tmpl:16
+msgid "Changed by"
+msgstr "Променен от"
+
+#: ../MailerContrib/templates/mailnotify.tmpl:16
+msgid "Changed:"
+msgstr "Променен:"
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:8
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:8
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:9
+#: ../PatternSkin/data/TWiki/WebLeftBarExample.txt:4
+#: ../PatternSkin/data/Trash/WebLeftBar.txt:6
+#: ../PatternSkin/data/_default/WebLeftBar.txt:7
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:15
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:14
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:49
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:15
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:17
+#: ../TopMenuSkin/data/Trash/WebTopMenu.txt:14
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:14
+msgid "Changes"
+msgstr "Промени"
+
+#. ($r2, $r1)
+#: ../core/lib/TWiki/UI/RDiff.pm:492
+msgid "Changes from r%1 to r%2"
+msgstr "Промени от r%1 до r%2"
+
+#: ../core/templates/messages.tmpl:500
+msgid ""
+"Check your configuration settings for {TemplateDir} and {TemplatePath}. If "
+"that's not the problem, it may be because you have a setting of %1 that is "
+"pointing to a template that doesn't exist."
+msgstr ""
+"Проверете настройките си за {TemplateDir} и {TemplatePath}. Ако това не е "
+"проблема, е може би защото имате настройка за %1, която сочи към "
+"несъществуващ шаблон."
+
+#: ../core/templates/copy.tmpl:62 ../core/templates/renamebase.tmpl:42
+#: ../core/templates/renamedelete.tmpl:31
+msgid "Checked topics will be updated to point to the new topic location."
+msgstr ""
+"Отметнатите страници ще бъдат обновени да сочат към новото местонахождение "
+"на страницата"
+
+#: ../core/templates/renameweb.tmpl:29
+msgid "Checked topics will be updated to point to the new web name."
+msgstr ""
+"Отметнатите страници ще бъдат обновени да сочат към новото  име на раздела."
+
+#: ../core/templates/oopsmore.tmpl:118
+msgid "Child topics in %1 web"
+msgstr "Подстраници в раздел %1"
+
+#: ../core/templates/changeform.tmpl:7
+msgid "Choose a new form for %1"
+msgstr "Изберете нова форма за %1"
+
+#: ../PatternSkin/templates/renamebase.pattern.tmpl:33
+#: ../core/lib/TWiki/Form/Checkbox.pm:60
+msgid "Clear all"
+msgstr "Изчистван на всичко"
+
+#: ../core/lib/TWiki/Render.pm:203
+msgid ""
+"Click to move topic back to previous location, with option to change "
+"references."
+msgstr ""
+"Щракнете за да върнете страницата на предишното й място с възможност за "
+"промяна на връзките"
+
+#: ../TagMePlugin/lib/TWiki/Plugins/TagMePlugin.pm:958
+msgid "Click to refine the search"
+msgstr "Щракнете, за да стесните търсенето"
+
+#: ../TwistyPlugin/data/TWiki/TwistyPlugin.txt:578
+msgid "Close"
+msgstr "Затваряне"
+
+#: ../core/templates/messages.tmpl:165
+msgid "Color %1 has an invalid format"
+msgstr "Цвета %1 е с невалиден формат"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:27
+#: ../core/templates/attach.tmpl:25 ../core/templates/attachtables.tmpl:37
+#: ../core/templates/attachtables.tmpl:4
+msgid "Comment"
+msgstr "Коментар"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:335
+msgid "Comment:"
+msgstr "Коментар:"
+
+#: ../core/templates/oopsmore.tmpl:99
+msgid "Compare revisions"
+msgstr "Сравняване на версиите"
+
+#: ../core/templates/messages.tmpl:242
+msgid "Confirm registration"
+msgstr "Потвърждаване на регистрацията"
+
+#: ../core/templates/renameconfirm.tmpl:7
+#: ../core/templates/renamewebconfirm.tmpl:7
+msgid "Confirm rename or move"
+msgstr "Потвърдете преименуването или преместването"
+
+#: ../core/templates/messages.tmpl:39
+msgid ""
+"Confirm your changes using TWiki's [[%1][topic history comparison tool "
+"(diff)]]."
+msgstr ""
+"Потвърдете промените си като използвате [[%1][инструмент за сравняване на "
+"промените (diff)]] на TWiki."
+
+#: ../core/templates/oopsleaseconflict.tmpl:6
+msgid "Conflict"
+msgstr "Конфликт"
+
+#: ../core/templates/messages.tmpl:577 ../core/templates/messages.tmpl:598
+#: ../core/templates/messages.tmpl:609 ../core/templates/messages.tmpl:615
+#: ../core/templates/messages.tmpl:621 ../core/templates/messages.tmpl:630
+#: ../core/templates/messages.tmpl:644
+msgid "Contact %1 if you have any questions."
+msgstr "Свържете се с %1 ако имате някакви въпроси."
+
+#: ../core/templates/messages.tmpl:466
+msgid "Continue and try to rename web?"
+msgstr "Продължете и се опитайте да преименувате раздела."
+
+#: ../core/data/TWiki/WebTopicCreator.txt:4
+msgid "Continue to create the new page"
+msgstr "Продължете, за да създадете новата страница"
+
+#: ../WysiwygPlugin/lib/TWiki/Plugins/WysiwygPlugin/TML2HTML.pm:141
+msgid ""
+"Conversion to HTML for WYSIWYG editing is disabled because of the topic "
+"content."
+msgstr ""
+
+#: ../core/templates/copy.tmpl:20 ../core/templates/copy.tmpl:7
+msgid "Copy"
+msgstr ""
+
+#: ../core/templates/oopsmore.tmpl:39
+#, fuzzy
+msgid "Copy this topic..."
+msgstr "Създаване на тази Страница"
+
+#: ../core/templates/oopsmore.tmpl:38
+#, fuzzy
+msgid "Copy topic"
+msgstr "Към страница:"
+
+#: ../core/templates/copy.tmpl:35
+#, fuzzy
+msgid "Copy:"
+msgstr "Страна:"
+
+#: ../core/data/TWiki/TWikiPreferences.txt:40
+#: ../core/data/TWiki/WebPreferences.txt:33
+msgid ""
+"Copyright &&copy; %1 by the contributing authors. All material on this "
+"collaboration platform is the property of the contributing authors."
+msgstr ""
+"Авторските права &&copy; %1 принадлежат на сътрудничещите автори. Всички "
+"материали в този сайт за сътрудничество са собственост на сътрудничещите "
+"автори."
+
+#: ../core/templates/messages.tmpl:175
+msgid "Could not create the new web %1"
+msgstr "Новият раздел %1 не може да бъде създаден"
+
+#: ../core/templates/messages.tmpl:498
+msgid "Could not find template"
+msgstr "Шаблонът не може да бъде създаден"
+
+#: ../core/templates/messages.tmpl:563
+msgid "Could not perform search. Error was: %1"
+msgstr "Търсенето е невъзможно. Грешката беше: %1"
+
+#: ../core/templates/messages.tmpl:355
+msgid "Could not save %1."
+msgstr "Неуспешен запис на %1."
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:164
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:92
+msgid "Country"
+msgstr "Страна"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:136
+msgid "Country:"
+msgstr "Страна:"
+
+#: ../TagMePlugin/data/TWiki/TagMeCreateNewTag.txt:23
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:27
+msgid "Create"
+msgstr "Създаване"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:36
+msgid "Create '%1'"
+msgstr "Създаване на '%1'"
+
+#: ../core/data/Sandbox/WebHome.txt:31
+msgid "Create <nop>TestTopic###"
+msgstr "Създай <nop>TestTopic###"
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:5
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:5
+#: ../PatternSkin/data/_default/WebLeftBar.txt:4
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:11
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:46
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:12
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:11
+msgid "Create New Topic"
+msgstr "Нова Страница"
+
+#: ../PatternSkin/data/TWiki/PatternSkinWebCreateNewTopicTemplate.txt:43
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:6
+msgid "Create New Topic in %1 Web"
+msgstr "Създаване на нова страница в раздел %1"
+
+#: ../core/data/Sandbox/WebHome.txt:17
+#, fuzzy
+msgid "Create Test Topics"
+msgstr "Нова Страница"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:37
+#: ../core/templates/attach.tmpl:38
+msgid "Create a link to the attached file"
+msgstr "Създаване на връзка към прикачения файл"
+
+#: ../core/data/Sandbox/WebHome.txt:30
+msgid "Create a new auto-numbered test topic:"
+msgstr "Създаване на нова автоматично номерирана страница:"
+
+#: ../core/data/Sandbox/WebHome.txt:20
+msgid "Create a new document by name:"
+msgstr "Създаване на документ по име"
+
+#: ../core/data/Sandbox/WebHome.txt:22
+msgid "Create by Name"
+msgstr "Създаване по име"
+
+#: ../PatternSkin/data/TWiki/WebLeftBarExample.txt:11
+msgid "Create personal sidebar"
+msgstr "Създаване на личен страничен панел"
+
+#: ../core/templates/messages.tmpl:596
+msgid "Create the topic"
+msgstr "Създаване на Страницата"
+
+#: ../core/data/TWiki/TWikiPreferences.txt:437
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:61
+#: ../core/lib/TWiki/Render.pm:112
+msgid "Create this topic"
+msgstr "Създаване на тази Страница"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:353
+msgid ""
+"Create your personal %1 topic using your WikiName as topic name, and add the "
+"data you submitted to the topic."
+msgstr ""
+"Създаде ваша лична %1 страница, чието име ще бъде вашето <nop>WikiИме и ще "
+"добави данните, които изпращате сега на нея."
+
+#: ../core/templates/messages.tmpl:384
+msgid "Creating a suitable Form Definition topic"
+msgstr "Създаване на подходяща страница за дефиниция на форма"
+
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:9
+#: ../core/templates/renamedelete.tmpl:10
+msgid "Current location:"
+msgstr "текущо местонахождение:"
+
+#: ../core/templates/oopsmore.tmpl:57
+msgid "Current parent:"
+msgstr "Текуша родителска страница/раздел:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:27
+msgid "Current password"
+msgstr "Текуща парола"
+
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:51
+msgid "Current picture"
+msgstr "Текуща снимка"
+
+#: ../core/templates/attachtables.tmpl:37
+#: ../core/templates/attachtables.tmpl:4
+msgid "Date"
+msgstr "Дата"
+
+#: ../core/templates/mailresetpassword.tmpl:5
+msgid "Dear %1"
+msgstr "Уважаеми/а %1"
+
+#: ../core/templates/oopsmore.tmpl:103
+msgid "Debug"
+msgstr "Дебъг"
+
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:59
+msgid "Default template"
+msgstr "Шаблон по подразбиране"
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:24
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:25
+#: ../TagMePlugin/data/TWiki/TagMeDeleteTag.txt:29
+#: ../core/templates/renamedelete.tmpl:34
+#: ../core/templates/renamedelete.tmpl:7
+msgid "Delete"
+msgstr "Изтриване"
+
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:28
+msgid "Delete attachment"
+msgstr "Изтриване на прикачен файл"
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:199
+msgid "Delete last row"
+msgstr "Изтриване на последния ред"
+
+#: ../core/templates/oopsmore.tmpl:22
+msgid "Delete topic"
+msgstr "Изтриване на страница"
+
+#: ../core/templates/oopsmore.tmpl:23 ../core/templates/oopsmore.tmpl:25
+msgid "Delete topic..."
+msgstr "Изтриване на страница..."
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:159
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:87
+msgid "Department"
+msgstr "Отдел"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:29
+msgid "Describe the file so other people know what it is."
+msgstr "Опишете файла, така че другите да знаят каво е това."
+
+#: ../core/lib/TWiki/Form.pm:350
+msgid "Details in separate window"
+msgstr "Подробностите в отделен прозорец.щ"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:20
+msgid "Did you spell the %1 correctly?"
+msgstr "Написали ли сте правилно %1 ?"
+
+#: ../core/data/TWiki/VarMAKETEXT.txt:19
+msgid "Did you want to [[%1][reset %2's password]]?"
+msgstr "Да не искахте да нулирате [[%1][паролата на %2]]?"
+
+#: ../PatternSkin/templates/rdiff.pattern.tmpl:14
+msgid "Difference:"
+msgstr "Разлика:"
+
+#: ../core/templates/preview.tmpl:11
+msgid "Do not forget to save your changes"
+msgstr "Не забравяйте да запишете промените си!"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:39
+#: ../core/templates/attach.tmpl:46
+msgid "Do not show attachment in table"
+msgstr "Да не се показват притурките в таблицата."
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:76
+msgid "Do show:"
+msgstr "Покажи:"
+
+#: ../core/data/TWiki/ReadOnlyAndMirrorWebs.txt:86
+msgid ""
+"Do you really want to mirror to all slave sites now?\\nIt may take a while "
+"to complete."
+msgstr ""
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:35
+msgid "Do you wish to create the topic %1?"
+msgstr "Желаете ли да създадете страницата %1?"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:6
+msgid "Do you wish to navigate quickly to a similar topic?"
+msgstr "Желаете ли бързо да отидете на подобна страница?"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:69
+msgid "Don't show:"
+msgstr "Не показвай:"
+
+#: ../core/templates/messages.tmpl:490
+msgid "During copy of %1 to %2 an error occurred."
+msgstr ""
+
+#: ../core/templates/messages.tmpl:71
+msgid ""
+"During deletion of attachment =%1= an error was found. Please notify your %2 "
+"administrator."
+msgstr ""
+"При изтриването на прикачения файл =%1= се появи грешка. Моля, уведомете "
+"вашия %2 администратор."
+
+#: ../core/templates/messages.tmpl:63
+msgid ""
+"During move of attachment %1 to %2 an error was found. Please notify your %3 "
+"administrator."
+msgstr ""
+"При преместването на  %1 в %2 се появи грешка. Моля, уведомете вашия %3 "
+"администратор."
+
+#: ../core/templates/messages.tmpl:121
+msgid ""
+"During rename of topic %1 to %2 an error (%3) was found. Please notify your %"
+"4 administrator."
+msgstr ""
+"При преименуване на страница %1 на %2 се появи грешка (%3). Моля, уведомете "
+"вашия %4 администратор."
+
+#: ../core/templates/messages.tmpl:124
+msgid ""
+"During rename of web %1 to %2 an error (%3) was found. Please notify your %4 "
+"administrator."
+msgstr ""
+"При преименуване на раздел %1 на %2 се появи грешка (%3). Моля, уведомете "
+"вашия %4 администратор."
+
+#: ../core/templates/messages.tmpl:443 ../core/templates/oopssaveerr.tmpl:17
+msgid ""
+"During save of %1 an error was found by the version control system. Please "
+"notify your %2 administrator."
+msgstr ""
+"При записа на %1 бе открита грешка от системата за контрол на версиите. "
+"Моля, уведомете вашия %2 администратор."
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:111
+msgid "E-mail address:"
+msgstr "E-mail адрес:"
+
+#: ../core/templates/messages.tmpl:226
+msgid "E-mail changed successfully!"
+msgstr "E-mail адресът ви бе променен успешно!"
+
+#: ../core/templates/settings.tmpl:27
+msgid "Each preference has the syntax"
+msgstr "Всяка настройка има синтаксисът"
+
+#: ../TWikiNetSkin/templates/viewtopbar.twikinet.tmpl:97
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:112
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:83
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:27
+#: ../core/templates/viewtopicactionbuttons.tmpl:51
+msgid "Edit"
+msgstr "Редактиране"
+
+#: ../core/templates/oopsleaseconflict.tmpl:21
+msgid "Edit Anyway"
+msgstr "Редактиране все пак!"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:16
+msgid "Edit help"
+msgstr "Помощ при редактиране"
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:194
+msgid "Edit table"
+msgstr "Редактиране на таблица"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:83
+msgid "Edit this record"
+msgstr "Редактиране на този запис"
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:195
+msgid "Edit this table"
+msgstr "Редактиране на тази таблица"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:30
+#: ../core/templates/oopsmore.tmpl:12
+msgid "Edit topic preference settings"
+msgstr "Редактиране настройките на тази страница"
+
+#: ../core/templates/messages.tmpl:340
+msgid ""
+"Either the code is not valid, or you have already confirmed your "
+"registration using it."
+msgstr ""
+"Кодът е невалиден или вече сте го използвали за потвърждаване на "
+"регистрацията си."
+
+#: ../core/templates/messages.tmpl:426
+msgid ""
+"Either you did not specify a file name, or the file you are trying to upload "
+"%1 has no content. You may not upload an empty file."
+msgstr ""
+"Не сте предоставили име за файла или файла, който се опитвате да качите( %"
+"1 ) е празен. Не може да качите празен файл."
+
+#: ../core/lib/TWiki/UI/Register.pm:433 ../core/lib/TWiki/UI/Register.pm:480
+msgid "Email has been disabled for this TWiki installation"
+msgstr "Изпращането на електронна поща е изключено за тази инсталация на TWiki"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:76
+msgid "Enlarge edit box"
+msgstr "Уголеми кутията за редактиране"
+
+#: ../core/templates/login.tmpl:7
+msgid "Enter a new username and password to change identity"
+msgstr ""
+"Въведете ново потребителско име и парола, за да промените идентичността си"
+
+#: ../core/templates/login.sudo.tmpl:18
+msgid "Enter the TWiki Administrator user or login as set in %1"
+msgstr ""
+"Въведете TWiki Администратор потребител или влезте както е указано в %1"
+
+#: ../core/templates/messages.tmpl:476 ../core/templates/messages.tmpl:489
+#, fuzzy
+msgid "Error copying topic"
+msgstr "Грешка при запис на страницата"
+
+#: ../core/templates/messages.tmpl:276
+msgid "Error registering new user"
+msgstr "Грешка при регистрация на нов потребител"
+
+#: ../core/templates/messages.tmpl:267
+msgid "Error registering user %1"
+msgstr "Грешка при регистрация на потребител %1"
+
+#: ../core/templates/messages.tmpl:442
+msgid "Error saving topic"
+msgstr "Грешка при запис на страницата"
+
+#: ../core/templates/login.tmpl:29
+msgid "Error: %1"
+msgstr "Грешка: %1"
+
+#: ../core/templates/messages.tmpl:551
+msgid "Error: File attachment at %1,%2 does not exist"
+msgstr "Грешка: приккаченият към %1 файл %2,  не съществува"
+
+#: ../core/templates/messages.tmpl:553
+msgid ""
+"Error: Unsupported content type: %1 (Must be =text/html=, =text/plain= or "
+"=text/css=)"
+msgstr ""
+"грешка: Неподдържан тип на съдържанието: %1 (Трябва да бъде =text/html=, "
+"=text/plain= или =text/css=)"
+
+#: ../core/templates/messages.tmpl:552
+msgid "Error: Unsupported protocol. (Must be 'http://domain/...')"
+msgstr "Грешка: Неподдържан протокол. (Трябва да бъде 'http://domain/...')"
+
+#: ../core/templates/messages.tmpl:290
+msgid "Errors"
+msgstr "Грешки"
+
+#: ../core/templates/messages.tmpl:509
+msgid "Example:"
+msgstr "Пример:"
+
+#: ../core/templates/messages.tmpl:561
+msgid "Failed to include URL %1"
+msgstr "Неуспешно включване на URL %1"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:32
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:25
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:23
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:92
+msgid "Fields marked %1 are required"
+msgstr "Полетата, маркирани с %1 са задължителни"
+
+#: ../core/templates/messages.tmpl:417
+msgid "File type is different"
+msgstr ""
+
+#: ../core/templates/messages.tmpl:391
+msgid "Files have been uploaded with different name"
+msgstr "Файлoвете бяха качени с различно име"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:21
+msgid "Find backlinks"
+msgstr "Намерете обратни връзки"
+
+#: ../core/templates/oopsmore.tmpl:43 ../core/templates/oopsmore.tmpl:45
+msgid "Find topics that link to %1 ..."
+msgstr "Намери страници, които имат връзки към %1 ..."
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:352
+msgid ""
+"Finish creating an account for you, so that you can start editing pages "
+"using your WikiName."
+msgstr ""
+"Процедурата завърши по създаването на сметката и Вие ще можете да "
+"модифицирате страници, като ползвате Вашето <nop>[[WikiName][WikiИме]]."
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:95
+msgid "First Name:"
+msgstr "Собствено име:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:73
+msgid ""
+"Fixed pulldown menu-bar of %1, on or off. If off, the menu-bar hides "
+"automatically when scrolling."
+msgstr ""
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:30
+msgid "Force new revision"
+msgstr "Нова версия сега!"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:5
+msgid "Forgotten your password?"
+msgstr "Забравена парола?"
+
+#: ../PatternSkin/data/TWiki/PatternSkinCustomization.txt:447
+msgid "Form"
+msgstr "Форма"
+
+#: ../core/templates/messages.tmpl:362
+msgid "Form Definition %1 missing"
+msgstr "Дефиниция на форма %1 липсва"
+
+#: ../core/templates/messages.tmpl:367
+msgid "Form definition missing"
+msgstr "Липсва дефиниция на формата"
+
+#: ../core/templates/copy.tmpl:69
+#, fuzzy
+msgid ""
+"Get help on <a target='CopyingTopics' class='twikiPopUp' href='%1' "
+"rel='nofollow'>Copying topics</a>."
+msgstr ""
+"Помощ относно <a target='ManagingTopics' class='twikiPopUp' href='%1' "
+"rel='nofollow'>Преименуване и преместване на страници</a>."
+
+#: ../core/templates/renamebase.tmpl:66
+msgid ""
+"Get help on <a target='ManagingTopics' class='twikiPopUp' href='%1' "
+"rel='nofollow'>Renaming and moving topics</a>."
+msgstr ""
+"Помощ относно <a target='ManagingTopics' class='twikiPopUp' href='%1' "
+"rel='nofollow'>Преименуване и преместване на страници</a>."
+
+#: ../core/templates/renamewebbase.tmpl:50
+msgid ""
+"Get help on <a target='ManagingWebs' class='twikiPopUp' href='%1' "
+"rel='nofollow'>Renaming and moving webs</a>."
+msgstr ""
+"Помощ относно <a target='ManagingWebs' class='twikiPopUp' href='%1' %"
+"rel='nofollow'>Преименуване и преместване на раздели</a>."
+
+#: ../core/templates/settings.tmpl:26
+msgid ""
+"Get help on <a target='TWikiVariables' class='twikiPopUp' href='%1' "
+"rel='nofollow'>Setting topic preferences</a>."
+msgstr ""
+"Помощ относно <a target='TWikiVariables' class='twikiPopUp' href='%1' "
+"rel='nofollow'>Настройии на страницата</a>."
+
+#: ../core/data/TWiki/WebSearch.txt:5
+#: ../core/data/TWiki/WebSearchAdvanced.txt:5
+msgid "Get notified on changes on this search"
+msgstr "Да бъда уведомяван при промени в това търсене"
+
+#: ../core/templates/twiki.tmpl:88
+msgid "Go back"
+msgstr "Обратно"
+
+#: ../core/templates/messages.tmpl:359
+msgid ""
+"Go back in your browser and insert information for all mandatory fields."
+msgstr ""
+"Върнете се назад с браузъра си и въведете информация във всички задължителни "
+"полета."
+
+#: ../core/templates/messages.tmpl:449 ../core/templates/oopssaveerr.tmpl:21
+msgid "Go back in your browser and save your changes locally."
+msgstr "Върнете се назад с браузъра си и запишете локално промените."
+
+#: ../core/templates/messages.tmpl:314
+msgid "Good examples:"
+msgstr "Добри примери:"
+
+#: ../core/lib/TWiki.pm:5173
+#, fuzzy
+msgid "Group"
+msgstr "Групи"
+
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:6
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:12
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:14
+msgid "Groups"
+msgstr "Групи"
+
+#: ../PatternSkin/data/TWiki/WebLeftBarLogin.txt:3
+msgid "Hello %1"
+msgstr "Здравей, %1"
+
+#: ../core/templates/twiki.tmpl:112
+msgid "Hello %1!"
+msgstr "Здравей %1!"
+
+#: ../core/data/TWiki/WebSearch.txt:30
+#: ../core/data/TWiki/WebSearchAdvanced.txt:36 ../core/templates/login.tmpl:50
+msgid "Help"
+msgstr "Помощ"
+
+#: ../core/templates/attach.tmpl:44
+msgid "Hide file"
+msgstr "Скриване на файла"
+
+#: ../core/templates/login.tmpl:50
+msgid "Hide help"
+msgstr "Скрий помощта"
+
+#: ../core/templates/messages.tmpl:144
+msgid "Hierarchical Webs is currently disabled, you cannot create Nested webs."
+msgstr ""
+"Поддръжката на раздели в йерархия е изключена. Не можете да създавате "
+"раздели един в друг."
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:22
+#: ../core/templates/attachtables.tmpl:4
+msgid "History"
+msgstr "История"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinHomeMenu.txt:10
+msgid "Home"
+msgstr "Начало"
+
+#: ../core/templates/registernotify.tmpl:16
+msgid "How about attaching your photo?"
+msgstr "Защо не прикрепите ваша снимка?"
+
+#: ../core/templates/registerconfirm.tmpl:4
+msgid "How to activate your %1 registration"
+msgstr "Как да активирате вашата %1 регистрация"
+
+#: ../core/templates/registernotifyadminfail.tmpl:12
+msgid ""
+"However, confirmation e-mail to %2 failed, indicating probable fraudulent "
+"registration.  The %1 user could not be removed automatically."
+msgstr ""
+"Писмото за потвърждение до %2 се провали, което означава вероятно "
+"измамническа регистрация. Потребителят %1 не бе премахнат автоматично."
+
+#: ../core/templates/registernotifyadminfailrem.tmpl:12
+msgid ""
+"However, confirmation e-mail to %2 failed, indicating probable fraudulent "
+"registration.  The %1 was removed automatically, however you must remove the "
+"user's topic manually."
+msgstr ""
+"Писмото за потвърждение до %2 се провали, което означава вероятно "
+"измамническа регистрация. Потребителят %1 бе премахнат автоматично. Вие "
+"трябва да премахнете страницата на потребителя ръчно."
+
+#: ../core/templates/login.tmpl:65
+msgid "I forgot my password"
+msgstr "Забравих си паролата"
+
+#: ../core/data/TWiki/TWikiPreferences.txt:40
+#: ../core/data/TWiki/WebPreferences.txt:33
+msgid "Ideas, requests, problems regarding %1? <a href='%2'>Send feedback</a>"
+msgstr ""
+"Идеи, заявки, проблеми, свързани с %1? <a href='%2'>Вашите впечатления</a>"
+
+#: ../core/templates/messages.tmpl:376
+msgid "If this line isn't present see _upgrade_ section below"
+msgstr "Ако този ред го няма, вижте секцията _подобрения_ по-долу"
+
+#: ../core/templates/messages.tmpl:370
+msgid "If this topic is missing create it, otherwise check it for errors."
+msgstr "Ако тази страница липсва, създайте я или я проверете за грешки."
+
+#: ../core/data/TWiki/WebSearch.txt:51
+#: ../core/data/TWiki/WebSearchAdvanced.txt:92
+msgid ""
+"If you already know the name of the topic, enter the name of the topic into "
+"the [[%1][Jump box]] at the top"
+msgstr ""
+"Ако вече знаете името на страницата, въведете го в [[%1][полето \"Скок!\"]] "
+"горе"
+
+#: ../core/templates/messages.tmpl:513 ../core/templates/messages.tmpl:522
+msgid ""
+"If you are developing a <nop>TWikiApplication, see %1 for a description of "
+"the correct parameters."
+msgstr ""
+"Ако разработвате <nop>TWikiApplication, прегледайте %1 за описание на "
+"правилните параметри."
+
+#: ../core/templates/messages.tmpl:586
+#, fuzzy
+msgid "If you came here by clicking a topic creation link"
+msgstr "Ако сте тук защото сте щракнали върху връзка с въпрос"
+
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:40
+msgid "If you enter a different name, make sure the topic does  exist."
+msgstr "Ако въвеждате различно име, уверете се че страницата съществува."
+
+#: ../core/templates/registernotify.tmpl:25
+msgid ""
+"If you got this e-mail by mistake: Somebody (%1) registered at the %2 site "
+"using your mail address %3. Contact %4 if this is in error."
+msgstr ""
+"Ако сте получили това писмо по грешка: Някой (%1) се регистрира на сайта %2 "
+"с вашият електронен пощенски адрес %3. Свържете се с %4 ако това е грешка."
+
+#: ../core/templates/registerconfirm.tmpl:14
+msgid ""
+"If you got this e-mail by mistake: Somebody (%1, %5) registered at the %2 "
+"site using your mail address %3. Contact %4 if this is in error."
+msgstr ""
+"Ако сте получили това писмо по грешка: Някой (%1, %5) се регистрира на сайта "
+"%2 с вашият електронен пощенски адрес %3. Свържете се с %4 ако това е грешка."
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:366
+msgid "If you have any questions about registration, send an e-mail to %1."
+msgstr "Ако имате въпроси относно регистрацията, изпратете e-mail до %1."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:42
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:36
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:33
+#: ../core/templates/login.tmpl:76
+msgid "If you have any questions, please contact %1"
+msgstr "Ако имате някакви въпроси, моля свържете се с %1"
+
+#: ../WatchlistPlugin/templates/watchlistdigestnotify.tmpl:12
+#: ../WatchlistPlugin/templates/watchlistimmediatenotify.tmpl:15
+#: ../core/data/TWiki/VarMAKETEXT.txt:16
+#: ../core/templates/mailresetpassword.tmpl:14
+msgid "If you have any questions, please contact %1."
+msgstr "Ако имате въпроси, моля свържете се с %1."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:140
+#: ../core/templates/registernotify.tmpl:27
+msgid "If you haven't set a password yet or you want to reset it, go to: %1"
+msgstr ""
+"Ако не сте задали парола все още или желаете д я промените, отидете на  %1"
+
+#: ../core/templates/messages.tmpl:520
+msgid ""
+"If you received a link to this topic in an e-mail or just want to look at "
+"the topic, [[%1][cancel save]] to go to %2."
+msgstr ""
+"Ако сте получили връзката към тази страница в писмо или просто искате да "
+"видите страницата, [[%1][cancel save]] за да отидете на %2."
+
+#: ../core/templates/messages.tmpl:595
+msgid "If you want to create the topic"
+msgstr "ако желаете да създадете страницата"
+
+#: ../core/templates/messages.tmpl:591
+#, fuzzy
+msgid "If you would like to create a new web"
+msgstr "Ако желаете да създадете този раздел"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:13
+msgid ""
+"If your old e-mail addresses are all invalid (you can't receive mail there "
+"any more) and you have forgotten your password, please contact %1 for help."
+msgstr ""
+"Ако старите ви адреси за електронна поща са невалидни(не можете да "
+"получавате поща на тях) и сте забравили паролата си, моля свържете се с %1 "
+"за помощ."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:11
+msgid ""
+"If your user topic is not protected from changes by other people, and you "
+"don't register an e-mail address using this form, then your user account "
+"could be hijacked by someone else."
+msgstr ""
+"Ако вашата лична страница, не е защитена от промени от други и не "
+"регистрирате адрес за електронна поща, като използвате тази форма, вашата "
+"потребителска сметка може да бъде открадната от някой друг."
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:37
+#: ../core/templates/attach.tmpl:38
+msgid "Images will be displayed, for other attachments a link will be created."
+msgstr ""
+"Картинките ще бъдат показани. За другите файлове ще бъде създадена връзка "
+"към тях."
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:59
+#, fuzzy
+msgid "In reverse order"
+msgstr "В обратен ред"
+
+#: ../core/templates/messages.tmpl:407
+msgid ""
+"In some cases, TWiki changes the name of the uploaded file to make it safe "
+"and accessible across all platforms:"
+msgstr ""
+"В някои случаи TWiki променя името на качения файл от съображения за "
+"сигурност и по-добър достъп на всички платформи."
+
+#: ../core/templates/messages.tmpl:304 ../core/templates/messages.tmpl:311
+msgid "Incorrect %1"
+msgstr "Неправилно %1"
+
+#: ../core/templates/messages.tmpl:314
+msgid "Incorrect %1.WikiNames:"
+msgstr "Неправилни %1.WikiNames:"
+
+#: ../core/templates/messages.tmpl:127
+msgid "Incorrect Password"
+msgstr "Грешна парола"
+
+#: ../core/templates/messages.tmpl:518
+msgid "Incorrect parameters to the =%1= script"
+msgstr "Грешни параметри към скрипта =%1="
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:6
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:6
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:7
+#: ../PatternSkin/data/TWiki/WebLeftBarExample.txt:5
+#: ../PatternSkin/data/Trash/WebLeftBar.txt:4
+#: ../PatternSkin/data/_default/WebLeftBar.txt:5
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:13
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:12
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:47
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:13
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:15
+#: ../TopMenuSkin/data/Trash/WebTopMenu.txt:12
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:12
+msgid "Index"
+msgstr "Индекс"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:154
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:81
+msgid "Info"
+msgstr "Информация"
+
+#: ../core/templates/messages.tmpl:278
+msgid "Internal error when sending email to %1."
+msgstr "Вътрешна грешка при изпращане на поща до %1."
+
+#: ../core/templates/messages.tmpl:411
+msgid ""
+"International (8-bit) characters are removed (replaced by US-ASCII "
+"equivalents for Latin-1)"
+msgstr ""
+"Международните (8-битови) символи са премахнати (заместени с US-ASCII "
+"еквиваленти за Latin-1)"
+
+#: ../core/templates/messages.tmpl:337
+msgid "Invalid Activation Code"
+msgstr "Невалиден код за активиране"
+
+#: ../core/templates/oopsinvalidtoken.tmpl:6
+msgid "Invalid Crypt Token"
+msgstr "Невалиден ключ за криптиране"
+
+#: ../core/templates/messages.tmpl:329
+msgid "Invalid e-mail address"
+msgstr "невалиден адрес за електронна поща"
+
+#: ../core/templates/messages.tmpl:533
+msgid ""
+"It is probably OK to go ahead and edit - unless you intend to change data in "
+"a form attached to the topic. If %1 actually _does_ save the topic while you "
+"are editing, your changes will be merged, and nothing will be lost. Form "
+"data cannot easily be merged though, so in this case you are recommended to "
+"check with %1 first."
+msgstr ""
+"Може би няма проблем да редактирате, освен ако възнамерявате да променяте "
+"данни във форма прикачена към страницата. Ако %1 запише страницата докато "
+"Вие редактирате, Вашите промени ще бъдат обединени с другите и нищо няма да "
+"се загуби. Данните от форми обаче не могат лесно да бъдат обединени. В този "
+"случай е препоръчително да се свържете с %1."
+
+#: ../core/templates/twiki.tmpl:9
+msgid ""
+"It's usually best to choose a <a target='WikiWord' class='twikiPopUp' href='%"
+"1' rel='nofollow'>WikiWord</a> for the new topic name, otherwise automatic "
+"linking may not work. Characters not allowed in topic names, such as spaces "
+"will automatically be removed."
+msgstr ""
+"Обикновено е най-добре да изберете <a target='WikiWord' class='twikiPopUp' "
+"href='%1' rel='nofollow'>WikiДума</a> за име на новата страница, защото в "
+"противен случай автоматичното генериране на връзки може да не сработи. "
+"Символи, които не са разрешени в имената на страниците, като паузи, ще бъдат "
+"премахнати автоматично. =бел.прев.=: Не използвайте кирилица ако не сте "
+"сигурни, че файловата ви система поддържа кирилица в имената на файловете."
+
+#: ../core/templates/renameweb.tmpl:17
+msgid ""
+"It's usually best to choose a short name for the new web, as it is easier to "
+"link to them later on. Characters not allowed in web names, such as spaces "
+"will automatically be removed."
+msgstr ""
+"Най-добре би било да изберете късо име за новия раздел за по-лесно създаване "
+"на връзки към него. Символи, които не са разрешени, като паузи, ще бъдат "
+"автоматично премахнати."
+
+#: ../PatternSkin/data/TWiki/WebLeftBarSearch.txt:2
+#: ../PatternSkin/data/TWiki/WebTopBar.txt:7
+#: ../PatternSkin/templates/twiki.pattern.tmpl:36
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopBar.txt:76
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:26
+msgid "Jump"
+msgstr "Скок!"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:99
+msgid "Last Name:"
+msgstr "Фамилия:"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:57
+msgid "Last editor"
+msgstr "Последен редактор"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:56
+msgid "Last modified time"
+msgstr "Последна промяна"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:81
+msgid "Limit results to:"
+msgstr "Ограничи резултатите до:"
+
+#. ($left)
+#. ($right)
+#: ../core/lib/TWiki/UI/RDiff.pm:158 ../core/lib/TWiki/UI/RDiff.pm:160
+#: ../core/lib/TWiki/UI/RDiff.pm:194
+msgid "Line: %1"
+msgstr "Ред: %1"
+
+#. ($left,$right)
+#: ../core/lib/TWiki/UI/RDiff.pm:308
+msgid "Line: %1 to %2"
+msgstr "Редове: %1 до %2"
+
+#: ../core/templates/attach.tmpl:36
+msgid "Link"
+msgstr "Връзка"
+
+#: ../core/data/TWiki/WebSearch.txt:52
+#: ../core/data/TWiki/WebSearchAdvanced.txt:93
+msgid "List all topics in the %1 web in alphabetical order"
+msgstr "Списък на всички страници в раздел %1 в азбучен ред"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:17
+#, fuzzy
+msgid "List more similar topics in this web"
+msgstr "Списък на подобни страници в този раздел"
+
+#: ../core/data/TWiki/WebSearch.txt:53
+#: ../core/data/TWiki/WebSearchAdvanced.txt:94
+msgid "List topics that start with the letter:"
+msgstr "Списък на страниците, които започват с буквата:"
+
+#: ../core/data/Main/TWikiPreferences.txt:2
+#, fuzzy
+msgid "Local customizations of site-wide preferences"
+msgstr "Локални настройки засягащи целия сайт"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:162
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:90
+msgid "Location"
+msgstr "Текущ адрес"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:4
+msgid "Log In"
+msgstr "Вход"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:5
+msgid "Log Out"
+msgstr "Изход"
+
+#: ../core/templates/registernotify.tmpl:18
+msgid ""
+"Login as \"%1\". Please note that login and password are case sensitive."
+msgstr ""
+"Влизане като \"%1\". Моля, отбележете, че потребителското име и паролата са "
+"чувствителни към регистъра на буквите."
+
+#: ../core/templates/mailresetpassword.tmpl:9
+msgid "Login name %1"
+msgstr "Име за вход %1"
+
+#: ../PatternSkin/data/TWiki/PatternSkinElements.txt:193
+#: ../core/templates/login.tmpl:71
+msgid "Logon"
+msgstr "Вход"
+
+#: ../core/templates/messages.tmpl:288
+msgid "Mail to"
+msgstr "Изпрати до"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:63
+msgid "Make search:"
+msgstr "Търси:"
+
+#: ../core/lib/TWiki.pm:5174
+msgid "Members"
+msgstr ""
+
+#: ../core/templates/messages.tmpl:255
+msgid "Missing Fields"
+msgstr "Липсващи полета"
+
+#: ../core/templates/messages.tmpl:44
+msgid "Missing action command"
+msgstr "Липсваща команда за действие"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:39
+msgid "Modify search"
+msgstr "Промяна на търсенето"
+
+#: ../core/templates/oopsmore.tmpl:7
+msgid "More Actions on Topic %1"
+msgstr "Още действия за страница %1"
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:20
+msgid "More formatting help"
+msgstr "Още помощ при форматиране"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:23
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:32
+msgid "More topic actions"
+msgstr "Още действия по страницата"
+
+#: ../PatternSkin/templates/rdiff.pattern.tmpl:29
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:146
+#: ../core/templates/viewtopicactionbuttons.tmpl:82
+msgid "More topic actions..."
+msgstr "Още действия по страницата..."
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinHomeMenu.txt:15
+#: ../TwistyPlugin/data/TWiki/TwistyPlugin.txt:576
+msgid "More..."
+msgstr "Още..."
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:24
+#: ../core/templates/moveattachment.tmpl:36
+msgid "Move"
+msgstr "Преместване"
+
+#: ../core/templates/moveattachment.tmpl:10
+msgid "Move attachment"
+msgstr "Преместване на прикачен файл"
+
+#: ../core/templates/moveattachment.tmpl:22
+msgid "Move attachment to web:"
+msgstr "Преместване на прикачен файл в раздел:"
+
+#: ../core/templates/moveattachment.tmpl:7
+msgid "Move file attachment"
+msgstr "Преместване на прикачен файл"
+
+#: ../core/templates/attachagain.tmpl:21
+msgid "Move or delete attachment"
+msgstr "Преместване или изтриване на прикачен файл"
+
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:21
+msgid "Move to web:"
+msgstr "Преместване в раздел:"
+
+#: ../core/templates/renamedelete.tmpl:16
+msgid "Move topic to web:"
+msgstr "Преместване на страницата в раздел:"
+
+#: ../core/lib/TWiki/UI/Manage.pm:1287
+msgid "Move/Rename"
+msgstr "Премести/Преименувай"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:126
+msgid "Must change password"
+msgstr "Трябва да промените паролата си"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:59
+msgid "My Links"
+msgstr "Моите Връзки"
+
+#: ../core/lib/TWiki/Search.pm:945
+msgid "NEW"
+msgstr "НОВ"
+
+#: ../core/templates/messages.tmpl:133
+msgid "Name of new web is missing"
+msgstr "Липсва име на новия раздел"
+
+#: ../core/templates/messages.tmpl:188
+msgid "New User Registration disabled"
+msgstr "Регистрацията на нови потребители е изключена"
+
+#: ../core/templates/messages.tmpl:179
+msgid "New User Registration not supported"
+msgstr "Регистрация на нови потребители не се поддържа"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:35
+msgid "New e-mails (space-separated list)"
+msgstr "Нови e-mail-и (списък разделен с паузи)"
+
+#: ../MailerContrib/templates/mailnotify.tmpl:73
+#: ../MailerContrib/templates/mailnotify.tmpl:9
+msgid "New or changed topics in %1 web since %2:"
+msgstr "Нови или променени страници в раздел %1 от %2:"
+
+#: ../core/templates/renamewebbase.tmpl:10
+msgid "New parent web:"
+msgstr "Нов родителски раздел:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:28
+msgid "New password"
+msgstr "Нова парола"
+
+#: ../core/templates/messages.tmpl:117
+msgid "New topic name %1 is not a %2"
+msgstr "Името на новата страница %1 не е %2"
+
+#: ../core/templates/renamewebbase.tmpl:7
+msgid "New web name:"
+msgstr "Име на новия раздел:"
+
+#: ../core/templates/oopsmore.tmpl:102
+msgid "Newer revision:"
+msgstr "По-нова версия:"
+
+#: ../core/data/TWiki/SearchResultsPagination.txt:102
+msgid "Next"
+msgstr ""
+
+#: ../core/templates/oopsmore.tmpl:119
+msgid "No child topics"
+msgstr "Няма подстраници"
+
+#: ../core/templates/messages.tmpl:550
+msgid "No permission to view %1"
+msgstr "нямате права да видите %1"
+
+#: ../core/templates/oopsmore.tmpl:114
+msgid "No previous revision exists."
+msgstr "Не съществува предна версия."
+
+#: ../core/templates/messages.tmpl:248
+msgid "No users to reset passwords for."
+msgstr "Няма потребители, чиито пароли да бъдат променени."
+
+#: ../core/templates/oopsnotfound.tmpl:6
+msgid "Not Found"
+msgstr ""
+
+#: ../core/templates/renamedelete.tmpl:31
+msgid "Not recommended when deleting a topic."
+msgstr "Не се препоръчва, когато изтривате страница."
+
+#: ../core/templates/moveattachment.tmpl:31
+msgid ""
+"Note that any URLs that refer to the attachment will be broken after this "
+"move."
+msgstr ""
+"забележете, че всички връзки, към прикаченият файл, ще бъдат счупени след "
+"преместването."
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:171
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:177
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:138
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:13
+#: ../core/data/TWiki/RenameWeb.txt:4 ../core/templates/messages.tmpl:342
+#: ../core/templates/messages.tmpl:406
+#: ../core/templates/registerconfirm.tmpl:13
+#: ../core/templates/registernotify.tmpl:24
+msgid "Note:"
+msgstr "Забележка:"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:2
+msgid "Note: This topic does not exist"
+msgstr "Забележка: тази страница не съществува"
+
+#: ../core/data/TWiki/VarMAKETEXT.txt:13
+msgid "Notes:"
+msgstr "Бележки:"
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:9
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:9
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:10
+#: ../PatternSkin/data/_default/WebLeftBar.txt:8
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:16
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:15
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:50
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:16
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:18
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:15
+msgid "Notifications"
+msgstr "Абонамент"
+
+#: ../PatternSkin/templates/searchbase.pattern.tmpl:5
+#: ../PatternSkin/templates/twiki.pattern.tmpl:38
+#: ../core/templates/search.text.tmpl:15
+#: ../core/templates/searchformat.tmpl:10
+msgid "Number of topics:"
+msgstr "Брой страници:"
+
+#: ../core/templates/messages.tmpl:216 ../core/templates/messages.tmpl:223
+#: ../core/templates/messages.tmpl:422 ../core/templates/messages.tmpl:429
+#: ../core/templates/messages.tmpl:438
+#: ../core/templates/oopsaccessdenied.tmpl:7
+#: ../core/templates/oopsinvalidtoken.tmpl:7
+#: ../core/templates/oopsnotfound.tmpl:7 ../core/templates/oopssaveerr.tmpl:14
+#: ../core/templates/twiki.tmpl:87
+msgid "OK"
+msgstr "Добре"
+
+#: ../core/templates/oopsmore.tmpl:102
+msgid "Older revision:"
+msgstr "По-стара версия"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:360
+msgid "Once registered you can login using your %1 and password."
+msgstr ""
+"След като сте регистриран можете да влезете, използвайки вашето %1 и парола."
+
+#: ../core/templates/messages.tmpl:575
+msgid "Only members of the %1 are allowed to perform this action."
+msgstr "Само членовете на %1 могат да извършват това действие."
+
+#: ../core/templates/login.tmpl:8
+msgid ""
+"Oops: we could not recognize you. Try again or [[%1][reset your password]]."
+msgstr ""
+"Опаа: не Ви разпознахме. Опитайте отново или  [[%1][променете паролата си]]."
+
+#: ../core/templates/renamedelete.tmpl:19
+msgid "Optionally change topic name:"
+msgstr "Може да промените името на страницата:"
+
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:32
+msgid "Optionally enter a different topic name:"
+msgstr "Може да въведете различно име на страница:"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:160
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:88
+msgid "Organization"
+msgstr "Организация"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:130
+msgid "Organization:"
+msgstr "Организация:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:330
+msgid "Other Country"
+msgstr "Друга страна"
+
+#: ../core/data/TWiki/WebSearch.txt:50
+#: ../core/data/TWiki/WebSearchAdvanced.txt:91
+msgid "Other search options:"
+msgstr "Други възможности за търсене"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:5
+msgid "Otherwise, use this form to get a new one e-mailed to you."
+msgstr ""
+"Може да използвате тази форма, за да получите нова по електронната поща."
+
+#: ../core/templates/twiki.tmpl:19
+msgid "Overwrite the copy destination if exists"
+msgstr ""
+
+#: ../PatternSkin/data/TWiki/PatternSkinElements.txt:188
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:34
+#: ../core/templates/login.tmpl:60
+msgid "Password"
+msgstr "Парола"
+
+#: ../core/templates/messages.tmpl:209
+msgid "Password changed successfully!"
+msgstr "Паролата е променена успешно!"
+
+#: ../core/templates/messages.tmpl:219
+msgid "Password could not be changed"
+msgstr "Паролата не може да бъде променена"
+
+#: ../core/templates/messages.tmpl:247 ../core/templates/messages.tmpl:251
+msgid "Password reset failed"
+msgstr "Връщането на старата парола се провали"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:116
+msgid "Password:"
+msgstr "Парола:"
+
+#: ../core/templates/messages.tmpl:261
+msgid "Passwords do not match"
+msgstr "Паролите не съвпадат"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:55
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:66
+msgid "Personal Preferences"
+msgstr "Лични настройки"
+
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:57
+#: ../core/templates/oopsmore.tmpl:61
+msgid "Pick from a list"
+msgstr "Избор от списък"
+
+#: ../core/templates/messages.tmpl:168
+msgid "Pick one of the %1."
+msgstr "Изберете едно от %1."
+
+#: ../core/data/Trash/TrashAttachment.txt:3
+msgid "Placeholder for trashed attachments"
+msgstr "Място за изхвърлени прикачени файлове"
+
+#: ../core/templates/messages.tmpl:301 ../core/templates/messages.tmpl:351
+msgid "Please contact %1 if you have any questions."
+msgstr "Моля, свържете се с %1 ако имате някакви въпроси."
+
+#: ../core/templates/messages.tmpl:183 ../core/templates/messages.tmpl:192
+#: ../core/templates/messages.tmpl:271 ../core/templates/messages.tmpl:280
+msgid "Please contact %1."
+msgstr "Моля свържете се с %1."
+
+#: ../core/templates/login.sudo.tmpl:7
+msgid "Please enter the TWiki admin password"
+msgstr "Моля, въведете администраторската парола за TWiki."
+
+#: ../core/templates/login.tmpl:14
+msgid "Please enter your username and password"
+msgstr "Моля, въведете вашето потребителско име и парола"
+
+#: ../core/templates/messages.tmpl:101 ../core/templates/messages.tmpl:107
+#: ../core/templates/messages.tmpl:113 ../core/templates/messages.tmpl:79
+#: ../core/templates/messages.tmpl:85 ../core/templates/messages.tmpl:95
+msgid "Please go _back_ in your browser and try a new name."
+msgstr "Моля, върнете се _назад_  с помощта на браузъра и опитайте с ново име."
+
+#: ../core/templates/messages.tmpl:138
+#, fuzzy
+msgid "Please go back and try a different web."
+msgstr "Моля, върнете се назад с браузъра и опитайте отново."
+
+#: ../core/templates/messages.tmpl:420 ../core/templates/messages.tmpl:427
+msgid "Please go back in your browser and check again."
+msgstr "Моля върнете се назад с браузъра и проверете отново."
+
+#: ../core/templates/messages.tmpl:118
+msgid ""
+"Please go back in your browser and choose a topic name that is a %1.WikiWord "
+"or check the allow non-Wiki Word box"
+msgstr ""
+"Моля, върнете се в браузъра си и изберете страницата %1.WikiWord, или "
+"отбележете, че разрешавате не-Wiki думи."
+
+#: ../core/templates/messages.tmpl:130 ../core/templates/messages.tmpl:134
+#: ../core/templates/messages.tmpl:146 ../core/templates/messages.tmpl:154
+#: ../core/templates/messages.tmpl:158 ../core/templates/messages.tmpl:162
+#: ../core/templates/messages.tmpl:172 ../core/templates/messages.tmpl:258
+#: ../core/templates/messages.tmpl:264 ../core/templates/messages.tmpl:308
+#: ../core/templates/messages.tmpl:320 ../core/templates/messages.tmpl:326
+#: ../core/templates/messages.tmpl:334 ../core/templates/messages.tmpl:45
+#: ../core/templates/messages.tmpl:49 ../core/templates/messages.tmpl:67
+msgid "Please go back in your browser and try again."
+msgstr "Моля, върнете се назад с браузъра и опитайте отново."
+
+#: ../core/templates/messages.tmpl:53
+msgid ""
+"Please make sure you spelled the %1 correctly and try again. If you get "
+"stuck, please mail %2."
+msgstr ""
+"Моля, уверете се, че изписвате правилно %1, и опитайте отново. Ако не "
+"успеете, пишете на %2."
+
+#: ../core/templates/messages.tmpl:436
+msgid "Please try small size files or contact Administrator."
+msgstr ""
+"Моля опитайте с файлове с по-малък размер или се свържете с администратора."
+
+#: ../core/templates/mailresetpassword.tmpl:12
+msgid ""
+"Please visit %1 to change your password to something more memorable for you."
+msgstr ""
+"Моля, посетете %1, за да промените паролата си на нещо по-запомнящо се за "
+"вас."
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:70
+msgid ""
+"Preference for the editor, default is the WYSIWYG editor. The options are "
+"raw, wysiwyg:"
+msgstr ""
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:12
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:12
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:13
+#: ../PatternSkin/data/_default/WebLeftBar.txt:11
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:19
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:18
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:53
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:19
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:21
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:18
+msgid "Preferences"
+msgstr "Настройки"
+
+#: ../PatternSkin/templates/settings.pattern.tmpl:13
+#: ../core/templates/settings.tmpl:7
+msgid "Preferences for"
+msgstr "Настройки за"
+
+#: ../core/data/TWiki/SearchResultsPagination.txt:100
+msgid "Previous"
+msgstr ""
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:20
+msgid "Print version"
+msgstr "Версия за печат"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:35
+msgid "Properties"
+msgstr "Свойства"
+
+#: ../core/data/Main/TWikiPreferences.txt:7
+msgid ""
+"Quick edit of existing preferences (edit the topic text to set new "
+"preferences)"
+msgstr ""
+"Бързо редактиране на текущите предпочитания (редактирайте текста на "
+"страницата, за да зададете нови предпочитания)"
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:197
+msgid "Quiet save"
+msgstr "Тих запис"
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:10
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:10
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:11
+#: ../PatternSkin/data/_default/WebLeftBar.txt:9
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:17
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:16
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:51
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:17
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:19
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:16
+msgid "RSS Feed"
+msgstr "RSS Емисии"
+
+#: ../core/templates/viewtopicactionbuttons.tmpl:9
+#, fuzzy
+msgid "Ra&w edit"
+msgstr "Редактиране на изходния код"
+
+#: ../core/templates/viewtopicactionbuttons.tmpl:9
+#, fuzzy
+msgid "Raw Edit this topic text"
+msgstr "Редактиране на текста в тази страница"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:19
+msgid "Raw View"
+msgstr "Суров Изглед"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:28
+#: ../core/templates/viewtopicactionbuttons.tmpl:67
+msgid "Raw edit"
+msgstr "Редактиране на изходния код"
+
+#: ../core/templates/registernotify.tmpl:10
+msgid ""
+"Read %1 to get a quick overview of this collaboration platform. To learn "
+"more, study the TWikiTutorial, which is accessible from the same link."
+msgstr ""
+"%1  е кратък преглед на платформата за сътрудничество. за да научите повече, "
+"прочете TWikiTutorial, който е достъпен от същата връзка."
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:30
+msgid "Read new revision help text in new window"
+msgstr "Прочетете помощния текст за нова версия в нов прозорец."
+
+#: ../TipsContrib/data/TWiki/TWikiTipsOfTheDayInclude.txt:12
+msgid "Read on"
+msgstr "Целият текст"
+
+#: ../core/data/TWiki/WebChanges.txt:2
+#, fuzzy
+msgid "Recent Changes in %1 Web"
+msgstr "%1 Последни промени в раздел %2"
+
+#: ../core/data/TWiki/WebSearch.txt:54
+#: ../core/data/TWiki/WebSearchAdvanced.txt:95
+msgid "Recently changed topics"
+msgstr "Последно променяни страници"
+
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:75
+msgid ""
+"Recommended step before upload: Crop the image to about square size, and "
+"resize it to a width of 200 pixels. This makes it load faster."
+msgstr ""
+"Преди да качите снимката е препоръчително да я изрежете като квадрат със "
+"страни по 200 пиксела. Така ще се зарежда по-бързо."
+
+#: ../core/lib/TWiki/UI/Manage.pm:1286
+msgid "Refresh"
+msgstr "Презареждане"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:163
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:91
+msgid "Region"
+msgstr "Област"
+
+#: ../PatternSkin/data/TWiki/WebLeftBarLogin.txt:3
+#: ../core/templates/twiki.tmpl:112
+msgid "Register"
+msgstr "Регистрация"
+
+#: ../PatternSkin/data/TWiki/UserBookmarks.txt:31
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopBar.txt:40
+msgid "Register User"
+msgstr "Регистрация на потребител"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:13
+msgid "Registered users can [[%1][change]] and [[%2][reset]] their passwords."
+msgstr ""
+"Регистрираните потребители могат да [[%1][променят]] и [[%2][нулират]] "
+"паролите си."
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:2
+msgid "Registration"
+msgstr "Регистрация"
+
+#: ../core/templates/messages.tmpl:340
+msgid "Registration codes can only be used once."
+msgstr "Кодовете за регистрация могат да се ползват само по веднъж."
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:65
+msgid "Regular expression search"
+msgstr "Търсене с регулярни изрази"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:82
+msgid "Related Topics"
+msgstr "Подобни страници"
+
+#: ../TagMePlugin/lib/TWiki/Plugins/TagMePlugin.pm:957
+msgid "Related tags"
+msgstr "Подобни етикети"
+
+#: ../TWikiUserMappingContrib/data/Main/TWikiGroupTemplate.txt:23
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:48
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:42
+#: ../TWikiUserMappingContrib/data/TWiki/EditUserAccount.txt:15
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:149
+#: ../TWikiUserMappingContrib/data/TWiki/QueryUsers.txt:10
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:37
+#: ../core/data/Sandbox/WebNotify.txt:10 ../core/data/Trash/WebNotify.txt:10
+#: ../core/data/_default/WebNotify.txt:10 ../core/templates/messages.tmpl:573
+#: ../core/templates/messages.tmpl:580
+msgid "Related topics:"
+msgstr "Подобни страници:"
+
+#: ../core/templates/login.tmpl:67
+msgid "Remember me on this computer"
+msgstr "Запомни ме на този компютър"
+
+#: ../core/templates/messages.tmpl:228
+msgid ""
+"Remember to update your user topic if you want your e-mail change to be "
+"reflected there as well."
+msgstr ""
+"Не забравяйте да обновите потребителската си страница, ако искате промяната "
+"на електронната ви поща да бъде отразена и там."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:5
+msgid "Remember your password?"
+msgstr "Запомняне на паролата?"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:28
+msgid "Remember, a %1 is case sensitive."
+msgstr "Запомнете, %1 е чувствително към регистъра на буквите."
+
+#: ../core/templates/messages.tmpl:59
+msgid "Remove the user from the group(s) %1 first."
+msgstr "Първо премахнете потребителя от груп(ата/ите) %1 first."
+
+#: ../TagMePlugin/data/TWiki/TagMeRenameTag.txt:34
+#: ../core/templates/rename.tmpl:7
+msgid "Rename"
+msgstr "Преименувай"
+
+#: ../core/templates/messages.tmpl:104 ../core/templates/messages.tmpl:110
+#: ../core/templates/messages.tmpl:92 ../core/templates/messages.tmpl:98
+msgid "Rename failed"
+msgstr "Грешка при преименуването"
+
+#: ../core/templates/oopsmore.tmpl:31
+msgid "Rename or move topic"
+msgstr "Преименувай тази страница"
+
+#: ../core/data/TWiki/RenameWeb.txt:2
+#, fuzzy
+msgid "Rename, Move or Delete this Web"
+msgstr "Преименувай, премести или изтрий този раздел"
+
+#: ../core/templates/rename.tmpl:20 ../core/templates/renameconfirm.tmpl:29
+#: ../core/templates/renameweb.tmpl:33
+msgid "Rename/Move"
+msgstr "Преименувай/Премести"
+
+#: ../core/templates/oopsmore.tmpl:32 ../core/templates/oopsmore.tmpl:34
+msgid "Rename/move topic..."
+msgstr "Преименувай/премести страница..."
+
+#: ../core/templates/renameweb.tmpl:7
+#, fuzzy
+msgid "Rename/move/delete"
+msgstr "Преименувай/премести/изтрий раздел..."
+
+#: ../core/data/TWiki/RenameWeb.txt:7
+msgid "Rename/move/delete web..."
+msgstr "Преименувай/премести/изтрий раздел..."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:3
+msgid "Reset Password"
+msgstr "Нулиране на Парола"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:25
+msgid "Reset password"
+msgstr "Нулиране на Парола"
+
+#: ../core/templates/oopsmore.tmpl:111
+msgid "Restore"
+msgstr "Възстановяване"
+
+#: ../core/templates/oopsmore.tmpl:106
+msgid "Restore topic"
+msgstr "Възстанови страница:"
+
+#: ../core/templates/oopsmore.tmpl:108
+msgid "Restore topic to revision:"
+msgstr "Възстанови страница до версия:"
+
+#: ../core/templates/oopsmore.tmpl:111
+msgid "Restore topic to this revision"
+msgstr "Възстанови страницата до тази версия:"
+
+#: ../PatternSkin/templates/searchbase.pattern.tmpl:12
+msgid "Results from %1 web"
+msgstr "Резултати от раздел %1"
+
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:87
+msgid "Return to"
+msgstr "Върнете се към"
+
+#: ../core/templates/messages.tmpl:232
+msgid "Return to %1."
+msgstr "Върнете се към %1."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:29
+msgid "Retype new password"
+msgstr "Въведете пак новата парола:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:117
+msgid "Retype password:"
+msgstr "Въведете паролата отново:"
+
+#: ../core/templates/messages.tmpl:35
+msgid "Rev %1 was saved by %2, while you were still editing."
+msgstr "Врсия %1 бе записана от %2, докато вие редактирахте."
+
+#: ../MailerContrib/templates/mailnotify.tmpl:44
+#: ../MailerContrib/templates/mailnotify.tmpl:76
+msgid "Review recent changes in:"
+msgstr "Преглед на последните промени в:"
+
+#: ../PatternSkin/templates/rdiff.pattern.tmpl:19
+msgid "Revision"
+msgstr "Версия"
+
+#: ../core/templates/oopsmore.tmpl:93
+msgid "Revisions"
+msgstr "Версии"
+
+#: ../PatternSkin/templates/settings.pattern.tmpl:25
+msgid "S = Save, C = Cancel"
+msgstr "S = Запис, C = Отказ"
+
+#: ../PatternSkin/templates/preview.pattern.tmpl:14
+msgid "S = Save, Q = Quiet save, K = Save and Continue, D = Discard"
+msgstr "S = Запис, Q = Quiet save, K = Прилагане, D = Отмяна"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:53
+msgid ""
+"S = Save, Q = Quiet save, K = Save and Continue, P = Preview, C = Cancel"
+msgstr "S = Запис, Q = Тих запис, K = Запис и нататък, P = Преглед, C = Отказ"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:156
+msgid "Save"
+msgstr "Запис"
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:196
+msgid "Save table"
+msgstr "Запис на таблица"
+
+#: ../core/templates/registernotifyadmin.tmpl:16
+#: ../core/templates/registernotifyadminfail.tmpl:18
+#: ../core/templates/registernotifyadminfailrem.tmpl:18
+msgid "Saved to:"
+msgstr "Записано в:"
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:7
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:7
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:8
+#: ../PatternSkin/data/TWiki/WebLeftBarExample.txt:6
+#: ../PatternSkin/data/TWiki/WebLeftBarSearch.txt:3
+#: ../PatternSkin/data/TWiki/WebTopBar.txt:9
+#: ../PatternSkin/data/Trash/WebLeftBar.txt:5
+#: ../PatternSkin/data/_default/WebLeftBar.txt:6
+#: ../PatternSkin/templates/twiki.pattern.tmpl:37
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:14
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:13
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:48
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:14
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopBar.txt:78
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:16
+#: ../TopMenuSkin/data/Trash/WebTopMenu.txt:13
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:13
+#: ../core/data/TWiki/WebSearch.txt:30
+#: ../core/data/TWiki/WebSearchAdvanced.txt:36
+msgid "Search"
+msgstr "Търсене"
+
+#: ../core/templates/backlinksallwebs.tmpl:7
+msgid "Search %1 Web only"
+msgstr "Търсене само в раздел %1"
+
+#: ../core/templates/backlinksweb.tmpl:7
+msgid "Search all webs"
+msgstr "Търсене във всички раздели"
+
+#: ../core/templates/backlinksallwebs.tmpl:7
+#: ../core/templates/backlinksweb.tmpl:7 ../core/templates/oopsmore.tmpl:43
+msgid "Search all webs for topics that link to here"
+msgstr "Търсене във всички раздели за връзки, които сочат насам"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:18
+msgid "Search similar topics in all public webs"
+msgstr "Търсене на подобни страници във всички публични раздели"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:70
+msgid "Search string"
+msgstr "Низ за търсене"
+
+#: ../core/templates/oopsmore.tmpl:45
+#, fuzzy
+msgid "Search the %1 web for topics that link to here"
+msgstr "Търсене във всички раздели за връзки, които сочат насам"
+
+#: ../core/data/TWiki/WebSearch.txt:35
+#: ../core/data/TWiki/WebSearchAdvanced.txt:41
+msgid "Search where:"
+msgstr "Търсене къде"
+
+#: ../PatternSkin/templates/searchbase.pattern.tmpl:1
+#: ../core/templates/search.tmpl:10 ../core/templates/searchformat.tmpl:9
+msgid "Searched:"
+msgstr "Търсено:"
+
+#: ../core/data/Trash/WebHome.txt:8
+msgid "Security Note:"
+msgstr "Бележка по Сигурността:"
+
+#: ../core/templates/messages.tmpl:55
+msgid "See %1 for a list of existing users or register as new user in %2."
+msgstr ""
+"Прегледайте списъка на съществуващите потребители в %1 или регистрирайте нов "
+"потребител в %2."
+
+#: ../core/templates/messages.tmpl:363
+msgid "See %1 for information about Form Definitions."
+msgstr "Прегледайте %1 за информация относно Дефиниране на Форми."
+
+#: ../core/data/TWiki/WebIndex.txt:4
+msgid "See also the faster %1"
+msgstr "Вижте също по-бързия %1"
+
+#: ../core/data/TWiki/WebTopicList.txt:6
+msgid "See also the verbose %1."
+msgstr "Вижте също подробния %1."
+
+#: ../core/data/TWiki/RenameWeb.txt:4 ../core/data/TWiki/RenameWeb.txt:7
+msgid "See also:"
+msgstr "Вижте също"
+
+#: ../core/templates/edit.tmpl:59
+msgid "See below for help in editing this page."
+msgstr "Вижте по-долу за помощ при редактирането на тази страница."
+
+#: ../core/templates/changeform.tmpl:13
+msgid "Select"
+msgstr "Изберете"
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:20
+msgid "Select a new local file to update attachment"
+msgstr "Изберете нов файл от Вашия компютър, за да обновите прикачения файл"
+
+#: ../PatternSkin/templates/renamebase.pattern.tmpl:33
+msgid "Select all"
+msgstr "Избор на всичко"
+
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:82
+msgid "Select existing picture"
+msgstr "Изберете съществуваща снимка"
+
+#: ../core/templates/oopsmore.tmpl:60
+msgid "Select topic parent:"
+msgstr "Избери родителска страница:"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:71
+#: ../core/templates/edit.tmpl:48
+msgid "Select, copy and paste your signature text to the bottom of your entry"
+msgstr ""
+"Изберете копирайте и вмъкнете подписа си в дъното на въведеното от вас."
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:355
+msgid "Send you a confirmation of your registration by e-mail."
+msgstr "Изпращане на потвърждение за регистрацията по e-mail."
+
+#: ../core/templates/oopsmore.tmpl:103
+msgid "Sequential"
+msgstr "Последователно"
+
+#: ../core/lib/TWiki/Form/Checkbox.pm:55
+msgid "Set all"
+msgstr "Отбелязване на всички"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:31
+#: ../core/templates/oopsmore.tmpl:64
+msgid "Set new parent"
+msgstr "Задай нов родител"
+
+#: ../core/templates/oopsmore.tmpl:52
+msgid "Set new topic parent"
+msgstr "Задай нов родител на страницата"
+
+#: ../core/data/TWiki/WebChanges.txt:31
+msgid "Show %1 results per page, or %2show all%3."
+msgstr ""
+
+#: ../PatternSkin/templates/copy.pattern.tmpl:10
+#: ../PatternSkin/templates/renamebase.pattern.tmpl:10
+msgid "Show help"
+msgstr "Покажи помощ"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:76
+msgid "Show tool-tip topic info on mouse-over of %1 links, on or off:"
+msgstr ""
+"Да се показват подсказки при преместване на мишката върху връзките към %1, "
+"да или не:"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:76
+msgid "Shrink edit box"
+msgstr "Смали кутийката за редакция"
+
+#: ../core/templates/oopsmore.tmpl:103
+msgid "Side by side"
+msgstr "Едно до друго"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:15
+msgid "Similar topics in this web (if any):"
+msgstr "Подобни страници в този раздел (ако има):"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:36
+msgid "Simple search"
+msgstr "Просто търсене"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinHomeMenu.txt:11
+msgid "Site map"
+msgstr "Карта на сайта"
+
+#: ../core/data/Main/TWikiPreferences.txt:4
+#, fuzzy
+msgid ""
+"Site-level preferences are located in %1, however this %2 prefs topic has "
+"override priority and should be used for local customizations. This allows "
+"for easier upgrades as you don't need to worry about the shipped preferences "
+"clobbering yours. It's easier to keep a handle on if you only copy over the "
+"settings you actually change."
+msgstr ""
+"Настройките  за целия сайт са в %1. Тази страница %2 обаче може ги променя и "
+"може да се ползва за локални настройки. Това позволява по лесно да се "
+"обновява системата, тъй като няма да се притеснявате, че настройките по "
+"подразбиране ще изтрият вашите. Тук може да копирате само настройките, които "
+"в действителност сте променили."
+
+#: ../core/templates/attachtables.tmpl:4
+msgid "Size"
+msgstr "Размер"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:132
+#: ../core/templates/registernotify.tmpl:15
+msgid "Some add schedule information and vacation notice."
+msgstr "Някои добавят информация за графика си и предизвестие за почивка."
+
+#: ../core/templates/messages.tmpl:410
+msgid "Some characters such as =&#126;=, =$=, =@=, =%= are removed"
+msgstr "Някои символи като =&#126;=, =$=, =@=, =%= са премахнати."
+
+#: ../core/templates/messages.tmpl:393
+msgid "Some files have been renamed on upload:"
+msgstr "Някои файлове бяха преименувани при качването:"
+
+#: ../core/templates/messages.tmpl:343
+#, fuzzy
+msgid ""
+"Some mail tools have an error that causes them to send the same request "
+"twice when you click on a link. If you did this, it is possible that you "
+"actually *have* registered successfully."
+msgstr ""
+"Някои програми за е-поща пращат една исъща заявка по два пъти когато "
+"щракнете на връзка. Ако сте го направили, най-вероятно *сте* регистриран "
+"успешно."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:131
+#: ../core/templates/registernotify.tmpl:14
+msgid ""
+"Some people turn it into a personal portal with favorite links, what they "
+"work on, what help they'd like, etc."
+msgstr ""
+"Някои превръщат страницата си в личен портал с любими връзки, новини за себе "
+"си и каквото друго си поискат."
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:5
+msgid "Sorry, Registration has been temporarily disabled"
+msgstr "Извинете, регистрацията е временно изключена."
+
+#: ../core/templates/messages.tmpl:136
+msgid "Sorry, system webs cannot be renamed, moved or deleted."
+msgstr ""
+
+#: ../TWikiUserMappingContrib/data/TWiki/BulkRegistration.txt:83
+#: ../TWikiUserMappingContrib/data/TWiki/BulkResetPassword.txt:17
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:21
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:17
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:13
+msgid "Sorry, the password system is currently read only, please contact %1"
+msgstr ""
+"За съжаление системата за пароли в момента е в режим само за четене. Моля "
+"свържете се с %1."
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:53
+msgid "Sort results by:"
+msgstr "Сортирай резултатите по:"
+
+#: ../core/templates/messages.tmpl:408
+msgid "Spaces are replaced by underscores"
+msgstr "паузите се заместват с подчертавки"
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:11
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:11
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:12
+#: ../PatternSkin/data/_default/WebLeftBar.txt:10
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:18
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:17
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:52
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:18
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:20
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:17
+msgid "Statistics"
+msgstr "Статистика"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:151
+msgid "Status update: Make a sentence, such as: =is out of office="
+msgstr "Обновяване на статуса: Напишете нещо като: =извън офиса="
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:345
+#: ../core/templates/messages.tmpl:348
+msgid "Submit"
+msgstr "Изпращане"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:142
+#: ../core/templates/registernotify.tmpl:20
+#: ../core/templates/registernotifyadmin.tmpl:12
+#: ../core/templates/registernotifyadminfail.tmpl:14
+#: ../core/templates/registernotifyadminfailrem.tmpl:14
+msgid "Submitted content:"
+msgstr "Изпратено съдържание:"
+
+#: ../MailerContrib/templates/mailnotify.tmpl:47
+#: ../MailerContrib/templates/mailnotify.tmpl:79
+#: ../MailerContrib/templates/newsletter.tmpl:20
+msgid "Subscribe / Unsubscribe in:"
+msgstr "Абонамент за/ Отписване от:"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:71
+msgid "Summaries"
+msgstr "Обобщения"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:76
+#, fuzzy
+msgid "Switch to monotype or proportional font"
+msgstr "Превключване към монотипен или пропорционален шрифт."
+
+#: ../core/templates/messages.tmpl:135
+#, fuzzy
+msgid "System web %1 cannot be renamed or moved"
+msgstr "Разделът %1 не може да бъде преименуван"
+
+#: ../core/data/TWiki/WebSearch.txt:31
+#: ../core/data/TWiki/WebSearchAdvanced.txt:37
+msgid ""
+"TIP: to search for all topics that contain =\"SOAP\"=, =\"WSDL\"=, a literal "
+"=\"web service\"=, but not =\"shampoo\"=, write:"
+msgstr ""
+"СЪВЕТ: за да търсите за страници, съдържащи =\"SOAP\"=, =\"WSDL\"=, буквален "
+"текст =\"web service\"=, но не =\"shampoo\"=, напишете:"
+
+#: ../core/templates/login.tmpl:3
+msgid "TWiki User Authentication"
+msgstr "Автентикация на потребител"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopBar.txt:62
+#, fuzzy
+msgid "TWiki help"
+msgstr "Помощ при редактиране"
+
+#: ../core/templates/mailresetpassword.tmpl:3
+msgid "TWiki password reset for %1"
+msgstr "Паролата е нулирана за %1"
+
+#: ../core/templates/oopschangelanguage.tmpl:12
+msgid ""
+"TWiki's user interface is available in several languages. If you want to "
+"change the language for this session, choose one of the following and hit "
+"\"Change language\". Otherwise, follow the \"Cancel\" link on the bottom of "
+"the page to return to the previous topic."
+msgstr ""
+"Потребителският интерфейс на TWiki е преведен на няколко езика. Ако искате "
+"да промените езика за тази сесия изберете някой от тях и щракнете на "
+"\"Промяна на езика\". Ако ли не, последвайте връзката \"Отказ\" в дъното на "
+"страницата, за да се върнете на предишната страница."
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:117
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:175
+msgid "Tag Cloud of %1:"
+msgstr ""
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:178
+msgid "Tag topics to modify your tag cloud."
+msgstr ""
+
+#: ../core/templates/messages.tmpl:606
+msgid "Template %1 does not exist"
+msgstr "Шаблон %1 не съществува"
+
+#: ../core/data/TWiki/WebSearch.txt:37
+#: ../core/data/TWiki/WebSearchAdvanced.txt:43
+msgid "Text body"
+msgstr "Тялото на текста"
+
+#: ../core/templates/messages.tmpl:197 ../core/templates/messages.tmpl:235
+msgid "Thank you for registering"
+msgstr "Благодарим, че се регистрирахте"
+
+#: ../core/templates/registernotify.tmpl:8
+msgid ""
+"Thank you for registering in the %1 collaboration platform. Please save this "
+"e-mail for future reference."
+msgstr ""
+"Благодарим ви че се регистрирахте в сайта за сътрудничество %1. Моля, "
+"запазете това писмо за бъдещи справки."
+
+#: ../core/templates/registerconfirm.tmpl:9
+msgid ""
+"Thank you for registering in the %1 collaboration platform. Your "
+"verification code is:"
+msgstr ""
+"Благодарим Ви че се регистрирахте в сайта за сътрудничество %1. Вашият код "
+"за проверка е:"
+
+#: ../core/templates/messages.tmpl:624
+msgid "That user has already been activated "
+msgstr "Този потребител вече е активиран "
+
+#: ../core/templates/messages.tmpl:312
+msgid ""
+"The %1 field must be your first and last name in %2, e.g. your capitalized "
+"first and last name with spaces removed."
+msgstr ""
+"Полето %1 трябва да се състои от Вашето собствено и фамилно име във формат %"
+"2 - имената без разстояние между тях."
+
+#: ../core/templates/messages.tmpl:306
+msgid "The %1 field must match the {LoginNameFilterIn} filter for this site"
+msgstr "Полето %1 трябва да съвпада с филтъра {LoginNameFilterIn}за този сайт."
+
+#: ../core/templates/messages.tmpl:76
+msgid "The %1 topic already exists"
+msgstr "Страницата %1 вече съществува"
+
+#: ../core/templates/messages.tmpl:82 ../core/templates/messages.tmpl:88
+#, fuzzy
+msgid "The %1 web already exists"
+msgstr "Страницата %1 вече съществува"
+
+#: ../core/data/TWiki/RenameWeb.txt:4
+msgid "The %1 web cannot be renamed."
+msgstr "Разделът %1 не може да бъде преименуван"
+
+#: ../core/templates/messages.tmpl:583
+msgid "The %1 web does not exist"
+msgstr "Разделът %1 не съществува"
+
+#: ../core/templates/messages.tmpl:642
+#, fuzzy
+msgid "The %1 web is not writable on this site"
+msgstr "Разделът %1 не съществува"
+
+#: ../core/templates/messages.tmpl:149
+#, fuzzy
+msgid "The %1 web missing metadata"
+msgstr "Разделът %1 не съществува"
+
+#: ../core/data/Sandbox/WebRss.txt:5 ../core/data/Trash/WebRss.txt:5
+#: ../core/data/_default/WebAtom.txt:3 ../core/data/_default/WebRss.txt:5
+msgid ""
+"The %1 web of TWiki. TWiki is a Web-Based Collaboration Platform for the "
+"Enterprise."
+msgstr ""
+"Разделът %1 на TWiki. TWiki е Уеб-базирана платформа за сътрудничество, "
+"подходяща за бизнеса."
+
+#: ../core/templates/messages.tmpl:508
+msgid "The =%1= script can only be called with POST method."
+msgstr "Скриптът =%1= може да бъде извикан само чрез POST метод(заявка)."
+
+#: ../core/templates/messages.tmpl:190
+msgid "The Administrator has disabled new user registration."
+msgstr "Администраторът е изключил регистрацията на нови потребители."
+
+#: ../core/templates/messages.tmpl:338
+msgid "The activation code %1 is invalid."
+msgstr "Кодът за активиране %1 е невалиден"
+
+#: ../core/templates/moveattachment.tmpl:29
+msgid "The attachment and any history will be moved to the new topic."
+msgstr ""
+"Прикаченият файл и цялата история ще бъдат преместени в новата страница."
+
+#: ../core/templates/messages.tmpl:541
+msgid ""
+"The chances are good that %1 has simply navigated away from the edit page "
+"without saving."
+msgstr ""
+"Най вероятно %1 просто е напуснал(а) страницата без да запише промените си. "
+
+#: ../core/templates/renamebase.tmpl:70
+msgid ""
+"The checkmarked topics will be updated (another form will appear which will "
+"_eventually_ allow you to rename any topics that were locked)"
+msgstr ""
+"Отбелязаните страници ще се обновят (ще се появи друга форма, която _най-"
+"вероятно_ ще ви позволи да преименувате заключените страници)."
+
+#: ../core/templates/messages.tmpl:485
+#, fuzzy
+msgid "The copy destination %1 already exists."
+msgstr "Страницата %1 вече съществува"
+
+#: ../core/templates/messages.tmpl:330
+msgid "The e-mail address for this account is not valid."
+msgstr "Адресът за електронна поща на тази сметка е невалиден."
+
+#: ../core/templates/messages.tmpl:557
+msgid "The entry for user %1 was missing in the password system."
+msgstr "Записът за потребител %1 липсваше в системата за пароли."
+
+#: ../core/templates/messages.tmpl:392
+msgid "The files have been uploaded and attached properly to the %1 topic."
+msgstr "Файловете бяха качени и прикачени успешно към тази страница."
+
+#: ../core/templates/messages.tmpl:456
+msgid "The following topics are locked for edit, and cannot be moved:"
+msgstr "Следните страници са заключени и не могат да бъдат преместени:"
+
+#: ../core/templates/messages.tmpl:462
+msgid "The following topics refer to topics in this web, but are being edited:"
+msgstr ""
+"Следните страници имат връзки към други страници в този раздел но те в "
+"момента биват редактирани:"
+
+#: ../core/templates/messages.tmpl:459
+msgid ""
+"The following topics refer to topics in this web, but you are denied access "
+"to them:"
+msgstr ""
+"Следните страници сочат към страници в този раздел, до които нямате достъп:"
+
+#: ../core/templates/messages.tmpl:369
+msgid "The form should be defined in the topic %1"
+msgstr "Формата трябва да е дефинирана в страницата %1"
+
+#: ../core/templates/messages.tmpl:539
+msgid "The lease on this topic expired %1 ago."
+msgstr "Запазването за редакция на тази страница изтече преди %1."
+
+#: ../core/templates/moveattachment.tmpl:16
+msgid "The new topic chosen must already exist."
+msgstr "Новоизбраната страница трябва вече да съществува."
+
+#: ../core/templates/messages.tmpl:16
+msgid "The new web has been created"
+msgstr "Новият раздел бе създаден"
+
+#: ../core/templates/messages.tmpl:128
+msgid "The password you entered in the *old password* field is incorrect."
+msgstr "Паролата, която въведохте в полето *стара парола* е неправилно."
+
+#: ../core/templates/messages.tmpl:357
+msgid "The required field %1 was not filled in."
+msgstr "Задължителното поле %1 не бе попълнено."
+
+#: ../core/templates/messages.tmpl:181
+msgid "The selected User System does not support new user registration."
+msgstr ""
+"Избраната система за управление на потребители не поддържа регистрация."
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:4
+msgid "The topic %1 you are trying to access does not exist, yet."
+msgstr "Страницата, която търсите все още не съществува."
+
+#: ../core/templates/messages.tmpl:372
+msgid "The topic is in an old format"
+msgstr "Страницата е в стар формат"
+
+#: ../core/templates/messages.tmpl:262
+msgid "The two passwords you entered do not match."
+msgstr "Паролите, които въведохте не съвпадат."
+
+#: ../core/templates/messages.tmpl:626
+msgid "The user %1 has already been activated, and should be able to log in."
+msgstr ""
+"Потребителят %1 вече е активиран, и би трябвало да може да влезе в системата."
+
+#: ../core/templates/messages.tmpl:452
+msgid "There are problems with renaming this web:"
+msgstr "Има проблеми с преименуването на този раздел:"
+
+#: ../core/templates/messages.tmpl:269
+msgid "There has been a problem adding your user id to the Password system."
+msgstr ""
+"Появи се проблем при добавянето на вашия потребител към системата за пароли."
+
+#: ../core/templates/messages.tmpl:375
+msgid "There should be a line that includes %1, look for %2 (or %3)"
+msgstr "Би трябвало да има ред, който включва %1, потърсете %2 (или %3)"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:6
+msgid "This TWiki does _not_ support new User Registration"
+msgstr "Това TWiki _не поддържа_ нови регистрации на потребители"
+
+#: ../core/templates/messages.tmpl:150
+msgid ""
+"This TWiki employs TWiki.MetadataRepository and requires every web to have "
+"its metadata registered. But currently the metadata is missing for the %1 "
+"web to be created. Please register the metadata and try again."
+msgstr ""
+
+#: ../core/templates/messages.tmpl:382
+msgid "This can be automatically upgraded by:"
+msgstr "This can be automatically upgraded by:"
+
+#: ../core/templates/messages.tmpl:365
+msgid "This could be for several reasons:"
+msgstr "Това може да се случи по няколко причини"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:5
+#, fuzzy
+msgid ""
+"This form is used to change your registered e-mail addresses. Your "
+"registered e-mails are used by TWiki for sending you e-mails, including "
+"notifications of password changes. The addresses you register via this form "
+"are kept secret and will *not* be published anywhere on this site."
+msgstr ""
+"Тази форма ще Ви позволи да промените адреса си за електронна поща. Адресите "
+"се използват от TWiki за уведомяване или промяна на паролата. Всички адреси "
+"за е-поща, които регистрирате, използвайки тази форма се пазят в тайна и "
+"*няма* да се публикуват никъде в сайта."
+
+#: ../core/data/Sandbox/WebNotify.txt:4 ../core/data/Trash/WebNotify.txt:4
+#: ../core/data/_default/WebNotify.txt:4
+msgid ""
+"This is a subscription service to be automatically notified by e-mail when "
+"topics change in this %1 web. This is a convenient service, so you do not "
+"have to come back and check all the time if something has changed. To "
+"subscribe, please add a bullet with your %2 in alphabetical order to this "
+"list:"
+msgstr ""
+"Това е абонамент за автоматично уведомяване чрез е-поща, когато се променя "
+"страница в този раздел. Така не Ви се налага да се връщате и да проверявате "
+"дали нещо се е променило. За да се запишете, моля добавете %2 в списъка "
+"както другите, като спазвате азбучния ред."
+
+#: ../MailerContrib/templates/mailnotify.tmpl:7
+#: ../MailerContrib/templates/mailnotify.tmpl:71
+msgid "This is an automated e-mail from %1."
+msgstr "Това е автоматично изпратено писмо от %1."
+
+#: ../core/templates/registernotifyadmin.tmpl:8
+#: ../core/templates/registernotifyadminfail.tmpl:8
+#: ../core/templates/registernotifyadminfailrem.tmpl:8
+msgid "This is an automated e-mail notification of user registration in %1."
+msgstr "Това е автоматично уведомяване по е-пощата за регистрацията в %1."
+
+#: ../core/data/Trash/WebHome.txt:5
+msgid ""
+"This is the Trash. Here you can undelete topics; deleted attachments are in "
+"TrashAttachment."
+msgstr ""
+"Това е кошчето. От тук можете да възстановявате изтрити страници. Изтритите "
+"прикачени файлове са в TrashAttachment."
+
+#: ../WysiwygPlugin/lib/TWiki/Plugins/WysiwygPlugin/TML2HTML.pm:143
+msgid "This is why the conversion is disabled:"
+msgstr ""
+
+#: ../core/templates/renamedelete.tmpl:25
+msgid ""
+"This name has been chosen so it doesn't conflict with any other topics "
+"already in the %1 web."
+msgstr ""
+"Това име бе избрано за да няма конфликт с вече съществуващи страници в "
+"раздел %1."
+
+#: ../core/templates/messages.tmpl:380
+msgid "This requires the form definition to be present."
+msgstr "Трябва да имате дефиниция за форма"
+
+#: ../core/templates/messages.tmpl:324
+msgid "This site requires at least %1 character passwords"
+msgstr "минималната дължина на паролата за този сайт е %1"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:12
+msgid "This topic has moved to %1."
+msgstr "Тази страница е преместена в %1."
+
+#: ../core/data/TWiki/WebTopicNonWikiTemplate.txt:6
+msgid ""
+"This topic name is not recommended because it will not be linked "
+"automatically. See %1 for details"
+msgstr ""
+"Това име не се препоръчва, тъй като няма да се създаде автоматично връзка "
+"към страницата ако го ползвате. Вижте %1 за подробности."
+
+#: ../core/templates/viewprint.tmpl:13
+msgid "This topic:"
+msgstr "Тази страница:"
+
+#: ../core/templates/messages.tmpl:37
+msgid ""
+"Those changes have been merged with yours to create Rev %1. Text fields will "
+"have been merged, but other data such as form fields may have overwritten "
+"the other users changes. Please inspect the topic to make sure it is OK, "
+"especially if you made any changes to form fields."
+msgstr ""
+"Чуждите промени бяха обединени с Вашите, за да се създаде версия %1. "
+"Текстовите полета ще са обединени, но ако сте редактирали полета във форми "
+"най-вероятно Вашите промени са се записали върху чуждите. Моля, разгледайте "
+"страницата, за да се уверите, че всичко е наред, особено ако сте променяли "
+"полета във форми."
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:158
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:86
+msgid "Title"
+msgstr "Заглавие"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:5
+msgid ""
+"To edit pages on this TWikiSite, you must have a registered user name and "
+"password."
+msgstr ""
+"За да модифицирате страници на този TWikiSite, е необходимо да се "
+"регистрирате."
+
+#: ../core/templates/oopsleaseconflict.tmpl:18
+msgid "To edit the topic anyway, click "
+msgstr "За да редактирате страницата, щракнете "
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:86
+msgid "To register as a new user, simply fill out this form:"
+msgstr "За да се регистрирате, е достатъчно да попълните този формуляр."
+
+#: ../core/templates/messages.tmpl:638
+msgid ""
+"To save your changes, press the browser back button, copy all content into "
+"the clipboard, cancel edit, edit again, and replace content with clipboard "
+"content. Whew ... nothing lost!"
+msgstr ""
+"За да запишете промените, щракнете върху бутона \"Назад\" във браузъра, "
+"копирайте цялото съдържание, откажете редакцията, редактирайте наново и "
+"заместете съдържанието с копираното. Уф... нищо не е загубено!"
+
+#: ../core/templates/oopsleaseconflict.tmpl:14
+msgid "To see if %1 has finished editing yet, click "
+msgstr "За да видите дали %1 е приключил с редакцията, щракнете "
+
+#: ../core/templates/copy.tmpl:49 ../core/templates/renamebase.tmpl:29
+#: ../core/templates/renameconfirm.tmpl:14
+msgid "To topic:"
+msgstr "Към страница:"
+
+#: ../core/templates/copy.tmpl:42 ../core/templates/renamebase.tmpl:22
+#: ../core/templates/renameconfirm.tmpl:10
+msgid "To web:"
+msgstr "Към раздел:"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:18
+msgid "Topic"
+msgstr "Страница"
+
+#: ../core/templates/messages.tmpl:354
+msgid "Topic Save Error"
+msgstr "Грешка при Запис на Страницата"
+
+#: ../PatternSkin/templates/attachtables.pattern.tmpl:15
+msgid "Topic attachments"
+msgstr "Притурки към страницата"
+
+#: ../core/templates/messages.tmpl:378
+msgid "Topic can not be upgraded from old style category table"
+msgstr "Страницата не може да бъде обновена от стария стил за категории"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:55
+msgid "Topic name"
+msgstr "Име на страницата"
+
+#: ../PatternSkin/data/TWiki/PatternSkinWebCreateNewTopicTemplate.txt:47
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:29
+msgid "Topic name:"
+msgstr "Име на страницата:"
+
+#: ../PatternSkin/data/TWiki/PatternSkinWebCreateNewTopicTemplate.txt:54
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:34
+msgid "Topic parent:"
+msgstr "Родител на страницата"
+
+#: ../PatternSkin/templates/rdiff.pattern.tmpl:19
+#: ../PatternSkin/templates/view.pattern.tmpl:47
+#: ../PatternSkin/templates/view.pattern.tmpl:74
+#: ../TWikiNetSkin/templates/view.twikinet.tmpl:25
+#: ../core/templates/viewprint.tmpl:14
+msgid "Topic revision:"
+msgstr "Версия на страницата"
+
+#: ../core/templates/oopssaveerr.tmpl:12
+msgid "Topic save error"
+msgstr "Грешка при запис на страницата"
+
+#: ../core/data/TWiki/WebTemplateTopics.txt:2
+msgid "Topic templates in %1 Web"
+msgstr "Шаблони за страници в раздел %1"
+
+#: ../core/data/TWiki/WebSearch.txt:37
+#: ../core/data/TWiki/WebSearchAdvanced.txt:44
+msgid "Topic title"
+msgstr "Заглавие на страницата"
+
+#: ../core/templates/messages.tmpl:34
+msgid "Topic was merged"
+msgstr "Страницата бе обединена"
+
+#: ../PatternSkin/data/TWiki/PatternSkinWebCreateNewTopicTemplate.txt:28
+msgid "Topic will be named: "
+msgstr "Страницат ще бъде именувана: "
+
+#: ../core/templates/search.tmpl:14
+msgid "Topics in %1 web"
+msgstr "Теми в раздел %1"
+
+#: ../MailerContrib/templates/mailnotify.tmpl:14
+#: ../core/templates/search.text.tmpl:4
+msgid "Topics in %1 web:"
+msgstr "Страници в раздел %1:"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:82
+msgid "Topics per web"
+msgstr "Страници на раздел"
+
+#: ../core/templates/renamewebbase.tmpl:29
+msgid "Topics which are currently being edited by other users in the %1 Web:"
+msgstr ""
+"Страници в раздел %1, които в момента се редактират от други потребители:"
+
+#: ../core/templates/renamewebbase.tmpl:32
+#, fuzzy
+msgid ""
+"Topics which refer to this web and are currently being edited by other users:"
+msgstr ""
+"Страници, сочещи към този раздел и в момента се редактират от други "
+"потребители:"
+
+#: ../core/templates/renamewebbase.tmpl:35
+msgid ""
+"Topics which refer to this web that you do not have permission to change:"
+msgstr "Нямате право да променяте този раздел. Страници с връзки към него:"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:72
+msgid "Total matches"
+msgstr "Общо съвпадения"
+
+#: ../core/templates/oopsleaseconflict.tmpl:15
+msgid "Try Again"
+msgstr "Опитай отново"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:161
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:89
+msgid "URL"
+msgstr "URL"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:133
+msgid "URL:"
+msgstr "URL:"
+
+#: ../core/templates/login.sudo.tmpl:5
+msgid "Unrecognised user and/or password"
+msgstr "Непознат потребител и/или парола"
+
+#: ../core/templates/messages.tmpl:48
+msgid "Unrecognized action command %1"
+msgstr "Непозната команда %1"
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:4
+msgid "Update attachment %1 on %2"
+msgstr "Обновяване на прикрепен файл %1 на %2"
+
+#: ../core/templates/renamebase.tmpl:49
+#: ../core/templates/renamewebbase.tmpl:27
+msgid "Update links"
+msgstr "Връзки за обновяване"
+
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:67
+msgid "Upload"
+msgstr "Качване"
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:28
+#: ../PatternSkin/templates/attachnew.pattern.tmpl:7
+#: ../core/templates/attachagain.tmpl:21 ../core/templates/attachnew.tmpl:9
+msgid "Upload file"
+msgstr "Качване на файл"
+
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:63
+msgid "Upload new picture"
+msgstr "Качване на нова снимка"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:22
+msgid "Upload up to %1 KB."
+msgstr "Качване на файлове до %1 KB."
+
+#: ../core/templates/messages.tmpl:434
+msgid "Uploaded file %1 exceeds limit of %2 KB"
+msgstr "Каченият файл %1 надвишава ограничението от %2 KB"
+
+#: ../core/templates/messages.tmpl:433
+msgid "Uploaded file is too big"
+msgstr "Каченият файл е твърде голям"
+
+#: ../core/templates/messages.tmpl:418
+msgid ""
+"Uploaded file type %1 differs from the existing type %2. They must be of the "
+"same type when updating an existing attachment."
+msgstr ""
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:5
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:5
+msgid "Use %1 instead."
+msgstr "По-добре използвайте %1."
+
+#: ../core/data/Sandbox/WebHome.txt:23
+msgid "Use a %1 for automatic linking."
+msgstr ""
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:122
+msgid "Use system generated password"
+msgstr "Използвайте паролата, създадена от системата:"
+
+#: ../PatternSkin/data/TWiki/PatternSkinWebCreateNewTopicTemplate.txt:61
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:39
+msgid "Use template:"
+msgstr "Използване на шаблон"
+
+#: ../core/data/Sandbox/WebHome.txt:12
+#, fuzzy
+msgid ""
+"Use this web to try out TWiki. Go ahead and add or delete some stuff. Walk "
+"through the %1 to learn the basics of TWiki. We recommend to sign your "
+"contributions with your %2 and date, which is done automatically when you "
+"create a topic or add a comment."
+msgstr ""
+"Използвайте този раздел да пробвате TWiki. Всеки може да добавя или трие "
+"неща тук. Препоръчва се да прочетете изцяло %1, за да научите основните "
+"понятия. Добра практика е да подписвате каквото сте допринесли с  %2 и дата."
+
+#: ../core/templates/messages.tmpl:10
+msgid "User Account %1 Deleted"
+msgstr "Потребителска сметка %1 - Изтрита"
+
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:15
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:23
+msgid "User Reference"
+msgstr "Потребителски Настройки"
+
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:12
+msgid "User registration"
+msgstr "Регистрация на потребител"
+
+#: ../PatternSkin/data/TWiki/PatternSkinElements.txt:182
+#: ../core/templates/login.tmpl:42
+msgid "Username"
+msgstr "Потребителско име"
+
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:5
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:11
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:13
+msgid "Users"
+msgstr "Потребители"
+
+#: ../core/templates/messages.tmpl:206
+msgid ""
+"Users with automatically generated passwords should proceed immediately to "
+"[[%1][change password]] to change their password to something memorable."
+msgstr ""
+"Потребителите с автоматично генерирани пароли трябва незабавно да отидат на "
+"[[%1][промяна на парола]], за да променят паролите си на нещо, което могат "
+"да запомнят."
+
+#: ../core/templates/attachtables.tmpl:37
+msgid "Version"
+msgstr "Версия"
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:10
+msgid "Version history"
+msgstr "История на версиите"
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:8
+msgid "Version history of %1"
+msgstr "История на версиите на %1"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:18
+#: ../core/templates/oopsmore.tmpl:97
+msgid "View"
+msgstr "Виж"
+
+#: ../core/templates/oopsmore.tmpl:104
+msgid "View difference"
+msgstr "Виж разлики"
+
+#: ../core/templates/oopsmore.tmpl:94
+msgid "View previous topic revision"
+msgstr "Виж предната версия на страницата"
+
+#: ../core/templates/oopsleaseconflict.tmpl:24
+msgid "View raw text without formatting"
+msgstr "Преглед в суров текстов формат"
+
+#: ../core/templates/oopsmore.tmpl:96
+msgid "View revision:"
+msgstr "Виж версия"
+
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:59
+msgid "View templates"
+msgstr "Виж шаблоните"
+
+#: ../PatternSkin/templates/rdiff.pattern.tmpl:29
+#: ../core/templates/oopsleaseconflict.tmpl:24
+msgid "View topic"
+msgstr "Покажи страницата"
+
+#: ../core/templates/twiki.tmpl:108
+msgid "View total topic history"
+msgstr "Изглед на цялата история на страницата"
+
+#: ../core/data/TWiki/WebTopicNonWikiTemplate.txt:6
+msgid "WARNING:"
+msgstr "ВНИМАНИЕ:"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:114
+#: ../core/templates/viewtopicactionbuttons.tmpl:9
+msgid "WYSIWYG"
+msgstr "WYSIWYG"
+
+#: ../core/templates/viewtopicactionbuttons.tmpl:9
+#, fuzzy
+msgid "WYSIWYG editor"
+msgstr "WYSIWYG"
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:203
+msgid "Warning: 'include' topic does not exist!"
+msgstr "Внимание: 'include' страница не съществува"
+
+#: ../core/templates/messages.tmpl:555
+msgid "Warning: Can't INCLUDE %1 repeatedly, topic is already included. %2"
+msgstr ""
+"Внимание: %1 не може да се ВМЪКНЕ(INCLUDE) отново, страницата е вече "
+"вмъкната. %2"
+
+#: ../core/templates/messages.tmpl:554
+msgid "Warning: Can't find topic %1.%2"
+msgstr "Внимание: Страница %1 не може да бъде намерена.%2"
+
+#: ../core/lib/TWiki/UI/Register.pm:862
+msgid "Warning: Could not send confirmation email"
+msgstr "Внимание: Потвърдителното съобщение(email) не може да бъде изпратено"
+
+#: ../core/lib/TWiki/UI/Register.pm:869
+msgid "Warning: Could not send confirmation email, email has been disabled"
+msgstr ""
+"Внимание: Потвърдителното съобщение(email) не може да бъде изпратено. "
+"Изпращането на електронна поща е изключено."
+
+#: ../core/templates/messages.tmpl:562
+msgid "Warning: This site does not allow %<nop>INCLUDE% of URLs"
+msgstr "Внимание: Този сайт не разрешава %<nop>INCLUDE% на уеб-адреси"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:172
+msgid "Watch topics to see watchlist changes."
+msgstr ""
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:169
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:99
+msgid "Watchlist Changes of %1:"
+msgstr ""
+
+#: ../MailerContrib/data/TWiki/MailerContrib.txt:208
+#: ../MailerContrib/templates/mailnotify.tmpl:62
+msgid "Web"
+msgstr "Раздел"
+
+#: ../core/data/Main/WebNotify.txt:2 ../core/data/Sandbox/WebNotify.txt:2
+#: ../core/data/TWiki/WebNotify.txt:2 ../core/data/Trash/WebNotify.txt:2
+#: ../core/data/_default/WebNotify.txt:2
+msgid "Web Notification"
+msgstr "Уведомяване в уеб"
+
+#: ../core/data/TWiki/WebSearch.txt:3
+msgid "Web Search"
+msgstr "Уеб-Търсене"
+
+#: ../PatternSkin/data/TWiki/WebLeftBarExample.txt:8
+#: ../PatternSkin/data/TWiki/WebLeftBarWebsList.txt:2
+msgid "Webs"
+msgstr "Раздели"
+
+#: ../core/data/Sandbox/WebHome.txt:5 ../core/data/_default/WebHome.txt:5
+msgid "Welcome to the %1 web"
+msgstr "Добре дошли в раздел %1"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:351
+msgid ""
+"When %1 receives the form, it will mail an account activation code to the e-"
+"mail address you gave above. Enter that activation code in the following "
+"screen, or follow the link in the e-mail, to activate your account. Once "
+"your account is activated, %1 will:"
+msgstr ""
+"Когато получи съдържанието на тази форма, %1 ще ви изпрати код за активиране "
+"на e-mail адреса, който сте предоставили. За да активирате вашата сметка, "
+"въведете кода на следващата страница или щракнете на връзката в писмото, "
+"което сте получили. След като създаването на вашата сметка приключи, %1 ще:"
+
+#: ../core/templates/attachtables.tmpl:37
+#: ../core/templates/attachtables.tmpl:4
+msgid "Who"
+msgstr "Кой"
+
+#: ../core/templates/messages.tmpl:19
+msgid "Would you like to go to:"
+msgstr "Бихте ли желали да отидете в:"
+
+#: ../core/templates/messages.tmpl:294
+msgid "You are already registered"
+msgstr "Вие вече сте регистриран"
+
+#: ../core/templates/messages.tmpl:200
+msgid "You are also listed in the %1 topic"
+msgstr "Вие също сте в списъка на страница %1"
+
+#: ../core/templates/messages.tmpl:453
+msgid "You are denied access to the following topics in the web:"
+msgstr "На вас ви е отказан достъп до следните страници в раздела:"
+
+#: ../core/templates/messages.tmpl:543
+msgid ""
+"You are encouraged to go ahead and edit - unless you intend to change data "
+"in a form attached to the topic. If %1 actually _does_ save while you are "
+"editing, your changes will be merged, and nothing will be lost. Form data "
+"cannot easily be merged though, so in this case you are recommended to check "
+"with %1 first."
+msgstr ""
+"Не се притеснявайте да редактирате страницата. Ако _все пак_ %1 запише "
+"страницата, докато Вие редактирате, промените и на двама ви ще се обединят и "
+"нищо няма да бъде загубено. Данните във форми не могат лесно да се обединят "
+"с промените на другите. Ако възнамерявате да променяте форма, прикачена към "
+"страницата, Ви препоръчваме да се свържете с %1."
+
+#: ../PatternSkin/templates/view.pattern.tmpl:39
+#: ../TWikiNetSkin/templates/view.twikinet.tmpl:17
+msgid "You are here:"
+msgstr "Вие сте тук:"
+
+#: ../core/templates/messages.tmpl:142
+msgid ""
+"You are recommended to choose short names, preferably less than 10 "
+"characters, starting with an upper-case alphabetic character and using only "
+"alphanumeric characters. If you want to create a template web (a web just "
+"used as a base to create new webs) choose a name that starts with an "
+"underscore and has only alphanumeric characters."
+msgstr ""
+"Добра практика е да избирате къси имена, по-малко от 10 букви, да започват с "
+"главна буква и да използвате само букви и числа. Ако искате да създадете "
+"раздел шаблон (раздел използван само като пример за създаване на други "
+"раздели), изберете име започващо с подчертавка и състоящо се само от букви и "
+"числа."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:12
+msgid "You are required to change your password."
+msgstr "Трябва да промените паролата си задължително."
+
+#: ../core/templates/messages.tmpl:619
+msgid "You are trying to %1 an attachment that does not exist."
+msgstr "Опитвате се да %1 прикачен файл, който не съществува."
+
+#: ../core/templates/messages.tmpl:607
+msgid "You are trying to create a topic from a template that does not exist."
+msgstr "Опитвате се да създадете страница от шаблон, който не съществува."
+
+#: ../core/templates/messages.tmpl:602
+msgid ""
+"You are trying to perform an action on a topic that does not exist (action '%"
+"1')."
+msgstr ""
+"Опитвате се да правите нещо със страница, която не съществува (действие: %1)."
+
+#: ../core/templates/messages.tmpl:613
+msgid "You are trying to rename a topic that does not exist."
+msgstr "Опитвате се да преименувате страница, която не съществува."
+
+#: ../core/templates/messages.tmpl:170
+msgid ""
+"You can also use the names of the standard HTML colors (black, silver, gray, "
+"white, maroon, red, purple, fuchsia, green, lime, olive, yellow, navy, blue, "
+"teal, or aqua)"
+msgstr ""
+"Можете също да ползвате имената на стандартните цветове за HTML (black, "
+"silver, gray, white, maroon, red, purple, fuchsia, green, lime, olive, "
+"yellow, navy, blue, teal, или aqua)."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:139
+#: ../core/templates/registernotify.tmpl:26
+msgid "You can change your password at %1"
+msgstr "Можете да промените паролата си от %1"
+
+#: ../core/templates/renameweb.tmpl:21
+msgid "You can give this web a different name."
+msgstr "Можете да преименувате този раздел"
+
+#: ../core/templates/oopschangelanguage.tmpl:7
+msgid ""
+"You can set your favorite language permanently by setting the %1 variable in "
+"your user topic."
+msgstr ""
+"Можете да настроите предпочитания от Вас език като зададете стойност на "
+"променливата %1 в личната си страница."
+
+#: ../core/templates/messages.tmpl:295
+msgid "You cannot register twice, the name %1 is already registered."
+msgstr "Не можете да се регистрирате два пъти. Името %1 е регистрирано вече."
+
+#: ../core/templates/messages.tmpl:185 ../core/templates/messages.tmpl:194
+#: ../core/templates/messages.tmpl:273 ../core/templates/messages.tmpl:282
+msgid "You have *not* been registered."
+msgstr "Вие *не* бяхте регистриран."
+
+#: ../core/templates/messages.tmpl:412
+msgid ""
+"You may be able to get your TWiki administrator to change the settings if "
+"they are inappropriate for your environment."
+msgstr ""
+"Може да успеете да накарате TWiki-администратора да промени настройките ако "
+"са неподходящи за вашата среда."
+
+#: ../core/templates/messages.tmpl:628
+msgid ""
+"You may have clicked a registration verification link that you had already "
+"visited."
+msgstr ""
+"Може би сте посетили вече тази страница за верификация на регистрацията."
+
+#: ../core/templates/messages.tmpl:213
+msgid "You may need to close your browser to make this change take effect."
+msgstr ""
+"Може да се наложи да рестартирате браузъра си, за да влезе тази промяна в "
+"сила."
+
+#: ../core/templates/registerconfirm.tmpl:11
+msgid ""
+"You now need to verify your e-mail address. You can do so by entering %1 in "
+"the form presented to you when this e-mail was sent, or by visiting %2"
+msgstr ""
+"Трябва да потвърдите адреса си за е-поща. Може да го направите като въведете "
+"%1 във формата която сте видели когато това писмо е било изпратено или като "
+"посетите %2."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:7
+msgid ""
+"You really ought to register a valid e-mail address. If TWiki can't find a "
+"registered e-mail for you in the secret database, it will look in your user "
+"topic for a line like this:"
+msgstr ""
+"Наистина трябва да се регистрирате с валиден адрес за електронна поща. Ако "
+"TWiki не намери регистриран адрес в тайната база от данни, ще търси в "
+"личната Ви страница за ред като този:"
+
+#: ../core/templates/oopsmore.tmpl:111
+msgid "You will be able to review the topic before saving it to a new revision"
+msgstr ""
+"Ще имате възможност да прегледате страницата, преди да запишете новата "
+"версия."
+
+#: ../core/templates/messages.tmpl:387
+msgid "You will probably have to ask your administrator, %1, to do this."
+msgstr "Може би трябва да помолите администратора %1 да направи това."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:33
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:26
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:24
+msgid "Your %1.LoginName"
+msgstr "Вашето %1.LoginName"
+
+#: ../core/templates/messages.tmpl:237
+msgid ""
+"Your activation code has been sent to %1.  Either click on the link in your "
+"e-mail or enter the code in the box below to activate your membership. (This "
+"code is of the form \"YourName.xxxxxxxxxx\")"
+msgstr ""
+"Кодът за активиране бе изпратен до %1. Можете да щракнете върху връзката в "
+"писмото или да въведете кода в кутийката долу, за да активирате Вашето "
+"членство. (Кодът е във формат \"YourName.xxxxxxxxxx\")"
+
+#: ../core/templates/oopslanguagechanged.tmpl:16
+msgid ""
+"Your language will be changed to %1 from the next screen. You will be "
+"redirected to there right now. If you aren't, [[%2][click to proceed]]."
+msgstr ""
+"Предпочитаният от вас език ще бъде %1 като посетите следващия екран. Сега ще "
+"бъдете пренасочени натам. Ако не сте [[%2][щракнете тук, за да продължите]]."
+
+#: ../core/templates/mailresetpassword.tmpl:10
+msgid "Your password has been changed to %1."
+msgstr "Вашата парола бе променена на %1."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:129
+msgid ""
+"Your personal %1 topic is located at %2. You can customize it as you like:"
+msgstr ""
+"Личната Ви страница %1 се намира на %2. Можете да я променяте както "
+"пожелаете:"
+
+#: ../core/templates/registernotify.tmpl:12
+msgid ""
+"Your personal %1 user profile page is located at %2. You can customize it as "
+"you like:"
+msgstr ""
+"Личната Ви страница %1 се намира на %2. Можете да я променяте както "
+"пожелаете:"
+
+#: ../core/templates/messages.tmpl:198
+msgid "Your personal TWiki user profile page %1 has been created"
+msgstr "Вашата лична страница за профил в TWiki %1 бе създадена"
+
+#: ../core/templates/messages.tmpl:230
+msgid "Your registered e-mail address(es) are updated to: %1."
+msgstr "Вашият регистриран адрес за е-поща е обновен на %1."
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:71
+#: ../core/templates/edit.tmpl:48
+msgid "Your signature to copy/paste:"
+msgstr "Вашият подпис за copy/paste:"
+
+#: ../core/templates/messages.tmpl:221
+msgid ""
+"Your system may not support changing passwords through TWiki. Check with "
+"your TWiki administrator."
+msgstr ""
+"Вашата система може би не поддържа промяна на паролата в TWiki. Питайте "
+"TWiki-администратора."
+
+#: ../core/templates/messages.tmpl:11
+msgid "Your user name has been removed from the Authentication System."
+msgstr ""
+"Вашето потребителско име бе премахнато от ситемата за влизане(автентикация)"
+
+#: ../core/templates/messages.tmpl:13
+msgid "Your user topic has not been renamed. Please e-mail %1 to request this."
+msgstr ""
+"Вашата лична страница не бе преименувана.Моля, пишете на %1 за да заявите "
+"промяната."
+
+#: ../core/templates/messages.tmpl:30
+msgid "[[%1][%2 home]]"
+msgstr "[[%1][%2 начало]]"
+
+#: ../core/templates/messages.tmpl:22
+msgid "[[%1][%2 home]] to start working on the new web"
+msgstr "[[%1][%2 начало]], за да работите по новия  раздел"
+
+#: ../core/templates/messages.tmpl:374
+msgid "[[%1][Debug topic text]]."
+msgstr "[[%1][дебугване на текста в страницата]]."
+
+#: ../core/templates/settings.tmpl:28
+msgid ""
+"[multiple of 3 spaces] * [space] Set [space] VARIABLENAME [space] = [value]"
+msgstr ""
+"[кратно на 3 паузи] * [пауза] Set [пауза] ИМЕНАПРОМЕНЛИВА [пауза] = "
+"[стойност]"
+
+#: ../core/lib/TWiki/I18N.pm:297
+msgid "_language_name"
+msgstr "Български"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:77
+msgid "about !BookView"
+msgstr "за !BookView"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:65
+msgid "about regular expression search"
+msgstr "за търсенето с помощта на регулярни изрази"
+
+#: ../core/lib/TWiki/Access.pm:585
+msgid "access denied on root"
+msgstr "достъпът до кореновата страница е отказан"
+
+#: ../core/lib/TWiki/Access.pm:457
+msgid "access denied on topic"
+msgstr "достъпът до страницата е отказан"
+
+#: ../core/lib/TWiki/Access.pm:530
+msgid "access denied on web"
+msgstr "достъпът до раздела е отказан"
+
+#: ../core/lib/TWiki/Access.pm:602
+msgid "access not allowed on root"
+msgstr "достъпът до кореновата страница е забранен"
+
+#: ../core/lib/TWiki/Access.pm:492
+msgid "access not allowed on topic"
+msgstr "достъпът до страницата е забранен"
+
+#: ../core/lib/TWiki/Access.pm:567
+msgid "access not allowed on web"
+msgstr "достъпът до раздела е забранен"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:9
+msgid "accesskey='c'"
+msgstr "accesskey='c'"
+
+#: ../core/data/TWiki/WebHome.txt:44 ../core/data/Trash/WebHome.txt:16
+msgid "advanced search"
+msgstr "разширено търсене"
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:20
+msgid "and"
+msgstr "и"
+
+#: ../core/templates/attachtables.tmpl:12
+msgid "change, update, previous revisions, move, delete..."
+msgstr "промяна, обновяване, предишни версии, преместване, изтриване"
+
+#: ../PatternSkin/templates/renamebase.pattern.tmpl:33
+msgid "checkboxes of referenced topics"
+msgstr "Отметки на реферирани страници"
+
+#: ../core/templates/messages.tmpl:504
+msgid "don't forget to check your Topic Settings"
+msgstr "не забравяйте да проверите Настройките на Страницата си"
+
+#: ../core/templates/messages.tmpl:256
+msgid "fields are required."
+msgstr "полета са задължителни."
+
+#: ../core/templates/attach.tmpl:3
+msgid "has more information about attaching files."
+msgstr "има повече информация за прикачване на файлове."
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:27
+#: ../PatternSkin/templates/edit.pattern.tmpl:30
+msgid "help"
+msgstr "помощ"
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:20
+msgid "hints on good style"
+msgstr "съвети за добър стил"
+
+#: ../core/templates/oopsmore.tmpl:97
+msgid "in raw text format"
+msgstr "в суров текстов формат"
+
+#: ../core/templates/form.tmpl:1
+msgid "indicates mandatory fields"
+msgstr "Указва задължителни полета"
+
+#: ../core/data/TWiki/RenameWeb.txt:7
+#, fuzzy
+msgid "looking for references in _all public webs_."
+msgstr "Търсене на връзки във всички _публични раздели_"
+
+#: ../core/templates/attachtables.tmpl:12
+msgid "manage"
+msgstr "управление"
+
+#: ../core/data/TWiki/WebChangesRightBox.txt:16
+msgid "more..."
+msgstr "още..."
+
+#: ../MailerContrib/templates/mailnotify.tmpl:16
+msgid "now %1"
+msgstr "сега %1"
+
+#: ../PatternSkin/data/TWiki/WebLeftBarLogin.txt:3
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:24
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:28
+#: ../PatternSkin/templates/attachnew.pattern.tmpl:7
+#: ../PatternSkin/templates/edit.pattern.tmpl:36
+#: ../PatternSkin/templates/preview.pattern.tmpl:10
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:25
+#: ../PatternSkin/templates/settings.pattern.tmpl:22
+#: ../core/templates/changeform.tmpl:13 ../core/templates/copy.tmpl:20
+#: ../core/templates/moveattachment.tmpl:36 ../core/templates/preview.tmpl:18
+#: ../core/templates/rename.tmpl:20 ../core/templates/renameconfirm.tmpl:29
+#: ../core/templates/renamedelete.tmpl:34 ../core/templates/renameweb.tmpl:33
+#: ../core/templates/renamewebconfirm.tmpl:16 ../core/templates/twiki.tmpl:112
+msgid "or"
+msgstr "или"
+
+#: ../core/templates/preview.tmpl:13 ../core/templates/preview.tmpl:9
+msgid "preview"
+msgstr "преглед"
+
+#: ../core/lib/TWiki/Render.pm:213
+msgid "put it back"
+msgstr "върни обратно"
+
+#: ../PatternSkin/templates/searchbase.pattern.tmpl:12
+#: ../core/data/TWiki/WebChanges.txt:2
+msgid "retrieved at %1"
+msgstr "извелечена версия %1"
+
+#: ../core/templates/oopsmore.tmpl:26 ../core/templates/oopsmore.tmpl:35
+msgid "scans links in _%1 web_ only"
+msgstr "(сканира връзки в раздел %1)"
+
+#: ../core/templates/oopsmore.tmpl:24 ../core/templates/oopsmore.tmpl:33
+msgid "scans links in _all public webs_"
+msgstr "(сканира връзките във всички раздели)"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:88
+msgid "title='%IF{ "
+msgstr "title='%IF{ "
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:54
+msgid "title='Attach an image or document to this topic' accesskey='a'"
+msgstr ""
+"title='Прикачване на картинка или документ към страницата' accesskey='a'"
+
+#: ../core/templates/viewtopicactionbuttons.tmpl:16
+msgid "title='Attach an image or document to this topic' accesskey='a'>&Attach"
+msgstr ""
+"title='Прикачване на картинка или документ към страницата' "
+"accesskey='a'>Притурка"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:9
+#: ../core/templates/viewtopicactionbuttons.tmpl:4
+msgid "title='Create new topic' accesskey='c'>&Create"
+msgstr "title='Създаване на нова страница' accesskey='c'>Създаване"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:38
+msgid "title='Create this topic' accesskey='w'>Create (&WYSIWYG)"
+msgstr "title='Създаване на тази страница' accesskey='w'>Създаване (&WYSIWYG)"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:91
+#: ../core/templates/viewtopicactionbuttons.tmpl:19
+msgid ""
+"title='Delete or rename this topic; set parent topic; view and compare "
+"revisions' accesskey='m'>&More topic actions"
+msgstr ""
+"title='Изтриване или преименуване на страницата; задаване на родителска "
+"страница; преглед и сравнение' revisions' accesskey='m'>Още действия"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:19
+msgid "title='Edit this topic text' accesskey='e'"
+msgstr "title='Редактиране текста на тази страница' accesskey='e'"
+
+#: ../core/templates/viewtopicactionbuttons.tmpl:7
+msgid "title='Edit this topic text' accesskey='e'>%1 &Edit"
+msgstr "title='Редактиране текста на тази страница' accesskey='e'>%1 Редкация"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:30
+msgid "title='Edit this topic text' accesskey='w'>&WYSIWYG"
+msgstr "title='Редактиране текста на тази страница' accesskey='w'>&WYSIWYG"
+
+#: ../core/data/TWiki/ReadOnlyAndMirrorWebs.txt:86
+msgid "title='Mirror this web to all slave sites'>Mirror to all"
+msgstr ""
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:76
+msgid "title='PDF version of this topic'>&PDF version"
+msgstr "title='PDF-версия на тази страница'>PDF-версия"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:66
+#: ../core/templates/viewtopicactionbuttons.tmpl:27
+msgid "title='Printable version of this topic' accesskey='p'>&Print version"
+msgstr "title='Версия за печат на тази страница' accesskey='p'>Версия за печат"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:97
+#: ../core/templates/viewtopicactionbuttons.tmpl:34
+msgid ""
+"title='Search all webs for topics that link to here' accesskey='l'>A&ll Webs"
+msgstr ""
+"title='Търсете във всички раздели за страници, които сочат насам' "
+"accesskey='l'>Всички Раздели"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:99
+#: ../core/templates/viewtopicactionbuttons.tmpl:36
+msgid ""
+"title='Search the %1 Web for topics that link to here' "
+"accesskey='b'>&Backlinks"
+msgstr ""
+"title='Търсете в раздел %1 страници, които сочат насам' "
+"accesskey='b'>Обратни връзки"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:95
+#: ../core/templates/viewtopicactionbuttons.tmpl:32
+msgid ""
+"title='Search the %1 Web for topics that link to here' accesskey='b'>We&b"
+msgstr ""
+"title='Търсете в раздел %1 страници, които сочат насам' accesskey='b'>Раздел"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:81
+#: ../core/templates/viewtopicactionbuttons.tmpl:44
+msgid "title='View raw text without formatting' accesskey='r'>&Raw View"
+msgstr "title='Суров текст без форматиране' accesskey='r'>Суров изглед"
+
+#: ../core/templates/viewtopicactionbuttons.tmpl:102
+#, fuzzy
+msgid "title='View topic on the master site'>View master"
+msgstr "title='Виж страницата' accesskey='v'>Виж страницата"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:46
+#: ../core/templates/viewtopicactionbuttons.tmpl:13
+msgid "title='View topic' accesskey='v'>&View topic"
+msgstr "title='Виж страницата' accesskey='v'>Виж страницата"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:103
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:105
+#: ../core/templates/viewtopicactionbuttons.tmpl:39
+#: ../core/templates/viewtopicactionbuttons.tmpl:41
+msgid "title='View total topic history' accesskey='h'>&History"
+msgstr "title='Цялата история на страницата' accesskey='h'>История"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:47
+msgid "value='Cancel' accesskey='c'"
+msgstr "value='Отказ' accesskey='c'"
+
+#: ../PatternSkin/templates/preview.pattern.tmpl:12
+msgid "value='Discard' accesskey='d'"
+msgstr "value='Отмяна' accesskey='d'"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:45
+msgid "value='Preview' accesskey='p'"
+msgstr "value='Преглед' accesskey='p'"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:41
+msgid "value='Quiet save' accesskey='q'"
+msgstr "value='Тих запис' accesskey='q'"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:43
+msgid "value='Save and Continue' accesskey='k'"
+msgstr "value='Запис и продължаване' accesskey='k'"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:39
+msgid "value='Save' accesskey='s'"
+msgstr "value='Запис' accesskey='s'"
+
+#: ../core/templates/attachtables.tmpl:42
+msgid "view"
+msgstr "виж"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:19
+msgid ""
+"you *must* have at least one valid registered e-mail to be able to reset "
+"your password. If none of your registered e-mail addresses is valid, and you "
+"have forgotten your password, contact %1."
+msgstr ""
+"*трябва* да имате поне един валиден e-mail-адрес, за да можете да нулирате "
+"паролата си. Ако нито един от регистрираните e-mail-адреси не е валиден, "
+"свържете се с %1."
+
+#, fuzzy
+#~ msgid ""
+#~ "Cannot create <nop>%2 because the [[%1/%2.WebHome][%1/%2]] web already "
+#~ "exists."
+#~ msgstr "Страницата %1 не може да бъде създадена, тъй като вече съществува."
+
+#, fuzzy
+#~ msgid ""
+#~ "Cannot rename %1 to <nop>%3 because the [[%2/%3.WebHome][%2/%3]] web "
+#~ "already exists."
+#~ msgstr ""
+#~ "%1 не може да бъде преименуван/а на %2 , тъй като %2  вече съществува."
+
+#, fuzzy
+#~ msgid "Search the %1 Web for topics that link to here' args='<nop>%WEB%"
+#~ msgstr "Търсене в Раздел %1 за страници, които сочат насам"
+
+#, fuzzy
+#~ msgid "The [[%1.WebHome][%1]] web already exists"
+#~ msgstr "Страницата %1 вече съществува"
+
+#~ msgid "%1 - view a short introductory presentation on TWiki for beginners"
+#~ msgstr "%1 - вижте кратка уводна презентация, за начинаещи"
+
+#~ msgid "(Use a topic name in TWiki.WikiNotation)"
+#~ msgstr "(За име на страница използвайте TWiki.WikiНотацията)"
+
+#~ msgid ""
+#~ "Enter your TWiki.LoginName. (Typically First name and last name, no "
+#~ "space, no dots, capitalized, e.g. !JohnSmith, unless you chose "
+#~ "otherwise). Visit %TWIKIWEB%.TWikiRegistration if you do not have one."
+#~ msgstr ""
+#~ "Въведете Вашето TWiki.LoginName. (Обикновено собственото име и фамилията "
+#~ "слети, без паузи и точки с първите букви главни, например !JohnSmith, "
+#~ "Освен ако не сте избрали друго). Посетете %TWIKIWEB%.TWikiRegistration "
+#~ "ако нямате такова."
+
+#~ msgid "Opens page in new window"
+#~ msgstr "Отваряне на страницата в нов прозорец"
+
+#~ msgid "Remember me"
+#~ msgstr "Запомни ме"
+
+#~ msgid ""
+#~ "Show recent changes with <a href='%2'>50</a>, <a href='%3' "
+#~ "rel='nofollow'>100</a>, <a href='%4' rel='nofollow'>200</a>, <a href='%5' "
+#~ "rel='nofollow'>500</a>, <a href='%6' rel='nofollow'>1000</a> topics, <a "
+#~ "href='%7' rel='nofollow'>all changes</a>"
+#~ msgstr ""
+#~ "Последните <a href='%2'>50</a>, <a href='%3' rel='nofollow'>100</a>, <a "
+#~ "href='%4' rel='nofollow'>200</a>, <a href='%5' rel='nofollow'>500</a>, <a "
+#~ "href='%6' rel='nofollow'>1000</a> променени страници, <a href='%7' "
+#~ "rel='nofollow'>всички промени</a>"
+
+#~ msgid "Test Topics"
+#~ msgstr "Тестови страници"
+
+#~ msgid ""
+#~ "You can [[%1][create a new web]] if you have permission. Contact %2 if "
+#~ "you have any questions."
+#~ msgstr ""
+#~ "Можете да [[%1][създаване на нов раздел]] ако имате права. Свържете се с %"
+#~ "2 ако имате някакви въпроси."
+
+#~ msgid "__Note:__"
+#~ msgstr "__Забележка:__"
+
+#~ msgid "looking for references in _%1 web_ only"
+#~ msgstr "Търсене на връзки само в _раздел %1_"
+
+#~ msgid "user list truncated"
+#~ msgstr "списъкът с потребителите е повреден"
+
+#~ msgid "%1 to create another web"
+#~ msgstr "%1, за да създадете нов раздел"
+
+#~ msgid "&Edit text"
+#~ msgstr "Редактиране на текста"
+
+#~ msgid "(optional)"
+#~ msgstr "(незадължително)"
+
+#~ msgid ""
+#~ "A more extensive changes list is available via [[%1][Recent Changes]]."
+#~ msgstr ""
+#~ "По-подробен списък с промените ще намерите на страница [[%1][Последни "
+#~ "промени]]."
+
+#~ msgid "Available Information"
+#~ msgstr "Налична информация"
+
+#~ msgid "Edit personal data"
+#~ msgstr "Редактиране на лични данни"
+
+#~ msgid "Edit text"
+#~ msgstr "Редактиране на текст"
+
+#~ msgid ""
+#~ "However, the filename has been changed from %1 to %2. Please make a note "
+#~ "of it."
+#~ msgstr "Моля забележете, че името на файла бе променено от %1 на %2."
+
+#~ msgid "Organisation name:"
+#~ msgstr "Име на организацията"
+
+#~ msgid "Recently Deleted Topics"
+#~ msgstr "Последно изтрити страници"
+
+#~ msgid "Your password:"
+#~ msgstr "Вашата парола:"
+
+#~ msgid "title='Printable version of this topic' accesskey='p'"
+#~ msgstr "title='Версия за печат на тази страница' accesskey='p'"
+
+#~ msgid "title='Raw Edit this topic text' accesskey='w'>Ra&w edit"
+#~ msgstr ""
+#~ "title='Редактиране суровия текст на тази страница' "
+#~ "accesskey='w'>Редакция  суров текст"
+
+#~ msgid "or %1"
+#~ msgstr "или %1"
+
+#~ msgid "&WYSIWYG"
+#~ msgstr "&WYSIWYG"
+
+#~ msgid ""
+#~ "Please see <a target='TWikiVariables' onclick=\"return launchWindow('%"
+#~ "1','FileAttachment')\" href='' rel='nofollow'>FileAttachment</a> for more "
+#~ "information about attaching files."
+#~ msgstr ""
+#~ "Моля вижте <a target='TWikiVariables' onclick=\"return launchWindow('%"
+#~ "1','FileAttachment')\" href='' rel='nofollow'>FileAttachment</a> за "
+#~ "повече информация относно прикрепване на файлове."
+
+#~ msgid "value='Checkpoint' accesskey='k'"
+#~ msgstr "value='Прилагане' accesskey='k'"

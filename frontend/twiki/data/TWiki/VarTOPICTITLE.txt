@@ -1,0 +1,18 @@
+%META:TOPICINFO{author="TWikiContributor" date="1524695714" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarTOPICTITLE
+---+++ TOPICTITLE -- title of a topic
+   * The topic title is defined by, in order of sequence:
+      * form field named "Title",
+      * topic preference setting named TITLE,
+      * topic name.
+   * Syntax: =%<nop>TOPICTITLE%= or =%<nop>TOPICTITLE{ topic="TopicName" }%=
+   * Supported parameters:
+     | *Parameter:* | *Description:* | *Default:* |
+     | ="..."= or%BR% =topic="..."= | Topic to get the title from. Can be of form =TopicName= or =Web.<nop>TopicName=. | Current topic |
+     | =encode="html"= | Encode special characters into HTML entities. If a TOPICTITLE is passed into an HTML form field it should be encoded as ="html"=. Additional encodings: =encode="quote"=, =encode="moderate"=, =encode="safe"=, =encode="entity"= and =encode="url"=. See [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENCODE][ENCODE]] for details. | =""= (no encoding) |
+   * Example: =%<nop>TOPICTITLE{Projects.<nop>SushiProject}%= returns =Sushi Project= assuming the topic has a form field named "Title" with value "Sushi Project"
+   * Expands to: =%TOPICTITLE{topic="%INCLUDINGTOPIC%"}%=
+   * Hint: Write =[<nop>[+SomeTopicName]]= to get the topic title link of a topic, see TWikiEditingShorthand#TopicTitleLinks
+   * Category: SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBASETOPIC][BASETOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarINCLUDINGTOPIC][INCLUDINGTOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarPARENTTOPIC][PARENTTOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarTOPIC][TOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarTOPICLIST][TOPICLIST]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarTOPICURL][TOPICURL]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWEB][WEB]]

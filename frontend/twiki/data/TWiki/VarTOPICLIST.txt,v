@@ -1,0 +1,115 @@
+head	1.4;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.4
+date	2016.07.27.04.19.42;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2012.11.15.07.02.52;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.01.22.03.21.25;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.06.25.16.26.29;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1469593182" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarTOPICLIST
+---+++ TOPICLIST{"format"} -- topic index of a web
+   * List of all topics in a web. The "format" defines the format of one topic item. It may include variables: The =$topic= variable gets expanded to the topic name, =$marker= to =marker= parameter where topic matches =selection=, and =$web= to the name of the web, or any of the standard FormatTokens.
+   * Syntax: =%<nop>TOPICLIST{"format" ...}%=
+   * Supported parameters:
+     | *Parameter:* | *Description:* | *Default:* |
+     | ="format"= | Format of one line, may include =$web= (name of web), =$topic= (name of the topic), =$marker= (which expands to =marker= for the item matching =selection= only) | ="$topic"= |
+     | =format="format"= | (Alternative to above) | ="$topic"= |
+     | =separator=", "= | line separator | ="$n"= (new line) |
+     | =marker="selected"= | Text for =$marker= if the item matches =selection= | ="selected"= |
+     | =selection="TopicA, !TopicB"= | Topic(s) to show selected with =$marker=; specify a comma-space list of full topic names | =(none)= |
+     | =web="Name"= | Name of web | Current web |
+   * Example: =%<nop>TOPICLIST{"   * $web.$topic"}%= creates a bullet list of all topics
+   * Example: =%<nop>TOPICLIST{separator=", "}%= creates a comma separated list of all topics
+   * Example: =%<nop>TOPICLIST{" &lt;option&gt;$topic&lt;/option&gt;"}%= creates an option list (for drop down menus)
+   * Example: =&lt;select&gt;%<nop>TOPICLIST{" &lt;option $marker value='$topic'&gt;$topic&lt;/option&gt;" separator=" " selection="%<nop>TOPIC%"}%&lt;/select&gt;= creates an option list of web topics with the current topic selected
+   * Category: SearchingAndListingVariables, SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWEBLIST][WEBLIST]]
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1352962972" format="1.1" version="3"}%
+d13 1
+a13 1
+     | =selection="TopicA, !TopicB"= | Current value to be selected in list | =(none)= |
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.1" version="2"}%
+d19 1
+a20 1
+
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.2" version="1"}%
+a3 1
+
+d5 1
+a5 1
+   * List of all topics in a web. The "format" defines the format of one topic item. It may include variables: The =$name= variable gets expanded to the topic name, =$qname= to double quoted name, =$marker= to =marker= parameter where topic matches =selection=, and =$web= to the name of the web.
+d9 2
+a10 2
+     | ="format"= | Format of one line, may include =$web= (name of web), =$name= (name of the topic), =$qname= (name of topic in double quotes), =$marker= (which expands to =marker= for the item matching =selection= only) | ="$name"= |
+     | =format="format"= | (Alternative to above) | ="$name"= |
+d15 1
+a15 1
+   * Example: =%<nop>TOPICLIST{"   * $web.$name"}%= creates a bullet list of all topics
+d17 3
+a19 3
+   * Example: =%<nop>TOPICLIST{" &lt;option&gt;$name&lt;/option&gt;"}%= creates an option list (for drop down menus)
+   * Example: =&lt;select&gt;%<nop>TOPICLIST{" &lt;option $marker value='$name'&gt;$name&lt;/option&gt;" separator=" " selection="%<nop>TOPIC%"}%&lt;/select&gt;= creates an option list of web topics with the current topic selected
+   * Related: [[#VarSEARCH][SEARCH]], [[#VarWEBLIST][WEBLIST]]
+@

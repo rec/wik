@@ -1,0 +1,27 @@
+%META:TOPICINFO{author="TWikiContributor" date="1383811061" format="1.1" version="9"}%
+%META:TOPICPARENT{name="TWikiInstallationGuide"}%
+---+ Administrator Skills Assumptions
+
+__Note:__ If you are not familiar with Linux system administration, Apache webserver configuration, consider using TWiki:Codev.DownloadTWikiVM - the TWiki Virtual Machine can be installed on Windows or Linux, and makes it possible to get a working TWiki system within 5 minutes (after a fairly big download), ready to use from your browser.
+
+If you need to install TWiki you'll need to either have or learn the following skills (even with !DownloadTWikiVM, you'll need these for upgrades).  For each of these, the requirement is either pre-existing knowledge/skill, or the willingness to spend significant time learning them:
+
+   * *Operating system administration:* Ability to use Unix/Linux command line tools (or equivalent Windows tools), including ability to move/copy/delete files, change permissions, view web server log files, set environment variables, use a text editor, etc.
+   * *Web server administration:* Ability to do basic setup, e.g. ability to edit config files or use GUI configuration tools to enable CGI scripts on a directory.
+   * *Program compilation:* Some TWiki extensions may require you to install and compile libraries from source code. You need to be familiar with the use of =configure=, =make=, etc.
+   * *Troubleshooting*: Ability to perform tests, inspect error logs, talk to technical support (whether in an IT department or web hosting provider) and read documentation in order to help with diagnosing installation problems.
+
+Installing TWiki is *not* recommended if you only know HTML and web design, unless you are prepared to learn the above, or team up with someone who can handle the installation.
+
+Although the TWikiInstallationGuide is quite complete, there will on occasion be parts that don't work in your local environment (particularly with TWiki:Codev/TWikiOnWebHostingSites, which are sometimes challenging even for those with good OS and web server skills).
+
+There are many excellent resources for learning how to administer your OS and web server, including books, web sites, web forums, IM and e-mail lists.
+
+To get started with Linux, visit [[http://www.howtoforge.com/][HowtoForge.org]]. !HowtoForge offers Linux tutorials, forums to ask questions, and links to sites with information to install and use Linux.
+
+Some resources if you need help, or want to get up and running quickly:
+   * TWiki:Support/WebHome: Post a question in the TWiki.org support forum. This forum is mainly intended for _TWiki related_ issues, there are other forums if you need help in operating system and web server administration.
+   * TWiki:Codev/TWikiIRC: Get help from the TWiki community in the #twiki IRC channel.
+   * TWiki:Codev/TWikiConsultants: Hire a consultant to get you up to speed, maintain or customize your TWiki installation.
+
+__Related Topics:__ AdminDocumentationCategory

@@ -1,0 +1,135 @@
+head	1.5;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.5
+date	2012.11.13.08.29.43;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2010.06.03.02.44.17;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2008.01.22.03.21.31;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2007.01.16.04.11.57;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.06.25.16.26.28;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1352795383" format="1.1" version="5"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarGMTIME2
+---+++ GMTIME{"format"} -- formatted GM time
+   * Syntax: =%<nop>GMTIME{"format"}%=
+   * Supported variables:
+     | *Variable:* | *Unit:* | *Example* |
+     | =$seconds= | seconds | 59 |
+     | =$minutes= | minutes | 59 |
+     | =$hours= | hours | 23 |
+     | =$day= | day of month | 31 |
+     | =$wday= | day of the Week (Sun, Mon, Tue, Wed, Thu, Fri, Sat) | Thu |
+     | =$dow= | day of the week (Sun = 0) | 2  |
+     | =$week= | number of week in year (ISO 8601) | 34 |
+     | =$month= | short name of month | Dec |
+     | =$mo= | 2 digit month | 12 |
+     | =$year= | 4 digit year | 1999 |
+     | =$ye= | 2 digit year | 99 |
+     | =$tz= | either "GMT" (if set to gmtime),<br /> or offset such as "-0700" (if set to servertime) | GMT |
+     | =$iso= | ISO format timestamp | %GMTIME{"$iso"}% |
+     | =$rcs= | RCS format timestamp | %GMTIME{"$rcs"}% |
+     | =$http= | E-mail & http format timestamp | %GMTIME{"$http"}% |
+     | =$epoch= | Number of seconds since 00:00 on 1st January, 1970 | %GMTIME{"$epoch"}% |
+   * Variables can be shortened to 3 characters
+   * Example: =%<nop>GMTIME{"$day $month, $year - $hour:$min:$sec"}%= expands to =%GMTIME{"$day $month, $year - $hour:$min:$sec"}%=
+   * Note: When used in a template topic, this variable will be expanded when the template is used to create a new topic. See TWikiTemplates#TemplateTopicsVars for details.
+   * Category: DateAndTimeVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarDISPLAYTIME][DISPLAYTIME]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarGMTIME][GMTIME]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarREVINFO2][REVINFO]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSERVERTIME][SERVERTIME]]
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1275533057" format="1.1" version="4"}%
+d26 2
+a27 1
+   * __%X% Note:__ When used in a template topic, this variable will be expanded when the template is used to create a new topic. See TWikiTemplates#TemplateTopicsVars for details.
+a28 1
+
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1174329144" format="1.1" version="3"}%
+a3 1
+
+d19 1
+a19 1
+     | =$tz= | either "GMT" (if set to gmtime), or "Local" (if set to servertime) | GMT |
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1158898025" format="1.2" version="2"}%
+d16 1
+a16 1
+     | =$month= | month in ISO format | Dec |
+d28 1
+a28 1
+   * Related: [[#VarDISPLAYTIME][DISPLAYTIME]], [[#VarGMTIME][GMTIME]], [[#VarREVINFO2][REVINFO]], [[#VarSERVERTIME][SERVERTIME]]
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.2" version="1"}%
+d28 1
+a28 1
+   * Related: [[#VarDISPLAYTIME][DISPLAYTIME]], [[#VarGMTIME][GMTIME]], [[#VarSERVERTIME][SERVERTIME]]
+@

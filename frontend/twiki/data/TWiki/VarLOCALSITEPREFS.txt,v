@@ -1,0 +1,73 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2012.11.14.05.54.05;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.01.22.03.21.36;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.06.25.16.26.28;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1352872445" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarLOCALSITEPREFS
+---+++ LOCALSITEPREFS -- web.topicname of site preferences topic
+   * The full name of the local site preferences topic. These local site preferences overload the system level preferences defined in [[%SYSTEMWEB%.%WIKIPREFSTOPIC%]].
+   * Syntax: =%<nop>LOCALSITEPREFS%=
+   * Expands to: =%LOCALSITEPREFS%=, renders as %LOCALSITEPREFS%
+   * Category: AdministrationVariables, SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWEBPREFSTOPIC][WEBPREFSTOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWIKIPREFSTOPIC][WIKIPREFSTOPIC]]
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1181841107" format="1.1" version="2"}%
+d8 2
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.2" version="1"}%
+a3 1
+
+d5 1
+a5 1
+   * The full name of the local site preferences topic. This topic is read for preferences before %TWIKIWEB%.<nop>%TWIKIPREFSTOPIC% is read.
+a7 1
+
+@

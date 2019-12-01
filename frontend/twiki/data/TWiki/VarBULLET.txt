@@ -1,0 +1,10 @@
+%META:TOPICINFO{author="TWikiContributor" date="1380749229" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarBULLET
+---+++ BULLET -- bullet sign
+   * Bullet sign, useful to create a bullet list in a TWiki table, such as =| %<nop>BULLET% One %<nop>BB% Two %<nop>BB% Three |=
+   * Type: Preference variable - TWikiRenderingShortcut.
+   * Syntax: =%<nop>BULLET%=
+   * Expands to: %BULLET%
+   * Category: FormattingAndRenderingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB][BB]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB2][BB2]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB3][BB3]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB4][BB4]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBR][BR]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarCARET][CARET]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarLAQUO][LAQUO]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarNBSP][NBSP]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarPARENTBC][PARENTBC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarRAQUO][RAQUO]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarVBAR][VBAR]], [[TWikiPreferences#RenderingShortcuts][TWikiPreferences rendering shortcuts]]

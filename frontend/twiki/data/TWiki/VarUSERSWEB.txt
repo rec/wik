@@ -1,0 +1,9 @@
+%META:TOPICINFO{author="TWikiContributor" date="1380137811" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarUSERSWEB
+---+++ USERSWEB -- name of users web
+   * The web containing individual user topics, %USERSWEB%.TWikiGroups, and customized site-wide preferences.
+   * Syntax: =%<nop>USERSWEB%=
+   * Expands to: =%USERSWEB%=
+   * Category: SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSYSTEMWEB][SYSTEMWEB]]

@@ -1,0 +1,155 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2015.01.16.00.39.20;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2013.10.14.08.02.49;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1421368760" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+---+ TWiki Variables Wizard &mdash; to Find and Compose Variables
+%STARTINCLUDE%
+<style type="text/css">
+ #one_var h6 {
+  margin-top: 0;
+ }
+</style>
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+%SET{ "useBox" value="%IF{ "istopic 'ScrollBoxAddOn'" then="1" else="0" }%" }%<nop>
+%IF{ '"%GET{useBox}%"="1"' then='$percntINCLUDE{ "ScrollBoxAddOn" section="scroll_box_engine" }$percnt' else='<nop>' }%
+%IF{ '"%GET{useBox}%"="1"' then='$percntINCLUDE{ "ScrollBoxAddOn" section="static_box_start" boxstyle="padding: 10px; width: auto;" contentstyle="margin-top: -5px;" }$percnt' else='<nop>' }%
+%INCLUDE{ "TWikiVariablesSearch" section="categories" }%<nop>
+__Categories:__ %BR%
+<nop>%CALCULATE{$SET(varTopics, %SEARCH{
+ "* Category:"
+ topic="Var*"
+ nonoise="on"
+ format="$topic$percntCALCULATE{$dollarSET(v, $dollarSUBSTRING($topic, 4, 99))$dollarSET(var_head_$dollarGET(v), $pattern(.*?\-\++ *([^\n]*).*))$dollarSET(var_cat_$dollarGET(v), $pattern(.*?\* Category: *([^\n]*).*))$dollarLISTJOIN($dollarsp, $dollarLISTMAP($dollarSET(cat_$item, $dollarGET(cat_$item), $dollarGET(v)), $dollarGET(var_cat_$dollarGET(v))))}$percnt"
+ separator=", "
+}%)$SET(vars, $LISTMAP($SUBSTRING($item, 4, 99), $GET(varTopics)))$LISTJOIN($sp, $LISTMAP($SET(cat_$item, $LISTNONEMPTY($GET(cat_$item))), %GET{twVarCategories}%))$SET(cat_all, $LISTMAP($item$SET(head, &#37;$SUBSTITUTE($SUBSTITUTE($SUBSTITUTE($TRANSLATE($GET(var_head_$item), $comma, ~), }, }&#37;), \", &#34;), ~, &#44;))$SET(var_head_$item, $IF($SEARCH(^&#37;[A-Z_]+ , $GET(head))>0, $INSERTSTRING($GET(head), $INT($SEARCH([ ], $GET(head))-1), &#37;), $GET(head))), $GET(vars)))}%
+<form>
+<select name="sel_cats" id="sel_cats" size="10">
+<option value="all">all</option>
+%CALCULATE{$LISTJOIN($sp, $LISTMAP(<option value="$item">$SUBSTITUTE($PROPERSPACE($SUBSTITUTE($item, Variables,)), And , &amp; )</option>, %GET{twVarCategories}%))}%
+</select>
+</form>
+%IF{ '"%GET{useBox}%"="1"' then='$percntINCLUDE{ "ScrollBoxAddOn" section="static_box_end" }$percnt' else='<nop>' }%
+</td>
+<td><div style="width: 22px; text-align: center;">%ICON{arrowright}%</div></td>
+<td valign="top" width="90%">
+%IF{ '"%GET{useBox}%"="1"' then='$percntINCLUDE{ "ScrollBoxAddOn" section="static_box_start" boxstyle="padding: 10px; width: auto;" contentstyle="width: 100%; margin-top: -5px;" }$percnt' else='<nop>' }%
+__Variables:__ %BR%
+<form>
+<select name="sel_vars" id="sel_vars" size="10" style="width: 100%; overflow-x: hidden;">
+<option> &nbsp; </option>
+</select>
+</form>
+%IF{ '"%GET{useBox}%"="1"' then='$percntINCLUDE{ "ScrollBoxAddOn" section="static_box_end" }$percnt' else='<nop>' }%
+<div style="margin: 2px 0 3px 0; text-align: center;">
+%ICON{arrowdown}%
+</div>
+</td></tr></table>
+%IF{ '"%GET{useBox}%"="1"' then='$percntINCLUDE{ "ScrollBoxAddOn" section="static_box_start" boxstyle="padding: 10px 0 10px 10px; width: auto;" contentstyle="margin-top: -1px;" }$percnt' else='<nop>' }%
+<div id="one_var" style="width: 99%; height: 15em; overflow-x: hidden; overflow-y: auto;">
+%GRAY% Select a category and a variable %ENDCOLOR%
+</div>
+%IF{ '"%GET{useBox}%"="1"' then='$percntINCLUDE{ "ScrollBoxAddOn" section="static_box_end" }$percnt' else='<nop>' }%
+<div style="margin: 2px 0 3px 0; text-align: center;">
+%ICON{arrowdown}%
+</div>
+%IF{ '"%GET{useBox}%"="1"' then='$percntINCLUDE{ "ScrollBoxAddOn" section="static_box_start" boxstyle="padding: 10px; width: auto;" contentstyle="margin-top: -7px;" }$percnt' else='<nop>' }%
+<div style="float: right; width: 100px; text-align: right; padding: 1px 3px;">
+<input type="button" value="Select all" class="twikiButton" id="select_all" title="Select all text for copy &amp; paste operation" />
+</div>
+<div style="padding: 3px;">
+__Build Your Variable:__
+</div>
+<textarea class="twikiTextarea twikiEditboxStyleMono" id="edit_var" name="text" rows="3" cols="70" style="width:99%">
+</textarea>
+%IF{ '"%GET{useBox}%"="1"' then='$percntINCLUDE{ "ScrollBoxAddOn" section="static_box_end" }$percnt' else='<nop>' }%
+<div style='display: none;'>
+Pre-load image: %ICONURL{processing-bar-wide}%
+</div>
+<!--<pre>-->
+<script>
+  var hashCats = new Object();
+  %CALCULATE{$LISTJOIN($sp, $LISTMAP(hashCats["$item"] = "$LISTJOIN($sp, $GET(cat_$item))";, all, %GET{twVarCategories}%))}%
+  var hashHeads = new Object();
+  %CALCULATE{$LISTJOIN($sp, $LISTMAP(hashHeads["$item"] = "$GET(var_head_$item)";, $GET(vars)))}%
+  $("#sel_cats").change(function () {
+    var str = $("#sel_cats option:selected").val();
+    if( str=='' ) {
+      str = "%CALCULATE{$LISTJOIN($sp, $GET(cat_all))}%"
+    } else {
+      str = hashCats[str];
+    }
+    var twVars = str.split(" ");
+    var txt = '';
+    for( var i=0; i<twVars.length; i++ ) {
+      var twVar = twVars[i];
+      if( twVar!='' ) {
+        txt += "<option value='" + twVar + "'>" + hashHeads[twVar].slice(0, 120) + "</option>";
+      }
+    }
+    $("#sel_vars").html( txt );
+  });
+  $("#sel_vars").change(function () {
+    var twVar = $("#sel_vars option:selected").val();
+    if( twVar!='' ) {
+      var txt = hashHeads[twVar].replace(/(&#37;.*?&#37;).*/, "$1");
+      $("#edit_var").html( txt );
+      $("#one_var").html( "<div style='padding: 3px;'><img src='%ICONURL{processing-bar-wide}%' width='124' height='12' alt='' title='Loading...' />" );
+      $.ajax({
+        url: "%SCRIPTURLPATH{view}%/%WEB%/Var"+twVar,
+        data: { skin: "text" },
+        cache: false
+      }).done(function( html ) {
+        $("#one_var").html( html.replace('h3>', 'h6>') );
+      });
+    }
+  });
+  $("#select_all").click(function () {
+    $("#edit_var").select();
+    $("#edit_var").focus();
+  });
+</script>
+<!--</pre>-->
+%STOPINCLUDE%
+
+__Related Topics:__ UserDocumentationCategory, TWikiVariables, TWikiVariablesSearch, TWikiVariablesQuickStart, SearchHelp
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1377987390" format="1.1" version="1"}%
+d3 1
+a3 1
+---+ TWiki Variables Wizard
+@

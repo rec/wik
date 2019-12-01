@@ -1,0 +1,2518 @@
+head	1.22;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.22
+date	2018.07.06.08.27.01;	author TWikiContributor;	state Exp;
+branches;
+next	1.21;
+
+1.21
+date	2015.02.17.08.17.26;	author TWikiContributor;	state Exp;
+branches;
+next	1.20;
+
+1.20
+date	2014.02.19.10.29.48;	author TWikiContributor;	state Exp;
+branches;
+next	1.19;
+
+1.19
+date	2013.09.18.23.51.41;	author TWikiContributor;	state Exp;
+branches;
+next	1.18;
+
+1.18
+date	2011.11.11.23.25.38;	author TWikiContributor;	state Exp;
+branches;
+next	1.17;
+
+1.17
+date	2011.11.11.23.25.38;	author TWikiContributor;	state Exp;
+branches;
+next	1.16;
+
+1.16
+date	2011.11.11.23.25.38;	author TWikiContributor;	state Exp;
+branches;
+next	1.15;
+
+1.15
+date	2011.11.11.23.25.38;	author TWikiContributor;	state Exp;
+branches;
+next	1.14;
+
+1.14
+date	2011.07.10.22.34.29;	author TWikiContributor;	state Exp;
+branches;
+next	1.13;
+
+1.13
+date	2010.11.05.07.18.25;	author TWikiContributor;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2010.05.29.14.44.21;	author TWikiContributor;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2009.09.02.13.43.06;	author TWikiContributor;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2009.04.29.20.53.26;	author TWikiContributor;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2009.03.30.09.17.58;	author TWikiContributor;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2008.12.06.09.02.14;	author TWikiContributor;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2008.08.03.22.17.50;	author TWikiContributor;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2008.01.22.03.21.34;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2007.01.16.04.12.03;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2006.10.25.00.22.00;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2006.06.25.16.26.33;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2006.04.01.05.55.38;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.24;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.22
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1530865621" format="1.1" version="22"}%
+---+!! Wysiwyg Plugin
+<!--
+   Contributions to this plugin are appreciated. Please update the plugin page at
+   http://twiki.org/cgi-bin/view/Plugins/WysiwygPlugin or provide feedback at
+   http://twiki.org/cgi-bin/view/Plugins/WysiwygPluginDev.
+   If you are a TWiki contributor please update the plugin in the SVN repository.
+
+   * Set SHORTDESCRIPTION = Translator framework for WYSIWYG editors
+-->
+<sticky>
+<div class="twikiTocFloat">
+%TOC{depth="3"}%
+</div>
+</sticky>
+%SHORTDESCRIPTION%
+
+Support for the integration of WYSIWYG (What-You-See-Is-What-You-Get) editors. On its own, the only thing this plugin gives you is a stand-alone HTML to TML (TWiki Markup Language) translator script. For WYSIWYG editing you will also need to install a specific editor package such as TinyMCEPlugin.
+
+This plugin provides a generic framework that supports editing of topics using any browser-based HTML editor. It works by transforming TML (TWiki Markup Language) into HTML for the editor, and then transforming HTML back into TML on save.
+
+---++ Features
+
+   * Supports the input of malformed HTML
+   * Full round-trip (TML -> XHTML -> TML)
+   * Framework is editor-agnostic
+
+---++ Details
+
+---+++ What's in the package
+
+The package includes the following pieces:
+
+   * TML (TWiki Markup Language) to HTML translator
+   * HTML to TML translator (with stand-alone script)
+   * Generic TWiki plugin for automating the translation during editing
+
+---+++ How it works
+
+The plugin works by translating the topic text into HTML when someone edits a topic. The HTML is then fed to the WYSIWYG editor. On save, the edited HTML is run through the reverse translation before saving to the topic. TML is used in preference to HTML in the stored topic wherever possible, though HTML may be used if the translator can't find a suitable TML equivalent.
+
+The default rendering that TWiki uses to generate HTML for display in browsers is 'lossy' - information in the TML is lost in the HTML output, and a round-trip (recovering the original TML from the HTML) is impossible. To solve this problem the plugin instead uses its own translation of TML to XHTML. The generated XHTML is annotated with CSS classes that support the accurate recovery of the original TML.
+
+_Before you ask the obvious question, yes, the translator *could* be used to replace the TWiki rendering pipeline for generating HTML pages. In fact, the translator is taken almost directly from the implementation of the rendering pipeline for the TWiki-4 release_
+
+Translation of the HTML back to TML uses the CPAN:HTML::Parser. This parser is used in preference to a more modern XML parser, because the WYSIWYG editor may not generate fully compliant XHTML. A strict parser would risk losing content. HTML::Parser is better at handling malformed HTML.
+
+There is also the advantage that the translator can be used to *import* HTML from other sources - for example, existing web pages. Due to the simple nature of TML and the potential complexity of web pages, this translation is often lossy - i.e. there will be HTML features that can be entered by editors that will be lost in this translation step. This is especially noticeable with HTML tables.
+
+---+++ Using the translators from Perl scripts
+
+Both translators can be used directly from Perl scripts, for example to build your own stand-alone translators.
+
+A stand-alone convertor script for HTML to TML is included in the installation. It can be found in =tools/html2tml.pl=.
+
+---+++ Integrating a HTML Editor
+
+The plugin can be used to integrate an HTML editor in a number of different ways.
+
+   1 The HTML for the content-to-be-edited can be generated directly in the standard edit template.
+   1 The HTML for the content-to-be-edited can be generated directly in a specialized edit template.
+   1 A URL can be used to fetch the content-to-be-edited from the server, for use in an IFRAME.
+   1 REST handlers can be called from Javascript to convert content.
+
+---++++ Generating content directly in the standard edit template
+
+This is the technique used by WYSIWYG editors that can sit on top of HTML
+textareas, such as !TinyMCE. The topic content is pre-converted to HTML before inclusion in the standard edit template. These editors use plugins that have a =beforeEditHandler= and an =afterEditHandler=. These handlers are responsible for the conversion of topic text to HTML, and post-conversion of HTML back to TML.
+
+   1 User hits "edit".
+   1 Editor-specific plugin =beforeEditHandler= converts topic content to HTML by calling =TWiki::Plugins::WysiwygPlugin::TranslateTML2HTML=.
+   1 User edits and saves
+   1 Editor-specific plugin =afterEditHandler= converts HTML back to TML by calling =TWiki::Plugins::WysiwygPlugin::TranslateHTML2TML=.
+   * !WysiwygPlugin should *not* be enabled in =configure=.
+   * =WYSIWYGPLUGIN_WYSIWYGSKIN= should *not* be set.
+   * Your plugin should set the =textareas_hijacked= context id, to signal to skins to suppress their textarea manipulation functions.
+This is the recommended integration technique, if your editor can support it.
+
+---++++ Generating content directly in a specialized edit template
+
+This technique is useful when the editor requires the topic content in a variety of different formats at the same time. In this scenario the editor uses a custom edit template. The WYSIWYG content is made available for instantiation in that template in a number of different formats. =WYSIWYGPLUGIN_WYSIWYGSKIN= *must* be set for this to work.
+
+The flow of control is as follows:
+
+   1 User hits "edit" with the skin (or cover) set the same as =WYSIWYGPLUGIN_WYSIWYGSKIN=.
+   1 The !WysiwygPlugin =beforeEditHandler= determines if the topic is WYSIWYG editable, and vetoes the edit if not by redirecting to the standard edit skin.
+ the edit
+   1 The =edit= template containing the JS editor is instantiated.
+   1 The following variables are available for expansion in the template:
+      * =%<nop>WYSIWYG_TEXT%= expands to the HTML of the content-to-be-edited. This is suitable for use in a =textarea=.
+      * =%<nop>JAVASCRIPT_TEXT%= expands to the HTML of the content-to-be-edited in a javascript constant.
+   1 User edits and saves
+   1 The =afterEditHandler= in the !WyswiygPlugin sees that =wysiwyg_edit= is set, which triggers the conversion back to TML.
+
+   * The HTML form in the edit template *must* include an =&lt;input= called =wysiwyg_edit= and set it to 1, to trigger the conversion from HTML back to TML.
+   * =WYSIWYGPLUGIN_WYSIWYGSKIN= must be set to the name of the skin used for WYSIWYG editing. This is often the name of the editor e.g. =xinha=.
+
+---++++ Fetching content from a URL
+
+In this scenario, the edit template is generated *without* the content-to-be-edited. The content is retrieved from the server using a URL e.g. from an =IFRAME=.
+
+The flow of control is as follows:
+   1 As _Generating content directly in a specialized edit template_
+   1 As _Generating content directly in a specialized edit template_
+   1 As _Generating content directly in a specialized edit template_
+   1 When the document loads in the browser, the JS editor invokes a content URL (using an =IFRAME= or a =XmlHttpRequest=) to obtain the HTML document to be edited
+      * The content URL is just a TWiki =view= URL with the =wysiwyg_edit=
+        parameter set.
+      * The !WysiwygPlugin recognises the =wysiwyg_edit= parameter and uses the
+        TML2HTML translator to prepare the text, which is then returned
+        as =text/plain= to the browser.
+      * Two TWiki variables, =%<nop>OWEB%= and =%<nop>OTOPIC%=, can be used in the content URL in the edit template to refer to the source topic for the content.
+   1 After edit handling is as for _Generating content directly in a specialized edit template_
+
+---+++ Other techniques
+
+---++++ Asynchronous saves
+
+Editors can use =XmlHttpRequest= to perform saves, by POSTing to the TWiki =save= script with the =wysiwyg_edit= parameter set to =1=. This parameter tells the =beforeSaveHandler= in the !WysiwygPlugin to convert the content back to TML. See %SYSTEMWEB%.CommandAndCGIScripts for details of the other parameters to the =save= script.
+
+Once the save script has completed it responds with a redirect, either to an Oops page if the save failed, or to the appropriate post-save URL (usually a =view=). The editor must be ready to handle this redirect.
+
+---++++ Handling Attachments
+
+Attachment uploads can be handled by URL requests from the editor template to the TWiki =upload= script. The =upload= script normally redirects to the containing topic; a behavior that you usually don't want in an editor! There are two ways to handle this:
+   * If the uploads are done in an =IFRAME= or via =XmlHttpRequest=, then the
+     302 redirect at the end of the upload can simply be ignored.
+   * You can pass =noredirect= to the =upload= script to suppress the redirect. In this case
+     you will get a =text/plain= response of =OK= followed by a message if everything went well, or an error message if it did not.
+
+---++++ REST handlers
+
+If you are confident in Javascript you can use REST handlers with =XmlHttpRequest= to convert content from TML to HTML and back again.
+
+The plugin defines the following REST handlers:
+
+=.../rest/WysiwygPlugin/html2tml?topic=Web.Topic;text=htmltexttotranslate=
+
+Converts the HTML text to TML. =topic= *must* be specified.
+
+=.../rest/WysiwygPlugin/tml2html?topic=Web.Topic;text=tmltexttotranslate=
+
+Converts the TML text to HTML. =topic= *must* be specified. The response is a =text/plain= page of converted content.
+
+---++ Plugin Installation Instructions
+
+This plugin is pre-installed. TWiki administrators can upgrade the plugin as needed on the TWiki server.
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}% "
+ hidelink="Hide details %ICONURL{toggleclose}% "
+}%
+   * For an __automated installation__, run the [[%SCRIPTURL{configure}%][configure]] script and follow "Find More Extensions" in the in the __Extensions__ section.
+      * See the [[http://twiki.org/cgi-bin/view/Plugins/BuildContribInstallationSupplement][installation supplement]] on TWiki.org for more information.
+
+   * Or, follow these __manual installation__ steps:
+      * Download the ZIP file from the extension home on twiki.org (see below).
+      * Unzip ==%TOPIC%.zip== in your twiki installation directory.
+      * Set the ownership of the extracted directories and files to the webserver user.
+      * Install the dependencies (if any).
+
+   * Plugin __configuration and testing__: 
+      * Run the [[%SCRIPTURL{configure}%][configure]] script and enable the plugin in the __Plugins__ section.
+      * Configure additional plugin settings in the __Extensions__ section if needed.
+      * Test if the installation was successful using the examples provided.
+
+%ENDTWISTY%
+
+---++ Plugin Configuration Settings
+
+---+++ Translator control
+%INCLUDE{"%SYSTEMWEB%.WysiwygPluginSettings"}%
+
+*Implementors note:* If you are using your own before/after edit handlers, you can call =TWiki::Plugins::WysiwygPlugin::isWysiwygEditable()= to check these controls.
+
+---++ Known issues
+
+---+++ Incompatible with "non-standard" syntax
+
+The !WysiwygPlugin is incompatible with plugins that expand non-standard syntax e.g. TWiki:Plugins.MathModePlugin (!WysiwygPlugin)
+
+Plugins that extend the syntax using TWiki variables, such as =%MYVARIABLE%=, should work fine.
+
+*Implementors note:* Plugins that use XML-like tags may call =TWiki::Plugins::WysiwygPlugin::addXMLTag()= from their =initPlugin= handlers to make the !WysiwygPlugin protect the content between XML-like tags, just like it does for TWiki variables.
+
+---+++ Overlapping styles
+
+Because TWiki uses a "best guess" approach to some formatting, it allows overlapping of tags in a way forbidden by HTML, and it is impossible to guarantee 100% that formatting in the original TWiki document will still be there when the same document is loaded and then saved through the !WysiwygPlugin. The most obvious case of this is to do with styles. For example, the sentence
+<verbatim class="tml">
+*bold _bold-italic* italic_
+</verbatim>
+is legal in TML, but in HTML is represented by
+<verbatim class="tml">
+<strong>bold <em>bold-italic</em></strong> <em>italic</em>
+</verbatim>
+which gets translated back to TML as
+<verbatim class="tml">
+*bold _bold-italic_* _italic_
+</verbatim>
+which is correct by construction, but does not render correctly in TWiki. This problem is unfortunately unavoidable due to the way TML works.
+
+---+++ Rowspan processing needs !TablePlugin
+
+The !WysiwygPlugin is able to convert tables with cells that span rows into TML. This requires syntax provided by the %SYSTEMWEB%.TablePlugin (that is, the =| ^ |= markup). the !WysiwygPlugin will therefore only perform row-span related conversion if the !TablePlugin is enabled. The !TablePlugin is enabled by default and hence the !WysiwygPlugin converts tables with cells that span rows between TML and HTML by default.
+
+If the !TablePlugin is *not* enabled, then TML table cells containing only =^= are not converted to rowspans, and HTML tables containing rowspans are not converted to TML.
+
+---+++ TinyMCEPlugin integration
+
+%STARTSECTION{"tinymceintegration"}%
+   * Anchors are not handled by WysiwygPlugin
+   * WysiwygPlugin fails to roundtrip tables with align="center", border attributes, etc.
+      * Description: Sometimes tables will fail to be converted to TML syntax (will stay as HTML) because there are attributes on the table (such as alignment or border decorations) that the !WysiwygPlugin does not know how to preserve. If such attributes are necessary, please use [[VarTABLE]] instead.
+      * Work-around:
+         * Click inside the problematic table
+         * Click the table toolbar button (usually used to create a new table)
+         * With the exception of =Cols= and =Rows=, delete/reset all content from the fields on the 'General' and 'Advanced' tabs.
+         * Write a [[VarTABLE]] variable above the offending table that adds the desired attributes safely
+%ENDSECTION{"tinymceintegration"}%
+
+---++ Plugin Info
+
+%TABLE{ tablewidth="100%" columnwidths="180," }%
+|  Author: | [[http://c-dot.co.uk][Crawford Currie]], TWiki Contributors |
+|  Copyright | &copy; 2005 ILOG http://www.ilog.fr %BR% &copy; 2007 [[http://www.twiki.net/][Twiki, Inc.]] %BR% &copy; 2008-2012 Foswiki Contributors %BR% &copy; 2005-2018 Peter Thoeny and TWiki:TWiki.TWikiContributor |
+|  License | [[http://www.gnu.org/licenses/gpl.html][GPL (Gnu General Public License)]] |
+|  Sponsors: | [[http://ilog.fr][ILOG]], [[http://www.carrier.com][Carrier Corporation]], [[http://twiki.net][Twiki Inc]], [[http://www.wave.com/][Wave Systems Corp]] |
+|  Plugin Version: | 2018-07-06 |
+%TWISTY{
+ mode="div"
+ showlink="Show Change History %ICONURL{toggleopen}%"
+ hidelink="Hide Change History %ICONURL{toggleclose}% "
+}%
+%TABLE{ tablewidth="100%" columnwidths="180," }%
+|  2018-07-06: | TWikibug:Item7841: Copyright update to 2018 |
+|  2016-01-09: | TWikibug:Item7708: Copyright update to 2016 |
+|  2015-02-16: | TWikibug:Item7604: Switch from GPL v2 to v3 |
+|  2014-12-10: | TWikibug:Item7594: Disable WYSIWYG editor if %VBAR%&gt;&gt; ... &lt;&lt;%VBAR% table syntax is present -- TWiki:Main.PeterThoeny |
+|  2014-02-19: | TWikibug:Item7436: WYSIWYG editor prepends &#194; to spaces inside verbatim and sticky tags -- TWiki:Main.HideyoImazu |
+|  2013-09-18: | TWikibug:Item7338: Import WYSIWYG plugin fixes 2008-2013 -- TWiki:Main.PeterThoeny |
+|  1.1.16 (16 May 2013) | Fix problem with entities being expanded to unrepresentable characters |
+|  1.1.15 (16 Dec 2012) | Minor perlcritic coding change | 
+|         (21 Dec 2012) | Changing a wikiword should not require visiting the TinyMCE link dialog. |
+|  1.1.14 (28 Nov 2012) | Clean up hex markers left behind by TinyMCEPlugin <br />\
+                          Convert to perl version strings<br />\
+                          Preserve Square bracket links |
+|  1.1.13 (5 Jun 2012) | Backslash line continuation incorrectly requires a space dlimitier. %BR%\
+                         Extraneous hex 03 characters replace % in nested tags |
+|  1.1.12 (30 May 2012) | Fix for Item10089 caused link corruption in certain cases. |
+|  1.1.11 (22 May 2012) | Compile errors with perl 5.8.8 due to use of new regular expression features. |
+|  1.1.10 (21 May 2012) | Better fix for &lt;div tags, also cover &lt;blockquote tags. %BR%\
+                          Unable to position cursor above initial verbatim, pre and blockquote blocks %BR%\
+                          Syntax for indent was added earlier, but missed from release notes. |
+|  1.1.9 (test release) | &lt;div> tags are wrapped in &lt;p> tags. TMCE auto closes them. |
+|  1.1.8 (test release) | Fix for Item11814 breaks %<nop>ATTACHURL variable in link. |
+|  1.1.7 (test release) | Wysiwyg removes &lt;br /> tags at end of lines. |
+|  1.1.6 (test release) | Process TML links as HTML links %BR%\
+                          TMCE should honor NOAUTOLINK preference and noautolink blocks. %BR%\
+                          Allow TMCE to recognize TML links as HTML links. %BR%\
+                          Protect Glue format markup in variables. %BR%\
+                          Don't merge verbatim blocks if they have different classes. %BR%\
+                          Handle colors implemented using CSS classes. %BR%\
+                          Preserve URI Encoding in links.  %BR%\
+                          !WikiWords escaped with ! are show as linking. %BR%\
+                          TMCE is failing to protect newlines. |
+|  1.1.5 (06 Apr 2012) | protect inline script and style tags from wysiwyg. %BR%\
+                         protect tags inside pre.%BR%\
+                         Protect TML tables from corrupting embedded html markup.%BR%\
+                         Prevent #Anchors from being wrapped to the previous line.%BR%\
+                         Prevent corruption of HTML tables containin blank lines. |
+|  1.1.4 | support pass-through of DEL and INS tags |
+|  1.1.3 (08 Nov 2011) | Fix WysiwygPlugin eating newlines inside =%MACRO{...}= expressions (Michael Tempest) |
+|  1.1.2 (11 Apr 2011) | Version released with TWiki 1.1.3. Only a minor change related to how the plugin is being upgraded |
+|  1.1.1 (19 Jan 2011) | Switch to x.y.z release numbering %BR% \
+                         Try to use Variables in the src URLs of images with titles %BR% \
+                         Fix attachments REST handler to deal with topics named with international characters %BR%\
+                         Protect div and span tags with =style= attributes |
+|  28 Jun 2010 | Fix conversion between character encodings. Any characters may be entered in the WYSIWYG editor, regardless of the site's encoding. Where possible, they are converted to the site encoding, otherwise they become entities. %BR%\
+                 Fix cursor-movement problems on Mozilla browsers (introduced by )%BR%\
+                 Can now place cursor into empty list-item%BR%\
+                 Can now move cursor above a table at start of a topic and below a table at the end of the topic %BR%\
+                 Protect &lt;br /&gt; tags at the end of a protected line (e.g. in a variable parameter)%BR%\
+                 Protect newlines within a &lt;pre&gt; block%BR%\
+                 Keep the content of &lt;big&gt; and &lt;var&gt; tags %BR%\
+                 Fix stand-alone (command-line) HTML-to-TML conversion |
+|  21 May 2010 | Use Wysiwyg transition to remove usually unwanted paragraph html tags in table cells, which are otherwise impossible to remove in !TinyMCE up to at least 3.3.6%BR%\
+                 Fix problem where Wysiwyg transition merges two consecutive lists (a result of work on ) |
+|  2010-05-17: | TWikibug:Item6433 - more doc fixes; replacing TWIKIWEB with SYSTEMWEB |
+|  2010-04-24: | TWikibug:Item6433 - doc improvements, prepare for TWiki 5.0 release |
+|  17 Jan 2010 | ATTACHFILESIZELIMIT check fails confusingly if value is "0 " |
+|  18 Dec 2009 | move code out of the plugin module to accelerate loading |
+|  18 Nov 2009 | Convert tables with cells that span rows |
+|  22 Oct 2009 | Protect div style= by default |
+|  18 Sep 2009 | Prevent dataloss when saving a topic in Wysiwyg where there are a pair of sticky tags inside verbatim tags |
+|  28 Jun 2009 | Protect XML tags registered by plugins, and not just the content between them (Michael Tempest) |
+|  06 Jun 2009 | Correct dependency on HTML::Parser (Will Norris). Correct processing of colour and typewriter-text in several situations, include application to bold text and table cells (Michael Tempest). Remove unwanted extra &lt;sticky&gt; tags (Michael Tempest). Let plugins register XML tags that should be protected like variables |
+|  10 Apr 2009 | fixed colour handling |
+|  03 Dec 2008 | fixed empty bullet list problem. |
+|  22 Oct 2008 | Fixed TWikibug:Item5961 (emphasis), TWikibug:Item6089 (backslash in verbatim) |
+|  07 Aug 2008 | Fixed TWikibug:Item5707 (mod_perl) |
+|  03 Aug 2008 | TWiki 4.2.1 release version |
+|  25 May 2008 | TWikibug:Item5457: TWikibug:Item5528: TWikibug:Item5626: using a debug simulation, I believe I have finally fixed all the complexities of using international character sets with the translator. |
+|  13 Apr 2008 | TWikibug:Item4946: TWikibug:Item5530: I think I have finally fixed non-iso-8859-1 character sets. Painful. TWikibug:Item5393: removed spurious DIV generated by IE inside LI tags |
+|  31 Mar 2008 | TWikibug:Item5314: TWikibug:Item5457: Fixed pickaxe mode for editing UTF-8. Characters above 255 are converted to entitites, which is a bit of a PITA, but at least it no longer corrupts topics. |
+|  28 Mar 2008 | TWikibug:Item5294: fixed angle brackets in plain text and promoted sticky to be higher priority than any other tag, solving several problems in one go |
+|  24 Jan 2008 | TWikibug:Item5257: remove extra spaces at end of Set lines |
+|  20 Dec 2007 | TWikibug:Item5022: made TT font size same as verbatim. Had to add a new style to do it, as TMCE didn't want to play with TT or CODE tags. TWikibug:Item5138: post-conversion of 8-bit entities to characters to aid searching etc. |
+|  19 Dec 2007 | TWikibug:Item4836: make the parser tolerant of META, so pasting OO docs works TWikibug:Item4969: autoclose BR and HR tags TWikibug:Item5132: fixed IMG tags TWikibug:Item5076: fixed line-sensitive TML embedded in tables |
+|  08 Nov 2007 | TWikibug:Item4923: fixed blocking of table conversion due to empty attributes TWikibug:Item4936: An em embedded in an em was getting eaten TWikibug:Item4817: added typewriter text button TWikibug:Item4850: added font colour controls TWikibug:Item4645: added REST handlers for upload and fetching lists of attachments |
+|  02 Nov 2007 | TWikibug:Item4903: corrected over-enthusiastive interpretation of ! as an escape |
+|  21 Oct 2007 | TWikibug:Item4788: fixed unbalanced protect, which could cause loss of protected status TWikibug:Item4811: noautolink *looks* like an HTML construct but in fact is not; the tag is infact an "on-off" switch and does not imply any HTML structure, so cannot be converted to a DIV or a span, so has to be removed. TWikibug:Item4747: added &lt;sticky&gt; to try to overcome limitations in translation TWikibug:Item4831: added increased flexibility in deciding what HTML get converted to TML, and what does not. Analysed all the HTML4 tags to establish initial settings. TWikibug:Item4847: don't call non-existent function with older HTML::Parser releases TWikibug:Item4844: Saving a table from IE didn't convert it back to TML TWikibug:Item4855: table rows generated from TWiki variables were being eaten |
+|  06 Oct 2007 | TWikibug:Item4700: fixed colspans TWikibug:Item4701: removed extra line between %TABLE and the table TWikibug:Item4705: fixed spacing around literal and verbatim blocks TWikibug:Item4706: merge adjacent verbatim blocks separated only by whitespace TWikibug:Item4712: fixed eating of noautolink and literal TWikibug:Item4763: list items spanning multiple lines fixed TWikibug:Item4867: released tml2html |
+|  17 Sep 2007 | TWikibug:Item4647: TWikibug:Item4652: problems related to DIV fixed. TWikibug:Item4653: fixed multi-line twiki variables |
+|  16 Sep 2007 | TWikibug:Item4630: polished up the way the secret string is done, to ensure synch between perl and JS. Item4622: added UTF-8 handling steps that fixup malformed UTF8 strings before presenting them to the editor (saves Moz) and stops the editor passing them back to TWiki (saves IE). Removed extra entity decoding steps that were causing problems. TWikibug:Item4629: fixed issues with verbatim, highlighted by previous mangling of this topic |
+|  13 Sep 2007 | TWikibug:Item4613 cleaned up spurious message when navigating away TWikibug:Item4615 fixed incorrect rendering of emphasis next to br |
+|  12 Sep 2007 | TWikibug:Item4604 Fixes to REST handler, and add ability to trigger !HTML2TML conversion from a content comment alone (required for some editors) TWikibug:Item4588 fixes to conversion of double-character emphases |
+|  07 Sep 2007 | TWikibug:Item4503 excess empty lines TWikibug:Item4486 no toc headers with unofficial syntax TWikibug:Item4560: empty lines lost TWikibug:Item4566: corrupted table on save TWikibug:Item4550 section tags being eaten |
+|  04 Sep 2007 | TWikibug:Item4534 TWikibug:Item4535 fixed |
+|  | See Subversion logs for earlier revisions |
+%ENDTWISTY%
+%TABLE{ tablewidth="100%" columnwidths="180," }%
+|  Dependencies: | <table border="1"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">HTML::Parser</td><td align="left">&gt;=3.28</td><td align="left">Required. Available from [[http://cpan.uwinnipeg.ca/search?query=HTML%3A%3AParser&mode=dist][CPAN]].</td></tr><tr><td align="left">HTML::Entities</td><td align="left">&gt;=1.25</td><td align="left">Required. Available from [[http://cpan.uwinnipeg.ca/search?query=HTML%3A%3AEntities&mode=dist][CPAN]].</td></tr><tr><td align="left">Encode</td><td align="left">&gt;=2.01</td><td align="left">Required.</td></tr></table> |
+|  Plugin Home: | http://twiki.org/cgi-bin/view/Plugins/%TOPIC% |
+|  Feedback: | http://twiki.org/cgi-bin/view/Plugins/%TOPIC%Dev |
+|  Appraisal: | http://twiki.org/cgi-bin/view/Plugins/%TOPIC%Appraisal |
+
+__Related Topics:__ WysiwygPluginSettings, WysiwygPluginTopicLister, TinyMCEPlugin, %SYSTEMWEB%.TWikiPreferences, %SYSTEMWEB%.TWikiPlugins
+@
+
+
+1.21
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1424161046" format="1.1" version="21"}%
+d225 1
+a225 1
+|  Copyright | &copy; 2005 ILOG http://www.ilog.fr %BR% &copy; 2007 [[http://www.twiki.net/][Twiki, Inc.]] %BR% &copy; 2008-2012 Foswiki Contributors %BR% &copy; 2005-2015 TWiki:TWiki.TWikiContributor |
+d228 1
+a228 1
+|  Plugin Version: | 2015-02-16 29604 (2015-11-29) |
+d235 2
+@
+
+
+1.20
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1392805788" format="1.1" version="20"}%
+d11 2
+a12 1
+<sticky><div style="float:right; background-color:#EBEEF0; margin:0 0 20px 20px; padding: 0 10px 0 10px;">
+d14 2
+a15 1
+</div></sticky>
+d225 1
+a225 1
+|  Copyright | &copy; 2005 ILOG http://www.ilog.fr %BR% &copy; 2007 [[http://www.twiki.net/][Twiki, Inc.]] %BR% &copy; 2008-2012 Foswiki Contributors %BR% &copy; 2005-2014 TWiki:TWiki.TWikiContributor |
+d228 1
+a228 1
+|  Plugin Version: | 2014-02-19 27021 (2014-10-05) |
+d235 2
+@
+
+
+1.19
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1379548301" format="1.1" version="19"}%
+d223 1
+a223 1
+|  Copyright | &copy; 2005 ILOG http://www.ilog.fr %BR% &copy; 2007 [[http://www.twiki.net/][Twiki, Inc.]] %BR% &copy; 2008-2012 Foswiki Contributors %BR% &copy; 2005-2013 TWiki:TWiki.TWikiContributor |
+d226 1
+a226 1
+|  Plugin Version: | 2013-09-18 26391 (2013-10-14) |
+d233 1
+@
+
+
+1.18
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1321053938" format="1.1" version="18"}%
+d12 1
+a12 1
+%TOC%
+d16 1
+a16 1
+---++ Introduction
+d18 1
+a18 3
+Support for the integration of WYSIWYG (What-You-See-Is-What-You-Get) editors. On its own, the only thing this plugin gives you is a stand-alone HTML to TWiki translator script. For WYSIWYG editing in TWiki, you will also need to install a specific editor package such as TWiki:Plugins/KupuEditorContrib or TWiki:Plugins/WikiwygContrib.
+
+This plugin provides a generic framework that supports editing of TWiki topics using any browser-based HTML editor. It works by transforming TML (TWiki Meta Language) into HTML for the editor, and then transforming HTML back into TML on save.
+d23 1
+a23 1
+   * Full round-trip (TML -> XHTML -> TWiki syntax)
+d31 2
+a32 1
+   * TML (TWiki syntax) to HTML translator
+d38 1
+a38 1
+The plugin works by translating the topic text into HTML when someone edits a topic. The HTML is then fed to the WYSIWYG editor. On save, the edited HTML is run through the reverse translation before saving to the topic. TWiki syntax is used in preference to HTML in the stored topic wherever possible, though HTML may be used if the translator can't find a suitable TML equivalent..
+d40 1
+a40 1
+The default rendering that TWiki uses to generate HTML for display in browsers is 'lossy' - information in the TWiki syntax is lost in the HTML output, and a round-trip (recovering the original TWiki syntax from the HTML) is impossible. To solve this problem the plugin instead uses its own translation of TWiki syntax to XHTML. The generated XHTML is annotated with CSS classes that support the accurate recovery of the original TWiki syntax.
+d44 1
+a44 1
+Translation of the HTML back to TWiki syntax uses the CPAN:HTML::Parser. This parser is used in preference to a more modern XML parser, because the WYSIWYG editor may not generate fully compliant XHTML. A strict parser would risk losing content. CPAN:HTML::Parser is better at handling malformed HTML.
+d46 1
+a46 1
+There is also the advantage that the translator can be used to *import* HTML from other sources - for example, existing web pages. Due to the simple nature of TWiki syntax and the potential complexity of web pages, this translation is often lossy - i.e there will be HTML features that can be entered by editors that will be lost in this translation step. This is especially noticeable with HTML tables.
+d52 1
+a52 1
+A stand-alone converter script for HTML to TWiki is included in the installation. It can be found in =tools/html2tml.pl=.
+d57 1
+d63 1
+a63 1
+---++++ Generating content in standard edit template
+d67 1
+d77 1
+a77 1
+---++++ Generating content in specialized edit template
+d82 1
+d84 1
+a84 1
+   1 The !WysiwygPlugin =beforeEditHandler= determines if the topic is WYSIWYG editable, and vetos the edit if not by redirecting to the standard edit skin.
+d94 1
+a94 1
+   * =WYSIWYGPLUGIN_WYSIWYGSKIN= must be set to the name of the skin used for WYSIWYG editing. This is usually the name of the editor e.g. =kupu=.
+d110 2
+a111 2
+      * Two TWiki variables, =%<nop>OWEB%= and %<nop>OTOPIC%=, can be used in the content URL in the edit template to refer to the source topic for the content.
+   1 After edit handling is as for _Generating content directly in a specialised edit template_
+d117 1
+a117 1
+Editors can use =XmlHttpRequest= to perform saves, by POSTing to the TWiki =save= script with the =wysiwyg_edit= parameter set to =1=. This parameter tells the =beforeSaveHandler= in the !WysiwygPlugin to convert the content back to TML. See %SYSTEMWEB%.TWikiScripts for details of the other parameters to the =save= script.
+d123 1
+a123 3
+Attachment uploads can be handled by URL requests from the editor template to the TWiki
+=upload= script. The =upload= script normally redirects to the containing topic; a behavior that you usually don't want in an editor! There are two ways to handle this:
+
+d145 6
+d165 1
+a169 1
+
+d172 1
+a172 1
+*Implementors note* if you are using your own before/after edit handlers, you can call =TWiki::Plugins::WysiwygPlugin::isWysiwygEditable()= to check these controls.
+d178 1
+a178 1
+!WysiwygPlugin is incompatible with plugins that expand non-standard syntax e.g. TWiki:Plugins.MathModePlugin (!WysiwygPlugin)
+d182 2
+d187 1
+a187 1
+<verbatim>
+d191 1
+a191 1
+<verbatim>
+d195 1
+a195 1
+<verbatim>
+d198 20
+a217 1
+which is correct by construction, but does not render correctly in TWiki. This problem is unfortunately unavoidable due to the way TWiki syntax works.
+d221 3
+a223 7
+Many thanks to the following sponsors for supporting this work:
+   * [[http://ilog.fr][ILOG]]
+   * [[http://www.carrier.com][Carrier Corporation]]
+   * [[http://twiki.net][Twiki, Inc.]]
+
+|  Plugin Author: | TWiki:Main.CrawfordCurrie http://www.c-dot.co.uk |
+|  Copyright | &copy; 2005 ILOG http://www.ilog.fr, %BR% &copy; 2007 [[http://www.twiki.net/][Twiki, Inc.]],%BR% &copy; 2005-2011 TWiki:TWiki.TWikiContributor |
+d225 56
+a280 5
+|  Plugin Version: | 2011-11-11 22425 (2013-02-16) |
+|  Change History: | <!-- versions below in reverse order -->&nbsp; |
+|  2011-11-11: | TWikibug:Item6800: More fixes for using qw(...) as parentheses, which is deprecated in Perl 5.14 -- TWiki:Main.PeterThoeny |
+|  2011-09-12: | TWikibug:Item6800: Fix for using qw(...) as parentheses, which is deprecated in Perl 5.14 -- TWiki:Main.PaulMerchantJr |
+|  2011-07-10: | TWikibug:Item6725: Change global package variables from "use vars" to "our" |
+d283 9
+a291 1
+|  18 Apr 2009 | Fixed TWikibug:Item6251 (require http post for REST upload) |
+d293 2
+a294 2
+|  7 Aug 2008 | Fixed TWikibug:Item5707 (mod_perl) |
+|  3 Aug 2008 | TWiki 4.2.1 release version |
+d302 2
+a303 2
+|  8 Nov 2007 | TWikibug:Item4923: fixed blocking of table conversion due to empty attributes TWikibug:Item4936: An em embedded in an em was getting eaten TWikibug:Item4817: added typewriter text button TWikibug:Item4850: added font colour controls TWikibug:Item4645: added REST handlers for upload and fetching lists of attachments |
+|  2 Nov 2007 | TWikibug:Item4903: corrected over-enthusiastive interpretation of ! as an escape |
+d305 1
+a305 1
+|  6 Oct 2007 | TWikibug:Item4700: fixed colspans TWikibug:Item4701: removed extra line between %TABLE and the table TWikibug:Item4705: fixed spacing around literal and verbatim blocks TWikibug:Item4706: merge adjacent verbatim blocks separated only by whitespace TWikibug:Item4712: fixed eating of noautolink and literal TWikibug:Item4763: list items spanning multiple lines fixed TWikibug:Item4867: released tml2html |
+d310 2
+a311 2
+|  7 Sep 2007 | TWikibug:Item4503 excess empty lines TWikibug:Item4486 no toc headers with unofficial syntax TWikibug:Item4560: empty lines lost TWikibug:Item4566: corrupted table on save TWikibug:Item4550 section tags being eaten |
+|  4 Sep 2007 | TWikibug:Item4534 TWikibug:Item4535 fixed |
+d313 2
+d320 1
+a320 1
+__Related Topics:__ TinyMCEPlugin, %SYSTEMWEB%.TWikiPreferences, %SYSTEMWEB%.TWikiPlugins
+@
+
+
+1.17
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1321053938" format="1.1" version="17"}%
+a144 2
+__Note:__ You do not need to install anything on the browser to use this extension. The following instructions are for the administrator who installs the extension on the TWiki server.
+
+d202 1
+a202 1
+|  Plugin Version: | 2011-11-11 22425 (2012-12-16) |
+@
+
+
+1.16
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1321053938" format="1.1" version="16"}%
+d204 1
+a204 1
+|  Plugin Version: | 2011-11-11 22425 (2012-10-07) |
+@
+
+
+1.15
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1321053938" format="1.1" version="15"}%
+d145 1
+a145 1
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server where TWiki is running.
+d147 1
+a147 3
+Like many other TWiki extensions, this module is shipped with a fully
+automatic installer script written using the Build<nop>Contrib.
+   * If you have TWiki 4.2 or later, you can install from the =configure= interface (Go to Plugins->Find More Extensions)
+a148 10
+   * If you have any problems, then you can still install manually from the command-line:
+      1 Download one of the =.zip= or =.tgz= archives
+      1 Unpack the archive in the root directory of your TWiki installation.
+      1 Run the installer script ( =perl &lt;module&gt;_installer= )
+      1 Run =configure= and enable the module, if it is a plugin.
+      1 Repeat for any missing dependencies.
+   * If you are *still* having problems, then instead of running the installer script:
+      1 Make sure that the file permissions allow the webserver user to access all files.
+      1 Check in any installed files that have existing =,v= files in your existing install (take care *not* to lock the files when you check in)
+      1 Manually edit !LocalSite.cfg to set any configuration variables.
+d150 10
+a159 1
+%IF{"defined 'SYSTEMWEB'" else="<div class='twikiAlert'>%X% WARNING: SYSTEMWEB is not defined in this TWiki. Please add these definitions to your %MAINWEB%.TWikiPreferences, if they are not already there:<br><pre>   * <nop>Set SYSTEMWEB = %<nop>TWIKIWEB%<br>   * <nop>Set USERSWEB = %<nop>MAINWEB%</pre></div>"}%
+d204 1
+a204 1
+|  Plugin Version: | 2011-11-11 22425 (2012-01-14) |
+@
+
+
+1.14
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1310337269" format="1.1" version="14"}%
+d207 1
+a207 1
+|  Plugin Version: | 2011-07-10 21658 (2011-08-20) |
+d209 2
+@
+
+
+1.13
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1288941505" format="1.1" version="13"}%
+d204 2
+a205 2
+|  Plugin Author: | TWiki:Main/CrawfordCurrie http://www.c-dot.co.uk |
+|  Copyright | &copy; 2005 ILOG http://www.ilog.fr, %BR% &copy; 2007 [[http://www.twiki.net/][Twiki, Inc.]],%BR% &copy; 2005-2010 TWiki:TWiki/TWikiContributor |
+d207 1
+a207 1
+|  Plugin Version: | 2010-05-17 20922 (2011-05-03) |
+d209 1
+@
+
+
+1.12
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1274163444" format="1.1" version="12"}%
+d11 1
+a11 1
+<div style="float:right; background-color:#EBEEF0; margin:0 0 20px 20px; padding: 0 10px 0 10px;">
+d13 1
+a13 1
+</div>
+d207 1
+a207 1
+|  Plugin Version: | 2010-05-17 18717 (2010-05-29) |
+@
+
+
+1.11
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1240096942" format="1.1" version="11"}%
+d4 6
+a9 1
+   * Set SHORTDESCRIPTION = Translator framework for Wysiwyg editors
+d11 3
+a14 6
+<!--
+   Contributions to this plugin are appreciated. Please update the plugin page
+   at http://twiki.org/cgi-bin/view/Plugins/WysiwygPlugin or provide feedback
+   at http://twiki.org/cgi-bin/view/Plugins/WysiwygPluginDev.
+   If you are a TWiki contributor please update the plugin in the SVN repository.
+-->
+d16 3
+a18 1
+Support for the integration of WYSIWYG (What-You-See-Is-What-You-Get) editors. On its own, the only thing this plugin gives you is a stand-alone HTML to TWiki translator script. For WYSIWYG editing in TWiki, you will also need to install a specific editor package such as TWiki:Plugins.KupuEditorContrib or TWiki:Plugins.WikiwygContrib.
+d22 1
+a22 1
+%TOC%
+a23 1
+---++ Features
+d29 1
+d31 1
+d38 1
+d53 1
+a53 1
+A stand-alone convertor script for HTML to TWiki is included in the installation. It can be found in =tools/html2tml.pl=.
+d56 1
+d59 1
+a59 1
+   1 The HTML for the content-to-be-edited can be generated directly in a specialised edit template.
+d63 2
+a64 1
+---++++ Generating content directly in the standard edit template
+d76 2
+a77 1
+---++++ Generating content directly in a specialised edit template
+d95 1
+d99 3
+a101 3
+   1 As _Generating content directly in a specialised edit template_
+   1 As _Generating content directly in a specialised edit template_
+   1 As _Generating content directly in a specialised edit template_
+d112 1
+d114 1
+d120 1
+d122 2
+a123 1
+=upload= script. The =upload= script normally redirects to the containing topic; a behaviour that you usually don't want in an editor! There are two ways to handle this:
+d130 1
+d144 1
+d168 1
+d176 2
+a177 1
+WysiwygPlugin is incompatible with plugins that expand non-standard syntax e.g. TWiki:Plugins.MathModePlugin (WysiwygPlugin)
+d182 2
+a183 1
+Because TWiki uses a "best guess" approach to some formatting, it allows overlapping of tags in a way forbidden by HTML, and it is impossible to guarantee 100% that formating in the original TWiki document will still be there when the same document is loaded and then saved through the WysiwygPlugin. The most obvious case of this is to do with styles. For example, the sentence
+a198 2
+This plugin is brought to you by a [[http://wikiring.com][WikiRing <a href="http://wikiring.com"><img src="%ATTACHURLPATH%/wikiringlogo20x20.png" title="WikiRing: Professional Wiki Innovation and Support" /></a>]] partner - working together to improve your wiki experience!
+
+d202 1
+a202 1
+   * [[http://twiki.net][TWIKI.NET]]
+d204 2
+a205 2
+|  Plugin Author(s): | TWiki:Main.CrawfordCurrie http://www.c-dot.co.uk |
+|  Copyright | &copy; ILOG 2005 http://www.ilog.fr, 2007 [[http://www.twiki.net/][TWIKI.NET]] |
+d207 4
+a210 2
+|  Plugin Version: | 18083 (02 Sep 2009) |
+|  Change History: | |
+d221 1
+a221 1
+| 19 Dec 2007 | TWikibug:Item4836: make the parser tolerant of META, so pasting OO docs works TWikibug:Item4969: autoclose BR and HR tags TWikibug:Item5132: fixed IMG tags TWikibug:Item5076: fixed line-sensitive TML embedded in tables |
+d229 1
+a229 1
+|  12 Sep 2007 | TWikibug:Item4604 Fixes to REST handler, and add ability to trigger HTML2TML conversion from a content comment alone (required for some editors) TWikibug:Item4588 fixes to conversion of double-character emphases |
+d232 1
+a232 1
+| See Subversion logs for earlier revisions ||
+d235 1
+a235 1
+|  Feedback: | TWiki:Plugins/%TOPIC%Dev |
+d238 1
+a238 3
+__Related Topics:__ %SYSTEMWEB%.TWikiPreferences, %SYSTEMWEB%.TWikiPlugins
+
+%META:FILEATTACHMENT{name="wikiringlogo20x20.png" attr="h" comment="" version="1"}%
+@
+
+
+1.10
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1240096942" format="1.1" version="10"}%
+d190 1
+a190 1
+|  Plugin Version: | 18020 (29 Apr 2009) |
+@
+
+
+1.9
+log
+@buildrelease
+@
+text
+@d1 1
+a5 1
+<!-- Do _not_ attempt to edit this topic; it is auto-generated. Please add comments/questions/remarks to the Dev topic instead. -->
+d7 6
+d21 3
+a23 3
+	* Supports the input of malformed HTML
+	* Full round-trip (TML -> XHTML -> TWiki syntax)
+	* Framework is editor-agnostic
+d28 3
+a30 3
+	* TML (TWiki syntax) to HTML translator
+	* HTML to TML translator (with stand-alone script)
+	* Generic TWiki plugin for automating the translation during editing
+d103 1
+a103 1
+Editors can use =XmlHttpRequest= to perform saves, by POSTing to the TWiki =save= script with the =wysiwyg_edit= parameter set to =1=. This parameter tells the =beforeSaveHandler= in the !WysiwygPlugin to convert the content back to TML. See %TWIKIWEB%.TWikiScripts for details of the other parameters to the =save= script.
+d152 1
+a152 1
+%INCLUDE{"%TWIKIWEB%.WysiwygPluginSettings"}%
+d188 1
+a188 1
+|  Copyright | &copy; ILOG 2005 http://www.ilog.fr |
+d190 1
+a190 1
+|  Plugin Version: | 17829 (30 Mar 2009) |
+d192 1
+d219 1
+a219 3
+__Related Topics:__ %TWIKIWEB%.TWikiPreferences, %TWIKIWEB%.TWikiPlugins
+
+<!-- Do _not_ attempt to edit this topic; it is auto-generated. Please add comments/questions/remarks to the Dev topic instead. -->
+@
+
+
+1.8
+log
+@buildrelease
+@
+text
+@d184 1
+a184 1
+|  Plugin Version: | 17680 (06 Dec 2008) |
+@
+
+
+1.7
+log
+@buildrelease
+@
+text
+@d48 1
+a48 1
+   1 REST handlers can be called from Javacript to convert content.
+d181 1
+a181 1
+|  Plugin Authors: | TWiki:Main.CrawfordCurrie http://www.c-dot.co.uk |
+d184 1
+a184 1
+|  Plugin Version: | 03 Aug 2008 17302 (04 Aug 2008) |
+d186 3
+a188 1
+|  03 Aug 2008 | TWiki 4.2.1 release version |
+d207 1
+a207 1
+|  Dependencies: | <table border="1"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">HTML::Parser</td><td align="left">&gt;=3.28</td><td align="left">Required. Available from [[http://cpan.uwinnipeg.ca/search?query=HTML%3A%3AParser&mode=dist][CPAN]].</td></tr><tr><td align="left">HTML::Entities</td><td align="left">&gt;=1.25</td><td align="left">Required. Available from [[http://cpan.uwinnipeg.ca/search?query=HTML%3A%3AEntities&mode=dist][CPAN]].</td></tr></table> |
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@d184 1
+a184 1
+|  Plugin Version: | 16174 (22 Jan 2008) |
+d186 6
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d3 1
+a3 1
+	* Set SHORTDESCRIPTION = Translator framework for Wysiwyg editors
+d29 1
+a29 1
+The default rendering that TWiki uses to generate HTML for display in browsers is 'lossy' - information in the TWiki syntax is lost in the HTML output, and a round-trip (recovering the original TWiki syntax from the HTML) is impossible. To solve this problem the plugin instead uses its own translation of TWiki syntax to pure XHTML. The generated XHTML is annotated with CSS classes that support the accurate recovery of the original TWiki syntax.
+d33 1
+a33 1
+Translation of the HTML back to TWiki syntax uses the CPAN:HTML::Parser. This parser is used in preference to a more modern XML parser, because the HTML may not generate fully compliant XHTML. A strict parser would risk losing content. CPAN:HTML::Parser is better at handling malformed HTML.
+d35 1
+a35 1
+There is also the advantage that the translator can be used to import HTML from other sources - for example, existing web pages. Due to the simple nature of TWiki syntax and the potential complexity of web pages, this translation is often lossy - i.e there will be HTML features that can be entered by editors that will be lost in this translation step. This is especially noticeable with HTML tables.
+d41 1
+a41 1
+A stand-alone convertor script for HTML to TWiki is included in the installation. It can be found in the top-level =tools= directory and is called =html2tml.pl=.
+d43 18
+a60 2
+---+++ Integrating a Wysiwyg Editor
+The plugin can be used to generate HTML for an editor in two ways; first, by generating the HTML for the content-to-be-edited directly in the edit template, and second, through a URL that can be used to fetch the content-to-be-edited from the server.
+d62 2
+a63 2
+---++++ Getting content in the edit template
+This is the scenario used by the standard TWiki text editor, except that the text is pre-converted to HTML before inclusion in the template.
+d66 5
+a70 3
+   1 User hits "edit".
+   1 The =beforeEditHandler= filters the edit, blocking any attempt to edit restricted content
+   1 The =edit= template containing the JS editor is instantiated. The following variables are available for expansion in the template:
+d73 2
+d76 2
+a77 1
+=WYSIWYGPLUGIN_WYSIWYGSKIN= *must* be set for this to work.
+d80 1
+a80 1
+In this scenario, the edit template is generated *without* the content-to-be-edited. The content is retrieved from the server using a URL e.g. from an =IFRAME= or using a =XmlHttpRequest=.
+d83 4
+a86 5
+   1 User hits "edit".
+   1 If the current skin = =WYWIWYGPLUGIN_WYWIWYGSKIN=, the =beforeEditHandler=
+      filters the edit, blocking any attempt to edit restricted content.
+   1 The =edit= template containing the JS editor is instantiated.
+   1 JS editor invokes content URL to obtain the HTML document to be edited
+d89 1
+a89 1
+      * The plugin recognises the =wysiwyg_edit= parameter and uses the
+d92 2
+a93 2
+      * Two TWiki variables, =%<nop>OWEB%= and %<nop>OTOPIC%=, should be used in
+        the content URL to refer to the source topic for the content.
+d95 3
+a97 3
+---+++ Handling Saves
+Saves are invoked by the editor POSTing to the TWiki =save= script with the =wysiwyg_edit=
+parameter set to =1=. This parameter tells the =beforeSaveHandler= in the plugin to convert the HTML back to TML. See %TWIKIWEB%.TWikiScripts for details of the other parameters to the =save= script.
+d102 1
+a102 1
+Attachment uploads can be handled by URL requests from the editor to the TWiki
+d109 13
+d125 12
+a136 19
+Like many other TWiki extensions, this module is shipped with a fully automatic installer script written using the Build<nop>Contrib.
+   * If you have TWiki 4.1 or later, and Perl 5.8, you can install from the =configure= interface (Go to Plugins->Find More Extensions)
+      * The webserver user has to have permission to write to all areas of your installation for this to work.
+   * If you have a permanent connection to the internet (and Perl 5.8), you are recommended to use the automatic installer script
+      * Just download the =WysiwygPlugin_installer= perl script and run it.
+   * *Notes:*
+      * The installer script will:
+         * Automatically resolve dependencies,
+         * Copy files into the right places in your local install (even if you have renamed data directories),
+         * check in new versions of any installed files that have existing RCS histories files in your existing install (such as topics).
+         * If the $TWIKI_PACKAGES environment variable is set to point to a directory, the installer will try to get archives from there. Otherwise it will try to download from twiki.org or cpan.org, as appropriate.
+         * (Developers only: the script will look for twikiplugins/WysiwygPlugin/WysiwygPlugin.tgz before downloading from TWiki.org)
+      * If you don't have a permanent connection, you can still use the automatic installer, by downloading all required TWiki archives to a local directory.
+         * Point the environment variable =$TWIKI_PACKAGES= to this directory, and the installer script will look there first for required TWiki packages.
+            * =$TWIKI_PACKAGES= is actually a path; you can list several directories separated by :
+         * If you are behind a firewall that blocks access to CPAN, you can build a local CPAN mini-mirror, as described at http://twiki.org/cgi-bin/view/Codev/BuildingDakar#CPAN_local_minimirror
+   * If you don't want to use the installer script, or have problems on your platform (e.g. you don't have Perl 5.8), then you can still install manually:
+      1 Download and unpack one of the =.zip= or =.tgz= archives to a temporary directory.
+      1 Manually copy the contents across to the relevant places in your TWiki installation.
+d139 2
+a140 2
+      1 Run =configure= and enable the module, if it is a plugin.
+      1 Repeat from step 1 for any missing dependencies.
+d146 1
+a146 16
+For any of the following controls to work, you must tell %TOPIC% the name of
+the skin being used to invoke the Wysiwyg editor, for example =kupu= or =wikiwyg=.
+	* Set WYSIWYGSKIN =
+Note that is can be set differently in different areas by defining
+=WYSWIYGPLUGIN_WYSIWYGSKIN= locally (e.g. in !WebPreferences).
+
+The *global* TWiki Variable =WYSIWYG_EXCLUDE= can be set to make the plugin sensitive to what is in a topic before allowing it to be edited. You can set it up to refuse to edit if 
+   * some or all of HTML tags (e.g. =&lt;br /&gt;= or =&lt;div&gt;=), or 
+   * simple variables (e.g. =%<nop>VAR%=) or 
+   * calls (e.g. =%<nop>VARIABLE{...}%=)
+   * PRE blocks (=&lt;pre&gt;=)
+   * HTML comments (=&lt;!--= ... =--&gt;=)
+   
+are used in the topic. If the plugin detects an excluded construct in the topic, it will redirect to the default editor. Comma-separated list of one or more of =html=, =variables=, =calls=, =pre= or =comments= e.g.
+   * Set WYSIWYG_EXCLUDE = calls,html
+Set =WYSIWYG_EXCLUDE= in %MAINWEB%.TWikiPreferences, or in %WEBPREFSTOPIC% for each web.
+d148 1
+a148 2
+If you excluded =calls= in =WYSIWYG_EXCLUDE=, you can still define a subset of TWiki variables that do *not* block edits. this is done in the *global* preference variable =WYSIWYG_EDITABLE_CALLS=, which should be a list of TWiki variable names separated by vertical bars, with no spaces, e.g:
+   * Set WYSIWYG_EDITABLE_CALLS = COMMENT|CALENDAR|INCLUDE
+d174 7
+d184 15
+a198 120
+|  Plugin Version: | 12422 |
+|  Change&nbsp;History: | |
+|  12422 | Added JAVASCRIPT_TEXT to support editors that require topic text in a JS var |
+|  12161 | Added support for embedded editable HTML in the edit template |
+|  12119 | Split into WysiwygPlugin and KupuContrib |
+|  11538 | Minor doc updates, minor fixes to spacing in lists, integrated Koen Marten's template topic patch |
+|  9671 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item2025'>Item2025</a>  corrected handling of SPAN and FONT tags used for colour changes |
+|  9566 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1890'>Item1890</a>  doc update |
+|  9565 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1890'>Item1890</a> <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1041'>Item1041</a> <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item944'>Item944</a> Much more aggressive cleanup of HTML pasted in from external sources. Excessively verbose HTML (e.g. from Outlook) was causing apparent infinite looing behaviour. |
+|  8867 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1176'>Item1176</a>  commented out Cairo version of header handler |
+|  8780 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1625'>Item1625</a>  disable expansion of twiki variables in urls where there are other twiki variables that can't be expanded |
+|  8779 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1530'>Item1530</a>  support for templatetopic when editing new topics |
+|  8592 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1532'>Item1532</a>  WysiwygPlugin: Added two more do-not-edit-if-topic-contains parameters, pre+comments |
+|  8590 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1532'>Item1532</a>  WysiwygPlugin: Kenneths suggestion on proper handling of HTML comments (incl. change to kupu) |
+|  8572 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1529'>Item1529</a>  evil, evil. The XMLSerializer in IE isn't happy serializing the DOM. I have no idea why. Kupu manages to get away with this because it passes the DOM through the XML validator, which I had to disable because it strips comments. So, for now, the IE implementation will strip comments - but at least you can save again |
+|  8538 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1501'>Item1501</a>  table handling was a bit spazzy. Several problems fixed. |
+|  8535 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1518'>Item1518</a>  moved icon and string lists into topics, updated screenshot |
+|  8531 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1392'>Item1392</a>  reversed the sense of the navigate-away condition, again |
+|  8466 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1486'>Item1486</a>  added WYSIWYG_EXCLUDE to allow exclusion of 'uneditable' content |
+|  8463 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1486'>Item1486</a>  was stripping comments, wrongly. Had to disable the kupu filters completely, they just do too much damage. |
+|  8401 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1457'>Item1457</a>  corrected problem with bullet list at top of topic |
+|  8388 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1445'>Item1445</a>  fix for a javascript error, introduced by previous fix |
+|  8387 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1445'>Item1445</a>  small usability improvements |
+|  8334 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item663'>Item663</a>  TWiki.org doc merge: Fix incorrect link to kupu website |
+|  8327 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1411'>Item1411</a>  handle case of the result of a TWiki variable being nopped |
+|  8312 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1317'>Item1317</a>  wrong result returned from generation function when expanding HTML embedded in verbatim block |
+|  8301 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1397'>Item1397</a>  removed excess space after sqaub links |
+|  8300 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1231'>Item1231</a>  added %SPAN% to indicate a spanned-over cell in the editor. Improved handling of HTML in verbatim tags by inserting line breaks is the tag type calls for it, before removing the HTML. |
+|  8276 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1215'>Item1215</a>  added WYSIWYG_ICONS and WYSIWYG_TAGS to support user customisation of icon images and twiki variables that can be inserted |
+|  8274 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1314'>Item1314</a>  debugging in case the hang happens again; and made sure to default the editor just in case |
+|  8273 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1315'>Item1315</a>  short forms must be terminated by one of the same characters that terminate wikiwords |
+|  8272 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1391'>Item1391</a>  added special interpretation of IMG tags to expand selected TWiki variables within SRC attributes |
+|  8271 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1340'>Item1340</a>  refined handling of NOP to cover abbrevs |
+|  8270 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1311'>Item1311</a>  removed excess space inserted in headings |
+|  8269 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1339'>Item1339</a>  changed from using arbitrary attribute for notoc to a new CSS class. Arbitrary attributes are stripped by Kupu before save. |
+|  8268 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1344'>Item1344</a>  strip ^Ms inserted by Sarissa during serialisation on IE |
+|  8267 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1394'>Item1394</a>  still can't get text styles to work properly in IE; but I am now firmly of the opinion that the fault lies with the browser, and not with Kupu. |
+|  8232 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1341'>Item1341</a>  added appropriate CSS class |
+|  8152 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1313'>Item1313</a>  added caveat about editing complex HTML and mixed HTML-TML |
+|  8151 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1334'>Item1334</a>  headers not handled properly in Cairo version |
+|  8108 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1318'>Item1318</a>  corrected table/list parser for tables embedded in bulleted lists |
+|  8106 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1310'>Item1310</a>  support for &lt;nop/> |
+|  8105 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1317'>Item1317</a>  support for limited case of nopped variable |
+|  8104 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1320'>Item1320</a>  corrected interpretation of relative URL path in [[]] |
+|  8091 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1259'>Item1259</a>  changed comment handling; rather than trying to create HTML, which gets munged, create an HTML comment. This will only be editable by switching to source view, but hey, it's supposed to be WYSIWYG. Note that this also means that comments in pasted HTML should be retained now |
+|  8063 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1042'>Item1042</a>  spec of SCRIPTURL changed |
+|  7904 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1189'>Item1189</a>  reverting accidental checkin of experimental code |
+|  7903 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1189'>Item1189</a>  filter whitelist is not good enough; need to generate B and I nodes. templates/ pub/TWiki/WysiwygPlugin |
+|  7902 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1189'>Item1189</a>  it took bloody ages to track down, but finally discovered that bold and italic were being filtered out of spans by Kupu 1.3.2.... too smart for it's own good. So added them to the filter whitelist, and it works again. |
+|  7873 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1189'>Item1189</a>  added pre save filter to try and find where the attributes are disappearing to in FF |
+|  7872 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1187'>Item1187</a>  for lack of an s on an RE, the nation was lost (well, the multi-line comment actually). Thanks Kenneth! |
+|  7871 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item859'>Item859</a>  solved issue with non-display of inserted images. Was due to the use of an onSubmit handler to close the dialog, rather than an onLoad handler triggered when the IFRAME that contains the result is loaded. |
+|  7869 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1172'>Item1172</a>  had to rewrite big chunk of the table popup to get it working with 1.3.2 |
+|  7858 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1151'>Item1151</a>  rewrote link handlings stuff to leverage browser better |
+|  7854 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1175'>Item1175</a>  escape wikiwords within squabs |
+|  7815 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1158'>Item1158</a>  works for Cairo now as well |
+|  7814 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1158'>Item1158</a>  first implementation of AJAX interface to allow selectoin of topics from other webs |
+|  7812 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1154'>Item1154</a>  removed non-existent scull.gif |
+|  7811 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1155'>Item1155</a>  added extra recursion block, as Item1155 suggests it is needed |
+|  7801 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1042'>Item1042</a>  All sorts of clever tricks to handle expansion/compression of a subset of TWiki variables when they are used in URLs. Not a complete solution, but better than it was. |
+|  7799 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1024'>Item1024</a>  caught out by recursive call to beforeCommonTagsHandler in Cairo (nasty) |
+|  7798 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1042'>Item1042</a>  whoops, broke \t conversion in Cairo |
+|  7789 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1140'>Item1140</a>  testcase for 1140 |
+|  7788 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1140'>Item1140</a>  fix rewriting of img src urls (and updated MANIFEST for Kupu1.3.2) |
+|  7786 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1042'>Item1042</a>  extensive improvements to variable and URL recognition and conversion |
+|  7766 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item856'>Item856</a>  added doc on EDIT_SKIN to the plugin |
+|  7712 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1074'>Item1074</a>  upgrade to Kupu 1.3.2 complete (at last) |
+|  7710 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1074'>Item1074</a>  Fixed source edit mode |
+|  7709 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1074'>Item1074</a>  tidied up broken toolbar. There are still known issues |
+|  7700 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1074'>Item1074</a>  first pass at moving to Kupu 1.3.2. |
+|  7673 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1037'>Item1037</a>  insert wikiword only if selection is zero length |
+|  7672 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item977'>Item977</a>  changed to remove dangerous Cairo-based assumption, and use context ids instead |
+|  7630 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1025'>Item1025</a>  added 'escape clause' for old handlers implemented to support old TWiki releases without warnings |
+|  7506 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item941'>Item941</a>  Eliminated the last of the dynamic globals to try and solve saving problem. Can;t test with mod_perl, but is fine with speedycgi AFAICT |
+|  7456 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item873'>Item873</a>  minor issue; replace br with \n in pre |
+|  7455 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item873'>Item873</a>  obvious problem parsing closing pre tag on same line as open tag |
+|  7453 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item710'>Item710</a>  Handling HTML comments |
+|  7452 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item876'>Item876</a>  Item945: Item876: spacing around table cells, correct handling of variables. Had to compromise on handling [[]] but I think it's for the best. |
+|  7430 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item871'>Item871</a>  made sure that brackets are generated for non-wikiwords |
+|  7425 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item928'>Item928</a>  removed special interpretation of mailto links |
+|  7424 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item866'>Item866</a>  extended URL parsing to handle MAINWEB and TWIKIWEB twiki variables, in the same hacky way as the core. |
+|  7416 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item870'>Item870</a>  a couple of corner-cases for correct handling of twiki variables |
+|  7401 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item899'>Item899</a>  changed list generation to use spaces instead of tabs |
+|  7265 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item180'>Item180</a>  removed pointless, outdated dependency check from DateFieldPlugin |
+|  6935 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item622'>Item622</a>  reverted 3 specs to tabs in Set lines in plugins topics for kompatterbility with Kigh-roe |
+|  6905 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item622'>Item622</a>  tabs -> 3 spacesto avoid confusing the users |
+|  6850 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item638'>Item638</a>  added instruction to run configure to all install docs (I hope) |
+|  6827 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item569'>Item569</a>  added default RELEASE to everything that had a version, and removed a load of dead code that was getting in the way |
+|  6758 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item569'>Item569</a>  computed version numbers for plugins from the repository rev they were built from. |
+|  6504 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item436'>Item436</a>  incremented vernos of all changed plugins |
+|  6485 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item429'>Item429</a>  trying to make access controls clearer |
+|  6401 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item340'>Item340</a>  re-initialisation bug found by ColasNahaboo when using mod_perl; fixed by correctly re-initialising the parse stack for each run of the convertor |
+|  6284 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item340'>Item340</a>  Release 0.16 of WysiwygPlugin |
+|  6279 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item340'>Item340</a>  bugfixes for release 0.16 of WysiwygPlugin |
+|  6261 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item335'>Item335</a>  Switched PNGs to indexed mode, as transparency doesn't work on IE for RGB images |
+|  6238 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item332'>Item332</a>  Added context identifier to WysiwygPlugin, and a button to the pattern view template. If WysiwygPlugin is enabled, then the button will appear. Neat, huh? |
+|  6195 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item196'>Item196</a>  getting plugin test suites to pass. Doesn't mean the plugins actually work, just that the test suites run (which is a good indicator) |
+|  6174 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item168'>Item168</a>  checkpoint checking for 0.16 |
+|  6151 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item186'>Item186</a>  more minor updates |
+|  6150 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item168'>Item168</a>  new icons, and a couple of bugfixes, to WysiwygPlugin |
+|  6092 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item196'>Item196</a>  more plugin and contrib fixes for develop; mainly just moving tests around and making sure they all pass. |
+|  6067 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item138'>Item138</a>  had to change to using beforeCommonTagsHandler and also escape % signs to prevent TWiki from rendering internal tags (as reported by Colas) |
+|  5979 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item168'>Item168</a>  corrected stupid error on IE; added screenshot |
+|  5977 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item168'>Item168</a>  release 0.13 |
+|  5948 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item168'>Item168</a>  nearly ready for 0.13 |
+|  5937 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item168'>Item168</a>  corrected images, twikified all images |
+|  5936 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item168'>Item168</a>  the import from cvs has screwed images |
+|  5934 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item168'>Item168</a>  twikified icon images, and renamed some images to be more intention-revealing |
+|  5739 | 0.12 beta release |
+|  5730 | V0.11 |
+|  5714 | Tidied up installer, documentation. Release 0.10 |
+|  5712 | pre-release 0.06 |
+|  5706 | Version 0.05 |
+|  5705 | Checkpoint checking - version 0.03 |
+|  5702 | cvsrmtee old files |
+|  5701 | Check in for prototype release |
+|  5700 | Check in for prototype release |
+|  5699 | Checkpoint |
+|  5698 | Most of the toolboxes are working again |
+|  5693 | Initial commit; doesn't do much except run tests |
+d208 1
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d2 5
+d8 1
+a8 1
+Support for the integration of WYSIWYG (What-You-See-Is-What-You-Get) editors. Comes bundled with a complete integration of the feature-rich [[http://kupu.oscom.org][Kupu]] editor.
+d10 1
+a10 7
+<img src="%ATTACHURL%/screenshot.jpg" alt="Screenshot" />
+
+The plugin is a generic framework that supports editing of TWiki topics using any browser-based HTML editor. It works by transforming TML (TWiki Meta Language) into HTML for the editor and then transforming HTML back into TML on save. These steps can be separated to support the import of HTML from external sources such as existing web pages.
+
+The plugin should operate with TWiki20040904 as well as TWiki-4.0.0 and later.
+
+*Caveat*: WysiwygPlugin is designed for editing TWiki topics, not as a general purpose HTML editor. It will work fine on topics that contain text, TML formatting, and most HTML. However, because of the complexity of transforming TML into HTML and back, complex TML, and mixing HTML and TML may not give the results you expect. You are recommended to use the standard browser textarea editor for editing existing topics that contain mixed HTML and TML, or complex %<nop>TML%-type variables.
+d17 1
+a17 2
+	* Framework is editor agnostic
+	* Customised [[http://kupu.oscom.org][Kupu]] editor included
+a24 12
+	* [[http://kupu.oscom.org][Kupu]] editor integration, implemented as a TWiki skin
+---+++ How to use the editor
+Basic help for most of the functions in the toolbar is available by "hovering" the mouse over the button. 
+Some functions require a bit more explanation:
+	* "Insert No-Op" inserts a &lt;nop> region. Any TWiki syntax such as wikiwords or variables inside the region will be disabled in the rgeion. $lt;nop> regions may not extend over line breaks.
+	* The rightmost drop-down will give you a menu of TWiki variables that can be inserted. Any of these variables can be edited after they have been placed in the text, for example to add parameters.
+	* "Insert a WikiWord" will give you a menu of topics in the _current web_ that can be inserted. Topics are inserted as links, though typing wikiwords in plain text will work just as well.
+   * Watch out for the &lt;&gt; button on the right of the toolbar. It lets you switch into an HTML view, which can be very useful when you can't get your formatting right.
+   * In TWiki, a totally empty table cell causes the cell to be merged with the cell immediately to the left. To make this effect more transparent in the editor, these empty cells are shown with the text "%<nop>SPAN%" in them. In Kupu, if you add %<nop>SPAN% to a table cell, then all the rest of the content will be thrown away and the cell will be converted to an empty table cell. Note that this only applies to tables that are converted to TWiki syntax.
+
+---++++ Kupu Notes
+The version of Kupu shipped with this plugin is an uncustomised basic Kupu release. All the TWiki customisation is done as plugins and extensions to Kupu - the basic kupu code is shipped completely intact.
+d27 1
+a27 1
+The plugin works by translating the topic text into HTML, which is then fed to the editor. The edited HTML is then run through the reverse translation before saving to the topic. TWiki syntax is used in preference to HTML in the stored topic wherever possible, though HTML may be used if the translator can't find a suitable TML equivalent..
+d29 1
+a29 1
+The default rendering that TWiki uses to generate HTML for browsers is 'lossy' - information in the TWiki syntax is lost in the HTML output, and a round-trip (recovering the original TWiki syntax from the HTML) is impossible. To solve this problem the plugin instead uses its own translation of TWiki syntax to pure XHTML. The generated XHTML is annotated with CSS classes that support the accurate recovery of the original TWiki syntax.
+d31 1
+a31 1
+_(before you ask the obvious question, yes, the translator *could* be used to replace the TWiki rendering pipeline for generating HTML pages. In fact, the translator is taken almost directly from the implementation of the rendering pipeline for the TWiki 'Dakar' release)_
+d33 1
+a33 1
+Translation of the HTML back to TWiki syntax uses the CPAN:HTML::Parser. This parser is used in preference to a more modern XML parser, because the HTML may not generate fully compliant XHTML. A strict parser would risk losing content. CPAN:HTML::Parser is better at handling malformed syntax.
+d35 1
+a35 1
+There is also the advantage that the translator can be used to import HTML from other sources - for example, existing web pages. Due to the simple nature of TWiki syntax and the complexity of HTML, this translation is lossy - i.e there will be HTML features that can be entered by editors that will be lost in this translation step. This is especially noticeable with HTML tables.
+d41 4
+a44 1
+An example stand-alone convertor script for HTML to TWiki is included in the installation. It can be found in the top-level =tools= directory and is called =html2tml.pl=.
+d46 2
+a47 497
+---++ Plugin Installation Instructions
+	* Download the ZIP file from the Plugin web (see below)
+	* Unzip ==%TOPIC%.zip== in your twiki installation directory. Content:
+	| *File:* | *Description:* |
+   | ==lib/TWiki/Plugins/WysiwygPlugin/HTML2TML/WC.pm== | Perl module |
+   | ==lib/TWiki/Plugins/WysiwygPlugin/HTML2TML/Leaf.pm== | Perl module |
+   | ==lib/TWiki/Plugins/WysiwygPlugin/HTML2TML/Node.pm== | Perl module |
+   | ==lib/TWiki/Plugins/WysiwygPlugin/HTML2TML.pm== | Perl module |
+   | ==lib/TWiki/Plugins/WysiwygPlugin.pm== | Perl module |
+   | ==lib/TWiki/Plugins/WysiwygPlugin/TML2HTML.pm== | Perl module |
+   | ==data/TWiki/WysiwygPlugin.txt== | Documentation and settings |
+   | ==data/TWiki/WysiwygPluginTopicLister.txt== | Special AJAX topic |
+   | ==pub/TWiki/WysiwygPlugin/kuputwiki.css== | Kupu customisation |
+   | ==pub/TWiki/WysiwygPlugin/twikitools.js== | Kupu customisation |
+   | ==pub/TWiki/WysiwygPlugin/kupuinit.js== | Kupu customisation |
+   | ==pub/TWiki/WysiwygPlugin/kupustart.js== | Kupu customisation |
+   | ==pub/TWiki/WysiwygPlugin/bold.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/cancel.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/code.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/definition-list.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/exthyperlink.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/help.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/indent.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/inthyperlink.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/italic.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/new-attachment.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/new-image.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/nop.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/ordered-list.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/outdent.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/redo.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/remove.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/save.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/separator.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/smiley.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/strings.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/table.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/text-color.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/undo.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/unordered-list.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/vars.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/verbatim.png== | Button image |
+   | ==pub/TWiki/WysiwygPlugin/verbatim-watermark.png== | Watermark |
+   | ==pub/TWiki/WysiwygPlugin/screenshot.jpg== | Screen shot |
+   | ==pub/TWiki/WysiwygPlugin/view-source.png== | Button image |
+   | ==templates/edit.kupu.tmpl== | Template for an edit using kupu |
+   | ==templates/view.kupuxml.tmpl== | Template for AJAX data |
+   | ==templates/attachtables.kupu.tmpl== | Attachment table rendering for editor |
+   | ==templates/view.kupu.tmpl== | Template for a kupu skin view, used by the editor |
+   | ==tools/html2tml.pl== | Stand-alone convertor script |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/Extensions/Install.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/Makefile== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/__init__.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/README.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/body.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/exit.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/include.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/kupudrawerstyles.css== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/kupumacros.html== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/kupustyles.css== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/lenya.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/lenya.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/toolbar.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/toolboxes.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/wire.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/xmlconfig.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/content2edit.xsl== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/drawers/imagedrawer.xsl== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/drawers/imagelibraries.xml.jx== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/drawers/kupudrawerstyles.css== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/drawers/libraries.xml.jx== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/drawers/linkdrawer.xsl== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/drawers/linklibraries.xml.jx== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/drawers/publication_image_library.xml.jx== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/drawers/sitetree_link_library.xml.jx== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/i18n.xsl== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/images/emblem-generic.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/images/exit.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/images/page-image.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/images/pub-image.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/images/right_arrow.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/images/sitetree-link.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/kupumacros.xsl== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/kupusave.xsl== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/page2kupu.xsl== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/pageassets2kupulibrary.xsl== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/sitetree2kupulibrary.xsl== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/cnf/head.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/cnf/include.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/cnf/toolboxes.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/cnf/wire.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/cnf/xmlconfig.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/fulldoc.html== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupu-pox.cgi== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupu.cgi== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupu.html== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupu.pox== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupu.pox.jspx== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupubasetools.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupubeforeunload.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupublank.html== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupucleanupexpressions.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupucnf.html== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupucnftable.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupucontentfilters.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupucontentstyles.css== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupucontextmenu.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/allimages.xml== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/drawer.xsl== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/drawer.xsl.metadata== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/imagelibrary.xml== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/kupubuttons.xml== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/linklibrary.xml== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos.xml== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/bitflux_logo.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/bitflux_logo_preview.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/bubnbros.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/bubnbros_preview.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/codespeak_logo.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/codespeak_logo_preview.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/diver_logo.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/diver_logo_preview.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/eth_logo.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/eth_logo_preview.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/infrae_logo.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/infrae_logo_preview.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/kupu_logo.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/kupu_logo_preview.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/lenya_logo.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/lenya_logo_preview.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/opensource.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/opensource_preview.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/oscom4_banner.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/oscom4_banner_preview.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/oscom_logo.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/oscom_logo_preview.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/plone_logo.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/plone_logo_preview.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/pypy_logo.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/pypy_logo_preview.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/silva_logo.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/silva_logo_preview.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/twiki_logo.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/twiki_logo.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/zea_logo.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/zea_logo_preview.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/zope_logo.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/zope_logo_preview.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawerstyles.css== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupueditor.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuform.html== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuhelpers.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/background-color.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/bold.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/bold.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/buttons.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/caret.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/closed.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/copy.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/create-new.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/cut.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/definitionlist.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/document.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/exit.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/exthyperlink.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/folder.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/fonts.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/format.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/hr.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/image.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/indent.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/indent.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/inthyperlink.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/italic.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/italic.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/justify-center.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/justify-full.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/justify-left.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/justify-right.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/kupu_icon.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/kupulibrary.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/kupusearch_icon.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/larger-text.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/link.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/opened.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/ordered-list.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/outdent.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/paste.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/redo-disabled.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/redo.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/remove.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/save.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/size.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/smaller-text.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/space.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/strikethrough.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/subscript.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/superscript.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/table.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/text-check.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/text-color.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/toolbarbg_blue.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/toolbarbg_green.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/toolbarbg_purple.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/toolbarbg_wood.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/underline.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/underline.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/undo-disabled.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/undo.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/unlink.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/unordered-list.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/view-source.png== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/zoom-in.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/zoom-out.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuinit.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuinit_experimental.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuinit_form.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuinit_genericelements.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuinit_multi.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuinspector.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuloggers.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupumacros.html== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupumulti.html== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupumultieditor.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupunoi18n.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupupopups/image.html== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupupopups/link.html== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupusaveonpart.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupusourceedit.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuspellchecker.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupustart.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupustart_form.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupustart_multi.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kupustyles.css== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/kuputoolcollapser.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/sarissa.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/sarissa_ieemu_xpath.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/common/spellcheck.cgi== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/config.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/configure.zcml== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/default/body.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/default/colorchooser.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/default/contextmenu.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/default/drawers.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/default/form.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/default/head.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/default/html.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/default/include.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/default/save.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/default/saveonpart.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/default/sourceedit.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/default/spellchecker.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/default/toolbar.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/default/toolboxes.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/default/wire.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/default/xmlconfig.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/dist-apache-lenya.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/dist-cnf.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/dist-form.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/dist-multi.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/dist-plone.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/dist-silva.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/dist-zope2.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/dist.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/doc/BEFOREUNLOAD.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/doc/CHANGES.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/doc/CONTRIBUTING.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/doc/CREDITS.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/doc/CUSTOMIZING.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/doc/EXTENDING.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/doc/FAQ.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/doc/IMAGEUPLOADER.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/doc/INSTALL.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/doc/JSAPI.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/doc/LIBRARIES.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/doc/LICENSE.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/doc/OLDBROWSERS.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/doc/PLONE2.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/doc/README.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/doc/STYLEGUIDE.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/doc/TEMPLATE-SYSTEM.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/doc/TODO.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/doc/ZOPE2.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/doc/default.css== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/doc/docutils.conf== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/doc/file-template== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/form/body.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/form/head.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/form/include.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/form/save.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-cs.po== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-da.po== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-de.po== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-el.po== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-eo.po== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-fi.po== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-fr.po== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-he.po== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-ja.po== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-nl.po== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-pt-br.po== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-pt.po== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-sr-Latn.po== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-sr.po== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-zh-cn.po== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-zh.po== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu.pot== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupuconfig-da.po== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupuconfig-fr.po== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupuconfig-ja.po== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupuconfig.pot== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/include.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/kupu-i18nextract-sa-diff.patch== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/kupu_icon.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/make-jspx.xsl== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/make.bat== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/make.xsl== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/multi/body.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/multi/head.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/multi/include.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/multi/save.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/multi/toolboxes.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/ReftextField.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/TODO.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/__init__.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/beforeunload.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/body.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/drawers.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/head.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/html2captioned.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/include.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/interfaces.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu2html.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_config.pt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/contentUsesKupu.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/convertContentForKupu.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/emptypage.pt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupuGetResourceTypes.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupuInfoForBrains.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupuMyItems.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupuRecentItems.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupuSearch.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupuUploadImage.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupuUploadImage.py.metadata== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupu_wysiwyg_support.html== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupublank.html.html== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupucollection.xml.pt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupucollection.xml.pt.metadata== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupulibraries.xml.pt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupumyitems.xml.pt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupuplone.css.dtml== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupuploneeditor.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupuploneinit.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupuploneui.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupurecentitems.xml.pt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupusaveonpart.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupusearch.xml.pt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/anchor.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/bgcolor.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/bold.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/center.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/definitionlist.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/delete_icon.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/hr.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/hyperlink.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/indent.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/italic.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/left_just.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/list.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/numbered_list.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/outdent.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/redo.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/right_just.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/space.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/strikethrough.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/subscript.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/superscript.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/table.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/textcolor.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/tools.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/underline.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/undo.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/unformat.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/view-source.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/resolveuid.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/sample-kupu-customisation-policy.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/wysiwyg_support.pt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/libraries.pt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/librarytool.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/permissions.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/plonelibrarytool.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/resource_types.pt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/scanner.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/sourceedit.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/__init__.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/framework.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/input/baduid.in== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/input/linked.in== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/input/minimal.in== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/input/notcaptioned.in== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/input/notquoted.in== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/input/simple.in== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/output/baduid.out== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/output/linked.out== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/output/minimal.out== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/output/notcaptioned.out== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/output/notquoted.out== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/output/simple.out== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/runalltests.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/runme.cmd== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/test_browserSupportsKupu.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/test_html2captioned.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/test_librarymanager.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/test_resourcetypemapper.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/toolbar.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/wire.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/wysiwyg_support.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/xmlconfig.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/plone/zmi_docs.pt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/python/__init__.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/python/nationalizer.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/python/spellcheck.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/refresh.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/roundup/kupuinit.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/roundup/kupustyles.css== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/silva/body.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/silva/closed_arrow.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/silva/contextmenu.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/silva/drawers.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/silva/head.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/silva/imagedrawer.xsl.pt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/silva/include.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/silva/kupudrawerstyles.css== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/silva/kupumacros.html== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/silva/kupusilvainit.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/silva/kupusilvatools.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/silva/librarydrawer.xsl== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/silva/opened_arrow.gif== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/silva/saveonpart.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/silva/toolbar.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/silva/toolboxes.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/silva/wire.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/silva/xmlconfig.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/tests/run_tests.html== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/tests/test_beforeunload.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/tests/test_kupubasetools.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/tests/test_kupueditor.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/tests/test_kupuhelpers.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/tests/test_kupuinit.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/tests/test_plone.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/tests/test_xhtml.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/tools/compress.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/tools/convert_to_utf-8.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/tools/makepox.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/version.txt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/Makefile== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/body.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/browser.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/dist.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/empty.html== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/head.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/include.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/kupuinit.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/kupustart.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/kupustyles.css== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/make.bat== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/wire.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/xmlconfig.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/zope2/__init__.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/zope2/addKupuEditor.pt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/zope2/body.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/zope2/contextmenu.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/zope2/drawers.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/zope2/example.pt== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/zope2/head.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/zope2/html.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/zope2/include.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/zope2/saveonpart.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/zope2/sourceedit.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/zope2/wire.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/zope2/xmlconfig.kupu== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/zope3/__init__.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/zope3/browser/__init__.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/zope3/browser/configure.zcml== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/zope3/configure.zcml== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/zope3/field.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/zope3/interfaces.py== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/tests/test_kupubasetools.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/tests/test_kupueditor.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/tests/test_kupuhelpers.js== | Kupu 1.3.2 |
+   | ==pub/TWiki/WysiwygPlugin/_kupu/tests/test_kupuinit.js== | Kupu 1.3.2 |
+
+	* Run ==%TOPIC%_installer== to automatically check and install other modules that this module depends on. You can also do this step manually. Dependencies:
+	<table border="1"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">HTML::Parser</td><td align="left">&gt;=3.28</td><td align="left">Required. Available from [[http://cpan.uwinnipeg.ca/search?query=HTML%3A%3AParser&mode=dist][CPAN]].</td></tr><tr><td align="left">HTML::Entities</td><td align="left">&gt;=1.25</td><td align="left">Required. Available from [[http://cpan.uwinnipeg.ca/search?query=HTML%3A%3AEntities&mode=dist][CPAN]].</td></tr></table>
+	* (Dakar) Visit =configure= in your TWiki installation, and enable the plugin in the {Plugins} section.
+	* To enable the editor in one of your skins, add the following link to the skin alongside or in place of the existing 'edit' link:<br /><code>&lt;a href="%<nop>SCRIPTURLPATH%/edit%<nop>SCRIPTSUFFIX%/%<nop>WEB%/%<nop>TOPIC%?skin=kupu"&gt;Kupu&lt;/a&gt;</code><br />As you can see this is just a standard edit link with the 'kupu' skin in place of the usual edit skin. Here it is for this topic: <a href="%SCRIPTURLPATH%/edit%SCRIPTSUFFIX%/%WEB%/%TOPIC%?skin=kupu">Kupu</a>. Try clicking on it, but _do not save_!
+d49 39
+a87 6
+---++ Plugin Configuration Settings
+	* Set SHORTDESCRIPTION = Translator framework and WYSIWYG editor for TWiki topics
+	* The name of the skin used to invoke a Wysiwyg editor.
+		* Set WYSIWYGSKIN = kupu
+	* Web/Topic name of a help page. Change this to point to your local version of the help page, which is brought up when the .
+		* Set HELPPAGE = TWiki/WysiwygPlugin
+d89 2
+a90 1
+---++ Other Settings
+d92 23
+a114 1
+The editor template includes a number of files that can be used for other settings. These files are *not* defined in the distribution, so that you can create your own local content.
+a115 13
+---+++ %TWIKIWEB%.<nop>WysiwygPluginIcons
+You can define a list of icons that will be available in the Kupu editor when the %ATTACHURL%/smiley.png toolbar button is pressed. This topic has to contain a list of &lt;IMG&gt; tags. If present, the 'alt' text will be used in place of the &lt;IMG&gt; tag when translating from HTML to TML. Example:
+<verbatim>
+	<img src="%PUBURL%/TWiki/TWikiDocGraphics/tip.gif" />
+	<img src="%PUBURL%/TWiki/TWikiDocGraphics/warning.gif" />
+	<img src="%PUBURL%/TWiki/TWikiDocGraphics/pencil.gif" />
+	<img src="%PUBURL%/TWiki/TWikiDocGraphics/choice-yes.gif" />
+	<img src="%PUBURL%/TWiki/TWikiDocGraphics/updated.gif" />
+	<img src="%PUBURL%/TWiki/TWikiDocGraphics/help.gif" />
+	<img src="%PUBURL%/TWiki/TWikiDocGraphics/new.gif" />
+	<img src="%PUBURL%/TWiki/TWikiDocGraphics/starred.gif" />
+	<img src="%PUBURL%/TWiki/TWikiDocGraphics/arrowright.gif" />
+</verbatim>
+d117 1
+a117 15
+---+++ %TWIKIWEB%.<nop>WysiwygPluginStrings
+You can also define a list of strings that will be available for insertion in topics using the %ATTACHURL%/strings.png toolbar button. This topic has to contain a list of HTML 'option' tags. Example:
+<verbatim>
+	<option value='-- <nop>%WIKIUSERNAME% - %DATE%'>Signature</option>
+	<option value="%<nop>WIKINAME%">Wiki name (variable)</option>
+	<option value='%<nop>SEARCH{"search for"}%'>Inline search (variable)</option>
+	<option value='%<nop>INCLUDE{"topic or url"}%'>Include (variable)</option>
+	<option value="%<nop>TOC%"> Table of Contents (variable)</option>
+	<option value="%<nop>TOPIC%">Topic (variable)</option>
+	<option value="%<nop>WEB%">Web (variable)</option>
+	<option value="%<nop>DATE%"> Date (variable)</option>
+</verbatim>
+The bit between the &gt; &lt; =value= defines text in the drop-down box in the editor, and the =value= defines the actual string inserted in the topic.			
+---+++ %TWIKIWEB%.<nop>WysiwygPluginLocalHelp
+If it exists, the contents of this topic will be included and shown on the edit screen below the status bar. It is intended to be used for site-specific quick help information.
+d119 6
+a124 2
+---+++ Editor control
+The global TWiki Variable =WYSIWYG_EXCLUDE= can be set to make the plugin sensitive to what is in a topic before allowing it to be edited. You can set it up to refuse to edit if 
+d126 1
+d129 1
+a129 1
+   * calls (e.g. =%VARIABLE{...}%=)
+d134 2
+a135 1
+   * =Set WYSIWYG_EXCLUDE = variables,calls= (inactive; you need to remove monospacing from this setting to enable it)
+d137 2
+a138 1
+If you are using this plugin with TWiki-4.0.0 or later with =pattern= skin, the =%<nop>COMPOSER%= global TWiki variable is used to control the skin used for the WYSIWYG editor link. You can define this variable to the empty string to disable WYSIWYG editing on a site, per-web, per-user or per-topic basis.
+d140 1
+a140 2
+---++ Known Issues
+Most of the known problems with the plugin are actually problems with the Kupu editor or the browser rather than the plugin.
+d143 1
+a143 1
+WysiwygPlugin is Incompatible with plugins that expand non-standard syntax e.g. TWiki:Plugins.MathModePlugin (WysiwygPlugin)
+d147 2
+a148 5
+---+++ Can't *undo* all functions (Kupu + browser)
+Due to limitations in the browser support for editing, not all functions can be undone. Also, the undo buffer can be cleared unexpectedly during editing, especially when using Internet Explorer.
+
+---+++ Overlapping styles (WysiwygPlugin)
+Because TWiki uses a "best guess" approach to some formatting, it allows overlapping of tags in a way forbidden by HTML, it is impossible to guarantee 100% that formating in the original TWiki document will still be there when the same document is loaded and then saved through the WysiwygPlugin. The most obvious case of this is to do with styles. For example, the sentence
+a161 3
+---+++ Support for PRE
+Because of limitations in the browsers, the editor does not support PRE blocks. All PRE blocks will be converted to TWiki verbatim blocks on save. This can cause some confusion, especially when editor formatting controls (such as "bold") have been used to format text in a PRE block. Users are advised to use only plain text in PRE (verbatim) blocks.
+
+d164 9
+a172 6
+This plugin is heavily based on the TWiki::Plugins.KupuEditorAddOn, and the authors of that add-on are therefore also credited as authors of this plugin.
+
+|  Plugin Authors: | TWiki:Main.CrawfordCurrie http://www.c-dot.co.uk (from original work by TWiki:Main.RomainRaugi, TWiki:Main.DamienMandrioli, TWiki:Main.FredericLuddeni, and TWiki:Main.ColasNahaboo)  |
+| Copyright | &copy; ILOG 2005 http://www.ilog.fr |
+|  Plugin Version: | 10613 |
+| Change&nbsp;History: | |
+d287 2
+d290 1
+d294 2
+a295 2
+-- TWiki:Main/CrawfordCurrie - 02:16:12 25 October 2006
+ 
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d765 1
+a765 1
+-- TWiki:Main/CrawfordCurrie - 02:19:17 26 June 2006
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d645 116
+a760 114
+|  Plugin Version: | 9566 |
+| Change History: | |
+| 9565 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1890'>Item1890</a> <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1041'>Item1041</a> <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item944'>Item944</a> Much more aggressive cleanup of HTML pasted in from external sources. Excessively verbose HTML (e.g. from Outlook) was causing apparent infinite looing behaviour. |
+| 8867 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1176'>Item1176</a>  commented out Cairo version of header handler |
+| 8780 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1625'>Item1625</a>  disable expansion of twiki variables in urls where there are other twiki variables that can't be expanded |
+| 8779 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1530'>Item1530</a>  support for templatetopic when editing new topics |
+| 8592 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1532'>Item1532</a>  WysiwygPlugin: Added two more do-not-edit-if-topic-contains parameters, pre+comments |
+| 8590 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1532'>Item1532</a>  WysiwygPlugin: Kenneths suggestion on proper handling of HTML comments (incl. change to kupu) |
+| 8572 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1529'>Item1529</a>  evil, evil. The XMLSerializer in IE isn't happy serializing the DOM. I have no idea why. Kupu manages to get away with this because it passes the DOM through the XML validator, which I had to disable because it strips comments. So, for now, the IE implementation will strip comments - but at least you can save again |
+| 8538 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1501'>Item1501</a>  table handling was a bit spazzy. Several problems fixed. |
+| 8535 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1518'>Item1518</a>  moved icon and string lists into topics, updated screenshot |
+| 8531 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1392'>Item1392</a>  reversed the sense of the navigate-away condition, again |
+| 8466 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1486'>Item1486</a>  added WYSIWYG_EXCLUDE to allow exclusion of 'uneditable' content |
+| 8463 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1486'>Item1486</a>  was stripping comments, wrongly. Had to disable the kupu filters completely, they just do too much damage. |
+| 8401 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1457'>Item1457</a>  corrected problem with bullet list at top of topic |
+| 8388 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1445'>Item1445</a>  fix for a javascript error, introduced by previous fix |
+| 8387 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1445'>Item1445</a>  small usability improvements |
+| 8334 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item663'>Item663</a>  TWiki.org doc merge: Fix incorrect link to kupu website |
+| 8327 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1411'>Item1411</a>  handle case of the result of a TWiki variable being nopped |
+| 8312 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1317'>Item1317</a>  wrong result returned from generation function when expanding HTML embedded in verbatim block |
+| 8301 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1397'>Item1397</a>  removed excess space after sqaub links |
+| 8300 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1231'>Item1231</a>  added %SPAN% to indicate a spanned-over cell in the editor. Improved handling of HTML in verbatim tags by inserting line breaks is the tag type calls for it, before removing the HTML. |
+| 8276 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1215'>Item1215</a>  added WYSIWYG_ICONS and WYSIWYG_TAGS to support user customisation of icon images and twiki variables that can be inserted |
+| 8274 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1314'>Item1314</a>  debugging in case the hang happens again; and made sure to default the editor just in case |
+| 8273 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1315'>Item1315</a>  short forms must be terminated by one of the same characters that terminate wikiwords |
+| 8272 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1391'>Item1391</a>  added special interpretation of IMG tags to expand selected TWiki variables within SRC attributes |
+| 8271 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1340'>Item1340</a>  refined handling of NOP to cover abbrevs |
+| 8270 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1311'>Item1311</a>  removed excess space inserted in headings |
+| 8269 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1339'>Item1339</a>  changed from using arbitrary attribute for notoc to a new CSS class. Arbitrary attributes are stripped by Kupu before save. |
+| 8268 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1344'>Item1344</a>  strip ^Ms inserted by Sarissa during serialisation on IE |
+| 8267 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1394'>Item1394</a>  still can't get text styles to work properly in IE; but I am now firmly of the opinion that the fault lies with the browser, and not with Kupu. |
+| 8232 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1341'>Item1341</a>  added appropriate CSS class |
+| 8152 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1313'>Item1313</a>  added caveat about editing complex HTML and mixed HTML-TML |
+| 8151 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1334'>Item1334</a>  headers not handled properly in Cairo version |
+| 8108 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1318'>Item1318</a>  corrected table/list parser for tables embedded in bulleted lists |
+| 8106 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1310'>Item1310</a>  support for &lt;nop/> |
+| 8105 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1317'>Item1317</a>  support for limited case of nopped variable |
+| 8104 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1320'>Item1320</a>  corrected interpretation of relative URL path in [[]] |
+| 8091 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1259'>Item1259</a>  changed comment handling; rather than trying to create HTML, which gets munged, create an HTML comment. This will only be editable by switching to source view, but hey, it's supposed to be WYSIWYG. Note that this also means that comments in pasted HTML should be retained now |
+| 8063 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1042'>Item1042</a>  spec of SCRIPTURL changed |
+| 7904 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1189'>Item1189</a>  reverting accidental checkin of experimental code |
+| 7903 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1189'>Item1189</a>  filter whitelist is not good enough; need to generate B and I nodes. templates/ pub/TWiki/WysiwygPlugin |
+| 7902 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1189'>Item1189</a>  it took bloody ages to track down, but finally discovered that bold and italic were being filtered out of spans by Kupu 1.3.2.... too smart for it's own good. So added them to the filter whitelist, and it works again. |
+| 7873 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1189'>Item1189</a>  added pre save filter to try and find where the attributes are disappearing to in FF |
+| 7872 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1187'>Item1187</a>  for lack of an s on an RE, the nation was lost (well, the multi-line comment actually). Thanks Kenneth! |
+| 7871 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item859'>Item859</a>  solved issue with non-display of inserted images. Was due to the use of an onSubmit handler to close the dialog, rather than an onLoad handler triggered when the IFRAME that contains the result is loaded. |
+| 7869 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1172'>Item1172</a>  had to rewrite big chunk of the table popup to get it working with 1.3.2 |
+| 7858 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1151'>Item1151</a>  rewrote link handlings stuff to leverage browser better |
+| 7854 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1175'>Item1175</a>  escape wikiwords within squabs |
+| 7815 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1158'>Item1158</a>  works for Cairo now as well |
+| 7814 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1158'>Item1158</a>  first implementation of AJAX interface to allow selectoin of topics from other webs |
+| 7812 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1154'>Item1154</a>  removed non-existent scull.gif |
+| 7811 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1155'>Item1155</a>  added extra recursion block, as Item1155 suggests it is needed |
+| 7801 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1042'>Item1042</a>  All sorts of clever tricks to handle expansion/compression of a subset of TWiki variables when they are used in URLs. Not a complete solution, but better than it was. |
+| 7799 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1024'>Item1024</a>  caught out by recursive call to beforeCommonTagsHandler in Cairo (nasty) |
+| 7798 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1042'>Item1042</a>  whoops, broke \t conversion in Cairo |
+| 7789 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1140'>Item1140</a>  testcase for 1140 |
+| 7788 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1140'>Item1140</a>  fix rewriting of img src urls (and updated MANIFEST for Kupu1.3.2) |
+| 7786 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1042'>Item1042</a>  extensive improvements to variable and URL recognition and conversion |
+| 7766 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item856'>Item856</a>  added doc on EDIT_SKIN to the plugin |
+| 7712 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1074'>Item1074</a>  upgrade to Kupu 1.3.2 complete (at last) |
+| 7710 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1074'>Item1074</a>  Fixed source edit mode |
+| 7709 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1074'>Item1074</a>  tidied up broken toolbar. There are still known issues |
+| 7700 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1074'>Item1074</a>  first pass at moving to Kupu 1.3.2. |
+| 7673 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1037'>Item1037</a>  insert wikiword only if selection is zero length |
+| 7672 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item977'>Item977</a>  changed to remove dangerous Cairo-based assumption, and use context ids instead |
+| 7630 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item1025'>Item1025</a>  added 'escape clause' for old handlers implemented to support old TWiki releases without warnings |
+| 7506 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item941'>Item941</a>  Eliminated the last of the dynamic globals to try and solve saving problem. Can;t test with mod_perl, but is fine with speedycgi AFAICT |
+| 7456 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item873'>Item873</a>  minor issue; replace br with \n in pre |
+| 7455 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item873'>Item873</a>  obvious problem parsing closing pre tag on same line as open tag |
+| 7453 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item710'>Item710</a>  Handling HTML comments |
+| 7452 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item876'>Item876</a>  Item945: Item876: spacing around table cells, correct handling of variables. Had to compromise on handling [[]] but I think it's for the best. |
+| 7430 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item871'>Item871</a>  made sure that brackets are generated for non-wikiwords |
+| 7425 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item928'>Item928</a>  removed special interpretation of mailto links |
+| 7424 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item866'>Item866</a>  extended URL parsing to handle MAINWEB and TWIKIWEB twiki variables, in the same hacky way as the core. |
+| 7416 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item870'>Item870</a>  a couple of corner-cases for correct handling of twiki variables |
+| 7401 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item899'>Item899</a>  changed list generation to use spaces instead of tabs |
+| 7265 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item180'>Item180</a>  removed pointless, outdated dependency check from DateFieldPlugin |
+| 6935 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item622'>Item622</a>  reverted 3 specs to tabs in Set lines in plugins topics for kompatterbility with Kigh-roe |
+| 6905 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item622'>Item622</a>  tabs -> 3 spacesto avoid confusing the users |
+| 6850 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item638'>Item638</a>  added instruction to run configure to all install docs (I hope) |
+| 6827 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item569'>Item569</a>  added default RELEASE to everything that had a version, and removed a load of dead code that was getting in the way |
+| 6758 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item569'>Item569</a>  computed version numbers for plugins from the repository rev they were built from. |
+| 6504 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item436'>Item436</a>  incremented vernos of all changed plugins |
+| 6485 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item429'>Item429</a>  trying to make access controls clearer |
+| 6401 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item340'>Item340</a>  re-initialisation bug found by ColasNahaboo when using mod_perl; fixed by correctly re-initialising the parse stack for each run of the convertor |
+| 6284 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item340'>Item340</a>  Release 0.16 of WysiwygPlugin |
+| 6279 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item340'>Item340</a>  bugfixes for release 0.16 of WysiwygPlugin |
+| 6261 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item335'>Item335</a>  Switched PNGs to indexed mode, as transparency doesn't work on IE for RGB images |
+| 6238 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item332'>Item332</a>  Added context identifier to WysiwygPlugin, and a button to the pattern view template. If WysiwygPlugin is enabled, then the button will appear. Neat, huh? |
+| 6195 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item196'>Item196</a>  getting plugin test suites to pass. Doesn't mean the plugins actually work, just that the test suites run (which is a good indicator) |
+| 6174 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item168'>Item168</a>  checkpoint checking for 0.16 |
+| 6151 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item186'>Item186</a>  more minor updates |
+| 6150 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item168'>Item168</a>  new icons, and a couple of bugfixes, to WysiwygPlugin |
+| 6092 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item196'>Item196</a>  more plugin and contrib fixes for develop; mainly just moving tests around and making sure they all pass. |
+| 6067 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item138'>Item138</a>  had to change to using beforeCommonTagsHandler and also escape % signs to prevent TWiki from rendering internal tags (as reported by Colas) |
+| 5979 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item168'>Item168</a>  corrected stupid error on IE; added screenshot |
+| 5977 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item168'>Item168</a>  release 0.13 |
+| 5948 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item168'>Item168</a>  nearly ready for 0.13 |
+| 5937 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item168'>Item168</a>  corrected images, twikified all images |
+| 5936 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item168'>Item168</a>  the import from cvs has screwed images |
+| 5934 | <a rel='nofollow' href='http://develop.twiki.org/~develop/cgi-bin/view/Bugs/Item168'>Item168</a>  twikified icon images, and renamed some images to be more intention-revealing |
+| 5739 | 0.12 beta release |
+| 5730 | V0.11 |
+| 5714 | Tidied up installer, documentation. Release 0.10 |
+| 5712 | pre-release 0.06 |
+| 5706 | Version 0.05 |
+| 5705 | Checkpoint checking - version 0.03 |
+| 5702 | cvsrmtee old files |
+| 5701 | Check in for prototype release |
+| 5700 | Check in for prototype release |
+| 5699 | Checkpoint |
+| 5698 | Most of the toolboxes are working again |
+| 5693 | Initial commit; doesn't do much except run tests |
+d765 1
+a765 1
+-- TWiki:Main/CrawfordCurrie - 21:45:16 31 March 2006
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d34 2
+a35 2
+	* Watch out for the &lt;&gt; button on the right of the toolbar. It lets you switch into an HTML view, which can be very useful when you can't get your formatting right.
+	* In TWiki, a totally empty table cell causes the cell to be merged with the cell immediately to the left. To make this effect more transparent in the editor, these empty cells are shown with the text "%<nop>SPAN%" in them. In Kupu, if you add %<nop>SPAN% to a table cell, then all the rest of the content will be thrown away and the cell will be converted to an empty table cell. Note that this only applies to tables that are converted to TWiki syntax.
+d61 488
+a548 488
+	| ==lib/TWiki/Plugins/WysiwygPlugin/HTML2TML/WC.pm== | Perl module |
+	| ==lib/TWiki/Plugins/WysiwygPlugin/HTML2TML/Leaf.pm== | Perl module |
+	| ==lib/TWiki/Plugins/WysiwygPlugin/HTML2TML/Node.pm== | Perl module |
+	| ==lib/TWiki/Plugins/WysiwygPlugin/HTML2TML.pm== | Perl module |
+	| ==lib/TWiki/Plugins/WysiwygPlugin.pm== | Perl module |
+	| ==lib/TWiki/Plugins/WysiwygPlugin/TML2HTML.pm== | Perl module |
+	| ==data/TWiki/WysiwygPlugin.txt== | Documentation and settings |
+	| ==data/TWiki/WysiwygPluginTopicLister.txt== | Special AJAX topic |
+	| ==pub/TWiki/WysiwygPlugin/kuputwiki.css== | Kupu customisation |
+	| ==pub/TWiki/WysiwygPlugin/twikitools.js== | Kupu customisation |
+	| ==pub/TWiki/WysiwygPlugin/kupuinit.js== | Kupu customisation |
+	| ==pub/TWiki/WysiwygPlugin/kupustart.js== | Kupu customisation |
+	| ==pub/TWiki/WysiwygPlugin/bold.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/cancel.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/code.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/definition-list.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/exthyperlink.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/help.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/indent.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/inthyperlink.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/italic.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/new-attachment.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/new-image.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/nop.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/ordered-list.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/outdent.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/redo.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/remove.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/save.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/separator.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/smiley.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/strings.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/table.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/text-color.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/undo.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/unordered-list.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/vars.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/verbatim.png== | Button image |
+	| ==pub/TWiki/WysiwygPlugin/verbatim-watermark.png== | Watermark |
+	| ==pub/TWiki/WysiwygPlugin/screenshot.jpg== | Screen shot |
+	| ==pub/TWiki/WysiwygPlugin/view-source.png== | Button image |
+	| ==templates/edit.kupu.tmpl== | Template for an edit using kupu |
+	| ==templates/view.kupuxml.tmpl== | Template for AJAX data |
+	| ==templates/attachtables.kupu.tmpl== | Attachment table rendering for editor |
+	| ==templates/view.kupu.tmpl== | Template for a kupu skin view, used by the editor |
+	| ==tools/html2tml.pl== | Stand-alone convertor script |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/Extensions/Install.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/Makefile== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/__init__.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/README.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/body.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/exit.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/include.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/kupudrawerstyles.css== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/kupumacros.html== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/kupustyles.css== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/lenya.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/lenya.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/toolbar.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/toolboxes.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/wire.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/kupu/xmlconfig.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/content2edit.xsl== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/drawers/imagedrawer.xsl== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/drawers/imagelibraries.xml.jx== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/drawers/kupudrawerstyles.css== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/drawers/libraries.xml.jx== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/drawers/linkdrawer.xsl== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/drawers/linklibraries.xml.jx== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/drawers/publication_image_library.xml.jx== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/drawers/sitetree_link_library.xml.jx== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/i18n.xsl== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/images/emblem-generic.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/images/exit.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/images/page-image.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/images/pub-image.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/images/right_arrow.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/images/sitetree-link.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/kupumacros.xsl== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/kupusave.xsl== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/page2kupu.xsl== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/pageassets2kupulibrary.xsl== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/apache-lenya/lenya/sitetree2kupulibrary.xsl== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/cnf/head.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/cnf/include.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/cnf/toolboxes.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/cnf/wire.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/cnf/xmlconfig.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/fulldoc.html== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupu-pox.cgi== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupu.cgi== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupu.html== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupu.pox== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupu.pox.jspx== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupubasetools.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupubeforeunload.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupublank.html== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupucleanupexpressions.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupucnf.html== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupucnftable.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupucontentfilters.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupucontentstyles.css== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupucontextmenu.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/allimages.xml== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/drawer.xsl== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/drawer.xsl.metadata== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/imagelibrary.xml== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/kupubuttons.xml== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/linklibrary.xml== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos.xml== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/bitflux_logo.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/bitflux_logo_preview.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/bubnbros.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/bubnbros_preview.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/codespeak_logo.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/codespeak_logo_preview.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/diver_logo.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/diver_logo_preview.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/eth_logo.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/eth_logo_preview.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/infrae_logo.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/infrae_logo_preview.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/kupu_logo.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/kupu_logo_preview.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/lenya_logo.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/lenya_logo_preview.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/opensource.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/opensource_preview.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/oscom4_banner.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/oscom4_banner_preview.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/oscom_logo.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/oscom_logo_preview.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/plone_logo.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/plone_logo_preview.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/pypy_logo.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/pypy_logo_preview.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/silva_logo.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/silva_logo_preview.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/twiki_logo.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/twiki_logo.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/zea_logo.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/zea_logo_preview.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/zope_logo.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawers/logos/zope_logo_preview.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupudrawerstyles.css== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupueditor.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuform.html== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuhelpers.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/background-color.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/bold.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/bold.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/buttons.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/caret.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/closed.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/copy.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/create-new.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/cut.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/definitionlist.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/document.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/exit.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/exthyperlink.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/folder.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/fonts.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/format.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/hr.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/image.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/indent.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/indent.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/inthyperlink.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/italic.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/italic.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/justify-center.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/justify-full.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/justify-left.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/justify-right.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/kupu_icon.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/kupulibrary.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/kupusearch_icon.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/larger-text.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/link.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/opened.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/ordered-list.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/outdent.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/paste.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/redo-disabled.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/redo.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/remove.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/save.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/size.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/smaller-text.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/space.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/strikethrough.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/subscript.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/superscript.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/table.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/text-check.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/text-color.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/toolbarbg_blue.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/toolbarbg_green.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/toolbarbg_purple.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/toolbarbg_wood.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/underline.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/underline.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/undo-disabled.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/undo.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/unlink.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/unordered-list.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/view-source.png== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/zoom-in.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuimages/zoom-out.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuinit.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuinit_experimental.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuinit_form.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuinit_genericelements.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuinit_multi.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuinspector.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuloggers.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupumacros.html== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupumulti.html== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupumultieditor.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupunoi18n.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupupopups/image.html== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupupopups/link.html== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupusaveonpart.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupusourceedit.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupuspellchecker.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupustart.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupustart_form.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupustart_multi.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kupustyles.css== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/kuputoolcollapser.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/sarissa.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/sarissa_ieemu_xpath.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/common/spellcheck.cgi== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/config.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/configure.zcml== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/default/body.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/default/colorchooser.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/default/contextmenu.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/default/drawers.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/default/form.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/default/head.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/default/html.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/default/include.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/default/save.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/default/saveonpart.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/default/sourceedit.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/default/spellchecker.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/default/toolbar.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/default/toolboxes.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/default/wire.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/default/xmlconfig.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/dist-apache-lenya.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/dist-cnf.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/dist-form.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/dist-multi.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/dist-plone.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/dist-silva.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/dist-zope2.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/dist.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/doc/BEFOREUNLOAD.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/doc/CHANGES.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/doc/CONTRIBUTING.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/doc/CREDITS.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/doc/CUSTOMIZING.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/doc/EXTENDING.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/doc/FAQ.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/doc/IMAGEUPLOADER.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/doc/INSTALL.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/doc/JSAPI.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/doc/LIBRARIES.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/doc/LICENSE.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/doc/OLDBROWSERS.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/doc/PLONE2.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/doc/README.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/doc/STYLEGUIDE.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/doc/TEMPLATE-SYSTEM.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/doc/TODO.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/doc/ZOPE2.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/doc/default.css== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/doc/docutils.conf== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/doc/file-template== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/form/body.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/form/head.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/form/include.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/form/save.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-cs.po== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-da.po== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-de.po== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-el.po== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-eo.po== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-fi.po== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-fr.po== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-he.po== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-ja.po== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-nl.po== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-pt-br.po== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-pt.po== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-sr-Latn.po== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-sr.po== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-zh-cn.po== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu-zh.po== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupu.pot== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupuconfig-da.po== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupuconfig-fr.po== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupuconfig-ja.po== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/i18n/kupuconfig.pot== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/include.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/kupu-i18nextract-sa-diff.patch== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/kupu_icon.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/make-jspx.xsl== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/make.bat== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/make.xsl== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/multi/body.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/multi/head.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/multi/include.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/multi/save.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/multi/toolboxes.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/ReftextField.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/TODO.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/__init__.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/beforeunload.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/body.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/drawers.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/head.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/html2captioned.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/include.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/interfaces.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu2html.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_config.pt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/contentUsesKupu.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/convertContentForKupu.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/emptypage.pt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupuGetResourceTypes.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupuInfoForBrains.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupuMyItems.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupuRecentItems.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupuSearch.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupuUploadImage.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupuUploadImage.py.metadata== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupu_wysiwyg_support.html== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupublank.html.html== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupucollection.xml.pt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupucollection.xml.pt.metadata== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupulibraries.xml.pt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupumyitems.xml.pt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupuplone.css.dtml== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupuploneeditor.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupuploneinit.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupuploneui.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupurecentitems.xml.pt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupusaveonpart.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/kupusearch.xml.pt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/anchor.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/bgcolor.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/bold.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/center.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/definitionlist.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/delete_icon.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/hr.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/hyperlink.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/indent.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/italic.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/left_just.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/list.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/numbered_list.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/outdent.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/redo.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/right_just.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/space.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/strikethrough.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/subscript.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/superscript.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/table.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/textcolor.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/tools.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/underline.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/undo.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/unformat.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/plonekupuimages/view-source.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/resolveuid.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/sample-kupu-customisation-policy.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/kupu_plone_layer/wysiwyg_support.pt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/libraries.pt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/librarytool.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/permissions.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/plonelibrarytool.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/resource_types.pt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/scanner.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/sourceedit.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/__init__.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/framework.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/input/baduid.in== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/input/linked.in== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/input/minimal.in== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/input/notcaptioned.in== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/input/notquoted.in== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/input/simple.in== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/output/baduid.out== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/output/linked.out== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/output/minimal.out== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/output/notcaptioned.out== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/output/notquoted.out== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/output/simple.out== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/runalltests.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/runme.cmd== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/test_browserSupportsKupu.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/test_html2captioned.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/test_librarymanager.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/tests/test_resourcetypemapper.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/toolbar.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/wire.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/wysiwyg_support.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/xmlconfig.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/plone/zmi_docs.pt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/python/__init__.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/python/nationalizer.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/python/spellcheck.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/refresh.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/roundup/kupuinit.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/roundup/kupustyles.css== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/silva/body.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/silva/closed_arrow.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/silva/contextmenu.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/silva/drawers.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/silva/head.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/silva/imagedrawer.xsl.pt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/silva/include.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/silva/kupudrawerstyles.css== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/silva/kupumacros.html== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/silva/kupusilvainit.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/silva/kupusilvatools.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/silva/librarydrawer.xsl== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/silva/opened_arrow.gif== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/silva/saveonpart.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/silva/toolbar.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/silva/toolboxes.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/silva/wire.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/silva/xmlconfig.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/tests/run_tests.html== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/tests/test_beforeunload.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/tests/test_kupubasetools.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/tests/test_kupueditor.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/tests/test_kupuhelpers.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/tests/test_kupuinit.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/tests/test_plone.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/tests/test_xhtml.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/tools/compress.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/tools/convert_to_utf-8.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/tools/makepox.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/version.txt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/Makefile== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/body.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/browser.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/dist.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/empty.html== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/head.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/include.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/kupuinit.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/kupustart.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/kupustyles.css== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/make.bat== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/wire.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/widgeteer/xmlconfig.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/zope2/__init__.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/zope2/addKupuEditor.pt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/zope2/body.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/zope2/contextmenu.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/zope2/drawers.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/zope2/example.pt== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/zope2/head.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/zope2/html.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/zope2/include.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/zope2/saveonpart.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/zope2/sourceedit.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/zope2/wire.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/zope2/xmlconfig.kupu== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/zope3/__init__.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/zope3/browser/__init__.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/zope3/browser/configure.zcml== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/zope3/configure.zcml== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/zope3/field.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/zope3/interfaces.py== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/tests/test_kupubasetools.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/tests/test_kupueditor.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/tests/test_kupuhelpers.js== | Kupu 1.3.2 |
+	| ==pub/TWiki/WysiwygPlugin/_kupu/tests/test_kupuinit.js== | Kupu 1.3.2 |
+d551 1
+a551 1
+	<table border="1"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">HTML::Parser</td><td align="left">Required. Available from [[http://cpan.uwinnipeg.ca/search?query=HTML%3A%3AParser&mode=dist][CPAN]].</td></tr><tr><td align="left">HTML::Entities</td><td align="left">Required. Available from [[http://cpan.uwinnipeg.ca/search?query=HTML%3A%3AEntities&mode=dist][CPAN]].</td></tr></table>
+a554 4
+*If you want to set up Kupu as your default editor*, then you can set the =EDIT_SKIN= TWiki variable wherever you want.
+	* <nop>Set EDIT_SKIN = kupu
+Set it in a user topic to set it for one user. Set it in WebPreferences to set it for a single web. Or set it in your global TWiki preferences to set it for your whole site!
+
+d599 6
+a604 6
+	* some or all of HTML tags (e.g. =&lt;br /&gt;= or =&lt;div&gt;=), or 
+	* simple variables (e.g. =%<nop>VAR%=) or 
+	* calls (e.g. =%VARIABLE{...}%=)
+	* PRE blocks (=&lt;pre&gt;=)
+	* HTML comments (=&lt;!--= ... =--&gt;=)
+	
+d606 1
+a606 1
+	* =Set WYSIWYG_EXCLUDE = variables,calls= (inactive; you need to remove monospacing from this setting to enable it)
+d645 114
+a758 5
+|  Plugin Version: | 8670 |
+| Change History: <!-- Most recent first --> ||
+|  Dependencies: | <table border="1"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">HTML::Parser</td><td align="left">Required. Available from [[http://cpan.uwinnipeg.ca/search?query=HTML%3A%3AParser&mode=dist][CPAN]].</td></tr><tr><td align="left">HTML::Entities</td><td align="left">Required. Available from [[http://cpan.uwinnipeg.ca/search?query=HTML%3A%3AEntities&mode=dist][CPAN]].</td></tr></table> |
+|  Perl Version: | 5.0 |
+|  Plugin Home: | TWiki:Plugins/%TOPIC% |
+d763 2
+a764 1
+-- TWiki:Main/CrawfordCurrie - 23:00:26 01 February 2006
+@

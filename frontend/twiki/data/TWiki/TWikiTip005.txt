@@ -1,0 +1,16 @@
+%META:TOPICINFO{author="TWikiContributor" date="1277623144" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiTipsOfTheDay"}%
+---+ Re-parenting a topic
+
+The breadcrumb displayed with a particular TWiki topic is constructed with a topic's *parent*. The footer of each page has a link called ==[More topic actions]==.  Within this page there is a section that will allow you to set a new parent for the page.
+
+To re-parent a page:
+
+   1 Enter name of new parent topic, or pick from a list
+   1 Click on the ==[Set new parent]== button
+
+You will notice that the breadcrumb will now reflect the new parent.
+
+[[TWikiTipsOfTheDay][See More Tips...]]
+
+-- __Contributors:__ TWiki:Main.PaulineCheung

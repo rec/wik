@@ -1,0 +1,57 @@
+%META:TOPICINFO{author="TWikiContributor" date="1531615144" format="1.1" version="26"}%
+%META:TOPICPARENT{name="WebHome"}%
+---+ %MAKETEXT{"Search in [_1] Web" args="<nop>%BASEWEB%"}%
+
+%IF{"defined search" then='%ICON{feed}% <a href="%SCRIPTURL{"view"}%/%BASEWEB%/WebRss?search=%URLPARAM{"search" encode="url"}%;type=%IF{"'%URLPARAM{"regex" encode="url"}%'='on' OR '%URLPARAM{"type" encode="url"}%'='regex'" then="regex" else="word"}%;excludetopic=%BASETOPIC%,WebHome,WebStatistics;web=%URLPARAM{"web" encode="url" default="%BASEWEB%"}%;limit=%URLPARAM{"limit" encode="url" default="%SEARCHRESULTSPERPAGE%"}%;scope=%URLPARAM{"scope" encode="url" default="text"}%;casesensitive=%URLPARAM{"casesensitive" encode="url" default="off"}%">%MAKETEXT{"Get notified on changes on this search"}%</a>'}%
+
+%INCLUDE{"%SYSTEMWEB%.SearchResultsPagination" section="preamble"}%<nop>
+%SEARCH{ 
+ "%URLPARAM{"search" encode="search"}%" 
+ type="%URLPARAM{"type" encode="entity" default="%SEARCHDEFAULTTYPE%"}%" 
+ scope="%URLPARAM{"scope" encode="entity"}%" 
+ web="%URLPARAM{"web" encode="entity"}%" 
+ nosearch="%URLPARAM{"nosearch" encode="entity"}%" 
+ zeroresults="%IF{ "defined search" then="on" else="off" }%"
+ start="%CALCULATE{$GET(start)}%"
+ limit="%CALCULATE{$GET(limit)}%"
+ footer="$percntCALCULATE{$SET(ntopics, $tntopics)$SET(nwebs, $nwebs)}$percnt"
+}%
+%CALCULATE{$SET(searchparams, search=%URLPARAM{"search" encode="url"}%;type=%URLPARAM{"type" encode="url" default="%SEARCHDEFAULTTYPE%"}%;scope=%URLPARAM{"scope" encode="url"}%;web=%URLPARAM{"web" encode="url"}%;nosearch=%URLPARAM{"nosearch" encode="url"}%;)}%<nop>
+%INCLUDE{"%SYSTEMWEB%.SearchResultsPagination" section="postamble"}%<nop>
+
+<a name="twikiSearchForm"></a>
+<noautolink>
+<div class="twikiPageForm">
+<form id="twikiWebSearchForm" action="%SCRIPTURLPATH{view}%/%INCLUDINGWEB%/%INCLUDINGTOPIC%">
+<table id="twikiSearchTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td colspan="2" class="twikiFirstRow">
+  <input type="text" class="twikiInputField" name="search" value="%URLPARAM{ "search" encode="entity" }%" size="40" /> 
+  <input type="submit" class="twikiSubmit" value='%MAKETEXT{"Search"}%' /><span class="twikiSmall">&nbsp;&nbsp;<a href='%SCRIPTURL{view}%/%INCLUDINGWEB%/WebSearchAdvanced?search=%URLPARAM{"search" encode="url"}%;type=%URLPARAM{"type" encode="url" default="word"}%;scope=%URLPARAM{"scope" encode="url"}%;web=%URLPARAM{"web" encode="url"}%;nosearch=%URLPARAM{"nosearch" encode="url"}%'>%MAKETEXT{"Advanced search"}%</a> | [[%BASEWEB%.WebSearchAttachments][%MAKETEXT{"Attachment search"}%]] | [[%SYSTEMWEB%.SearchHelp][%MAKETEXT{"Help"}%]]</span>
+<div class="twikiSmall" style="padding:1em 0 0 0;">%MAKETEXT{"TIP: to search for all topics that contain =\"SOAP\"=, =\"WSDL\"=, a literal =\"web service\"=, but not =\"shampoo\"=, write:"}% <code>soap wsdl "web service" -shampoo</code></div>
+</td>
+</tr>
+<tr>
+<th class="twikiLast">%MAKETEXT{"Search where:"}%</th>
+<td class="twikiLast">
+<input type="radio" class="twikiRadioButton" id="textbody" name="scope" value="text" %IF{" '%URLPARAM{"scope" encode="entity"}%' = 'text' " then="checked=\"checked\"" else=""}% /><label for="textbody"> %MAKETEXT{"Text body"}%</label>&nbsp;&nbsp;&nbsp;<input type="radio" class="twikiRadioButton" id="topictitle" name="scope" value="topic" %IF{" '%URLPARAM{"scope" encode="entity"}%' = 'topic' " then="checked=\"checked\"" else=""}% /><label for="topictitle"> %MAKETEXT{"Topic title"}%</label>&nbsp;&nbsp;&nbsp;<input type="radio" class="twikiRadioButton" id="both" name="scope" value="all" %IF{" '%URLPARAM{"scope" encode="entity" default="all"}%' = 'all' " then="checked=\"checked\"" else=""}% /><label for="both"> %MAKETEXT{"Both body and title"}%</label>
+%IF{"{NoInAllPublicWebs}" then="<div style='display:none'>" else="<nop>"}%
+<hr />
+<input type="checkbox" class="twikiCheckbox" id="web" name="web" value="all" %IF{" '%URLPARAM{"web" encode="entity"}%' = 'all'" then="checked=\"checked\"" else=""}% /><label for="web"> %MAKETEXT{"All public webs"}%</label> <span class="twikiSmall">%MAKETEXT{"(otherwise search [_1] Web only)" args="<nop>%INCLUDINGWEB%"}%</span>
+%IF{"{NoInAllPublicWebs}" then="</div>" else="<nop>"}%
+</td>
+</tr>
+</table>
+</form>
+</div>
+</noautolink>
+
+<div class="twikiHelp">
+*%MAKETEXT{"Other search options:"}%*
+   * icon:searchtopic [[%BASEWEB%.WebSearchAdvanced][%MAKETEXT{"Advanced search"}%]]
+   * icon:attachfile [[%BASEWEB%.WebSearchAttachments][%MAKETEXT{"Attachment search"}%]]
+   * icon:arrowright %MAKETEXT{"If you already know the name of the topic, enter the name of the topic into the ~[~[[_1]~]~[Jump box~]~] at the top" args="%SYSTEMWEB%.JumpBox"}%
+   * icon:indexlist [[%BASEWEB%.WebTopicList][%MAKETEXT{"List all topics in the [_1] web in alphabetical order" args="<nop>%INCLUDINGWEB%"}%]]
+   * icon:filter %MAKETEXT{"List topics that start with the letter:"}% %CALCULATE{$LISTEACH(<a href="%SCRIPTURLPATH{"search"}%/%INCLUDINGWEB%/?scope=topic&amp;regex=on&amp;search=%5E$item">$item</a><span class="twikiSeparator">, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z)}%
+   * icon:recentchanges [[%INCLUDINGWEB%.WebChanges][%MAKETEXT{"Recently changed topics"}%]]
+</div>

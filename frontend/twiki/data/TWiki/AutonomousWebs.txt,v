@@ -1,0 +1,66 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2013.10.14.08.02.48;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1356486891" format="1.1" version="1"}%
+---+!! Making webs autonomous
+%TOC%
+
+---++ Motivation
+
+On a large TWiki site having thousands of webs, each web should be as self-service as possible so that TWiki administrators' work is minimized.
+
+---++ Features for web autonomy
+
+You can have the following features by providing specific methods in your user mapping manager class.
+   * Granting a set of users privilege to do anything on any topic regardless of access control setting.
+     Let's call the set of users "web admins", which is analogous to Main.TWikiAdminGroup members who can do anything to any topic regardless of access control setting.
+   * Making =%<nop>WIKIWEBMASTER%= and =%<nop>WIKIWEBMASTERNAME%= web dependent. They are used on the Access Denied page and other pages as contact.
+
+---++ Specifying web admins - isAdmin()
+
+The =isAdmin()= method in a user mapping manager normaly recognizes only one argument, =$cUID=. (e.g. !TWikiUserMapping's)
+However, the upstream code hands two additional arguments, namely the topic and web names of the topic currently being processed.
+As such, =isAdmin()= can be web and topic dependent, which makes it possible to have web admins.
+
+---++ Web specific WIKIWEBMASTER and WIKIWEBMASTERNAME
+
+Optionally, a user mapping manager can have the =wikiWebMaster= object method taking the following arguments.
+   * web name
+   * topic name
+   * name or email (true means name. false means email)
+
+If the =wikiWebMaster= does not exist or returns a null string (""), =%<nop>WIKIWEBMASTER%= and =%<nop>WIKIWEBMASTERNAME%= are expanded to ={WebMasterName}= and ={WebMasterEmail}= values respectively.
+
+---++ Data source
+
+=isAdmin()= and =wikiWebMaster()= need data source to work.
+The data source needs be outside of the web.
+Otherwise, there is a possibility of the web admins lose access to the web by some change to the web.
+
+MetadataRepository is one way to have metadata of a web outside the web.
+In an example on MetadataRepository, a TWiki group specified by the =admin= field of the web's record is the web admins.
+
+Another way is to put such a data on a topic or topics in the %SYSTEMWEB% web and make them editable only by TWiki Administrators.
+
+__Related Topics:__ AdminDocumentationCategory, TWikiAccessControl, MetadataRepository, LargeSite, UserMasquerading
+@

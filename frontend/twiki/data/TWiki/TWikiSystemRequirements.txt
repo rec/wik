@@ -1,0 +1,106 @@
+%META:TOPICINFO{author="TWikiContributor" date="1531636432" format="1.1" version="43"}%
+%STARTINCLUDE%
+---+ TWiki System Requirements
+
+_Server and client requirements_
+
+Low client and server base requirements are core features that keep TWiki widely deployable, particularly across a range of browser platforms and versions.  Many [[TWiki:Plugins.PluginPackage][Plugins]] and [[TWiki:Plugins.ContribPackage][contrib modules]] exist which enhance and expand TWiki's capabilities; they may have additional requirements.
+
+%TOC%
+
+%STARTSECTION{"requirements"}%
+---++ Server Requirements
+
+TWiki is written in Perl 5, uses a number of shell commands, and requires [[http://www.gnu.org/software/rcs/rcs.html][RCS (Revision Control System)]], a GNU Free Software package. TWiki is developed in a basic Linux/Apache environment. It also works with Microsoft Windows, and should have no problem on any other platform that meets the requirements.
+
+| *Resource* | *Required Server Environment *<nop>* |
+| Perl | 5.10.1 or higher |
+| RCS | 5.7 or higher (including GNU =diff=) %BR% Optional, TWiki includes a pure Perl implementation of RCS that can be used instead (although it's slower) |
+| GNU =diff= | GNU =diff= 2.7 or higher is required when not using the all-Perl <nop>RcsLite.  %BR% Install on PATH if not included with RCS (check version with =diff -v=)  %BR% Must be the version used by RCS, to avoid problems with binary attachments - RCS may have hard-coded path to =diff= |
+| GNU =df= | Used by the site statistics to record disk usage statistics, optional. The df command is pre-installed on Linux and OS-X. On Windows install the [[http://gnuwin32.sourceforge.net/packages/coreutils.htm][CoreUtils for Windows]]. |
+| GNU =patch= | For upgrades only: GNU =patch= is required when using the TWiki:Codev.UpgradeTWiki script |
+| GNU =fgrep=, =egrep= | Modify command line parameters in configure if you use non-GNU grep programs |
+| =zip= | Zip archive command line utility. Used by the BackupRestorePlugin to create and restore from backups. |
+| Cron/scheduler | %BULLET% Unix: =cron= %BB% Windows: =cron= equivalents <!-- SMELL: Macintosh version? --> |
+| Web server | Apache is well supported; see TWiki:TWiki.InstallingTWiki#OtherWebServers for other servers |
+
+---+++ Required CPAN Modules
+
+Most of the !CPAN libraries listesd below are part of a standard Perl installation so you most likely have them all!
+
+See TWiki:TWiki.HowToInstallCpanModules for detailed information on how to install !CPAN libraries
+
+The following Perl [[http://cpan.perl.org/][CPAN]] modules are used by TWiki:
+
+| *Module* | *Preferred version* | *Comment* |
+| =Algorithm::Diff= | | Included in TWiki distribution |
+| =CGI= | &gt;=3.18 &amp; &lt;=4.03 | A suitable version ships with TWiki since TWiki-6.0.2 using CgiContrib, e.g. it is no longer necessary to install or downgrade this module. Versions 2.89 and 3.37, as well as version &gt; 4.13 must be avoided. |
+| =CGI::Carp= | &gt;=1.26 | |
+| =Config= | &gt;=0 | |
+| =Cwd= | &gt;=3.05 | |
+| =Data::Dumper= | &gt;=2.121 | |
+| =Encode= | &gt;=2.1 | |
+| =Error= | | Included in TWiki distribution |
+| =File::Copy= | &gt;=2.06 | |
+| =File::Find= | &gt;=1.05 | |
+| =File::Spec= | &gt;=3.05 | |
+| =File::Temp= | &gt;=0.18 | This version included in Perl 5.9.5. File::Temp needs to be updated on !RedHat 5 and !CentOS 5. |
+| =FileHandle= | &gt;=2.01 | |
+| =HTML::Parser= | &gt;=3.28 | Needed by the WysiwygPlugin for WYSIWYG editing |
+| =HTML::Entities= | &gt;=1.25 | Needed by the WysiwygPlugin for WYSIWYG editing; part of the =HTML::Parser= package. |
+| =IO::File= | &gt;=1.10 | |
+| =LWP= | | Needed to install extensions in TWiki configure |
+| =Net::SMTP= | &gt;=2.29 | Used for sending mail |
+| =Text::Diff= | | Included in TWiki distribution |
+| =Time::Local= | &gt;=1.11 | |
+
+---+++ Optional CPAN Modules
+
+The following Perl modules may be used by TWiki:
+
+See TWiki:TWiki.HowToInstallCpanModules for detailed information on how to install !CPAN libraries
+
+| *Module* | *Preferred version* | *Description* |
+| =Archive::Tar= | | May be required by the Extensions Installer in configure if command line tar or unzip is not available |
+| =Authen::SASL= | | Used for SMTP Authentication |
+| =CGI::Cookie= | &gt;=1.24 | Used for session support |
+| =CGI::Session= | &gt;=3.95 | Used for session support |
+| =Crypt::SMIME= | &gt;=0.09 | Required if S/MIME-signed administrative e-mail is enabled. |
+| =Digest::base= | | |
+| =Digest::SHA1= | | |
+| =JSON= | &gt;=2.0 | Required if TWikiSheetPlugin is used, or if JSON objects are stored and retrieved in SetGetPlugin |
+| =Locale::Maketext::Lexicon= | &gt;=0 | Used for <nop>I18N support |
+| =Net::SMTP= | &gt;=2.29 | Used for sending mail |
+| =URI= | | Used for configure |
+
+Most of them will probably already be available in your installation. You can check version numbers with the =configure= script, or if you're still trying to get to that point, check from the command line like this:
+<verbatim>
+perl -e 'use FileHandle; print $FileHandle::VERSION."\n"'
+</verbatim>
+<!--
+SMELL: perhaps put download link to TWiki:Plugins.CpanContrib? (which 
+also includes prebuilt versions of all of the CPAN modules used by 
+all of the plugins checked into SVN)
+-->
+
+#ClientRequirements
+---++ Client Requirements
+
+The TWiki [[TWikiInstallationGuide][standard installation]] has relatively low browser requirements:
+
+   * HTML 3.2 compliant
+   * Cookies, if persistent sessions are required
+
+CSS and Javascript are used in most skins, although there is a low-fat skin (Classic skin) available that minimizes these requirements. Some skins will require more recent releases of browsers. The default skin (Pattern) is tested on IE 6, Safari, and Mozilla 5.0 based browsers (such as Firefox).
+<!--
+SMELL: what are some actual known good version number requirements for these browsers (eg, FireFox 1.0, or 1.0.3, or 1.0.7, or ???), etc.
+-->
+
+You can easily select a balance of browser capability versus look and feel. Try the installed skins at %SYSTEMWEB%.TWikiSkinBrowser and more at TWiki:Plugins.SkinPackage.
+
+---++ Important note about TWiki Plugins
+
+   * Plugins can require just about anything -  browser-specific functions, stylesheets (CSS), Java applets, cookies, specific Perl modules,... - check the individual Plugin specs.
+%ENDSECTION{"requirements"}%
+
+__Related Topics:__ AdminDocumentationCategory

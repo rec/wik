@@ -1,0 +1,204 @@
+%META:TOPICINFO{author="TWikiContributor" date="1385518076" format="1.1" version="2"}%
+---+!! Read only and mirror web support
+
+---++ Scope
+
+This topic describes how to set up read-only webs.
+A read-only web can be mirrored from another site.
+But how to mirror a web from another site is out of scope.
+
+---++ Motivation
+
+There are cases where read-only webs are useful.
+   * %<nop>SYSTEMWEB% web being a part of installation rather than a content, it may reside in read-only storage. In that case, It's better for TWiki to recognize as such and not to allow update operations rather than update operations causing errors. Even if you don't see an edit or attach link, users may enter an edit or attach URL manually. In that case, the edit and attach scripts should display "operation not allowed" kind of message.
+   * You may want to run a federation of TWiki sites, in which member sites have read-only mirror of other sites' webs. Read-only mirror webs are not so useful for tight collaboration because of the time lag of mirroring, which typically happens once a day. But it's useful for a web viewed by many users geographically distributed.
+
+---++ Master and slave
+
+Let's assume a federated TWiki sites depicted on MetadataRepository#Federation_of_sites.
+Each web has one master site and the other sites are slave.
+On such a web, updates happen only on the master site and the slaves get those changes when they mirror the web.
+
+---++ Local webs
+
+Each site in a federation needs to have some webs locally without sharing them with other federation members - definitely with the Trash web.
+It's not critical but the Sandbox web should not be mirrored hence should be local to each site.
+
+If this feature is not turned on, all webs are regarded local.
+
+---++ Content modes
+
+Given the explanation so far, a web is either of the following content modes.
+| *Mode name* | *Description* | *Context* |
+| local       | editable locally and not shared with other sites | |
+| master      | editable locally and mirrored to other sites | content_master |
+| slave       | not editable locally and mirrored from the master site | content_slave |
+| read-only   | cannot be edited | inactive |
+
+In case you need to know which mode a web is in, the contentMode attribute of the session object has a mode name.
+In a skin, you can use the context each mode provides.
+
+---++ Setting up
+
+Setting the site's identifier (a few character long alpha-numeric string) to =$TWiki::cfg{ReadOnlyAndMirrorWebs}{SiteName}= enables this feature.
+
+There are two ways to set read-only and mirroring related information.
+One is to use MetadataRepository and the other is setting preferences on !WebPreferences.
+
+For a site federation having hundreds or thousands of webs, MetadataRepository should be the only practical option.
+But just to make %<nop>SYSTEMWEB% read-only, that's too much.
+So you can accomplish that without introducing MetadataRepository.
+That should be handy if you want to try it out before diving into it.
+
+---+++ !WebPreferences
+
+If you are not using MetadataRepository, you can make a web read-only by setting MASTERSITENAME on !WebPreferences to 'ro' (or 'readonly' or anhything different from =$TWiki::cfg{ReadOnlyAndMirrorWebs}{SiteName}= value.
+
+If it's a mirror site copied from another site which is accessible, you need to set MASTERWEBSCRIPTURLTMPL to e.g. http:<nop>//twiki.example.com/cgi-bin//WebName.
+If the master site needs a file name extension such as .cgi for CGI programs, you need to set MASTERSCRIPTSUFFIX.
+
+There are cases where the view URL format is different from URLs for other operations. For example, view URLs may be http:<nop>/twiki.example.com/Web/Topic.
+In such cases, you should set MASTERWEBVIEWURL to e.g. http:<nop>/twiki.example.com/Web.
+Because this is not the norm, MASTERWEBVIEWURL is optional.
+
+---+++ Metadata Repository
+
+If you use MetadataRepository, read-only and mirroring related information comes only from MetadataRepository (except with =$TWiki::cfg{ReadOnlyAndMirrorWebs}{SiteName}=) and preferences on !WebPreferences don't matter.
+
+The web's 'master' field specifies the master site.
+If it's the same as =$TWiki::cfg{ReadOnlyAndMirrorWebs}{SiteName}=, then the web's content mode is 'master'.
+Otherwise, the sites table is referred to get information of the master site.
+
+If the sites table doesn't have the record for the master site, the web is regarded as 'read-only'. Even if there is a record, if the record doesn't have the 'scripturl' field, the web is still regarded as 'read-only'
+
+If the 'scripturl' field is present, the web is regarded as 'slave' and the 'scripturl' value is used to make the 'webScriptUrlTmpl' value of the web.
+In addition, the 'scriptsuffix' and 'viewurl' fields of the site record are examined.
+
+---+++ Tool bar link for mirroring
+
+A master web is to have a link to mirror the web to all slave sites.
+The link is to be defined by the "action_master" template,
+which is null by default.
+If you provide a mechanism to manually mirror a master web to the other sites,
+you are supposed to have =viewtopicactionbuttons.mirror.tmpl= defining "action_master".
+Here's an example:
+<verbatim>
+%TMPL:INCLUDE{"viewtopicactionbuttons"}%
+%TMPL:DEF{"action_master"}%%TMPL:P{"mirror_to_all_link"}%%TMPL:P{"sep"}%%TMPL:END%
+%TMPL:DEF{"mirror_to_all_link"}%<span>
+<a href='%SCRIPTURL{"mirror"}%?webs=%WEB%;push=1' rel='nofollow' onClick='return confirm("%MAKETEXT{"Do you really want to mirror to all slave sites now?\nIt may take a while to complete."}%");' %MAKETEXT{"title='Mirror this web to all slave sites'>Mirror to all"}%</a>
+</span>%TMPL:END%
+</verbatim>
+Then you would define SKIN as follows.
+<pre>
+   * <nop>Set SKIN = mirror, tagme, topmenu, pattern
+</pre>
+
+---++ How read-only and mirror webs affect TWiki's behavior
+
+Besides contexts mentioned [[#Content_modes][above]], read-only and mirror webs affect TWiki's behavior as shown below.
+
+---+++ Skin
+
+A topic on a read-only web is displayed in the same manner as a topic of a prior revision - Edit, Attach, and More actions links are disabled.
+This is a natural consequence of a read-only web causing the inactive context, which is like a non-current version of a topic causes the inactive context.
+There no special care taken in skin template files.
+
+A topic on a slave web looks similar but Edit and Attach links are pointing to the master site. The "More actions..." link is disabled.
+And "View master" link is added on the bottom tool bar.
+
+%ATTACHURL%/bottom-toolbar-w-view-master.png
+
+The =viewtopicactionbuttons.tmpl= template file, which is supposed to be used by all properly made skins, is enhanced for this behavior.
+
+If you have a [[MetadataRepository#Federation_of_sites][federation of sites]],
+you may provide a manual mirroring feature.
+That feature would show the "Mirror to all" button on a master web as follows.
+
+%ATTACHURL%/bottom-toolbar-w-mirror-to-all.png
+
+For this, aforementioned =viewtopicactionbuttons.tmpl= has been enhanced to refer to the =mirror_to_all_link= template block, which is a null string by default.
+
+You would provide =viewtopicactionbuttons.mirror.tmpl= defining the =mirror_to_all_link= displaying the "Mirror to all" link.
+And then you would set SKIN to e.g. =mirror, topmenu, pattern=.
+
+---+++ Variables and context
+
+   $ %<nop>SITENAME% : Returns the current site name defined by =$TWiki::cfg{ReadOnlyAndMirrorWebs}{SiteName}= if it's defined. Otherwise, it returns the null string.
+   $ %<nop>CONTENTMODE{[web="WEB"]}% : Returns [[#Content_modes][the content mode]] of the specified web.
+   $ %<nop>SCRIPTURL{"script" web="WEB" master="on"}% : Returns the URL of the specified script of the specified web on the master site followed by the web name.
+   It's enhanced for mirror webs. Please read the description of the [[VarSCRIPTURL2][SCRIPTURL]] variable for details.
+   $ %<nop>WEBLIST{...}% : You can specify webs="canmoveto" parameter, in which case webs to which a topic of the current web cannot be moved to are excluded.
+   When the read-only and mirror web feature is not in effect, web="canmoveto" is identical to webs="public" because all webs are local in that case.
+   $ context : As mentioned in the [[#Content_modes][Content modes]] section, the content mode of the curent web provides either 'content_master', 'content_slave', or 'inactive' context so that you can have =%<nop>IF{"context content_slave" ...}%= and =%<nop>TMPL:P{context="content_master" then="..." else="..."}%=.
+
+---+++ In plug-in code
+
+   $ TWiki::Func::getSiteName() : Returns the current site name if it's defined. Otherwise it returns the null string.
+   $ TWiki::Func::getContentMode($web) : Returns the [[#Content_modes][content mode]] of the specified web.
+   $ TWiki::Func::getScriptUrl($web, $topic, $script, '$master' =&gt; 'on') : Returns the URL of the specified script accessing the web and topic specified on the master web.
+   If the web is neither master nor slave, the function returns the URL on the same site.
+   $ TWiki::Func::getContext() : This is not specifically for read-only and mirror webs, but you can obtain the context and determine what you do.
+
+---+++ Statistics script
+
+The =statistics= script behaves differently in the presence of read-only and/or mirror webs.
+There are additional configuration parameters of read-only and mirror webs.
+
+---++++ Mirrored webs
+
+If you run a [[MetadataRepository#Federation_of_sites][federation of sites]], you should want to consolidate access figures of the master web and the slave webs.
+Taking the example on [[MetadataRepository#Federation_of_sites][the topic]],
+!WebOne.WebStatistics should be of accesses on the servers =strawman=, =woodenman=, and =tinman=, rather than each server has its own stats.
+
+For that, access log files need to be copied among the federation members.
+Concretely speaking, =strawman= needs to get access logs of =woodenman= and =tinman=, =woodenman= needs to get access logs of =strawman= and =tinman=, etc.
+This should be done as a part of content mirroring.
+
+If ={Stats}{LogFileGlob}= configuration parameter is set as shown below, the =statistics= script reads access log files matching the file glob (wildcard) *instead of* the file specified by ={LogFileName}=.
+<verbatim>
+$TWiki::cfg{Stats}{LogFileGlob} = "$TWiki::cfg{LogDir}*/log%DATE%.*.txt";
+</verbatim>
+In the example above, the following things are assumed/implied.
+   * =$TWiki::cfg{LogDir}= has the directory having access log (=logYYYYMM.txt=), warning log (=warnYYYYMM.txt=), and debug log (=debugYYYYMM.txt=) files
+      * e.g. =/var/twiki/logs=
+   * Log files of the other sites in the federation are stored in ="$TWiki::cfg{LogDir}-$site_name"=
+      * e.g. =/var/twiki/logs-eu= and =/var/twiki/logs-as=
+Needless to say, the file glob needs to cover the log file of the local log file in addition to log files copied from the other sites.
+
+The =statistics= script writes to !WebStatistics only on the master site of a web. For example, !WebOne.WebStatistics is written only on =strawman=.
+And then, !WebStatistics is mirrored to slave sites together with other updated topics.
+
+---++++ Read-only webs
+
+By default, read-only webs don't get their !WebStatistics topic updated because you cannot update topics there.
+By setting ={Stats}{ReadOnlyWebs}= and ={Stats}{ReadOnlyWebStatsOn}= configuration parameters as follows, read-only webs' statistics is written as <i>WEBNAME</i>WebStatistics topic on the web specified by ={Stats}{ReadOnlyWebStatsOn}= on the master site.
+<verbatim>
+$TWiki::cfg{Stats}{ReadOnlyWebs} = [qw(TWiki)];
+$TWiki::cfg{Stats}{ReadOnlyWebStatsOn} = $TWiki::cfg{UsersWebName};
+</verbatim>
+On a read-only web, !WebStatistics is supposed be as follows.
+This way, users don't have to know where read-only webs' statistics are housed.
+<verbatim>
+%INCLUDE{"%USERSWEB%.%WEB%WebStatistics" disablefixlinks="on"}%
+</verbatim>
+
+---++++ Site statistics
+
+The site statistics is written on the ={UsersWebName}= web (Main by default),
+which might be a slave or read-only.
+It's processed and written only if the ={UsersWebName}= web is writable.
+
+---+++ tools/mailnotify
+
+Change notification by =tools/mailnotify= happens only with local or master webs for the obvious reasons.
+
+---+++ tools/tick_twiki.pl
+
+There is no harm in trying to remove expired lease files of read-only and mirror webs but that's waste of CPU and I/O.
+So =tick_twiki.pl= is slightly enhanced so that only webs writable locally are subject to processing by =tick_twiki.pl=.
+
+__Related Topics:__ AdminDocumentationCategory, MetadataRepository, VarCONTENTMODE, VarSCRIPTURL2, VarWEBLIST
+
+%META:FILEATTACHMENT{name="bottom-toolbar-w-view-master.png" attachment="bottom-toolbar-w-view-master.png" attr="" comment="" date="1345617845" path="bottom-toolbar-w-view-master.png" size="9790" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="bottom-toolbar-w-mirror-to-all.png" attachment="bottom-toolbar-w-mirror-to-all.png" attr="" comment="" date="1345617845" path="bottom-toolbar-w-mirror-to-all.png" size="9067" user="TWikiContributor" version=""}%

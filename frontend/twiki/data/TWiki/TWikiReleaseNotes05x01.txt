@@ -1,0 +1,417 @@
+%META:TOPICINFO{author="TWikiContributor" date="1361055296" format="1.1" version="6"}%
+---+!! Release Notes of TWiki-5.1.4 (Istanbul), 2013-02-16
+<div class="twikiTocFloat">
+%TOC%
+</div>
+
+---++ Introduction
+
+TWiki is an enterprise collaboration platform and application platform. TWiki has been downloaded over half a million times and is used by many leading Fortune 500 businesses and government agencies as an intranet, extranet or a public internet website.
+
+TWiki-5.1.0 released on 2011-08-20 is a major release that brings many usability enhancements (such as point and click user data management, more visual user profile pages with picture selector, and a backup feature that helps upgrade TWiki sites) and strengthens TWiki as an application platform (such as a new macro language with parameterized variables).
+
+TWiki-5.1.1 released on 2012-01-14 is a patch release that adds some minor new features and fixes a number of bugs.
+
+TWiki-5.1.2 released on 2012-10-07 is a patch release that adds some minor new features and fixes a number of bugs.
+
+TWiki-5.1.3 released on 2012-12-16 is a patch release that adds some minor new features and fixes a number of bugs, including TWiki:Codev.SecurityAlert-CVE-2012-6329.
+
+TWiki-5.1.4 released on 2013-02-16 is a patch release that adds some minor new features and fixes a number of bugs, including TWiki:Codev.SecurityAlert-CVE-2013-1751.
+
+---++ New Features Highlights
+
+   * *Usability Enhancements*
+      * API and GUI for point and click user data management
+      * Support disabled users in password manager
+      * More visual user profile pages with in-place editing of form fields and picture selector
+      * In-place editing of TWiki group settings using !PreferencesPlugin
+      * Point and click bookmarks for better usability
+      * Improved statistics showing overall site usage over time, such as total number of webs, topics, users, etc
+      * TopMenuSkin: Option for auto-hidden or fixed top menu-bar; in auto-hidden mode, menu is always accessible with stub - added in __TWiki-5.1.2__
+   * *TWiki Application Platform Enhancements*
+      * Macro language with parameterized variables
+      * Ability to auto-create page on view if it does not exist
+      * Relative heading levels for INCLUDE
+      * Relative heading levels for SEARCH
+   * *Security Enhancements*
+      * Set a flag to force password change on next login
+      * S/Mime support for notification e-mails
+   * *Miscellaneous Feature Enhancements*
+      * TWikiDocGraphics: Added 2 new icons, and updated 1 icon - added in __TWiki-5.1.1__
+      * TWikiDocGraphics: Added 25 new icons, and updated 2 icons - added in __TWiki-5.1.2__
+      * TWikiDocGraphics: Added 5 new icons - added in __TWiki-5.1.3__
+      * TWikiDocGraphics: Added 5 new icons - added in __TWiki-5.1.4__
+      * User profile pages with CSS based box shadow and rounded corners - added in __TWiki-5.1.3__
+      * TWiki logs: Log user agent for all users; log additional info via extralog URL parameter - added in __TWiki-5.1.4__
+   * *Plugin Enhancements*
+      * New BackupRestorePlugin to easily backup, restore and upgrade TWiki installations
+      * BackupRestorePlugin: Add restore from backup feature - added in __TWiki-5.1.1__
+      * CommentPlugin: Send comment to multiple e-mail addresses; better layout & nicer look of default comment box - added in __TWiki-5.1.3__
+      * New ColorPickerPlugin to pick a color in form fields
+      * New SetGetPlugin that can store variables persistently
+      * SetGetPlugin: Add REST interface - added in __TWiki-5.1.2__
+      * SetGetPlugin: GET variable with format parameter - added in __TWiki-5.1.3__
+      * SpreadSheetPlugin: New functions BITXOR(), HEXENCODE(), HEXDECODE(), XOR()
+      * SpreadSheetPlugin: New functions FLOOR() and CEILING() - added in __TWiki-5.1.1__
+      * SpreadSheetPlugin: New CALCULATE variable using the register tag handler for variable evaluation with proper inside-out, left-to-right eval order; new functions $ISDIGIT(), $ISLOWER(), $ISUPPER(), $ISWIKIWORD() and $FILTER() - added in __TWiki-5.1.2__
+      * SpreadSheetPlugin: New function $STDEV(), $STDEVP(), $VAR(), $VARP() - added in __TWiki-5.1.3__
+
+See the full list of new features and bug fixes further below.
+
+---++ Pre-installed Extensions
+
+TWiki-5.1 ships with:
+
+   * *Plugins:* BackupRestorePlugin, ColorPickerPlugin, CommentPlugin, EditTablePlugin, EmptyPlugin, HeadlinesPlugin, InterwikiPlugin, JQueryPlugin, PreferencesPlugin, RenderListPlugin, SetGetPlugin, SlideShowPlugin, SmiliesPlugin, SpreadSheetPlugin, TablePlugin, TagMePlugin, TinyMCEPlugin, TWikiNetSkinPlugin, TwistyPlugin, WysiwygPlugin
+   * *Contribs:* BehaviourContrib, JSCalendarContrib, MailerContrib, TipsContrib, TWikiUserMappingContrib, TwistyContrib
+   * *Skins:* ClassicSkin, PatternSkin, PlainSkin, PrintSkin, TopMenuSkin, TWikiNetSkin,
+
+__Note:__ BackupRestorePlugin, ColorPickerPlugin, SetGetPlugin are new in TWiki-5.1.
+
+---++ Supported User Interface Languages
+
+The user interface of this TWiki version is localized to 19 languages:
+
+English (default), Bulgarian (=bg=), Chinese simplified (=zh-cn=), Chinese traditional (=zh-tw=), Czechoslovakian (=cs=), Danish (=da=), Dutch (=nl=), German (=de=), Finnish (=fi=), French (=fr=), Italian (=it=), Japanese (=ja=), Korean (=ko=), Polish (=pl=), Portuguese (=pt=), Russian (=ru=), Slovakian (=sv=), Spanish (=es=), Ukrainian (=uk=).
+
+__Note:__ TWiki needs to be configured properly to display user interface languages other than the default English language. Details in TWiki:TWiki.InstallationWithI18N and TWiki:TWiki.InternationalizationSupplement.
+
+---++ Deprecation Notices
+
+   * From TWiki 5.0 on, the ClassicSkin is deprecated and will be removed in a future release.
+
+   * From TWiki 4.2 on, the %<nop>MAINWEB% and %<nop>TWIKIWEB% variables have been deprecated. For compatibility reasons they are unlikely to ever be removed completely, but you should use the %<nop>USERSWEB% and %<nop>SYSTEMWEB% variables instead.
+
+   * From TWiki 4.2 on, functions TWiki::Func::getOopsUrl and TWiki::Func::permissionsSet have been declared deprecated. There is no plan to remove them yet. 
+
+   * From TWiki 4.0 on, the syntax "* Set DENYTOPICVIEW = " (nothing) in a topic means deny noone. Even if ALLOWTOPICVIEW is set to people or group setting DENYTOPICCHANGE to nothing means allow anyone. You have to remove the DENYTOPICVIEW or comment it out to have the ALLOWTOPICVIEW working. The reason for this behavior is that it enables limiting access to an entire web by setting a blank DENYTOPICVIEW setting. Same rule applies for DENYTOPICCHANGE and DENYTOPICRENAME. The rule does not apply for access rights defined for webs. Ie. "*Set DENYWEBCHANGE = " does not allow anyone to edit topics in the web. There has been strong oppinions against the syntax "* Set DENYTOPICXXXX = " meaning giving all access. So please be warned that we will change the syntax to a more transparent and logical syntax in future but we will ensure that it is still possible to secure a web and open up individual topics in future also. 
+
+---++ Notes for TWiki Administrators and Wiki Champions
+
+---+++ Improved User Data Management API and GUI
+
+TWiki-5.1 introduces a new API and GUI to manage user data. It enhances the  user mapping and password managers TWiki already has with point and click user management.
+
+Password managers can declare their own data (fields with name, value, type, note) so that TWiki's user manager can show queries and forms to display and manipulate user data in a transparent way. It is a data driven design that can be extended easily.
+
+There are two new topics for TWiki administrators:
+
+   * QueryUsers - find a user to manage
+   * EditUserAccount - see and change the account data of a user
+
+At this time, TWiki::Users::HtPasswdUser, TWiki::Users::TWikiUserMapping and TWiki::Users::BaseUserMapping support the new user data management API. Other user mapping and password managers will follow. The implementation details are described at TWiki:Codev.UserDataManagementApiAndGUI - developers are encouraged to use the new API.
+
+---+++ Improved Statistics Showing Overall Site Usage
+
+TWiki used to generate just web statistics in each web. TWiki now generates also overall site usage statistics shown in [[%USERSWEB%.SiteStatistics]] (do not create that page, it is created automatically based on SiteStatisticsTemplate). TWikiSiteTools#WebStatistics explains how to enable automatic updates of the statistics pages. 
+
+For each month, the following items are recorded using system data and TWiki log data across all webs: Total number of webs, number of webs viewed, number of webs updated, total number of topics, number of topics viewed, number of topics updated, number of attachments, number of topic views, number of topic updates, number of files uploads, data size, pub size, disk use, number of users, number of groups, number of plugins installed compared to number of plugins available, and 10 top contributors.
+
+The statistics script contacts twiki.org to query the number of plugins available for the currently installed TWiki version via an http GET. It also sends anonymized site usage statistics to twiki.org via query string. Example http request:
+=<br />  /cgi-bin/pluginstats?statSite=978B8B8FC5D0D0888888D18B97909A9186D1908D98;statDate=2011-04;=
+=<br />  statWebs=20;statWebsViewed=15;statWebsUpdated=6;statTopics=1501;statTopicsViewed=724;=
+=<br />  statTopicsUpdated=137;statAttachments=724;statViews=578;statSaves=223;statUploads=19;=
+=<br />  statDataSize=46.4;statPubSize=238.4;statDiskUse=93%25;statUsers=31;statGroups=7;statPlugins=22;=
+=<br />  statVersion=TWiki-5.1.0;=
+<br />Example response:
+=<br />  plugins: 196=
+<br />The statistics script will not contact twiki.org if a ={Stats}{DontContactTWikiOrg}= configure setting is set.
+
+---+++ Automatically Create Topics on Page View
+
+A new feature has been introduced to automatically create a non-existing topic on page view. With  this it is possible to link to a topic, and in case it does not exist, have the topic created based on a specific template when clicking on the link.
+
+Use-case example: The new user bookmarks feature has a pulldown menu link to bookmark the current page. That link points to the &lt;wikiname&gt;Bookmarks page, which has a form pre-filled with the page and name of the to-be-bookmarked page. In case the user bookmarks page does not exist it is created first before showing the topic with the pre-filled form.
+
+Details in TWikiScripts#view.
+
+---+++ New Page Bookmarks Feature
+
+A new bookmark feature has been introduced that replaces the personal left-bar links. Bookmarking a page is now a simple point and click operation: In the Account pulldown menu, select "Bookmark this page...". Existing bookmarks can be managed with an edit table in <nop>%USERSWEB%.&lt;wikiname&gt;Bookmarks topic, accessible via the "----- Bookmarks -----" pulldown menu of the Account pulldown.
+
+The personal left-bar topics such as !JohnSmithLeftBar are no longer used. Ask users to select the "----- Bookmarks -----" pulldown menu of the Account pulldown to initially create the bookmarks topic, then to either bookmark pages, or to manually copy &amp; paste old left-bar links to the bookmarks topic.
+
+---+++ User Profile Pages Tailored for Workplace
+
+Previous user profile pages had a bare bone look and the form fields were more tailored for public TWiki sites. TWiki-5.1 brings a more visual/modern page layout with profile picture selector, as well as default form fields tailored for the workplace.
+
+Changes to the [[%SYSTEMWEB%.UserForm]]:
+
+__Renamed:__
+   * =FirstName= to =First Name= (no change in =%META:FIELD name=)
+   * =LastName= to =Last Name= (no change in =%META:FIELD name=)
+   * =OrganisationName= to =Organization=
+   * =OrganisationURL= to =URL=
+   * =Profession= to =Titles=
+   * =VoIP= to =Skype ID=
+   * =State= to =Region=
+__Removed:__
+   * =Address=
+   * =InstantMessaging (IM)=
+   * =HomePage=
+   * =Comment=
+__Added:__
+   * =Department=
+   * =Status Update=
+
+When upgrading user profile pages pay attention to the renamed and removed fields.
+
+---+++ Upgrade From Earlier Releases
+
+Follow the TWikiUpgradeGuide to install TWiki and migrate data from your existing TWiki.
+
+You can use the new BackupRestorePlugin to backup an old TWiki and then simply restore the content to a new TWiki.
+
+---++ TWiki-5.1.0 Major Release - Details
+
+TWiki-5.1.0 was built from SVN http://svn.twiki.org/svn/twiki/trunk revision r22128 (2011-08-20)
+
+---+++ Enhancements
+
+<noautolink>
+| TWikibug:Item6511 | New PARENTTOPIC variable |
+| TWikibug:Item6512 | Adjust the search order for WebTopicEditTemplate to also include the USERSWEB |
+| TWikibug:Item6515 | Relative Heading Levels for INCLUDE |
+| TWikibug:Item6516 | Hide TOC flag in INCLUDE |
+| TWikibug:Item6528 | Set the Flag to Change Password in next Login  |
+| TWikibug:Item6560 | Relative Heading Levels for SEARCH |
+| TWikibug:Item6586 | User Data Management API and GUI |
+| TWikibug:Item6587 | Support Disabled Users in Password Manager |
+| TWikibug:Item6598 | Feature: Parameterized Variables |
+| TWikibug:Item6599 | Add format parameter to var URLPARAM |
+| TWikibug:Item6615 | Build: Add ColorPickerPlugin to Core TWiki Distribution |
+| TWikibug:Item6620 | Add encode parameter to FORMFIELD |
+| TWikibug:Item6639 | Add writeLog() to TWiki::Func |
+| TWikibug:Item6640 | Add isValidWebName() and isValidTopicName() to TWiki::Func |
+| TWikibug:Item6656 | Add meta data to attachment save handler |
+| TWikibug:Item6670 | SetGetPlugin: Make variables persistent across topic invocations |
+| TWikibug:Item6671 | Build: Add SetGetPlugin to Core TWiki Distribution |
+| TWikibug:Item6672 | New HIDE variable |
+| TWikibug:Item6680 | Add counter to session variables |
+| TWikibug:Item6684 | Include parameters with default feature |
+| TWikibug:Item6685 | New Site Statistics Page feature |
+| TWikibug:Item6690 | SpreadSheetPlugin: New functions BITXOR(), HEXDECODE(), HEXDECODE(), XOR() |
+| TWikibug:Item6712 | User interface translation for TWiki-5.1.0 |
+| TWikibug:Item6724 | Feature Proposal: Pass text and meta data to registerTagHandler callback |
+| TWikibug:Item6731 | InterwikiPlugin: Allow quotes in page pattern, and URL-encode quoted page patterns |
+| TWikibug:Item6733 | TWikiUserMappingContrib: More Visual User Profile Pages |
+| TWikibug:Item6747 | Set form field on file upload (for better usability of profile picture upload) |
+| TWikibug:Item6748 | TWikiUserMappingContrib: Usability: Use PreferencesPlugin to edit TWiki group settings |
+| TWikibug:Item6749 | S/Mime support for notification e-mails |
+| TWikibug:Item6750 | Encode also space in encode="html" to preserve TML in HTML input fields |
+| TWikibug:Item6759 | PatternSkin: User Bookmarks for better usability |
+| TWikibug:Item6762 | Usability: Auto-create page on view if it does not exist |
+| TWikibug:Item6768 | TagMePlugin: Allow login name or !WikiName for queries |
+| TWikibug:Item6769 | Build: Add BackupRestorePlugin to core TWiki distribution |
+| TWikibug:Item6777 | PreferencesPlugin: Scroll to preferences section on edit |
+| TWikibug:Item6778 | TWikiUserMappingContrib: Usability: Use PreferencesPlugin to edit user profile settings |
+| TWikibug:Item6780 | TopMenuSkin: Usability: Link to !UserList topic instead of !TWikiUsers |
+| TWikibug:Item6781 | configure: Configure Support for Task Framework |
+| TWikibug:Item6782 | TWikiUserMappingContrib: Usability: Add search filter to !UserList |
+</noautolink>
+Total: 39
+
+---+++ Fixes
+
+<noautolink>
+| TWikibug:Item6209 | WebTopicCreator: underscores in topic name with WebTopicCreator are not possible |
+| TWikibug:Item6496 | TWiki 5 configuration page wrongly complains "This version of Perl is likely to exhibit extremely slow performance for certain critical operations." |
+| TWikibug:Item6658 | When a URL parameter with value 0 is passed into getScriptUrl, it is incorrectly removed |
+| TWikibug:Item6687 | Statistics: Statistics script leaves temp files behind |
+| TWikibug:Item6715 | Better layout for checkboxes of TWiki forms while in edit mode |
+| TWikibug:Item6732 | TagMePlugin: Administrator can't delete tag if Main web is renamed to User web |
+| TWikibug:Item6751 | TopMenuSkin: Cutoff buttons in header when using IE7 |
+| TWikibug:Item6754 | CommentPlugin: Action comment template in CommentPlugin is missing %<nop>ENDACTION% |
+| TWikibug:Item6755 | Displayed search string shows expanded TWiki variables and text formatting |
+| TWikibug:Item6757 | Configure: Unprofessional text in Configure utility |
+| TWikibug:Item6763 | TopMenuSkin: WYSIWG editor corrupts TopMenuSkin system pages |
+| TWikibug:Item6767 | TWiki statistics update not working properly on !CentOS 5 |
+| TWikibug:Item6770 | Warning message: Use of uninitialized value in lc at twiki/lib/TWiki/UI/Edit.pm line 83 |
+| TWikibug:Item6775 | Require Perl 5.8 or later |
+| TWikibug:Item6779 | TablePlugin: Tables rendering too dark in Firefox 4 |
+| TWikibug:Item6783 | configure: Incorrect file test in bin/configure |
+| TWikibug:Item6784 | DoS on bin/search with an asterisk wildcard using bookview |
+| TWikibug:Item6788 | Better error handling in create new topic screen |
+| TWikibug:Item6789 | SlideShowPlugin: Better error handling in SLIDESHOWSTART variable |
+| TWikibug:Item6790 | configure: Wrong type in "MailProgram.pm" of configure |
+| TWikibug:Item6792 | TWikiUserMappingContrib: Typo fix in registration page and change e-mail address page |
+</noautolink>
+Total: 21
+
+---++ TWiki-5.1.1 Patch Release - Details
+
+TWiki-5.1.1 was built from SVN http://svn.twiki.org/svn/twiki/branches/TWikiRelease05x01 revision r22570 (2012-01-14)
+
+---+++ Enhancements
+
+<noautolink>
+| TWikibug:Item6795 | BackupRestorePlugin: Add restore from backup feature |
+| TWikibug:Item6796 | Documentation: Documentation work for TWiki-5.1.1 |
+| TWikibug:Item6797 | Documentation: New TWiki Doc Graphics icons for TWiki-5.1.1 |
+| TWikibug:Item6798 | Translation: Translation work for TWiki-5.1.1 |
+| TWikibug:Item6804 | SpreadSheetPlugin: New functions FLOOR() and CEILING() |
+| TWikibug:Item6828 | SetGetPlugin: Removing write to persistent if already exists, and adding data dump |
+</noautolink>
+Total: 6
+
+---+++ Fixes
+
+<noautolink>
+| TWikibug:Item6725 | Plugins: Change global package variables from "use vars" to "our" |
+| TWikibug:Item6800 | Use of qw(...) as parentheses, which is deprecated in Perl 5.14 |
+| TWikibug:Item6802 | Disallow plus (+) character in topic name |
+| TWikibug:Item6803 | SpreadSheetPlugin: EVAL function bug with zeroes after decimal point |
+| TWikibug:Item6806 | Uninitialized value error in UI/Save.pm |
+| TWikibug:Item6807 | Configure: Configure: invalid html, restricted input control width |
+| TWikibug:Item6809 | Configure: Configure regexp checker broken |
+| TWikibug:Item6811 | Check permissions in save access control settings |
+| TWikibug:Item6813 | TWiki::UI::Save::save ignores topic name changes when redirecting on save |
+| TWikibug:Item6814 | TWikiUserMappingContrib: Excessive indexing of UserProfileHeader by search engines |
+| TWikibug:Item6821 | Documentation: Font in list of similar topics in WebTopicViewTemplate gets progressively smaller in some browsers |
+| TWikibug:Item6823 | Use of uninitialized value in concatenation in Users.pm |
+| TWikibug:Item6824 | Confusing period in registration activation e-mail |
+| TWikibug:Item6825 | Configure: RE error in Load.pm |
+| TWikibug:Item6830 | Can't save topic on command line, results in uninitialized value error |
+| TWikibug:Item6832 | Attachments: Can't upload attachments in Chrome |
+</noautolink>
+Total: 16
+
+---++ TWiki-5.1.2 Patch Release - Details
+
+TWiki-5.1.2 was built from SVN http://svn.twiki.org/svn/twiki/branches/TWikiRelease05x01 revision r23565 (2012-10-07)
+
+---+++ Enhancements
+
+<noautolink>
+| TWikibug:Item6835 | Documentation: New TWiki Doc Graphics icons for TWiki-5.1.2 |
+| TWikibug:Item6836 | Translation: Translation work for TWiki-5.1.2 |
+| TWikibug:Item6844 | Create new web should always copy all topics from template web |
+| TWikibug:Item6861 | Formatted search summary with expanded TWiki variables |
+| TWikibug:Item6863 | TWikiUserMappingContrib: Limit size of tag cloud in profile pages |
+| TWikibug:Item6866 | SpreadSheetPlugin: New CALCULATE variable using the register tag handler for variable evaluation with proper inside-out, left-to-right eval order |
+| TWikibug:Item6873 | Show sub-webs indented in the !SiteMap |
+| TWikibug:Item6877 | Auto-incrementing topic names using AUTOINC with optional trailing string |
+| TWikibug:Item6897 | SpreadSheetPlugin: New functions $ISDIGIT(), $ISLOWER(), $ISUPPER(), $ISWIKIWORD() |
+| TWikibug:Item6898 | SpreadSheetPlugin: New $FILTER() function |
+| TWikibug:Item6923 | TagMePlugin: Nicer reporting pages with gray gradients tabs |
+| TWikibug:Item6925 | TopMenuSkin: Show TWiki help link in top-menu bar |
+| TWikibug:Item6929 | TWikiUserMappingContrib: Doc enhancements |
+| TWikibug:Item6934 | TopMenuSkin: Option for auto-hidden or fixed top menu-bar; in auto-hidden mode, menu is always accessible with stub. |
+| TWikibug:Item6943 | SetGetPlugin: Add REST interface |
+</noautolink>
+Total: 15
+
+---+++ Fixes
+
+<noautolink>
+| TWikibug:Item4782 | Checking "Remember me on this computer" in login screen fails to log me in at all  |
+| TWikibug:Item6534 | Insecure dependency in tools/extender.pl when installing extension in configure |
+| TWikibug:Item6838 | Add Perl logo next to TWiki logo at bottom of page |
+| TWikibug:Item6840 | Web names that are !WikiWords make for broken links when including topics across webs |
+| TWikibug:Item6846 | Disable rename/deletion of system webs (TWiki and Main) |
+| TWikibug:Item6849 | Search summary broken if TWiki variable spans more than one line |
+| TWikibug:Item6850 | Nicer comma-space delimited display of TWiki Group members |
+| TWikibug:Item6852 | PreferencesPlugin: Input types checkbox and select+multi are broken |
+| TWikibug:Item6854 | Cannot add attachments with TWiki 5.1.1 and IE 8 |
+| TWikibug:Item6864 | Variable expansion in TOC{"Topic"} does not work |
+| TWikibug:Item6865 | Redirect to viewauth shows domain name twice (Apache login) |
+| TWikibug:Item6869 | TWikiDrawPlugin does not save changes |
+| TWikibug:Item6874 | Apache Config Generator - Does not use new Apache 2.4.x Access Controls |
+| TWikibug:Item6876 | Use of uninitialized value in concatenation in tool-tip topic info of unknown user |
+| TWikibug:Item6881 | User dir installation broken with URL sanitization if dir contains a ~ tilde |
+| TWikibug:Item6888 | Add # character to {NameFilter} |
+| TWikibug:Item6890 | Multi-value parameters lost during login redirect |
+| TWikibug:Item6894 | TWikiUserMappingContrib: Filter out dots when creating !WikiWord name from login name |
+| TWikibug:Item6900 | EditTablePlugin: Warning: "my" variable %regex masks earlier declaration |
+| TWikibug:Item6903 | Searching a topic that includes another topic that contains an image, breaks the image |
+| TWikibug:Item6905 | configure: RCS can cause software error on configure |
+| TWikibug:Item6914 | Securing attachments: Use Alias/ScriptAlias instead of Apache rewrite rules |
+| TWikibug:Item6920 | RCS problems under Fedora 17 (+other new rcs) prevent Configure from running |
+| TWikibug:Item6921 | Alpha-type ordered lists don't work in IE-9 |
+| TWikibug:Item6924 | Remove anchors and simple variables in formatted search summary |
+| TWikibug:Item6928 | Logging in GMT |
+| TWikibug:Item6936 | TopMenuSkin: Pulldown menu closes too early on hover if more than one menu on page |
+| TWikibug:Item6957 | PreferencesPlugin: Radio butons, checkboxes, and labels are displayed on the line below Set VAR = |
+| TWikibug:Item6960 | SpreadSheetPlugin: Form action of interactive formula evaluation feature has old format |
+</noautolink>
+Total: 29
+
+---++ TWiki-5.1.3 Patch Release - Details
+
+TWiki-5.1.3 was built from SVN http://svn.twiki.org/svn/twiki/branches/TWikiRelease05x01 revision r24504 (2012-12-16)
+
+---+++ Enhancements
+
+<noautolink>
+| TWikibug:Item6945 | CommentPlugin: Send comment to multiple e-mail addresses |
+| TWikibug:Item6958 | Documentation: New TWiki Doc Graphics icons for TWiki-5.1.3 |
+| TWikibug:Item6959 | Translation: Translation work for TWiki-5.1.3 |
+| TWikibug:Item6962 | Documentation work for TWiki-5.1.3 |
+| TWikibug:Item6967 | CommentPlugin: Better layout of default comment box |
+| TWikibug:Item6979 | InterwikiPlugin: INTERWIKIPLUGIN_RULESTOPIC enhancement |
+| TWikibug:Item7018 | SpreadSheetPlugin: Test Cases for all !SpreadSheetPlugin functions; refactor plugin to use function hash for better performance |
+| TWikibug:Item7023 | SpreadSheetPlugin: New function $STDEV(), $STDEVP(), $VAR(), $VARP() |
+| TWikibug:Item7032 | SetGetPlugin: GET variable with format parameter |
+| TWikibug:Item7042 | TWikiUserMappingContrib: CSS based box shadow and rounded corners for user profile pages |
+</noautolink>
+Total: 10
+
+---+++ Fixes
+
+<noautolink>
+| TWikibug:Item6944 | CommentPlugin: Get script URL with TWiki::Func::getMasterWebScriptUrl |
+| TWikibug:Item6969 | PreferencesPlugin: Various edge cases are not handled properly |
+| TWikibug:Item6978 | SetGetPlugin: Plugin may fail due to Data::Dumper not being loaded |
+| TWikibug:Item6982 | Links in INCLUDE across web have gratuitous trailing parenthesis |
+| TWikibug:Item6992 | Topic preferences in template topics are lost when creating a new topic |
+| TWikibug:Item7002 | !VarMETASEARCH was showing up in UserDocumentationCategory |
+| TWikibug:Item7005 | Documentation: Webs that have a !WikiWord name are shown as "TWiki.WikiWordWeb" in sitemap |
+| TWikibug:Item7006 | PatternSkin: Removing obsolete and unreferenced !PatternSkinHeaderArt topic |
+| TWikibug:Item7008 | PreferencesPlugin: Radio buttons are not displayed inline on webkit browsers |
+| TWikibug:Item7009 | PreferencesPlugin: Edit Preferences button to fail if the user does not have change permission |
+| TWikibug:Item7015 | TablePlugin: Cannot handle date (0, 0, 0, 14, 2, 1100) error on very early date |
+| TWikibug:Item7028 | PreferencesPlugin: Disable submit button when current site is mode read-only or slave. |
+| TWikibug:Item7029 | PreferencesPlugin: Redirect to master site when current site mode is slave. |
+| TWikibug:Item7051 | Insecure dependency in open when renaming a topic |
+| TWikibug:Item7067 | Configure: Configure adds extra (?^: ... ) to regex variables on save under Perl 5.14 |
+| TWikibug:Item7068 | Time: SEARCH{date="interval"} incorrectly handles DST when in GMT timezone |
+| TWikibug:Item7080 | Security Alert CVE-2012-6329: TWiki MAKETEXT Variable Allows Arbitrary Shell Command Execution |
+| TWikibug:Item7084 | TWikiUserMappingContrib: Can't register local TWiki users with !LdapContrib |
+| TWikibug:Item7087 | ICON: Icon image is undetermined if ICON parameter is empty |
+</noautolink>
+Total: 19
+
+---++ TWiki-5.1.4 Patch Release - Details
+
+TWiki-5.1.4 was built from SVN http://svn.twiki.org/svn/twiki/branches/TWikiRelease05x01 revision r25114 (2013-02-16)
+
+---+++ Enhancements
+
+<noautolink>
+| TWikibug:Item7088 | Documentation: Documentation work for TWiki-5.1.4 |
+| TWikibug:Item7089 | Documentation: New TWiki Doc Graphics icons for TWiki-5.1.4 |
+| TWikibug:Item7090 | Documentation: Translation work for TWiki-5.1.4 |
+| TWikibug:Item7111 | TWiki logs: Log user agent for all users; log additional info via extralog URL parameter |
+| TWikibug:Item7141 | CommentPlugin: Control over where to add the form tag in comment PROMPT template |
+| TWikibug:Item7144 | InterwikiPlugin: Observe the Links configuration parameter |
+</noautolink>
+Total: 6
+
+---+++ Fixes
+
+<noautolink>
+| TWikibug:Item7057 | Adding the vbs file extension to mime.types |
+| TWikibug:Item7109 | Configure: Unmatched [ in regex error when saving configure |
+| TWikibug:Item7113 | Configure: Configuration log should not contain passwords |
+| TWikibug:Item7114 | Can't locate object method 'get_handle' via package 'TWiki::I18N' error when accessing restricted web |
+| TWikibug:Item7116 | Broken link to non-existing topic if link label contains image or !WikiWord |
+| TWikibug:Item7117 | expandVariablesOnTopicCreation may fail if web & topic parameters are missing |
+| TWikibug:Item7124 | PatternSkin: On IE, buttons have extra left and right padding |
+| TWikibug:Item7136 | TINYMCEPLUGIN_DISABLE not working well |
+| TWikibug:Item7145 | CVE-2013-1751: Sanitize MAKETEXT variable by removing excessive tildes |
+| TWikibug:Item7148 | ColorPickerPlugin: Color picker does not work if initial value is empty |
+| TWikibug:Item7149 | Update CGI::Session module to 4.48 |
+</noautolink>
+Total: 11
+
+__Related Topics:__ TWikiHistory, TWikiInstallationGuide, TWikiUpgradeGuide, %SEARCH{ "TWikiReleaseNotes" scope="topic" topic="TWikiReleaseNotes*" excludetopic="%TOPIC%" nonoise="on" format="$topic" separator=", " }%

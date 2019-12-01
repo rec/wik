@@ -1,0 +1,383 @@
+%META:TOPICINFO{author="TWikiContributor" date="1530863727" format="1.1" version="4"}%
+---+!! TWiki Dashboard Add-On
+<!--
+   Contributions to this add-on are appreciated. Please update the add-on page at
+   http://twiki.org/cgi-bin/view/Plugins/TWikiDashboardAddOn or provide feedback at
+   http://twiki.org/cgi-bin/view/Plugins/TWikiDashboardAddOnDev.
+   If you are a TWiki contributor please update the add-on in the SVN repository.
+-->
+<sticky>
+<div class="twikiTocFloat">
+%TOC{title="Page contents"}%
+</div>
+</sticky>
+%SHORTDESCRIPTION%
+
+---++ Introduction
+
+A dashboard comes into play when users need to get an overview of their work and want to navigate quickly to relevant places. This TWiki application is designed to give administrators a tool to quickly create dashboards for intranet home, team homepages, project homepages and knowledge bases.
+
+---++ Usage
+
+The add-on defines several sections that are used to create dashboards. This can be done either via [[VarDASHBOARD][DASHBOARD]] or [[%SYSTEMWEB%.VarINCLUDE][INCLUDE]] variables. A dashboard is constructed using the following sections:
+<sticky>
+<div style="float: right; background-color: #EBEEF0; text-align: center; width: 300px; margin:0 0 20px 20px; padding: 2px 10px 10px 10px;">
+Dashboard screenshot (click to enlarge)%BR%
+<a href="%PUBURLPATH%/%WEB%/%TOPIC%/dashboard-example.png">
+<img src="%PUBURLPATH%/%WEB%/%TOPIC%/dashboard-example-300.png" alt="" width="300" height="165" />
+</a>
+</div>
+</sticky>
+
+   * section ="dashboard_start"=
+      * section ="banner"=
+      * section ="box_start"=
+         * Box 1 content
+      * section ="box_end"=
+      * section ="box_start"=
+         * Box 2 content
+      * section ="box_end"=
+      * ...etc...
+   * section ="dashboard_end"=
+
+Banner(s) and boxes fill the dashboard width, and are arranged left to right, top to bottom.
+
+<table><tr><td valign="top">
+---+++ Dashboard using DASHBOARD!! variable
+<verbatim>
+%DASHBOARD{ section="dashboard_start" }%
+%DASHBOARD{ section="banner" ... }%
+%DASHBOARD{ section="box_start" ... }%
+Box 1 content
+%DASHBOARD{ section="box_end" }%
+%DASHBOARD{ section="box_start" ... }%
+Box 2 content
+%DASHBOARD{ section="box_end" }%
+...etc...
+%DASHBOARD{ section="dashboard_end" }%
+</verbatim>
+</td><td>&nbsp; &nbsp; &nbsp;</td><td valign="top">
+
+---+++ Dashboard using INCLUDE!! variable
+<verbatim>
+%INCLUDE{ "TWikiDashboardAddOn" section="dashboard_start" }%
+%INCLUDE{ "TWikiDashboardAddOn" section="banner" ... }%
+%INCLUDE{ "TWikiDashboardAddOn" section="box_start" ... }%
+Box 1 content
+%INCLUDE{ "TWikiDashboardAddOn" section="box_end" }%
+%INCLUDE{ "TWikiDashboardAddOn" section="box_start" ... }%
+Box 2 content
+%INCLUDE{ "TWikiDashboardAddOn" section="box_end" }%
+...etc...
+%INCLUDE{ "TWikiDashboardAddOn" section="dashboard_end" }%
+</verbatim>
+</td></tr></table>
+
+---+++ Section ="dashboard_start"=
+
+The ="dashboard_start"= section starts a dashboard. It is the container of banners and boxes. A dashboard needs to be closed with a ="dashboard_end"= section. Parameter:
+
+| *Parameter* | *Description* | *Default* |
+| =width=""= | Width of dashboard in pixels, should match banner width, optional | ="1024"= |
+
+---+++ Section ="banner"=
+
+The ="banner"= section defines a banner with an image. All content is specified by parameters, e.g. there is no start and end banner section. Parameters:
+
+| *Parameter* | *Description* | *Default* |
+| =image=""= | Banner image URL, optional. Attach your own image, default 1024x150 pixels, or use one of the TWikiDashboardImages. Example:%BR% ="%<nop>ATTACHURL%/myteam.jpg"= | URL of =marin-headlands.jpg= image |
+| =title=""= | Banner title, optional. If you specify a TWiki link make sure to use !Web.TopicName, not just !TopicName. | (no title) |
+| =text=""= | Banner text below title, optional | (no text) |
+| =width=""= | Banner width in pixels, optional.%BR% __Note:__ It should match the dashboard width and banner image width | ="1024"= |
+| =height=""= | Banner height in pixels, optional | ="150"= |
+| =button1=""= %BR% =button2=""= %BR% ... %BR% =button8=""= | Banner buttons, optional. Each button has elements separated by the pipe symbol (="&#124;"=). A button can either link to another page, or popup a modal box. A popup is shown if the button has 3 or more elements. Popup button elements: Button label, box title, box content, box width in pixels (optional, default 600), box height in pixels (optional, default 400). Link button elements: Button label, link. A link can be a !Web.TopicName or a URL. If you specify a TWiki link make sure to use !Web.TopicName, not just !TopicName. %BR% __Example:__ =%BR% button1="Button label&#124;Web.LinkTarget" %BR% button2="TWiki Help&#124;%SYSTEMWEB%.WebHome" %BR% button3="Popup Demo&#124;Modal box demo title&#124;Modal box content&#124;600"= | (none) |
+| =style=""= | CSS of banner box, optional | ="border: none 0;"= |
+| =titlestyle=""= | CSS of banner title, optional. %BR% __Example:__ To show white title text for dark banner image:%BR% =titlestyle="color: white;"= | ="margin: 10px 15px; padding: 0; font-size: 18pt; font-weight: 600; color: #333333;"= |
+| =textstyle=""= | CSS of banner text, optional | ="margin: 35px 15px; padding: 0; color: #333333;"= |
+| =contentstyle=""= | CSS of button container | ="bottom: 0; right: 0; margin: 0; padding: 10px 10px; color: #333333;"= |
+
+__Note:__ The popup (modal dialog box) depends on the TWiki:Plugins.ModalBoxAddOn.
+
+---+++ Section ="box_start"=
+
+The ="box_start"= section starts a box. A box needs to be closed with a ="box_end"= section. Parameters:
+
+| *Parameter* | *Description* | *Default* |
+| =title=""= | Box title, optional. HTML can links can be used. If you specify a TWiki link make sure to use !Web.TopicName, not just !TopicName. | (no title) |
+| =width=""= | Width of box in pixels, optional.%BR% __Note:__ This is the usable width of the box content, it does not include 32 pixel of box border and padding | ="300"= |
+| =height=""= | Box height in pixels, optional | ="200"= |
+| =style=""= | CSS of outer box, optional | ="border: solid #d0d0d0 1px; padding: 15px;"= |
+| =titlestyle=""= | CSS of title, optional | ="text-align:center; font-size:19px; font-weight:bold; color: #333335; padding:0 0 12px 0; white-space: nowrap; overflow: hidden;"= |
+| =contentstyle=""= | CSS of content | ="overflow:auto;"= |
+
+---+++ Section ="box_end"=
+
+The ="box_end"= section ends a box. It has no additional parameters.
+
+---+++ Section ="dashboard_end"=
+
+The ="dashboard_end"= section ends a dashboard. It has no additional parameters.
+
+---++ Dashboard Dimensions
+
+The default dashboard is 1024 pixels wide, which is just about the right size for laptop screens. The TWikiDashboardImages are designed for this width. By default, boxes are 300 pixels wide and 200 pixels high for a 3 column layout. The following screenshot shows the dimensions.
+
+<img src="%PUBURLPATH%/%WEB%/%TOPIC%/dashboard-dimensions.png" alt="dashboard dimensions" width="1035" height="477" />
+
+When designing custom dimensions keep in mind that banner(s) and boxes are arranged left to right, top to bottom.
+
+---++ Example
+
+This example defines a simple dashboard. Write this:
+<verbatim>
+%DASHBOARD{ section="dashboard_start" }%
+%DASHBOARD{ section="banner"
+ image="%PUBURL%/%SYSTEMWEB%/TWikiDashboardImages/marin-headlands.jpg"
+ title="Dashboard for %WIKIUSERNAME%"
+ titlestyle="color:#800000;"
+ button1="TWiki Help|%SYSTEMWEB%.WebHome"
+ button2="TWiki Variables|%SYSTEMWEB%.TWikiVariables"
+ button3="Popup Demo|Modal Popup Demo|This requires the TWiki:Plugins.ModalBoxAddOn|400"
+}%
+%DASHBOARD{ section="box_start" title="Box 1 title" }%
+Box 1 content
+%DASHBOARD{ section="box_end" }%
+%DASHBOARD{ section="box_start" title="Box 2 title" }%
+Box 2 content
+%DASHBOARD{ section="box_end" }%
+%DASHBOARD{ section="box_start" title="Box 3 title" }%
+Box 3 content
+%DASHBOARD{ section="box_end" }%
+%DASHBOARD{ section="box_start" title="Box 4 title" width="992" height="100" }%
+Box 4 content
+%DASHBOARD{ section="box_end" }%
+%DASHBOARD{ section="dashboard_end" }%
+</verbatim>
+
+As documented earlier, an alternate syntax for =%<nop>DASHBOARD{ section="..." ... }%= is =%<nop>INCLUDE{ "TWikiDashboardAddOn" section="..." ... }%=.
+
+This example generates the following dashboard:
+
+%DASHBOARD{ section="dashboard_start" }%
+%DASHBOARD{ section="banner"
+ image="%PUBURL%/%SYSTEMWEB%/TWikiDashboardImages/marin-headlands.jpg"
+ title="Dashboard for %WIKIUSERNAME%"
+ titlestyle="color:#800000;"
+ button1="TWiki Help|%SYSTEMWEB%.WebHome"
+ button2="TWiki Variables|%SYSTEMWEB%.TWikiVariables"
+ button3="Popup Demo|Modal Popup Demo|This requires the TWiki:Plugins.ModalBoxAddOn|400"
+}%
+%DASHBOARD{ section="box_start" title="Box 1 title" }%
+Box 1 content
+%DASHBOARD{ section="box_end" }%
+%DASHBOARD{ section="box_start" title="Box 2 title" }%
+Box 2 content
+%DASHBOARD{ section="box_end" }%
+%DASHBOARD{ section="box_start" title="Box 3 title" }%
+Box 3 content
+%DASHBOARD{ section="box_end" }%
+%DASHBOARD{ section="box_start" title="Box 4 title" width="992" height="100" }%
+Box 4 content
+%DASHBOARD{ section="box_end" }%
+%DASHBOARD{ section="dashboard_end" }%
+
+---++ Dashboard Logic
+
+This section defines the actual dashboard. View the [[%SCRIPTURL{view}%/%WEB%/%TOPIC%?raw=on][raw text]] of this topic to look under the hood.
+<!--=========================================================
+%STARTSECTION{ "dashboard_start" }%%ADDTOHEAD{
+ "twiki_dashboard_addon"
+ text="<style type='text/css' media='all'>
+.twDashboardOuter {
+ margin: 0;
+ padding: 0;
+ width: 1040px; /* = 1024 + 2*7 margin + 2 extra */
+}
+.twDashboardOuter div div div ul {
+ padding-left: 1.7em;
+}
+.twDashboardBanner {
+ position: relative;
+ margin: 7px;
+ padding: 0;
+ width: 1024px; /* = 3 * (300w+2*15p+2*1b) + 2*2*7m */
+ height: 150px;
+ -moz-box-shadow: 2px 2px 3px #e8e8e8;
+ -webkit-box-shadow: 2px 2px 3px #e8e8e8;
+ box-shadow: 2px 2px 3px #e8e8e8;
+ -moz-border-radius: 4px;
+ border-radius: 4px;
+ background-color: #dddddd;
+ background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TWikiDashboardImages/golden-gate-sunset.jpg);
+}
+.twDashboardBannerTitle {
+ position: absolute;
+ margin: 10px 15px;
+ padding: 0;
+ font-size: 18pt;
+ font-weight: 600;
+ color: #333333;
+}
+.twDashboardBannerText {
+ position: absolute;
+ margin: 35px 15px;
+ padding: 0;
+ color: #333333;
+}
+.twDashboardBannerButtonRow {
+ position: absolute;
+ bottom: 0;
+ right: 0;
+ margin: 0;
+ padding: 10px 10px;
+ color: #333333;
+}
+.twDashboardBannerButton {
+ float:right;
+}
+.twDashboardBannerButton a {
+ display: inline-block;
+ margin: 5px 10px;
+ padding: 3px 8px;
+}
+.ui-dialog .ui-dialog-content {
+ text-align: left;
+}
+.twDashboardBox {
+ float: left;
+ padding: 7px;
+}
+</style>"
+}%<nop>
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="scroll_box_engine" }%<nop>
+<div class="twDashboardOuter" %IF{ "defined 'width'" then="style=\"width: %CALCULATE{$INT(%width%+2*7+2)}%px;\"" }%>
+<nop>%ENDSECTION{ "dashboard_start" }%
+=========================================================-->
+
+<!--=========================================================
+%STARTSECTION{ "banner" }%<div class="twDashboardBanner" style="%IF{ "defined 'width'" then="width: %width%px; " }%%IF{ "defined 'height'" then="height: %height%px; " }%%IF{ "defined 'image'" then="background-image: url(<nop>%image%); " }%%IF{ "defined 'style'" then="%style%; " }%">
+<div class="twDashboardBannerTitle" %IF{ "defined 'titlestyle'" then="style=\"%titlestyle%\"" }%>
+%IF{ "defined 'title'" then="$percnttitle$percnt" }%<nop>
+</div>
+<div class="twDashboardBannerText" %IF{ "defined 'textstyle'" then="style=\"%textstyle%\"" }%>
+%IF{ "defined 'text'" then="$percnttext$percnt" }%<nop>
+</div>
+%IF{
+ "defined 'button1' OR defined 'button2' OR defined 'button3' OR defined 'button4' OR defined 'button5' OR defined 'button6' OR defined 'button7' OR defined 'button8'"
+ then="$percntCALCULATE{$SET(twDashboardBannerButtonDisplay, block)}$percnt $percntJQTHEME{smoothness}$percnt"
+ else="$percntCALCULATE{$SET(twDashboardBannerButtonDisplay, none)}$percnt"
+}%<nop>
+<div class="twDashboardBannerButtonRow" style="display: %CALCULATE{$GET(twDashboardBannerButtonDisplay)}%; %IF{ "defined 'contentstyle'" then="%contentstyle%;" }%">
+%CALCULATE{$SETM(x, +1)$SUBSTITUTE($LISTJOIN($sp, $LISTMAP($SET(i, $SPLIT(\|, $item))$IF($LISTSIZE($GET(i))>=3, <div class='twDashboardBannerButton'>$NOP(%)INCLUDE{ \"%SYSTEMWEB%.ModalBoxAddOn\" warn=\"off\" id=\"twDashboardButton_$GET(x)_$index\" title=\"$LISTITEM(2, $GET(i))\" content=\"$LISTITEM(3, $GET(i))\" width=\"$IF($LISTSIZE($GET(i))>=4, $LISTITEM(4, $GET(i)), 600)\" height=\"$IF($LISTSIZE($GET(i))>=5, $LISTITEM(5, $GET(i)), 400)\" }$NOP(%) <a href='#' id='twDashboardButton_$GET(x)_$index'>$LISTITEM(1, $GET(i))</a></div>, $IF($LISTSIZE($GET(i))>1, <div class='twDashboardBannerButton'>[[$LISTITEM(2, $GET(i))][$LISTITEM(1, $GET(i))]]</div>)), $LISTREVERSE($SPLIT(; *, $TRANSLATE(%button1%, $comma", `'), $TRANSLATE(%button2%, $comma", `'), $TRANSLATE(%button3%, $comma", `'), $TRANSLATE(%button4%, $comma", `'), $TRANSLATE(%button5%, $comma", `'), $TRANSLATE(%button6%, $comma", `'), $TRANSLATE(%button7%, $comma", `'), $TRANSLATE(%button8%, $comma", `'))))), `, &#44;)}%
+</div>
+</div>
+<script> $('.twDashboardBannerButton a').addClass('twikiButton');</script>
+<div style="clear: both;"></div>
+<nop>%ENDSECTION{ "banner" }%
+=========================================================-->
+
+<!--=========================================================
+%STARTSECTION{ "box_start" }%<div class="twDashboardBox">
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="static_box_start" %IF{ "defined 'title'" then="title=\"%title%\"" }% %IF{ "defined 'width'" then="width=\"%width%\"" else="width=\"300\"" }% %IF{ "defined 'height'" then="height=\"%height%\"" else="height=\"200\"" }% %IF{ "defined 'style'" then="boxstyle=\"%style%\"" }% %IF{ "defined 'titlestyle'" then="titlestyle=\"%titlestyle%\"" }% contentstyle="overflow:auto; %IF{ "defined 'contentstyle'" then="%contentstyle%;" }%" }%
+<nop>%ENDSECTION{ "box_start" }%
+=========================================================-->
+
+<!--=========================================================
+%STARTSECTION{ "box_end" }%<nop>
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="static_box_end" }%
+</div>%ENDSECTION{ "box_end" }%
+=========================================================-->
+
+<!--=========================================================
+%STARTSECTION{ "dashboard_end" }%<div style="clear: both;"></div>
+</div>%ENDSECTION{ "dashboard_end" }%
+=========================================================-->
+
+---++ Installation Instructions
+
+__Note:__ You do not need to install anything on the browser to use this add-on. The following instructions are for the administrator who installs the add-on on the TWiki server.
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}% "
+ hidelink="Hide details %ICONURL{toggleclose}% "
+}%
+
+   * For an __automated installation__, run the [[%SCRIPTURL{configure}%][configure]] script and follow "Find More Extensions" in the in the __Extensions__ section.
+
+   * Or, follow these __manual installation__ steps:
+      * Download the ZIP file from the Plugins home (see below).
+      * Unzip ==%TOPIC%.zip== in your twiki installation directory. Content:
+        | *File:* | *Description:* |
+        | ==data/TWiki/%TOPIC%.txt== | Add-on topic |
+        | ==data/TWiki/VarDASHBOARD.txt.txt== | DASHBOARD variable documentation topic |
+        | ==data/TWiki/TWikiDashboardImages.txt== | Topic with dashboard banner images |
+        | ==lib/TWiki/Contrib/%TOPIC%.pm== | Add-on Perl module |
+        | ==pub/TWiki/TWikiDashboardAddOn/*.png== | Screenshots of dashboards |
+        | ==pub/TWiki/TWikiDashboardImages/*.png== | Dashboard banner images |
+      * Set the ownership of the extracted directories and files to the webserver user.
+
+   * Add-on __configuration__:
+      * If you use TWiki-5.1 or below add the following setting to %SYSTEMWEB%.TWikiPreferences:
+<verbatim>
+   * %SYSTEMWEB%.TWikiDashboardAddOn variable, documented in %SYSTEMWEB%.VarDASHBOARD:
+      * Set DASHBOARD = %INCLUDE{ "%SYSTEMWEB%.TWikiDashboardAddOn" section="%section%" %IF{ "'%height{ default="" }%'!=''" then="height=\"%height%\"" }% %IF{ "'%width{ default="" }%'!=''" then="width=\"%width%\"" }% %IF{ "'%ENCODE{ "%image{ default="" }%" type="entity" }%'!=''" then="image=\"%ENCODE{ "%image%" type="quote" }%\"" }% %IF{ "'%ENCODE{ "%title{ default="" }%" type="entity" }%'!=''" then="title=\"%ENCODE{ "%title%" type="quote" }%\"" }% %IF{ "'%ENCODE{ "%text{ default="" }%" type="entity" }%'!=''" then="text=\"%ENCODE{ "%text%" type="quote" }%\"" }% %IF{ "'%ENCODE{ "%button1{ default="" }%" type="entity" }%'!=''" then="button1=\"%ENCODE{ "%button1%" type="quote" }%\"" }% %IF{ "'%ENCODE{ "%button2{ default="" }%" type="entity" }%'!=''" then="button2=\"%ENCODE{ "%button2%" type="quote" }%\"" }% %IF{ "'%ENCODE{ "%button3{ default="" }%" type="entity" }%'!=''" then="button3=\"%ENCODE{ "%button3%" type="quote" }%\"" }% %IF{ "'%ENCODE{ "%button4{ default="" }%" type="entity" }%'!=''" then="button4=\"%ENCODE{ "%button4%" type="quote" }%\"" }% %IF{ "'%ENCODE{ "%button5{ default="" }%" type="entity" }%'!=''" then="button5=\"%ENCODE{ "%button5%" type="quote" }%\"" }% %IF{ "'%ENCODE{ "%button6{ default="" }%" type="entity" }%'!=''" then="button6=\"%ENCODE{ "%button6%" type="quote" }%\"" }% %IF{ "'%ENCODE{ "%button7{ default="" }%" type="entity" }%'!=''" then="button7=\"%ENCODE{ "%button7%" type="quote" }%\"" }% %IF{ "'%ENCODE{ "%button8{ default="" }%" type="entity" }%'!=''" then="button8=\"%ENCODE{ "%button8%" type="quote" }%\"" }% %IF{ "'%ENCODE{ "%style{ default="" }%" type="entity" }%'!=''" then="style=\"%style%\"" }% %IF{ "'%ENCODE{ "%titlestyle{ default="" }%" type="entity" }%'!=''" then="titlestyle=\"%titlestyle%\"" }% %IF{ "'%ENCODE{ "%textstyle{ default="" }%" type="entity" }%'!=''" then="textstyle=\"%textstyle%\"" }% %IF{ "'%ENCODE{ "%contentstyle{ default="" }%" type="entity" }%'!=''" then="contentstyle=\"%contentstyle%\"" }% }%
+</verbatim>
+
+   * __Test__ if the installation was successful:
+      * See if example above work
+
+%ENDTWISTY%
+
+---++ Add-On Info
+
+   * Set SHORTDESCRIPTION = Create professional dashboards for intranet home, teams, knowledge bases and more
+
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  Add-on Author: | TWiki:Main.PeterThoeny |
+|  Copyright: | &copy; 2012-2018, TWiki:Main.PeterThoeny, [[http://twiki.org/][TWiki.org]]<br /> &copy; 2012-2018 TWiki:TWiki.TWikiContributor |
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+|  Add-on Version: | 2018-07-06 |
+%TWISTY{
+ mode="div"
+ showlink="Show Change History %ICONURL{toggleopen}%"
+ hidelink="Hide Change History %ICONURL{toggleclose}% "
+}%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  2018-07-06: | TWikibug:Item7841: Copyright update to 2018 |
+|  2016-01-09: | TWikibug:Item7708: Copyright update to 2016 |
+|  2014-04-11: | TWikibug:Item7371: Document that TWiki links in title and button parameters require !Web.TopicName notation |
+|  2014-01-08: | TWikibug:Item7406: New title and titlestyle parameters for banner section |
+|  2013-08-15: | TWikibug:Item7154: Updated nasa-airfield.jpg |
+|  2013-07-15: | TWikibug:Item7154: Add a new banner image by Blackstation |
+|  2013-04-06: | TWikibug:Item7154: Add 13 new banner images by Peter Thoeny, 1 by Google |
+|  2013-04-22: | TWikibug:Item7151: Change CALC to CALCULATE in image library |
+|  2013-04-06: | TWikibug:Item7154: Add 9 new banner images by Jeffrey Pang, Peter Thoeny, Romain Guy, Steve Dunleavy |
+|  2013-02-13: | TWikibug:Item7041: Add 5 new banner images by Joi Ito, Jon Brack |
+|  2013-02-04: | TWikibug:Item7041: Add 3 new banner images by Cindy Cornett Seigle, Danny Hope, Zsolt Andrasi |
+|  2013-02-01: | TWikibug:Item7041: Add 9 new banner images by Dan Tentler, Jake Rome, Jim Crossley, Juhan Sonin, Matteo Leoni, Paul Downey, Steve Bowbrick, Tom Woodward |
+|  2013-01-31: | TWikibug:Item7091: Use TWISTY in installation instructions and change history |
+|  2013-01-31: | TWikibug:Item7041: Add 8 new banner images by Peter Thoeny |
+|  2013-01-06: | TWikibug:Item7041: Add 4 new banner images by David Yu, Joi Ito |
+|  2012-12-28: | TWikibug:Item7041: Add 7 new banner images by David Yu, ETH Zurich, Peter Thoeny |
+|  2012-12-04: | TWikibug:Item7041: Add 10 new banner images by CERN |
+|  2012-11-28: | TWikibug:Item7041: Add 12 new banner images by Andreas Schaefer, Angela Ju, David Yu, Jeff Keller, Martin Eckert, NASA, Paulo Ordoveza, Peter Thoeny, Sean Fitzgibbon |
+|  2012-11-11: | TWikibug:Item7020: Categorize TWiki Variable DASHBOARD |
+|  2012-11-05: | TWikibug:Item7021: Add 6 more banner images by David Yu, Diliff, Goro Kosaka, Jens Hausherr, Koppi2, Sbittante |
+|  2012-10-13: | TWikibug:Item6972: Add !TWikiDashboardAddOn to core distribution; multiple banner buttons with button1="" button2="" ... |
+|  2012-10-12: | TWikibug:Item6981: Add 12 more dashboard banner images |
+|  2012-10-06: | TWikibug:Item6954: Initial version |
+%ENDTWISTY%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  TWiki Dependency: | $TWiki::Plugins::VERSION 1.3 (TWiki-5.0)%BR% TWiki:Plugins.ScrollBoxAddOn %BR% TWiki:Plugins.SpreadSheetPlugin version 2012-04-04 %BR% TWiki:Plugins.ModalBoxAddOn required if popup buttons are used |
+|  CPAN Dependencies: | none |
+|  Other Dependencies: | none |
+|  Perl Version: | 5.005 |
+|  Add-on Home: | http://TWiki.org/cgi-bin/view/Plugins/TWikiDashboardAddOn |
+|  Feedback: | http://TWiki.org/cgi-bin/view/Plugins/TWikiDashboardAddOnDev |
+|  Appraisal: | http://TWiki.org/cgi-bin/view/Plugins/TWikiDashboardAddOnAppraisal |
+
+__Related Topics:__ VarDASHBOARD, TWikiDashboardImages, ScrollBoxAddOn, %SYSTEMWEB%.TWikiAddOns
+
+%META:FILEATTACHMENT{name="dashboard-dimensions.png" attachment="dashboard-dimensions.png" attr="h" comment="" date="1349501922" path="dashboard-dimensions.png" size="171778" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="dashboard-example.png" attachment="dashboard-example.png" attr="h" comment="" date="1349511432" path="dashboard-example.png" size="249069" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="dashboard-example-300.png" attachment="dashboard-example-300.png" attr="h" comment="" date="1349511430" path="dashboard-example-300.png" size="38797" user="TWikiContributor" version="1"}%

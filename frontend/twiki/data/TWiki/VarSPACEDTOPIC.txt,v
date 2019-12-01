@@ -1,0 +1,76 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2012.11.15.06.27.45;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.01.22.03.21.27;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.06.25.16.26.29;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1352960865" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarSPACEDTOPIC
+---+++ SPACEDTOPIC -- topic name, spaced and URL-encoded *deprecated*
+   * The current topic name with added URL-encoded spaces, for use in regular expressions that search for backlinks to the current topic
+   * Syntax: =%<nop>SPACEDTOPIC%=
+   * Expands to: =%SPACEDTOPIC%=
+   * Note: This is a deprecated variable. It can be duplicated with =%<nop>ENCODE{%<nop>SPACEOUT{"%<nop>TOPIC%" separator=" *"}%}%=
+   * Category: FormattingAndRenderingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSPACEOUT][SPACEOUT]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarTOPIC][TOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENCODE][ENCODE]]
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.1" version="2"}%
+d8 2
+a9 1
+   * __%X% Note:__ This is a deprecated variable. It can be duplicated with =%<nop>ENCODE{%<nop>SPACEOUT{"%<nop>TOPIC%" separator=" *"}%}%=
+a10 1
+
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.2" version="1"}%
+a3 1
+
+d9 1
+a9 1
+   * Related: [[#VarSPACEOUT][SPACEOUT]], [[#VarTOPIC][TOPIC]], [[#VarENCODE][ENCODE]]
+@

@@ -1,0 +1,71 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2018.07.16.03.20.39;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@---+ Package =TWiki::Configure::ImgTool=
+
+This class is a singleton that offers URLs for the images (logos,
+warning, info) used during configuration - when neither =pub= nor
+=data= nor =template= directories are reliably available.
+
+All the methods can be called either as class methods or as object
+methods on the singleton:
+
+   * Class method: %BR%
+     $img = "=&lt;img src=" . TWiki::Configure::ImgTool->logo . "/&gt;"
+   * Object method: %BR%
+     my $imgtool = TWiki::Configure::ImgTool->instance;
+     $img = "=&lt;img src=" . $imgtool->logo . "/&gt;"
+
+
+%TOC%
+
+---++ Class Method instance()
+
+Returns the singleton object.
+
+
+---++ Class Method logo()
+
+Returns the URL for the TWiki 140x40 logo (gif).
+
+
+---++ Class Method logoSmall()
+
+Returns the URL for the TWiki small (34x26) logo (png).
+
+
+---++ Class Method favicon()
+
+Returns the URL for the TWiki favicon (16x16, x-icon).
+
+
+---++ Class Method iconWarning()
+
+Returns the URL for the warning icon (16x16, gif).
+
+
+---++ Class Method iconInfo()
+
+Returns the URL for the info icon (16x16, gif).
+
+@

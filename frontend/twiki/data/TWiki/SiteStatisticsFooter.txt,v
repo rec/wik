@@ -1,0 +1,104 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2013.10.14.08.02.48;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1378947990" format="1.1" version="1"}%
+
+__Legend:__
+<table><tr><td valign="top">
+   * *Webs Total*: Number of webs, excluding template webs
+   * *Webs Viewed*: Number of webs viewed
+      * This can be bigger than *Webs Total* since this includes webs viewed but deleted in a month
+   %IF{"{Stats}{SiteTopViews}"
+    then="   * The second line onwards show the most viewed webs with the number of views each web got"
+    else="<nop>"}%
+   * *Webs Updated*: Number of webs updated
+   %IF{"{Stats}{SiteTopUpdates}"
+    then="   * The second line onwards show the most updated webs with the number of updates each web got"
+    else="<nop>"}%
+   * *Topics*: Total Number of topics across all webs
+   * *Topics Viewed*: Number of topics viewed across all webs
+   * *Topics Updated*: Number of topics updated across all webs
+   * *Attachments*: Number of attachments in all topics
+</td><td valign="top">
+   * *Topic Views*: Number of topic views
+   * *Topic Updates*: Number of topic updates
+   * *Files Uploads*: Number of file uploads
+   * *Data Size MB*: Size of all files in data directory (topics and log files)
+   * *Pub Size MB*: Size of all files in pub directory (attachments)
+   * *Disk Use*: Disk use in percent
+   * *Users*: Number of users
+   * *Groups*: Number of users
+   * *Plugins*: Number of plugins installed, out of number of plugins available on twiki.org
+   * *Top Viewers*: People who viewed the most number of times
+   * *Top Contributors*: People who updated the most number of times
+</td></tr></table>
+
+__Notes:__
+   * Do not edit this topic, it is updated automatically. %IF{"{Stats}{DisableInvocationFromBrowser}" else="[[%SCRIPTURL{"statistics"}%/%USERSWEB%/SiteStatistics][Update now]]."}%
+   * When updating statistics of previous months, the following items cannot be measured and will be set to 0: Webs, Topics, Users, Data Size, Pub Size, Disk Use, Plugins.
+   * Charts are automatically shown at the top if the %IF{ "context ChartPluginEnabled" then="%SYSTEMWEB%.ChartPlugin" else="TWiki:Plugins.ChartPlugin" }% is installed and enabled (%IF{ "context ChartPluginEnabled" then="it is" else="it is not" }%) and if there are at least two months of statistics data. !ChartPlugin version 2011-04-27 or later is required.
+   * [[%SYSTEMWEB%.TWikiSiteTools#WebStatistics][TWikiSiteTools]] explains how to enable automatic updates of the statistics pages.
+
+%IF{
+ "{NoInAllPublicWebs}"
+ then="<nop>"
+ else="__Web Statistics Topics:__ $percntSEARCH{ \"WebStatistics\" scope=\"topic\" web=\"all\" topic=\"WebStatistics\" nonoise=\"on\" format=\"[[$web.$topic][$web]]\" separator=\", \" limit=\"100\" }$percnt"
+}%
+
+__Related:__ [[%SYSTEMWEB%.AdminToolsCategory][AdminToolsCategory]]
+
+<!--
+%SET{
+  "StatsYYYY" value="%SEARCH{"^%SITESTATISTICSTOPIC%\d\d\d\d" web="%BASEWEB%" scope="topic" type="regex" reverse="on" limit="1" nonoise="on" format="$topic" default="x"}%"
+}%
+%SET{"Redirect"
+  value="%IF{
+   "defined REDIRECT
+    and {Stats}{TopicPerYear}
+    and '%BASETOPIC%' = '%SITESTATISTICSTOPIC%' 
+    and '%GET{StatsYYYY}%' != 'x'"
+  then="1" else="0"}%"
+}%
+%SET{"History"
+  value="%IF{
+    "not %GET{Redirect}%
+     and {Stats}{TopicPerYear}
+     and '%GET{StatsYYYY}%' != 'x'"
+  then="1" else="0"}%"
+}%
+%IF{"%GET{Redirect}%"
+  then="$percntREDIRECT{%BASEWEB%.%GET{StatsYYYY}%}$percnt"
+}%
+-->
+%IF{"%GET{History}%" then="__History:__" else="<nop>}%
+%%IF{"%GET{History}%" then="SEARCH{" else="HIDE{" }%
+  "^%SITESTATISTICSTOPIC%\d\d\d\d$"
+  web="%BASEWEB%"
+  scope="topic"
+  type="regex"
+  reverse="on"
+  nonoise="on"
+  format="$percntIF{\"'$topic' = $BASETOPIC\" then=\"<nop>$topic\" else=\"[[$web.$topic][$topic]]\"}$percnt"
+  separator=", "
+}%
+@

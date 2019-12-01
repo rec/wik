@@ -1,0 +1,354 @@
+%META:TOPICINFO{author="TWikiContributor" date="1458793931" format="1.1" version="38"}%
+%STARTINCLUDE%
+---+ TWiki Templates
+
+_Definition of the templates used to render all HTML pages displayed in TWiki_ 
+
+%TOC%
+
+---++ Overview
+
+_Templates_ are plain text with embedded _template directives_ that tell TWiki how to compose blocks of text together, to create something new.
+
+There are two types of template:
+   * *Master Templates*: Define the HTML used to display TWiki pages.
+   * *Template Topics*: Define default text when you create a new topic
+
+__%T% Tip:__ TWiki:TWiki.TWikiTemplatesSupplement on TWiki.org has supplemental documentation on TWiki templates.
+
+#HtmlTemplates
+---++ Master Templates
+TWiki uses master templates when composing the output from all actions, like topic view, edit, and preview.
+This allows you to change the look and feel of all pages by editing just a few template files.
+
+Master templates are also used in the definition of TWikiSkins.
+
+Master templates are stored as text files with the extension =.tmpl=.
+They are usually HTML with embedded _template directives_.
+The directives are expanded when TWiki wants to generate a user interface screen.
+
+#TemplateVariables
+---+++ How Template Directives Work
+   * Directives are of the form ==%<nop>TMPL:&lt;key&gt;%== and ==%<nop>TMPL:&lt;key&gt;{"attr"}%==.
+   * Directives:
+      * ==%<nop>TMPL:INCLUDE{"file"}%==: Includes a template file. The file is found as described [[#FindingTemplates][below]].
+      * ==%<nop>TMPL:DEF{"block"}%==: Define a block. *All* text between this and the next =%<nop>TMPL:END%= directive is removed and saved for later use with =%<nop>TMPL:P=.
+      * ==%<nop>TMPL:END%==: Ends a block definition.
+      * ==%<nop>TMPL:P{"var"}%==: Includes a previously defined block.
+      * ==%<nop>{...}%==: is a comment.
+   * Two-pass processing lets you use a variable before or after declaring it.
+   * Templates and TWikiSkins work transparently and interchangeably. For example, you can create a skin that overloads only the =twiki.tmpl= master template, like =twiki.print.tmpl=, that redefines the header and footer.
+   * %H% Use of template directives is optional: templates work without them.
+   * %X% *NOTE:* Template directives work only for templates: they do not get processed in normal topic text.
+
+TMPL:P also supports simple parameters. For example, given the definition
+=%<nop>TMPL:DEF{"x"}% x%<nop>P%z%<nop>TMPL:END%= then =%<nop>TMPL:P{"x" P="y"}%= will expand to =xyz=.
+
+Note that parameters can simply be ignored; for example, =%<nop>TMPL:P{"x"}%= will expand to x%<nop>P%z.
+
+Any alphanumeric characters can be used in parameter names.
+You are highly recommended to use parameter names that cannot be confused with TWikiVariables.
+
+Note that three parameter names, =context=, =then= and =else= are *reserved*.
+They are used to support a limited form of "if" condition that you can use to select which of two templates to use, based on a _context identifier_:
+<verbatim>
+%TMPL:DEF{"link_inactive"}%<input type="button" disabled value="Link>%TMPL:END%
+%TMPL:DEF{"link_active"}%<input type="button" onclick="link()" value="Link" />%TMPL:END%
+%TMPL:P{context="inactive" then="inactive_link" else="active_link"}% for %CONTEXT%
+</verbatim>
+When the "inactive" context is set, then this will expand the "link_inactive" template; otherwise it will expand the "link_active" template.
+See IfStatements for details of supported context identifiers.
+
+#FindingTemplates
+---+++ Finding Templates
+
+The master templates shipped with a twiki release are stored in the twiki/templates directory.
+As an example, ==twiki/templates/view.tmpl== is the default template file for the ==twiki/bin/view== script. 
+
+You can save templates in other directories as long as they are listed in the ={TemplatePath}= configuration setting.
+The ={TemplatePath}= is defined in the Miscellaneous section of the [[%SCRIPTURLPATH{configure}%][configure]] page.
+
+You can also save templates in user topics (_IF_ there is no possible template match in the =templates= directory).
+The ={TemplatePath}= configuration setting defines which topics will be accepted as templates.
+
+Templates that are included with an explicit ='.tmpl'= extension are looked for only in the =templates/= directory.
+For instance =%TMPL:INCLUDE{"example.tmpl"}%= will only return =templates/example.tmpl=, regardless of ={TemplatePath}= and SKIN settings.
+
+The out-of-the-box setting of ={TemplatePath}= supports the following search order to determine which template file or topic to use for a particular script or =%TMPL:INCLUDE{"script"}%= statement.
+The _skin path_ is set as described in TWikiSkins.
+
+   1 templates/%RED%web%ENDCOLOR%/%RED%script%ENDCOLOR%.%RED%skin%ENDCOLOR%.tmpl for each %RED%skin%ENDCOLOR% on the skin path
+      * %X% this usage is supported *for compatibility only* and is *deprecated*. Store web-specific templates in TWiki topics instead.
+   1 templates/%RED%script%ENDCOLOR%.%RED%skin%ENDCOLOR%.tmpl for each %RED%skin%ENDCOLOR% on the skin path
+   1 templates/%RED%web%ENDCOLOR%/%RED%script%ENDCOLOR%.tmpl
+      * %X% this usage is supported *for compatibility only* and is *deprecated*. Store web-specific templates in TWiki topics instead.
+   1 templates/%RED%script%ENDCOLOR%.tmpl
+   1 The TWiki topic aweb.atopic if the template name can be parsed into aweb.atopic
+   1 The TWiki topic %RED%web%ENDCOLOR%.%RED%Skin%ENDCOLOR%Skin%RED%Script%ENDCOLOR%Template for each %RED%skin%ENDCOLOR% on the skin path
+   1 The TWiki topic %RED%web%ENDCOLOR%.%RED%Script%ENDCOLOR%Template
+   1 The TWiki topic %<nop>SYSTEMWEB%.%RED%Skin%ENDCOLOR%Skin%RED%Script%ENDCOLOR%Template for each %RED%skin%ENDCOLOR% on the skin path
+   1 The TWiki topic %<nop>SYSTEMWEB%.%RED%Script%ENDCOLOR%Template
+*Legend:*
+   * %RED%script%ENDCOLOR% refers to the script name, e.g =view=, =edit=
+   * %RED%Script%ENDCOLOR% refers to the same, but with the first character capitalized, e.g =View=
+   * %RED%skin%ENDCOLOR% refers to a skin name, e.g =dragon=, =pattern=. All skins are checked at each stage, in the order they appear in the skin path.
+   * %RED%Skin%ENDCOLOR% refers to the same, but with the first character capitalized, e.g =Dragon=
+   * %RED%web%ENDCOLOR% refers to the current web
+
+For example, the =example= template file will be searched for in the following places, when the current web is =Thisweb= and the skin path is =print,pattern=:
+
+   I. =templates/Thisweb/example.print.tmpl= _deprecated; don't rely on it_
+   I. =templates/Thisweb/example.pattern.tmpl= _deprecated; don't rely on it_
+   I. =templates/example.print.tmpl=
+   I. =templates/example.pattern.tmpl=
+   I. =templates/Thisweb/example.tmpl= _deprecated; don't rely on it_
+   I. =templates/example.tmpl=
+   I. =Thisweb.PrintSkinExampleTemplate=
+   I. =Thisweb.PatternSkinExampleTemplate=
+   I. =Thisweb.ExampleTemplate=
+   I. =%SYSTEMWEB%.PrintSkinExampleTemplate=
+   I. =%SYSTEMWEB%.PatternSkinExampleTemplate=
+   I. =%SYSTEMWEB%.ExampleTemplate=
+
+Template names are usually derived from the name of the currently executing script; however it is also possible to override these settings in the =view= and =edit= scripts, for example when a topic-specific template is required. Two preference variables can be used to override the templates used:
+   * =VIEW_TEMPLATE= sets the template to be used for viewing a topic
+   * =EDIT_TEMPLATE= sets the template for editing a topic.
+If these preferences are set locally (using _Local_ instead of _Set_) for a topic, in WebPreferences, in [[%LOCALSITEPREFS%]], or [[%SYSTEMWEB%.TWikiPreferences]] (using _Set_), the indicated templates will be chosen for =view= and =edit= respectively. The template search order is as specified above.
+
+Both =VIEW_TEMPLATE= and =EDIT_TEMPLATE= may contain TWiki variables, which are expanded.
+For example, the following setting causes =Item*= topics to be displayed with the custom view template =ItemViewTmpl= while the other topics are displayed normally.
+<pre>
+   * <nop>Set VIEW_TEMPLATE = %<nop>IF{"'%<nop>CALCULATE{$SUBSTRING(%<nop>TOPIC%, 1, 4)}%' = 'Item'" then="ItemViewTmpl"}%
+</pre>
+The following setting causes =Item*= topics to be edited with the editform template (edits only the TWiki form of the topic without editing the topic text) while the other topics are edited normally.
+<pre>
+   * <nop>Set EDIT_TEMPLATE = %<nop>IF{"'%<nop>CALCULATE{$SUBSTRING(%<nop>TOPIC%, 1, 4)}%' = 'Item'" then="editform"}%
+</pre>
+
+__%T% Tip:__ If you want to override existing templates, without having to worry that your changes will get overwritten by the next TWiki update, change the ={TemplatePath}= so that another directory, such as the =%<nop>USERSWEB%= appears at the front. You can then put your own templates into that directory or web and these will override the standard templates. (Note that such will increase the lookup time for templates by searching your directory first.)
+
+#TmplINCLUDE
+---+++ TMPL:INCLUDE recursion for piecewise customization, or mixing in new features
+
+If there is recursion in the TMPL:INCLUDE chain (eg twiki.classic.tmpl contains =%<nop>TMPL:INCLUDE{"twiki"}%=, the templating system will include the next twiki.SKIN in the skin path. 
+For example, to create a customization of pattern skin, where you _only_ want to over-ride the breadcrumbs for the view script, you can create only a view.yourlocal.tmpl:
+<verbatim>
+%TMPL:INCLUDE{"view"}%
+%TMPL:DEF{"breadcrumb"}% We don't want any crumbs %TMPL:END%
+</verbatim>
+and then set SKIN=yourlocal,pattern
+
+The default ={TemplatePath}= will not give you the desired result if you put these statements in the topic =Thisweb.YourlocalSkinViewTemplate=. The default ={TemplatePath}= will resolve the request to the =template/view.pattern.tmpl=, before it gets to the =Thisweb.YourlocalSkinViewTemplate= resolution. You can make it work by prefixing the ={TemplatePath}= with: =$web.YourlocalSkin$nameTemplate=. 
+
+#MasterTemplate
+---+++ Default master template
+
+==twiki.tmpl== is the default master template. It defines the following sections.
+
+| *Template variable:* | *Defines:* |
+| =%<nop>TMPL:DEF{"sep"}%= | "&#124;" separator |
+| =%<nop>TMPL:DEF{"htmldoctype"}%= | Start of all HTML pages |
+| =%<nop>TMPL:DEF{"standardheader"}%= | Standard header (ex: view, index, search)  |
+| =%<nop>TMPL:DEF{"simpleheader"}%= | Simple header with reduced links (ex: edit, attach, oops) |
+| =%<nop>TMPL:DEF{"standardfooter"}%= | Footer, excluding revision and copyright parts |
+
+#TemplateTopics
+---++ Template Topics
+
+The second type of template in TWiki are template topics. Template topics define the default text for new topics. There are four types of template topic:
+
+| *Topic Name:* | *What it is:* |
+| WebTopicViewTemplate | Alert page shown when you try to view a nonexistent topic. This page is usually used as a prompt to help you create a new topic. |
+| WebTopicNonWikiTemplate | Alert page shown when you try to view a nonexistent topic with a non-WikiName. Again, this page is used as a prompt to help you create the new topic. |
+| WebTopicEditTemplate | Default text used in a new topic. |
+| &lt;MyCustomNamed&gt;Template | Whenever you create a topic ending in the word "Template", it is automatically added to the list of available templates in the "Use Template" drop down field on the !WebCreateNewTopic page. |
+
+When you create a new topic using the =edit= script, TWiki locates a topic to use as a content template according to the following search order:
+   1 A topic name specified by the =templatetopic= CGI parameter
+      * if no web is specified, the current web is searched first and then the %SYSTEMWEB% web
+   1 <nop>WebTopicEditTemplate in the current web
+   1 <nop>WebTopicEditTemplate in the %USERSWEB% web
+   1 <nop>WebTopicEditTemplate in the %SYSTEMWEB% web
+
+#TemplateTopicsVars
+#VariableExpansion
+---+++ Variable Expansion
+
+TWikiVariables located in template topics get expanded as follows when a new topic is created.
+
+#DefaultVariableExpansion
+---++++ 1. Default variable expansion
+
+The following variables used in a template topic automatically get expanded when new topic is created based on it:
+
+| *Variable:* | *Description:* |
+| =%<nop>DATE%= | Signature format date. See VarDATE |
+| =%<nop>GMTIME%= | Date/time. See VarGMTIME |
+| =%<nop>GMTIME{...}%= | Formatted date/time. See VarGMTIME2 |
+| =%<nop>NOP%= | A no-operation variable that gets removed. Useful to prevent a SEARCH from hitting an edit template topic; also useful to escape a variable, such as =%<nop>URLPA%<nop>NOP%RAM{...}%= escaping URLPARAM |
+| =%<nop>STARTSECTION{type="templateonly"}%%BR%...%BR%%<nop>ENDSECTION{type="templateonly"}%= | Text that gets removed when a new topic based on the template is created. See notes below. |
+| =%<nop>SERVERTIME%= | Date/time. See VarSERVERTIME |
+| =%<nop>SERVERTIME{...}%= | Formatted date/time. See VarSERVERTIME2 |
+| =%<nop>USERNAME%= | Login name of user who is instantiating the new topic, e.g. %USERNAME% |
+| =%<nop>URLPARAM{"name"}%= | Value of a named URL parameter. See VarURLPARAM. |
+| =%<nop>WIKINAME%= | WikiName of user who is instantiating the new topic, e.g. <nop>%WIKINAME% |
+| =%<nop>WIKIUSERNAME%= | User name of user who is instantiating the new tpoic, e.g. <nop>%WIKIUSERNAME% |
+
+#PreventingVariableExpansion
+---++++ 2. Preventing variable expansion
+
+In a template topic, embed text that you _do not_ want expanded inside a =%<nop>STARTSECTION{type="templateonly"}% ... %<nop>ENDSECTION{type="templateonly"}%= section. For example, you might want to write this in the template topic:
+<pre>
+%<nop>STARTSECTION{type="templateonly"}%
+This template can only be changed by:
+   * Set <nop>ALLOWTOPICCHANGE = <nop>%USERSWEB%.TWikiAdminGroup
+%<nop>ENDSECTION{type="templateonly"}%
+</pre>
+This will restrict who can edit the template topic, but will be removed when a new topic based on that template topic is created.
+
+=%<nop>NOP%= can be used to prevent expansion of TWiki variables that would otherwise be expanded during topic creation. For example, escape =%<nop>SERVERTIME%= with =%<nop>SER%<nop>NOP%VERTIME%=.
+
+#ControlOverVariableExpansion
+---++++ 3. Causing variable expansion in a section
+
+You can forcefully expand TWikiVariables by placing them inside a =type="expandvariables"= section in the template topic, such as:
+<verbatim>
+%STARTSECTION{ type="expandvariables" }% ... %ENDSECTION{ type="expandvariables" }% 
+</verbatim>
+
+Example:
+
+If you have the following content in a template topic:
+<verbatim>
+%STARTSECTION{ type="expandvariables" }%
+   * %SYSTEMWEB%.ATasteOfTWiki - view a short introductory presentation on TWiki for beginners
+   * %SYSTEMWEB%.WelcomeGuest - starting points on TWiki
+   * %SYSTEMWEB%.TWikiUsersGuide - complete TWiki documentation
+   * Sandbox.%HOMETOPIC% - try out TWiki on your own
+   * Sandbox.%TOPIC%Sandbox - just for me
+%ENDSECTION{ type="expandvariables" }%
+</verbatim>
+
+you will get this raw text in new topics based on that template topic:
+
+<pre>
+   * %SYSTEMWEB%.ATasteOfTWiki - view a short introductory presentation on TWiki for beginners
+   * %SYSTEMWEB%.WelcomeGuest - starting points on TWiki
+   * %SYSTEMWEB%.TWikiUsersGuide - complete TWiki documentation
+   * Sandbox.%HOMETOPIC% - try out TWiki on your own
+   * Sandbox.JimmyNeutronSandbox - just for me
+</pre>
+
+---++++ 4. Specifying variables to be expanded individually
+
+You may want to mix variables to be expanded and variables not to be.
+By prepending a variable name with =EOTC__= (EOTC followed by two underscores; EOTC stands for Expand On Topic Creation), you can have the variable expanded.
+
+Here's an example.
+<verbatim>
+%EOTC__SEARCH{"."
+ topic="%URLPARAM{prefix}%*"
+ nonoise="on"
+ format="$percntINCLUDE{$topic}$percnt" separator="$n"
+}%
+</verbatim>
+This yields a series of <code>%<nop>INCLUDE{...}%</code>s, which are not expanded.
+This is not achievable by an =expandvariables= section.
+
+#SpecifyingForm
+---+++ Specifying a Form
+
+When you create a new topic based on a template, you often want the new topic to have a form attached to it. You can attach a form to the template topic, in which case it will be copied into the new topic.
+
+Sometimes this isn't quite what you want, as it copies all the existing data from the template topic into the new topic. To avoid this and use the default values specified in the form definition instead, you can use the =formtemplate= CGI parameter to the =edit= script to specify the name of a form to attach.
+
+See TWikiScripts for information about all the other parameters to =edit=.
+
+#AutomaticallyGeneratedTopicname
+---+++ Automatically Generated Unique Topic Names
+
+For TWiki applications it is useful to be able to automatically generate unique topic names, such as !BugID0001, !BugID0002, etc. You can add =AUTOINC&lt;n&gt;= to the topic name in the edit and save scripts, and it will be replaced with an auto-incremented number on topic save. =&lt;n&gt;= is a number starting from 0, and may include leading zeros. Leading zeros are used to zero-pad numbers so that auto-incremented topic names can sort properly. Deleted topics are not re-used to ensure uniqueness of topic names. That is, the auto-incremented number is always higher than the existing ones, even if there are gaps in the number sequence.
+
+*Examples:*
+   * =BugAUTOINC0= - creates topic names =Bug0=, =Bug1=, =Bug2=, ... (does not sort properly)
+   * =ItemAUTOINC0000= - creates topic names =Item0000=, =Item0001=, =Item0002=, ... (sorts properly up to 9999)
+   * =DocIDAUTOINC10001= - start with =DocID10001=, =DocID10002=, ... (sorts properly up to 99999; auto-links)
+
+Characters after =AUTOINC&lt;n&gt;= are preserved, but are not taken into account when calculating the next increment. Use this to create topic names that have a unique identifier (serial number) and a descriptive text.
+
+*Example:*
+   * =BlogAUTOINC0001-my-first-blog= - creates topic name =Blog0001-my-first-blog=
+   * =BlogAUTOINC0001-my-crazy-cats= - creates topic name =Blog0002-my-crazy-cats=
+   * =BlogAUTOINC0001-fondue-recipe= - creates topic name =Blog0003-fondue-recipe=
+
+Example link to create a new topic:%BR%
+<verbatim>
+[[%SCRIPTURLPATH{edit}%/%WEB%/BugIDAUTOINC00001?templatetopic=BugTemplate;topicparent=%TOPIC%;t=%SERVERTIME{"$day$hour$min$sec"}%][Create new item]]
+</verbatim>
+
+__Note:__ After the save operation, the web client is redirected to the newly created topic by default. If the specified topic name contains =AUTOINC&lt;n&gt;= and you want to redirect to a different URL containing the newly created topic's name, you can use =AUTOINC= in the =redirectto= parameter. Let's say the specified topic name is =ItemAUTOINC0001=, and =redirectto= is set to <code>%<nop>SCRIPTURL{view}%/%<nop>WEB%/ViewerTopic?id=ItemAUTOINC</code>. If the latest existing topic is =Item0123=, a new topic named =Item0124= is created, and the web client is redirected to =ViewerTopic?id=Item0124= in the current web.
+
+#TemplateTopicExample
+---+++ Template Topics in Action
+
+Here is an example for creating new topics (in the Sandbox web) based on a specific template topic and form:
+
+%EDITFORMFIELD{ "new" type="start" action="edit" topic="Sandbox.%TOPIC%" }%
+   * New example topic: 
+     %EDITFORMFIELD{ "topic" type="text" value="ExampleTopicAUTOINC0001" size="30" }%
+     %EDITFORMFIELD{ "templatetopic" type="hidden" value="%SYSTEMWEB%.ExampleTopicTemplate" }%
+     %EDITFORMFIELD{ "topicparent" type="hidden" value="%HOMETOPIC%" }%
+     %EDITFORMFIELD{ "onlywikiname" type="hidden" value="on" }%
+     %EDITFORMFIELD{ "onlynewtopic" type="hidden" value="on" }%
+     %EDITFORMFIELD{ "form" type="submit" value="Create" }%
+%EDITFORMFIELD{ "form" type="end" }%
+
+The above form asks for a topic name. A hidden input tag named ==templatetopic== specifies ExampleTopicTemplate as the template topic to use. Here is the raw text of the form:
+
+<verbatim>
+%EDITFORMFIELD{ "new" type="start" action="edit" topic="Sandbox.%TOPIC%" }%
+   * New example topic: 
+     %EDITFORMFIELD{ "topic" type="text" value="ExampleTopicAUTOINC0001" size="30" }%
+     %EDITFORMFIELD{ "templatetopic" type="hidden" value="%SYSTEMWEB%.ExampleTopicTemplate" }%
+     %EDITFORMFIELD{ "topicparent" type="hidden" value="%HOMETOPIC%" }%
+     %EDITFORMFIELD{ "onlywikiname" type="hidden" value="on" }%
+     %EDITFORMFIELD{ "onlynewtopic" type="hidden" value="on" }%
+     %EDITFORMFIELD{ "form" type="submit" value="Create" }%
+%EDITFORMFIELD{ "form" type="end" }%
+</verbatim>
+
+Here is the equivalent form using a hand-crafted HTML form:
+
+<pre>
+&lt;form name="new" action="%<nop>SCRIPTURLPATH{edit}%/Sandbox/%<nop>HOMETOPIC%"&gt;
+   * New example topic: 
+     &lt;input type="text" name="topic" value="ExampleTopicAUTOINC0001" size="30" /&gt;
+     &lt;input type="hidden" name="templatetopic" value="%<nop>SYSTEMWEB%.ExampleTopicTemplate" /&gt;
+     &lt;input type="hidden" name="topicparent" value="%<nop>HOMETOPIC%" /&gt;
+     &lt;input type="hidden" name="onlywikiname" value="on" /&gt;
+     &lt;input type="hidden" name="onlynewtopic" value="on" /&gt;
+     &lt;input type="submit" class="twikiSubmit" value="Create" /&gt;
+&lt;/form&gt;
+</pre>
+
+__%X% Note:__ You can create a topic in one step, without going through the edit screen. To do that, specify the =save= script instead of the =edit= script in the form action. When you specify the save script in an HTML form tag you __have__ to use the "post" method. This is done automatically when using the EDITFORMFIELD variable. Example when using the HTML form tag:
+<pre>
+&lt;form name="new" action="%<nop>SCRIPTURLPATH{save}%/Sandbox/" method="post"&gt;
+    ...
+&lt;/form&gt;
+</pre>
+
+%H% The =edit= and =save= scripts understand many more parameters, see TWikiScripts#edit and TWikiScripts#save for details.
+
+%T% *TIP:* You can use the =%<nop>WIKIUSERNAME%= and =%<nop>DATE%= variables in your topic templates to include the signature of the person creating a new topic. The variables are expanded into fixed text when a new topic is created. The standard signature is: <br />
+==-- %<nop>WIKIUSERNAME% - %<nop>DATE%==
+
+#URLsInTemplates
+---+++ Using Absolute vs Relative URLs in Templates
+
+When you use TWikiVariables such as %<nop>PUBURL% and %<nop>PUBURLPATH% in templates you should be aware that using %<nop>PUBURL% instead of %<nop>PUBURLPATH% puts absolute URLs in the produced HTML. This means that when a user saves a TWiki page in HTML and emails the file to someone outside a company firewall, the receiver has a severe problem viewing it. It is therefore recommended always to use the %<nop>PUBURLPATH% to refer to images, CSS, Javascript files etc so links become relative. This way browsers just give up right away and show a usable html file.
+
+__Related Topics:__ TWikiSkins, TWikiForms, TWikiScripts, DeveloperDocumentationCategory, AdminDocumentationCategory
+
+%STOPINCLUDE%
+-- __Contributors:__ TWiki:Main.PeterThoeny, TWiki:Main.MikeMannix, TWiki:Main.DavidLeBlanc, TWiki:Main.CrawfordCurrie, TWiki:Main.SopanShewale

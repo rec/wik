@@ -1,0 +1,10 @@
+---+ Package =TWiki::UI::MdrepoUI=
+
+UI delegate for mdrepo function
+
+
+%TOC%
+
+---++ StaticMethod *mdrepo* <tt>($session);</tt>
+
+

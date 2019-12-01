@@ -1,0 +1,183 @@
+head	1.4;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.4
+date	2010.05.29.14.44.31;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2008.01.22.03.21.25;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2007.01.16.04.12.04;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.24;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1273971334" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiTipsOfTheDayAdmin"}%
+---+ Add New TWiki Tip Of The Day
+
+There are *Custom Tips* maintained on your local %WIKITOOLNAME% installation, *Official TWiki Tips* maintained on the TWiki.org web site, and *Plugin Tips* maintained by Plugin authors.
+
+---++ Add a Custom %WIKITOOLNAME% Tip
+
+Custom tips are located in the %USERSWEB% web. You can add custom tips that are specific to your TWiki installation and to your organization in general.
+
+<form name="newlocal" action="%SCRIPTURLPATH{edit}%/%USERSWEB%/">
+<!--
+| Last topic:     | %CALC{$SET(ctopic, %SEARCH{ "TWikiCustomTip[0-9]" scope="topic" web="%USERSWEB%" type="regex" nosearch="on" nototal="on" reverse="on" limit="1" format="$topic" }%)$GET(ctopic)}% |
+| Next available: | %CALC{$SET(cnext, $INT($VALUE($GET(ctopic)) + 1))$GET(cnext)}% |
+| Zero pad to 3:  | %CALC{$SET(cnext, $REPLACE(0000$GET(cnext),1,$INT(1 + $LENGTH($GET(cnext)))))$GET(cnext)}% |
+| New topic name: | %CALC{$SET(ctopic, TWikiCustomTip$GET(cnext))$GET(ctopic)}% |
+-->
+<input type="hidden" name="topic" value="%CALC{$GET(ctopic)}%" />
+<input type="hidden" name="onlynewtopic" value="on" />
+<input type="hidden" name="templatetopic" value="%SYSTEMWEB%.TWikiTipsOfTheDayTemplate" />
+New Custom Tip: <nop>%CALC{$GET(ctopic)}% 
+<input type="submit" value="Create" class="twikiSubmit" />
+</form>
+
+---++ Add an Official TWiki Tip
+
+Official TWiki tips are located in the %SYSTEMWEB% web. Please do not submit new tips on your local TWiki installation since they will get lost on a TWiki upgrade. Visit TWiki:TWiki.TWikiTipsOfTheDayAddNew to contribute official TWiki tips.
+<form name="new" action="%SCRIPTURLPATH{edit}%/%WEB%/">
+<!--
+| Last topic:     | %CALC{$SET(ttopic, %SEARCH{ "TWikiTip[0-9]" scope="topic" type="regex" nosearch="on" nototal="on" reverse="on" limit="1" format="$topic" }%)$GET(ttopic)}% |
+| Next available: | %CALC{$SET(tnext, $INT($VALUE($GET(ttopic)) + 1))$GET(tnext)}% |
+| Zero pad to 3:  | %CALC{$SET(tnext, $REPLACE(0000$GET(tnext),1,$INT(1 + $LENGTH($GET(tnext)))))$GET(tnext)}% |
+| New topic name: | %CALC{$SET(ttopic, TWikiTip$GET(tnext))$GET(ttopic)}% |
+-->
+<input type="hidden" name="topic" value="%CALC{$GET(ttopic)}%" />
+<input type="hidden" name="onlynewtopic" value="on" />
+<input type="hidden" name="topicparent" value="TWikiTipsOfTheDay" />
+<input type="hidden" name="templatetopic" value="TWikiTipsOfTheDayTemplate" />
+New Official TWiki Tip: <nop>%CALC{$GET(ttopic)}%
+<input type="%CALC{$IF($EXACT($LOWER(%HTTP_HOST%),twiki.org),submit,hidden)}%" value="Create" class="twikiSubmit" />
+</form>
+
+---++ Add a TWiki Tip for a Plugin
+
+If you are a plugin author you can ship your TWiki:Plugins/PluginPackage with one (or more) tip of the day topic. Create the Plugin tip of the day topic here, then package it with your plugin.
+
+<form name="new" action="%SCRIPTURLPATH{edit}%/%WEB%/">
+<input type="hidden" name="onlynewtopic" value="on" />
+<input type="hidden" name="topicparent" value="TWikiTipsOfTheDay" />
+<input type="hidden" name="templatetopic" value="TWikiTipsOfTheDayTemplate" />
+New Plugin Tip: 
+<input type="text" name="topic" value="TWikiTipForMyOwnPlugin" size="30" class="twikiInputField" />
+<input type="submit" value="Create" class="twikiSubmit" /> (replace =MyOwnPlugin= with the name of your Plugin)
+</form>
+
+__Related:__ TWikiTipsOfTheDay, TWikiTipsOfTheDayAdmin, TWikiTipsOfTheDayTemplate
+
+-- __Contributors:__ TWiki:Main/PaulineCheung, TWiki:Main/PeterThoeny - 2010-05-15
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1163619832" format="1.0" version="3"}%
+d11 1
+a11 1
+<form name="newlocal" action="%SCRIPTURLPATH%/edit%SCRIPTSUFFIX%/%USERSWEB%/">
+d13 1
+a13 1
+| Last topic:	  | %CALC{$SET(ctopic, %SEARCH{ "TWikiCustomTip[0-9]" scope="topic" web="%USERSWEB%" type="regex" nosearch="on" nototal="on" reverse="on" limit="1" format="$topic" }%)$GET(ctopic)}% |
+d21 2
+a22 1
+New Custom Tip: <nop>%CALC{$GET(ctopic)}% <input type="submit" value="Create" />
+d28 1
+a28 1
+<form name="new" action="%SCRIPTURLPATH%/edit%SCRIPTSUFFIX%/%WEB%/">
+d30 1
+a30 1
+| Last topic:	  | %CALC{$SET(ttopic, %SEARCH{ "TWikiTip[0-9]" scope="topic" type="regex" nosearch="on" nototal="on" reverse="on" limit="1" format="$topic" }%)$GET(ttopic)}% |
+d39 2
+a40 1
+New Official TWiki Tip: <nop>%CALC{$GET(ttopic)}% <input type="%CALC{$IF($EXACT($LOWER(%HTTP_HOST%),twiki.org),submit,hidden)}%" value="Create" />
+d45 1
+a45 1
+If you are a Plugin author you can ship your TWiki:Plugins.PluginPackage with one (or more) tip of the day topic. Create the Plugin tip of the day topic here, then package it with your Plugin.
+d47 1
+a47 1
+<form name="new" action="%SCRIPTURLPATH%/edit%SCRIPTSUFFIX%/%WEB%/">
+d52 2
+a53 2
+<input type="text" name="topic" value="TWikiTipForMyOwnPlugin" size="30" />
+<input type="submit" value="Create" /> (replace =MyOwnPlugin= with the name of your Plugin)
+d58 1
+a58 2
+-- TWiki:Main.PaulineCheung - 18 Jan 2005
+
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1163619832" format="1.0" version="2"}%
+d9 1
+a9 1
+Custom tips are located in the %MAINWEB% web. You can add custom tips that are specific to your TWiki installation and to your organization in general.
+d11 1
+a11 1
+<form name="newlocal" action="%SCRIPTURLPATH%/edit%SCRIPTSUFFIX%/%MAINWEB%/">
+d13 1
+a13 1
+| Last topic:	  | %CALC{$SET(ctopic, %SEARCH{ "TWikiCustomTip[0-9]" scope="topic" web="%MAINWEB%" type="regex" nosearch="on" nototal="on" reverse="on" limit="1" format="$topic" }%)$GET(ctopic)}% |
+d20 1
+a20 1
+<input type="hidden" name="templatetopic" value="%TWIKIWEB%.TWikiTipsOfTheDayTemplate" />
+d26 1
+a26 1
+Official TWiki tips are located in the %TWIKIWEB% web. Please do not submit new tips on your local TWiki installation since they will get lost on a TWiki upgrade. Visit TWiki:TWiki.TWikiTipsOfTheDayAddNew to contribute official TWiki tips.
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1121990958" format="1.0" version="1"}%
+d13 1
+a13 1
+| Last topic:	  | %CALC{$SET(ctopic, %SEARCH{ "TWikiCustomTip[0-9]" scope="topic" web="%MAINWEB%" regex="on" nosearch="on" nototal="on" reverse="on" limit="1" format="$topic" }%)$GET(ctopic)}% |
+d29 1
+a29 1
+| Last topic:	  | %CALC{$SET(ttopic, %SEARCH{ "TWikiTip[0-9]" scope="topic" regex="on" nosearch="on" nototal="on" reverse="on" limit="1" format="$topic" }%)$GET(ttopic)}% |
+@

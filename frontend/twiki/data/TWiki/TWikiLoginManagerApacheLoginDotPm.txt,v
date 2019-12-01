@@ -1,0 +1,75 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2008.01.22.03.21.24;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@---+ Package =TWiki::LoginManager::ApacheLogin=
+
+This is login manager that you can specify in the security setup section of
+[[%SCRIPTURL{"configure"}%][configure]]. It instructs TWiki to
+cooperate with your web server (typically Apache) to require authentication
+information (username & password) from users. It requires that you configure
+your web server to demand authentication for scripts named "login" and anything
+ending in "auth". The latter should be symlinks to existing scripts; e.g.,
+=viewauth -> view=, =editauth -> edit=, and so on.
+
+See also TWikiUserAuthentication.
+
+Subclass of TWiki::LoginManager; see that class for documentation of the
+methods of this class.
+
+
+%TOC%
+
+---++ ClassMethod *new* <tt>($session)</tt>
+
+Construct the ApacheLogin object
+
+
+
+---++ ObjectMethod *forceAuthentication* <tt>() -> boolean</tt>
+
+method called when authentication is required - redirects to (...|view)auth
+Triggered on auth fail
+
+
+
+---++ ObjectMethod *loginUrl* <tt>() -> $loginUrl</tt>
+
+TODO: why is this not used internally? When is it called, and why
+Content of a login link
+
+
+
+---++ ObjectMethod *login* <tt>($query,$twiki)</tt>
+
+this allows the login and logon cgi-scripts to use the same code. 
+all a logon does, is re-direct to viewauth, and apache then figures out 
+if it needs to challenge the user
+
+
+
+---++ ObjectMethod *getUser* <tt>() -> $authUser</tt>
+
+returns the userLogin if stored in the apache CGI query (ie session)
+
+
+@

@@ -1,0 +1,46 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2010.05.29.14.44.25;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1273873369" format="1.1" version="1"}%
+---+ Jump Box
+
+_The Jump Box at the top or sidebar of each page is a hidden gem for quick navigation in a large TWiki._
+
+1. *Quick Jump:* Enter a topic name to quickly jump to the topic, for example:
+
+   * =WebNotify= to jump to <nop>WebNotify in the current web
+   * =%USERSWEB%.WebNotify= to jump to <nop>WebNotify in the %USERSWEB% web
+   * =%USERSWEB%.= to jump to the home of the %USERSWEB% web
+   * =BrandNewTopic= to jump to a non existing topic in the current web, which is useful to create orphaned topics
+
+2. *Quick Navigation:* Enter part of a topic name to get a list of similar topics, for example:
+
+   * =faq= to get %SEARCH{ "faq" scope="topic" nosearch="on" nototal="on" format="[[$topic]]" separator=", " }%
+   * =%USERSWEB%.users=  to jump to the %USERSWEB% web from any web, and get a list of topics about users (all in one step)
+
+__%T% Tip:__ Entering part of a topic name is a simple, yet powerful way to quickly navigate to content of interest, also in a large wiki.
+
+__Note:__ The Jump Box is not a search box
+
+__Related Topics:__ UserDocumentationCategory
+@

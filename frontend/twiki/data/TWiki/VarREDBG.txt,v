@@ -1,0 +1,53 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2012.11.15.06.08.02;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2010.05.29.14.44.52;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1352959682" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarREDBG
+---+++ REDBG -- start red colored background section
+   * =REDBG= is one of the rendering shortcut settings predefined in TWikiPreferences.  See the section [[TWikiPreferences#RenderingShortcuts][rendering shortcut settings]] in that topic for a complete list of background colors.
+   * Syntax: =%<nop>REDBG% red background %<nop>ENDBG%=
+   * Expands to: %REDBG% red background %ENDBG%
+   * Note: =%<nop>REDBG%= area must end with =%<nop>ENDBG%=.
+   * Category: FormattingAndRenderingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENDBG][ENDBG]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarRED][RED]], [[TWikiPreferences#RenderingShortcuts][TWikiPreferences rendering shortcuts]], StandardColors
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1273807403" format="1.1" version="1"}%
+d8 2
+a9 1
+   * __Note:__ =%<nop>REDBG%= area must end with =%<nop>ENDBG%=.
+@

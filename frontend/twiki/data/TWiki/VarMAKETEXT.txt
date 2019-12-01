@@ -1,0 +1,28 @@
+%META:TOPICINFO{author="TWikiContributor" date="1390954449" format="1.1" version="6"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarMAKETEXT
+---+++ MAKETEXT -- translate text using TWiki's <nop>I18N infrastructure
+   * Text in MAKETEXT is translated into another language at page view time if the user activates a language other than the default English language. 
+   * Syntax: =%<nop>MAKETEXT{"string" args="..."}%=
+   * Supported parameters:
+     | *Parameter* | *Description* | *Default* |
+     | ="text"= or =string="text"= | The text to be displayed. | _none_ |
+     | =args="param1, param2"= | a comma-separated list of arguments to be interpolated in the string, replacing the =[_N]= placeholders in it. | _none_ |
+   * Examples:
+      * =%<nop>MAKETEXT{string="Notes:"}%=
+        %BR% expands to %BR%
+        <em> %MAKETEXT{string="Notes:"}% </em>
+      * =%<nop>MAKETEXT{"If you have any questions, please contact [_1]." args="%<nop>WIKIWEBMASTER%"}%=
+        %BR% expands to %BR%
+        <em> %MAKETEXT{"If you have any questions, please contact [_1]." args="%WIKIWEBMASTER%"}% </em>
+      * =%<nop>MAKETEXT{"Did you want to ~[~[<nop>[<nop>_1]~]~[reset [_2]'s password~]~]?" args="%<nop>SYSTEMWEB%.ResetPassword, %<nop>WIKINAME%"}%=
+        %BR% expands to %BR%
+        <em> %MAKETEXT{"Did you want to ~[~[[_1]~]~[reset [_2]'s password~]~]?" args="%SYSTEMWEB%.ResetPassword, %WIKINAME%"}% </em>
+   * __Notes:__
+      * TWiki will translate the =string= to the current user's language _only_ if it has such string in its translation table for that language.
+      * Ampersands (<code>&amp;</code>) followed by one letter (one of =a...z=, =A...Z= -- say, =X=) in the translatable string will be translated to <code>&lt;span class='twikiAccessKey'&gt;X&lt;/span&gt;</code>. This is used to implement access keys. If you want to write an actual amperstand that stays just before a letter, write two consecutive amperstands (<code>&amp;&amp;</code>): they will be transformed in just one.
+      * Square brackets =~[= and =~]= in the text have a special meaning and need to be escaped using =~[= and =~]=, respectively.
+      * Translatable string starting with underscores (<code>_</code>) are reserved. You *must not* use translatable phrases starting with an underscore.
+      * Make sure that the translatable string is _constant_. Specially, do *not* include <code>%<nop>VARIABLES%</code> inside the translatable strings - string would not get translated because variables get expanded *before* the <code>%<nop>MAKETEXT{...}%</code> itself is handled.
+   * Category: DevelopmentVariables, FormattingAndRenderingVariables
+   * Related: TWiki:Codev.UserInterfaceInternationalisation (on TWiki.org), CPAN:Locale::Maketext (Maketext documentation)

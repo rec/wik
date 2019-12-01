@@ -1,0 +1,17 @@
+%META:TOPICINFO{author="TWikiContributor" date="1381364338" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarGROUPS
+---+++ GROUPS -- a formatted list of groups
+   * Expands to a formatted list of user groups in your %WIKITOOLNAME%. The variable is intended to be used in %USERSWEB%.TWikiGroups, to allow a group listing for various user mapping managers.
+   * Syntax: =%<nop>GROUPS{"format" ...}%=
+   * Supported parameters:
+     | *Parameter:* | *Description:* | *Default:* |
+     | =header=""= | Table header. [[FormatTokens][Standard format tokens]] are expanded. To omit the header, specify an empty value or ="none"=. | ="%VBAR% <nop>*Group*<nop> %VBAR% <nop>*Members*<nop> %VBAR%"= |
+     | =format=""= | Format of one row, may include tokens: %BB% =$group= - topic name of group %BB% =$grouplink= - link to group %BB% =$members= - list of members, up to limit %BB% [[FormatTokens][standard format tokens]] | ="%VBAR% $grouplink %VBAR% $members %VBAR%"= |
+     | =separator=""= | Line separator. [[FormatTokens][Standard format tokens]] are expanded. | ="$n"= (newline) |
+     | =memberlimit=""= | Truncate member list. Specify ="all"= for full list. | ="32"= |
+     | =memberformat=""= | Format of one member, may include tokens: %BB% =$wikiusername= - !Web.TopicName of user %BB% =$wikiname= - !TopicName of user | ="[<nop>[$wikiusername][$wikiname]]"= |
+     | =memberseparator=""= | Separator for members. [[FormatTokens][Standard format tokens]] are expanded. | =", "= |
+     | =sort="on"= | By default, the members of a group are listed in the same order as in the definition in the group topic. With this parameter, members are listed in the alphabetical order of their wiki names. | ="off"= |
+   * Category: FormattingAndRenderingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarREMOTEUSER][REMOTE_USER]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarUSERINFO][USERINFO]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarUSERNAME][USERNAME]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWIKIUSERNAME][WIKIUSERNAME]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWIKIUSERSTOPIC][WIKIUSERSTOPIC]]

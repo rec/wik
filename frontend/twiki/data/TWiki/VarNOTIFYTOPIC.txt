@@ -1,0 +1,9 @@
+%META:TOPICINFO{author="TWikiContributor" date="1379664202" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarNOTIFYTOPIC
+---+++ NOTIFYTOPIC -- name of the notify topic
+   * Note: Each web has a notify topic
+   * Syntax: =%<nop>NOTIFYTOPIC%=
+   * Expands to: =%NOTIFYTOPIC%=, renders as [[%NOTIFYTOPIC%]]
+   * Category: SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarHOMETOPIC][HOMETOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSITESTATISTICSTOPIC][SITESTATISTICSTOPIC]],[[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSTATISTICSTOPIC][STATISTICSTOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarTOPIC][TOPIC]]

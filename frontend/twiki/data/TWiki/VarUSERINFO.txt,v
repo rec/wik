@@ -1,0 +1,135 @@
+head	1.5;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.5
+date	2012.11.15.07.17.45;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2008.08.03.22.17.49;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2008.01.22.03.21.32;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2007.02.05.00.18.37;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.06.25.16.26.30;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1352963865" format="1.1" version="5"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarUSERINFO
+---+++ USERINFO{"name"} -- retrieve details about a user
+   * Syntax: =%<nop>USERINFO%=
+   * Expands to: <code>%USERINFO%</code> (comma-separated list of the username, wikiusername, and emails)
+   * With formatted output, using tokens =$emails=, =$username=, =$wikiname=, =$wikiusername=, =$groups= and =$admin= ($admin returns 'true' or 'false'):
+      * Example: =%<nop>USERINFO{ format="$username is really $wikiname" }%=
+      * Expands to: =%USERINFO{ format="$username is really !$wikiname" }%=
+   * Retrieve information about another user:
+      * Example: =%<nop>USERINFO{ "TWikiGuest" format="$username is really $wikiname" }%=
+      * Expands to: <code>%USERINFO{ "TWikiGuest" format="$username is really !$wikiname" }%</code>
+      * Note: The parameter should be the wikiname of a user. Since TWiki 4.2.1, you can also pass a login name. You can only get information about another user if the ={AntiSpam}{HideUserDetails}= configuration option is not enabled, or if you are an admin. %IF{"{AntiSpam}{HideUserDetails}" then=" _(User details are hidden in this TWiki)_ "}%
+   * Category: SystemInformationVariables, UsersAndAuthenticationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarUSERNAME][USERNAME]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWIKINAME][WIKINAME]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWIKIUSERNAME][WIKIUSERNAME]], TWikiUserAuthentication, ChangeEmailAddress
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1170579877" format="1.1" version="4"}%
+d13 2
+a14 1
+      * __Note:__ The parameter should be the wikiname of a user. Since TWiki 4.2.1, you can also pass a login name. You can only get information about another user if the ={AntiSpam}{HideUserDetails}= configuration option is not enabled, or if you are an admin. %IF{"{AntiSpam}{HideUserDetails}" then=" _(User details are hidden in this TWiki)_ "}%
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1170579877" format="1.1" version="3"}%
+d4 1
+a4 1
+---+++ USERINFO{"WikiName"} -- retrieve details about a user
+d13 1
+a13 1
+      * __Note:__ The parameter should be the wikiname of a user. You can only get information about another user if the ={AntiSpam}{HideUserDetails}= configuration option is not enabled, or if you are an admin. %IF{"{AntiSpam}{HideUserDetails}" then=" _(User details are hidden in this TWiki)_ "}%
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1170579877" format="1.1" version="2"}%
+d7 1
+a7 1
+   * With formatted output, using tokens =$emails=, =$username=, =$wikiname=, =$wikiusername=, and =$groups=:
+d14 1
+a14 1
+   * Related: [[#VarUSERNAME][USERNAME]], [[#VarWIKINAME][WIKINAME]], [[#VarWIKIUSERNAME][WIKIUSERNAME]], TWikiUserAuthentication, ChangeEmailAddress
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.2" version="1"}%
+d4 1
+a4 1
+---+++ USERINFO - retrieve details about a user (by default the logged-in user)
+d6 8
+a13 10
+   * Expands to: =%USERINFO%=
+*To format that information differently:*
+   * Syntax: =%<nop>USERINFO{format="$username is really $wikiname"}%=
+   * Expands to: =%USERINFO{format="$username is really !$wikiname"}%=.
+      * The tokens =$emails=, =$username=, =$wikiname=, =$wikiusername=, and =$groups= are available for use in the format string .By default, the info will be formatted as a comma-separated list of the username, wikiusername, and emails.
+*To get information about another user:*
+   * Syntax: =%<nop>USERINFO{"TWikiGuest" format="$username is really $wikiname"}%=
+   * Expands to: <code>%USERINFO{"TWikiGuest" format="$username is really !$wikiname"}%</code>
+      * The parameter should be the wikiname of a user. You can only get information about another user if the ={AntiSpam}{HideUserDetails}= configuration option is not enabled, or if you are an admin. %IF{"{AntiSpam}{HideUserDetails}" then=" _(User details are hidden in this TWiki)_ "}%
+
+a14 1
+
+@

@@ -1,0 +1,11 @@
+%META:TOPICINFO{author="TWikiContributor" date="1346825765" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiTipsOfTheDay"}%
+---+ Breadcrumb 
+
+The breadcrumb of a topic shows you the page hierarchy. It is constructed using a topic's parent setting.
+
+%IF{ "istopic 'TopMenuSkin'" then="The TopMenuSkin embeds the breadcrumb into the top-menu bar, such as: <div style='background-color: #dddde2; background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TopMenuSkin/menu-gray-bg.png); padding: 0 8px 0 8px; margin: 10px 0 5px 0; font: 14px Tahoma, Arial; vertical-align: middle; height: 22px;'> %PUBURL%/%SYSTEMWEB%/TopMenuSkin/menu-vbar.png Home %PUBURL%/%SYSTEMWEB%/TopMenuSkin/menu-right.png <nop>%WEB% Web %PUBURL%/%SYSTEMWEB%/TopMenuSkin/menu-right.png P %PUBURL%/%SYSTEMWEB%/TopMenuSkin/menu-right.png P %PUBURL%/%SYSTEMWEB%/TopMenuSkin/menu-right.png View </div>" }%
+
+[[TWikiTipsOfTheDay][See More Tips...]]
+
+-- __Contributors:__ TWiki:Main.PaulineCheung, TWiki:Main.PeterThoeny

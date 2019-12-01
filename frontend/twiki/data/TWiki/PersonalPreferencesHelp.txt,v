@@ -1,0 +1,60 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2011.07.28.04.17.06;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2009.04.29.20.53.44;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1311826626" format="1.1" version="2"}%
+---+ Personal Preferences Help
+
+Below help text gets included by user profile pages instantiated from [[NewUserTemplate]] or [[%USERSWEB%.NewUserTemplate]] (if exists)
+
+-----
+%STARTINCLUDE%
+   * %TWISTY{
+showlink="More preferences "
+hidelink=""
+showimgright="%ICONURLPATH{toggleopen-small}%"
+hideimgleft="%ICONURLPATH{toggleclose-small}%"
+}% TWiki has system wide preferences settings defined in [[%WIKIPREFSTOPIC%]]. You can customize preferences settings to your needs: To overload a system setting, (1) do a "raw view" on [[%WIKIPREFSTOPIC%]], (2) copy a =Set VARIABLE = value= bullet, (3) do a "raw edit" of your user profile page, (4) add the bullet to the bullet list above, and (5) customize the value as needed. Make sure the settings render as real bullets (in "raw edit", a bullet requires 3 or 6 spaces before the asterisk). %ENDTWISTY%%STOPINCLUDE%
+-----
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1240003536" format="1.1" version="1"}%
+d4 1
+a4 1
+Below help text gets included by user homepages instantiated from [[NewUserTemplate]] or [[%USERSWEB%.NewUserTemplate]] (if exists)
+d7 7
+a13 1
+%STARTINCLUDE% __Note:__ TWiki has system wide preferences settings defined in [[%WIKIPREFSTOPIC%]]. You can customize preferences settings to your needs: To overload a system setting, (1) do a "raw view" on [[%WIKIPREFSTOPIC%]], (2) copy a =Set VARIABLE = value= bullet, (3) do a "raw edit" of your user homepage, (4) add the bullet to the bullet list above, and (5) customize the value as needed. Make sure the settings render as real bullets (in "raw edit", a bullet requires 3 or 6 spaces before the asterisk).%STOPINCLUDE%
+@

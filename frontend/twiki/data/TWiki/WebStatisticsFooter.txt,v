@@ -1,0 +1,86 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2015.05.14.11.43.45;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2013.10.14.08.02.52;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1431603825" format="1.1" version="2"}%
+__Notes:__
+   * Do not edit this topic, it is updated automatically.
+   %IF{"{Stats}{DisableInvocationFromBrowser}" then="<nop>" else="(You can also [[%SCRIPTURL{"statistics"}%/%BASEWEB%/%BASETOPIC%][force]] an update)"}%
+   * [[%SYSTEMWEB%.TWikiSiteTools#WebStatistics][TWikiSiteTools]] explains how to enable automatic updates of the statistics pages.
+
+__Related:__ [[%USERSWEB%.SiteStatistics][SiteStatistics]]%IF{"{NoInAllPublicWebs}" else=", !WebStatistics in"}% %%IF{"{NoInAllPublicWebs}" then="HIDE{" else="SEARCH{"}% "WebStatistics" scope="topic" web="all, -%WEB%" topic="WebStatistics" nonoise="on" format="[[$web.$topic][$web]]" separator=", " limit="50" }% %IF{"{NoInAllPublicWebs}" else="webs"}%
+
+<!--
+%SET{"StatsYYYY"
+  value="%SEARCH{"^%STATISTICSTOPIC%\d\d\d\d$" web="%BASEWEB%" scope="topic" type="regex" reverse="on" limit="1" nonoise="on" format="$topic" default="x"}%"
+}%
+%SET{"Redirect"
+  value="%IF{
+   "defined REDIRECT
+    and {Stats}{TopicPerYear}
+    and '%BASETOPIC%' = '%STATISTICSTOPIC%'
+    and '%GET{StatsYYYY}%' != 'x'"
+  then="1" else="0"}%"
+}%
+%SET{"History"
+  value="%IF{
+    "not %GET{Redirect}%
+     and {Stats}{TopicPerYear}
+     and '%GET{StatsYYYY}%' != 'x'"
+  then="1" else="0"}%"
+}%
+%IF{"%GET{Redirect}%"
+  then="$percntREDIRECT{%BASEWEB%.%GET{StatsYYYY}%}$percnt"
+}%
+-->
+%IF{"%GET{History}%" then="__History:__" else="<nop>}%
+%%IF{"%GET{History}%" then="SEARCH{" else="HIDE{" }%
+  "^%STATISTICSTOPIC%\d\d\d\d$"
+  web="%BASEWEB%"
+  scope="topic"
+  type="regex"
+  reverse="on"
+  nonoise="on"
+  format="$percntIF{\"'$topic' = $BASETOPIC\" then=\"<nop>$topic\" else=\"[[$web.$topic][$topic]]\"}$percnt"
+  separator=", "
+}%
+
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1376553860" format="1.1" version="1"}%
+d4 1
+a4 1
+   %IF{"{Stats}{DisableInvocationFromBrowser}" then="<nop>" else="(You can also [[%SCRIPTURL{"statistics"}%/%WEB%/%TOPIC%][force]] an update)"}%
+@

@@ -1,0 +1,47 @@
+%META:TOPICINFO{author="TWikiContributor" date="1496216059" format="1.1" version="7"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarWEBLIST
+---+++ WEBLIST{"format"} -- index of all webs
+   * List of all webs. Obfusticated webs are excluded, e.g. webs with a =NOSEARCHALL = on= preference variable. The ="format"= defines the format of one web item. The =$name= variable gets expanded to the name of the web, =$qname= gets expanded to double quoted name, =$marker= to =marker= where web matches =selection=.
+   * Syntax: =%<nop>WEBLIST{"format" ...}%=
+   * Supported parameters:
+     | *Parameter:* | *Description:* | *Default:* |
+     | ="format"= | Format of one line, may include following items. In addtion, [[FormatTokens][the standard special tokens]] are handled accordingly.\
+     <table class="twikiTable">\
+     <tr><td> *Item* </td><td> *Description* </td></tr>\
+     <tr><td> =$name= </td><td> the name of the web </td></tr>\
+     <tr><td> =$qname= </td><td> the name of the web in double quotes </td></tr>\
+     <tr><td>  =$indentedname= </td><td> the name of the web with parent web names replaced by indents, for use in indented lists </td></tr>\
+     <tr><td> =$listindent= </td><td> expands to multiple-of-3 spaces for bullet (&#42;) and numberd (1., a., etc.) lists. It's relative to the depth of the web specified by the =subwebs= parameter. See an example below. </td></tr>\
+     <tr><td> =$marker= </td><td> expands to =marker= for the item matching =selection= only </td></tr>\
+     <tr><td> =$web= </td><td> expands to the value specified by the =web= parameter </td></tr>\
+     </table>\
+     If you need to have a letter immediately after an item listed above, use =$nop()=, one of [[FormatTokens]].  e.g. =$name$nop()a= \
+     | ="$name"= |
+     | =format="format"= | (Alternative to above) | ="$name"= |
+     | =separator=", "= | Line separator | ="$n"= (new line) |
+     | =web=""= | if you specify =$web= in format, it will be replaced with this  | =""= |
+     | =webs="public"=   | Comma separated list of webs. There are special webs:\
+     <table class="twikiTable">\
+     <tr><td> *Item* </td><td> *Description* </td></tr>\
+     <tr><td> =public= </td><td> expands to all non-hidden webs. </td></tr>\
+     <tr><td> =cancopyto= </td><td> similar to =public=, but webs to which a topic of the current web cannot be copied to are excluded. Specifically, excluded are [[ReadOnlyAndMirrorWebs][read-only webs and mirror webs]]. </td></tr>\
+     <tr><td> =canmoveto= </td><td> similar to =cancopyto=, but webs to which a topic of the current web cannot be moved to are excluded. Specifically, excluded are webs residing on [[UsingMultipleDisks][different disks from the current web]]. </td></tr>\
+     <tr><td> =webtemplate= </td><td> expands to all template webs, whose name start with underscore (&#95;)</td></tr>\
+     </table>\
+     __NOTE 1:__ Administrators will see all webs, not just the public ones. %BR% \
+     __NOTE 2:__ If MetadataRepository is used and webs are required to be registered, then =cancopyto=, =canmoveto=, and =webtemplate= behave differently.\
+     <ul><li> =cancopyto= and =canmoveto= results include all top level webs and subwebs of the current webs are listed regardless of accessibility - subwebs of non-current webs are excluded. They also include [[UserSubwebs][the user's subweb]]. </li>\
+     <li> =webtemplate= result has top level template webs only.</li></ul> | ="public"= |
+     | =exclude="Legacy*, Sandbox"= | Comma separated list of webs to exclude. Wildcards can be used, such as =Legacy*= to exclude all webs starting with Legacy. | =""= |
+     | =marker="selected"= | Text for =$marker= if the item matches =selection= | ="selected"= |
+     | =selection="%<nop>WEB%"= | Current value to be selected in list | =selection="%<nop>WEB%"= |
+     | =subwebs="Sandbox"= | Show webs that are a sub-web of this one (recursivly) | =""= |
+     | =depth="1"= | Specify the maximum depth of recursive search. E.g. =%<nop>WEBLIST{depth="1"}%= shows only top level webs. =%<nop>WEBLIST{subwebs="Foo" depth="1"}%= shows the direct subwebs of Foo. | (no maximum depth) |
+     | =limit="30"= | Limit number of webs to show | =""= (all) |
+     | =overlimit="..."= | Message shown if over limit, such as: =overlimit="   * [<nop>[%<nop>SYSTEMWEB%.SiteMap][More...]]"= | =""= |
+     | =reverse="on"= | Reverse the order of the result. | =""= (off) |
+   * Example: =%<nop>WEBLIST{"$listindent   * [<nop>[$name.%HOMETOPIC%]]"}%= - creates a indented bullet list of all webs.
+   * Example: =&lt;form&gt;&lt;select name="web"&gt; %<nop>WEBLIST{"&lt;option $marker value=$qname&gt;$name&lt;/option&gt;" webs="Trash, public" selection="%<nop>WEB%" separator=" "}% &lt;/select&gt;&lt;/form&gt;= - creates a dropdown of all public webs + Trash web, with the current web highlighted.
+   * Category: SearchingAndListingVariables, SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarTOPICLIST][TOPICLIST]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]], MetadataRepository, ReadOnlyAndMirrorWebs, UsingMultipleDisks

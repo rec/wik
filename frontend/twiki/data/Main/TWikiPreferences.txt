@@ -1,0 +1,32 @@
+%META:TOPICINFO{author="TWikiContributor" date="1470201817" format="1.1" version="8"}%
+---+!! %MAKETEXT{"Local customizations of site-wide preferences"}%
+
+<div class="twikiHelp">%ICON{"info"}% %MAKETEXT{"Site-level preferences are located in [_1], however this [_2] prefs topic has override priority and should be used for local customizations. This allows for easier upgrades as you don't need to worry about the shipped preferences clobbering yours. It's easier to keep a handle on if you only copy over the settings you actually change." args="[[%SYSTEMWEB%.%TOPIC%]], [[%USERSWEB%.%TOPIC%]]"}% </div>
+
+%EDITPREFERENCES{"%SYSTEMWEB%.TWikiPreferencesForm"}%
+%IF{"$ SCRIPTNAME != 'viewauth%SCRIPTSUFFIX%'" then="<span class='twikiGrayText'>%MAKETEXT{"Quick edit of existing preferences (edit the topic text to set new preferences)"}%</span>" }%
+
+---++ Site Specific Site-wide Preferences
+<!-- Add site-wide preferences here -->
+
+   * Image and URL of the logo of this TWiki installation:
+      * Set WIKILOGOIMG = %PUBURLPATH%/%SYSTEMWEB%/TWikiLogos/T-logo-140x40-t.gif
+      * Example URL if logo attached to this topic: %PUBURLPATH%/%USERSWEB%/TWikiPreferences/my-logo-100x50.png
+      * Set WIKILOGOURL = %SCRIPTURL{view}%/%USERSWEB%/%HOMETOPIC%
+
+---++ Final Preferences
+
+   * =FINALPREFERENCES= locks site-level preferences that are *not* allowed to be overridden by [[%WEBPREFSTOPIC%]] or user preferences:
+      * Set FINALPREFERENCES = ALLOWROOTCHANGE, ATTACHFILESIZELIMIT, DENYROOTCHANGE, DOCWEB, ICONTOPIC, PREVIEWBGIMAGE, SYSTEMWEB, TWIKICOLORSURL, TWIKILAYOUTURL, TWIKISTYLEURL, USERSWEB, WIKIHOMEURL, WIKITOOLNAME
+
+---++ Security Settings
+
+   * Only TWiki administrators are allowed to change this topic:
+      * Set ALLOWTOPICCHANGE = TWikiAdminGroup
+      * Set ALLOWTOPICRENAME = TWikiAdminGroup
+   * Disable WYSIWYG editor for this preferences topic only:
+      * Local TINYMCEPLUGIN_DISABLE = on
+
+%EDITPREFERENCES{"%SYSTEMWEB%.TWikiPreferencesForm"}%
+
+__Related topics:__ [[%SYSTEMWEB%.%TOPIC%]], [[%SYSTEMWEB%.TWikiVariables][TWikiVariables]], [[%SYSTEMWEB%.TWikiAccessControl][TWikiAccessControl]]

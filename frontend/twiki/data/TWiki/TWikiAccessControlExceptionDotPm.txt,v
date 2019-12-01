@@ -1,0 +1,86 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2008.01.22.03.21.26;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.24;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@---+ Package =TWiki::AccessControlException=
+
+Exception used raise an access control violation. This exception has the
+following fields:
+   * =web= - the web which was being accessed
+   * =topic= - the topic being accessed (if any)
+   * =user= - canonical username of the person doing the accessing. Use
+   the methods of the TWiki::Users class to get more information about the
+   user.
+   * =mode= - the access mode e.g. CHANGE, VIEW etc
+   * =reason= a text string giving the reason for the refusal.
+
+The exception may be thrown by plugins. If a plugin throws the exception, it
+will normally be caught and the browser redirected to a login screen (if the
+user is not logged in) or reported (if they are and just don't have access).
+
+
+%TOC%
+
+---++ ClassMethod *new* <tt>($mode,$user,$web,$topic,$reason)</tt>
+
+   * =$mode= - mode of access (view, change etc)
+   * =$user= - canonical user name of user doing the accessing
+   * =$web= - web being accessed
+   * =$topic= - topic being accessed
+   * =$reason= - string reason for failure
+
+All the above fields are accessible from the object in a catch clause
+in the usual way e.g. =$e->{web}= and =$e->{reason}=
+
+
+
+---++ ObjectMethod *stringify* <tt>() -> $string</tt>
+
+Generate a summary string. This is mainly for debugging.
+
+
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@a1 1
+*extends* <tt>Error</tt>
+d3 13
+a15 2
+
+Exception used raise an access control violation.
+d23 1
+a23 1
+   * =$user= - user object doing the accessing
+d35 1
+a35 1
+Generate a summary string
+@

@@ -1,0 +1,11 @@
+%META:TOPICINFO{author="TWikiContributor" date="1380749229" format="1.1" version="1"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarPARENTBC
+---+++ PARENTBC -- parent breadcrumbs for headings
+   * Add =%<nop>PARENTBC%= to a heading of a topic to show the breadcrumb of its parents. Parent topics are linked, topic names are shown spaced out in a smaller font, and are separated by =&#187;= quotes. In addition, a =parentlist= SetGetPlugin variable is set to the parent list, and a =parent= variable is set to the immediate parent. This can be retrieved later in the topic using =%<nop>GET{parentlist}%= and =%<nop>GET{parent}%=, respectively.
+   * Syntax: =%<nop>PARENTBC%=
+   * Example raw text:%BR% =---+ %<nop>PARENTBC% Myself and me=
+   * Expands to: <h1> <span style="font-size: 58%"> [[%TOPIC%][Grandma And Granpa]] &#187; [[%TOPIC%][Mother And Father]] &#187; </span> Myself and me</h1>
+   * Type: Preference variable - TWikiRenderingShortcut.
+   * Category: FormattingAndRenderingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB][BB]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB2][BB2]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB3][BB3]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB4][BB4]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBR][BR]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBULLET][BULLET]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarLAQUO][LAQUO]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarNBSP][NBSP]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarPARENTTOPIC][PARENTTOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarRAQUO][RAQUO]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarVBAR][VBAR]], [[TWikiPreferences#RenderingShortcuts][TWikiPreferences rendering shortcuts]]

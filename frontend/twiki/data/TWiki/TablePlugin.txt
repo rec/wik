@@ -1,0 +1,286 @@
+%META:TOPICINFO{author="TWikiContributor" date="1530860335" format="1.1" version="38"}%
+---+!! Table Plugin
+<!--
+   Contributions to this TWiki plugin are appreciated. Please update the plugin page at
+   http://twiki.org/cgi-bin/view/Plugins/TablePlugin or provide feedback at
+   http://twiki.org/cgi-bin/view/Plugins/TablePluginDev.
+   If you are a TWiki contributor please update the plugin in the SVN repository.
+-->
+<sticky>
+<div class="twikiTocFloat">
+%TOC%
+</div>
+</sticky>
+%SHORTDESCRIPTION%
+
+---++ Introduction
+
+The !TablePlugin gives extra control of TWiki table rendering using =| cell 1 | cell 2 |= syntax:
+
+   * Sort table by columns
+   * Use TML (TWiki Markup Language) in table cells using =|&gt;&gt; TML &lt;&lt;|= syntax.
+   * Support row spans using =|^|= syntax.
+   * Change table properties, such as border width, cell spacing and cell padding.
+   * Change background color and text color for header cells.
+   * Change background color and text color for data cells - colors can _alternate_.
+   * Set and override table attributes in this order:
+      * Default =TABLEATTRIBUTES= Plugin setting in current topic.
+      * A =TABLEATTRIBUTES= preferences setting on site-level (%USERSWEB%.TWikiPreferences) or web-level (any WebPreferences), such as:
+         * =Set TABLEATTRIBUTES = tableborder="0" cellpadding="1" ...=
+      * Before a table using =%<nop>TABLE{...}%=.
+
+---++ Sorting
+
+Click on column heading text to sort by a column.  Initial column will be sorted in descending order, click again to get ascending order.  The type of data in the cell is determined automatically:
+
+   * date if format is:
+      * dd MMM YYYY - hh:mm (MMM is Jan, Feb, etc.)
+      * dd-MMM-YY or dd-MMM-YYYY (can be / or space in place of -) (MMM is Jan, Feb, etc)
+   * number is digits, with optional decimal point
+   * otherwise treated as text
+
+---++ Using TML in table cells
+
+A TWiki table has a line-oriented markup, e.g. normally it is not possible to use other line-oriented TML, such as bullets or nested tables.
+
+It is possible to introduce newlines in a table cell if the cell is enclosed in double-angle brackets, such as =|&gt;&gt; TML &lt;&lt;|=. Example:
+
+<table><tr><td valign="top">
+__You write:__
+<verbatim>
+| *A1* | *B1* | *C1* | *D1* |
+| A2 |>> B2
+   * Bullet
+   * list
+   * is
+   * possible
+<<|>> C2
+  | *C2.1* | *C2.2* |
+  | Embedded | table |
+  | possible | too |
+end C2
+<<| D2 |
+| A3 | B3 | C3 | D3 |
+</verbatim>
+</td><td>&nbsp; &nbsp; &nbsp; &nbsp;</td><td valign="top">
+__You get:__
+| *A1* | *B1* | *C1* | *D1* |
+| A2 |>> B2
+   * Bullet
+   * list
+   * is
+   * possible
+<<|>> C2
+  | *C2.1* | *C2.2* |
+  | Embedded | table |
+  | possible | too |
+end C2
+<<| D2 |
+| A3 | B3 | C3 | D3 |
+</td></tr></table>
+
+---++ Row spans
+
+Table cells with a single caret indicate follow-up rows of multi-row spans. Example:
+
+<table><tr><td valign="top">
+__You write:__
+<verbatim>
+| One One | One Two | One Three |
+| ^ | Two Two | Two Three |
+| Three One | ^ | Three Three |
+</verbatim>
+</td><td>&nbsp; &nbsp; &nbsp; &nbsp;</td><td valign="top">
+__You get:__
+| One One | One Two | One Three |
+| ^ | Two Two | Two Three |
+| Three One | ^ | Three Three |
+</td></tr></table>
+
+---++ Table Attributes
+
+Attributes are defined as a =TABLEATTRIBUTES= Plugin setting in this topic, a =TABLEATTRIBUTES= preferences setting, or on line before the table using =%<nop>TABLE{...}%=:
+%INCLUDE{"%SYSTEMWEB%.VarTABLE" section="table_attributes"}%
+
+The =%<nop>TABLE{...}%= settings override =TABLEATTRIBUTES= preferences settings, which override the =TABLEATTRIBUTES= Plugin settings. 
+
+The setting =disableallsort= is normally not used as a TABLE or TABLEATTRIBUTES setting. Plugins such as EditTablePlugin dynamically sets =disableallsort= to disable sorting while editing a table. For this to work it is important that EditTablePlugin runs before TablePlugin, which is the default. The setting =sort= can be overwritten by a URL parameter or hidden formfield of the same name. Plugins such as EditTablePlugin can use this to disable table header sorting while in edit mode.
+
+---++ Examples
+
+---+++ Use of %<nop>TABLE{...}%
+
+Line before table: =%<nop>TABLE{ sort="on" tableborder="0" cellpadding="4" cellspacing="3" cellborder="0" headerbg="#D5CCB1" headercolor="#666666" databg="#FAF0D4, #F3DFA8" headerrows="2" footerrows="1" }%=
+
+%TABLE{ sort="on" tableborder="0" cellpadding="4" cellspacing="3" cellborder="0" headerbg="#D5CCB1" headercolor="#666666" databg="#FAF0D4, #F3DFA8" headerrows="2" footerrows="1" }%
+| *Table with two Header Rows and Footer Row* ||||||
+| *Num* | *Status* | *Action* | *Who* | *When* | *Progress* |
+| 1 | C | Chose new colors | John | 1-Dec-02 | |
+| 2 | X | Release | John | 1-Apr-02 | |
+| 3 |   | Get feedback | Anne | 1-Feb-02 | |
+| 12 | C | Spec error handling | Jack | 1-Dec-02 | |
+| 5 |   | Abc | John | | |
+| *Num* | *Status* | *Action* | *Who* | *When* | *Progress* |
+
+---+++ Table with 4 digit year dates!! and no use of %<nop>TABLE{...}%
+
+| *When* |
+| 1-Jan-2004 |
+| 1-Jan-2003 |
+| 2-Jan-2005 |
+
+---++ !TablePlugin and CSS
+
+Information for programmers.
+
+!TablePlugin implements the following precedence:
+   * the =TABLEATTRIBUTE= settings only write html styling, no CSS
+   * the =TABLEATTRIBUTE= settings can be overridden by a skin's CSS
+   * the =TABLE= tag attributes are converted to CSS styling, written in the head; these override any skin's CSS
+    
+---+++ CSS written by !TablePlugin
+
+|=.twikiTable=  |The table  |
+|=.twikiSortedCol=  |A sorted column  |
+|=.twikiSortedAscendingCol=  |Sorted column, ascending  |
+|=.twikiSortedDescendingCol=  |Sorted column, descending  |
+|=.tableSortIcon=  |The sort icon holder (span)  |
+|=.twikiFirstCol=  |The first column  |
+|=.twikiTableEven= |Even numbered rows  |
+|=.twikiTableOdd= |Odd numbered rows  |
+|=.twikiTableCol= + column number  | Unique column identifier, for instance: =twikiTableCol0= |
+|=.twikiTableRow= + type + row number | Unique row identifier, for instance: =twikiTableRowdataBg0= |
+
+---++ <nop>%TOPIC% Global Settings
+
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}% "
+ hidelink="Hide details %ICONURL{toggleclose}% "
+}%
+
+Plugin settings are stored as preferences variables. To reference a plugin setting write ==%<nop>&lt;plugin&gt;_&lt;setting&gt;%==, for example, ==%<nop>TABLEPLUGIN_SHORTDESCRIPTION%==
+
+   * One line description, shown in the %SYSTEMWEB%.TextFormattingRules topic:
+      * Set SHORTDESCRIPTION = Control attributes of tables and sorting of table columns
+
+   * Set DEBUG to 1 to get debug messages in =data/debug.txt=.  Default: =0=
+      * Set DEBUG = 0
+
+   * Make all tables in a topic sortable. If this is set to =all=, all tables that have a header row (including those that do not have %TABLE before them) will be made sortable. If set to =none=, only tables with %TABLE will be sortable. Topic rendering is faster if this is set to =none=.
+      * #Set SORT = none
+      * Set SORT = all
+
+   * Default table attributes:
+      * Set TABLEATTRIBUTES = tableborder="1" cellpadding="0" cellspacing="0" valign="top" headercolor="#ffffff" headerbg="#687684" headerbgsorted="#334455" databg="#ffffff,#edf4f9" databgsorted="#f1f7fc,#ddebf6" tablerules="all"
+%ENDTWISTY%
+
+---++ Plugin Installation Instructions
+
+This plugin is pre-installed. TWiki administrators can upgrade the plugin as needed on the TWiki server.
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}% "
+ hidelink="Hide details %ICONURL{toggleclose}% "
+}%
+
+   * For an __automated installation__, run the [[%SCRIPTURL{configure}%][configure]] script and follow "Find More Extensions" in the in the __Extensions__ section.
+
+   * Or, follow these __manual installation__ steps:
+      * Download the ZIP file from the Plugins home (see below).
+      * Unzip ==%TOPIC%.zip== in your twiki installation directory. Content:
+        | *File:* | *Description:* |
+        | ==data/TWiki/%TOPIC%.txt== | Plugin topic |
+        | ==data/TWiki/VarTABLE.txt== | TABLE variable documentation topic |
+        | ==lib/TWiki/Plugins/%TOPIC%.pm== | Plugin Perl module |
+        | ==lib/TWiki/Plugins/%TOPIC%/Core.pm== | Plugin core module |
+      * Set the ownership of the extracted directories and files to the webserver user.
+      * Make sure the dependencies listed in the table below are resolved.
+        None
+
+   * Plugin __configuration and testing__:
+      * Run the [[%SCRIPTURL{configure}%][configure]] script, enable the plugin in the __Plugins__ section
+      * Configure the plugin: See plugin settings above.
+      * Check above example if the table renders as expected
+      * Try click on heading to sort. Other tables should also be sortable
+%ENDTWISTY%
+
+---++ Plugin Info
+
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  Plugin Author: | TWiki:Main.JohnTalintyre, TWiki:Main.PeterThoeny |
+|  Copyright: | &copy; 2001-2003 TWiki:Main.JohnTalintyre, %BR% &copy; 2001-2018 Peter[at]Thoeny.org, [[http://twiki.org/][TWiki.org]],%BR% &copy; 2005-2018 TWiki:TWiki.TWikiContributor |
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+|  Plugin Version: | 2018-07-05 |
+%TWISTY{
+ mode="div"
+ showlink="Show Change History %ICONURL{toggleopen}%"
+ hidelink="Hide Change History %ICONURL{toggleclose}% "
+}%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  2018-07-05: | TWikibug:Item7841: Copyright update to 2018 |
+|  2016-01-09: | TWikibug:Item7708: Copyright update to 2016 |
+|  2015-07-28: | TWikibug:Item7679: TablePlugin may not put the default style on Fast CGI or mod_perl |
+|  2015-02-16: | TWikibug:Item7604: Switch from GPL v2 to v3 |
+|  2014-12-08: | TWikibug:Item7594: Fix issue where bullet list was not closed properly at end of table cell (introduced 2014-12-08) |
+|  2014-12-08: | TWikibug:Item7594: Support table cells with TML |
+|  2014-01-21: | TWikibug:Item7416: TablePlugin causes an error with an illegal date such as 2013-00-00 |
+|  2013-09-25: | TWikibug:Item7151: Fix documentation to use Webster spelling |
+|  2013-06-21: | TWikibug:Item7283: Auto-detect number of header rows when sorting; fix headerrows parameter issue |
+|  2013-01-28: | TWikibug:Item7091: Use TWISTY in installation instructions and change history |
+|  2012-11-14: | TWikibug:Item7020: Categorize TWiki Variable TABLE |
+|  2012-10-29: | TWikibug:Item7015: Fix for "Cannot handle date (0, 0, 0, 14, 2, 1100)" error on very early date |
+|  2012-09-07: | TWikibug:Item6837: Doc fixes |
+|  2011-07-27: | TWikibug:Item6779: Fix for tables rendering too dark in Firefox 4 |
+|  2011-07-15: | TWikibug:Item6764: Minor fix to remove warning message in error log |
+|  2011-07-09: | TWikibug:Item6725: Change global package variables from "use vars" to "our" |
+|  2010-05-16: | 1.2 TWikibug:Item6433 - doc improvements |
+|  2010-03-31: | 1.12 TWikibug:Item6414 - fixed incorrect sorting of ISO dates. -- Peter Thoeny |
+|  2010-03-21: | 1.11 TWikibug:Item6406 - fixed incorrect sorting for negative numbers. -- TWiki:Main/BryanKitts |
+|  2010-03-08: | 1.1 TWikibug:Item6405 - fixed incorrect sorting for numbers with decimal places. -- Peter Thoeny |
+|  30 Sep 2008: | 1.035 Fix sorting of attachment date column.  |
+|  03 Aug 2008: | 1.034 TWiki 4.2.1 release version |
+|  20 Mar 2008: | 1.033 TWikibug:Item5387: allow rowspanned columns to contain HTML tags; otherwise it is impossible to add an invisible anchor to a rowspanned cell |
+|  16 Dec 2007: | 1.030: Kenneth Lavrsen: Fixed the problem of tables being sorted by by TablePlugin while the table is being edited by plugins such as EditTablePlugin. This required adding a new attribute =disableallsort= so plugins such as EditTablePlugin can temporarily disable all sorting for a table. Additionally the CGI variable (URL parameter or hidden formfield) =sort= can be set to "off" which disables all header sorting in the topic. This is used by plugins such as EditTablePlugin to disable the sorting by clicking header fields during editing of tables. Ref: TWikibug:Item5135 and TWikibug:Item2690. |
+|  03 Dec 2007: | Arthur Clemens: Fixed rendering and order of html elements =thead=, =tfoot= and =tbody=; corrected =id= parameter. |
+|  24 Nov 2007: | Arthur Clemens: Fixed sorting of columns with only icons; also removed TWiki formatting before sorting. |
+|  06 Oct 2007: | 15180: PTh: Added %SYSTEMWEB%.VarTABLE to have it listed in %SYSTEMWEB%.TWikiVariables |
+|  27 Jun 2007: | 1.024 - 1.027 Various small bug fixes. |
+|  24 Jun 2007: | 1.023: Arthur Clemens: Inline styles are now written to the head; updated default sort icons (from %SYSTEMWEB%.TWikiDocGraphics). |
+|  23 Jun 2007: | 1.022: Arthur Clemens: Fixed styling of param =tablerules= on Internet Explorer. |
+|  23 May 2007: | 1.021: Michael Daum: Fixed css attribute priority to cooperate nicely with skin themes. |
+|  27 Dec 2006: | 1.020: Kenneth Lavrsen: Fixed initsort so all tables can be initsorted and not only the first. When you sort a table by clicking on the header of a column the table gets sorted accordingly. When you click the header of another table the previously sorted table goes back being sorted as specified by initsort. |
+|  13 Dec 2006: | 1.019: Arthur Clemens: Prevent sorting of columns that do no exist.  |
+|  02 Dec 2006: | 1.018: Arthur Clemens: Data rows now start with first =datacolor= and =databgcolor=.  |
+|  26 Nov 2006: | 1.017: Arthur Clemens: Better support for =tablerules=.  |
+|  24 Nov 2006: | 1.016: Arthur Clemens: Added new attribute =cellborder=.  |
+|  25 Oct 2006: | 1.015: Arthur Clemens: Added support for background colors of sorted column. Columns can be unsorted - sorting order is now: sort ascending, sort descending, unsort. Added attributes =headervalign= and =datavalign=. |
+|  16 Aug 2006: | Michael Daum: Added CSS support for even/odd table rows |
+|  13 Dec 2005: | Arthur Clemens: Added support for =id=, =summary= and =caption= |
+|  05 Mar 2005: | 1.014: Crawford Currie eliminated deprecated handlers for Dakar |
+|  01 Aug 2004: | Arthur Clemens: Added CSS support for first column and ascending/descending table headers |
+|  21 Mar 2004: | PTh: Internal change: Fixed reference to unofficial variable |
+|  01 Jan 2004: | PTh: Alternating data row colors restart again after each header row |
+|  01 Dec 2003: | PTh: Fixed error when footerrows was specified on an empty table, contributed by TWiki:Main/PaulineCheung |
+|  24 May 2003: | PTh: New =&#124;^&#124;= rule for multi row span (TWiki:Main/WalterMundt); added tableframe and tablerules (TWiki:Main/JohannesMartin); ignore columnwidths for multi column span; validate headerrows and footerrows (TWiki:Main/DarrylGreen); fixed link color problem and up/down icon color problem for dark header background |
+|  17 Dec 2002: | PTh: Removed individual table Plugin settings; added TABLEATTRIBUTES Plugins setting and TABLEATTRIBUTES preferences setting |
+|  15 Dec 2002: | PTh: Added headerrows and footerrows params (TWiki:Main/DarrylGreen, TWiki:Main/WoutMertens); added tablewidth and columnwidths params (TWiki:Main/ThorstenSommermann) |
+|  09 Dec 2002: | PTh: Added headercolor and datacolor parameters |
+|  05 Jun 2002: | PTh: Added "none" value to databg parameter (suggested by TWiki:Main/TaitCyrus); fixed sorting by stripping HTML tags, removing links and making sort ignore case (suggested by TWiki:Main/ShawnBradford) |
+|  13 Mar 2002: | PTh: Added TWiki:Main/ShawnBradford 's initsort and initdirection |
+|  12 Mar 2002: | PTh: Added valign, headeralign and dataalign; fixed bug of swapped cellpadding/cellspacing; fixed warning of uninitialized value |
+|  05 Jan 2002: | PTh: Fixed sorting bug of cells with leading white space  |
+|  06 Dec 2001: | PTh: Fixed date sorting bug <br /> 03 Dec 2001 PTh: Fixed sort="off" bug and more |
+|  29 Nov 2001: | PTh: Fixed Perl warnings |
+|  16 Nov 2001: | PTh: Added table border, cell spacing, cell padding, gif files |
+|  07 Oct 2001: | JT: Initial version |
+%ENDTWISTY%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  CPAN Dependencies: | none |
+|  Other Dependencies: | none |
+|  Perl Version: | 5.0 |
+|  Plugin Home: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC% |
+|  Feedback: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Dev |
+|  Appraisal: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Appraisal |
+
+__Related Topics:__ %SYSTEMWEB%.VarTABLE, %USERSWEB%.TWikiPreferences, %SYSTEMWEB%.TWikiPlugins, %SYSTEMWEB%.StandardColors

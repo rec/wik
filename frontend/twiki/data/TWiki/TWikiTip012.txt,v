@@ -1,0 +1,56 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2010.06.27.07.44.31;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.24;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1277624671" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiTipsOfTheDay"}%
+---+ <nop>WikiWords for linking
+
+WikiWords are capitalized words, run together, such as <b>WebPreferences</b> and <b>CollaborationPlatform</b>. Using a lot of !WikiWords creates a good browsing experience for the reader. TWiki links <nop>WikiWords automatically to topics of that name.
+
+[[TWikiTipsOfTheDay][See More Tips...]]
+
+-- __Contributors:__ TWiki:Main.PaulineCheung
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1107570220" format="1.0" version="1"}%
+d5 1
+a5 1
+<nop>WikiWords are capitalized words, run together, such as <b>WebPreferences</b> and <b>CollaborationPlatform</b>. Using a lot of !WikiWords creates a good browsing experience for the reader. %WIKITOOLNAME% links <nop>WikiWords automatically to topics of that name.
+d9 1
+a9 2
+-- TWiki:Main.PaulineCheung - 30 Jan 2005
+
+@

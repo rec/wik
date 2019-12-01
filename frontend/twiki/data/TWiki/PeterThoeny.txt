@@ -1,0 +1,6 @@
+%META:TOPICINFO{author="TWikiContributor" date="1418696259" format="1.1" version="9"}%
+---+ Peter Thoeny
+
+TWiki Enterprise Consultant, Founder and BDFL of TWiki and [[http://twiki.org/][TWiki.org]], inventor of [[TWiki:Codev/StructuredWiki][structured wikis]], co-author of [[http://www.amazon.com/Wikis-Dummies-Computer/dp/0470043997][Wikis for Dummies]] book, speaker, [[https://www.flickr.com/photos/peterthoeny/][Quality HDR Photographer]].
+
+%M% Peter's consulting page: TWiki:Codev.ConsultantPeterThoeny

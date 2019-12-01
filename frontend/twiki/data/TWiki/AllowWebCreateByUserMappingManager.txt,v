@@ -1,0 +1,120 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2017.01.23.08.22.04;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2013.10.14.08.02.47;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1485159724" format="1.1" version="2"}%
+---+!! Allowing Web Creation, Deletion, & Rename by the User Mapping Manager
+
+---++ Motivation
+
+There are cases where DENYROOTCHANGE, ALLOWROOTCHANGE, DENYWEBCHANGE, and ALLOWWEBCHANGE are not capable enough to implement web creation/deletion/rename permission you want.
+Here are some of those situations.
+
+---+++ Making top level web creation and deletion self-service
+
+Usually, to create and delete a top level web, you need to be allowed by ALLOWROOTCHANGE and DENYROOTCHANGE.
+On a large TWiki site, it's desirable to make top level web creation and deletion self-service.
+
+---+++ Allowing users to create and delete their own UserSubwebs
+
+In a large orgnization having thousands or more users, the Main web needs to restrict topic creation to prevent random topics to accumulate.
+Instead, UserSubwebs are desirable for content accountability.
+This means that, on the Main web, users are not allowed to create topics but are allowed to create and delete the subweb of their wiki name.
+
+---++ How it works
+
+When a new web is created, the =canCreateWeb($cUID, $web)= method of the user mapping manager is called if the method exists.
+If the method returns true, the web is created without checking DENYROOTCHANGE and ALLOWROOTCHANGE (for a top level web) or DENYWEBCHANGE and ALLOWWEBCHANGE (of the parent of a subweb).
+If the method does not exist or the method returns false, web creation is permitted as usual based on *ROOTCHANGE or *WEBCHANGE.
+
+The method would be written as follows.
+<verbatim>
+sub canCreateWeb {
+    my( $this, $cUID, $web ) = @@_;
+...
+}
+</verbatim>
+
+Similarly, when a web is renamed, the =canRenameWeb($cUID, $oldWeb, $newWeb)= method of the user mapping manager is called if the method exist.
+If it returns true, permission check on the parent web is omitted.
+If the method does not exist or the method returns false, permission check on the parent web is conducted as usual.
+Then, permission check on the rename destination takes place.
+
+__Related Topics:__ AdminDocumentationCategory, TWikiAccessControl, LargeSite, UserSubwebs
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 2
+a2 2
+%META:TOPICINFO{author="TWikiContributor" date="1350633267" format="1.1" version="1"}%
+---+!! Allowing Web Creation by the User Mapping Manager
+d6 13
+a18 28
+There are cases where DENYROOTCHANGE, ALLOWROOTCHANGE, DENYWEBCHANGE, and ALLOWWEBCHANGE are not capable enough to implement web creation permission you want.
+For example, you may want to allow a user to create a certain subweb of the web Foo while you don't want to allow to create topics on the web Foo.
+To cope with such cases, a method in the user mapping manager is called to check the web creation is allowed before checking the access control variables.
+
+---+++ A large TWiki site in a large organization employing UserSubwebs
+
+Let's assume:
+   * It's about a large organization having 50,000 users in its LDAP. User IDs, real names, email addresses, etc. are in the LDAP
+   * It has an intranet single sign-on mechanism leveraging the LDAP data
+   * Everybody in the organization may edit topics on a TWiki site having 5,000 webs
+   * The TWiki site authenticate users with the intranet single sign-on mechanism
+   * UserSubwebs is in use
+Implication:
+   * Requiring user registration on the TWiki site for editing doesn't make a lot of sense. Because all user account data is already in LDAP, which is supposed to be referred to if needed.
+   * Users need to be forbidden to create topics on the Main web. Otherwise, it accumulates a lot of clutters in the long run.
+   * Users need to be able to create/delete their personal web on their own
+      * *Here needs the capability*
+
+---+++ UsingMultipleDisks and /pub/... rewritten to /cgi-bin/viewfiles/...
+
+Let's assume:
+   * There is a TWiki site employing UsingMultipleDisks
+   * The HTTP server housing TWiki needs to rewrite /pub/... to /cgi-bin/viewfile/... so that all attachments are obtainable by /pub/... path without symbolic links 
+Implication:
+   * The rewriting rule doesn't rewrite /pub/TWiki/... and /pub/Public/... so that files there can be retrieved directly (=quickly) from the HTTP server without going through TWiki.
+   * For every top level web W, there can be Public/W subweb. The owner of the web W can create Public/W if they like.
+   Web owners must not be able to create topics in the Public web or a subweb different from the unrelated to web names the user owns
+      * *Here needs the capability*
+d23 2
+a24 2
+If the method returns true, TWiki goes ahead and create the web without checking DENYROOTCHANGE and ALLOWROOTCHANGE (for a top level web) or DENYWEBCHANGE and ALLOWWEBCHANGE (of the parent of a subweb).
+If the method does not exist or the method returns false, web creation is permitted as usual based on ROOTCHANGE or ALLOWWEBCHANGE.
+d26 1
+a26 1
+Maybe needless to say, the method would be written as follows.
+d34 6
+a39 1
+__Related Topics:__ AdminDocumentationCategory, TWikiAccessControl, UserSubwebs
+@

@@ -1,0 +1,94 @@
+head	1.4;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.4
+date	2013.09.14.07.33.48;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2010.05.29.14.44.53;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.01.22.03.21.27;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2007.01.16.04.12.00;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1379144028" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarT
+---+++ T -- tip icon
+   * Type: Preference variable - TWikiRenderingShortcut.
+   * Syntax: =%<nop>T%=
+   * Expands to: %T%
+   * Category: FormattingAndRenderingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarH][H]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarI][I]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarICON][ICON]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarM][M]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarN][N]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarP][P]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarQ][Q]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarS][S]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarU][U]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWIP][WIP]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarX][X]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarY][Y]], [[TWikiDocGraphics]]
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1273876338" format="1.1" version="3"}%
+d8 2
+a9 1
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarH][H]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarI][I]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarICON][ICON]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarM][M]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarN][N]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarP][P]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarQ][Q]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarS][S]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarU][U]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarX][X]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarY][Y]], [[TWikiDocGraphics]]
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 2
+a2 2
+%META:TOPICINFO{author="TWikiContributor" date="1152044728" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiPreferences"}%
+d6 3
+a8 2
+   * Current value: T = %T%
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarH][H]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarI][I]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarICON][ICON]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarM][M]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarN][N]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarP][P]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarQ][Q]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarS][S]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarU][U]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarX][X]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarY][Y]]
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1152044728" format="1.2" version="1"}%
+a3 1
+
+d7 1
+a7 1
+   * Related: [[#VarH][H]], [[#VarI][I]], [[#VarICON][ICON]], [[#VarM][M]], [[#VarN][N]], [[#VarP][P]], [[#VarQ][Q]], [[#VarS][S]], [[#VarU][U]], [[#VarX][X]], [[#VarY][Y]]
+@

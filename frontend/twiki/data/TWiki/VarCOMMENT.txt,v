@@ -1,0 +1,97 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2012.11.12.07.00.05;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2011.03.28.20.13.18;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2008.01.22.03.21.30;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1352703605" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarCOMMENT
+---+++ COMMENT{ _attributes_ } -- insert an edit box into the topic to easily add comments.
+%STARTSECTION{"comment_attributes"}%
+   * A =%<nop>COMMENT%= without parameters shows a simple text box.
+   * A =%<nop>COMMENT{}%= can handle the following parameters:
+     | *Parameter* | *Description* | *Default* |
+     | =type= | This is the name of the template to use for this comment. Comment templates are defined in a TWiki template - see [[CommentPlugin#TemPlates][customization]]. If this attribute is not defined, the type is whatever is defined by COMMENTPLUGIN_DEFAULT_TYPE, either in this topic or in your WebPreferences. | ="below"= |
+     | =default= | Default text to put into the textarea of the prompt. | |
+     | =target= | Name of the topic to add the comment to | the current topic |
+     | =location= | Regular expression specifying the comment location in the target topic. Read _carefully_ the CommentPlugin documentation! | |
+     | =mode= | For compatibility with older versions only, synonymous with =type= | |
+     | =nonotify= | Set to "on" to disable change notification for target topics | ="off"= |
+     | =noform= | Set to "on" to disable the automatic form that encloses your comment block - _remember_ to insert =&lt;form&gt;= tags yourself! See CommentPluginExamples#noform for an example. | ="off"= |
+     | =nopost= | Set to "on" to disable insertion of the posted text into the topic. | ="off"= |
+     | =remove= | Set to "on" to remove the comment prompt after the first time it is clicked. | ="off"= |
+     | =button= | Button label text | ="Add comment"= |
+     | =emailto= | Send comment by email. Use comma "," to seperate multiple email addresses. This feature is disabled by default. To enable this feature, please set up "$TWiki::cfg{Plugins}{CommentPlugin}{EmailEnabled} = 1;". | |
+%ENDSECTION{"comment_attributes"}%
+   * See CommentPlugin for more information
+   * Category: ApplicationsAndComponentsVariables, DatabaseAndFormsVariables, EditingAndContentUpdateVariables, WorkflowAndAutomationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarHIDE][HIDE]], TWikiForms
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1301343198" format="1.1" version="2"}%
+d18 3
+a20 1
+     | =button= | Button label text | ="Add comment"= |%ENDSECTION{"comment_attributes"}%
+d22 1
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1182547552" format="1.1" version="1"}%
+d7 3
+a9 3
+   * The following standard attributes are recognized
+     | *Name* | *Description* | *Default* |
+     | =type= | This is the name of the template to use for this comment. Comment templates are defined in a TWiki template - see [[CommentPlugin#TemPlates][Customisation]], below. If this attribute is not defined, the type is whatever is defined by COMMENTPLUGIN_DEFAULT_TYPE, either in this topic or in your WebPreferences. | =below= |
+d14 5
+a18 6
+     | =nonotify= | Set to "on" to disable change notification for target topics | =off= |
+     | =noform= | Set to "on" to disable the automatic form that encloses your comment block - _remember_ to insert =&lt;form&gt;= tags yourself! See CommentPluginExamples#noform for an example. | =off= |
+     | =nopost= | Set to "on" to disable insertion of the posted text into the topic. | =off= |
+     | =remove= | Set to "on" to remove the comment prompt after the first time it is clicked. | =off= |
+     | =button= | Button label text | =Add comment= |
+%ENDSECTION{"comment_attributes"}%
+d20 1
+@

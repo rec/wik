@@ -1,0 +1,340 @@
+head	1.4;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.4
+date	2013.09.13.06.54.46;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2010.06.30.05.33.25;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.08.03.22.17.49;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2008.01.22.03.21.33;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1379055286" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TinyMCEPlugin"}%
+---+!! !TinyMCE Editor Help Summary 
+%STARTINCLUDE%
+<style type="text/css" media="all">
+#tinyMceInfo td {vertical-align:top; padding:0 1em 0 0;}
+#tinyMceInfo td.primaryTextcolumn {width:60%;}
+#tinyMceInfo td.secondaryTextcolumn {width:40%; border-left:1px solid #ddd; padding-left:1em;}
+#tinyMceInfo td.imgcolumn {width:12px; text-align:right;}
+</style>
+<div id="twikiTinyMcePluginWysiwygEditHelp" style="display:block">
+<table id="tinyMceInfo" cellpadding="0" cellspacing="0" border="0" summary="TinyMCE edit help">
+<tr>
+<td class="imgcolumn">
+  <img src="%ATTACHURLPATH%/Format_Drop_Down.png" width="131" height="298" alt="format dropdown" />
+</td>
+<td class="primaryTextcolumn">
+   * ==Normal== - Normal text style
+   * ==Heading 1-6== - Headings; 1 is largest
+   * On save, content in this HTML editor is automatically converted to TML (TWiki Markup Language). The following styles let you apply special TWiki tags that control that conversion, and how the resulting text is displayed.
+      * ==VERBATIM== - Text is shown in monospace with line breaks. Wraps TWiki =&lt;verbatim&gt;= tags around the selected text. No variables are interpreted inside verbatim tags.
+      * ==LITERAL== - Styled content is saved exactly as it appears in the editor. Saves the selected content as raw HTML and wraps it in twiki =&lt;literal>= tags.
+      * ==Protect on save== - Use this to protect newly-created advanced variables, where you want to prevent conversion of HTML in the variable to TML. When the topic is re-edited, well-formed variables are automatically re-protected.
+      * ==Protect forever== - Wrap the selection in TWiki =&lt;sticky&gt;= tags. Use this to protect content so it always appears _exactly_ as shown in the editor.
+</td>
+<td rowspan="6" class="secondaryTextcolumn">
+*Copy & paste table rows*
+   * Right-click table row
+   * Select 'Row'
+   * Select 'Copy table row'
+   * Right-click destination
+   * Select 'Row'
+   * Select 'Paste' (before/after)
+<img src="%ATTACHURLPATH%/table_contextmenu.png" alt="right-click table rows to copy & paste" />
+
+*Setting a chili syntax highlighting class on a verbatim block*
+   * Right-click the verbatim block
+   * Select 'jQuery chili'
+   * Choose syntax
+<img src="%ATTACHURLPATH%/chili_formatting.png" alt="chili syntax on VERBATIM" />
+</td>
+</tr>
+<tr>
+<td class="imgcolumn"><img src="%ATTACHURLPATH%/indent.png" alt="indent" />
+  <img src="%ATTACHURLPATH%/outdent.png" alt="outdent" />
+</td>
+<td class="textcolumn">
+  If the cursor is in a list item, changes the indent.
+</td>
+</tr>
+<tr>
+<td class="imgcolumn"><img src="%ATTACHURLPATH%/link.png" alt="link" />
+  <img src="%ATTACHURLPATH%/unlink.png" alt="unlink" />
+</td>
+<td class="textcolumn">
+  Links can either point to a URL or to the name of a TWiki topic. For example =http://twiki.org=, =TopicNames=, =Webname.TopicNames=, or =Webname.Subweb.WebName=.
+</td>
+</tr>
+<tr>
+<td class="imgcolumn"><img src="%ATTACHURLPATH%/anchor.png" alt="anchor" />
+</td>
+<td class="textcolumn">
+  An anchor is a hidden mark you can use to link to a certain part of a topic, for example a heading or a paragraph. An anchor must be a !WikiWord.
+</td>
+</tr>
+<tr>
+<td class="imgcolumn"><img src="%ATTACHURLPATH%/clear_formatting.png" alt="clear formatting" />
+</td>
+<td class="textcolumn">
+  Clear styles from selected text, such as: colours, size, underline decoration, etc. This feature is useful when you need to clean up content copied from rich text sources such as web pages or word documents.
+</td>
+</tr>
+<tr>
+<td class="imgcolumn"><img src="%ATTACHURLPATH%/fullscreen.png" alt="fullscreen" />
+</td>
+<td class="textcolumn">
+  Toggle fullscreen mode.
+</td>
+</tr>
+<tr>
+<td class="imgcolumn"><img src="%ATTACHURLPATH%/autosave.png" alt="autosave" />
+</td>
+<td class="textcolumn">
+  Restore autosave draft. The editor content is saved to your web browser's local storage every %INCLUDE{"TinyMCEPlugin" section="AUTOSAVE_INTERVAL"}% (default). The draft should survive across browser restarts. This feature is useful to recover unsaved work, for example when your browser crashes for some reason, or your network connection fails during save.
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+
+*Using a TWiki Variable*
+   * Just type it in. When the topic is saved, what you type will be saved just as you wrote it.
+   * If any part of your variable parameters is sensitive to spacing or contains HTML, then select the entire variable and assign the ==Protect on save== style to it before you save.
+
+  <span class="twikiUnvisited">[[%SYSTEMWEB%.TWikiVariables][More on TWiki Variables]]</span>
+
+*Editing the raw text instead of Wysiwyg*
+   * Select <img src="%PUBURL%/%WEB%/TinyMCEPlugin/plugins/twikibuttons/img/hide.gif" alt="Wiki text" />, or use the _Raw Edit_ link in the bottom action bar.
+</td>
+<td>
+
+  *Defining Preference Settings/Variables*
+   * Create a list item using the toolbar button
+   * In the list item, type =Set NAME = value=
+   * Select the value, and assign the ==Protect on save== style to it (only required if the value contains any TWiki Markup Language or if you style it e.g. to add bold, or if it's sensitive to the number of spaces)
+</td>
+</tr>
+</table>
+</div>
+<div id="twikiTinyMcePluginRawEditHelp" style="display:none">
+%INCLUDE{%SYSTEMWEB%.WikiSyntaxSummary}%
+</div>
+%STOPINCLUDE%
+
+__Related Topics:__ TinyMCEPlugin, TinyMCEFrequentlyAskedQuestions, WysiwygPlugin
+
+%META:FILEATTACHMENT{name="anchor.png" attr="h" comment="" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="autosave.png" attr="h" comment="" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="chili_formatting.png" attr="h" comment="" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="clear_formatting.png" attr="h" comment="" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="Format_Drop_Down.png" attr="h" comment="" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="fullscreen.png" attr="h" comment="" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="indent.png" attr="h" comment="" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="link.png" attr="h" comment="" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="outdent.png" attr="h" comment="" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="table_contextmenu.png" attr="h" comment="" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="unlink.png" attr="h" comment="" user="TWikiContributor" version="1"}%
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 2
+a2 1
+%META:TOPICINFO{author="TWikiContributor" date="1277876005" format="1.1" version="3"}%
+d5 1
+a5 1
+<style>
+d11 2
+a12 1
+<table id="tinyMceInfo" cellpadding="0" cellspacing="0" border="0">
+d15 1
+a15 1
+<img src="%PUBURL%/%SYSTEMWEB%/TinyMCEQuickHelp/Format_Drop_Down.gif" width="124" height="188" alt="format dropdown" />
+d18 17
+a34 22
+<ul>
+    <li> ==Normal== - Normal text style </li>
+    <li> ==Heading 1-6== - Headings; 1 is largest </li>
+    <li> ==VERBATIM== - Text is shown in monospace with line breaks. Wraps &lt;verbatim&gt; tags around the selected text. No TWiki variables are interpreted inside verbatim tags. </li>
+    <li> ==LITERAL== - Styled content is saved exactly as it appears in the editor. Saves the selected content as raw HTML and wraps it in &lt;literal> tags. </li>
+    <li> ==Protect on save== - Prevent any change to the selected text when the edit is saved. Use this to save advanced TWiki variables where you do not want the Wysiwyg editor to modify the text during save. </li>
+    <li> ==Protect forever== - Content is saved exactly as it is typed, and the protection is still there in future edit sessions. Content is wrapped in &lt;sticky&gt; tags. </li>
+   </ul>
+</td>
+<td rowspan="4" class="secondaryTextcolumn">
+*Setting a TWiki variable*
+<ol>
+ <li> Create a list item using the toolbar button</li>
+ <li> In the list item, type =Set NAME = value= </li>
+ <li> Select the value, and assign the ==Protect on save== style to it (only required if the value contains any TWiki Markup Language or if you style it e.g. to add bold, or if it's sensitive to the number of spaces)
+ </li>
+</ol>
+*Using a TWiki Variable*
+<ul>
+<li> Just type it in. When the topic is saved, what you type will be saved just as you wrote it.  </li>
+<li> If any part of your variable parameters is sensitive to spacing, then select the entire TWiki variable and assign the ==PROTECTED== style to it before you save. </li></ul>
+<span class="twikiUnvisited">[[%TWIKIWEB%.TWikiVariables][More on TWiki variables]]</span>
+d36 35
+a70 4
+*Editing the raw text instead of Wysiwyg*
+<ul>
+<li> Select    <img src="%PUBURL%/%WEB%/TinyMCEPlugin/tinymce/jscripts/tiny_mce/plugins/twikibuttons/images/hide.gif" alt="the pickaxe" />
+, or use the _Raw Edit_ link in the bottom action bar. </li></ul>
+d74 5
+a78 5
+<td class="imgcolumn"><img src="%PUBURL%/%WEB%/TinyMCEPlugin/tinymce/jscripts/tiny_mce/themes/advanced/images/indent.gif" alt="indent" />
+   <img src="%PUBURL%/%WEB%/TinyMCEPlugin/tinymce/jscripts/tiny_mce/themes/advanced/images/outdent.gif" alt="outdent" /></td>
+<td class="textcolumn"><ul>
+    <li> If the cursor is in a list item, changes the indent. Otherwise marks text with &lt;blockquote&gt; tags.</li>
+   </ul></td>
+d81 5
+a85 5
+<td class="imgcolumn"><img src="%PUBURL%/%WEB%/TinyMCEPlugin/tinymce/jscripts/tiny_mce/themes/advanced/images/link.gif" alt="link" />
+   <img src="%PUBURL%/%WEB%/TinyMCEPlugin/tinymce/jscripts/tiny_mce/themes/advanced/images/unlink.gif" alt="unlink" /></td>
+<td class="textcolumn"><ul>
+    <li> Links can either point to a URL or to the name of a TWiki topic. For example =http://twiki.org=, =TopicNames=, =Webname.TopicNames=, or =Webname.Subweb.WebName=.</li>
+   </ul></td>
+d88 19
+a106 4
+<td class="imgcolumn"><img src="%PUBURL%/%WEB%/TinyMCEPlugin/tinymce/jscripts/tiny_mce/themes/advanced/images/anchor.gif" alt="anchor" /></td>
+<td class="textcolumn"><ul>
+    <li> An anchor is a hidden mark you can use to link to a certain part of a topic, for example a heading or a paragraph. An anchor must be a !WikiWord. </li>
+   </ul></td>
+d109 4
+d115 13
+a127 1
+%META:FILEATTACHMENT{name="Format_Drop_Down.gif" attachment="Format_Drop_Down.gif" attr="h" comment="" date="1277876005" path="Format_Drop_Down.gif" size="5481" user="TWikiContributor" version="1"}%
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+d68 1
+a68 1
+%META:FILEATTACHMENT{name="Format_Drop_Down.gif" attr="" comment="" version="1"}%@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d3 13
+a15 18
+<table>
+ <tr>
+  <td width="100px" style="vertical-align:top;background-color:#f9f9f9" rowspan="3">
+   <p><select><option>Normal</option>
+<option>Heading 1</option>
+<option>Heading 2</option>
+<option>Heading 3</option>
+<option>Heading 4</option>
+<option>Heading 5</option>
+<option>Heading 6</option>
+<option>VERBATIM</option>
+<option>LITERAL</option>
+<option>Protect on save</option>
+<option>Protect forever</option></select>
+</p>
+  </td>
+  <td style="vertical-align:top;" rowspan=3>
+   <ul>
+d17 5
+a21 5
+    <li> ==Heading 1-6== - Headings. 1 is largest </li>
+    <li> ==VERBATIM== - Text is shown in monospace with line breaks.%BR% _Wraps &lt;verbatim&gt; tags around the selected text. No TWiki Variables are interpreted inside verbatim tags_ </li>
+    <li> ==LITERAL== - Styled content is saved exactly as it appears in the editor.%BR% _Saves the selected content as raw HTML and wraps it in &lt;literal> tags_ </li>
+    <li> ==Protect on save== - Prevent any change to the selected text when the edit is saved.%BR% _Use this to save advanced TWiki Variables where you do not want the Wysiwyg editor to modify the text during save_ </li>
+    <li> ==Protect forever== - Content is saved exactly as it is typed, and the protection is still there in future edit sessions.%BR% _Content is wrapped in &lt;sticky&gt; tags_ </li>
+d23 3
+a25 38
+  </td>
+  <td style="vertical-align:top; background-color:#f9f9f9">
+   <img src="%PUBURL%/%WEB%/TinyMCEPlugin/tinymce/jscripts/tiny_mce/themes/advanced/images/indent.gif" alt="indent" />
+   <img src="%PUBURL%/%WEB%/TinyMCEPlugin/tinymce/jscripts/tiny_mce/themes/advanced/images/outdent.gif" alt="outdent" />
+  </td>
+  <td style="vertical-align:top; ">
+   <ul>
+    <li> If the cursor is in a list item, change the indent </li>
+    <li> Otherwise mark text with &lt;BLOCKQUOTE&gt; tags (the default TWiki skin shows blockquotes indented with a blue background)</li>
+   </ul>
+  </td>
+ </tr>
+ <tr>
+  <td style="vertical-align:top; background-color:#f9f9f9">
+   <img src="%PUBURL%/%WEB%/TinyMCEPlugin/tinymce/jscripts/tiny_mce/themes/advanced/images/link.gif" alt="link" />
+   <img src="%PUBURL%/%WEB%/TinyMCEPlugin/tinymce/jscripts/tiny_mce/themes/advanced/images/unlink.gif" alt="unlink" />
+  </td>
+  <td style="vertical-align:top; ">
+   <ul>
+    <li> Links can either point to a URL or to the name of a TWiki topic. </li>
+    <li> E.g. =http://twiki.org=, =TopicNames=, =Webname.TopicNames=, or =Webname.Subweb.WebName=. </li>
+   </ul>
+  </td>
+ </tr>
+ <tr>
+  <td style="vertical-align:top; background-color:#f9f9f9">
+   <img src="%PUBURL%/%WEB%/TinyMCEPlugin/tinymce/jscripts/tiny_mce/themes/advanced/images/anchor.gif" alt="anchor" />
+  </td>
+  <td style="vertical-align:top; ">
+   <ul>
+    <li> An anchor is a hidden mark you can use to link to a certain part of a topic, e.g a heading or a paragraph. An anchor must be a !WikiWord. </li>
+   </ul>
+  </td>
+ </tr>
+ <tr>
+<tr>
+ <td colspan="2" width="50%">
+<h3> Setting a TWiki variable </h3>
+d32 2
+a33 2
+</td><td colspan=2>
+<h3> Using a TWiki Variable </h3><ul>
+d36 6
+d44 20
+a64 3
+<h3> Editing the raw text instead of Wysiwyg </h3><ul>
+<li> Select    <img src="%PUBURL%/%WEB%/TinyMCEPlugin/tinymce/jscripts/tiny_mce/plugins/twikibuttons/images/hide.gif" alt="the pickaxe" style="background-color:#f9f9f9"/>
+, or use the _Raw Edit_ link in the bottom action bar. </li></ul>
+d67 1
+a67 2
+%META:FILEATTACHMENT{name="Format_Drop_Down.png" attr="" comment="" version="1"}%
+%META:FILEATTACHMENT{name="Styles_Drop_Down.png" attr="" comment="" version="1"}%
+@

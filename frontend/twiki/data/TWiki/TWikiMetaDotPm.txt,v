@@ -1,0 +1,464 @@
+head	1.5;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.5
+date	2013.10.14.08.02.47;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2008.01.22.03.21.34;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2007.01.16.04.11.59;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2006.04.01.05.55.40;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.25;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@---+ Package =TWiki::Meta=
+
+All TWiki topics have *data* (text) and *meta-data* (information about the
+topic). Meta-data includes information such as file attachments, form fields,
+topic parentage etc. When TWiki loads a topic from the store, it represents
+the meta-data in the topic using an object of this class.
+
+A meta-data object is a hash of different types of meta-data (keyed on
+the type, such as 'FIELD' and 'TOPICINFO').
+
+Each entry in the hash is an array, where each entry in the array
+contains another hash of the key=value pairs, corresponding to a
+single meta-datum.
+
+If there may be multiple entries of the same top-level type (i.e. for FIELD
+and FILEATTACHMENT) then the array has multiple entries. These types
+are referred to as "keyed" types. The array entries are keyed with the
+attribute 'name' which must be in each entry in the array.
+
+For unkeyed types, the array has only one entry.
+
+Pictorially,
+   * TOPICINFO
+      * author => '...'
+      * date => '...'
+      * ...
+   * FILEATTACHMENT
+      * [0] -> { name => '...' ... }
+      * [1] -> { name => '...' ... }
+   * FIELD
+      * [0] -> { name => '...' ... }
+      * [1] -> { name => '...' ... }
+
+As well as the meta-data, the object also stores the web name, topic
+name and remaining text after meta-data extraction.
+
+
+%TOC%
+
+---++ ClassMethod *new* <tt>($session,$web,$topic,$text)</tt>
+   * =$session= - a TWiki object (e.g. =$TWiki::Plugins::SESSION)
+   * =$web=, =$topic= - the topic that the metadata relates to
+Construct a new, empty object to contain meta-data for the given topic.
+   * $text - optional raw text to convert to meta-data form
+
+
+---++ ObjectMethod *finish* <tt>()</tt>
+Break circular references.
+
+
+
+---++ ObjectMethod *session* <tt>()</tt>
+
+Get the session
+
+
+
+---++ ObjectMethod *web* <tt>()</tt>
+
+Get the web name
+
+
+
+---++ ObjectMethod *topic* <tt>()</tt>
+
+Get the topic name
+
+
+
+---++ ObjectMethod *topicTitle* <tt>()</tt>
+
+Get/set the topic title. In order of sequence, the topic title is defined by:
+Form field named "Title", topic preference setting named TITLE, topic name.
+
+
+
+---++ ObjectMethod *text* <tt>([$text]) -> $text</tt>
+
+Get/set the topic body text. If $text is undef, gets the value, if it is
+defined, sets the value to that and returns the new text.
+
+
+
+---++ ObjectMethod *put* <tt>($type,\%args)</tt>
+
+Put a hash of key=value pairs into the given type set in this meta. This
+will *not* replace another value with the same name (for that see =putKeyed=)
+
+For example, 
+<verbatim>
+$meta->put( 'FIELD', { name => 'MaxAge', title => 'Max Age', value =>'103' } );
+</verbatim>
+
+
+
+---++ ObjectMethod *putKeyed* <tt>($type,\%args)</tt>
+
+Put a hash of key=value pairs into the given type set in this meta, replacing
+any existing value with the same key.
+
+For example,
+<verbatim>
+$meta->putKeyed( 'FIELD', { name => 'MaxAge', title => 'Max Age', value =>'103' } );
+</verbatim>
+
+
+
+---++ ObjectMethod *putAll* <tt></tt>
+
+Replaces all the items of a given key with a new array.
+
+For example,
+<verbatim>
+$meta->putAll( 'FIELD',
+     { name => 'MinAge', title => 'Min Age', value =>'50' },
+     { name => 'MaxAge', title => 'Max Age', value =>'103' },
+     { name => 'HairColour', title => 'Hair Colour', value =>'white' }
+ );
+</verbatim>
+
+
+
+---++ ObjectMethod *get* <tt>($type,$key) -> \%hash</tt>
+
+Find the value of a meta-datum in the map. If the type is
+keyed (idenitifed by a =name=), the =$key= parameter is required
+to say _which_ entry you want. Otherwise you will just get the first value.
+
+If you want all the keys of a given type use the 'find' method.
+
+The result is a reference to the hash for the item.
+
+For example,
+<verbatim>
+my $ma = $meta->get( 'FIELD', 'MinAge' );
+my $topicinfo = $meta->get( 'TOPICINFO' ); # get the TOPICINFO hash
+</verbatim>
+
+
+
+---++ ObjectMethod *find* <tt>($type) -> @@values</tt>
+
+Get all meta data for a specific type.
+Returns the array stored for the type. This will be zero length
+if there are no entries.
+
+For example,
+<verbatim>
+my $attachments = $meta->find( 'FILEATTACHMENT' );
+</verbatim>
+
+
+
+---++ ObjectMethod *remove* <tt>($type,$key)</tt>
+
+With no type, will remove all the contents of the object.
+
+With a $type but no $key, will remove _all_ items of that type (so for example if $type were FILEATTACHMENT it would remove all of them)
+
+With a $type and a $key it will remove only the specific item.
+
+
+
+---++ ObjectMethod *copyFrom* <tt>($otherMeta,$type,$nameFilter)</tt>
+
+Copy all entries of a type from another meta data set. This
+will destroy the old values for that type, unless the
+copied object doesn't contain entries for that type, in which
+case it will retain the old values.
+
+If $type is undef, will copy ALL TYPES.
+
+If $nameFilter is defined (a perl refular expression), it will copy
+only data where ={name}= matches $nameFilter.
+
+Does *not* copy web, topic or text.
+
+
+
+---++ ObjectMethod *count* <tt>($type) -> $integer</tt>
+
+Return the number of entries of the given type
+
+
+
+---++ ObjectMethod *getRevisionInfo* <tt>($fromrev) -> ($date,$author,$rev,$comment)</tt>
+
+Try and get revision info from the meta information, or, if it is not
+present, kick down to the Store module for the same information.
+
+Returns ( $revDate, $author, $rev, $comment )
+
+$rev is an integer revision number.
+
+
+
+---++ ObjectMethod *merge* <tt>($otherMeta,$formDef)</tt>
+
+   * =$otherMeta= - a block of meta-data to merge with $this
+   * =$formDef= reference to a TWiki::Form that gives the types of the fields in $this
+
+Merge the data in the other meta block.
+   * File attachments that only appear in one set are preserved.
+   * Form fields that only appear in one set are preserved.
+   * Form field values that are different in each set are text-merged
+   * We don't merge for field attributes or title
+   * Topic info is not touched
+   * The =mergeable= method on the form def is used to determine if that fields is mergeable. if it isn't, the value currently in meta will _not_ be changed.
+
+
+
+---++ ObjectMethod *stringify* <tt>($types) -> $string</tt>
+
+Return a string version of the meta object. Uses \n to separate lines.
+If =$types= is specified, return only types
+that match it. Types should be a perl regular expression.
+
+
+
+---++ ObjectMethod *forEachSelectedValue* <tt>($types,$keys,\&fn,\%options)</tt>
+
+Iterate over the values selected by the regular expressions in $types and
+$keys.
+   * =$types= - regular expression matching the names of fields to be processed. Will default to qr/^[A-Z]+$/ if undef.
+   * =$keys= - regular expression matching the names of keys to be processed.  Will default to qr/^[a-z]+$/ if undef.
+
+Iterates over each value, calling =\&fn= on each, and replacing the value
+with the result of \&fn.
+
+\%options will be passed on to $fn, with the following additions:
+   * =_type= => the type name (e.g. "FILEATTACHMENT")
+   * =_key= => the key name (e.g. "user")
+
+
+
+---++ ObjectMethod *getParent* <tt>() -> $parent</tt>
+
+Gets the TOPICPARENT name.
+
+
+
+---++ ObjectMethod *getFormName* <tt>() -> $formname</tt>
+
+Returns the name of the FORM, or '' if none.
+
+
+
+---++ ObjectMethod *renderFormForDisplay* <tt>() -> $html</tt>
+
+Render the form contained in the meta for display.
+
+
+
+---++ ObjectMethod *renderFormFieldForDisplay* <tt>($name,$format,$attrs) -> $text</tt>
+
+Render a single formfield, using the $format. See
+TWiki::Form::FormField::renderForDisplay for a description of how the value
+is rendered.
+
+
+
+---++ ObjectMethod *getEmbeddedStoreForm* <tt>() -> $text</tt>
+
+Generate the embedded store form of the topic. The embedded store
+form has meta-data values embedded using %META: lines. The text
+stored in the meta is taken as the topic text.
+
+
+
+---++ ObjectMethod *getMetaFor* <tt>() -> $meta</tt>
+
+This method will load (or otherwise fetch) the meta-data for a named web/topic.
+The request might be satisfied by a read from the store, or it might be
+satisfied from a cache. The caller doesn't care.
+
+This is an object method rather than a static method because it depends on
+the implementation of Meta - it might be this base class, or it might be a
+caching subclass, for example.
+
+
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d70 7
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d3 4
+a6 1
+Meta-data handling.
+d16 1
+a16 1
+and FILEATTACHMENT) then the array hash multiple entries. These types
+d22 11
+a32 2
+The module knows nothing about how meta-data is stored. That is entirely the
+responsibility of the Store module.
+d34 2
+a35 2
+Meta-data objects are created by the Store engine when topics are read. They
+are populated using the =put= method.
+d40 5
+a44 1
+---++ ClassMethod *new* <tt>($session,$web,$topic)</tt>
+a45 1
+Construct a new, empty Meta collection.
+d47 2
+d51 8
+a58 1
+---++ ClassMethod *web* <tt>()</tt>
+d64 1
+a64 1
+---++ ClassMethod *topic* <tt>()</tt>
+d70 7
+d79 2
+a80 1
+Put a hash of key=value pairs into the given type set in this meta.
+d82 4
+a85 2
+See the main comment for this package to understand how meta-data is
+represented.
+d91 7
+a97 2
+Put a hash of key=value pairs into the given type set in this meta. The
+entries are keyed by 'name'.
+a98 2
+See the main comment for this package to understand how meta-data is
+represented.
+d103 11
+a113 2
+Replaces all the items of a given key with a new array
+This is the logical inverse of the find method
+d118 3
+a120 3
+Find the value of a meta-datum in the map. If the type is 
+keyed, the $key parameter is required to say _which_
+entry you want. Otherwise it can be undef.
+a121 1
+WARNING SMELL If key is undef but the type is keyed you get the FIRST entry
+d126 6
+d136 1
+a136 1
+Get all meta data for a specific type
+d140 4
+a145 14
+---++ StaticMethod *indexByKey* <tt></tt>
+
+See tests/unit/MetaTests.pm for an example
+
+The result is a hash the same as the array provided by find but keyed by the keyName.
+NB. results are indeterminate if the key you choose is not unique in the find. 
+
+
+
+Flattens a keyed hash structure, taking only the values.
+Returns a hash.
+
+See tests/unit/MetaTests.pm for an example
+
+d166 2
+a167 2
+If $nameFilter is defined (an RE), it will copy only data where
+{name} matches $nameFilter.
+d169 1
+a169 1
+SMELL: This is a shallow copy
+d175 1
+a175 1
+Return the number of entries of the given type that are in this meta set
+d208 2
+a209 1
+If $types is specified, return only types specified by that RE.
+d240 34
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d35 1
+d41 1
+d65 1
+d128 1
+a128 2
+SMELL: That spec absolutely _STINKS_ !!
+SMELL: this is a shallow copy
+d150 1
+d165 1
+d172 1
+d188 1
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@a135 9
+---++ ObjectMethod *addTOPICINFO* <tt>($rev,$time,$user)</tt>
+   * =$rev= - the revision number
+   * =$time= - the time stamp
+   * =$user= - the user object
+
+Add TOPICINFO type data to the object, as specified by the parameters.
+
+
+
+@

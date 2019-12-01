@@ -1,0 +1,102 @@
+%META:TOPICINFO{author="TWikiContributor" date="1377821252" format="1.1" version="1"}%
+%STARTINCLUDE%
+---+ Page Rendering Process
+
+_Overview of how TWiki works_
+
+To achieve a goal in TWiki either by making use of existing features or implementing new features, good understanding of how TWiki works is crucial.
+That said, this topic explains how TWiki processes various TWiki operations - view, edit, save, attach, upload, etc.
+
+%TOC%
+
+---++ Basics
+
+Here's the basic steps of the page rendering by TWiki.
+
+   1. Preferences variables are read. TWikiVariables#PreferencesVariables describes what exactly happens in this step. This step is taken regardless of script (view, edit, etc.) while the steps below may not happen. For example, the save script saves the topic text and then redirects to the corresponding view URL hence the script doesn't take the following steps
+   1. The page template for the script is read and expanded. TWikiTemplates explains this step
+   1. TWiki variables in the template are expanded. A view and edit templates have =%<nop>TEXT%=, which is expanded to the raw text of the page
+   1. TWiki markup is converted into HTML
+
+---+++ Preferences variables are read
+
+Preferences variables are defined at an early stage of TWiki processing.
+After this step, no preferences variables are set.
+
+Please note that topics INCLUDE'd by the current topic are not read for preferences variables.
+=%<nop>SET{"<i>VARIABLE</i>" value="<i>VALUE</i>"}%= and =%<nop>CALCULATE{"$SET(<i>VARIABLE</i>, <i>VALUE</i>)"}%= in an INCLUDE'd topic take effect since =%<nop>INCLUDE{...}%=, =%<nop>SET{...}%=, and =%<nop>CALCULATE{...}%= are variables expanded in a later stage.
+But ="   * Set <i>VARIABLE</i> = <i>VALUE</i>"= in an INCLUDE'd topic doesn't have a chance to be read.
+
+---+++ Template is read and expanded
+
+As mentioned above, TWikiTemplates describes how a template is selected and read.
+It's worth mentioning that template expansion happens before variable expansion.
+At the end of step, all template directives are resolved,
+hence there aren't any =%<nop>TMPL:XXX{...}%= or =%<nop>TMPL:XXX%=.
+
+---+++ Variable expansion
+
+Variables may be nested - a variable may be a parameter of another variable and there is no limitation of nesting level.
+If variables are nested, they are processed from the inner-most to the outer-most.
+
+A topic may have any number of variables. Variables at the same nesting level are processed from top to bottom.
+
+You can see it from the example below.
+
+Raw text:
+<verbatim>
+%SET{"foo" value="abc"}%
+%GET{"foo"}%
+%SET{"foo" value="def"}%
+%GET{"foo"}%
+</verbatim>
+
+Result:
+<blockquote>
+%SET{"foo" value="abc"}%
+%GET{"foo"}%
+%SET{"foo" value="def"}%
+%GET{"foo"}%
+</blockquote>
+
+---+++ TWiki markup to HTML
+
+At this point, all variables are expanded.
+Markup described on TextFormattingRules are converted into HTML
+
+You may want to suppress this step to see the result of variable expansion not converted into HTML.
+You can do that by supplying raw=expandvariables URL parameter to a view URL:
+e.g. %SCRIPTURL{view}%/%USERSWEB%/?raw=expandvariables
+
+---++ Plugins
+
+So far, how plugins are involved with page rendering hasn't been discused. Here's how.
+
+In many cases, plugins introduce predefined variables such as =%<nop>CALCULATE{...}%= and =%<nop>GET{...}%=.
+Those don't make structural difference to how a TWiki topic is written.
+Those variables are introduced by calling e.g. =TWiki::Func::registerTagHandler('CALCULATE', \&_CALCULATE)= in =initPlugin()= in the plugin code file.
+
+Some plugins extend TWiki markup.
+For example, the table notation in TWiki (an example shown below) is provided by the TablePlugin. Though the table notation is regarded as an integral part of TWiki markup, it is implemented by a plugin rather than the TWiki core.
+<verbatim>
+| One One | One Two | One Three |
+| ^ | Two Two | Two Three |
+| Three One | ^ | Three Three |
+</verbatim>
+
+There are various places in the TWiki core where functions provided by plugins are called.
+For example, TablePlugin has a function named =preRenderingHandler()= defined.
+It's called before the TWiki markup to HTML conversion takes place.
+
+As you can imagine, if a plugin has =postRenderingHandler()= defined, it's called after the core TWiki markup to HTML processing.
+
+A plugin may have =commonTagsHandler()= defined, which is called immediately after normal TWiki variables are expanded.
+Since a =commonTagsHandler()= may yield TWiki variables, normal TWiki variable expansion is conducted again after that.
+
+SpreadSheetPlugin has =commonTagsHandler()= defined to process =%<nop>CALC{...}%=. You may think =%<nop>CALC{...}%= can be implemented simply by =TWiki::Func::registerTagHandler()= but it cannot be since =%<nop>CALC{...}%= needs to look outside its parameters to do things such as =%<nop>CALC{"$SUM($ABOVE())"}%=.
+
+In addition to =preRenderingHandler()=, =postRenderingHandler()=, and =commonTagsHandler()=, there are other functions called from TWiki core as well.
+You can see the complete list of such functions on !EmptyPlugin.pm in the !EmptyPlugin.
+
+%STOPINCLUDE%
+__Related Topics:__ DeveloperDocumentationCategory, TWikiTemplates, TWikiVariables, TextFormattingRules

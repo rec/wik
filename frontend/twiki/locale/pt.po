@@ -1,0 +1,4580 @@
+# translation of pt.po to português brasileiro
+#   TWiki:Main/AntonioTerceiro, 2005, 2006, 2007.
+#   TWiki:Main/CarlinhosCecconi, 2005, 2006, 2007.
+# carlinhos cecconi <carlinux@terra.com.br>, 2008.
+# TWiki translation for Portuguese (português)
+# This file is distributed under the same license as TWiki itself
+# Copyright (C) 2005-2013 Peter Thoeny and TWiki Contributors.
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: pt\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2008-07-26 03:18-0300\n"
+"Last-Translator: carlinhos cecconi <carlinux@terra.com.br>\n"
+"Language-Team: português brasileiro <twikibr@listas.softwarelivre.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#. ($days)
+#: ../core/lib/TWiki/Time.pm:314
+msgid "%*(%1,day) "
+msgstr "%*(%1,dia) "
+
+#. ($hours)
+#: ../core/lib/TWiki/Time.pm:317
+msgid "%*(%1,hour) "
+msgstr "%*(%1,hora) "
+
+#. ($mins)
+#: ../core/lib/TWiki/Time.pm:320
+msgid "%*(%1,minute) "
+msgstr "%*(%1,minuto) "
+
+#. ($secs)
+#: ../core/lib/TWiki/Time.pm:323
+msgid "%*(%1,second) "
+msgstr "%*(%1,segundo) "
+
+#: ../core/templates/oopsgeneric.tmpl:12 ../core/templates/oopsgeneric.tmpl:14
+#: ../core/templates/oopsgeneric.tmpl:16 ../core/templates/oopsgeneric.tmpl:7
+msgid "%1"
+msgstr "%1"
+
+#: ../core/data/TWiki/TWikiPreferences.txt:435
+#, fuzzy
+msgid "%1 (this topic does not yet exist; you can create it)"
+msgstr "AVISO: Este tópico não existe"
+
+#: ../core/templates/registernotifyadminfail.tmpl:3
+#: ../core/templates/registernotifyadminfailrem.tmpl:3
+#, fuzzy
+msgid "%1 - Registration failure for %2 (%3)"
+msgstr "%1 - Registro de %2 (%3)"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:110
+#: ../core/templates/registernotify.tmpl:3
+#: ../core/templates/registernotifyadmin.tmpl:3
+msgid "%1 - Registration for %2 (%3)"
+msgstr "%1 - Registro de %2 (%3)"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:62
+msgid "%1 - complete TWiki documentation, Quick Start to Reference"
+msgstr "%1 - documentação completa do TWiki, Início Rápido para Referência"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:64
+msgid "%1 - just for me"
+msgstr "%1 só para mim"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:61
+msgid "%1 - starting points on TWiki"
+msgstr "%1 - introdução ao TWiki"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:63
+msgid "%1 - try out TWiki on your own"
+msgstr "%1 - experimente o TWiki em seu próprio ambiente"
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:4
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:4
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:4
+#: ../PatternSkin/data/TWiki/WebLeftBarExample.txt:2
+#: ../PatternSkin/data/Trash/WebLeftBar.txt:3
+#: ../PatternSkin/data/_default/WebLeftBar.txt:3
+#: ../PatternSkin/templates/view.pattern.tmpl:43
+#: ../TWikiNetSkin/templates/view.twikinet.tmpl:21
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:10
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:10
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:45
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:11
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:11
+#: ../TopMenuSkin/data/Trash/WebTopMenu.txt:10
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:10
+msgid "%1 Web"
+msgstr "Web %1"
+
+#: ../PatternSkin/data/TWiki/WebLeftBarExample.txt:3
+msgid "%1 Web Home"
+msgstr "Página Inicial de %1"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:85
+msgid "%1 for changing your email address"
+msgstr "%1 para mudar seu endereço de email"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:84
+msgid "%1 for changing your password"
+msgstr "%1 para mudar sua senha"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:43
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:38
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:86
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:31
+msgid "%1 has a list of other TWiki users"
+msgstr "%1 tem uma lista dos outros usuários do TWiki."
+
+#: ../core/templates/messages.tmpl:531
+msgid ""
+"%1 has been editing the topic for %2 and the lease is still active for "
+"another %3."
+msgstr ""
+"%1 está editando por %2 e seu tempo de edição preferencial ainda está ativo "
+"para outros %3."
+
+#: ../core/templates/registernotifyadmin.tmpl:10
+#: ../core/templates/registernotifyadminfail.tmpl:10
+#: ../core/templates/registernotifyadminfailrem.tmpl:10
+msgid "%1 has been registered with e-mail %2"
+msgstr "%1 foi registrado com o e-mail %2"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:87
+msgid "%1 is a list of TWiki user documentation"
+msgstr "%1 é uma lista com documentação para usuário do TWiki"
+
+#: ../core/templates/messages.tmpl:141
+msgid "%1 is an invalid name for a new web"
+msgstr "%1 é um nome inválido para a nova web"
+
+#: ../core/templates/messages.tmpl:472
+msgid ""
+"%1 is copied to the identical topic. Copy destination is incorrect or "
+"missing."
+msgstr ""
+
+#: ../core/templates/login.sudo.tmpl:4 ../core/templates/login.tmpl:6
+msgid "%1 is currently logged in"
+msgstr "%1 está autenticado nesse momento"
+
+#: ../core/templates/messages.tmpl:502
+msgid "%1 is currently set to %2"
+msgstr "%1 atualmente tem o valor %2"
+
+#: ../core/templates/messages.tmpl:529
+msgid "%1 is editing %2."
+msgstr "%1 está editando %2."
+
+#: ../core/templates/messages.tmpl:57
+msgid "%1 is in at least one group and cannot be removed"
+msgstr "%1 está em pelo menos um grupo e não pode ser removido"
+
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:40
+msgid "%1 is the default topic for deleted attachments."
+msgstr "%1 é o tópico padrão para remover anexos"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:88
+msgid "%1 lists all TWiki user tools"
+msgstr "%1 lista todas as ferramentas para usuários do TWiki."
+
+#: ../core/templates/messages.tmpl:537
+msgid "%1 may still be editing %2."
+msgstr "%1 pode ainda estar editando %2."
+
+#. ("<nop>$toWeb.<nop>$toTopic",                                             "<nop>$fromWeb.<nop>$fromTopic",                                             $date,                                             $by)
+#: ../core/lib/TWiki/Render.pm:220
+msgid "%1 moved from %2 on %3 by %4"
+msgstr "%1 movido de %2 em %3 por %4"
+
+#: ../core/templates/messages.tmpl:26
+msgid "%1 to customize the web specific preferences"
+msgstr "%1 para personalizar as preferências específicas da web"
+
+#: ../core/templates/messages.tmpl:601 ../core/templates/messages.tmpl:612
+msgid "%1 topic does not exist"
+msgstr "O tópico %1 não existe"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:56
+#, fuzzy
+msgid "&Attach"
+msgstr "Anexar"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:9
+msgid "&Cancel"
+msgstr "&Cancelar"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:21
+#, fuzzy
+msgid "&Edit"
+msgstr "Editar"
+
+#: ../core/templates/twiki.tmpl:108
+msgid "&History"
+msgstr "&Histórico"
+
+#: ../core/templates/messages.tmpl:305
+msgid "'%1' is not a valid %2 "
+msgstr "'%1' não é um(a) %2 válido"
+
+#: ../core/data/TWiki/WebTopicCreator.txt:2
+msgid "'Create New Topic' page has moved"
+msgstr "A página 'Criar Novo Tópico' foi movida"
+
+#: ../core/templates/login.tmpl:12
+msgid "(%1 login)"
+msgstr "(%1 login)"
+
+#: ../PatternSkin/templates/rdiff.pattern.tmpl:6
+#: ../core/templates/rdiff.tmpl:4
+msgid "(%1 vs. %2)"
+msgstr "(%1 vs. %2)"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:82
+msgid "(=all= to show all topics)"
+msgstr "(=all= para mostrar todos os tópicos)"
+
+#: ../core/templates/oopsinvalidtoken.tmpl:4
+msgid "(Invalid Crypt Token)"
+msgstr ""
+
+#: ../WysiwygPlugin/lib/TWiki/Plugins/WysiwygPlugin/TML2HTML.pm:145
+msgid "(This message will be removed automatically)"
+msgstr ""
+
+#: ../core/templates/messages.tmpl:199
+#, fuzzy
+msgid ""
+"(__Suggestion:__ How about uploading your picture to your profile page?)"
+msgstr "(__Sugestão:__ Que tal anexar uma foto sua ao seu tópico?)"
+
+#: ../core/templates/oopsaccessdenied.tmpl:4
+msgid "(access denied)"
+msgstr "(acesso negado)"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:4
+#: ../core/templates/attachnew.tmpl:2
+msgid "(attach)"
+msgstr "(anexar)"
+
+#: ../core/templates/backlinksweb.tmpl:4
+msgid "(backlinks in %1 Web)"
+msgstr "(referências na Web %1)"
+
+#: ../core/templates/backlinksallwebs.tmpl:4
+msgid "(backlinks in all Webs)"
+msgstr "(referências em todas as Webs)"
+
+#: ../core/templates/searchbookview.tmpl:3
+msgid "(book view)"
+msgstr "(todo o conteúdo)"
+
+#: ../core/templates/changeform.tmpl:4
+msgid "(change form)"
+msgstr "(trocar formulário)"
+
+#: ../core/templates/oopschangelanguage.tmpl:2
+#: ../core/templates/oopslanguagechanged.tmpl:3
+msgid "(change language)"
+msgstr "(alterar idioma)"
+
+#: ../PatternSkin/templates/changes.pattern.tmpl:4
+#: ../core/templates/changes.tmpl:5
+msgid "(changes)"
+msgstr "(alterações)"
+
+#: ../core/templates/copy.tmpl:4
+#, fuzzy
+msgid "(copy)"
+msgstr "(oops)"
+
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:5
+msgid "(delete attachment)"
+msgstr "(remover anexo)"
+
+#: ../core/templates/renamedelete.tmpl:4
+msgid "(delete)"
+msgstr "(remover)"
+
+#: ../core/templates/editform.tmpl:4 ../core/templates/editform.tmpl:5
+msgid "(edit form)"
+msgstr "(editar formulário)"
+
+#: ../core/templates/edittext.tmpl:4 ../core/templates/edittext.tmpl:7
+msgid "(edit text)"
+msgstr "(editar texto)"
+
+#: ../core/templates/edit.tmpl:10 ../core/templates/edit.tmpl:4
+msgid "(edit)"
+msgstr "(editar)"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:107
+msgid "(how you log in) LoginName:"
+msgstr "(como você se autentica) [[%TWIKIWEB%.LoginName][Nome de Usuário]]:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:102
+msgid "(identifies you to others) WikiName:"
+msgstr "(identifica você aos outros) [[%TWIKIWEB%.WikiName][NomeWiki]]:"
+
+#: ../core/templates/login.tmpl:4
+msgid "(login)"
+msgstr "(login)"
+
+#: ../core/templates/oopsmore.tmpl:3
+msgid "(more)"
+msgstr "(mais)"
+
+#: ../core/templates/moveattachment.tmpl:4
+msgid "(move attachment)"
+msgstr "(mover anexo)"
+
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:57
+msgid "(no parent, orphaned topic)"
+msgstr "(sem pai, tópico órfão)"
+
+#: ../core/lib/TWiki/UI/Manage.pm:1133 ../core/lib/TWiki/UI/Manage.pm:1159
+#: ../core/lib/TWiki/UI/Manage.pm:1274 ../core/lib/TWiki/UI/Manage.pm:1277
+#: ../core/lib/TWiki/UI/Manage.pm:1280 ../core/lib/TWiki/UI/Manage.pm:1314
+#: ../core/lib/TWiki/UI/Manage.pm:1337 ../core/lib/TWiki/UI/Manage.pm:808
+#: ../core/lib/TWiki/UI/Manage.pm:812 ../core/lib/TWiki/UI/Manage.pm:816
+#: ../core/lib/TWiki/UI/Manage.pm:820
+msgid "(none)"
+msgstr "(nenhum)"
+
+#: ../core/templates/oopsnotfound.tmpl:4
+msgid "(not found)"
+msgstr ""
+
+#: ../core/data/TWiki/WebSearch.txt:40
+#: ../core/data/TWiki/WebSearchAdvanced.txt:48
+msgid "(otherwise search %1 Web only)"
+msgstr "(se não marcado, procurar apenas na Web %1)"
+
+#: ../PatternSkin/templates/view.pattern.tmpl:45
+#: ../TWikiNetSkin/templates/view.twikinet.tmpl:23
+msgid "(raw view)"
+msgstr "(texto puro)"
+
+#: ../core/templates/oopsmore.tmpl:24 ../core/templates/oopsmore.tmpl:33
+msgid "(recommended)"
+msgstr "(recomendado)"
+
+#: ../core/templates/rename.tmpl:4 ../core/templates/renameconfirm.tmpl:4
+#: ../core/templates/renameweb.tmpl:4
+#: ../core/templates/renamewebconfirm.tmpl:4
+msgid "(rename)"
+msgstr "(renomear)"
+
+#: ../PatternSkin/templates/view.pattern.tmpl:45
+#: ../TWikiNetSkin/templates/view.twikinet.tmpl:23
+msgid "(revision %1)"
+msgstr "(versão %1)"
+
+#: ../core/templates/oopssaveerr.tmpl:8
+msgid "(save error)"
+msgstr "(erro ao salvar)"
+
+#: ../core/templates/searchformat.tmpl:3
+msgid "(search result)"
+msgstr "(resultados da busca)"
+
+#: ../PatternSkin/templates/search.pattern.tmpl:9
+#: ../core/templates/search.tmpl:3 ../core/templates/search.tmpl:6
+msgid "(search results)"
+msgstr "(resultados da busca)"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:65
+msgid "(semicolon =;= for and)"
+msgstr "(ponto-e-vírgula =;= para *e*)"
+
+#: ../PatternSkin/templates/settings.pattern.tmpl:10
+#: ../core/templates/settings.tmpl:4
+msgid "(set preferences)"
+msgstr "(configurar preferências)"
+
+#: ../core/templates/messages.tmpl:318
+msgid "(single character first name)"
+msgstr "(primeiro nome com um caractere só)"
+
+#: ../core/templates/messages.tmpl:317
+msgid "(single character last name)"
+msgstr "(último nome com um caractere só)"
+
+#: ../core/lib/TWiki/UI/Manage.pm:1114
+msgid "(skipped)"
+msgstr "(ignorado)"
+
+#: ../core/templates/renamewebbase.tmpl:10
+msgid "(to delete the web, select %1)"
+msgstr ""
+
+#: ../core/templates/attachagain.tmpl:18
+msgid ""
+"*Change comment:* If you use _Change Properties_ to change a comment, the "
+"comment shown in the topic will change, but the comment shown against the "
+"attachment history will be the comment when the file was uploaded."
+msgstr ""
+"*Alteração do comentário:* se você usar _Apenas Alterar Propriedades_, o "
+"comentário exibido no tópico será mudado, mas o comentário exibido no "
+"histórico do anexo continuará sendo o mesmo de quando o arquivo foi anexado."
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:11
+msgid "*Formatting help:*"
+msgstr "*Ajuda com formatação:*"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:15
+#, fuzzy
+msgid ""
+"*Important:* the information provided in this form will be stored in a "
+"database on the TWiki server. This database is accessible to anyone who can "
+"access the server through the web (though passwords will be encrypted, and e-"
+"mail addresses will be obfuscated to help prevent spamming). Your country, "
+"or the country where the server is hosted, may have Data Protection laws "
+"governing the maintenance of such databases. If you are in doubt, you should "
+"contact %1 for details of the Data Protection Policy of this TWiki server "
+"before registering."
+msgstr ""
+"*Importante:* as informações fornecidas nesse formulário serão armazenadas "
+"num banco de dados no servidor do TWiki. Este banco de dados é acessível por "
+"qualquer pessoa que possa acessar o servidor pela web (porém as senhas serão "
+"criptografadas e os endereços de e-mail ofuscados para evitar SPAM). Seu "
+"país, ou o país onde o servidor está hospedado, pode ter Leis de Proteção de "
+"Dados disciplinando a manutenção desse tipo de banco de dados. Se tiver "
+"dúvida,  contate %1 antes de se registrar para obter detalhes sobre a "
+"Política de Proteção de Dados desse servidor TWiki ."
+
+#: ../core/templates/attachagain.tmpl:19
+msgid ""
+"*Local file:* If you select a different file in _Local file:_, it is this "
+"that will be updated or added."
+msgstr ""
+"*Arquivo local:* se você selecionar um arquivo diferente para anexar, será "
+"esse o arquivo que será atualizado, ou melhor, adicionado (caso ele ainda "
+"não exista). Para enviar uma nova versão de arquivo já anexado, o novo "
+"arquivo deverá ter o mesmo nome daquele já existente."
+
+#: ../core/templates/attachagain.tmpl:17
+msgid ""
+"*Properties:* The comment and visibility (i.e. is attachment hidden) can be "
+"changed without uploading a file by pressing \"Change Properties only\"; see "
+"%1."
+msgstr ""
+"*Propriedades:* o comentário e a visibilidade (i.e. se o anexo será mostrado "
+"ou não) podem ser alterados sem a necessidade de anexar o arquivo novamente. "
+"Para mudar apenas isso clique em \"Apenas Alterar Propriedades\"; veja '%1"
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:12
+msgid "*bold* put word/phrase in asterisks: =<nop>*your phrase*="
+msgstr ""
+"para *negrito*, coloque a palavra/frase entre asteriscos: =<nop>*sua frase*="
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:13
+msgid ""
+"*bullet list* 3 spaces, asterisk, 1 space: =&&nbsp;&&nbsp;&&nbsp;*&&nbsp;"
+"your text="
+msgstr ""
+"para *listas*: 3 espaços, asterisco, 1 espaço: =&&nbsp;&&nbsp;&&nbsp;*&&nbsp;"
+"seu texto="
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:17
+#, fuzzy
+msgid ""
+"*external links* =http://google.com/= or =[<nop>[http://google.com/][link to "
+"Google]]="
+msgstr ""
+"para *links externos* =http://br.yahoo.com/= ou =[<nop>[http://br.yahoo.com/]"
+"[link para Yahoo]]="
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:14
+msgid "*headings* 3 dashes, 1 to 6 pluses, 1 space: =---++&&nbsp;Your Heading="
+msgstr ""
+"para *títulos* 3 hífens, de 1 a 6 sinais de mais, 1 espaço: =---++&&nbsp;Seu "
+"Título="
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:15
+msgid "*italic* put word/phrase in underscores: =_<nop>your words_="
+msgstr ""
+"para *itálico* coloque a palavra/frase entre sublinhados: =_<nop>suas "
+"palavras_="
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:18
+msgid "*monospaced* put word/phrase in equal signs: =<nop>=your words=="
+msgstr ""
+"para *espaçamento uniforme* coloque a palavra/frase entre sinais de igual: "
+"=<nop>=suas palavras=="
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:19
+msgid "*paragraphs* separate with blank line"
+msgstr "para *parágrafos*, separe-os com uma linha em branco"
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:16
+msgid "*site links* use topic name: =%1= or =[<nop>[%1][Our homepage]]="
+msgstr ""
+"para *links internos* use um nome de tópico: =%1= ou =[<nop>[%1][Sua página]]"
+"="
+
+#: ../core/lib/TWiki/I18N/Extract.pm:107 ../core/lib/TWiki/Render.pm:1682
+msgid "..."
+msgstr "..."
+
+#: ../core/templates/oopsmore.tmpl:18
+#, fuzzy
+msgid "<a href='%1' rel='nofollow'>Add or replace form on this topic...</a>"
+msgstr "<a href='%1' rel='nofollow'>Editar preferências</a> para este tópico"
+
+#: ../core/templates/oopsmore.tmpl:13
+msgid "<a href='%1' rel='nofollow'>Edit settings</a> for this topic"
+msgstr "<a href='%1' rel='nofollow'>Editar preferências</a> para este tópico"
+
+#: ../core/templates/oopsmore.tmpl:46
+msgid "<em>in %1 web</em> only"
+msgstr "apenas <em>na web %1</em>"
+
+#: ../core/templates/oopsmore.tmpl:44
+msgid "<em>in all public webs</em>"
+msgstr "<em>globalmente (em todas as webs públicas)</em>"
+
+#: ../core/templates/messages.tmpl:584
+#, fuzzy
+msgid ""
+"A %1 is divided into webs; each one represents one subject, one area of "
+"collaboration. You are trying to %2 a topic in a web that does not exist. "
+"Remember, web names and topic names are case sensitive."
+msgstr ""
+"Um %1 é dividido em webs; cada uma representa um assunto, uma área de "
+"colaboração. Você está tentando realizar a ação \"%2\" numa web que não "
+"existe."
+
+#: ../core/templates/messages.tmpl:409
+msgid "A =.txt= extension is appended to some filenames for security reasons"
+msgstr ""
+"A extensão =.txt= é adicionada ao nome de alguns arquivos por razões de "
+"segurança"
+
+#: ../core/templates/messages.tmpl:166
+msgid ""
+"A color starts with a # sign, followed by 6 hexadecimal numbers, e.g. "
+"=#FFFF00=."
+msgstr ""
+"Uma cor começa com um sinal #, seguido de 6 números hexadecimais, p.ex. "
+"=#FFFF00=."
+
+#. ($data->{Email})
+#: ../core/lib/TWiki/UI/Register.pm:865
+msgid "A confirmation e-mail has been sent to %1"
+msgstr "Um e-mail de confirmação foi enviado para %1"
+
+#: ../core/templates/messages.tmpl:588
+#, fuzzy
+msgid ""
+"A link to a topic located in another web is written like %1. Verify that the "
+"name of the web is correct and has correct capitalisation in the topic "
+"containing the link; fix the link if necessary."
+msgstr ""
+"Um link para um tópico localizado numa outra web é escrito como %1. "
+"Certifique-se de que o nome da web não esteja escrito incorretamente na "
+"página anterior. Corrija-o se necessário."
+
+#: ../core/templates/messages.tmpl:560
+msgid ""
+"A new system-generated password for your login name %1 (!WikiName %2) has "
+"been sent to your registered e-mail address. If your e-mail address is no "
+"longer valid, please contact %3"
+msgstr ""
+"Uma nova senha gerada pelo sistema para o seu login %1 (!NomeWiki %2) foi "
+"enviada para o seu endereço de e-mail registrado no sistema. Se seu endereço "
+"de e-mail não for válido, favor contatar %3"
+
+#: ../core/data/TWiki/WebTemplateTopics.txt:4
+msgid "A topic template defines the initial content of a newly created topic."
+msgstr ""
+"Um modelo de tópico define o conteúdo inicial para um tópico criado a partir "
+"desse modelo."
+
+#: ../core/templates/oopsaccessdenied.tmpl:6
+msgid "Access Denied"
+msgstr "Acesso Negado"
+
+#: ../core/templates/messages.tmpl:568
+msgid "Access check on %1 failed"
+msgstr "Verificação de acesso a %1 falhou"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:53
+#: ../PatternSkin/templates/preview.pattern.tmpl:14
+#: ../PatternSkin/templates/settings.pattern.tmpl:25
+msgid "Access keys"
+msgstr "Teclas de atalho"
+
+#: ../PatternSkin/data/TWiki/UserBookmarks.txt:23
+#: ../PatternSkin/data/TWiki/UserBookmarks.txt:67
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopBar.txt:22
+#, fuzzy
+msgid "Account"
+msgstr "Ação"
+
+#: ../core/templates/attachtables.tmpl:37
+#: ../core/templates/attachtables.tmpl:4 ../core/templates/changeform.tmpl:10
+msgid "Action"
+msgstr "Ação"
+
+#: ../core/templates/messages.tmpl:569
+msgid "Action %1: %2."
+msgstr "Ação %1: %2."
+
+#: ../core/templates/addform.tmpl:1
+msgid "Add form"
+msgstr "Adicionar formulário"
+
+#: ../core/templates/oopsmore.tmpl:17
+#, fuzzy
+msgid "Add or replace form"
+msgstr "Trocar formulário..."
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:198
+msgid "Add row"
+msgstr "Adicionar linha"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:354
+msgid "Add your name to the list of users in the %1 topic in the %2 web."
+msgstr "Adicionar seu nome à lista de usuários no tópico %1 da web %2."
+
+#: ../core/templates/messages.tmpl:385
+msgid "Adding a %1 variable in WebPreferences"
+msgstr "Adicionando uma variável %1 em WebPreferences"
+
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:25
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:32
+msgid "Admin Maintenance"
+msgstr "Manutenção Administrativa"
+
+#: ../core/templates/login.sudo.tmpl:3
+msgid "Admin TWiki User Authentication"
+msgstr "Autenticação de Usuário Administrador do TWiki"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:3
+msgid "Advanced Search"
+msgstr "Busca Avançada"
+
+#: ../core/data/TWiki/WebSearch.txt:30
+msgid "Advanced search"
+msgstr "Busca avançada"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:20
+msgid ""
+"After submitting this form your e-mail will be changed, and you will be "
+"returned to this form."
+msgstr ""
+"Após enviar esse formulário, seu e-mail será alterado e você retornará a "
+"esse mesmo formulário."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:16
+msgid "After submitting this form your password will be changed."
+msgstr "Após enviar esse formulário sua senha será alterada."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:12
+msgid ""
+"After submitting this form, you will receive an e-mail with your new, "
+"*system-generated* password, and a link to a page where you can change it."
+msgstr ""
+"Após enviar esse formulário, você receberá um e-mail com sua nova senha "
+"*gerada pelo sistema*. Nesse mesmo e-mail haverá também um link para a "
+"página em que poderá alterar essa senha para uma combinação que possa melhor "
+"se lembrar."
+
+#: ../core/lib/TWiki.pm:5228
+msgid "All authenticated users."
+msgstr ""
+
+#: ../core/data/TWiki/WebSearch.txt:40
+#: ../core/data/TWiki/WebSearchAdvanced.txt:48
+msgid "All public webs"
+msgstr "Todas as web públicas"
+
+#: ../core/data/TWiki/WebTopicList.txt:2
+#, fuzzy
+msgid "All topics in %1 web"
+msgstr "Tópicos filhos na web %1"
+
+#: ../core/lib/TWiki.pm:5218
+msgid "All users including unauthenticated users."
+msgstr ""
+
+#: ../core/templates/twiki.tmpl:7
+msgid "Allow non <nop>WikiWord for the new topic name"
+msgstr ""
+"Permitir algo que não seja uma <nop>PalavraWiki como novo nome do tópico"
+
+#: ../core/templates/messages.tmpl:299
+msgid ""
+"Alternatively hit back to go back to TWiki.TWikiRegistration and choose a "
+"different username."
+msgstr ""
+"Alternativamente, clique em Voltar pra retornar à [[%TWIKIWEB%."
+"TWikiRegistration][Página de Registro]] e escolher um nome de usuário "
+"diferente."
+
+#: ../core/templates/messages.tmpl:286
+msgid ""
+"An e-mail could not be delivered. Please notify your %1 administrator, %2"
+msgstr ""
+"Não foi possível enviar um e-mail. Por favor, notifique o administrador do %"
+"1, %2"
+
+#: ../core/templates/moveattachment.tmpl:30
+msgid ""
+"An error page will be shown if either of the topics are locked by another "
+"user."
+msgstr ""
+"Uma página de erro será exibida se qualquer um dos tópicos estiver travado "
+"por outro usuário."
+
+#: ../core/templates/messages.tmpl:17
+msgid "And populated with topics from the base web"
+msgstr "E preenchida com tópicos da web básica"
+
+#: ../core/templates/changeform.tmpl:23
+msgid ""
+"Any changes you made to the topic before coming to this page are preserved."
+msgstr ""
+"Quaisquer mudanças que você tenha feito no tópico antes de chegar a essa "
+"página serão preservadas."
+
+#: ../TWikiNetSkin/templates/viewtopbar.twikinet.tmpl:111
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:136
+#: ../core/templates/viewtopicactionbuttons.tmpl:72
+msgid "Attach"
+msgstr "Anexar"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:29
+#, fuzzy
+msgid "Attach file or image"
+msgstr "Anexar um arquivo ao tópico %1"
+
+#: ../PatternSkin/templates/attachnew.pattern.tmpl:4
+#: ../core/templates/attachnew.tmpl:4
+msgid "Attach file to %1"
+msgstr "Anexar um arquivo ao tópico %1"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:5
+msgid "Attach image or document on %1"
+msgstr "Anexar uma imagem ou documento em %1"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:20
+#: ../core/templates/attach.tmpl:15 ../core/templates/attachnew.tmpl:6
+#: ../core/templates/attachnew.tmpl:8
+msgid "Attach new file"
+msgstr "Anexar novo arquivo"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:23
+#, fuzzy
+msgid "Attach up to 10 files at a time."
+msgstr "Anexar um arquivo ao tópico %1"
+
+#: ../core/templates/attachtables.tmpl:4
+msgid "Attachment"
+msgstr "Anexo"
+
+#: ../core/templates/messages.tmpl:618
+msgid "Attachment '%1' does not exist"
+msgstr "O anexo '%1' não existe"
+
+#: ../core/lib/TWiki/UI/Manage.pm:479
+msgid "Attachment already exists in new topic"
+msgstr "O anexo já existe no tópico"
+
+#: ../core/templates/messages.tmpl:70
+msgid "Attachment delete failed"
+msgstr "A remoção do anexo falhou"
+
+#: ../core/lib/TWiki/UI/Manage.pm:459
+msgid "Attachment does not exist"
+msgstr "O anexo não existe"
+
+#: ../core/templates/messages.tmpl:62
+msgid "Attachment move failed"
+msgstr "A ação de *Mover* anexo falhou"
+
+#: ../PatternSkin/templates/attachtables.pattern.tmpl:7
+msgid "Attachments"
+msgstr "Anexo"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:6
+msgid "Attachments help"
+msgstr "Ajuda com anexos"
+
+#: ../core/templates/attach.tmpl:5
+msgid "Attachments of %1"
+msgstr "Anexos de %1"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:39
+#: ../core/templates/attach.tmpl:46
+msgid "Attachments will not be shown in topic view page."
+msgstr "Anexos não serão exibidos no modo de visualização do tópico."
+
+#: ../core/templates/oopsaccessdenied.tmpl:5
+#: ../core/templates/oopsattention.tmpl:5
+#: ../core/templates/oopsinvalidtoken.tmpl:5
+#: ../core/templates/oopslanguagechanged.tmpl:13
+#: ../core/templates/oopsleaseconflict.tmpl:4
+#: ../core/templates/oopsnotfound.tmpl:5 ../core/templates/oopssaveerr.tmpl:10
+msgid "Attention"
+msgstr "Atenção"
+
+#: ../core/templates/attachtables.tmpl:26
+msgid "Attribute"
+msgstr "Atributo"
+
+#: ../MailerContrib/templates/mailnotify.tmpl:62
+msgid "Automated notification of topic changes"
+msgstr "Notificação automática das alterações de tópicos"
+
+#: ../PatternSkin/templates/changeform.pattern.tmpl:13
+#: ../core/templates/changeform.tmpl:29
+msgid "Available form templates"
+msgstr "Modelos disponíveis de formulário"
+
+#: ../core/data/TWiki/WebTemplateTopics.txt:6
+msgid "Available templates in %1 Web:"
+msgstr "Modelos disponíveis na web %1:"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:9
+msgid "Back to topic"
+msgstr "Retornar ao tópico"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:163
+#: ../core/templates/oopsmore.tmpl:42
+#: ../core/templates/viewtopicactionbuttons.tmpl:107
+msgid "Backlinks"
+msgstr "Referências"
+
+#: ../core/templates/backlinksweb.tmpl:7
+msgid "Backlinks to %1 in %2 Web"
+msgstr "Referências a %1 na Web %2"
+
+#: ../core/templates/backlinksallwebs.tmpl:7
+msgid "Backlinks to %1 in all Webs"
+msgstr "Referências a %1 em todas as Webs"
+
+#: ../core/templates/messages.tmpl:323
+msgid "Bad password"
+msgstr "Senha errada"
+
+#: ../core/templates/messages.tmpl:161
+msgid "Base web %1 is missing or does not exist"
+msgstr "A web base %1 não foi encontrada ou não existe"
+
+#: ../core/templates/messages.tmpl:477
+msgid ""
+"Before copying %1 to %2, the existing %2 needed to be moved to %3, which "
+"caused an error."
+msgstr ""
+
+#: ../core/data/TWiki/WebSearch.txt:37
+#: ../core/data/TWiki/WebSearchAdvanced.txt:45
+msgid "Both body and title"
+msgstr "Tanto no título quando no texto"
+
+#: ../core/templates/changeform.tmpl:24
+msgid ""
+"But existing form data will be lost (you can always retrieve this data "
+"through the topic history)"
+msgstr ""
+"Mas dados em formulário serão perdidos (você pode sempre recuperá-los "
+"acessando o histórico do tópico)"
+
+#: ../core/data/Trash/WebHome.txt:10
+msgid ""
+"By default, viewing the Trash web is restricted to %1. If you would like to "
+"allow all users to view the Trash web, remove the =ALLOWWEBVIEW= restriction "
+"in WebPreferences."
+msgstr ""
+"Por padrão a visualização da web Trash  é restrita a %1. Parapermitir que "
+"todos os usuários a visualizem, remova a restrição contida em =ALLOWWEBVIEW= "
+"no tópico WebPreferences."
+
+#: ../core/templates/twiki.tmpl:15
+msgid "Bypass fixing <nop>WikiWord links if the destination is a different web"
+msgstr ""
+
+#: ../core/templates/messages.tmpl:52 ../core/templates/messages.tmpl:558
+msgid "Can't find user %1"
+msgstr "Usuário %1 não encontrado"
+
+#: ../core/templates/messages.tmpl:559
+msgid "Can't get an e-mail address for %1 (required for password reset)"
+msgstr ""
+"Não foi possível encontrar um endereço de e-mail para %1 (necessário para "
+"restaurar a senha)"
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:200
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:73
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:156
+#: ../core/templates/twiki.tmpl:86
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:47
+msgid "Cancel editing and discard changes"
+msgstr "Cancelar edição e descartar alterações"
+
+#: ../core/templates/messages.tmpl:77
+msgid "Cannot create %1 because it already exists."
+msgstr "Não foi possível criar %1, pois ele já existe."
+
+#: ../core/templates/messages.tmpl:83 ../core/templates/messages.tmpl:89
+#, fuzzy
+msgid "Cannot create <nop>%1 because the %2 web already exists."
+msgstr "Não foi possível criar %1, pois ele já existe."
+
+#: ../core/templates/messages.tmpl:153
+msgid "Cannot create web %1 because it already exists"
+msgstr "Não foi possível criar a web %1, pois ela já existe"
+
+#: ../core/templates/messages.tmpl:157
+#, fuzzy
+msgid "Cannot create web %1 because the topic %2 already exists"
+msgstr "Não foi possível criar a web %1, pois ela já existe"
+
+#: ../core/templates/messages.tmpl:105 ../core/templates/messages.tmpl:93
+msgid "Cannot rename %1 to %2 because it already exists."
+msgstr "Não foi possível renomear %1 para %2, pois %2 já existe."
+
+#: ../core/templates/messages.tmpl:111
+#, fuzzy
+msgid "Cannot rename %1 to %2 because the topic %3 already exists."
+msgstr "Não foi possível renomear %1 para %2, pois %2 já existe."
+
+#: ../core/templates/messages.tmpl:99
+#, fuzzy
+msgid "Cannot rename %1 to <nop>%2 because the %3 web already exists."
+msgstr "Não foi possível renomear %1 para %2, pois %2 já existe."
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:64
+msgid "Case sensitive"
+msgstr "Diferenciar maiúsculas e minúsculas"
+
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:34
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:40
+msgid "Categories"
+msgstr "Categorias"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:56
+#, fuzzy
+msgid "Change"
+msgstr "Alterado"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:2
+msgid "Change Password"
+msgstr "Alterar Senha"
+
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:2
+#, fuzzy
+msgid "Change Profile Picture of %1"
+msgstr "Alterar tópico"
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:16
+msgid "Change comment and properties only"
+msgstr "Apenas Alterar Propriedades"
+
+#: ../core/templates/renamebase.tmpl:15
+msgid "Change from:"
+msgstr "Alterar de:"
+
+#: ../core/data/TWiki/LanguageSelector.txt:16
+#: ../core/templates/oopschangelanguage.tmpl:20
+#: ../core/templates/oopschangelanguage.tmpl:4
+#: ../core/templates/oopslanguagechanged.tmpl:5
+msgid "Change language"
+msgstr "Alterar idioma"
+
+#: ../core/templates/renamewebbase.tmpl:43
+msgid "Change links in topics that refer to !%1 in any Web:"
+msgstr "Alterar links em tópicos que façam referência a !%1 em qualquer Web:"
+
+#: ../core/templates/renamewebbase.tmpl:40
+msgid "Change links in topics that refer to !%1 in the %2 Web:"
+msgstr "Alterar links em tópicos que façam referência a !%1 na Web %2:"
+
+#: ../core/templates/renamebase.tmpl:56
+msgid "Change links in topics that refer to %1 in any Web:"
+msgstr "Alterar links em tópicos que façam referência a %1 em qualquer Web:"
+
+#: ../core/templates/renamebase.tmpl:53
+msgid "Change links in topics that refer to %1 in the %2 Web:"
+msgstr "Alterar links em tópicos que façam referência a %1 na Web %2:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:30
+msgid "Change password"
+msgstr "Alterar senha"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:56
+#, fuzzy
+msgid "Change profile picture"
+msgstr "Alterar tópico"
+
+#: ../core/templates/attachagain.tmpl:21
+msgid "Change properties only"
+msgstr "Alterar somente as propriedades"
+
+#: ../core/templates/edit.tmpl:7
+msgid "Change topic"
+msgstr "Alterar tópico"
+
+#: ../core/templates/search.tmpl:15
+msgid "Changed"
+msgstr "Alterado"
+
+#: ../MailerContrib/templates/mailnotify.tmpl:18
+#: ../core/templates/search.tmpl:16
+msgid "Changed by"
+msgstr "Alterado por"
+
+#: ../MailerContrib/templates/mailnotify.tmpl:16
+msgid "Changed:"
+msgstr "Alterado: "
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:8
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:8
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:9
+#: ../PatternSkin/data/TWiki/WebLeftBarExample.txt:4
+#: ../PatternSkin/data/Trash/WebLeftBar.txt:6
+#: ../PatternSkin/data/_default/WebLeftBar.txt:7
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:15
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:14
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:49
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:15
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:17
+#: ../TopMenuSkin/data/Trash/WebTopMenu.txt:14
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:14
+msgid "Changes"
+msgstr "Alterações"
+
+#. ($r2, $r1)
+#: ../core/lib/TWiki/UI/RDiff.pm:492
+msgid "Changes from r%1 to r%2"
+msgstr "Alterações entre r%1 e r%2"
+
+#: ../core/templates/messages.tmpl:500
+msgid ""
+"Check your configuration settings for {TemplateDir} and {TemplatePath}. If "
+"that's not the problem, it may be because you have a setting of %1 that is "
+"pointing to a template that doesn't exist."
+msgstr ""
+"Confira os itens de configuração {TemplateDir} e {TemplatePath}. Se não for "
+"esse o problema, pode ser que você tenha uma configuração de %1 que esteja "
+"apontando para um modelo (template) que não existe."
+
+#: ../core/templates/copy.tmpl:62 ../core/templates/renamebase.tmpl:42
+#: ../core/templates/renamedelete.tmpl:31
+msgid "Checked topics will be updated to point to the new topic location."
+msgstr ""
+"Os tópicos sinalizados serão atualizados para que apontem a nova localização "
+"do tópico."
+
+#: ../core/templates/renameweb.tmpl:29
+msgid "Checked topics will be updated to point to the new web name."
+msgstr ""
+"Os tópicos sinalizados serão atualizados para que apontem o novo nome da web."
+
+#: ../core/templates/oopsmore.tmpl:118
+msgid "Child topics in %1 web"
+msgstr "Tópicos filhos na web %1"
+
+#: ../core/templates/changeform.tmpl:7
+msgid "Choose a new form for %1"
+msgstr "Escolha um novo  formulário para %1"
+
+#: ../PatternSkin/templates/renamebase.pattern.tmpl:33
+#: ../core/lib/TWiki/Form/Checkbox.pm:60
+msgid "Clear all"
+msgstr "Limpar todos"
+
+#: ../core/lib/TWiki/Render.pm:203
+msgid ""
+"Click to move topic back to previous location, with option to change "
+"references."
+msgstr ""
+"Clique para mover o tópico de volta à sua localização anterior, com a opção "
+"de mudar as referências."
+
+#: ../TagMePlugin/lib/TWiki/Plugins/TagMePlugin.pm:958
+msgid "Click to refine the search"
+msgstr ""
+
+#: ../TwistyPlugin/data/TWiki/TwistyPlugin.txt:578
+msgid "Close"
+msgstr "Esconder"
+
+#: ../core/templates/messages.tmpl:165
+msgid "Color %1 has an invalid format"
+msgstr "A cor %1 tem um formato inválido"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:27
+#: ../core/templates/attach.tmpl:25 ../core/templates/attachtables.tmpl:37
+#: ../core/templates/attachtables.tmpl:4
+msgid "Comment"
+msgstr "Comentário"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:335
+#, fuzzy
+msgid "Comment:"
+msgstr "Comentários:"
+
+#: ../core/templates/oopsmore.tmpl:99
+msgid "Compare revisions"
+msgstr "Comparar versões"
+
+#: ../core/templates/messages.tmpl:242
+#, fuzzy
+msgid "Confirm registration"
+msgstr "Registro"
+
+#: ../core/templates/renameconfirm.tmpl:7
+#: ../core/templates/renamewebconfirm.tmpl:7
+msgid "Confirm rename or move"
+msgstr "Confirme renomear ou mover"
+
+#: ../core/templates/messages.tmpl:39
+msgid ""
+"Confirm your changes using TWiki's [[%1][topic history comparison tool "
+"(diff)]]."
+msgstr ""
+"Confirme suas alterações usando a [[%1][ferramenta do TWiki de comparação do "
+"histórico de tópico]]"
+
+#: ../core/templates/oopsleaseconflict.tmpl:6
+msgid "Conflict"
+msgstr "Conflito"
+
+#: ../core/templates/messages.tmpl:577 ../core/templates/messages.tmpl:598
+#: ../core/templates/messages.tmpl:609 ../core/templates/messages.tmpl:615
+#: ../core/templates/messages.tmpl:621 ../core/templates/messages.tmpl:630
+#: ../core/templates/messages.tmpl:644
+msgid "Contact %1 if you have any questions."
+msgstr "Contate %1 se você tiver qualquer dúvida."
+
+#: ../core/templates/messages.tmpl:466
+msgid "Continue and try to rename web?"
+msgstr "Continuar e tentar renomear a web?"
+
+#: ../core/data/TWiki/WebTopicCreator.txt:4
+msgid "Continue to create the new page"
+msgstr "Continue para criar a nova página"
+
+#: ../WysiwygPlugin/lib/TWiki/Plugins/WysiwygPlugin/TML2HTML.pm:141
+msgid ""
+"Conversion to HTML for WYSIWYG editing is disabled because of the topic "
+"content."
+msgstr ""
+
+#: ../core/templates/copy.tmpl:20 ../core/templates/copy.tmpl:7
+msgid "Copy"
+msgstr ""
+
+#: ../core/templates/oopsmore.tmpl:39
+#, fuzzy
+msgid "Copy this topic..."
+msgstr "Criar este tópico"
+
+#: ../core/templates/oopsmore.tmpl:38
+#, fuzzy
+msgid "Copy topic"
+msgstr "Para tópico:"
+
+#: ../core/templates/copy.tmpl:35
+#, fuzzy
+msgid "Copy:"
+msgstr "País:"
+
+#: ../core/data/TWiki/TWikiPreferences.txt:40
+#: ../core/data/TWiki/WebPreferences.txt:33
+#, fuzzy
+msgid ""
+"Copyright &&copy; %1 by the contributing authors. All material on this "
+"collaboration platform is the property of the contributing authors."
+msgstr ""
+"Copyright &&copy; pelos autores contribuintes. Todo material nessa "
+"plataforma colaborativa é propriedade dos autores contribuintes."
+
+#: ../core/templates/messages.tmpl:175
+msgid "Could not create the new web %1"
+msgstr "Não foi possível criar a nova web %1"
+
+#: ../core/templates/messages.tmpl:498
+msgid "Could not find template"
+msgstr "Não foi possível encontrar o modelo"
+
+#: ../core/templates/messages.tmpl:563
+msgid "Could not perform search. Error was: %1"
+msgstr "Não foi possível executar a busca. O erro foi: %1"
+
+#: ../core/templates/messages.tmpl:355
+msgid "Could not save %1."
+msgstr "Não foi possível salvar %1."
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:164
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:92
+#, fuzzy
+msgid "Country"
+msgstr "País:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:136
+msgid "Country:"
+msgstr "País:"
+
+#: ../TagMePlugin/data/TWiki/TagMeCreateNewTag.txt:23
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:27
+#, fuzzy
+msgid "Create"
+msgstr "Criar '%1'"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:36
+msgid "Create '%1'"
+msgstr "Criar '%1'"
+
+#: ../core/data/Sandbox/WebHome.txt:31
+msgid "Create <nop>TestTopic###"
+msgstr "Criar <nop>TopicoTeste###"
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:5
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:5
+#: ../PatternSkin/data/_default/WebLeftBar.txt:4
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:11
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:46
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:12
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:11
+msgid "Create New Topic"
+msgstr "Criar Novo Tópico"
+
+#: ../PatternSkin/data/TWiki/PatternSkinWebCreateNewTopicTemplate.txt:43
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:6
+msgid "Create New Topic in %1 Web"
+msgstr "Criar Novo Tópico na Web %1"
+
+#: ../core/data/Sandbox/WebHome.txt:17
+#, fuzzy
+msgid "Create Test Topics"
+msgstr "Criar Novo Tópico"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:37
+#: ../core/templates/attach.tmpl:38
+msgid "Create a link to the attached file"
+msgstr "Criar um link para o arquivo anexo."
+
+#: ../core/data/Sandbox/WebHome.txt:30
+msgid "Create a new auto-numbered test topic:"
+msgstr "Cria um novo tópico auto-numerado:"
+
+#: ../core/data/Sandbox/WebHome.txt:20
+msgid "Create a new document by name:"
+msgstr "Criar um novo tópico pelo nome:"
+
+#: ../core/data/Sandbox/WebHome.txt:22
+msgid "Create by Name"
+msgstr "Criar por Nome"
+
+#: ../PatternSkin/data/TWiki/WebLeftBarExample.txt:11
+msgid "Create personal sidebar"
+msgstr "Criar barra lateral pessoal"
+
+#: ../core/templates/messages.tmpl:596
+msgid "Create the topic"
+msgstr "Criar o tópico"
+
+#: ../core/data/TWiki/TWikiPreferences.txt:437
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:61
+#: ../core/lib/TWiki/Render.pm:112
+msgid "Create this topic"
+msgstr "Criar este tópico"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:353
+msgid ""
+"Create your personal %1 topic using your WikiName as topic name, and add the "
+"data you submitted to the topic."
+msgstr ""
+"Criar seu tópico pessoal no %1 usando seu [[%TWIKIWEB%.WikiName][NomeWiki]] "
+"como nome do tópico, e adicionar os dados que você forneceu ao tópico."
+
+#: ../core/templates/messages.tmpl:384
+msgid "Creating a suitable Form Definition topic"
+msgstr "Criando um tópico apropriado de definição de formulário "
+
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:9
+#: ../core/templates/renamedelete.tmpl:10
+msgid "Current location:"
+msgstr "Localização atual:"
+
+#: ../core/templates/oopsmore.tmpl:57
+msgid "Current parent:"
+msgstr "Pai atual:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:27
+msgid "Current password"
+msgstr "Senha atual:"
+
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:51
+#, fuzzy
+msgid "Current picture"
+msgstr "Pai atual:"
+
+#: ../core/templates/attachtables.tmpl:37
+#: ../core/templates/attachtables.tmpl:4
+msgid "Date"
+msgstr "Data"
+
+#: ../core/templates/mailresetpassword.tmpl:5
+msgid "Dear %1"
+msgstr "Caro(a) %1"
+
+#: ../core/templates/oopsmore.tmpl:103
+msgid "Debug"
+msgstr "Depurar"
+
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:59
+msgid "Default template"
+msgstr "Modelo padrão"
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:24
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:25
+#: ../TagMePlugin/data/TWiki/TagMeDeleteTag.txt:29
+#: ../core/templates/renamedelete.tmpl:34
+#: ../core/templates/renamedelete.tmpl:7
+msgid "Delete"
+msgstr "Remover"
+
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:28
+msgid "Delete attachment"
+msgstr "Remover anexo"
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:199
+msgid "Delete last row"
+msgstr "Remover última linha"
+
+#: ../core/templates/oopsmore.tmpl:22
+msgid "Delete topic"
+msgstr "Remover tópico"
+
+#: ../core/templates/oopsmore.tmpl:23 ../core/templates/oopsmore.tmpl:25
+msgid "Delete topic..."
+msgstr "Remover tópico..."
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:159
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:87
+msgid "Department"
+msgstr ""
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:29
+msgid "Describe the file so other people know what it is."
+msgstr "Descreva o arquivo para que outras pessoas saibam do que se trata."
+
+#: ../core/lib/TWiki/Form.pm:350
+msgid "Details in separate window"
+msgstr "Detalhes em uma nova janela"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:20
+msgid "Did you spell the %1 correctly?"
+msgstr "Você digitou  %1 corretamente?"
+
+#: ../core/data/TWiki/VarMAKETEXT.txt:19
+msgid "Did you want to [[%1][reset %2's password]]?"
+msgstr "Você não queria [[%1][restaurar a senha de %2]]?"
+
+#: ../PatternSkin/templates/rdiff.pattern.tmpl:14
+msgid "Difference:"
+msgstr "Diferença:"
+
+#: ../core/templates/preview.tmpl:11
+msgid "Do not forget to save your changes"
+msgstr "Não esqueça de salvar suas alterações"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:39
+#: ../core/templates/attach.tmpl:46
+msgid "Do not show attachment in table"
+msgstr "Não mostrar na tabela de anexos"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:76
+msgid "Do show:"
+msgstr "Mostrar:"
+
+#: ../core/data/TWiki/ReadOnlyAndMirrorWebs.txt:86
+msgid ""
+"Do you really want to mirror to all slave sites now?\\nIt may take a while "
+"to complete."
+msgstr ""
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:35
+msgid "Do you wish to create the topic %1?"
+msgstr "Você quer criar o tópico %1?"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:6
+msgid "Do you wish to navigate quickly to a similar topic?"
+msgstr "Você quer navegar rapidamente para algum tópico semelhante?"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:69
+msgid "Don't show:"
+msgstr "Não mostrar:"
+
+#: ../core/templates/messages.tmpl:490
+msgid "During copy of %1 to %2 an error occurred."
+msgstr ""
+
+#: ../core/templates/messages.tmpl:71
+msgid ""
+"During deletion of attachment =%1= an error was found. Please notify your %2 "
+"administrator."
+msgstr ""
+"Um erro foi encontrado durante a remoção do anexo =%1=. Por favor, notifique "
+"o administrador do %2."
+
+#: ../core/templates/messages.tmpl:63
+msgid ""
+"During move of attachment %1 to %2 an error was found. Please notify your %3 "
+"administrator."
+msgstr ""
+"Um erro foi encontrado ao mover o anexo %1 para %2. Por favor, notifique o "
+"administrador do %3."
+
+#: ../core/templates/messages.tmpl:121
+msgid ""
+"During rename of topic %1 to %2 an error (%3) was found. Please notify your %"
+"4 administrator."
+msgstr ""
+"Um erro (%3) foi encontrado ao renomear %1 para %2. Por favor, notifique o "
+"administrador do %4."
+
+#: ../core/templates/messages.tmpl:124
+msgid ""
+"During rename of web %1 to %2 an error (%3) was found. Please notify your %4 "
+"administrator."
+msgstr ""
+"Um erro (%3) foi encontrado ao renomear a web %1 para %2. Por favor, "
+"notifique o administrador do %4."
+
+#: ../core/templates/messages.tmpl:443 ../core/templates/oopssaveerr.tmpl:17
+msgid ""
+"During save of %1 an error was found by the version control system. Please "
+"notify your %2 administrator."
+msgstr ""
+"Um erro foi encontrado pelo sistema de controle de versões ao salvar %1. Por "
+"favor, notifique o administrador do %2."
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:111
+msgid "E-mail address:"
+msgstr "Endereço de e-mail:"
+
+#: ../core/templates/messages.tmpl:226
+msgid "E-mail changed successfully!"
+msgstr "E-mail alterado com sucesso!"
+
+#: ../core/templates/settings.tmpl:27
+msgid "Each preference has the syntax"
+msgstr "Cada preferência tem sua sintaxe"
+
+#: ../TWikiNetSkin/templates/viewtopbar.twikinet.tmpl:97
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:112
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:83
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:27
+#: ../core/templates/viewtopicactionbuttons.tmpl:51
+msgid "Edit"
+msgstr "Editar"
+
+#: ../core/templates/oopsleaseconflict.tmpl:21
+msgid "Edit Anyway"
+msgstr "Editar assim mesmo"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:16
+msgid "Edit help"
+msgstr "Ajuda com edição"
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:194
+msgid "Edit table"
+msgstr "Editar tabela"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:83
+#, fuzzy
+msgid "Edit this record"
+msgstr "Editar essa tabela"
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:195
+msgid "Edit this table"
+msgstr "Editar essa tabela"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:30
+#: ../core/templates/oopsmore.tmpl:12
+msgid "Edit topic preference settings"
+msgstr "Editar preferências do tópico"
+
+#: ../core/templates/messages.tmpl:340
+msgid ""
+"Either the code is not valid, or you have already confirmed your "
+"registration using it."
+msgstr ""
+"Ou o código é inválido, ou você já o utilizou, confirmando seu registo."
+
+#: ../core/templates/messages.tmpl:426
+msgid ""
+"Either you did not specify a file name, or the file you are trying to upload "
+"%1 has no content. You may not upload an empty file."
+msgstr ""
+"Ou você não especificou um nome de arquivo, ou o arquivo %1 que você está "
+"tentando subir não tem nenhum conteúdo. Você não pode subir um arquivo vazio."
+
+#: ../core/lib/TWiki/UI/Register.pm:433 ../core/lib/TWiki/UI/Register.pm:480
+msgid "Email has been disabled for this TWiki installation"
+msgstr "O envio de e-mail foi desativado para essa instalação do TWiki"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:76
+msgid "Enlarge edit box"
+msgstr "Caixa de edição ampliada"
+
+#: ../core/templates/login.tmpl:7
+msgid "Enter a new username and password to change identity"
+msgstr "Digite um novo nome de usuário e senha para trocar de identidade"
+
+#: ../core/templates/login.sudo.tmpl:18
+msgid "Enter the TWiki Administrator user or login as set in %1"
+msgstr ""
+"Informe o usuário Administrador do TWiki ou faça login tal como definido em %"
+"1"
+
+#: ../core/templates/messages.tmpl:476 ../core/templates/messages.tmpl:489
+#, fuzzy
+msgid "Error copying topic"
+msgstr "Erro ao salvar tópico"
+
+#: ../core/templates/messages.tmpl:276
+msgid "Error registering new user"
+msgstr "Erro ao registrar novo usuário"
+
+#: ../core/templates/messages.tmpl:267
+msgid "Error registering user %1"
+msgstr "Erro ao registrar o usuário %1"
+
+#: ../core/templates/messages.tmpl:442
+msgid "Error saving topic"
+msgstr "Erro ao salvar tópico"
+
+#: ../core/templates/login.tmpl:29
+msgid "Error: %1"
+msgstr "Erro: %1"
+
+#: ../core/templates/messages.tmpl:551
+msgid "Error: File attachment at %1,%2 does not exist"
+msgstr "Erro: Arquivo anexado em %1,%2 não existe"
+
+#: ../core/templates/messages.tmpl:553
+msgid ""
+"Error: Unsupported content type: %1 (Must be =text/html=, =text/plain= or "
+"=text/css=)"
+msgstr ""
+"Erro: Tipo de conteúdo não suportado: %1 (Deveria ser =text/html=, =text/"
+"plain= ou =text/css=)"
+
+#: ../core/templates/messages.tmpl:552
+msgid "Error: Unsupported protocol. (Must be 'http://domain/...')"
+msgstr "Erro: protocolo não suportado. (Deveria ser 'http://domínio/...')"
+
+#: ../core/templates/messages.tmpl:290
+msgid "Errors"
+msgstr "Erros"
+
+#: ../core/templates/messages.tmpl:509
+#, fuzzy
+msgid "Example:"
+msgstr "Bons exemplos:"
+
+#: ../core/templates/messages.tmpl:561
+msgid "Failed to include URL %1"
+msgstr "Falha ao incluir a URL %1"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:32
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:25
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:23
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:92
+msgid "Fields marked %1 are required"
+msgstr "Campos marcados com %1 são obrigatórios"
+
+#: ../core/templates/messages.tmpl:417
+msgid "File type is different"
+msgstr ""
+
+#: ../core/templates/messages.tmpl:391
+#, fuzzy
+msgid "Files have been uploaded with different name"
+msgstr "O arquivo foi enviado com um nome diferente."
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:21
+#, fuzzy
+msgid "Find backlinks"
+msgstr "Referências"
+
+#: ../core/templates/oopsmore.tmpl:43 ../core/templates/oopsmore.tmpl:45
+msgid "Find topics that link to %1 ..."
+msgstr "Procurar por tópicos que referenciem %1 ..."
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:352
+msgid ""
+"Finish creating an account for you, so that you can start editing pages "
+"using your WikiName."
+msgstr ""
+"Finalizar a criação da sua conta, de modo que possa começar a editar páginas "
+"usando seu [[%TWIKIWEB%.WikiName][NomeWiki]]."
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:95
+msgid "First Name:"
+msgstr "Primeiro nome:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:73
+msgid ""
+"Fixed pulldown menu-bar of %1, on or off. If off, the menu-bar hides "
+"automatically when scrolling."
+msgstr ""
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:30
+msgid "Force new revision"
+msgstr "Forçar nova versão"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:5
+msgid "Forgotten your password?"
+msgstr "Esqueceu sua senha?"
+
+#: ../PatternSkin/data/TWiki/PatternSkinCustomization.txt:447
+#, fuzzy
+msgid "Form"
+msgstr "ou"
+
+#: ../core/templates/messages.tmpl:362
+msgid "Form Definition %1 missing"
+msgstr "Faltando definição do formulário %1"
+
+#: ../core/templates/messages.tmpl:367
+msgid "Form definition missing"
+msgstr "Faltando definição do formulário"
+
+#: ../core/templates/copy.tmpl:69
+#, fuzzy
+msgid ""
+"Get help on <a target='CopyingTopics' class='twikiPopUp' href='%1' "
+"rel='nofollow'>Copying topics</a>."
+msgstr ""
+"Obtenha ajuda sobre como <a target='ManagingTopics' class='twikiPopUp' "
+"href='%1' rel='nofollow'>renomear e mover tópicos</a>."
+
+#: ../core/templates/renamebase.tmpl:66
+msgid ""
+"Get help on <a target='ManagingTopics' class='twikiPopUp' href='%1' "
+"rel='nofollow'>Renaming and moving topics</a>."
+msgstr ""
+"Obtenha ajuda sobre como <a target='ManagingTopics' class='twikiPopUp' "
+"href='%1' rel='nofollow'>renomear e mover tópicos</a>."
+
+#: ../core/templates/renamewebbase.tmpl:50
+msgid ""
+"Get help on <a target='ManagingWebs' class='twikiPopUp' href='%1' "
+"rel='nofollow'>Renaming and moving webs</a>."
+msgstr ""
+"Obtenha ajuda sobre como <a target='ManagingWebs' class='twikiPopUp' href='%"
+"1' rel='nofollow'>renomear e mover webs</a>."
+
+#: ../core/templates/settings.tmpl:26
+msgid ""
+"Get help on <a target='TWikiVariables' class='twikiPopUp' href='%1' "
+"rel='nofollow'>Setting topic preferences</a>."
+msgstr ""
+"Obtenha ajuda sobre como <a target='TWikiVariables' class='twikiPopUp' "
+"href='%1' rel='nofollow'>configurar preferências do tópico</a>."
+
+#: ../core/data/TWiki/WebSearch.txt:5
+#: ../core/data/TWiki/WebSearchAdvanced.txt:5
+msgid "Get notified on changes on this search"
+msgstr "Receba notificações de alterações no resultado dessa busca"
+
+#: ../core/templates/twiki.tmpl:88
+msgid "Go back"
+msgstr "Voltar"
+
+#: ../core/templates/messages.tmpl:359
+msgid ""
+"Go back in your browser and insert information for all mandatory fields."
+msgstr ""
+"Volte no seu navegador e insira os dados para todos os campos obrigatórios."
+
+#: ../core/templates/messages.tmpl:449 ../core/templates/oopssaveerr.tmpl:21
+msgid "Go back in your browser and save your changes locally."
+msgstr "Volte no seu navegador e salve suas alterações localmente."
+
+#: ../core/templates/messages.tmpl:314
+msgid "Good examples:"
+msgstr "Bons exemplos:"
+
+#: ../core/lib/TWiki.pm:5173
+#, fuzzy
+msgid "Group"
+msgstr "Grupos"
+
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:6
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:12
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:14
+msgid "Groups"
+msgstr "Grupos"
+
+#: ../PatternSkin/data/TWiki/WebLeftBarLogin.txt:3
+msgid "Hello %1"
+msgstr "Olá %1"
+
+#: ../core/templates/twiki.tmpl:112
+msgid "Hello %1!"
+msgstr "Olá %1!"
+
+#: ../core/data/TWiki/WebSearch.txt:30
+#: ../core/data/TWiki/WebSearchAdvanced.txt:36 ../core/templates/login.tmpl:50
+msgid "Help"
+msgstr "Ajuda"
+
+#: ../core/templates/attach.tmpl:44
+msgid "Hide file"
+msgstr "Esconder arquivo"
+
+#: ../core/templates/login.tmpl:50
+msgid "Hide help"
+msgstr "Esconder ajuda"
+
+#: ../core/templates/messages.tmpl:144
+msgid "Hierarchical Webs is currently disabled, you cannot create Nested webs."
+msgstr ""
+"O recurso de Webs Hierárquicas está desabilitado, você não pode criar webs "
+"aninhadas."
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:22
+#: ../core/templates/attachtables.tmpl:4
+#, fuzzy
+msgid "History"
+msgstr "&Histórico"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinHomeMenu.txt:10
+msgid "Home"
+msgstr ""
+
+#: ../core/templates/registernotify.tmpl:16
+msgid "How about attaching your photo?"
+msgstr "Que tal anexar sua foto?"
+
+#: ../core/templates/registerconfirm.tmpl:4
+msgid "How to activate your %1 registration"
+msgstr "Como ativar seu registro no %1"
+
+#: ../core/templates/registernotifyadminfail.tmpl:12
+msgid ""
+"However, confirmation e-mail to %2 failed, indicating probable fraudulent "
+"registration.  The %1 user could not be removed automatically."
+msgstr ""
+
+#: ../core/templates/registernotifyadminfailrem.tmpl:12
+msgid ""
+"However, confirmation e-mail to %2 failed, indicating probable fraudulent "
+"registration.  The %1 was removed automatically, however you must remove the "
+"user's topic manually."
+msgstr ""
+
+#: ../core/templates/login.tmpl:65
+msgid "I forgot my password"
+msgstr "Esqueci minha senha"
+
+#: ../core/data/TWiki/TWikiPreferences.txt:40
+#: ../core/data/TWiki/WebPreferences.txt:33
+msgid "Ideas, requests, problems regarding %1? <a href='%2'>Send feedback</a>"
+msgstr ""
+"Idéias, solicitações, problemas com relação ao %1? <a href='%2'>Nos dê um "
+"retorno</a>"
+
+#: ../core/templates/messages.tmpl:376
+msgid "If this line isn't present see _upgrade_ section below"
+msgstr "Se esta linha não estiver presente veja a seção _atualização_ abaixo"
+
+#: ../core/templates/messages.tmpl:370
+msgid "If this topic is missing create it, otherwise check it for errors."
+msgstr ""
+"Se esse tópico estiver faltando, crie-o, do contrário verifique-o procurando "
+"por erros."
+
+#: ../core/data/TWiki/WebSearch.txt:51
+#: ../core/data/TWiki/WebSearchAdvanced.txt:92
+msgid ""
+"If you already know the name of the topic, enter the name of the topic into "
+"the [[%1][Jump box]] at the top"
+msgstr ""
+"Se você já sabe o nome do tópico, digite o nome dele na caixa [[%1][\"Pular "
+"para:\"]] no topo"
+
+#: ../core/templates/messages.tmpl:513 ../core/templates/messages.tmpl:522
+msgid ""
+"If you are developing a <nop>TWikiApplication, see %1 for a description of "
+"the correct parameters."
+msgstr ""
+"Se você estiver desenvolvendo uma <nop>TWikiApplication, veja %1 para uma "
+"descrição correta dos parâmetros."
+
+#: ../core/templates/messages.tmpl:586
+#, fuzzy
+msgid "If you came here by clicking a topic creation link"
+msgstr "Se você chegou aqui clicando num link com uma interrogação"
+
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:40
+msgid "If you enter a different name, make sure the topic does  exist."
+msgstr ""
+"Se você digitar um nome diferente, certifique-se de que o tópico existe."
+
+#: ../core/templates/registernotify.tmpl:25
+msgid ""
+"If you got this e-mail by mistake: Somebody (%1) registered at the %2 site "
+"using your mail address %3. Contact %4 if this is in error."
+msgstr ""
+"Se você recebeu esse e-mail por engano: alguém (%1) se registrou no sítio %2 "
+"usando seu endereço de e-mail %3. Contate %4 se este erro aconteceu."
+
+#: ../core/templates/registerconfirm.tmpl:14
+#, fuzzy
+msgid ""
+"If you got this e-mail by mistake: Somebody (%1, %5) registered at the %2 "
+"site using your mail address %3. Contact %4 if this is in error."
+msgstr ""
+"Se você recebeu esse e-mail por engano: alguém (%1) se registrou no sítio %2 "
+"usando seu endereço de e-mail %3. Contate %4 se este erro aconteceu."
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:366
+msgid "If you have any questions about registration, send an e-mail to %1."
+msgstr ""
+"Se você tiver qualquer dúvida sobre o registro, envie um email para %1."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:42
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:36
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:33
+#: ../core/templates/login.tmpl:76
+msgid "If you have any questions, please contact %1"
+msgstr "Se você tiver qualquer dúvida, contate %1"
+
+#: ../WatchlistPlugin/templates/watchlistdigestnotify.tmpl:12
+#: ../WatchlistPlugin/templates/watchlistimmediatenotify.tmpl:15
+#: ../core/data/TWiki/VarMAKETEXT.txt:16
+#: ../core/templates/mailresetpassword.tmpl:14
+msgid "If you have any questions, please contact %1."
+msgstr "Se você tiver qualquer dúvida, contate %1."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:140
+#: ../core/templates/registernotify.tmpl:27
+msgid "If you haven't set a password yet or you want to reset it, go to: %1"
+msgstr ""
+"Se você não tiver registrado uma senha ainda ou se quiser restaurá-la, vá "
+"para: %1"
+
+#: ../core/templates/messages.tmpl:520
+msgid ""
+"If you received a link to this topic in an e-mail or just want to look at "
+"the topic, [[%1][cancel save]] to go to %2."
+msgstr ""
+"Se você receber um link para este tópico através de um e-mail ou apenas quer "
+"ver o tópico, [[%1][cancele salvar]] para ir a %2."
+
+#: ../core/templates/messages.tmpl:595
+msgid "If you want to create the topic"
+msgstr "Se você quiser criar o tópico"
+
+#: ../core/templates/messages.tmpl:591
+#, fuzzy
+msgid "If you would like to create a new web"
+msgstr "Se você quiser criar essa web"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:13
+msgid ""
+"If your old e-mail addresses are all invalid (you can't receive mail there "
+"any more) and you have forgotten your password, please contact %1 for help."
+msgstr ""
+"Se seus endereços antigos eram todos inválidos (você não poderá receber "
+"qualquer e-mail) e também esqueceu sua senha, contate por favor %1 para "
+"obter ajuda. "
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:11
+msgid ""
+"If your user topic is not protected from changes by other people, and you "
+"don't register an e-mail address using this form, then your user account "
+"could be hijacked by someone else."
+msgstr ""
+"Se sua página de usuário não é protegida contra alterações por outros "
+"usuários e você não cadastrou um e-mail usando esse formulário, sua conta de "
+"usuário pode ser alterada por qualquer pessoa."
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:37
+#: ../core/templates/attach.tmpl:38
+msgid "Images will be displayed, for other attachments a link will be created."
+msgstr "Imagens serão exibidas, para outros anexos um link será criado."
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:59
+#, fuzzy
+msgid "In reverse order"
+msgstr "Em ordem reversa"
+
+#: ../core/templates/messages.tmpl:407
+msgid ""
+"In some cases, TWiki changes the name of the uploaded file to make it safe "
+"and accessible across all platforms:"
+msgstr ""
+"Em alguns casos o TWiki altera o nome do arquivo enviado para que este seja "
+"acessível e livre de erros em todas as plataformas:"
+
+#: ../core/templates/messages.tmpl:304 ../core/templates/messages.tmpl:311
+msgid "Incorrect %1"
+msgstr "%1 incorreto(a)"
+
+#: ../core/templates/messages.tmpl:314
+msgid "Incorrect %1.WikiNames:"
+msgstr "[[%1.WikiNames][NomesWikis]] incorretos:"
+
+#: ../core/templates/messages.tmpl:127
+msgid "Incorrect Password"
+msgstr "Senha incorreta"
+
+#: ../core/templates/messages.tmpl:518
+msgid "Incorrect parameters to the =%1= script"
+msgstr "Parâmetros incorretos para o script =%1="
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:6
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:6
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:7
+#: ../PatternSkin/data/TWiki/WebLeftBarExample.txt:5
+#: ../PatternSkin/data/Trash/WebLeftBar.txt:4
+#: ../PatternSkin/data/_default/WebLeftBar.txt:5
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:13
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:12
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:47
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:13
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:15
+#: ../TopMenuSkin/data/Trash/WebTopMenu.txt:12
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:12
+msgid "Index"
+msgstr "Índice"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:154
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:81
+msgid "Info"
+msgstr ""
+
+#: ../core/templates/messages.tmpl:278
+msgid "Internal error when sending email to %1."
+msgstr "Erro interno ao enviar e-mail para %1."
+
+#: ../core/templates/messages.tmpl:411
+msgid ""
+"International (8-bit) characters are removed (replaced by US-ASCII "
+"equivalents for Latin-1)"
+msgstr ""
+"Caracteres Internacionais (8-bit) são removidos (substituídos por US-ASCII "
+"equivalentes a Latin-1)"
+
+#: ../core/templates/messages.tmpl:337
+msgid "Invalid Activation Code"
+msgstr "Código de ativação inválido"
+
+#: ../core/templates/oopsinvalidtoken.tmpl:6
+msgid "Invalid Crypt Token"
+msgstr ""
+
+#: ../core/templates/messages.tmpl:329
+msgid "Invalid e-mail address"
+msgstr "Endereço de e-mail inválido"
+
+#: ../core/templates/messages.tmpl:533
+msgid ""
+"It is probably OK to go ahead and edit - unless you intend to change data in "
+"a form attached to the topic. If %1 actually _does_ save the topic while you "
+"are editing, your changes will be merged, and nothing will be lost. Form "
+"data cannot easily be merged though, so in this case you are recommended to "
+"check with %1 first."
+msgstr ""
+"Provavelmente é seguro continuar e editar - a não ser que você pretenda "
+"alterar o formulário anexo ao tópico. Se %1 não salvar o tópico enquanto "
+"você estiver editando, suas alterações serão combinadas com as dele(a) e "
+"nada será perdido. Mas dados de formulário não podem ser combinados "
+"facilmente, nesse caso é recomendável que você verifique com ele(a) primeiro."
+
+#: ../core/templates/twiki.tmpl:9
+msgid ""
+"It's usually best to choose a <a target='WikiWord' class='twikiPopUp' href='%"
+"1' rel='nofollow'>WikiWord</a> for the new topic name, otherwise automatic "
+"linking may not work. Characters not allowed in topic names, such as spaces "
+"will automatically be removed."
+msgstr ""
+"Normalmente é melhor escolher uma <a target='WikiWord' class='twikiPopUp' "
+"href='%1' rel='nofollow'>PalavraWiki</a> para o novo nome do tópico ou os "
+"links automáticos podem não funcionar. Caracteres não permitidos em nomes de "
+"tópicos, como espaços, serão removidos automaticamente."
+
+#: ../core/templates/renameweb.tmpl:17
+msgid ""
+"It's usually best to choose a short name for the new web, as it is easier to "
+"link to them later on. Characters not allowed in web names, such as spaces "
+"will automatically be removed."
+msgstr ""
+"Normalmente é melhor escolher um nome curto para a web, por ser mais fácil "
+"fazer links pra ela depois. Caracteres não permitidos em nomes de web, como "
+"espaços, serão removidos automaticamente."
+
+#: ../PatternSkin/data/TWiki/WebLeftBarSearch.txt:2
+#: ../PatternSkin/data/TWiki/WebTopBar.txt:7
+#: ../PatternSkin/templates/twiki.pattern.tmpl:36
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopBar.txt:76
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:26
+msgid "Jump"
+msgstr "Pular para"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:99
+msgid "Last Name:"
+msgstr "Último Nome:"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:57
+msgid "Last editor"
+msgstr "Último a alterar"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:56
+msgid "Last modified time"
+msgstr "Hora da última alteração"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:81
+msgid "Limit results to:"
+msgstr "Limitar resultados a:"
+
+#. ($left)
+#. ($right)
+#: ../core/lib/TWiki/UI/RDiff.pm:158 ../core/lib/TWiki/UI/RDiff.pm:160
+#: ../core/lib/TWiki/UI/RDiff.pm:194
+msgid "Line: %1"
+msgstr "Linha: %1"
+
+#. ($left,$right)
+#: ../core/lib/TWiki/UI/RDiff.pm:308
+msgid "Line: %1 to %2"
+msgstr "Linha: %1 até %2"
+
+#: ../core/templates/attach.tmpl:36
+msgid "Link"
+msgstr "Link"
+
+#: ../core/data/TWiki/WebSearch.txt:52
+#: ../core/data/TWiki/WebSearchAdvanced.txt:93
+msgid "List all topics in the %1 web in alphabetical order"
+msgstr "Listar todos os tópicos na web %1 em ordem alfabética"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:17
+#, fuzzy
+msgid "List more similar topics in this web"
+msgstr "Lista de tópicos semelhantes nesta web:"
+
+#: ../core/data/TWiki/WebSearch.txt:53
+#: ../core/data/TWiki/WebSearchAdvanced.txt:94
+msgid "List topics that start with the letter:"
+msgstr "Listar tópicos que comecem com a letra:"
+
+#: ../core/data/Main/TWikiPreferences.txt:2
+#, fuzzy
+msgid "Local customizations of site-wide preferences"
+msgstr "Personalizações locais das preferências do sítio"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:162
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:90
+#, fuzzy
+msgid "Location"
+msgstr "Ação"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:4
+msgid "Log In"
+msgstr "Iniciar sessão"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:5
+msgid "Log Out"
+msgstr "Encerrar sessão"
+
+#: ../core/templates/registernotify.tmpl:18
+msgid ""
+"Login as \"%1\". Please note that login and password are case sensitive."
+msgstr ""
+
+#: ../core/templates/mailresetpassword.tmpl:9
+msgid "Login name %1"
+msgstr "Nome de login: %1"
+
+#: ../PatternSkin/data/TWiki/PatternSkinElements.txt:193
+#: ../core/templates/login.tmpl:71
+msgid "Logon"
+msgstr "Entrar"
+
+#: ../core/templates/messages.tmpl:288
+msgid "Mail to"
+msgstr "Mensagem para"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:63
+msgid "Make search:"
+msgstr "Fazer busca:"
+
+#: ../core/lib/TWiki.pm:5174
+msgid "Members"
+msgstr ""
+
+#: ../core/templates/messages.tmpl:255
+msgid "Missing Fields"
+msgstr "Campos faltando"
+
+#: ../core/templates/messages.tmpl:44
+msgid "Missing action command"
+msgstr "Ação faltando"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:39
+msgid "Modify search"
+msgstr "Modificar busca"
+
+#: ../core/templates/oopsmore.tmpl:7
+msgid "More Actions on Topic %1"
+msgstr "Mais ações sobre o tópico %1"
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:20
+msgid "More formatting help"
+msgstr "Mais ajuda com formatação"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:23
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:32
+#, fuzzy
+msgid "More topic actions"
+msgstr "Mais ações de tópico..."
+
+#: ../PatternSkin/templates/rdiff.pattern.tmpl:29
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:146
+#: ../core/templates/viewtopicactionbuttons.tmpl:82
+msgid "More topic actions..."
+msgstr "Mais ações de tópico..."
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinHomeMenu.txt:15
+#: ../TwistyPlugin/data/TWiki/TwistyPlugin.txt:576
+msgid "More..."
+msgstr "Mais..."
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:24
+#: ../core/templates/moveattachment.tmpl:36
+msgid "Move"
+msgstr "Mover"
+
+#: ../core/templates/moveattachment.tmpl:10
+msgid "Move attachment"
+msgstr "Mover anexo"
+
+#: ../core/templates/moveattachment.tmpl:22
+msgid "Move attachment to web:"
+msgstr "Mover anexo para web:"
+
+#: ../core/templates/moveattachment.tmpl:7
+msgid "Move file attachment"
+msgstr "Mover arquivo anexo"
+
+#: ../core/templates/attachagain.tmpl:21
+msgid "Move or delete attachment"
+msgstr "Mover ou deletar anexo"
+
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:21
+msgid "Move to web:"
+msgstr "Mover para web:"
+
+#: ../core/templates/renamedelete.tmpl:16
+msgid "Move topic to web:"
+msgstr "Mover tópico para a web:"
+
+#: ../core/lib/TWiki/UI/Manage.pm:1287
+msgid "Move/Rename"
+msgstr "Mover/Renomear"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:126
+#, fuzzy
+msgid "Must change password"
+msgstr "Alterar senha"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:59
+msgid "My Links"
+msgstr "Meus Links"
+
+#: ../core/lib/TWiki/Search.pm:945
+msgid "NEW"
+msgstr "NOVO"
+
+#: ../core/templates/messages.tmpl:133
+msgid "Name of new web is missing"
+msgstr "Nome da nova web faltando"
+
+#: ../core/templates/messages.tmpl:188
+msgid "New User Registration disabled"
+msgstr "Registro de novo usuário desativado"
+
+#: ../core/templates/messages.tmpl:179
+msgid "New User Registration not supported"
+msgstr "Registro de novo usuário não é suportado"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:35
+msgid "New e-mails (space-separated list)"
+msgstr "Novos e-mails (lista separada com espaços)"
+
+#: ../MailerContrib/templates/mailnotify.tmpl:73
+#: ../MailerContrib/templates/mailnotify.tmpl:9
+#, fuzzy
+msgid "New or changed topics in %1 web since %2:"
+msgstr "Tópicos novos ou alterados em %1, desde %2:"
+
+#: ../core/templates/renamewebbase.tmpl:10
+msgid "New parent web:"
+msgstr "Nova web pai:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:28
+msgid "New password"
+msgstr "Nova senha"
+
+#: ../core/templates/messages.tmpl:117
+msgid "New topic name %1 is not a %2"
+msgstr "O novo nome do tópico, %1, não é uma %2"
+
+#: ../core/templates/renamewebbase.tmpl:7
+msgid "New web name:"
+msgstr "Novo nome da web:"
+
+#: ../core/templates/oopsmore.tmpl:102
+msgid "Newer revision:"
+msgstr "Versão mais recente:"
+
+#: ../core/data/TWiki/SearchResultsPagination.txt:102
+msgid "Next"
+msgstr ""
+
+#: ../core/templates/oopsmore.tmpl:119
+msgid "No child topics"
+msgstr "Nenhum tópico filho"
+
+#: ../core/templates/messages.tmpl:550
+msgid "No permission to view %1"
+msgstr "Sem permissão para visualizar %1"
+
+#: ../core/templates/oopsmore.tmpl:114
+msgid "No previous revision exists."
+msgstr "Não existe versão anterior."
+
+#: ../core/templates/messages.tmpl:248
+msgid "No users to reset passwords for."
+msgstr "Nenhum usuário para restaurar senha."
+
+#: ../core/templates/oopsnotfound.tmpl:6
+msgid "Not Found"
+msgstr ""
+
+#: ../core/templates/renamedelete.tmpl:31
+msgid "Not recommended when deleting a topic."
+msgstr "Não recomendado ao remover um tópico."
+
+#: ../core/templates/moveattachment.tmpl:31
+msgid ""
+"Note that any URLs that refer to the attachment will be broken after this "
+"move."
+msgstr ""
+"Note que quaisquer URLs que se refiram ao anexo ficarão quebradas depois que "
+"o mover."
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:171
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:177
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:138
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:13
+#: ../core/data/TWiki/RenameWeb.txt:4 ../core/templates/messages.tmpl:342
+#: ../core/templates/messages.tmpl:406
+#: ../core/templates/registerconfirm.tmpl:13
+#: ../core/templates/registernotify.tmpl:24
+msgid "Note:"
+msgstr "Aviso:"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:2
+msgid "Note: This topic does not exist"
+msgstr "AVISO: Este tópico não existe"
+
+#: ../core/data/TWiki/VarMAKETEXT.txt:13
+msgid "Notes:"
+msgstr "Avisos:"
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:9
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:9
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:10
+#: ../PatternSkin/data/_default/WebLeftBar.txt:8
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:16
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:15
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:50
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:16
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:18
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:15
+msgid "Notifications"
+msgstr "Notificações"
+
+#: ../PatternSkin/templates/searchbase.pattern.tmpl:5
+#: ../PatternSkin/templates/twiki.pattern.tmpl:38
+#: ../core/templates/search.text.tmpl:15
+#: ../core/templates/searchformat.tmpl:10
+msgid "Number of topics:"
+msgstr "Número de tópicos:"
+
+#: ../core/templates/messages.tmpl:216 ../core/templates/messages.tmpl:223
+#: ../core/templates/messages.tmpl:422 ../core/templates/messages.tmpl:429
+#: ../core/templates/messages.tmpl:438
+#: ../core/templates/oopsaccessdenied.tmpl:7
+#: ../core/templates/oopsinvalidtoken.tmpl:7
+#: ../core/templates/oopsnotfound.tmpl:7 ../core/templates/oopssaveerr.tmpl:14
+#: ../core/templates/twiki.tmpl:87
+msgid "OK"
+msgstr "OK"
+
+#: ../core/templates/oopsmore.tmpl:102
+msgid "Older revision:"
+msgstr "Versão mais antiga:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:360
+msgid "Once registered you can login using your %1 and password."
+msgstr ""
+"Uma vez registrado, você pode iniciar sua sessão usando seu %1 e sua senha."
+
+#: ../core/templates/messages.tmpl:575
+msgid "Only members of the %1 are allowed to perform this action."
+msgstr "Apenas integrantes do %1 têm permissão para realizar essa ação."
+
+#: ../core/templates/login.tmpl:8
+msgid ""
+"Oops: we could not recognize you. Try again or [[%1][reset your password]]."
+msgstr ""
+"Oops: não conseguimos identificar você. Tente novamente ou [[%1][restaurar "
+"sua senha]]."
+
+#: ../core/templates/renamedelete.tmpl:19
+msgid "Optionally change topic name:"
+msgstr "Opcionalmente altere o nome do tópico:"
+
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:32
+msgid "Optionally enter a different topic name:"
+msgstr "Opcionalmente digite um nome diferente de tópico:"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:160
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:88
+#, fuzzy
+msgid "Organization"
+msgstr "URL da Organização: "
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:130
+#, fuzzy
+msgid "Organization:"
+msgstr "URL da Organização: "
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:330
+msgid "Other Country"
+msgstr "Outro país"
+
+#: ../core/data/TWiki/WebSearch.txt:50
+#: ../core/data/TWiki/WebSearchAdvanced.txt:91
+msgid "Other search options:"
+msgstr "Outras opções de busca:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:5
+msgid "Otherwise, use this form to get a new one e-mailed to you."
+msgstr ""
+"Use o formulário abaixo para pegar um nova senha (será enviada por e-mail)."
+
+#: ../core/templates/twiki.tmpl:19
+msgid "Overwrite the copy destination if exists"
+msgstr ""
+
+#: ../PatternSkin/data/TWiki/PatternSkinElements.txt:188
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:34
+#: ../core/templates/login.tmpl:60
+msgid "Password"
+msgstr "Senha"
+
+#: ../core/templates/messages.tmpl:209
+msgid "Password changed successfully!"
+msgstr "Senha alterada com sucesso!"
+
+#: ../core/templates/messages.tmpl:219
+msgid "Password could not be changed"
+msgstr "As senhas não podem ser alteradas"
+
+#: ../core/templates/messages.tmpl:247 ../core/templates/messages.tmpl:251
+msgid "Password reset failed"
+msgstr "A ação de Restaurar senha falhou"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:116
+#, fuzzy
+msgid "Password:"
+msgstr "Senha"
+
+#: ../core/templates/messages.tmpl:261
+msgid "Passwords do not match"
+msgstr "As senhas não conferem"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:55
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:66
+msgid "Personal Preferences"
+msgstr "Preferências pessoais"
+
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:57
+#: ../core/templates/oopsmore.tmpl:61
+msgid "Pick from a list"
+msgstr "Selecione de uma lista"
+
+#: ../core/templates/messages.tmpl:168
+msgid "Pick one of the %1."
+msgstr "Escolha uma das %1."
+
+#: ../core/data/Trash/TrashAttachment.txt:3
+msgid "Placeholder for trashed attachments"
+msgstr "Lugar reservado para anexos removidos"
+
+#: ../core/templates/messages.tmpl:301 ../core/templates/messages.tmpl:351
+msgid "Please contact %1 if you have any questions."
+msgstr "Por favor, contate %1 se você tiver qualquer questão."
+
+#: ../core/templates/messages.tmpl:183 ../core/templates/messages.tmpl:192
+#: ../core/templates/messages.tmpl:271 ../core/templates/messages.tmpl:280
+msgid "Please contact %1."
+msgstr "Por favor, contate %1."
+
+#: ../core/templates/login.sudo.tmpl:7
+msgid "Please enter the TWiki admin password"
+msgstr "Por favor, digite a senha de Administrador do TWiki"
+
+#: ../core/templates/login.tmpl:14
+msgid "Please enter your username and password"
+msgstr "Por favor, digite seu nome de usuário e senha"
+
+#: ../core/templates/messages.tmpl:101 ../core/templates/messages.tmpl:107
+#: ../core/templates/messages.tmpl:113 ../core/templates/messages.tmpl:79
+#: ../core/templates/messages.tmpl:85 ../core/templates/messages.tmpl:95
+msgid "Please go _back_ in your browser and try a new name."
+msgstr "Por favor, _volte_ no seu navegador e tente um novo nome."
+
+#: ../core/templates/messages.tmpl:138
+#, fuzzy
+msgid "Please go back and try a different web."
+msgstr "Por favor, volte no seu navegador e tente de novo."
+
+#: ../core/templates/messages.tmpl:420 ../core/templates/messages.tmpl:427
+msgid "Please go back in your browser and check again."
+msgstr "Por favor, volte no seu navegador e verifique de novo."
+
+#: ../core/templates/messages.tmpl:118
+msgid ""
+"Please go back in your browser and choose a topic name that is a %1.WikiWord "
+"or check the allow non-Wiki Word box"
+msgstr ""
+"Por favor, volte no seu navegador e escolha um nome de tópico que seja uma "
+"[[%1.WikiWord][PalavraWiki]] ou marque a opção de permitir nomes que não "
+"sejam uma palavra Wiki."
+
+#: ../core/templates/messages.tmpl:130 ../core/templates/messages.tmpl:134
+#: ../core/templates/messages.tmpl:146 ../core/templates/messages.tmpl:154
+#: ../core/templates/messages.tmpl:158 ../core/templates/messages.tmpl:162
+#: ../core/templates/messages.tmpl:172 ../core/templates/messages.tmpl:258
+#: ../core/templates/messages.tmpl:264 ../core/templates/messages.tmpl:308
+#: ../core/templates/messages.tmpl:320 ../core/templates/messages.tmpl:326
+#: ../core/templates/messages.tmpl:334 ../core/templates/messages.tmpl:45
+#: ../core/templates/messages.tmpl:49 ../core/templates/messages.tmpl:67
+msgid "Please go back in your browser and try again."
+msgstr "Por favor, volte no seu navegador e tente de novo."
+
+#: ../core/templates/messages.tmpl:53
+msgid ""
+"Please make sure you spelled the %1 correctly and try again. If you get "
+"stuck, please mail %2."
+msgstr ""
+"Por favor, certifique-se de que você digitou o %1 corretamente. Se você não "
+"conseguir ir adiante, por favor envie um e-mail para %2."
+
+#: ../core/templates/messages.tmpl:436
+msgid "Please try small size files or contact Administrator."
+msgstr ""
+
+#: ../core/templates/mailresetpassword.tmpl:12
+msgid ""
+"Please visit %1 to change your password to something more memorable for you."
+msgstr ""
+"Por favor, visite %1 para mudar sua senha para alguma coisa que você possa "
+"lembrar melhor."
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:70
+msgid ""
+"Preference for the editor, default is the WYSIWYG editor. The options are "
+"raw, wysiwyg:"
+msgstr ""
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:12
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:12
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:13
+#: ../PatternSkin/data/_default/WebLeftBar.txt:11
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:19
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:18
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:53
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:19
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:21
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:18
+msgid "Preferences"
+msgstr "Preferências"
+
+#: ../PatternSkin/templates/settings.pattern.tmpl:13
+#: ../core/templates/settings.tmpl:7
+msgid "Preferences for"
+msgstr "Preferências para"
+
+#: ../core/data/TWiki/SearchResultsPagination.txt:100
+msgid "Previous"
+msgstr ""
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:20
+msgid "Print version"
+msgstr ""
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:35
+msgid "Properties"
+msgstr "Propriedades"
+
+#: ../core/data/Main/TWikiPreferences.txt:7
+msgid ""
+"Quick edit of existing preferences (edit the topic text to set new "
+"preferences)"
+msgstr ""
+"Edite rapidamente as preferências existentes (edite o tópico para configurar "
+"novas preferências)"
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:197
+msgid "Quiet save"
+msgstr "Salvar sem notificar"
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:10
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:10
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:11
+#: ../PatternSkin/data/_default/WebLeftBar.txt:9
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:17
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:16
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:51
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:17
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:19
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:16
+msgid "RSS Feed"
+msgstr "Fonte RSS"
+
+#: ../core/templates/viewtopicactionbuttons.tmpl:9
+#, fuzzy
+msgid "Ra&w edit"
+msgstr "Editar modo texto"
+
+#: ../core/templates/viewtopicactionbuttons.tmpl:9
+#, fuzzy
+msgid "Raw Edit this topic text"
+msgstr "Editar o texto desse tópico"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:19
+#, fuzzy
+msgid "Raw View"
+msgstr "(texto puro)"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:28
+#: ../core/templates/viewtopicactionbuttons.tmpl:67
+msgid "Raw edit"
+msgstr "Editar modo texto"
+
+#: ../core/templates/registernotify.tmpl:10
+msgid ""
+"Read %1 to get a quick overview of this collaboration platform. To learn "
+"more, study the TWikiTutorial, which is accessible from the same link."
+msgstr ""
+"Leia %1 para obter uma visão geral rápida sobre essa plataforma de "
+"colaboração. Para aprender mais, leia o TWikiTutorial, que é acessível a "
+"partir do mesmo link."
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:30
+msgid "Read new revision help text in new window"
+msgstr "Ler a ajuda sobre nova versão numa nova janela"
+
+#: ../TipsContrib/data/TWiki/TWikiTipsOfTheDayInclude.txt:12
+msgid "Read on"
+msgstr "Leia mais"
+
+#: ../core/data/TWiki/WebChanges.txt:2
+#, fuzzy
+msgid "Recent Changes in %1 Web"
+msgstr "%1 Últimas alterações na Web %2"
+
+#: ../core/data/TWiki/WebSearch.txt:54
+#: ../core/data/TWiki/WebSearchAdvanced.txt:95
+msgid "Recently changed topics"
+msgstr "Tópicos alterados recentemente"
+
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:75
+msgid ""
+"Recommended step before upload: Crop the image to about square size, and "
+"resize it to a width of 200 pixels. This makes it load faster."
+msgstr ""
+
+#: ../core/lib/TWiki/UI/Manage.pm:1286
+msgid "Refresh"
+msgstr "Atualizar"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:163
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:91
+#, fuzzy
+msgid "Region"
+msgstr "Versão"
+
+#: ../PatternSkin/data/TWiki/WebLeftBarLogin.txt:3
+#: ../core/templates/twiki.tmpl:112
+msgid "Register"
+msgstr "Registro"
+
+#: ../PatternSkin/data/TWiki/UserBookmarks.txt:31
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopBar.txt:40
+#, fuzzy
+msgid "Register User"
+msgstr "Registro"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:13
+msgid "Registered users can [[%1][change]] and [[%2][reset]] their passwords."
+msgstr ""
+"Usuários registrados podem [[%1][alterar]] e [[%2][restaurar]] suas senhas."
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:2
+msgid "Registration"
+msgstr "Registro"
+
+#: ../core/templates/messages.tmpl:340
+msgid "Registration codes can only be used once."
+msgstr "Os códigos para registo podem ser utilizados somente uma vez."
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:65
+msgid "Regular expression search"
+msgstr "Busca com expressões regulares"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:82
+msgid "Related Topics"
+msgstr "Tópicos Relacionados"
+
+#: ../TagMePlugin/lib/TWiki/Plugins/TagMePlugin.pm:957
+#, fuzzy
+msgid "Related tags"
+msgstr "Tópicos relacionados:"
+
+#: ../TWikiUserMappingContrib/data/Main/TWikiGroupTemplate.txt:23
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:48
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:42
+#: ../TWikiUserMappingContrib/data/TWiki/EditUserAccount.txt:15
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:149
+#: ../TWikiUserMappingContrib/data/TWiki/QueryUsers.txt:10
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:37
+#: ../core/data/Sandbox/WebNotify.txt:10 ../core/data/Trash/WebNotify.txt:10
+#: ../core/data/_default/WebNotify.txt:10 ../core/templates/messages.tmpl:573
+#: ../core/templates/messages.tmpl:580
+msgid "Related topics:"
+msgstr "Tópicos relacionados:"
+
+#: ../core/templates/login.tmpl:67
+msgid "Remember me on this computer"
+msgstr "Lembre-me nesse computador"
+
+#: ../core/templates/messages.tmpl:228
+msgid ""
+"Remember to update your user topic if you want your e-mail change to be "
+"reflected there as well."
+msgstr ""
+"Lembre-se de atualizar sua página de usuário se quiser que essa alteração de "
+"e-mail esteja apontada lá também."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:5
+msgid "Remember your password?"
+msgstr "Lembrar sua senha?"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:28
+msgid "Remember, a %1 is case sensitive."
+msgstr "Lembre-se, %1 diferencia maiúsculas e minúsculas."
+
+#: ../core/templates/messages.tmpl:59
+msgid "Remove the user from the group(s) %1 first."
+msgstr "Remova o usuário do(s) grupo(s) %1 primeiro."
+
+#: ../TagMePlugin/data/TWiki/TagMeRenameTag.txt:34
+#: ../core/templates/rename.tmpl:7
+msgid "Rename"
+msgstr "Renomear"
+
+#: ../core/templates/messages.tmpl:104 ../core/templates/messages.tmpl:110
+#: ../core/templates/messages.tmpl:92 ../core/templates/messages.tmpl:98
+msgid "Rename failed"
+msgstr "A ação de renomear falhou"
+
+#: ../core/templates/oopsmore.tmpl:31
+msgid "Rename or move topic"
+msgstr "Renomear ou mover tópico"
+
+#: ../core/data/TWiki/RenameWeb.txt:2
+#, fuzzy
+msgid "Rename, Move or Delete this Web"
+msgstr "Renomear, mover ou remover essa web:"
+
+#: ../core/templates/rename.tmpl:20 ../core/templates/renameconfirm.tmpl:29
+#: ../core/templates/renameweb.tmpl:33
+msgid "Rename/Move"
+msgstr "Renomear/Mover"
+
+#: ../core/templates/oopsmore.tmpl:32 ../core/templates/oopsmore.tmpl:34
+msgid "Rename/move topic..."
+msgstr "Renomear/mover tópico..."
+
+#: ../core/templates/renameweb.tmpl:7
+#, fuzzy
+msgid "Rename/move/delete"
+msgstr "Renomear/mover/remover web..."
+
+#: ../core/data/TWiki/RenameWeb.txt:7
+msgid "Rename/move/delete web..."
+msgstr "Renomear/mover/remover web..."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:3
+msgid "Reset Password"
+msgstr "Restaurar senha"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:25
+msgid "Reset password"
+msgstr "Restaurar senha"
+
+#: ../core/templates/oopsmore.tmpl:111
+msgid "Restore"
+msgstr "Restaurar"
+
+#: ../core/templates/oopsmore.tmpl:106
+msgid "Restore topic"
+msgstr "Restaurar tópico"
+
+#: ../core/templates/oopsmore.tmpl:108
+msgid "Restore topic to revision:"
+msgstr "Restaurar tópico para a versão: "
+
+#: ../core/templates/oopsmore.tmpl:111
+msgid "Restore topic to this revision"
+msgstr "Restaurar tópico para esta versão"
+
+#: ../PatternSkin/templates/searchbase.pattern.tmpl:12
+msgid "Results from %1 web"
+msgstr "Resultados na web %1"
+
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:87
+#, fuzzy
+msgid "Return to"
+msgstr "Voltar para %1."
+
+#: ../core/templates/messages.tmpl:232
+msgid "Return to %1."
+msgstr "Voltar para %1."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:29
+msgid "Retype new password"
+msgstr "Repita a nova senha:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:117
+msgid "Retype password:"
+msgstr "Repita a senha:"
+
+#: ../core/templates/messages.tmpl:35
+msgid "Rev %1 was saved by %2, while you were still editing."
+msgstr "A versão %1 foi salva por %2, enquanto você ainda estava editando."
+
+#: ../MailerContrib/templates/mailnotify.tmpl:44
+#: ../MailerContrib/templates/mailnotify.tmpl:76
+msgid "Review recent changes in:"
+msgstr "Últimas alterações em:"
+
+#: ../PatternSkin/templates/rdiff.pattern.tmpl:19
+msgid "Revision"
+msgstr "Versão"
+
+#: ../core/templates/oopsmore.tmpl:93
+msgid "Revisions"
+msgstr "Versões"
+
+#: ../PatternSkin/templates/settings.pattern.tmpl:25
+msgid "S = Save, C = Cancel"
+msgstr "S = Salvar, C = Cancelar"
+
+#: ../PatternSkin/templates/preview.pattern.tmpl:14
+msgid "S = Save, Q = Quiet save, K = Save and Continue, D = Discard"
+msgstr ""
+"S = Salvar, Q = Salvar sem notificar, K = Salvar e continuar editando, D = "
+"Descartar"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:53
+msgid ""
+"S = Save, Q = Quiet save, K = Save and Continue, P = Preview, C = Cancel"
+msgstr ""
+"S = Salvar, Q = Salvar sem notificar, K = Salvar e continuar editando, P = "
+"Pré-Visualização, C = Cancelar"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:156
+#, fuzzy
+msgid "Save"
+msgstr "Salvo como:"
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:196
+msgid "Save table"
+msgstr "Salvar tabela"
+
+#: ../core/templates/registernotifyadmin.tmpl:16
+#: ../core/templates/registernotifyadminfail.tmpl:18
+#: ../core/templates/registernotifyadminfailrem.tmpl:18
+msgid "Saved to:"
+msgstr "Salvo como:"
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:7
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:7
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:8
+#: ../PatternSkin/data/TWiki/WebLeftBarExample.txt:6
+#: ../PatternSkin/data/TWiki/WebLeftBarSearch.txt:3
+#: ../PatternSkin/data/TWiki/WebTopBar.txt:9
+#: ../PatternSkin/data/Trash/WebLeftBar.txt:5
+#: ../PatternSkin/data/_default/WebLeftBar.txt:6
+#: ../PatternSkin/templates/twiki.pattern.tmpl:37
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:14
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:13
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:48
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:14
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopBar.txt:78
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:16
+#: ../TopMenuSkin/data/Trash/WebTopMenu.txt:13
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:13
+#: ../core/data/TWiki/WebSearch.txt:30
+#: ../core/data/TWiki/WebSearchAdvanced.txt:36
+msgid "Search"
+msgstr "Busca"
+
+#: ../core/templates/backlinksallwebs.tmpl:7
+msgid "Search %1 Web only"
+msgstr "Procurar só na &Web %1"
+
+#: ../core/templates/backlinksweb.tmpl:7
+msgid "Search all webs"
+msgstr "Procurar em todas as Webs"
+
+#: ../core/templates/backlinksallwebs.tmpl:7
+#: ../core/templates/backlinksweb.tmpl:7 ../core/templates/oopsmore.tmpl:43
+msgid "Search all webs for topics that link to here"
+msgstr "Procurar em todas as webs por tópicos que façam link pra cá"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:18
+msgid "Search similar topics in all public webs"
+msgstr "Procurar por tópicos semelhantes em todas as webs públicas"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:70
+msgid "Search string"
+msgstr "Sequência de texto da busca"
+
+#: ../core/templates/oopsmore.tmpl:45
+#, fuzzy
+msgid "Search the %1 web for topics that link to here"
+msgstr "Procurar em todas as webs por tópicos que façam link pra cá"
+
+#: ../core/data/TWiki/WebSearch.txt:35
+#: ../core/data/TWiki/WebSearchAdvanced.txt:41
+msgid "Search where:"
+msgstr "Buscar em:"
+
+#: ../PatternSkin/templates/searchbase.pattern.tmpl:1
+#: ../core/templates/search.tmpl:10 ../core/templates/searchformat.tmpl:9
+msgid "Searched:"
+msgstr "Busca:"
+
+#: ../core/data/Trash/WebHome.txt:8
+msgid "Security Note:"
+msgstr "Aviso de Segurança:"
+
+#: ../core/templates/messages.tmpl:55
+msgid "See %1 for a list of existing users or register as new user in %2."
+msgstr ""
+"Veja %1 para uma lista de usuários existentes ou registre-se como um novo "
+"usuário em %2."
+
+#: ../core/templates/messages.tmpl:363
+msgid "See %1 for information about Form Definitions."
+msgstr "Veja %1 para informações sobre definições de formulário."
+
+#: ../core/data/TWiki/WebIndex.txt:4
+msgid "See also the faster %1"
+msgstr "Veja também o mais rápido %1"
+
+#: ../core/data/TWiki/WebTopicList.txt:6
+msgid "See also the verbose %1."
+msgstr "Veja também o mais detalhado %1."
+
+#: ../core/data/TWiki/RenameWeb.txt:4 ../core/data/TWiki/RenameWeb.txt:7
+msgid "See also:"
+msgstr "Veja também:"
+
+#: ../core/templates/edit.tmpl:59
+msgid "See below for help in editing this page."
+msgstr "Veja abaixo a ajuda em edição de página"
+
+#: ../core/templates/changeform.tmpl:13
+msgid "Select"
+msgstr "Selecionar"
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:20
+msgid "Select a new local file to update attachment"
+msgstr "Selecione um novo arquivo local para atualizar esse anexo."
+
+#: ../PatternSkin/templates/renamebase.pattern.tmpl:33
+msgid "Select all"
+msgstr "Selecionar todos"
+
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:82
+#, fuzzy
+msgid "Select existing picture"
+msgstr "Selecione o tópico pai:"
+
+#: ../core/templates/oopsmore.tmpl:60
+msgid "Select topic parent:"
+msgstr "Selecione o tópico pai:"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:71
+#: ../core/templates/edit.tmpl:48
+msgid "Select, copy and paste your signature text to the bottom of your entry"
+msgstr "Selecione, copie e cole a sua assinatura no final do seu texto"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:355
+msgid "Send you a confirmation of your registration by e-mail."
+msgstr "Enviar um e-mail para você confirmando seu registro."
+
+#: ../core/templates/oopsmore.tmpl:103
+msgid "Sequential"
+msgstr "Sequencial"
+
+#: ../core/lib/TWiki/Form/Checkbox.pm:55
+msgid "Set all"
+msgstr "Selecionar todos"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:31
+#: ../core/templates/oopsmore.tmpl:64
+msgid "Set new parent"
+msgstr "Marcar novo tópico pai"
+
+#: ../core/templates/oopsmore.tmpl:52
+msgid "Set new topic parent"
+msgstr "Indicar novo tópico pai"
+
+#: ../core/data/TWiki/WebChanges.txt:31
+msgid "Show %1 results per page, or %2show all%3."
+msgstr ""
+
+#: ../PatternSkin/templates/copy.pattern.tmpl:10
+#: ../PatternSkin/templates/renamebase.pattern.tmpl:10
+msgid "Show help"
+msgstr "Exibir ajuda"
+
+#: ../TWikiUserMappingContrib/data/TWiki/NewUserTemplate.txt:76
+msgid "Show tool-tip topic info on mouse-over of %1 links, on or off:"
+msgstr ""
+"Mostrar dica com informações sobre o tópico quando o ponteiro do mouse "
+"estiver sobre links de %1 (mouse-over), _on_ ou _off_: "
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:76
+msgid "Shrink edit box"
+msgstr "Caixa de edição reduzida"
+
+#: ../core/templates/oopsmore.tmpl:103
+msgid "Side by side"
+msgstr "Lado a lado"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:15
+msgid "Similar topics in this web (if any):"
+msgstr "Tópicos semelhantes nesta web (se existir):"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:36
+msgid "Simple search"
+msgstr "Busca simples"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinHomeMenu.txt:11
+msgid "Site map"
+msgstr ""
+
+#: ../core/data/Main/TWikiPreferences.txt:4
+#, fuzzy
+msgid ""
+"Site-level preferences are located in %1, however this %2 prefs topic has "
+"override priority and should be used for local customizations. This allows "
+"for easier upgrades as you don't need to worry about the shipped preferences "
+"clobbering yours. It's easier to keep a handle on if you only copy over the "
+"settings you actually change."
+msgstr ""
+"As preferências do Sítio estão localizadas em %1. Mas as preferências desse "
+"tópico %2 sobrescrevem aquelas e serão consideradas nas definições de "
+"preferências locais. Isso possibilita fácil atualização sem perda das suas "
+"definições. Mantendo o seu grupo de preferências você pode copiar somente "
+"estas quando atualizar o sistema."
+
+#: ../core/templates/attachtables.tmpl:4
+msgid "Size"
+msgstr "Tamanho"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:132
+#: ../core/templates/registernotify.tmpl:15
+msgid "Some add schedule information and vacation notice."
+msgstr ""
+"Algumas pessoas colocam informações sobre agenda ou comentários de férias."
+
+#: ../core/templates/messages.tmpl:410
+msgid "Some characters such as =&#126;=, =$=, =@=, =%= are removed"
+msgstr "Alguns caracteres com estes =&#126;=, =$=, =@=, =%= são removidos"
+
+#: ../core/templates/messages.tmpl:393
+msgid "Some files have been renamed on upload:"
+msgstr ""
+
+#: ../core/templates/messages.tmpl:343
+#, fuzzy
+msgid ""
+"Some mail tools have an error that causes them to send the same request "
+"twice when you click on a link. If you did this, it is possible that you "
+"actually *have* registered successfully."
+msgstr ""
+"Alguns programas de e-mail podem conter um erro que enviam a mesma mensagem "
+"duas vezes. Ainda que isso tenha acontecido, é provável que você *já* esteja "
+"registrado."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:131
+#: ../core/templates/registernotify.tmpl:14
+msgid ""
+"Some people turn it into a personal portal with favorite links, what they "
+"work on, what help they'd like, etc."
+msgstr ""
+"Algumas pessoas o transformam num portal pessoal com links favoritos, "
+"informações sobre no que trabalham, que ajuda gostariam, etc."
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:5
+msgid "Sorry, Registration has been temporarily disabled"
+msgstr "Desculpe-nos, o registro está temporariamente desativado."
+
+#: ../core/templates/messages.tmpl:136
+msgid "Sorry, system webs cannot be renamed, moved or deleted."
+msgstr ""
+
+#: ../TWikiUserMappingContrib/data/TWiki/BulkRegistration.txt:83
+#: ../TWikiUserMappingContrib/data/TWiki/BulkResetPassword.txt:17
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:21
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:17
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:13
+msgid "Sorry, the password system is currently read only, please contact %1"
+msgstr ""
+"Desculpe, mas o sistema de senhas atualmente é somente para leitura. Entre "
+"em contato com %1"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:53
+msgid "Sort results by:"
+msgstr "Ordenar resultados por:"
+
+#: ../core/templates/messages.tmpl:408
+msgid "Spaces are replaced by underscores"
+msgstr "Espaços são substituídos por sublinhados"
+
+#: ../PatternSkin/data/Main/WebLeftBar.txt:11
+#: ../PatternSkin/data/Sandbox/WebLeftBar.txt:11
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:12
+#: ../PatternSkin/data/_default/WebLeftBar.txt:10
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:18
+#: ../TopMenuSkin/data/Sandbox/WebTopMenu.txt:17
+#: ../TopMenuSkin/data/TWiki/TopMenuSkin.txt:52
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinDefaultWebTopMenu.txt:18
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:20
+#: ../TopMenuSkin/data/_default/WebTopMenu.txt:17
+msgid "Statistics"
+msgstr "Estatísticas"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:151
+msgid "Status update: Make a sentence, such as: =is out of office="
+msgstr ""
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:345
+#: ../core/templates/messages.tmpl:348
+msgid "Submit"
+msgstr "Enviar"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:142
+#: ../core/templates/registernotify.tmpl:20
+#: ../core/templates/registernotifyadmin.tmpl:12
+#: ../core/templates/registernotifyadminfail.tmpl:14
+#: ../core/templates/registernotifyadminfailrem.tmpl:14
+msgid "Submitted content:"
+msgstr "Conteúdo enviado:"
+
+#: ../MailerContrib/templates/mailnotify.tmpl:47
+#: ../MailerContrib/templates/mailnotify.tmpl:79
+#: ../MailerContrib/templates/newsletter.tmpl:20
+msgid "Subscribe / Unsubscribe in:"
+msgstr "Inscrever-se / Desinscrever-se em:"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:71
+msgid "Summaries"
+msgstr "Resumos"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:76
+#, fuzzy
+msgid "Switch to monotype or proportional font"
+msgstr "Trocar para fonte monoespaçada ou proporcional"
+
+#: ../core/templates/messages.tmpl:135
+#, fuzzy
+msgid "System web %1 cannot be renamed or moved"
+msgstr "A nova web foi criada"
+
+#: ../core/data/TWiki/WebSearch.txt:31
+#: ../core/data/TWiki/WebSearchAdvanced.txt:37
+msgid ""
+"TIP: to search for all topics that contain =\"SOAP\"=, =\"WSDL\"=, a literal "
+"=\"web service\"=, but not =\"shampoo\"=, write:"
+msgstr ""
+"DICA: para procurar por todos os tópicos contendo =\"SOAP\"=, =\"WSDL\"=, ="
+"\"web service\"= literalmente, mas sem =\"shampoo\"=, escreva:"
+
+#: ../core/templates/login.tmpl:3
+msgid "TWiki User Authentication"
+msgstr "Autenticação de Usuário TWiki"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopBar.txt:62
+#, fuzzy
+msgid "TWiki help"
+msgstr "Ajuda com edição"
+
+#: ../core/templates/mailresetpassword.tmpl:3
+msgid "TWiki password reset for %1"
+msgstr "Restaurar senha no TWiki para %1"
+
+#: ../core/templates/oopschangelanguage.tmpl:12
+msgid ""
+"TWiki's user interface is available in several languages. If you want to "
+"change the language for this session, choose one of the following and hit "
+"\"Change language\". Otherwise, follow the \"Cancel\" link on the bottom of "
+"the page to return to the previous topic."
+msgstr ""
+"A interface de usuário do TWiki está disponível em vários idiomas. Se você "
+"quiser alterar o idioma para essa sessão, escolha um dos seguintes e clique "
+"em \"Alterar idioma\". Caso contrário, clique no link \"Cancelar\" no rodapé "
+"da página para retornar ao tópico anterior."
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:117
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:175
+msgid "Tag Cloud of %1:"
+msgstr ""
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:178
+msgid "Tag topics to modify your tag cloud."
+msgstr ""
+
+#: ../core/templates/messages.tmpl:606
+msgid "Template %1 does not exist"
+msgstr "O modelo %1 não existe"
+
+#: ../core/data/TWiki/WebSearch.txt:37
+#: ../core/data/TWiki/WebSearchAdvanced.txt:43
+msgid "Text body"
+msgstr "Corpo do texto"
+
+#: ../core/templates/messages.tmpl:197 ../core/templates/messages.tmpl:235
+msgid "Thank you for registering"
+msgstr "Obrigado por se registrar"
+
+#: ../core/templates/registernotify.tmpl:8
+msgid ""
+"Thank you for registering in the %1 collaboration platform. Please save this "
+"e-mail for future reference."
+msgstr ""
+"Obrigado por se registrar no ambiente %1. Por favor, guarde este e-mail para "
+"sua referência futura."
+
+#: ../core/templates/registerconfirm.tmpl:9
+msgid ""
+"Thank you for registering in the %1 collaboration platform. Your "
+"verification code is:"
+msgstr ""
+"Obrigado por se registrar na plataforma de colaboração %1. Seu código de "
+"verificação é:"
+
+#: ../core/templates/messages.tmpl:624
+msgid "That user has already been activated "
+msgstr "Este usuário já foi ativado"
+
+#: ../core/templates/messages.tmpl:312
+msgid ""
+"The %1 field must be your first and last name in %2, e.g. your capitalized "
+"first and last name with spaces removed."
+msgstr ""
+"O campo %1 deve conter seu primeiro e último nomes em %2, i.e. seu primeiro "
+"e último nomes iniciados com maiúsculas e sem espaços entre eles."
+
+#: ../core/templates/messages.tmpl:306
+msgid "The %1 field must match the {LoginNameFilterIn} filter for this site"
+msgstr "O campo %1 deve casar com o filtro {LoginNameFilterIn} para esse sítio"
+
+#: ../core/templates/messages.tmpl:76
+msgid "The %1 topic already exists"
+msgstr "O tópico %1 já existe."
+
+#: ../core/templates/messages.tmpl:82 ../core/templates/messages.tmpl:88
+#, fuzzy
+msgid "The %1 web already exists"
+msgstr "O tópico %1 já existe."
+
+#: ../core/data/TWiki/RenameWeb.txt:4
+#, fuzzy
+msgid "The %1 web cannot be renamed."
+msgstr "A nova web foi criada"
+
+#: ../core/templates/messages.tmpl:583
+msgid "The %1 web does not exist"
+msgstr "A web %1 não existe"
+
+#: ../core/templates/messages.tmpl:642
+#, fuzzy
+msgid "The %1 web is not writable on this site"
+msgstr "A web %1 não existe"
+
+#: ../core/templates/messages.tmpl:149
+#, fuzzy
+msgid "The %1 web missing metadata"
+msgstr "A web %1 não existe"
+
+#: ../core/data/Sandbox/WebRss.txt:5 ../core/data/Trash/WebRss.txt:5
+#: ../core/data/_default/WebAtom.txt:3 ../core/data/_default/WebRss.txt:5
+msgid ""
+"The %1 web of TWiki. TWiki is a Web-Based Collaboration Platform for the "
+"Enterprise."
+msgstr ""
+"A web %1 do TWiki. TWiki é uma plataforma de colaboração baseada na web e "
+"voltada para o mundo das organizações."
+
+#: ../core/templates/messages.tmpl:508
+msgid "The =%1= script can only be called with POST method."
+msgstr ""
+
+#: ../core/templates/messages.tmpl:190
+msgid "The Administrator has disabled new user registration."
+msgstr "O Administrador desativou o registro de novos usuários."
+
+#: ../core/templates/messages.tmpl:338
+msgid "The activation code %1 is invalid."
+msgstr "O código de ativação %1 é inválido."
+
+#: ../core/templates/moveattachment.tmpl:29
+msgid "The attachment and any history will be moved to the new topic."
+msgstr "O anexo e seu histórico serão movidos para o novo tópico."
+
+#: ../core/templates/messages.tmpl:541
+msgid ""
+"The chances are good that %1 has simply navigated away from the edit page "
+"without saving."
+msgstr ""
+"São grandes a chances de que %1 tenha simplesmente navegado para outro lugar "
+"a partir da página de edição e sem salvar."
+
+#: ../core/templates/renamebase.tmpl:70
+msgid ""
+"The checkmarked topics will be updated (another form will appear which will "
+"_eventually_ allow you to rename any topics that were locked)"
+msgstr ""
+"Os tópicos marcados serão atualizados (outro formulário vai aparecer e "
+"_pode_ permitir você renomear tópicos que estejam travados)"
+
+#: ../core/templates/messages.tmpl:485
+#, fuzzy
+msgid "The copy destination %1 already exists."
+msgstr "O tópico %1 já existe."
+
+#: ../core/templates/messages.tmpl:330
+msgid "The e-mail address for this account is not valid."
+msgstr "O endereço de e-mail para essa conta não é válido."
+
+#: ../core/templates/messages.tmpl:557
+msgid "The entry for user %1 was missing in the password system."
+msgstr "A entrada para o usuário %1 estava faltando no sistema de senhas."
+
+#: ../core/templates/messages.tmpl:392
+#, fuzzy
+msgid "The files have been uploaded and attached properly to the %1 topic."
+msgstr "O arquivo foi enviado e anexado apropriadamente ao tópico %1."
+
+#: ../core/templates/messages.tmpl:456
+msgid "The following topics are locked for edit, and cannot be moved:"
+msgstr ""
+"Os seguintes tópicos estão travados para edição e não podem ser movidos:"
+
+#: ../core/templates/messages.tmpl:462
+msgid "The following topics refer to topics in this web, but are being edited:"
+msgstr ""
+"Os seguintes tópicos se referem (links) a tópicos nessa web, mas estão sendo "
+"editados."
+
+#: ../core/templates/messages.tmpl:459
+msgid ""
+"The following topics refer to topics in this web, but you are denied access "
+"to them:"
+msgstr ""
+"Os seguintes tópicos se referem (links) a tópicos nessa web, mas você tem "
+"acesso negado a eles:"
+
+#: ../core/templates/messages.tmpl:369
+msgid "The form should be defined in the topic %1"
+msgstr "O formulário deve ser definido no tópico %1"
+
+#: ../core/templates/messages.tmpl:539
+msgid "The lease on this topic expired %1 ago."
+msgstr "O tempo de edição preferencial para o tópico acabou %1 atrás."
+
+#: ../core/templates/moveattachment.tmpl:16
+msgid "The new topic chosen must already exist."
+msgstr "O novo tópico selecionado deve já existir."
+
+#: ../core/templates/messages.tmpl:16
+msgid "The new web has been created"
+msgstr "A nova web foi criada"
+
+#: ../core/templates/messages.tmpl:128
+msgid "The password you entered in the *old password* field is incorrect."
+msgstr "A senha que você colocou no campo *senha antiga* está incorreta."
+
+#: ../core/templates/messages.tmpl:357
+msgid "The required field %1 was not filled in."
+msgstr "O campo obrigatório %1 não foi preenchido."
+
+#: ../core/templates/messages.tmpl:181
+msgid "The selected User System does not support new user registration."
+msgstr ""
+"O Sistema de Usuário selecionado não suporta registro de novos usuários."
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:4
+msgid "The topic %1 you are trying to access does not exist, yet."
+msgstr "Você está tentando acessar o tópico %1, mas esle ainda não existe."
+
+#: ../core/templates/messages.tmpl:372
+msgid "The topic is in an old format"
+msgstr "O tópico está no formato antigo"
+
+#: ../core/templates/messages.tmpl:262
+msgid "The two passwords you entered do not match."
+msgstr "As duas senhas que você digitou não coincidem."
+
+#: ../core/templates/messages.tmpl:626
+msgid "The user %1 has already been activated, and should be able to log in."
+msgstr "O usuário %1 já foi ativado e já pode efetuar login"
+
+#: ../core/templates/messages.tmpl:452
+msgid "There are problems with renaming this web:"
+msgstr "Houveram problemas com a renomeação da web:"
+
+#: ../core/templates/messages.tmpl:269
+msgid "There has been a problem adding your user id to the Password system."
+msgstr ""
+"Houve um problema ao incluir a identificação do usuário ao sistema de senha. "
+
+#: ../core/templates/messages.tmpl:375
+msgid "There should be a line that includes %1, look for %2 (or %3)"
+msgstr "Deveria haver uma linha que inclui %1, procure por %2 (ou %3)"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:6
+msgid "This TWiki does _not_ support new User Registration"
+msgstr "Esse TWiki _não_ suporta Registros de Novos Usuários"
+
+#: ../core/templates/messages.tmpl:150
+msgid ""
+"This TWiki employs TWiki.MetadataRepository and requires every web to have "
+"its metadata registered. But currently the metadata is missing for the %1 "
+"web to be created. Please register the metadata and try again."
+msgstr ""
+
+#: ../core/templates/messages.tmpl:382
+msgid "This can be automatically upgraded by:"
+msgstr "Isto pode ser automaticamente:"
+
+#: ../core/templates/messages.tmpl:365
+msgid "This could be for several reasons:"
+msgstr "Isto pode acontecer por várias razões:"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:5
+#, fuzzy
+msgid ""
+"This form is used to change your registered e-mail addresses. Your "
+"registered e-mails are used by TWiki for sending you e-mails, including "
+"notifications of password changes. The addresses you register via this form "
+"are kept secret and will *not* be published anywhere on this site."
+msgstr ""
+"Esse formulário é utilizado para alterar os seus endereços registados de e-"
+"mail. O TWiki utiliza esses endereços para lhe enviar e-mails, incluindo as "
+"notificações de alterações de senha. Os endereços que você registra através "
+"desse formulário serão mantidos em segredo e *não* serão publicados em "
+"qualquer lugar desse sítio."
+
+#: ../core/data/Sandbox/WebNotify.txt:4 ../core/data/Trash/WebNotify.txt:4
+#: ../core/data/_default/WebNotify.txt:4
+msgid ""
+"This is a subscription service to be automatically notified by e-mail when "
+"topics change in this %1 web. This is a convenient service, so you do not "
+"have to come back and check all the time if something has changed. To "
+"subscribe, please add a bullet with your %2 in alphabetical order to this "
+"list:"
+msgstr ""
+"Este é um serviço por inscrição para receber notificações automaticamente "
+"por e-mail somente quando tópicos forem alterados na web %1. É um serviço "
+"bastante conveniente, pois assim você não precisa voltar constantemente para "
+"verificar se alguma coisa foi modificada. Para se inscrever nesse serviço "
+"basta adicionar seu %2 em ordem alfabética nesta lista:"
+
+#: ../MailerContrib/templates/mailnotify.tmpl:7
+#: ../MailerContrib/templates/mailnotify.tmpl:71
+msgid "This is an automated e-mail from %1."
+msgstr "Este é um e-mail automático de %1."
+
+#: ../core/templates/registernotifyadmin.tmpl:8
+#: ../core/templates/registernotifyadminfail.tmpl:8
+#: ../core/templates/registernotifyadminfailrem.tmpl:8
+msgid "This is an automated e-mail notification of user registration in %1."
+msgstr ""
+"Este é um e-mail automático de notificação de usuário registrado em %1."
+
+#: ../core/data/Trash/WebHome.txt:5
+msgid ""
+"This is the Trash. Here you can undelete topics; deleted attachments are in "
+"TrashAttachment."
+msgstr ""
+"Aqui é a Lixeira. Aqui você pode recuperar tópicos; anexos removidos ficam "
+"em TrashAttachment."
+
+#: ../WysiwygPlugin/lib/TWiki/Plugins/WysiwygPlugin/TML2HTML.pm:143
+msgid "This is why the conversion is disabled:"
+msgstr ""
+
+#: ../core/templates/renamedelete.tmpl:25
+msgid ""
+"This name has been chosen so it doesn't conflict with any other topics "
+"already in the %1 web."
+msgstr ""
+"Este nome foi escolhido para não conflitar com nenhum outro tópico já "
+"existente na web %1."
+
+#: ../core/templates/messages.tmpl:380
+msgid "This requires the form definition to be present."
+msgstr "Isto necessita que a definição do formulário esteja presente."
+
+#: ../core/templates/messages.tmpl:324
+msgid "This site requires at least %1 character passwords"
+msgstr "Este sítio exige caracteres %1 para senhas"
+
+#: ../core/data/TWiki/WebTopicViewTemplate.txt:12
+msgid "This topic has moved to %1."
+msgstr "Este tópico foi movido para %1."
+
+#: ../core/data/TWiki/WebTopicNonWikiTemplate.txt:6
+msgid ""
+"This topic name is not recommended because it will not be linked "
+"automatically. See %1 for details"
+msgstr ""
+"Este nome de tópico não é recomendado porque não serão criados links "
+"automaticamente para ele. Veja detalhes em %1"
+
+#: ../core/templates/viewprint.tmpl:13
+msgid "This topic:"
+msgstr "Esse tópico:"
+
+#: ../core/templates/messages.tmpl:37
+msgid ""
+"Those changes have been merged with yours to create Rev %1. Text fields will "
+"have been merged, but other data such as form fields may have overwritten "
+"the other users changes. Please inspect the topic to make sure it is OK, "
+"especially if you made any changes to form fields."
+msgstr ""
+"As alterações dele(a) foram combinadas com as suas para criar a revisão %1. "
+"Campos de texto foram combinados, mas outros dados com campos de formulário "
+"podem ter sobrescrito as alterações do(a) outro(a) usuário(a). Por favor, "
+"confira o tópico pra ter certeza que ele está OK, especialmente se você "
+"alterou campos de formulário."
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:158
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:86
+#, fuzzy
+msgid "Title"
+msgstr "Título do tópico"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:5
+msgid ""
+"To edit pages on this TWikiSite, you must have a registered user name and "
+"password."
+msgstr ""
+"Para editar páginas nesse [[%TWIKIWEB%.TWikiSite][SítioTWiki]], você precisa "
+"ter um nome de usuário e uma senha registrados."
+
+#: ../core/templates/oopsleaseconflict.tmpl:18
+msgid "To edit the topic anyway, click "
+msgstr "Para editar o tópico assim mesmo, clique."
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:86
+msgid "To register as a new user, simply fill out this form:"
+msgstr "Para se registrar como um novo usuário, preencha esse formulário:"
+
+#: ../core/templates/messages.tmpl:638
+msgid ""
+"To save your changes, press the browser back button, copy all content into "
+"the clipboard, cancel edit, edit again, and replace content with clipboard "
+"content. Whew ... nothing lost!"
+msgstr ""
+
+#: ../core/templates/oopsleaseconflict.tmpl:14
+msgid "To see if %1 has finished editing yet, click "
+msgstr "Para ver se %1 já terminou de editar, clique"
+
+#: ../core/templates/copy.tmpl:49 ../core/templates/renamebase.tmpl:29
+#: ../core/templates/renameconfirm.tmpl:14
+msgid "To topic:"
+msgstr "Para tópico:"
+
+#: ../core/templates/copy.tmpl:42 ../core/templates/renamebase.tmpl:22
+#: ../core/templates/renameconfirm.tmpl:10
+msgid "To web:"
+msgstr "Para web:"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:18
+#, fuzzy
+msgid "Topic"
+msgstr "Para tópico:"
+
+#: ../core/templates/messages.tmpl:354
+msgid "Topic Save Error"
+msgstr "Erro ao salvar o tópico:"
+
+#: ../PatternSkin/templates/attachtables.pattern.tmpl:15
+msgid "Topic attachments"
+msgstr "Anexos do tópico"
+
+#: ../core/templates/messages.tmpl:378
+msgid "Topic can not be upgraded from old style category table"
+msgstr ""
+"O tópico não pôde ser atualizado a partir do estilo antigo de tabela de "
+"categorias"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:55
+msgid "Topic name"
+msgstr "Nome do tópico"
+
+#: ../PatternSkin/data/TWiki/PatternSkinWebCreateNewTopicTemplate.txt:47
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:29
+msgid "Topic name:"
+msgstr "Nome do tópico:"
+
+#: ../PatternSkin/data/TWiki/PatternSkinWebCreateNewTopicTemplate.txt:54
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:34
+msgid "Topic parent:"
+msgstr "Tópico pai:"
+
+#: ../PatternSkin/templates/rdiff.pattern.tmpl:19
+#: ../PatternSkin/templates/view.pattern.tmpl:47
+#: ../PatternSkin/templates/view.pattern.tmpl:74
+#: ../TWikiNetSkin/templates/view.twikinet.tmpl:25
+#: ../core/templates/viewprint.tmpl:14
+msgid "Topic revision:"
+msgstr "Versão do tópico:"
+
+#: ../core/templates/oopssaveerr.tmpl:12
+msgid "Topic save error"
+msgstr "Erro ao salvar tópico"
+
+#: ../core/data/TWiki/WebTemplateTopics.txt:2
+msgid "Topic templates in %1 Web"
+msgstr "Modelos de tópicos na web %1"
+
+#: ../core/data/TWiki/WebSearch.txt:37
+#: ../core/data/TWiki/WebSearchAdvanced.txt:44
+msgid "Topic title"
+msgstr "Título do tópico"
+
+#: ../core/templates/messages.tmpl:34
+msgid "Topic was merged"
+msgstr "O tópico foi combinado:"
+
+#: ../PatternSkin/data/TWiki/PatternSkinWebCreateNewTopicTemplate.txt:28
+msgid "Topic will be named: "
+msgstr "O tópico será nomeado: "
+
+#: ../core/templates/search.tmpl:14
+msgid "Topics in %1 web"
+msgstr "Tópicos na web %1"
+
+#: ../MailerContrib/templates/mailnotify.tmpl:14
+#: ../core/templates/search.text.tmpl:4
+msgid "Topics in %1 web:"
+msgstr "Tópicos na web %1:"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:82
+msgid "Topics per web"
+msgstr "Tópicos por web"
+
+#: ../core/templates/renamewebbase.tmpl:29
+msgid "Topics which are currently being edited by other users in the %1 Web:"
+msgstr "Tópicos que estão sendo editados agora por outros usuários na Web %1:"
+
+#: ../core/templates/renamewebbase.tmpl:32
+#, fuzzy
+msgid ""
+"Topics which refer to this web and are currently being edited by other users:"
+msgstr ""
+"Tópicos que fazem referência a essa web e estão sendo atualizados agora por "
+"outros usuários:"
+
+#: ../core/templates/renamewebbase.tmpl:35
+msgid ""
+"Topics which refer to this web that you do not have permission to change:"
+msgstr ""
+"Tópicos que fazem referência a essa web que você não tem permissão de "
+"alterar:"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:72
+msgid "Total matches"
+msgstr "Números de resultados"
+
+#: ../core/templates/oopsleaseconflict.tmpl:15
+msgid "Try Again"
+msgstr "Tente novamente"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:161
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:89
+msgid "URL"
+msgstr ""
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:133
+msgid "URL:"
+msgstr ""
+
+#: ../core/templates/login.sudo.tmpl:5
+msgid "Unrecognised user and/or password"
+msgstr "Usuário e/ou senha desconhecido(s)"
+
+#: ../core/templates/messages.tmpl:48
+msgid "Unrecognized action command %1"
+msgstr "Comando de ação %1 não conhecido"
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:4
+msgid "Update attachment %1 on %2"
+msgstr "Atualizar o anexo %1 em %2"
+
+#: ../core/templates/renamebase.tmpl:49
+#: ../core/templates/renamewebbase.tmpl:27
+msgid "Update links"
+msgstr "Links atualizados"
+
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:67
+#, fuzzy
+msgid "Upload"
+msgstr "Anexar arquivo"
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:28
+#: ../PatternSkin/templates/attachnew.pattern.tmpl:7
+#: ../core/templates/attachagain.tmpl:21 ../core/templates/attachnew.tmpl:9
+msgid "Upload file"
+msgstr "Anexar arquivo"
+
+#: ../TWikiUserMappingContrib/data/Main/ChangeProfilePicture.txt:63
+#, fuzzy
+msgid "Upload new picture"
+msgstr "Anexar arquivo"
+
+#: ../PatternSkin/templates/attach.pattern.tmpl:22
+msgid "Upload up to %1 KB."
+msgstr "Transferências até %1 KB."
+
+#: ../core/templates/messages.tmpl:434
+msgid "Uploaded file %1 exceeds limit of %2 KB"
+msgstr "O arquivo %1 ultrapassou o limite de %2 KB"
+
+#: ../core/templates/messages.tmpl:433
+msgid "Uploaded file is too big"
+msgstr "O arquivo é muito grande."
+
+#: ../core/templates/messages.tmpl:418
+msgid ""
+"Uploaded file type %1 differs from the existing type %2. They must be of the "
+"same type when updating an existing attachment."
+msgstr ""
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:5
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:5
+msgid "Use %1 instead."
+msgstr "Use %1 preferencialmente."
+
+#: ../core/data/Sandbox/WebHome.txt:23
+msgid "Use a %1 for automatic linking."
+msgstr ""
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:122
+#, fuzzy
+msgid "Use system generated password"
+msgstr "Repita a nova senha:"
+
+#: ../PatternSkin/data/TWiki/PatternSkinWebCreateNewTopicTemplate.txt:61
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:39
+msgid "Use template:"
+msgstr "Modelo:"
+
+#: ../core/data/Sandbox/WebHome.txt:12
+#, fuzzy
+msgid ""
+"Use this web to try out TWiki. Go ahead and add or delete some stuff. Walk "
+"through the %1 to learn the basics of TWiki. We recommend to sign your "
+"contributions with your %2 and date, which is done automatically when you "
+"create a topic or add a comment."
+msgstr ""
+"A web %1 é uma área aberta que você pode usar pra testar. Todos são bem-"
+"vindos para adicionar ou apagar alguma coisa. É recomendado, porém, dar uma "
+"passada no %2 para ler uma introdução no uso da ferramenta %3. Uma boa regra "
+"geral é adicionar comentários ao final da página e sempre datar e assinar "
+"com seu %4."
+
+#: ../core/templates/messages.tmpl:10
+msgid "User Account %1 Deleted"
+msgstr "Conta de usuário %1 foi removida"
+
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:15
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:23
+msgid "User Reference"
+msgstr "Referência do usuário"
+
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:12
+#, fuzzy
+msgid "User registration"
+msgstr "Registro"
+
+#: ../PatternSkin/data/TWiki/PatternSkinElements.txt:182
+#: ../core/templates/login.tmpl:42
+msgid "Username"
+msgstr "Nome de usuário"
+
+#: ../PatternSkin/data/TWiki/WebLeftBar.txt:5
+#: ../TopMenuSkin/data/Main/WebTopMenu.txt:11
+#: ../TopMenuSkin/data/TWiki/WebTopMenu.txt:13
+msgid "Users"
+msgstr "Usuários"
+
+#: ../core/templates/messages.tmpl:206
+msgid ""
+"Users with automatically generated passwords should proceed immediately to "
+"[[%1][change password]] to change their password to something memorable."
+msgstr ""
+"Usuários com senhas geradas automaticamente devem [[%1][mudar de senha]] "
+"imediatamente e alterar para algo que possam se lembrar."
+
+#: ../core/templates/attachtables.tmpl:37
+msgid "Version"
+msgstr "Versão"
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:10
+msgid "Version history"
+msgstr "Versão do histórico"
+
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:8
+msgid "Version history of %1"
+msgstr "Versão do histórico de %1"
+
+#: ../TopMenuSkin/data/TWiki/TopMenuSkinTopicMenu.txt:18
+#: ../core/templates/oopsmore.tmpl:97
+msgid "View"
+msgstr "Ver"
+
+#: ../core/templates/oopsmore.tmpl:104
+msgid "View difference"
+msgstr "Ver diferença"
+
+#: ../core/templates/oopsmore.tmpl:94
+msgid "View previous topic revision"
+msgstr "Ver versão anterior do tópico"
+
+#: ../core/templates/oopsleaseconflict.tmpl:24
+msgid "View raw text without formatting"
+msgstr "Ver em modo texto, sem formatação"
+
+#: ../core/templates/oopsmore.tmpl:96
+msgid "View revision:"
+msgstr "Ver versão:"
+
+#: ../core/data/TWiki/WebCreateNewTopicTemplate.txt:59
+msgid "View templates"
+msgstr "Ver modelos"
+
+#: ../PatternSkin/templates/rdiff.pattern.tmpl:29
+#: ../core/templates/oopsleaseconflict.tmpl:24
+msgid "View topic"
+msgstr "Visualizar tópico"
+
+#: ../core/templates/twiki.tmpl:108
+msgid "View total topic history"
+msgstr "Ver histórico completo do tópico"
+
+#: ../core/data/TWiki/WebTopicNonWikiTemplate.txt:6
+msgid "WARNING:"
+msgstr "AVISO:"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:114
+#: ../core/templates/viewtopicactionbuttons.tmpl:9
+msgid "WYSIWYG"
+msgstr ""
+
+#: ../core/templates/viewtopicactionbuttons.tmpl:9
+msgid "WYSIWYG editor"
+msgstr ""
+
+#: ../EditTablePlugin/data/TWiki/EditTablePlugin.txt:203
+msgid "Warning: 'include' topic does not exist!"
+msgstr "AVISO: o tópico para inclusão não existe"
+
+#: ../core/templates/messages.tmpl:555
+msgid "Warning: Can't INCLUDE %1 repeatedly, topic is already included. %2"
+msgstr ""
+"Aviso: Não é possível incluir %1 mais de uma vez, o tópico já foi incluído. %"
+"2"
+
+#: ../core/templates/messages.tmpl:554
+msgid "Warning: Can't find topic %1.%2"
+msgstr "Aviso: tópico %1.%2 não encontrado"
+
+#: ../core/lib/TWiki/UI/Register.pm:862
+msgid "Warning: Could not send confirmation email"
+msgstr "Atenção: Não foi possível enviar e-mail de confirmação"
+
+#: ../core/lib/TWiki/UI/Register.pm:869
+msgid "Warning: Could not send confirmation email, email has been disabled"
+msgstr ""
+"Atenção: Não foi possível enviar e-mail de confirmação, pois o envio de e-"
+"mail está desabilitado."
+
+#: ../core/templates/messages.tmpl:562
+msgid "Warning: This site does not allow %<nop>INCLUDE% of URLs"
+msgstr "Aviso: Esse sítio não permite %<nop>INCLUDE% de URLs"
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:172
+msgid "Watch topics to see watchlist changes."
+msgstr ""
+
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:169
+#: ../TWikiUserMappingContrib/data/Main/UserProfileHeader.txt:99
+msgid "Watchlist Changes of %1:"
+msgstr ""
+
+#: ../MailerContrib/data/TWiki/MailerContrib.txt:208
+#: ../MailerContrib/templates/mailnotify.tmpl:62
+#, fuzzy
+msgid "Web"
+msgstr "Webs"
+
+#: ../core/data/Main/WebNotify.txt:2 ../core/data/Sandbox/WebNotify.txt:2
+#: ../core/data/TWiki/WebNotify.txt:2 ../core/data/Trash/WebNotify.txt:2
+#: ../core/data/_default/WebNotify.txt:2
+#, fuzzy
+msgid "Web Notification"
+msgstr "Notificações"
+
+#: ../core/data/TWiki/WebSearch.txt:3
+msgid "Web Search"
+msgstr "Busca na web"
+
+#: ../PatternSkin/data/TWiki/WebLeftBarExample.txt:8
+#: ../PatternSkin/data/TWiki/WebLeftBarWebsList.txt:2
+msgid "Webs"
+msgstr "Webs"
+
+#: ../core/data/Sandbox/WebHome.txt:5 ../core/data/_default/WebHome.txt:5
+msgid "Welcome to the %1 web"
+msgstr "Bem-vindo(a) à web %1"
+
+#: ../TWikiUserMappingContrib/data/TWiki/TWikiRegistration.txt:351
+msgid ""
+"When %1 receives the form, it will mail an account activation code to the e-"
+"mail address you gave above. Enter that activation code in the following "
+"screen, or follow the link in the e-mail, to activate your account. Once "
+"your account is activated, %1 will:"
+msgstr ""
+"Quando o %1 receber os dados desse formulário, enviará uma mensagem para seu "
+"endereço de e-mail com um código de ativação e validaçãode conta . Pegue "
+"esse código e digite-o (ou copie e cole) na página seguinte para ativar sua "
+"conta, ou, se preferir, acesse o link constante no e-mail que você receberá "
+"(esse link já informará o código para você). Assim que validar a sua conta, "
+"o sistema %1 vai:"
+
+#: ../core/templates/attachtables.tmpl:37
+#: ../core/templates/attachtables.tmpl:4
+msgid "Who"
+msgstr "Quem"
+
+#: ../core/templates/messages.tmpl:19
+msgid "Would you like to go to:"
+msgstr "Você gostaria de ir a:"
+
+#: ../core/templates/messages.tmpl:294
+msgid "You are already registered"
+msgstr "Você já está registrado"
+
+#: ../core/templates/messages.tmpl:200
+msgid "You are also listed in the %1 topic"
+msgstr "Você também está listado no tópico [[%1][Usuários do TWiki]]"
+
+#: ../core/templates/messages.tmpl:453
+msgid "You are denied access to the following topics in the web:"
+msgstr "Seu acesso não é permitido aos tópicos na web: "
+
+#: ../core/templates/messages.tmpl:543
+msgid ""
+"You are encouraged to go ahead and edit - unless you intend to change data "
+"in a form attached to the topic. If %1 actually _does_ save while you are "
+"editing, your changes will be merged, and nothing will be lost. Form data "
+"cannot easily be merged though, so in this case you are recommended to check "
+"with %1 first."
+msgstr ""
+"Provavelmente é seguro continuar e editar - a não ser que você pretenda "
+"alterar o formulário anexo ao tópico. Se %1 salvar enquanto você estiver "
+"editando, suas alterações serão combinadas com as dele(a) e nada será "
+"perdido. Dados de formulário não podem ser combinados facilmente, nesse caso "
+"é recomendável que você verifique com %1 primeiro."
+
+#: ../PatternSkin/templates/view.pattern.tmpl:39
+#: ../TWikiNetSkin/templates/view.twikinet.tmpl:17
+msgid "You are here:"
+msgstr "Você está aqui:"
+
+#: ../core/templates/messages.tmpl:142
+msgid ""
+"You are recommended to choose short names, preferably less than 10 "
+"characters, starting with an upper-case alphabetic character and using only "
+"alphanumeric characters. If you want to create a template web (a web just "
+"used as a base to create new webs) choose a name that starts with an "
+"underscore and has only alphanumeric characters."
+msgstr ""
+"Recomendamos que utilize nomes curtos, preferencialmente até 10 caracteres, "
+"iniciando com um caractere alfabético em caixa alta e usando somente "
+"caracteres alfanuméricos. Se você deseja criar um modelo de Web (uma web "
+"para usar como base quando criar outras) escolha então um nome que começe "
+"com um sublinhado e contenha apenas caracteres alfanuméricos."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:12
+#, fuzzy
+msgid "You are required to change your password."
+msgstr "Você pode mudar sua senha em %1"
+
+#: ../core/templates/messages.tmpl:619
+msgid "You are trying to %1 an attachment that does not exist."
+msgstr "Você está tentando realizar a ação %1 num tópico que não existe."
+
+#: ../core/templates/messages.tmpl:607
+msgid "You are trying to create a topic from a template that does not exist."
+msgstr "Você está tentando criar um tópico de um modelo que não existe."
+
+#: ../core/templates/messages.tmpl:602
+msgid ""
+"You are trying to perform an action on a topic that does not exist (action '%"
+"1')."
+msgstr ""
+"Você está tentando realizar uma ação num tópico que não existe (ação %1)"
+
+#: ../core/templates/messages.tmpl:613
+msgid "You are trying to rename a topic that does not exist."
+msgstr "Você está tentando renomear um tópico que não existe."
+
+#: ../core/templates/messages.tmpl:170
+msgid ""
+"You can also use the names of the standard HTML colors (black, silver, gray, "
+"white, maroon, red, purple, fuchsia, green, lime, olive, yellow, navy, blue, "
+"teal, or aqua)"
+msgstr ""
+"Você pode também utilizar os nomes padrões de cores em HTML (black, silver, "
+"gray, white, maroon, red, purple, fuchsia, green, lime, olive, yellow, navy, "
+"blue, teal, ou aqua)"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:139
+#: ../core/templates/registernotify.tmpl:26
+msgid "You can change your password at %1"
+msgstr "Você pode mudar sua senha em %1"
+
+#: ../core/templates/renameweb.tmpl:21
+msgid "You can give this web a different name."
+msgstr "Você pode dar um nome diferente para esta web."
+
+#: ../core/templates/oopschangelanguage.tmpl:7
+msgid ""
+"You can set your favorite language permanently by setting the %1 variable in "
+"your user topic."
+msgstr ""
+"Você pode configurar seu idioma favorito permanentemente atribuindo valor à "
+"variável %1 na sua página de usuário."
+
+#: ../core/templates/messages.tmpl:295
+msgid "You cannot register twice, the name %1 is already registered."
+msgstr "Registros duplos não são permitidos: o nome %1 já é utilizado."
+
+#: ../core/templates/messages.tmpl:185 ../core/templates/messages.tmpl:194
+#: ../core/templates/messages.tmpl:273 ../core/templates/messages.tmpl:282
+msgid "You have *not* been registered."
+msgstr "Você *não* está registrado"
+
+#: ../core/templates/messages.tmpl:412
+msgid ""
+"You may be able to get your TWiki administrator to change the settings if "
+"they are inappropriate for your environment."
+msgstr ""
+"Você pode fazer com que o administrador do TWiki altere-os se eles não forem "
+"apropriados para o seu ambiente."
+
+#: ../core/templates/messages.tmpl:628
+msgid ""
+"You may have clicked a registration verification link that you had already "
+"visited."
+msgstr ""
+"Pode ter acontecido de você ter clicado num link para endereço de validação "
+"de registo no qual você já havia visitado."
+
+#: ../core/templates/messages.tmpl:213
+msgid "You may need to close your browser to make this change take effect."
+msgstr ""
+"Você precisa fechar o seu navegador para que as mudanças tenham efeito."
+
+#: ../core/templates/registerconfirm.tmpl:11
+msgid ""
+"You now need to verify your e-mail address. You can do so by entering %1 in "
+"the form presented to you when this e-mail was sent, or by visiting %2"
+msgstr ""
+"Agora você precisa validar seu endereço de e-mail. Você pode fazer isso "
+"informando %1 no formulário que apareceu a você quando esse e-mail foi "
+"enviado, ou visitando o link %2"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:7
+msgid ""
+"You really ought to register a valid e-mail address. If TWiki can't find a "
+"registered e-mail for you in the secret database, it will look in your user "
+"topic for a line like this:"
+msgstr ""
+"Tem certeza que não quer registar um endereço válido de E-mail? O TWiki "
+"mantem um banco de dados secreto com os mails de usuários registrados, se o "
+"TWiki não encontrar um e-mail seu nessa base, pesquisará em sua página de "
+"usuário uma linha como esta: "
+
+#: ../core/templates/oopsmore.tmpl:111
+msgid "You will be able to review the topic before saving it to a new revision"
+msgstr "Você pode ver o tópico antes de salvar para uma nova versão."
+
+#: ../core/templates/messages.tmpl:387
+msgid "You will probably have to ask your administrator, %1, to do this."
+msgstr ""
+"Provavelmente você vai ter que pedir ao seu administrador, %1, para fazer "
+"isso."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ChangeEmailAddress.txt:33
+#: ../TWikiUserMappingContrib/data/TWiki/ChangePassword.txt:26
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:24
+msgid "Your %1.LoginName"
+msgstr "Seu [[%1.LoginName][Nome de Usuário]]"
+
+#: ../core/templates/messages.tmpl:237
+msgid ""
+"Your activation code has been sent to %1.  Either click on the link in your "
+"e-mail or enter the code in the box below to activate your membership. (This "
+"code is of the form \"YourName.xxxxxxxxxx\")"
+msgstr ""
+"Seu código de ativação foi enviado para %1.  Para ativar sua conta, você "
+"pode ou clicar no link que consta na mensagem enviada ao seu e-mail ou "
+"colocar o código no campo abaixo. (Esse código tem o seguinte formato "
+"\"SeuNome.xxxxxxxxxx\")"
+
+#: ../core/templates/oopslanguagechanged.tmpl:16
+msgid ""
+"Your language will be changed to %1 from the next screen. You will be "
+"redirected to there right now. If you aren't, [[%2][click to proceed]]."
+msgstr ""
+"Seu idioma será alterado para %1 a partir da próxima página. Você será "
+"redirecionado para lá agora. Caso não ocorra, [[%2][clique aqui para "
+"redirecionar]]."
+
+#: ../core/templates/mailresetpassword.tmpl:10
+msgid "Your password has been changed to %1."
+msgstr "Sua senha foi alterada para %1."
+
+#: ../TWikiUserMappingContrib/data/TWiki/ManagingUsers.txt:129
+msgid ""
+"Your personal %1 topic is located at %2. You can customize it as you like:"
+msgstr ""
+"Sua página pessoal %1 está localizada em %2. Você pode personalizá-la da "
+"forma que preferir:"
+
+#: ../core/templates/registernotify.tmpl:12
+#, fuzzy
+msgid ""
+"Your personal %1 user profile page is located at %2. You can customize it as "
+"you like:"
+msgstr ""
+"Sua página pessoal %1 está localizada em %2. Você pode personalizá-la da "
+"forma que preferir:"
+
+#: ../core/templates/messages.tmpl:198
+#, fuzzy
+msgid "Your personal TWiki user profile page %1 has been created"
+msgstr "Sua página pessoal %1 foi criada"
+
+#: ../core/templates/messages.tmpl:230
+msgid "Your registered e-mail address(es) are updated to: %1."
+msgstr ""
+"Seu(s) endereço(s) de e-mail registrado(s) foi(ram) atualizado(s) para: %1."
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:71
+#: ../core/templates/edit.tmpl:48
+msgid "Your signature to copy/paste:"
+msgstr "Sua assinatura pra copiar e colar:"
+
+#: ../core/templates/messages.tmpl:221
+msgid ""
+"Your system may not support changing passwords through TWiki. Check with "
+"your TWiki administrator."
+msgstr ""
+"Seu sistema talvez não suporte mudanças de senhas no TWiki. Verifique isso "
+"com o Administrador do TWiki. "
+
+#: ../core/templates/messages.tmpl:11
+msgid "Your user name has been removed from the Authentication System."
+msgstr "Seu nome de usuário foi removido do sistema de autenticação."
+
+#: ../core/templates/messages.tmpl:13
+msgid "Your user topic has not been renamed. Please e-mail %1 to request this."
+msgstr ""
+"Sua página de usuário não foi renomeada. Por favor, solicite isso enviando "
+"um e-mail para %1."
+
+#: ../core/templates/messages.tmpl:30
+#, fuzzy
+msgid "[[%1][%2 home]]"
+msgstr "Tópico inicial de %1"
+
+#: ../core/templates/messages.tmpl:22
+#, fuzzy
+msgid "[[%1][%2 home]] to start working on the new web"
+msgstr "%1 para começar a trabalhar na nova web"
+
+#: ../core/templates/messages.tmpl:374
+msgid "[[%1][Debug topic text]]."
+msgstr "[[%1][Depurar texto do tópico]]."
+
+#: ../core/templates/settings.tmpl:28
+msgid ""
+"[multiple of 3 spaces] * [space] Set [space] VARIABLENAME [space] = [value]"
+msgstr ""
+"[múltiplo de 3 espaços] * [espaço] Set [espaço] NOMEDAVARIAVEL [espaço] = "
+"[valor]"
+
+# please enter the name of your language here (written in the native language):
+#: ../core/lib/TWiki/I18N.pm:297
+msgid "_language_name"
+msgstr "Português"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:77
+msgid "about !BookView"
+msgstr "sobre !BookView (todo conteúdo)"
+
+#: ../core/data/TWiki/WebSearchAdvanced.txt:65
+msgid "about regular expression search"
+msgstr "sobre busca com expressões regulares"
+
+#: ../core/lib/TWiki/Access.pm:585
+msgid "access denied on root"
+msgstr "acesso negado"
+
+#: ../core/lib/TWiki/Access.pm:457
+msgid "access denied on topic"
+msgstr "acesso ao tópico negado"
+
+#: ../core/lib/TWiki/Access.pm:530
+msgid "access denied on web"
+msgstr "acesso à web negado"
+
+#: ../core/lib/TWiki/Access.pm:602
+msgid "access not allowed on root"
+msgstr "acesso não permitido"
+
+#: ../core/lib/TWiki/Access.pm:492
+msgid "access not allowed on topic"
+msgstr "acesso ao tópico não permitido"
+
+#: ../core/lib/TWiki/Access.pm:567
+msgid "access not allowed on web"
+msgstr "acesso à web não permitido"
+
+#: ../PatternSkin/templates/twiki.pattern.tmpl:9
+msgid "accesskey='c'"
+msgstr "accesskey='c'"
+
+#: ../core/data/TWiki/WebHome.txt:44 ../core/data/Trash/WebHome.txt:16
+msgid "advanced search"
+msgstr "busca avançada"
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:20
+msgid "and"
+msgstr "e"
+
+#: ../core/templates/attachtables.tmpl:12
+msgid "change, update, previous revisions, move, delete..."
+msgstr "alterar, atualizar, versões anteriores, mover, remover..."
+
+#: ../PatternSkin/templates/renamebase.pattern.tmpl:33
+msgid "checkboxes of referenced topics"
+msgstr "marcas de tópicos referenciados"
+
+#: ../core/templates/messages.tmpl:504
+msgid "don't forget to check your Topic Settings"
+msgstr "não esqueça de verificar suas preferências de tópico"
+
+#: ../core/templates/messages.tmpl:256
+msgid "fields are required."
+msgstr "campos obrigatórios"
+
+#: ../core/templates/attach.tmpl:3
+msgid "has more information about attaching files."
+msgstr "tem mais informação sobre como anexar arquivos."
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:27
+#: ../PatternSkin/templates/edit.pattern.tmpl:30
+msgid "help"
+msgstr "ajuda"
+
+#: ../core/data/TWiki/WikiSyntaxSummary.txt:20
+msgid "hints on good style"
+msgstr "dicas para um bom estilo"
+
+#: ../core/templates/oopsmore.tmpl:97
+msgid "in raw text format"
+msgstr "em modo texto, sem formatação"
+
+#: ../core/templates/form.tmpl:1
+msgid "indicates mandatory fields"
+msgstr "indica campos obrigatórios"
+
+#: ../core/data/TWiki/RenameWeb.txt:7
+#, fuzzy
+msgid "looking for references in _all public webs_."
+msgstr "procurando por referências em _todas as webs públicas_"
+
+#: ../core/templates/attachtables.tmpl:12
+msgid "manage"
+msgstr "gerenciar"
+
+#: ../core/data/TWiki/WebChangesRightBox.txt:16
+msgid "more..."
+msgstr "mais..."
+
+#: ../MailerContrib/templates/mailnotify.tmpl:16
+msgid "now %1"
+msgstr "agora %1"
+
+#: ../PatternSkin/data/TWiki/WebLeftBarLogin.txt:3
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:24
+#: ../PatternSkin/templates/attachagain.pattern.tmpl:28
+#: ../PatternSkin/templates/attachnew.pattern.tmpl:7
+#: ../PatternSkin/templates/edit.pattern.tmpl:36
+#: ../PatternSkin/templates/preview.pattern.tmpl:10
+#: ../PatternSkin/templates/renameattachmentdelete.pattern.tmpl:25
+#: ../PatternSkin/templates/settings.pattern.tmpl:22
+#: ../core/templates/changeform.tmpl:13 ../core/templates/copy.tmpl:20
+#: ../core/templates/moveattachment.tmpl:36 ../core/templates/preview.tmpl:18
+#: ../core/templates/rename.tmpl:20 ../core/templates/renameconfirm.tmpl:29
+#: ../core/templates/renamedelete.tmpl:34 ../core/templates/renameweb.tmpl:33
+#: ../core/templates/renamewebconfirm.tmpl:16 ../core/templates/twiki.tmpl:112
+msgid "or"
+msgstr "ou"
+
+#: ../core/templates/preview.tmpl:13 ../core/templates/preview.tmpl:9
+msgid "preview"
+msgstr "pré-visualização"
+
+#: ../core/lib/TWiki/Render.pm:213
+msgid "put it back"
+msgstr "pôr de volta"
+
+#: ../PatternSkin/templates/searchbase.pattern.tmpl:12
+#: ../core/data/TWiki/WebChanges.txt:2
+msgid "retrieved at %1"
+msgstr "obtidos em %1"
+
+#: ../core/templates/oopsmore.tmpl:26 ../core/templates/oopsmore.tmpl:35
+msgid "scans links in _%1 web_ only"
+msgstr "procurando por referências _apenas na web %1_"
+
+#: ../core/templates/oopsmore.tmpl:24 ../core/templates/oopsmore.tmpl:33
+msgid "scans links in _all public webs_"
+msgstr "Procurar por referências em todas as Webs públicas"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:88
+msgid "title='%IF{ "
+msgstr ""
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:54
+#, fuzzy
+msgid "title='Attach an image or document to this topic' accesskey='a'"
+msgstr ""
+"title='Anexar uma imagem ou documento a este tópico' accesskey='a'>&Anexar"
+
+#: ../core/templates/viewtopicactionbuttons.tmpl:16
+msgid "title='Attach an image or document to this topic' accesskey='a'>&Attach"
+msgstr ""
+"title='Anexar uma imagem ou documento a este tópico' accesskey='a'>&Anexar"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:9
+#: ../core/templates/viewtopicactionbuttons.tmpl:4
+msgid "title='Create new topic' accesskey='c'>&Create"
+msgstr "title='Criar novo tópico' accesskey='c'>&Criar"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:38
+#, fuzzy
+msgid "title='Create this topic' accesskey='w'>Create (&WYSIWYG)"
+msgstr "title='Criar novo tópico' accesskey='c'>&Criar"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:91
+#: ../core/templates/viewtopicactionbuttons.tmpl:19
+msgid ""
+"title='Delete or rename this topic; set parent topic; view and compare "
+"revisions' accesskey='m'>&More topic actions"
+msgstr ""
+"title='Apagar ou renomear este tópico; alterar o tópico pai; ver e comparar "
+"versões' accesskey='m'>&Mais ações de tópico"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:19
+#, fuzzy
+msgid "title='Edit this topic text' accesskey='e'"
+msgstr "title='Editar o texto deste tópico' accesskey='e'>&Editar"
+
+#: ../core/templates/viewtopicactionbuttons.tmpl:7
+#, fuzzy
+msgid "title='Edit this topic text' accesskey='e'>%1 &Edit"
+msgstr "title='Editar o texto deste tópico' accesskey='e'>&Editar"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:30
+#, fuzzy
+msgid "title='Edit this topic text' accesskey='w'>&WYSIWYG"
+msgstr "title='Editar o texto deste tópico' accesskey='e'>&Editar"
+
+#: ../core/data/TWiki/ReadOnlyAndMirrorWebs.txt:86
+msgid "title='Mirror this web to all slave sites'>Mirror to all"
+msgstr ""
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:76
+#, fuzzy
+msgid "title='PDF version of this topic'>&PDF version"
+msgstr "title='Versão para impressão deste tópico' accesskey='p'>Im&primir"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:66
+#: ../core/templates/viewtopicactionbuttons.tmpl:27
+msgid "title='Printable version of this topic' accesskey='p'>&Print version"
+msgstr "title='Versão para impressão deste tópico' accesskey='p'>Im&primir"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:97
+#: ../core/templates/viewtopicactionbuttons.tmpl:34
+msgid ""
+"title='Search all webs for topics that link to here' accesskey='l'>A&ll Webs"
+msgstr ""
+"title='Procurar em todas as webs por tópicos que façam link pra cá' "
+"accesskey='l'>Globa&l"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:99
+#: ../core/templates/viewtopicactionbuttons.tmpl:36
+msgid ""
+"title='Search the %1 Web for topics that link to here' "
+"accesskey='b'>&Backlinks"
+msgstr ""
+"title='Procurar na web %1 por tópicos que façam link pra cá' "
+"accesskey='b'>We&b"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:95
+#: ../core/templates/viewtopicactionbuttons.tmpl:32
+msgid ""
+"title='Search the %1 Web for topics that link to here' accesskey='b'>We&b"
+msgstr ""
+"title='Procurar na web %1 por tópicos que façam link pra cá' "
+"accesskey='b'>We&b"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:81
+#: ../core/templates/viewtopicactionbuttons.tmpl:44
+msgid "title='View raw text without formatting' accesskey='r'>&Raw View"
+msgstr "title='Ver em modo texto, sem formatação' accesskey='r'>Texto pu&ro"
+
+#: ../core/templates/viewtopicactionbuttons.tmpl:102
+#, fuzzy
+msgid "title='View topic on the master site'>View master"
+msgstr "title='Ver tópico' accesskey='v'>&Ver tópico"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:46
+#: ../core/templates/viewtopicactionbuttons.tmpl:13
+msgid "title='View topic' accesskey='v'>&View topic"
+msgstr "title='Ver tópico' accesskey='v'>&Ver tópico"
+
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:103
+#: ../TWikiNetSkin/templates/viewtopicactionbuttons.twikinet.tmpl:105
+#: ../core/templates/viewtopicactionbuttons.tmpl:39
+#: ../core/templates/viewtopicactionbuttons.tmpl:41
+msgid "title='View total topic history' accesskey='h'>&History"
+msgstr "title='Ver histórico completo do tópico' accesskey='h'>&Histórico"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:47
+msgid "value='Cancel' accesskey='c'"
+msgstr "value='Cancelar' accesskey='c'"
+
+#: ../PatternSkin/templates/preview.pattern.tmpl:12
+msgid "value='Discard' accesskey='d'"
+msgstr "value='Descartar' accesskey='d'"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:45
+msgid "value='Preview' accesskey='p'"
+msgstr "value='Pré-visualizar' accesskey='p'"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:41
+msgid "value='Quiet save' accesskey='q'"
+msgstr "value='Salvar sem notificar' accesskey='q'"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:43
+msgid "value='Save and Continue' accesskey='k'"
+msgstr "value='Salvar e continuar editando' accesskey='k'"
+
+#: ../PatternSkin/templates/edit.pattern.tmpl:39
+msgid "value='Save' accesskey='s'"
+msgstr "value='Salvar' accesskey='s'"
+
+#: ../core/templates/attachtables.tmpl:42
+msgid "view"
+msgstr "ver"
+
+#: ../TWikiUserMappingContrib/data/TWiki/ResetPassword.txt:19
+msgid ""
+"you *must* have at least one valid registered e-mail to be able to reset "
+"your password. If none of your registered e-mail addresses is valid, and you "
+"have forgotten your password, contact %1."
+msgstr ""
+"você *precisa* ter ao menos um e-mail válido registado para poder restaurar "
+"sua senha.  Se nenhum de seus endereços registados for um e-mail válido, e "
+"você esqueceu sua senha, contate %1. "
+
+#, fuzzy
+#~ msgid ""
+#~ "Cannot create <nop>%2 because the [[%1/%2.WebHome][%1/%2]] web already "
+#~ "exists."
+#~ msgstr "Não foi possível criar %1, pois ele já existe."
+
+#, fuzzy
+#~ msgid ""
+#~ "Cannot rename %1 to <nop>%3 because the [[%2/%3.WebHome][%2/%3]] web "
+#~ "already exists."
+#~ msgstr "Não foi possível renomear %1 para %2, pois %2 já existe."
+
+#, fuzzy
+#~ msgid "Search the %1 Web for topics that link to here' args='<nop>%WEB%"
+#~ msgstr "Procurar na web %1 por tópicos que façam link pra cá"
+
+#, fuzzy
+#~ msgid "The [[%1.WebHome][%1]] web already exists"
+#~ msgstr "O tópico %1 já existe."
+
+#~ msgid "%1 - view a short introductory presentation on TWiki for beginners"
+#~ msgstr "%1 - veja uma pequena apresentação do TWiki para iniciantes"
+
+#~ msgid "(Use a topic name in TWiki.WikiNotation)"
+#~ msgstr ""
+#~ "(Use [[%TWIKIWEB%.WikiNotation][Notação Wiki]] para um nome de tópico)"
+
+#~ msgid ""
+#~ "Enter your TWiki.LoginName. (Typically First name and last name, no "
+#~ "space, no dots, capitalized, e.g. !JohnSmith, unless you chose "
+#~ "otherwise). Visit %TWIKIWEB%.TWikiRegistration if you do not have one."
+#~ msgstr ""
+#~ "Digite seu [[%TWIKIWEB%.LoginName][Nome de Usuário]]. (Normalmente seu "
+#~ "Primeiro e Último nomes, sem espaços entre eles, sem pontuação e com as "
+#~ "iniciais maiúsculas, p.ex.: !JoseDaSilva). Visite a [[%TWIKIWEB%."
+#~ "TWikiRegistration][página de registro]] se você ainda não é um usuário "
+#~ "cadastrado."
+
+#~ msgid "Opens page in new window"
+#~ msgstr "Abre a página numa nova janela"
+
+#~ msgid "Remember me"
+#~ msgstr "Lembre-me"
+
+#, fuzzy
+#~ msgid ""
+#~ "Show recent changes with <a href='%2'>50</a>, <a href='%3' "
+#~ "rel='nofollow'>100</a>, <a href='%4' rel='nofollow'>200</a>, <a href='%5' "
+#~ "rel='nofollow'>500</a>, <a href='%6' rel='nofollow'>1000</a> topics, <a "
+#~ "href='%7' rel='nofollow'>all changes</a>"
+#~ msgstr ""
+#~ "<a href='%1'>Canal RSS</a>, Últimos tópicos alterados : <a href='%2'>50</"
+#~ "a>, <a href='%3' rel='nofollow'>100</a>, <a href='%4' rel='nofollow'>200</"
+#~ "a>, <a href='%5' rel='nofollow'>500</a>, <a href='%6' "
+#~ "rel='nofollow'>1000</a> tópicos, <a href='%7' rel='nofollow'>ver todas "
+#~ "alterações</a>"
+
+#~ msgid "Test Topics"
+#~ msgstr "Tópicos de teste"
+
+#~ msgid ""
+#~ "You can [[%1][create a new web]] if you have permission. Contact %2 if "
+#~ "you have any questions."
+#~ msgstr ""
+#~ "Se tiver permissão, você pode [[%1][criar uma nova web]]. Contate %2, "
+#~ "caso tenha qualquer dúvida."
+
+#, fuzzy
+#~ msgid "__Note:__"
+#~ msgstr "Aviso:"
+
+#~ msgid "looking for references in _%1 web_ only"
+#~ msgstr "procurando por referências _apenas na web %1_"
+
+#~ msgid "user list truncated"
+#~ msgstr "Lista de usuários truncada"
+
+#~ msgid "%1 to create another web"
+#~ msgstr "%1 para criar outra web"
+
+#~ msgid "&Edit text"
+#~ msgstr "&Editar texto"
+
+#~ msgid "(optional)"
+#~ msgstr "(opcional)"
+
+#~ msgid ""
+#~ "A more extensive changes list is available via [[%1][Recent Changes]]."
+#~ msgstr ""
+#~ "Uma lista de alterações mais extensa está disponível através das[[%1]"
+#~ "[Alterações Recentes]]."
+
+#~ msgid "Available Information"
+#~ msgstr "Informação disponível"
+
+#~ msgid "Edit personal data"
+#~ msgstr "Editar dados pessoais"
+
+#~ msgid "Edit text"
+#~ msgstr "Editar texto"
+
+#~ msgid ""
+#~ "However, the filename has been changed from %1 to %2. Please make a note "
+#~ "of it."
+#~ msgstr ""
+#~ "Entretanto, o nome do arquivo foi alterado de %1 para %2. Por favor, "
+#~ "lembre-se disto."
+
+#~ msgid "Organisation name:"
+#~ msgstr "Nome da Organização: "
+
+#, fuzzy
+#~ msgid "Recently Deleted Topics"
+#~ msgstr "Tópicos alterados recentemente"
+
+#~ msgid "Your password:"
+#~ msgstr "Sua senha:"
+
+#, fuzzy
+#~ msgid "title='Printable version of this topic' accesskey='p'"
+#~ msgstr "title='Versão para impressão deste tópico' accesskey='p'>Im&primir"
+
+#~ msgid "title='Raw Edit this topic text' accesskey='w'>Ra&w edit"
+#~ msgstr ""
+#~ "title='Editar este tópico em modo texto' accesskey='t'>Edi&tar modo texto"
+
+#~ msgid ""
+#~ "Uncomment preferences variables to activate them (remove the #-sign). "
+#~ "Help and details on preferences variables are available in %1."
+#~ msgstr ""
+#~ "Descomente as variáveis das preferências para ativá-las (removendo o "
+#~ "sinal #). Ajuda e detalhes sobre estas variáveis estão disponíveis em %1."

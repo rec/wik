@@ -1,0 +1,159 @@
+head	1.5;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.5
+date	2010.05.29.14.44.45;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2008.01.22.03.21.26;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2007.01.16.04.11.59;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2006.10.25.00.21.57;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.26;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@---+ Package =TWiki::UI::Upload=
+
+UI delegate for attachment management functions
+
+
+%TOC%
+
+---++ StaticMethod *attach* <tt>($session)</tt>
+
+=attach= command handler.
+This method is designed to be
+invoked via the =UI::run= method.
+
+Generates a prompt page for adding an attachment.
+
+
+
+---++ StaticMethod *upload* <tt>($session)</tt>
+
+=upload= command handler.
+This method is designed to be
+invoked via the =UI::run= method.
+CGI parameters, passed in $query:
+
+| =hidefile= | if defined, will not show file in attachment table |
+| =filepath= | |
+| =filepath1= | |
+| =filepath2= | | upto
+| =filepath9= | | upto
+| =filename= | |
+| =filecomment= | comment to associate with file in attachment table |
+| =createlink= | if defined, will create a link to file at end of topic |
+| =changeproperties= | |
+| =redirectto= | URL to redirect to after upload. ={AllowRedirectUrl}= must be enabled in =configure=. The parameter value can be a =TopicName=, a =Web.TopicName=, or a URL. Redirect to a URL only works if it is enabled in =configure=. |
+
+Does the work of uploading a file to a topic. Designed to be useable for
+a crude RPC (it will redirect to the 'view' script unless the
+'noredirect' parameter is specified, in which case it will print a message to
+STDOUT, starting with 'OK' on success and 'ERROR' on failure.
+
+Your form should be defined similar to following: 
+<form  enctype="multipart/form-data" action="%SCRIPTURLPATH{upload}%/%WEB%/%TOPIC% method="post">
+<input  type="file" name="filepath" value="" size="70" />
+<input  type="file" name="filepath1" value="" size="70" />
+<input  type="file" name="filepath2" value="" size="70" />
+<input type="file" name="filepath3" value="" size="70" />
+....
+<input type="submit" value='Upload file' /> 
+</form>
+
+
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d27 3
+d41 10
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d10 1
+a10 1
+=upload= command handler.
+d12 1
+a12 1
+invoked via the =TWiki::UI::run= method.
+d14 1
+a14 2
+Adds the meta-data for an attachment to a toic. Does *not* upload
+the attachment itself, just modifies the meta-data.
+d22 1
+a22 1
+invoked via the =TWiki::UI::run= method.
+d28 1
+a28 1
+| =filecomment= | Comment to associate with file in attachment table |
+d31 1
+d33 3
+a35 3
+Does the work of uploading a file to a topic. Designed to be useable as
+a REST method (it will redirect to the 'view' script unless the 'noredirect'
+parameter is specified, in which case it will print a message to
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d9 1
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d13 2
+a14 4
+Attach a file to a topic. CGI parameters are:
+
+| =filename= | Name of attachment |
+| =skin= | Skin(s) to use in presenting pages |
+d32 5
+@

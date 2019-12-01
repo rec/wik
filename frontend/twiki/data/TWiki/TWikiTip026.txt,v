@@ -1,0 +1,60 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2010.06.28.06.01.55;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.24;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1277704915" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiTipsOfTheDay"}%
+---+ !SlideShowPlugin for presentations
+
+Use the SlideShowPlugin to convert a topic with headings and bullets into a slideshow presentation.
+
+This plugin is useful for organizations that already have lots of content in TWiki: It is easy to create a web based presentation that contains many links to related content and to show live data of TWiki applications. The plugin does not try to compete with the bells and whistles of the other presentation program, but the markup of TWiki and other plugins like TWiki:Plugins.ChartPlugin, TWiki:Plugins.GaugePlugin, TWiki:Plugins.SpreadSheetPlugin, TWiki:Plugins.TWikiDrawPlugin can be used to create an appealing presentation.
+
+[[SlideShowPlugin][More Information...]]
+
+[[TWikiTipsOfTheDay][See More Tips...]]
+
+-- __Contributors:__ TWiki:Main.PaulineCheung
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1107573206" format="1.0" version="1"}%
+d7 1
+a7 1
+This Plugin is useful for organizations that already have lots of content in TWiki: It is easy to create a web based presentation that contains many links to related content and to show live data of TWiki applications. The Plugin does not try to compete with the bells and whistles of the other presentation program, but the markup of TWiki and other Plugins like TWiki:Plugins/ChartPlugin, TWiki:Plugins.GaugePlugin, TWiki:Plugins.SpreadSheetPlugin, TWiki:Plugins.TWikiDrawPlugin can be used to create an appealing presentation.
+d13 1
+a13 2
+-- TWiki:Main.PaulineCheung - 01 Feb 2005
+
+@

@@ -1,0 +1,79 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2012.11.13.09.00.16;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.01.22.03.21.28;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.06.25.16.26.28;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1352797216" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarICONURL
+---+++ ICONURL{"name"} -- URL of small documentation graphic or icon
+   * Generates the full URL of a TWikiDocGraphics image, which TWiki renders as an image. The related =%<nop>ICON{"name"}%= generates the full HTML img tag. Specify image name or full filename (see [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarICON][ICON]] for details on filenames.)
+   * Syntax: =%<nop>ICONURL{"name"}%=
+   * Examples:
+      * =%<nop>ICONURL{"arrowbright"}%= returns <nop>%ICONURL{"arrowbright"}%
+      * =%<nop>ICONURL{"novel.pdf"}%= returns <nop>%ICONURL{"novel.pdf"}%
+      * =%<nop>ICONURL{"/queen/boheme.mp3"}%= returns <nop>%ICONURL{"/queen/boheme.mp3"}%
+   * Category: FormattingAndRenderingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarICONURLPATH][ICONURLPATH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarICON][ICON]], %WIKIPREFSTOPIC%, FileAttachments, TWikiDocGraphics
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.1" version="2"}%
+d11 1
+a12 1
+
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.2" version="1"}%
+a3 1
+
+d5 1
+a5 1
+   * Generates the full URL of a TWikiDocGraphics image, which TWiki renders as an image. The related =%<nop>ICON{"name"}%= generates the full HTML img tag. Specify image name or full filename (see [[#VarICON][ICON]] for details on filenames.)
+d11 1
+a11 1
+   * Related: [[#VarICONURLPATH][ICONURLPATH]], [[#VarICON][ICON]], %WIKIPREFSTOPIC%, FileAttachments, TWikiDocGraphics
+@

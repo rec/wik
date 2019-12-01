@@ -1,0 +1,22 @@
+%META:TOPICINFO{author="TWikiContributor" date="1355292009" format="1.1" version="1"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarDATEPICKER
+---+++ DATEPICKER{} --  pop-up calendar to select a date for use in HTML forms
+   * The =%<nop>DATEPICKER{}%= variable is handled by the DatePickerPlugin.
+   * Syntax: =%<nop>DATEPICKER{ name="..." value="..." }%=
+   * Parameters:%STARTSECTION{parameters}%
+     | *Parameter* | *Description* | *Default* | *Example* |
+     | =name= | Name of input field. %BR% *&#966;:* No output is shown if the name parameter is missing, but the CSS and Javascript are loaded. | (required<sup>&#966;</sup>) | =name="Start"= |
+     | =value= | Initial date value. | =""= (today) | =value="2012-12-31"= |
+     | =format= | Format of resulting date value.%BB% =%a= - abbreviated weekday name%BB% =%A= - full weekday name%BB% =%b= - abbreviated month name%BB% =%B= - full month name%BB% =%C= - century number%BB% =%d= - the day of the month (00 ... 31)%BB% =%e= - the day of the month (0 ... 31)%BB% =%H= - hour (00 ... 23)%BB% =%I= - hour (01 ... 12)%BB% =%j= - day of the year ( 000 ... 366)%BB% =%k= - hour (0 ... 23)%BB% =%l= - hour (1 ... 12)%BB% =%m= - month (01 ... 12)%BB% =%M= - minute (00 ... 59)%BB% =%n= - a newline character%BB% =%p= - "PM" or "AM"%BB% =%P= - "pm" or "am"%BB% =%S= - second (00 ... 59)%BB% =%s= - number of seconds since Epoch (since Jan 01 1970 00:00:00 UTC)%BB% =%t= - a tab character%BB% =%U=, =%W=, =%V= - the week number. The week 01 is the week that has the Thursday in the current year, which is equivalent to the week that contains the fourth day of January. Weeks start on Monday.%BB% =%u= - the day of the week (1 ... 7, 1 = MON)%BB% =%w= - the day of the week (0 ... 6, 0 = SUN)%BB% =%y= - year without the century (00 ... 99)%BB% =%Y= - year including the century (ex. 2012)%BB% =%<nop>%= - a literal =%= character | ="%Y-%m-%d"= | =format="%e %b %Y"= |
+     | =id= | ID of input field, optional. | ="id_"= + name | =id="idStart"= |
+     | =size= | Size of input field, in number of characters. | (calculated as needed) | =size="12"= |
+     | =class= | CSS class of input field. | ="twikiInputField"= | =class="dateField"= |
+     | Additional HTML input field attributes, such as =alt=, =disabled=, =maxlength=, =onblur=, =onchange=, =onfocus=, =readonly=, =style=, =tabindex=, =title= || | |%ENDSECTION{parameters}%
+   * Example:
+     %BR% =&lt;form action="..."&gt;=
+     %BR% =%<nop>DATEPICKER{ name="Start_Date" }%=
+     %BR% =&lt;form&gt;=
+   * Expands to: <form action="#">%DATEPICKER{ name="Start_Date" }%<form>
+   * Category: ApplicationsAndComponentsVariables, DatabaseAndFormsVariables, DateAndTimeVariables, EditingAndContentUpdateVariables, FormattingAndRenderingVariables, UIAndVisualizationVariables
+   * Related: DatePickerPlugin, %SYSTEMWEB%.TWikiForms

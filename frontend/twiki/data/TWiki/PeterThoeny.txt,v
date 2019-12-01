@@ -1,0 +1,181 @@
+head	1.9;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.9
+date	2014.12.16.02.17.39;	author TWikiContributor;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2013.03.10.06.43.26;	author TWikiContributor;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2010.05.29.14.44.13;	author TWikiContributor;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2006.02.01.12.01.17;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2004.08.15.08.32.04;	author PeterThoeny;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2003.01.12.02.31.00;	author PeterThoeny;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2000.11.09.02.41.35;	author PeterThoeny;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2000.09.15.00.38.52;	author PeterThoeny;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2000.08.18.08.54.59;	author PeterThoeny;	state Exp;
+branches;
+next	;
+
+
+desc
+@none
+@
+
+
+1.9
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1418696259" format="1.1" version="9"}%
+---+ Peter Thoeny
+
+TWiki Enterprise Consultant, Founder and BDFL of TWiki and [[http://twiki.org/][TWiki.org]], inventor of [[TWiki:Codev/StructuredWiki][structured wikis]], co-author of [[http://www.amazon.com/Wikis-Dummies-Computer/dp/0470043997][Wikis for Dummies]] book, speaker, [[https://www.flickr.com/photos/peterthoeny/][Quality HDR Photographer]].
+
+%M% Peter's consulting page: TWiki:Codev.ConsultantPeterThoeny
+@
+
+
+1.8
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1362897806" format="1.1" version="8"}%
+d4 1
+a4 1
+TWiki Enterprise consultant, Founder and BDFL of TWiki and [[http://twiki.org/][TWiki.org]], inventor of [[TWiki:Codev/StructuredWiki][structured wikis]], co-author of [[http://www.amazon.com/Wikis-Dummies-Computer/dp/0470043997][Wikis for Dummies]] book, speaker.
+d6 1
+a6 1
+See home page at TWiki:Main/PeterThoeny
+@
+
+
+1.7
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1274920117" format="1.1" version="7"}%
+d4 1
+a4 1
+Founder and BDFL of TWiki and [[http://twiki.org/][TWiki.org]], co-founder and CTO of [[http://www.twiki.net/][Twiki Inc]], inventor of [[TWiki:Codev/StructuredWiki][structured wikis]], co-author of [[http://www.amazon.com/Wikis-Dummies-Computer/dp/0470043997][Wikis for Dummies]] book, speaker.
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@d1 2
+a2 2
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="6"}%
+Peter Thoeny is the founder of TWiki and TWiki.org, is a [[TWiki:Codev.CoreTeam][Core Team]] member, and a TWikiContributor.
+d4 3
+a6 1
+See home page at TWiki:Main.PeterThoeny
+@
+
+
+1.5
+log
+@none
+@
+text
+@d1 2
+a2 4
+%META:TOPICINFO{author="PeterThoeny" date="1092558724" format="1.0" version="1.5"}%
+Peter Thoeny is the author of TWiki and therefore a TWiki:Codev/CoreTeam member and a TWikiContributor.
+
+See home page at TWiki:Main/%TOPIC%
+d4 1
+@
+
+
+1.4
+log
+@none
+@
+text
+@d1 5
+a5 4
+%META:TOPICINFO{author="PeterThoeny" date="1042338660" format="1.0" version="1.4"}%
+Peter Thoeny is the author of TWiki and therefore a TWiki:Codev/CoreTeam member and a TWikiContributor.
+
+See home page at TWiki:Main/%TOPIC% and %MAINWEB%.PeterThoeny
+@
+
+
+1.3
+log
+@none
+@
+text
+@d1 2
+a2 1
+Peter Thoeny is the author of TWiki and therefore a TWikiContributor and a core team member.
+d4 1
+a4 1
+See Main.PeterThoeny and http://TWiki.org/cgi-bin/view/Main/%TOPIC%
+@
+
+
+1.2
+log
+@none
+@
+text
+@d3 1
+a3 1
+See Main.PeterThoeny and http://twiki.sourceforge.net/cgi-bin/view/Main/PeterThoeny
+@
+
+
+1.1
+log
+@none
+@
+text
+@d1 3
+a3 1
+%INCLUDE{"Main.PeterThoeny"}%
+@

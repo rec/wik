@@ -1,0 +1,12 @@
+%META:TOPICINFO{author="TWikiContributor" date="1364026611" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarCALCULATE
+---+++ CALCULATE{"formula"} -- handle spreadsheet calculations outside tables
+   * The =%<nop>CALCULATE{formula}%= variable is handled by the SpreadSheetPlugin. Over 100 functions are available, such as =$ABS()=, =$EXACT()=, =$EXISTS()=, =$GET()/$SET()=, =$IF()=, =$LOG()=, =$LOWER()=, =$PERCENTILE()=, =$TIME()=, =$VALUE()=.
+   * Syntax: =%<nop>CALC{formula}%=
+   * Examples:
+      * =%<nop>CALC{$EXISTS(<nop>Web.SomeTopic)}%= returns =1= if the topic exists
+      * =%<nop>CALC{$UPPER(Collaboration)}%= returns =COLLABORATION=
+   * Note: The CALCULATE variable is handled inside-out &amp; left-to-right like ordinary TWiki variables, but it does __not__ support functions that refer to table cells, such as =$LEFT()= or =$T()=. Use [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarCALC][CALC]] instead.
+   * Category: DevelopmentVariables, TablesAndSpreadsheetsVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarCALC][CALC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarIF][IF]], %SYSTEMWEB%.IfStatements, SpreadSheetPlugin

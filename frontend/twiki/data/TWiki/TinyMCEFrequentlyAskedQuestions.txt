@@ -1,0 +1,90 @@
+%META:TOPICINFO{author="TWikiContributor" date="1452678293" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TinyMCEPlugin"}%
+---++!! !TinyMCE FAQs
+
+Frequently Asked Questions of the TinyMCEPlugin integration.
+
+%TOC%
+
+---++ Q: How can I disable the WYSIWYG editor?
+
+A: There are several ways to disable the WYSIWYG editor; the first option is preferred:
+
+   1 Use the =EDITMETHOD= preferences setting:
+      * You can configure TWiki to use either WYSIWYG mode or raw edit mode by default in your profile page %WIKIUSERNAME%. Select =wysiwyg= to use the WYSIWYG editor (default), or =raw= to use the raw text editor.
+      * To disable the WYSIWYG editor on a web level or topic level, add this preferences setting in WebPreferences or in a topic, respectively:
+         * Set EDITMETHOD = raw
+   1 Use the =TINYMCEPLUGIN_DISABLE= preferences setting:
+      * To disable the WYSIWYG editor, use this preferences setting:
+         * Set TINYMCEPLUGIN_DISABLE = 1
+      * You can use TWikiVariables for the value to conditionally disable/enable it.
+   1 Use the =NOWYSIWYG= preferences setting:
+      * To disable the WYSIWYG editor, you can also use this preferences setting:
+         * Set NOWYSIWYG = 1
+   1 Use the =WYSIWYG_EXCLUDE= setting as described in WysiwygPlugin to disable the editor subject to certain content in the page, such as TWikiVariables or pure HTML. This can also be set on a web, topic, or personal basis.
+   1 Add =;nowysiwyg=1= to the end of the edit URL to disable it for a single edit.
+
+Regardless of the setting, you can invoke either editor:
+
+   * If the WYSIWYG editor is enabled, you can follow the "Raw edit" link at the bottom of the page to use the raw text editor,
+   * Else if the WYSIWYG editor is disabled, you can follow the "WYSIWYG" link at the bottom of the page to use the WYSIWYG editor.
+
+---++ Q: How do I *set* a TWiki variable inside !TinyMCE?
+
+A:
+   1 Create a list item using the toolbar button
+   1 In the list item, type Set NAME = value
+   1 (Optional) Select the value, and format it using =Protect on save= format.
+Step 3 is required if the value contains TML (The special TWiki syntax called Topic Markup Language), or if you style it e.g. to add bold, or if it's sensitive to the correct number of spaces.
+
+---++ Q: How can I *protect* content from !TinyMCE?
+
+A:
+   1 Select the content and select the "Protect forever" format. This will add &lt;sticky>..&lt;/sticky> tags around the content, which don't interfere with display but do prevent WYSIWYG editors from trying to interpret the content as HTML.
+
+---++ Q: How do I *use* a TWiki variable inside !TinyMCE?
+
+A: Just type it in. When the topic is saved, what you type will be saved just as you wrote it. If any part of your variable parameters is sensitive to spacing, then select the entire TWiki variable and assign the ==Protect on save== style to it.
+
+---++ Q: Why doesn't copy-paste work on Internet Explorer?
+
+A: It does, but you have probably got your security settings in IE set up to disable it. In IE got to Tools->Security->Internet->Custom Level->Allow paste operations via script. If this is set to 'Disable', then all internet applications are blocked from pasting using Javascript. Either enable this option, or add your TWiki site to the list of Tools->Security->Trusted Sites.
+
+---++ Q: Why do all my popups contain raw HTML?
+
+A: You probably have your file extensions set up in Apache so that =.htm= files are treated as plain text. Look through your Apache config (including =.htaccess= for the =pub= directory) for a line that says something like: =AddType text/plain .htm= (probably with a bunch of other extensions). You can either remove =.htm= from that list, or you can add a .htaccess for the pub/%SYSTEMWEB%/TinyMCEPlugin directory that contains the line =AddType text/html .htm=
+
+---++ Q: I write TWiki applications. What is safe to edit?
+
+A: It's impossible to be 100% certain that the use of a WYSIWYG editor will not change existing content such that TWiki Applications no longer work. The !WysiwygPlugin is set up by default to make it as easy as possible to create new content and import content from other applications. However some TWiki applications are written such a way that they "just work" - they take silent advantage of the sloppy parser used in TML rendering. Sloppy syntax can break the rules that WYSWYG relies on to be able to interpret TML and present it for editing.
+
+Unfortunately there is no simple way to describe what will, and what won't, work with WYSIWYG. The best tactic is to use the &lt;sticky&gt; tag to protect such content (this tag is automatically applied by the "Protect forever" format).
+
+---++ Q: How can I add a custom button to the WYSIWYG editor toolbar?
+
+A: Here is an example how to add a =helloworld= button.
+
+First, add this to the ="TINYMCEPLUGIN_INIT"= section of the topic where the global =TINYMCEPLUGIN_INIT_TOPIC= setting is pointing:
+
+<verbatim>
+"setup" : function(ed) {
+    ed.addButton('helloworld', {
+        title : 'Hello world',
+        image : '%ICONURLPATH{globe}%',
+        onclick : function() {
+            ed.focus();
+            ed.selection.setContent('Hello world!');
+        }
+    });
+},
+</verbatim>
+
+Then, create a global =TINYMCEPLUGIN_ADDITIONAL_BUTTONS1= setting that lists the =helloworld= button, such as:
+
+<verbatim>
+   * Set TINYMCEPLUGIN_ADDITIONAL_BUTTONS1 = helloworld
+</verbatim>
+
+That will add a %ICON{globe}% button to the toolbar; when pressed, it will add text ="Hello world!"= to the current cursor position.
+
+__Related Topics:__ TinyMCEPlugin, TinyMCEQuickHelp, WysiwygPlugin

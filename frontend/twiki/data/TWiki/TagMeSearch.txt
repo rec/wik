@@ -1,0 +1,33 @@
+%META:TOPICINFO{author="TWikiContributor" date="1366249246" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TagMePlugin"}%
+---+!! Tag-me: Tag Search
+
+%STARTINCLUDE%
+<form name="tagmesearch" action="%SCRIPTURL{view}%/%BASEWEB%/%TOPIC%" method="get">
+<table class="tagmeNavigation" border="0" cellpadding="3" cellspacing="0"><tr>
+<td>&nbsp; &nbsp;</td>
+<td bgcolor="#eef0f8" style="background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TagMePlugin/gray-gradient-2.png); border: solid 1px #d7dced;">&nbsp; [[%BASEWEB%.TagMeViewAllTags][All Tags]] &nbsp;</td>
+<td>&nbsp;</td>%IF{"$'TAGMEPLUGIN_USER_AGNOSTIC' = 'on'" else="
+<td bgcolor='#eef0f8' style='background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TagMePlugin/gray-gradient-2.png); border: solid 1px #d7dced;'>&nbsp; [[%SCRIPTURL{viewauth}%/%BASEWEB%/TagMeViewMyTags][My Tags]] &nbsp;</td>
+<td>&nbsp;</td>"}%
+<td bgcolor="#d7dced" style="background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TagMePlugin/gray-gradient-1.png); border: solid 1px #d7dced;">&nbsp; *Tag Search* &nbsp;</td>
+</tr></table>
+<table border="0" cellpadding="5" cellspacing="0" style="width:100%;">
+<tr bgcolor="#d7dced"><td style="width:100%;"></td></tr>
+<tr bgcolor="#eef0f8"><td style="width:100%;">
+Show topics tagged with 
+<select class="twikiSelect" name="tag" multiple="multiple" size="4">
+%TAGME{ tpaction="showalltags" format="<option $marker>$tag</option>" separator="$n" selection="%URLPARAM{"tag" multiple="on" separator=","}%" }% </select>
+&nbsp; %IF{"$'TAGMEPLUGIN_USER_AGNOSTIC' = 'on'"
+  then="<input type='hidden' name='by' id='byall' value='all' />"
+  else="by
+<input type='radio' name='by' id='byall' value='all' %IF{"$'URLPARAM{by}' = 'me'" else="checked"}% /><label for='byall'>all users</label> <input type='radio' name='by' id='byme' value='me' %IF{"$'URLPARAM{by}' = 'me'" then="checked"}% /><label for='byme'>me only</label>"}% <input type="submit" class="twikiSubmit" value="Go" /> </td>
+</tr></table>
+</form>
+
+%TAGME{ tpaction="query" web="%URLPARAM{qweb}%" topic="%URLPARAM{qtopic}%" tag="%URLPARAM{"tag" multiple="on" separator=","}%" by="%URLPARAM{by}%" }%
+%STOPINCLUDE%
+
+%BR%
+<span class="twikiGrayText">Other tag options: [[%BASEWEB%.TagMeCreateNewTag][Create new tag]], <a href="%SCRIPTURL{view}%/%BASEWEB%/TagMeRenameTag?renametagfrom=%URLPARAM{tag}%">Rename tag</a>, <a href="%SCRIPTURL{view}%/%BASEWEB%/TagMeDeleteTag?deletetag=%URLPARAM{tag}%">Delete tag</a></span>
+

@@ -1,0 +1,231 @@
+head	1.7;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.7
+date	2018.07.16.03.20.41;	author TWikiContributor;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2013.10.14.08.02.47;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2011.08.21.04.16.06;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2010.05.29.14.44.40;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2009.09.02.13.43.13;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2007.01.16.04.12.05;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.25;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.7
+log
+@buildrelease
+@
+text
+@---+ Package =TWiki::UI=
+
+Coordinator of execution flow and service functions used by the UI packages
+
+
+%TOC%
+
+---++ StaticMethod *handleRequest* <tt>($req) -> $res</tt>
+
+Main coordinator of request-process-response cycle.
+
+
+
+---++ StaticMethod *execute* <tt>($req,$sub,%initialContext) -> $res</tt>
+
+Creates a TWiki session object with %initalContext and calls
+$sub method. Returns the TWiki::Response object generated
+
+
+
+---++ StaticMethod *logon* <tt>($session)</tt>
+
+Handler to "logon" action.
+   * =$session= is a TWiki session object
+
+
+
+---++ StaticMethod *checkWebExists* <tt>($session,$web,$topic,$op)</tt>
+
+Check if the web exists. If it does not, will throw an oops exception.
+ $op is the user operation being performed.
+
+
+
+---++ StaticMethod *topicExists* <tt>($session,$web,$topic,$op)=>boolean</tt>
+
+Check if the given topic exists, throwing an OopsException
+if it doesn't. $op is the user operation being performed.
+
+
+
+---++ StaticMethod *checkWebWritable* <tt>($session)</tt>
+
+Checks if this web is writable on this site, Throwing an exception
+if it is not.
+
+
+
+---++ StaticMethod *checkAccess* <tt>($web,$topic,$mode,$user)</tt>
+
+Check if the given mode of access by the given user to the given
+web.topic is permissible, throwing a TWiki::OopsException if not.
+
+
+
+---++ StaticMethod *readTemplateTopic* <tt>($session,$theTopicName) -> ($meta,$text)</tt>
+
+Search for a template topic in current web, Main web, and TWiki web, in that order.
+
+
+
+---++ StaticMethod *run* <tt>($method)</tt>
+
+Supported for bin scripts that were written for TWiki < 5.0. The
+parameter is a function reference to the UI method to call, and is ignored
+in TWiki >= 5.0, where it should be replaced by a Config.spec entry such as:
+
+# **PERL H**
+# Bin script registration - do not modify
+$TWiki::cfg{SwitchBoard}{publish} = [ "TWiki::Contrib::Publish", "publish", { publishing => 1 } ];
+
+
+
+---++ StaticMethod *verifyCryptToken* <tt>($session,$crypt_token)</tt>
+
+
+
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@d30 1
+a30 1
+Check if the web exists. If it doesn't, will throw an oops exception.
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+---+ Package ==
+d3 1
+a3 2
+%TOC%
+---+!! package TWiki::UI
+a4 1
+Coordinator of execution flow and service functions used by the UI packages
+d6 1
+d42 1
+a42 1
+---++ StaticMethod *checkMirror* <tt>($session,$web,$topic)</tt>
+d44 2
+a45 2
+Checks if this web is a mirror web, throwing an OopsException
+if it is.
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d59 1
+a59 2
+Read a topic from the TWiki web, or if that fails from the current
+web.
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 12
+a12 1
+---+ Package =TWiki::UI=
+a13 1
+Service functions used by the UI packages
+d15 4
+a19 1
+%TOC%
+a20 1
+---++ StaticMethod *run* <tt>(\&method,...)</tt>
+d22 1
+a22 2
+Entry point for execution of a UI function. The parameter is a
+reference to the method.
+d24 2
+a25 3
+... is a list of name-value pairs that define initial context identifiers
+that must be set during initPlugin. This set will be extended to include
+command_line if the script is detected as being run outside the browser.
+d64 12
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d53 5
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d8 1
+a8 1
+---++ StaticMethod *run* <tt>(\&method)</tt>
+d13 4
+d27 1
+d34 1
+d41 1
+@

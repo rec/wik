@@ -1,0 +1,10 @@
+%META:TOPICINFO{author="TWikiContributor" date="1380749229" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarBB2
+---+++ BB2 -- level 2 bullet with line break
+   * Line break and bullet, level 2.
+   * Type: Preference variable - TWikiRenderingShortcut.
+   * Syntax: =%<nop>BB2%=
+   * Expands to: %BB2%
+   * Category: FormattingAndRenderingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB][BB]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB3][BB3]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBB4][BB4]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBR][BR]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBULLET][BULLET]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarCARET][CARET]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarLAQUO][LAQUO]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarNBSP][NBSP]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarPARENTBC][PARENTBC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarRAQUO][RAQUO]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarVBAR][VBAR]], [[TWikiPreferences#RenderingShortcuts][TWikiPreferences rendering shortcuts]]

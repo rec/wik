@@ -1,0 +1,26 @@
+%META:TOPICINFO{author="TWikiContributor" date="1346825769" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiTipsOfTheDay"}%
+---+ !SpreadSheetPlugin for dynamic content
+
+The SpreadSheetPlugin offers 100 functions. Functions are evaluated at page view time. A formula can be placed anywhere in a topic, not just in a TWiki table.
+
+Examples:
+   * =$INT(7/3)=
+   * =$AVERAGE($ABOVE())=
+   * =$IF($T(R2:C1) > 100, over limit, $T(R2:C1))=
+   * =$SUBSTITUTE(Good morning, morning, day)=
+   * =$TIMEADD($TIME(), 2, week)=
+
+Here is a complete example - to space out WikiWords, write: 
+
+=%<nop>CALC{"$PROPERSPACE(<nop>TWikiGuest)"}%= 
+
+to get:
+
+=%CALC{"$PROPERSPACE(TWikiGuest)"}%=
+
+[[SpreadSheetPlugin][More Information...]]
+
+[[TWikiTipsOfTheDay][See More Tips...]]
+
+-- __Contributors:__ TWiki:Main.PaulineCheung

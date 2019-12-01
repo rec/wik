@@ -1,0 +1,778 @@
+%META:TOPICINFO{author="TWikiContributor" date="1448848812" format="1.1" version="4"}%
+---+!! Release Notes of TWiki-6.0.2 (Jerusalem), 2015-11-29
+<div class="twikiTocFloat">
+%TOC%
+</div>
+
+---++ Introduction
+
+TWiki is an enterprise collaboration platform and application platform. TWiki has been downloaded over half a million times and is used as a mission critical platform by many leading Fortune 500 businesses and government agencies on their intranet, extranet or public website. Users without programming skills can create web applications. Developers can integrate TWiki applications with other enterprise applications. 
+
+TWiki-6.0.0 released on 2013-10-05 is a major release that has a shiny new dashboard look. It brings many usability enhancements, strengthens TWiki as an application platform, and scales to very large deployments with thousands of webs and a million pages.
+
+TWiki-6.0.1 released on 2014-10-05 is a patch release that adds some minor new features and fixes a number of bugs, including TWiki:Codev.SecurityAlert-CVE-2014-7236 and TWiki:Codev.SecurityAlert-CVE-2014-7237.
+
+TWiki-6.0.2 released on 2015-11-29 is a patch release that adds some minor new features and fixes a number of bugs, including TWiki:Codev.SecurityAlert-CVE-2014-9325 and TWiki:Codev.SecurityAlert-CVE-2014-9367.
+
+---++ Feature Highlights
+
+%STARTSECTION{featurehighlights}%
+   * *Usability Enhancements*
+      * Add dashboards to Web home topics
+      * Categorize TWiki variables & add [[TWikiVariablesWizard][TWiki Variables wizard]]
+      * Upgrade to !TinyMCE WYSIWYG editor to version 3.5.8
+      * New [[VarTOPICTITLE][TOPICTITLE]] variable for non-WikiWord topic titles
+      * Show topic title in square bracket links using =[<nop>[+TopicName]]= syntax
+      * icon:choice-yes Icon bullet lists: Specify any TWiki doc graphics icon as a bullet
+      * WebSearch and WebChanges has now search result pagination
+      * WebChanges shows topic age instead of topic date
+      * Auto-discover TWikiForms, e.g. no need to set in WEBFORMS preferences setting
+      * Move change TWiki Form from edit screen to "more" screen
+      * Show link to older versions of attachments in attachment table
+      * Automatically link @Twitter handles
+      * Add comment section to new topic template
+      * Copy/clone topic function in more topic action screen
+      * Configurable signatures with profile pictures
+      * Open external links in new browser window or tab; show [[http://twiki.org/][external link]] icon
+      * Drag and drop file attachments - PatternSkin to integrate !DropzoneJSSkin - __added in TWiki-6.0.1__
+      * Add drag and drop to change profile picture screen - __added in TWiki-6.0.1__
+      * Responsive multi-column page layout using CSS using [[VarTWOCOLUMNS][TWOCOLUMNS]]...[[VarENDCOLUMNS][ENDCOLUMNS]] - __added in TWiki-6.0.2__
+      * Search attachments in a web with new WebSearchAttachments topic to all webs - __added in TWiki-6.0.2__
+      * Easier TWiki installation by adding Perl CGI module to TWiki core distribution - __added in TWiki-6.0.2__
+
+   * *Scalability Enhancements*
+      * Read-only and mirror web support for distributed TWiki sites
+      * MetadataRepository for site metadata and web metadata to speed up operations across many webs
+      * Rename topic operation with option to not replace web internal references
+      * Rename web operation can cope with a large site and read-only/mirror webs
+      * Introducing web-level administrator for higher [[AutonomousWebs][web autonomy]]; web specific WIKIWEBMASTER
+      * Support for [[UsingMultipleDisks][multiple disk drives]] for data and pub directories
+
+   * *TWiki Application Platform Enhancements*
+      * New [[VarEDITFORMFIELD][EDITFORMFIELD]] variable to easily create custom forms to create/change topics with TWiki Forms
+      * Add rev parameter to [[VarFORMFIELD][FORMFIELD]] variable
+      * New combobox [[TWikiForms#FormFieldTypes][TWiki Form field type]]
+      * New [[VarENTITY][ENTITY]] variable to entity encode content
+      * New [[VarCHILDREN][CHILDREN]] variable to show topic children __added in TWiki-6.0.2__
+      * Add createdate, default, encode parameters to [[VarSEARCH][SEARCH]] variable
+      * SEARCH variable with sort by parent feature
+      * SEARCH variable extended to make [[SearchResultsPagination][results pagination]] possible
+      * SEARCH: Search with sort by multiple fields - __added in TWiki-6.0.1__
+      * SEARCH: Sort by parent breadcrumb - __added in TWiki-6.0.1__
+      * SEARCH: Control over formfield rendering in a formatted SEARCH - __added in TWiki-6.0.2__
+      * Add encode, newline, nofinalnewline, allowanytype to [[VarINCLUDE][INCLUDE]] variable
+      * Add subwebs and depth parameters to [[VarWEBLIST][WEBLIST]] variable
+      * Add section parameter to [[VarADDTOHEAD][ADDTOHEAD]] variable
+      * Add encode and decode functions to TWiki::Func
+      * Add LWP parameters to TWiki::Func::getExternalResource
+      * Conditional Skin based on group membership and other criteria
+      * Finer-control variable expansion in topic creation
+      * Add topic parameter to VAR variable to get settings defined in another topic
+      * Add raw parameter to INCLUDE variable to include a topic in the raw mode
+      * New csv encode type for ENCODE variable - __added in TWiki-6.0.1__
+      * ENCODE variable with new type="json" parameter to escape a string for JSON use - __added in TWiki-6.0.2__
+
+   * *Security Enhancements*
+      * Support for an implicit "all users" group
+      * Empty DENY setting means undefined setting
+      * [[TWikiAccessControl#Dynamic_access_control][Dynamic access control]] (experimental)
+      * Upgrade support for secure email notification
+      * Restrict [[VarHTTP][HTTP]] variable to not reveal certain header fields
+      * [[UserMasquerading][User masquerading]] to check if access restriction is working as expected for another user
+      * Disable XSS Protection for !JavaScript 
+
+   * *Extensions Enhancements*
+      * Add new WatchlistPlugin to core and deprecate MailerContrib
+      * Add new TWikiDashboardAddOn to core distribution
+      * Add new ScrollBoxAddOn to core distribution
+      * Add new DatePickerPlugin to core and deprecate JSCalendarContrib
+      * Add new MovedSkin to core distribution
+      * SpreadSheetPlugin supports hash variables with new functions GETHASH(), !HASH2LIST(), HASHCOPY(), HASHEACH(), HASHEXISTS(), HASHREVERSE(), !LIST2HASH(), SETHASH(), SETMHASH() 
+      * SpreadSheetPlugin adds new functions !BIN2DEC(), !DEC2BIN(), !DEC2HEX(), !DEC2OCT(), !HEX2DEC(), !OCT2DEC()
+      * SpreadSheetPlugin supports quoted parameters with '''triple quotes'''
+      * SpreadSheetPlugin: New functions ADDLIST(), GETLIST(), SETLIST() - __added in TWiki-6.0.1__
+      * SpreadSheetPlugin: FORMAT(CURRENY, ...) with support for currency symbol - __added in TWiki-6.0.1__
+      * SpreadSheetPlugin: Allow newlines and indent around functions and function parameters; allow newlines in triple-quoted strings - __added in TWiki-6.0.1__
+      * SpreadSheetPlugin: New functions EQUAL(), NOTE(), RANDSTRING() - __added in TWiki-6.0.2__
+      * InterwikiPlugin to observe the links configuration parameter
+      * TablePlugin: Possible to add TML (TWiki markup) with newlines in TWiki table cells
+      * TagMePlugin with support for multiple tag namespaces
+      * PatternSkin: New hideInPrint CSS class to hide specific content from printing - __added in TWiki-6.0.1__
+      * PatternSkin: Show history and other topic actions in read-only skin mode - __added in TWiki-6.0.1__
+      * SetGetPlugin: SET and GET with support for JSON objects and JSON path - __added in TWiki-6.0.2__
+      * SetGetPlugin: Ability to specify store name to persistently store variables - __added in TWiki-6.0.2__
+      * SetGetPlugin: SetGetPlugin: Use file locking on persistent store to prevent corrupting the store - __added in TWiki-6.0.2__
+      * JQueryPlugin: JQTAB enhancements: Show blue link instead of red on hover over tab; make tab css overridable; remove dotted underline below tab; active tabs with gray gradient - __added in TWiki-6.0.1__
+      * JQueryPlugin: Option to load tab content asynchronously; select specific tab in jQuery tab pane; allow tab panes in bullet lists & TWiki table cells; allow HTML in tab title  - __added in TWiki-6.0.2__
+      * WatchlistPlugin: Don't notify oneself when watching topics; set minor change when updating watchlist topic - __added in TWiki-6.0.1__
+      * WatchlistPlugin: Watch all topics in web and watch new topics in web; fix for mod_perl - __added in TWiki-6.0.1__
+
+   * *Miscellaneous Feature Enhancements*
+      * CGI Engine to be made Fast CGI compatible
+      * Empty IF condition to be regarded valid and false
+      * Add seconds to the timestamp in debug/log/warn
+      * Viewing topic text with variables expanded
+      * WEBLIST canmoveto and cancopyto
+      * Add viewRedirectHandler callback to plugins API
+      * No such topic, no such web, access denied are done right
+         * Return "404 Not Found" status for topic not found instead of 200 OK status
+         * Return "404 Not Found" status and show "No Such Web" page title for no such web without redirecting to an oops URL titled "Access Denied"
+         * Return "403 Access Denied" status for access denied without redirecting to an oops URL whose status code is "200 OK"
+      * Statistics enhancements to show most viewed webs, most updated webs, most popular webs, top viewers, # of unique users who viewed, saved, and uploaded on the web/site, affiliation breakdown
+      * Specifying webs to be excluded from WebStatistics update
+      * Statistics topics can be annualized to e.g. !WebStatistics2013, !WebStatistics2014. This prevents statistics topics from growing indefinitely
+      * For paragraphs generate &lt;p&gt;...&lt;/p&gt; instead of &lt;p/&gt;
+      * 20 new TWikiDocGraphics icons %ICON{analyze}% %ICON{control-panel}% %ICON{counter}% %ICON{factory}% %ICON{led-bg}% %ICON{node-minus}% %ICON{node-minus_r}% %ICON{node-minus_udr}% %ICON{node-minus_ur}% %ICON{node-plus}% %ICON{node-plus_r}% %ICON{node-plus_udr}% %ICON{node-plus_ur}% %ICON{opportunity}% %ICON{pick}% %ICON{phone-extension}% %ICON{phone-toll-free}% %ICON{switch-off}% %ICON{switch-on}% %ICON{watchlist}%
+      * 16 new TWikiDocGraphics icons %ICON{clipboard}% %ICON{delegate}% %ICON{docx}% %ICON{led-cup-gray-close}% %ICON{led-cup-gray-minus}% %ICON{led-cup-gray-plus}% %ICON{mobile-carrier}% %ICON{oxps}% %ICON{pptx}% %ICON{sms}% %ICON{vsdx}% %ICON{vss}% %ICON{vst}% %ICON{xlsx}% %ICON{xmind}% %ICON{xps}% - __added in TWiki-6.0.1__
+      * 5 new TWikiDocGraphics icons %ICON{first-class}% %ICON{help-open}% %ICON{help-close}% %ICON{request}% %ICON{see-also}% - __added in TWiki-6.0.2__
+      * New COPY, REG, TM variables for copyright, registered trademark and trademark symbols, respectively - __added in TWiki-6.0.1__
+%ENDSECTION{featurehighlights}%
+
+---++ Pre-installed Extensions
+
+TWiki-6.0 ships with:
+
+   * *Plugins:* BackupRestorePlugin, ColorPickerPlugin, CommentPlugin, DatePickerPlugin, EditTablePlugin, EmptyPlugin, HeadlinesPlugin, InterwikiPlugin, JQueryPlugin, PreferencesPlugin, RenderListPlugin, SetGetPlugin, SlideShowPlugin, SmiliesPlugin, SpreadSheetPlugin, TablePlugin, TagMePlugin, TinyMCEPlugin, TWikiNetSkinPlugin, TwistyPlugin, WatchlistPlugin, WysiwygPlugin
+   * *Contribs:* BehaviourContrib, JSCalendarContrib, MailerContrib, TipsContrib, TWikiUserMappingContrib, TwistyContrib
+   * *Skins:* MovedSkin, PatternSkin, PlainSkin, PrintSkin, TopMenuSkin, TWikiNetSkin
+   * *Apps:* TWikiDashboardAddOn, ScrollBoxAddOn
+
+__Note:__ WatchlistPlugin, TWikiDashboardAddOn, ScrollBoxAddOn, DatePickerPlugin, MovedSkin are new in TWiki-6.0.
+
+---++ Supported User Interface Languages
+
+The user interface of this TWiki version is localized to 19 languages:
+
+English (default), Bulgarian (=bg=), Chinese simplified (=zh-cn=), Chinese traditional (=zh-tw=), Czechoslovakian (=cs=), Danish (=da=), Dutch (=nl=), German (=de=), Finnish (=fi=), French (=fr=), Italian (=it=), Japanese (=ja=), Korean (=ko=), Polish (=pl=), Portuguese (=pt=), Russian (=ru=), Slovakian (=sv=), Spanish (=es=), Ukrainian (=uk=).
+
+__Note:__ TWiki needs to be configured properly to display user interface languages other than the default English language. Details in TWiki:TWiki.InstallationWithI18N and TWiki:TWiki.InternationalizationSupplement.
+
+---++ Notes for TWiki Administrators and Wiki Champions
+
+---+++ New Dashboard Feature
+
+A dashboard comes into play when users need to get an overview of their work and want to navigate quickly to relevant places. The TWikiDashboardAddOn application is designed to give administrators a tool to quickly create dashboards for the intranet home, knowledge base, team homepages, project homepages, and more. The TWiki [[%HOMETOPIC%][web homes]] are now dashboards, and we invite you to use this to prettify your own team homepages and TWiki applications.
+
+<sticky>
+<div style="float: right; background-color: #EBEEF0; text-align: center; width: 300px; margin:0 0 20px 20px; padding: 2px 10px 10px 10px;">
+Dashboard screenshot (click to enlarge)%BR%
+<a href="%PUBURLPATH%/%WEB%/TWikiDashboardAddOn/dashboard-example.png">
+<img src="%PUBURLPATH%/%WEB%/TWikiDashboardAddOn/dashboard-example-300.png" alt="" width="300" height="165" />
+</a>
+</div>
+</sticky>
+A simple dashboard with three tiles is defined as follows:
+<verbatim>
+%DASHBOARD{ section="dashboard_start" }%
+%DASHBOARD{ section="box_start" title="Tile 1 title" }%
+Tile 1 content
+%DASHBOARD{ section="box_end" }%
+%DASHBOARD{ section="box_start" title="Tile 2 title" }%
+Tile 2 content
+%DASHBOARD{ section="box_end" }%
+%DASHBOARD{ section="box_start" title="Tile 3 title" }%
+Tile 3 content
+%DASHBOARD{ section="box_end" }%
+%DASHBOARD{ section="dashboard_end" }%
+</verbatim>
+
+Dashboards can optionally have a banner image. TWikiDashboardImages has a collection of over 100 images to chose from.
+
+The tiles have a gray shadow look and have rounded corners. The style is based on the ScrollBoxAddOn. That application also supports scrollable text and image rotation.
+
+---+++ New !WatchlistPlugin
+
+The WatchlistPlugin is a new addition to TWiki. It adds watchlist feature to TWiki topics. Topics of interest can be watched and unwatched. A user can see recent changes of all watched topics. A user can also subscribe to get e-mail notification of changes, either immediately on each topic save, or in digest mode once a day. The top-menu has a new "Watch" pulldown to watch and unwatch the current topic.
+
+The WatchlistPlugin will eventually replace the MailerContrib, e.g. the current WebNotify based subscription is deprecated and will be retired in a future TWiki release.
+
+---+++ Scalability Enhancements
+
+TWiki has been enhanced to support and manage large site with thousands of users, hundreds of webs, and a million pages:
+
+   * You can enable the MetadataRepository to enumerate webs. If you have thousands of webs, it takes a while to traverse the =data= directory to find out all webs, which happens e.g. when showing the selection of move destination. MetadataRepository can house additional information for your custom user mapping manager to consume.
+
+   * You can make webs [[AutonomousWebs][autonomous]], which means that each web has its owners, who get full access to the web regardless of access restriction setting. If you have thousands of webs, you may be fed up with web owners asking for help when they lock themselves out by mistake.
+
+   * You can [[UsingMultipleDisks][use multiple disks]]. If you have thousands of webs, all webs may not fit one single disk.
+
+More on [[LargeSite][managing a large site]].
+
+---+++ Spec Change for Empty DENYTOPICVIEW
+
+From TWiki 4.0 and prior to 6.0, the syntax =* Set DENYTOPICVIEW <nop>=<nop>= (nothing) in a topic means deny nobody the topic view. The reason for this behavior is that it allows public access to a topic in a restricted web, e.g. having =* Set ALLOWWEBVIEW = <nop>%USERSWEB%.VipGroup= in !WebPreferences. This is not symmetric with the fact that an empty DENYWEBVIEW is the same as an undefined DENYWEBVIEW, hence confusing.
+
+From TWiki 6.0 on, an empty DENYTOPICVIEW means the same as not defined. To open up a topic in a restricted web, you need to use =* Set ALLOWTOPICVIEW = <nop>%USERSWEB%.AllUsersGroup=. The [[%USERSWEB%.AllUsersGroup]] is new. It is a pseudo group containing all authenticated and unauthenticated users. You can use [[%USERSWEB%.AllAuthUsersGroup]] if you want to specify all authenticated users.
+
+To keep publicly accessible topics in restricted webs publicly accessible, the =tools/eliminate_emptydenytopic= script is provided, which replaces =* Set DENYTOPIC&lt;action&gt; <nop>=<nop>= with =* Set ALLOWTOPIC&lt;action&gt; = <nop>%USERSWEB%.AllUsersGroup= in all topics in all webs.
+
+---+++ Dynamic Access Control
+
+[[TWikiAccessControl#Dynamic_access_control][Dynamic access control]] allows you to use TWiki variables in access control variables such as =ALLOWWEBVIEW=. You can restrict access based on topic name pattern or TWiki form field value, for example. This feature is considered experimental.
+
+---+++ User Masquerading
+
+With [[UserMasquerading][user masquerading]], you can check if access restriction is working as expected for another user.
+
+To use this feature, the following requirements need to be met.
+
+   * =initializeUserHandler()= is provided by a plug-in and it sets a special user identity under masquerade.
+   * =getWikiName()= and =findUserByWikiName()= of the user mapping manager handle masqueraded cUIDs and wiki names.
+
+---+++ TWiki Forms Enhancements
+
+Several enhancements have been done to TWikiForms to make it easier to create TWiki applications and for better usability.
+
+   * Adding/changing/removing a TWiki Form has been moved from the edit screen to the "More topic actions" screen. Users are no longer tempted to accidentally add or remove TWiki Forms.
+
+   * The WEBFORMS preferences setting has been removed. TWiki Forms Template topics are now detected automatically.
+
+   * <img src="%PUBURLPATH%/%WEB%/TWikiForms/screenshot-combobox.png" width="170" height="132" align="right" /> New combobox [[TWikiForms#FormFieldTypes][TWiki Form field type]]. In some cases it is desirable to have a fixed picklist, and at the same time an edit field to override the picklist options. 
+
+   * Use the new [[VarEDITFORMFIELD][EDITFORMFIELD]] variable to create HTML forms that update TWikiForms, such as a custom "create new topic" form, or a topic header that allows users to change some form values at the top of the page. A valid form is composed of a start form type, various form fields, a submit type, and an end form type.
+
+---+++ New TOPICTITLE Feature
+
+The =%<nop>TOPICTITLE%= variable will expand to a nice display name of a page. The existing =%<nop>TOPIC%= variable expands to the page name, and is typically restraint to a WikiWord or acronym.
+
+The TOPICTITLE variable expands to the topic display name in this sequence until found:
+
+   * Value of form field named "Title" (already in use by several TWiki applications such as the TWiki:Support forum on TWiki.org)
+   * Preferences setting TITLE
+   * Topic name %<nop>TOPIC% 
+
+The topic display name feature is implemented, but the TWiki topic handling does not yet support this in the GUI. The UI of a future TWiki release will be enhanced to make use of the topic display name:
+
+   * Create new topic, edit topic: New field for topic display name
+   * Rename topic: Show topic display name field
+
+---+++ Statistics Enhancements
+
+   * A number of enhancements have been made to the =statistics= script. To make use of these enhancements, you need to update TWiki installations with existing WebStatistics and %USERSWEB%.SiteStatistics topics. The [[TWikiSiteTools#UpgradeFromPre6x0][tools/convert_stats_twiki6]] tool does that. No action needs to be taken for new TWiki installations.
+
+   * On !SiteStatistics, to show the lists of most viewed webs and most updated webs, you need to specify a number in =$TWiki::cfg{Stats}{SiteTopViews}= and =$TWiki::cfg{Stats}{SiteTopUpdates}=. The !SiteStatistics used to use the !WebStatistics parameters. These changes are described at TWikiSiteTools#MaxNoOfItemsInColumns
+
+   * You may want to see which divisions/department of your company are using TWiki overall or on a web level. This can be done by providing a =getAffiliation($cUID)= method in the user mapping handler. Details at TWikiSiteTools#AffiliationBreakdown
+
+   * You may want to exclude Trash and other webs from getting their !WebStatistics updated. Setting a regular express of excluded webs to =$TWiki::cfg{Stats}{ExcludedWebRegex}= achieves that. Details at TWikiSiteTools#ExcludedWebRegex
+
+   * !WebStatistics and !SiteStatistics grow indefinitely, which may not be an issue in most cases. They may grow really big in 5 years or 10 years time. Read TWikiSiteTools#WebStatisticsYYYY if you want to prevent that.
+
+---+++ New !MovedSkin
+
+Use the MovedSkin when you migrate TWiki to a different site with a different URL. When enabled on the old site users will be redirected to the new page URL on the new site.
+
+---+++ Usage of $TWiki::Plugins::VERSION
+
+The =$TWiki::Plugins::VERSION= number can be used by plugins for conditional code execution. From TWiki-6.0.0 on, the version umber is aligned with the TWiki version number, e.g. for this release, =$TWiki::Plugins::VERSION= is set to =6.00=. The number needs to be numeric so that a number comparison can be done. By convention, =%RED%Major%ENDCOLOR%.%GREEN%Minor%ENDCOLOR%%BLUE%Patch%ENDCOLOR%= is used, e.g. =%RED%6%ENDCOLOR%.%GREEN%1%ENDCOLOR%%BLUE%2%ENDCOLOR%= for a future TWiki-%RED%6%ENDCOLOR%.%GREEN%1%ENDCOLOR%.%BLUE%2%ENDCOLOR% release.
+
+History of =$TWiki::Plugins::VERSION= numbers:
+
+| *TWiki release* | *Code name* | *$TWiki::Plugins::VERSION* |
+| TWiki-2001-09-01 |  Athens  |  1.000 |
+| TWiki-2003-02-01 |  Beijing  |  1.010 |
+| TWiki-2004-09-02 |  Cairo  |  1.025 |
+| TWiki-4.0 |  Dakar  |  1.1 |
+| TWiki-4.1 |  Edinburgh  |  1.11 |
+| TWiki-4.2 |  Freetown  |  1.2 |
+| TWiki-4.3 |  Georgetown  |  1.2 |
+| TWiki-5.0 |  Helsinki  |  1.3 |
+| TWiki-5.1 |  Istanbul  |  1.4 |
+| TWiki-6.0.0 |  Jerusalem  |  6.00 |
+| TWiki-6.0.1 |  "  |  6.01 |
+| TWiki-6.0.2 |  "  |  6.02 |
+
+---+++ Upgrade From Earlier Releases
+
+Follow the TWikiUpgradeGuide to install TWiki and migrate data from your existing TWiki.
+
+You can use the new BackupRestorePlugin to backup an old TWiki and then simply restore the content to a new TWiki. %X% Make sure to exclude the TWiki web on restore!
+
+---++ Deprecation Notices
+
+---+++ !JSCalendarContrib Deprecated
+
+The [[http://www.dynarch.com/projects/calendar/][Mishoo JSCalendar]] based DHTML pop-up calendar is now repackaged as DatePickerPlugin. The JSCalendarContrib is deprecated and will be removed in the next release. Actions to take:
+
+   * TWiki pages that use !JSCalendarContrib need to be updated to the much easier format of the new plugin - details in DatePickerPlugin
+   * Extensions that have a dependency on !JSCalendarContrib need to be updated to version 2012-12-12 or later:
+      * !ChecklistTablePlugin - TWiki:Plugins.ChecklistTablePlugin on twiki.org
+      * !DateFieldPlugin - TWiki:Plugins.DateFieldPlugin on twiki.org
+      * EditTablePlugin - TWiki:Plugins.EditTablePlugin on twiki.org - pre-installed
+      * !EditTablerowPlugin - TWiki:Plugins.EditTablerowPlugin on twiki.org
+      * !FormPlugin - TWiki:Plugins.FormPlugin on twiki.org
+      * !RenderFormPlugin - TWiki:Plugins.RenderFormPlugin on twiki.org
+   * Once plugins and page content have been updated it is safe to remove the !JSCalendarContrib completely.
+
+---+++ !MailerContrib Deprecated
+
+The MailerContrib is deprecated and will be replaced in a future TWiki release by the newly added WatchlistPlugin.
+
+---+++ !TWikiNetSkin & !TWikiNetSkinPlugin Deprecated
+
+From TWiki 6.0 on, the TWikiNetSkin and TWikiNetSkinPlugin are deprecated and will be removed in a future release.
+
+---+++ !ClassicSkin Removed
+
+The !ClassicSkin has been deprecated in the TWiki-5.0 release and has been removed from this release.
+
+---++ TWiki-6.0.0 Major Release - Details
+
+TWiki-6.0.0 was built from SVN http://svn.twiki.org/svn/twiki/trunk revision r28207 (2013-10-05) 
+
+---+++ Enhancements
+
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+<noautolink>
+| TWikibug:Item1952 | TinyMCEPlugin: Background (Auto) save & recover |
+| TWikibug:Item5728 | TinyMCEPlugin: Upload attachments in AUTOINC topics |
+| TWikibug:Item6817 | Feature: Hide TWiki Form if all form fields are hidden |
+| TWikibug:Item6818 | Usability: Auto-discover TWiki forms, no need to set in WEBFORMS |
+| TWikibug:Item6819 | Usability: Move change TWiki form from edit screen to "more" screen |
+| TWikibug:Item6822 | SEARCH Variable With Default Parameter |
+| TWikibug:Item6826 | Template: Show links to versions of attached files in attachment table |
+| TWikibug:Item6827 | FORMFIELD Variable With rev Parameter |
+| TWikibug:Item6831 | Repository for Site and Web meta-data |
+| TWikibug:Item6872 | TWikiUserMappingContrib: Show users as a list of business cards in UserList |
+| TWikibug:Item6875 | TOPICTITLE variable feature |
+| TWikibug:Item6879 | TWikiUserMappingContrib: Custom user reports for TWiki apps |
+| TWikibug:Item6880 | INCLUDE and STARTSECTION with disablefixlinks parameter |
+| TWikibug:Item6882 | FORMFIELD variable with hyphenated and shortened form field value |
+| TWikibug:Item6887 | Configurable attachment behavior if file name differs |
+| TWikibug:Item6892 | TWiki::Func::getExternalResource with custom header |
+| TWikibug:Item6904 | User masquerading - test access control settings for another user |
+| TWikibug:Item6906 | View raw topic text with variables expanded using raw=expandvariables URL parameter |
+| TWikibug:Item6916 | Read-only and mirror web support |
+| TWikibug:Item6917 | CGI Engine to be made Fast CGI compatible  |
+| TWikibug:Item6918 | TopMenuSkin: New WEBLEFTBAR setting to show a sidebar |
+| TWikibug:Item6941 | Using multiple disks for DataDir and PubDir |
+| TWikibug:Item6946 | Forbidding a subweb name same as a topic name |
+| TWikibug:Item6963 | WEBLIST with format tokens in format parameter |
+| TWikibug:Item6971 | ScrollBoxAddOn: Add ScrollBoxAddOn to core distribution |
+| TWikibug:Item6972 | TWikiDashboardAddOn: Add TWikiDashboardAddOn to core distribution |
+| TWikibug:Item6977 | Option to suppress "in all public webs" links on the "More topic actions" page |
+| TWikibug:Item6983 | Documentation: Add dashboards to homes of Main, TWiki, Sandbox and _default webs |
+| TWikibug:Item6987 | User mapping manager to be able to have a method to allow new web creation  |
+| TWikibug:Item6998 | Support personal subwebs for users |
+| TWikibug:Item7000 | /cgi-bin/view/~jsmith to be redirected to /cgi-bin/view/Main/JaneSmith |
+| TWikibug:Item7001 | Comprehensive documentation for LargeSite configuration |
+| TWikibug:Item7003 | Icon bullet lists |
+| TWikibug:Item7010 | Plugins: Enhance TWiki::Func::getExternalResource, new TWiki::Func::postExternalResource, new plugin registerExternalHTTPHandler |
+| TWikibug:Item7013 | New ENTITY Variable |
+| TWikibug:Item7014 | TWikiUserMappingContrib: In TWiki.UserReports, include css sections automatically if needed |
+| TWikibug:Item7019 | Search: Add sort parameter to SEARCH, as alias to order parameter |
+| TWikibug:Item7020 | Documentation: Categorize all TWiki Variables |
+| TWikibug:Item7024 | EditTablePlugin: Make EditTable read-only when current site mode is readonly or slave. |
+| TWikibug:Item7025 | EditTablePlugin: Return to base page after saving changes. |
+| TWikibug:Item7030 | Search: SEARCH with sort by parent |
+| TWikibug:Item7034 | TagMePlugin: Multiple tag namespaces support |
+| TWikibug:Item7039 | TWiki::Func and TWiki variable enhancements for read-only and mirror webs |
+| TWikibug:Item7040 | Add [[TWiki.TWikiVariablesWizard][TWiki Variables Wizard]] |
+| TWikibug:Item7044 | TWiki::Func: Add entityEncode, entityDecode, urlEncode, urlDecode functions |
+| TWikibug:Item7045 | API: TWiki::Func::redirectCgiQuery and TWiki::redirect support $viaCache parameter. |
+| TWikibug:Item7052 | Skins: Conditional Skin Feature |
+| TWikibug:Item7061 | Search Results Pagination |
+| TWikibug:Item7074 | TWiki::Func functions for multiple disk support  |
+| TWikibug:Item7075 | Open external links in new window or tab; show external link icon |
+| TWikibug:Item7076 | Statistics enhancements for read-only and mirror webs |
+| TWikibug:Item7077 | DatePickerPlugin: Initial version of DatePickerPlugin |
+| TWikibug:Item7078 | Manifest: Replace JSCalendarContrib with DatePickerPlugin in TWiki core |
+| TWikibug:Item7092 | Manifest: Add MovedSkin to TWiki core distribution |
+| TWikibug:Item7095 | Manifest: Remove ClassicSkin from core TWiki |
+| TWikibug:Item7096 | Render: Automatically link !@twitter IDs |
+| TWikibug:Item7097 | Rename action=renameweb not suitable for a large site and TWiki.ReadOnlyAndMirrorWebs |
+| TWikibug:Item7100 | Web specific WIKIWEBMASTER |
+| TWikibug:Item7102 | Restricting HTTP{...} variable to hide certain header fields |
+| TWikibug:Item7103 | Importing web level preferences from specified topics  |
+| TWikibug:Item7104 | Picking form definition dynamically |
+| TWikibug:Item7105 | Finer-control variable expansion in topic creation |
+| TWikibug:Item7106 | Add encode, newline, nofinalnewline, allowanytype to INCLUDE Variable |
+| TWikibug:Item7107 | Add createdate and encode to SEARCH |
+| TWikibug:Item7115 | TWikiUserMappingContrib: Configurable signatures with profile pictures |
+| TWikibug:Item7118 | WEBLIST canmoveto and cancopyto |
+| TWikibug:Item7119 | Add new copy script to clone topics |
+| TWikibug:Item7120 | The rename topic operation to have option not to replace web internal references |
+| TWikibug:Item7127 | !WebTopicViewTemplate and WebTopicNonWikiTemplate to be displayed on read-only and mirror webs |
+| TWikibug:Item7130 | Show Topic Title in Square Bracket Links using =[<nop>[+TopicName]]= syntax |
+| TWikibug:Item7139 | CommentPlugin: Add nice bubble boxes around CommentPlugin comments |
+| TWikibug:Item7140 | Content of SEARCH{...} format tokens ($text, etc.) to be able to be encoded |
+| TWikibug:Item7142 | New viewRedirectHandler() for plugins |
+| TWikibug:Item7144 | InterwikiPlugin: InterwikiPlugin to observe the Links configuration parameter |
+| TWikibug:Item7151 | Documentation: Documentation work for TWiki-6.0.0 |
+| TWikibug:Item7152 | Documentation: New TWiki Doc Graphics icons for TWiki-6.0.0 |
+| TWikibug:Item7153 | Documentation: Translation work for TWiki-6.0.0 |
+| TWikibug:Item7155 | WEBLIST with subwebs="WEB" and depth="N" parameters |
+| TWikibug:Item7160 | TopMenuSkin: Support breadcrumbs at the top of the page in TopMenuSkin |
+| TWikibug:Item7168 | TWikiForms: Implement missing $name, $attributes, $length tokens in format parameter of FORMFIELD variable |
+| TWikibug:Item7170 | Finer control in LWP::UserAgent |
+| TWikibug:Item7171 | Add a $top to format parameter of WEB, INCLUDINGWEB, BASEWEB variable |
+| TWikibug:Item7180 | Manifest: Add WatchlistPlugin to Core and Deprecate MailerContrib |
+| TWikibug:Item7184 | SpreadSheetPlugin: Allow commas in SUBSTRING input string |
+| TWikibug:Item7187 | /cgi-bin/view/~jsmith redirect to preserve URL parameters |
+| TWikibug:Item7191 | Specify list of internal link domains that is excluded from the "external links" rendering |
+| TWikibug:Item7195 | API: TWiki::Store::saveAttachment can optionally ignore permissions |
+| TWikibug:Item7196 | SpreadSheetPlugin: New functions !BIN2DEC(), !DEC2BIN(), !DEC2HEX(), !DEC2OCT(), !HEX2DEC(), !OCT2DEC() |
+| TWikibug:Item7199 | SpreadSheetPlugin: New functions GETHASH(), !HASH2LIST(), HASHCOPY(), HASHEACH(), HASHEXISTS(), HASHREVERSE(), !LIST2HASH(), SETHASH(), SETMHASH() |
+| TWikibug:Item7201 | Dynamic access control with IF, SEARCH and other variables in access control settings |
+| TWikibug:Item7202 | PreferencesPlugin: PreferencesPlugin to support variants of preference setting format |
+| TWikibug:Item7203 | SpreadSheetPlugin: Spreadsheet CALCULATE parameters with quoted strings |
+| TWikibug:Item7205 | TWikiForms: New TWiki form field type: combobox |
+| TWikibug:Item7206 | TWikiForms: New EDITFORMFIELD variable |
+| TWikibug:Item7209 | getEffectiveUser() and getRealUser() in TWiki::Users |
+| TWikibug:Item7214 | Add web="..." parameter to MDREPO{} variable |
+| TWikibug:Item7216 | SlideShowPlugin: Add Slide_N anchors for easy linking to specific slides; fix keyboard navigation for Safari |
+| TWikibug:Item7218 | SpreadSheetPlugin: Support and document ROW() and COLUMN() used outside of tables |
+| TWikibug:Item7223 | Add topic and web parameters to TWiki::Func::isAnAdmin() |
+| TWikibug:Item7227 | User subwebs to be able to ignore !Main.WebPreferences |
+| TWikibug:Item7236 | PreferencesPlugin: PreferencesPlugin not to touch a variable whose type is label |
+| TWikibug:Item7240 | TOPIC_ACCESS_CONTACT preference variable to customize the topic access denied page |
+| TWikibug:Item7245 | MailerContrib: Allowing custom user/group notations in WebNotify without quotes |
+| TWikibug:Item7260 | Log access of non-existing webs |
+| TWikibug:Item7262 | Add .pm and .pl files to mime plain/text |
+| TWikibug:Item7269 | TinyMCEPlugin: No picture after saving the topic using WYSIWYG editor |
+| TWikibug:Item7283 | TablePlugin: Auto-detect number of header rows when sorting; fix headerrows issue |
+| TWikibug:Item7288 | TWikiUserMappingContrib: Wikify login name if no user mapper available |
+| TWikibug:Item7289 | INCLUDE to be able to include a topic in the raw |
+| TWikibug:Item7290 | For paragraphs generate &lt;p&gt;...&lt;/p&gt; instead of &lt;p/&gt; |
+| TWikibug:Item7299 | SpreadSheetPlugin: Add short and compact format to FORMATTIMEDIFF |
+| TWikibug:Item7300 | TinyMCEPlugin: !TinyMCEPlugin can be conditionally disabled by using variables in the TINYMCEPLUGIN_DISABLE setting |
+| TWikibug:Item7301 | VAR{...} to get the value defined in a topic and the value in the current context |
+| TWikibug:Item7307 | Change $hour:$min to $hour:$min:$sec in log/debug/warn |
+| TWikibug:Item7308 | core: Preventing WebStatistics from growing big |
+| TWikibug:Item7316 | Documentation: Add comment section to new topic template  |
+| TWikibug:Item7317 | JQueryPlugin: Update jQuery plugin to jquery-1.10.2 and jquery-ui-1.10.3 |
+| TWikibug:Item7321 | New apostrophe-quote (single quote) escape token in formatted search |
+| TWikibug:Item7322 | SpreadSheetPlugin: TRANSLATE supporting double quote and apostrophe-quote (single quote) excape tokens |
+| TWikibug:Item7324 | Specifying webs to be excluded from WebStatistics update |
+| TWikibug:Item7329 | New "All Users" Groups |
+| TWikibug:Item7330 | Empty DENY Setting Means Undefined Setting |
+| TWikibug:Item7333 | DatePickerPlugin: Support more input field attributes, such as accesskey, pattern and required |
+| TWikibug:Item7334 | Show number of unique users and affiliation breakdown in statistics |
+| TWikibug:Item7335 | Show most popular webs in !SiteStatistics |
+| TWikibug:Item7336 | {Stats}{SiteTopContrib} |
+| TWikibug:Item7340 | Show top viewers, most viewed webs, most updated webs in statistics pages |
+| TWikibug:Item7341 | WebChanges showing topic age instead of date |
+| TWikibug:Item7342 | ADDTOHEAD can include just a topic section with new section="" parameter |
+| TWikibug:Item7343 | Documentation: New variables LAQUO, RAQUO, PARENTBC |
+| TWikibug:Item7345 | GROUPS variable with new parameters header, format, separator, memberlimit, memberformat, memberseparator |
+| TWikibug:Item7352 | Add description setting to group topics |
+| TWikibug:Item7354 | Plugins API: Align TWiki::Plugins::VERSION with TWiki release version, e.g. 6.00 for TWiki-6.0.0 |
+| TWikibug:Item7356 | Add style parameter to TOC variable |
+| TWikibug:Item7359 | PatternSkin: Usability: Hide bookmark table when adding a new bookmark |
+| TWikibug:Item7364 | TWikiUserMappingContrib: Add firstoption and firstvalue to USERREPORT{ action="select_one_user" } |
+</noautolink>
+Total: 136
+
+---+++ Fixes
+
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+<noautolink>
+| TWikibug:Item5078 | TinyMCEPlugin: !TinyMCE: Can't enter text after deleting bullet list |
+| TWikibug:Item5337 | TinyMCEPlugin: WYSIWYG edit mode breaks &lt;pre&gt; text |
+| TWikibug:Item5909 | TinyMCEPlugin: Wysiwyg crashes on save if you create several empty bullet points (2 empty, 2 with text then 2 empty) |
+| TWikibug:Item6068 | WysiwygPlugin: WYSIWYG removes linebreaks from pre-tag |
+| TWikibug:Item6072 | WysiwygPlugin: Can't call method "generate" on unblessed reference at lib/TWiki/Plugins/WysiwygPlugin/HTML2TML/Node.pm line 630. |
+| TWikibug:Item6188 | TinyMCEPlugin: fullscreen broken on google chrome |
+| TWikibug:Item6335 | WysiwygPlugin: WysiwygPlugin removes line breaks  |
+| TWikibug:Item6573 | PreferencesPlugin: PreferencesPlugin cannot save empty settings |
+| TWikibug:Item6737 | JQueryPlugin: Broken nested tabs |
+| TWikibug:Item6889 | TWiki::Render::renderRevisonInfo() incorrectly handling cUID |
+| TWikibug:Item6893 | core/lib/TWiki/UserMapping.pm's isInGroup() has unused my !@users variable |
+| TWikibug:Item6896 | When charset=UTF-8, viewing a page with non-ASCII character with raw=on parameter corrupts some characters |
+| TWikibug:Item6908 | TOC variable may yield a fragment of a UTF-8 sequence |
+| TWikibug:Item6909 | TWiki::Attach::_expandAttrs() yields incorrect value for 'USER' when you use a custom user mapping handler |
+| TWikibug:Item6912 | $session->{webName} is incorrect when bin/viewfile/Web/Topic/File.ext is accessed |
+| TWikibug:Item6927 | Topic creation on WebHome of the Sandbox web to follow EDITMETHOD |
+| TWikibug:Item6932 | TOC anchor names in non-ISO-8859 charsets |
+| TWikibug:Item6942 | %<nop>INCLUDE{"http://..."} needs to convert character encoding when necessary |
+| TWikibug:Item6948 | Several: S/MIME notification support is incomplete |
+| TWikibug:Item6975 | TWiki::Meta::getRevisionInfo() to return cUID as much as possible |
+| TWikibug:Item6999 | SEARCH's summary text may contain a fragment of a UTF-8 character |
+| TWikibug:Item7007 | TWiki::Func::getWikiName($user) does not take cUID |
+| TWikibug:Item7016 | HeadlinesPlugin: Code cleanup using TWiki::Func::addToHEAD and TWiki::Func::getExternalResource |
+| TWikibug:Item7026 | LoginManager: TWiki::LoginManager::createCryptToken() to check $cfg{UseClientSessions} |
+| TWikibug:Item7027 | SEARCH may yield incorrect authors in a result |
+| TWikibug:Item7079 | The viewfile script is not working well in Fast CGI and mod_perl |
+| TWikibug:Item7081 | Statistics script needs to use gmtime instead of servertime to determine the default month |
+| TWikibug:Item7125 | TinyMCEPlugin: While editing an AUTOINC topic in WYSIWYG, if you attach a file before you save the topic, the file is attached to !SomeAUTOINC0 topic |
+| TWikibug:Item7156 | Empty IF condition to be regarded valid and false  |
+| TWikibug:Item7159 | "Proportional" is misspelled in locale files and pattern.tmpl |
+| TWikibug:Item7161 | InterwikiPlugin: InterwikiPlugin may work incorrectly under Fast CGI or mod_perl |
+| TWikibug:Item7164 | INCLUDE not to modify wiki words in the script tag |
+| TWikibug:Item7165 | Literal tags are removed under some cercumstances |
+| TWikibug:Item7166 | TOC variable has potential infinite recursion |
+| TWikibug:Item7169 | TWikiForms: The dollar attributes in form fields should not resolve to value - test: $attributes, $size, $length |
+| TWikibug:Item7172 | TWiki::Func: Ignore Permissions not working in TWiki::Func::saveTopicText |
+| TWikibug:Item7173 | Template: Rename web text to mention move and delete in addition to rename |
+| TWikibug:Item7179 | TWiki.TWikiRegistration: Add missing countries Burkina Faso, Eritrea, South Sudan to TWiki.TWikiRegistration |
+| TWikibug:Item7188 | NOAUTOLINK on topics included from another web |
+| TWikibug:Item7190 | RSS feed: RSS feed broken, description tag contains byte 0 |
+| TWikibug:Item7193 | Disabling XSS Protection (otherwise, JavaScript doesn't work, just after saving a page) |
+| TWikibug:Item7197 | Detecting UTF-8 flag before the response output is written out |
+| TWikibug:Item7200 | Partial entity encoded text at end of truncated summary |
+| TWikibug:Item7207 | PatternSkin: Layout improvements for radio buttons and checkboxes in TWiki Forms |
+| TWikibug:Item7208 | PreferencesPlugin: PreferencesPlugin puts radio buttons and check boxes on the following line  |
+| TWikibug:Item7217 | %<nop>VARIABLE{default="..."}% in a verbatim block is converted into %<nop>VARIABLE% when INCLUDEd |
+| TWikibug:Item7219 | PreferencesPlugin: Preserve order of values of type checkbox and select+multi as defined; support select+multi+values |
+| TWikibug:Item7220 | TWiki::Func: Allow login name, cUID and !WikiName for user in TWiki::Func::writeLog |
+| TWikibug:Item7221 | SpreadSheetPlugin: Multiple CALCs outside a table referencing the preceding table return incorrect last cell value |
+| TWikibug:Item7222 | Trailing space in DENYTOPIC* causes the access allowed to anybody |
+| TWikibug:Item7224 | TagMePlugin: TagMePlugin may call a non existing method in TWiki::Access |
+| TWikibug:Item7225 | TWiki.WebCreateNewTopicTemplate to observe EDITMETHOD |
+| TWikibug:Item7226 | NEWLINKFORMAT defined on TWiki.TWikiPreferences to be site federation concious |
+| TWikibug:Item7229 | !OopsException generated redirect URL has parameters duplicated |
+| TWikibug:Item7231 | PreferencesPlugin: PreferencesPlugin is confused by Set and Local of a same variable |
+| TWikibug:Item7232 | Size attribute of a TWiki Forms field needs to allow space anywhere |
+| TWikibug:Item7234 | TagMePlugin: TagMePlugin problems when {TagMePlugin}{SplitSpace} is true |
+| TWikibug:Item7241 | [[TWiki.TWikiAccessControl]] unable to be viewed by non-admin users |
+| TWikibug:Item7242 | When deleting a topic, "update links" check boxes are checked by default |
+| TWikibug:Item7243 | Gratuitous %<nop>NONWIKIWORD% in twiki.tmpl |
+| TWikibug:Item7246 | !TWiki.WebTopicCreator takes very long on a large site |
+| TWikibug:Item7248 | MailerContrib: TWiki::Contrib::MailerContrib::_processWeb() to set $twiki->{webName} |
+| TWikibug:Item7256 | Lang value needs to have a hyphen instead of an underscore |
+| TWikibug:Item7257 | Add image/bmp to data/mime.type |
+| TWikibug:Item7259 | REVINFO{"$wikiusername"} value to always start with {UsersWebName} and dot. |
+| TWikibug:Item7263 | viewfile needs to quote a file name containg commas in the content-disposition header field |
+| TWikibug:Item7264 | The edit script to edit !ABC.DEF topic if it exists even if the subweb !ABC/DEF exists |
+| TWikibug:Item7272 | PreferencesPlugin: !PreferencesPlugin may malfunction if WebPreferencesHelp contains an HTML form |
+| TWikibug:Item7273 | A manage link on an attachment list does not work on a mirror web |
+| TWikibug:Item7274 | Adding .msg to data/mime.types |
+| TWikibug:Item7275 | Allowing "0" as a false condition in IF |
+| TWikibug:Item7278 | %<nop>IF% interprets "0" as "undef" instead of a number and can't recognize single character variable name |
+| TWikibug:Item7282 | mime.types to have .xml, .xsl, and .xslt |
+| TWikibug:Item7284 | TablePlugin: TablePlugin taking HTML tags into account in sorting |
+| TWikibug:Item7285 | The copy script to copy to the same web as the source topic by default |
+| TWikibug:Item7286 | Support TOC in skin |
+| TWikibug:Item7287 | When Foo/FizzBuzz subweb and !Foo.FizzBuzz topic both exist, !Foo.FizzBuzz topic can be edited but cannot be saved  |
+| TWikibug:Item7293 | Installer: extender.pl: Can't install extension due to redefined global $/ variable |
+| TWikibug:Item7296 | FORMFIELD{...} ignoring the rev parameter |
+| TWikibug:Item7297 | META{"attachments" topic="TOPIC"} yields incorrect links to attachments |
+| TWikibug:Item7298 | FORMFIELD unable to get the top revision data regardless of the rev URL parameter |
+| TWikibug:Item7302 | Improve no_such_web message in messages.tmpl |
+| TWikibug:Item7303 | !TWiki.TWikiAccessControl to have a hook for site specific information |
+| TWikibug:Item7306 | backlinksweb page not to show the link to backlinksallwebs page if {NoInAllPublicWebs} is true |
+| TWikibug:Item7309 | core: New SITESTATISTICSTOPIC variable returning the !SiteStatistics topic name |
+| TWikibug:Item7310 | TinyMCEPlugin: Disappearing Top Line on WYSIWYG Editing  |
+| TWikibug:Item7318 | !SiteStatistics not taking all webs in a federated sites into account |
+| TWikibug:Item7319 | !SiteStatistics topic's data size, pub size, and disk use columns not taking multiple disks into account |
+| TWikibug:Item7320 | Return 404 Not Found Status for Topic Not Found, No Such Web, Access Denied |
+| TWikibug:Item7323 | Most popular topic views and top contributors not well aligned on statistics topics |
+| TWikibug:Item7327 | tools/gendocs.pl improvements |
+| TWikibug:Item7328 | ScrollBoxAddOn: ScrollBoxAddOn not working on IE9 |
+| TWikibug:Item7337 | PreferencesPlugin: Uninitialized value warning when Local setting is used |
+| TWikibug:Item7338 | WysiwygPlugin: Import WYSIWYG plugin fixes 2008-2013 |
+| TWikibug:Item7339 | TinyMCEPlugin: Upgrade to !TinyMCE version 3.5.8; import !TinyMCE plugin fixes 2008-2013 |
+| TWikibug:Item7350 | Add sort="on" parameter to GROUPS variable |
+| TWikibug:Item7358 | Email addresses at the end of sentences include period in link |
+| TWikibug:Item7360 | Query search not working on non-default disks |
+| TWikibug:Item7362 | Deprecate !TWikiNetSkin and !TWikiNetSkinPlugin |
+</noautolink>
+Total: 99
+
+---++ TWiki-6.0.1 Patch Release - Details
+
+TWiki-6.0.1 was built from SVN http://svn.twiki.org/svn/twiki/branches/TWikiRelease06x00 revision r28194 (2014-10-05) 
+
+---+++ Enhancements
+
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+<noautolink>
+| TWikibug:Item7369 | Documentation: New TWiki Doc Graphics icons for TWiki-6.0.1 |
+| TWikibug:Item7370 | Documentation: Translation work for TWiki-6.0.1 |
+| TWikibug:Item7376 | TipsContrib: Suppress header in tips of the day with noheader="on" parameter |
+| TWikibug:Item7388 | TOPICTITLE variable with default parameter |
+| TWikibug:Item7391 | Search: Search with sort by multiple fields |
+| TWikibug:Item7402 | In EDITFORMFIELD type="start", support onsubmit and on reset parameters |
+| TWikibug:Item7406 | TWikiDashboardAddOn: New text and textstyle parameters for banner section |
+| TWikibug:Item7409 | WatchlistPlugin: Don't notify oneself; use CGI referer for OK link |
+| TWikibug:Item7410 | WatchlistPlugin: Don't notify oneself when watching topics; set minor change when updating watchlist topic |
+| TWikibug:Item7411 | WatchlistPlugin: Watch all topics in web and watch new topics in web; fix for mod_perl |
+| TWikibug:Item7419 | SpreadSheetPlugin: New functions ADDLIST(), GETLIST(), SETLIST() |
+| TWikibug:Item7425 | Search: Sort by parent breadcrumb |
+| TWikibug:Item7443 | Search: Possible to return quoted strings in query() of formatted search |
+| TWikibug:Item7445 | SpreadSheetPlugin: FORMAT(CURRENY, ...) with support for currency symbol |
+| TWikibug:Item7466 | New csv encode type for ENCODE variable |
+| TWikibug:Item7472 | Documentation: New COPY, REG, TM variables for copyright, registered trademark and trademark symbols, respectively |
+| TWikibug:Item7477 | Add $br to newline and separator parameter of SEARCH |
+| TWikibug:Item7492 | PatternSkin: New hideInPrint CSS class to hide specific content from printing |
+| TWikibug:Item7494 | PatternSkin: Drag and drop file attachments - PatternSkin to integrate !DropzoneJSSkin |
+| TWikibug:Item7502 | TWikiUserMappingContrib: Add drag and drop to change profile picture screen |
+| TWikibug:Item7512 | SCRIPTURLPATH to return a path even with master="on" if appropriate |
+| TWikibug:Item7515 | TOC to have TOC_MIN_DEPTH and TOC_MAX_DEPTH documented; to have mindepth parameter for symmetry |
+| TWikibug:Item7520 | TopMenuSkin: Context sensitive tooltip help for Jump box and Search box |
+| TWikibug:Item7534 | PatternSkin: Show history and other topic actions in read-only skin mode |
+| TWikibug:Item7543 | Disallow SESSION_VARIABLE variable to set/get/clear session variables starting with underscore |
+| TWikibug:Item7544 | JQueryPlugin: JQTAB enhancements: Show blue link instead of red on hover over tab; make tab css overridable; remove dotted underline below tab; active tabs with gray gradient |
+| TWikibug:Item7546 | TopMenuSkin: TopMenuSkin can customize top bar buttons. |
+| TWikibug:Item7552 | SpreadSheetPlugin: Allow newlines in triple-quoted strings |
+| TWikibug:Item7553 | SpreadSheetPlugin: Allow newlines and indent around functions and function parameters |
+| TWikibug:Item7563 | More intuitive syntax for select+values field type of TWiki Forms |
+</noautolink>
+Total: 30
+
+---+++ Fixes
+
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+<noautolink>
+| TWikibug:Item6816 | TagMePlugin: User rights for allowing tag delete / rename do not work right |
+| TWikibug:Item6965 | configure: Insecure dependency (again) in tools/extender.pl when installing extension in configure |
+| TWikibug:Item7146 | Deep recursion bug in query search using formfield in form |
+| TWikibug:Item7238 | TWiki::Func::getRevisionInfo() may contaminate cUID-login mapping cache |
+| TWikibug:Item7368 | Documentation work for TWiki-6.0.1 |
+| TWikibug:Item7373 | EditTablePlugin: EDITTABLE can't handle HTML comments |
+| TWikibug:Item7375 | TagMePlugin: TagMePlugin fails to untag, insufficient and inaccurate documentation |
+| TWikibug:Item7377 | EditTablePlugin: Plugin may eat table rows |
+| TWikibug:Item7378 | Add warning to twiki/index.html to not put TWiki in HTML document directory |
+| TWikibug:Item7379 | EditTablePlugin: Clicking an edit table button and then saving it may add a blank row |
+| TWikibug:Item7384 | build: convert_stats_twiki6 script is missing in TWiki package |
+| TWikibug:Item7385 | HeadlinesPlugin: Encode "[" and "]" to avoid problems with TWiki [[...][...]] links; code-refactor |
+| TWikibug:Item7389 | TWiki::Func::getRevisionInfo() may return a different time stamp from %<nop>REVINFO% |
+| TWikibug:Item7390 | tools/tick_twiki.pl to skip read-only and mirror webs |
+| TWikibug:Item7392 | EditTablePlugin: Plugin executes "ASSERT(0) if DEBUG;" statement when clicking on "canel" button. |
+| TWikibug:Item7394 | EditTablePlugin: Plugin is not showing space characters correctly in date fields. |
+| TWikibug:Item7398 | PatternSkin: Comments in attachment table are center aligned instead of left aligned |
+| TWikibug:Item7403 | Minor fix in /twiki/index.html page |
+| TWikibug:Item7415 | Typo regarding TWiki:Codev/DemoteUserPreferences |
+| TWikibug:Item7416 | TablePlugin: TablePlugin causes an error with an illegal date such as 2013-00-00 |
+| TWikibug:Item7418 | SpreadSheetPlugin: VALUE function bug with incorrect exponential number; ability to delete SET variable |
+| TWikibug:Item7424 | Store: Use of uninitialized value error in TWiki::Store::RcsFile |
+| TWikibug:Item7427 | PatternSkin: Too small or too big font with twikiSubmit class on button tag and the a tag |
+| TWikibug:Item7436 | WysiwygPlugin: WYSIWYG editor prepends &Acirc; to spaces inside verbatim and sticky tags |
+| TWikibug:Item7437 | User's subweb may not be listed in %<nop>WEBLIST% |
+| TWikibug:Item7442 | Make ICON case insensitive for full filenames |
+| TWikibug:Item7456 | InterwikiPlugin: Confusing SHORTDESCRIPTION. Possible typo. |
+| TWikibug:Item7462 | Documentation: Typo: colored coded  |
+| TWikibug:Item7464 | Documentation: In !UserReports doc, Section should be Action |
+| TWikibug:Item7467 | PreferencesPlugin: editbutton parameter not working as expected |
+| TWikibug:Item7474 | MIME type for .wmf to be added |
+| TWikibug:Item7476 | SEARCH with newline parameter adds extra newlines, breaking formatting in some cases |
+| TWikibug:Item7478 | Documentation: =template= parameter not documented for edit script in [[TWiki.TWikiScripts]] |
+| TWikibug:Item7482 | Configuration: Can't install TWiki extensions via configure, due to deprecated syntax in TWiki::Extender::remap |
+| TWikibug:Item7483 | !AllowI18nFileName configuration parameter and null file name prevention |
+| TWikibug:Item7484 | ENCODE to have newline parameter |
+| TWikibug:Item7486 | When uploaded file names are changed, the name changes are not shown |
+| TWikibug:Item7487 | Warning: defined(<nop>@array) is deprecated at setlib.cfg |
+| TWikibug:Item7489 | Configure: WatchlistPlugin is not enabled by default |
+| TWikibug:Item7491 | Profiling and performance tuning |
+| TWikibug:Item7495 | WatchlistPlugin: Execute bit missing in tools/watchlistnotify |
+| TWikibug:Item7500 | Scripts expected to be POSTed to return "405 Method Not Allowed" when GETted |
+| TWikibug:Item7504 | PreferencesPlugin: Use of uninitialized value in lc error |
+| TWikibug:Item7507 | Some topics should be modified to avoid a Chrome/Safari font baseline bug |
+| TWikibug:Item7508 | Uninitialized value in hash element at TWiki::Request |
+| TWikibug:Item7511 | statistics script bug with read-only webs, to put time when finish reading log files |
+| TWikibug:Item7513 | Set and clear all buttons not working in TWiki form checkboxes |
+| TWikibug:Item7514 | PatternSkin: PatternSkin table header color specification in CSS considered harmful |
+| TWikibug:Item7517 | configure: configure breaks {RCS}{filePermission} under Perl v5.18.2 |
+| TWikibug:Item7518 | META{"attachment" topic="..."} shows manage links wrong |
+| TWikibug:Item7519 | Upload script may create a phantom attachment |
+| TWikibug:Item7529 | DENYWEB is ignored when DENYTOPIC is defined empty |
+| TWikibug:Item7531 | Edit link's icon not to be hardwired |
+| TWikibug:Item7532 | Print version link does not work if URL parameters are there |
+| TWikibug:Item7533 | "put it back" link yielded from META{moved} not functional |
+| TWikibug:Item7536 | Copy script causes a warning at lib/TWiki/UI/Copy.pm line 203 |
+| TWikibug:Item7541 | "UTF-8 not yet supported as site charset" warning to be eliminated |
+| TWikibug:Item7542 | /cgi-bin/viewfile/WEB/TOPIC/FILE.EXT fails if FILE contains ( or ) |
+| TWikibug:Item7545 | A web removed while statistics is running is recreated with just !WebStatistics topic |
+| TWikibug:Item7555 | statistics script needs to put debug messages only in the debug mode |
+| TWikibug:Item7557 | Max recursive depth reached message is not so useful without web and topic mentioned |
+| TWikibug:Item7558 | Security alert CVE-2014-7236: Remote code execution with plugin handler |
+| TWikibug:Item7559 | MailerContrib: mailnotify showing subscribers of a web wrong |
+| TWikibug:Item7560 | Security alert CVE-2014-7237: File upload issue on Windows server |
+| TWikibug:Item7561 | Combobox pulldown covered by rating stars |
+| TWikibug:Item7562 | TWiki::Render::summariseChanges() needs safeguard |
+</noautolink>
+Total: 66
+
+---++ TWiki-6.0.2 Patch Release - Details
+
+TWiki-6.0.2 was built from SVN http://svn.twiki.org/svn/twiki/branches/TWikiRelease06x00 revision r29687 (2015-11-29) 
+
+---+++ Enhancements
+
+<noautolink>
+| TWikibug:Item7565 | Documentation: Documentation work for TWiki-6.0.2 |
+| TWikibug:Item7566 | Documentation: New TWiki Doc Graphics icons for TWiki-6.0.1 |
+| TWikibug:Item7567 | Documentation: Translation work for TWiki-6.0.2 |
+| TWikibug:Item7581 | Forbid certain users to run certain TWiki scripts by configuration |
+| TWikibug:Item7583 | SpreadSheetPlugin: New RANDSTRING function |
+| TWikibug:Item7588 | JQueryPlugin: Option to load tab content asynchronously; select specific tab in jQuery tab pane; allow tab panes in bullet lists & TWiki table cells; allow HTML in tab title |
+| TWikibug:Item7594 | TablePlugin: Possible to add TML (TWiki markup) with newlines in TWiki table cells |
+| TWikibug:Item7600 | TWikiForms: Set form field format on file upload |
+| TWikibug:Item7601 | ColorPickerPlugin: New type parameter to set type of color widget for popup pick, picker below input field, and view color |
+| TWikibug:Item7607 | SpreadSheetPlugin: PROPERSPACE() to space also uppercase to number transition |
+| TWikibug:Item7608 | SPACEOUT variable to space also uppercase to number transition |
+| TWikibug:Item7611 | SetGetPlugin: SET and GET with support for JSON objects and JSON path |
+| TWikibug:Item7616 | Search: Control over formfield rendering in a formatted SEARCH; fix performance issue with formatted SEARCH in TWiki-6.0 |
+| TWikibug:Item7620 | CgiContrib: Add CGI to TWiki core distribution |
+| TWikibug:Item7635 | SetGetPlugin: Ability to specify store name to persistently store variables |
+| TWikibug:Item7639 | SetGetPlugin: Use file locking on persistent store to prevent corrupting the store |
+| TWikibug:Item7645 | New CHILDREN variable |
+| TWikibug:Item7646 | New separator parameter for METASEARCH variable |
+| TWikibug:Item7649 | Responsive multi-column page layout using CSS using TWOCOLUMNS, THREECOLUMNS, FOURCOLUMNS, ENDCOLUMNS |
+| TWikibug:Item7654 | Search attachments in a web |
+| TWikibug:Item7656 | SpreadSheetPlugin: New NOTE(), EQUAL() functions |
+| TWikibug:Item7668 | ENCODE variable with new type="json" parameter to escape a string for JSON use |
+| TWikibug:Item7675 | SetGetPlugin: GET with support for JSON path using [*] wildcard array index |
+</noautolink>
+Total: 23
+
+---+++ Fixes
+
+<noautolink>
+| TWikibug:Item7433 | LoginManager: Stale cryptotokens when page containing form is refreshed |
+| TWikibug:Item7569 | Detect and prevent obvious recursion in preferences variables |
+| TWikibug:Item7570 | INCLUDE{http://THIS_SERVER/cgi-bin/view/THIS_WEB/THIS_TOPIC} brings TWiki down |
+| TWikibug:Item7571 | WatchlistPlugin: Immediate notification no longer works |
+| TWikibug:Item7572 | rdiff script itself needs to check view access |
+| TWikibug:Item7573 | search script to check web and topic existence and view access in the same manner as other scripts |
+| TWikibug:Item7574 | rename script not to search all public webs by default if {NoInAllPublicWebs} is true |
+| TWikibug:Item7575 | SEARCH needs to ignore web=all if {NoInAllPublicWebs} is true |
+| TWikibug:Item7577 | TWiki form field types with configure attributes |
+| TWikibug:Item7578 | Configure: Use of uninitialized value $_[0] in Configure::UI line 138 |
+| TWikibug:Item7579 | TWikiUserMappingContrib: Profile picture not shown in user signature and bubble signature; make user profile pages coexist with !AutoSectionsPlugin |
+| TWikibug:Item7584 | Template login not working with IIS 7.5 on Windows and Safari on iOS |
+| TWikibug:Item7590 | View master link is not pointing to the master |
+| TWikibug:Item7591 | /cgi-bin/viewfile/Web/Topic/filename.ext may fail if filename contains special characters |
+| TWikibug:Item7592 | INCLUDE to take shortcut with attachment URLs regardless of file name extension |
+| TWikibug:Item7595 | Security Alert CVE-2014-9325: XSS Vulnerability with QUERYSTRING and QUERYPARAMSTRING Variables |
+| TWikibug:Item7596 | Security Alert CVE-2014-9367: XSS Vulnerability with Scope and Other URL Parameters of !WebSearch |
+| TWikibug:Item7598 | TWikiForms: Do not store attributes in form field metadata |
+| TWikibug:Item7602 | TWiki::Net::sendEmail() with improved error handling |
+| TWikibug:Item7603 | MailerContrib: MailerContrib to be configurable with mail send tries and other improvements |
+| TWikibug:Item7604 | Switch to GPL v3 & set copyright to 2015 |
+| TWikibug:Item7612 | INCLUDE's allowanytype parameter no longer works |
+| TWikibug:Item7613 | Self-service mdrepo management |
+| TWikibug:Item7615 | Add log entry when creating new web |
+| TWikibug:Item7617 | SpreadSheetPlugin: Add range check in SUBSTRING |
+| TWikibug:Item7619 | Search: SEARCH with sort by parent(99) not working properly |
+| TWikibug:Item7621 | WatchlistPlugin: renaming a web causes a warning in !WatchlistPlugin |
+| TWikibug:Item7629 | Metadata repository record ID and  field name validity check regex's to be configurable |
+| TWikibug:Item7636 | SetGetPlugin: Init variables at plugin init time (was not the case in mod_perl environment) |
+| TWikibug:Item7642 | Plugins API: The registrationHandler callback does not pass web name |
+| TWikibug:Item7644 | TagMePlugin: TagMePlugin can't be =configured= |
+| TWikibug:Item7648 | TwistyContrib: Less intrusive Twisty link - no dotted underlines |
+| TWikibug:Item7650 | Broken links in statistics script |
+| TWikibug:Item7651 | statistics script to be more large site friendly |
+| TWikibug:Item7652 | PatternSkin: Dark on dark links in table headers |
+| TWikibug:Item7653 | TOPICTITLE is empty if Title form field is empty |
+| TWikibug:Item7658 | Include and other error messages have too much whitespace |
+| TWikibug:Item7659 | tools/tick_twiki.pl does not remove spurious leases  |
+| TWikibug:Item7660 | TWikiUserMappingContrib: Vertical text align issue in slim_box user report |
+| TWikibug:Item7662 | @ in the path part of a URL must not be recognized as user/password specification |
+| TWikibug:Item7664 | INCLUDE with new charset parameter; support for default content-type |
+| TWikibug:Item7666 | Search results pagination links to be able to include an anchor |
+| TWikibug:Item7673 | Engine::CLI to set request method |
+| TWikibug:Item7674 | viewfile script to take debug URL parameter |
+| TWikibug:Item7676 | TWiki::Time::formatTime() to observe outputTimeZone argument |
+| TWikibug:Item7686 | JQueryPlugin: !JQueryPlugin to be able to insert !JavaScript and CSS loading lines at a specified place |
+| TWikibug:Item7687 | Cosmetic fix of TWiki.TWikiEditingShorthand for {OpenClosePTags} being true |
+| TWikibug:Item7688 | Parts of SEARCH results difficult to select |
+| TWikibug:Item7689 | Introducing topicTitleHandler() in plugins |
+| TWikibug:Item7690 | Stop specifying style of TOC in the system web |
+| TWikibug:Item7691 | adding .oft to data/mime.types |
+| TWikibug:Item7693 | WIKIWEBMASTER and WIKIWEBMASTERNAME variables to be documented |
+| TWikibug:Item7697 | HeadlinesPlugin: New parameters: filter, newline; fix Atom feed parser to support Google Alerts |
+</noautolink>
+Total: 53
+
+__Related Topics:__ TWikiHistory, TWikiInstallationGuide, TWikiUpgradeGuide, %SEARCH{ "TWikiReleaseNotes" scope="topic" topic="TWikiReleaseNotes*" excludetopic="%TOPIC%" nonoise="on" format="$topic" separator=", " }%

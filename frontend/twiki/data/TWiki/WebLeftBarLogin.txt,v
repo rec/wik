@@ -1,0 +1,131 @@
+head	1.6;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.6
+date	2009.04.29.20.53.27;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2008.08.03.22.17.47;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2008.01.22.03.21.31;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2007.02.05.00.18.44;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2007.01.16.04.12.05;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.23;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="0" format="1.1" version="6"}%
+%STARTINCLUDE%<div class="patternLeftBarPersonal">
+%IF{"context authenticated" then='%MAKETEXT{"Hello [_1]" args="[[%WIKIUSERNAME%][%SPACEOUT{%WIKINAME%}%]]"}%'}%%IF{"$ LOGOUT != ''" then='%BR%<ul><li class="patternLogOut">%LOGOUT%</li></ul>'}%%IF{"$ LOGIN != '' and not context authenticated" then='<ul><li class="patternLogIn">%LOGIN% %IF{"context registration_supported AND context registration_enabled" then="%MAKETEXT{"or"}% [[%SYSTEMWEB%.TWikiRegistration][%MAKETEXT{"Register"}%]]"}%</li></ul>'}%
+%IF{"'%USERNAME%'!='guest'" then="<div class=\"patternLeftBarPersonalContent\">
+$percntINCLUDE{$quot$percntUSERSWEB$percnt.$percntWIKINAME$percntLeftBar$quot warn=$quot<ul><li><a href='%SCRIPTURLPATH{edit}%/%USERSWEB%/%WIKINAME%LeftBar?templatetopic=%SYSTEMWEB%.WebLeftBarPersonalTemplate&amp;topicparent=%WIKINAME%'>%MAKETEXT{Create personal sidebar}%</a></li></ul>$quot }$percnt
+</div><!--/patternLeftBarPersonalContent-->"}%</div><!--/patternLeftBarPersonal-->
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="0" format="1.1" version="5"}%
+d3 1
+a3 1
+%IF{"context authenticated" then='%MAKETEXT{"Hello [_1]" args="[[%WIKIUSERNAME%][%SPACEOUT{%WIKINAME%}%]]"}%'}%%IF{"$ LOGOUT != ''" then='%BR%<ul><li class="patternLogOut">%LOGOUT%</li></ul>'}%%IF{"$ LOGIN != '' and not context authenticated" then='<ul><li class="patternLogIn">%LOGIN% %IF{"context registration_supported AND context registration_enabled" then="%MAKETEXT{"or"}% [[%TWIKIWEB%.TWikiRegistration][%MAKETEXT{"Register"}%]]"}%</li></ul>'}%
+d5 2
+a6 2
+$percntINCLUDE{$quot$percntMAINWEB$percnt.$percntWIKINAME$percntLeftBar$quot warn=$quot<ul><li><a href='%SCRIPTURLPATH{edit}%/%MAINWEB%/%WIKINAME%LeftBar?templatetopic=%TWIKIWEB%.WebLeftBarPersonalTemplate&amp;topicparent=%WIKINAME%'>%MAKETEXT{Create personal sidebar}%</a></li></ul>$quot }$percnt
+</div><!--/patternLeftBarPersonalContent-->"}%</div><!--/patternLeftBarPersonal-->@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="0" format="1.1" version="4"}%
+d3 4
+a6 2
+%IF{"context authenticated" then='%MAKETEXT{"Hello [_1]" args="[[%WIKIUSERNAME%][%SPACEOUT{%WIKINAME%}%]]"}%'}%%IF{"$ LOGOUT != ''" then='%BR%<ul><li class="patternLogOut">%LOGOUT%</li></ul>'}%%IF{"$ LOGIN != '' and not context authenticated" then='<ul><li class="patternLogIn">%LOGIN% %IF{"context registration_supported AND context registration_enabled" then="%MAKETEXT{"or"}% [[%SYSTEMWEB%.TWikiRegistration][%MAKETEXT{"Register"}%]]"}%</li></ul>'}%
+<div class="patternLeftBarPersonalContent">%INCLUDE{"%USERSWEB%.%WIKINAME%LeftBar" warn="<ul><li><a href=\"%SCRIPTURLPATH{"edit"}%/%USERSWEB%/%WIKINAME%LeftBar?templatetopic=%SYSTEMWEB%.WebLeftBarPersonalTemplate&amp;topicparent=%WIKINAME%\">%MAKETEXT{"Create personal sidebar"}%</a></li></ul>"}%</div></div>
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="0" format="1.1" version="3"}%
+d3 2
+a4 2
+%IF{"context authenticated" then='%MAKETEXT{"Hello [_1]" args="[[%WIKIUSERNAME%][%SPACEOUT{%WIKINAME%}%]]"}%'}%%IF{"$ LOGOUT != ''" then='%BR%<ul><li class="patternLogOut">%LOGOUT%</li></ul>'}%%IF{"$ LOGIN != '' and not context authenticated" then='<ul><li class="patternLogIn">%LOGIN% %MAKETEXT{"or"}% [[%TWIKIWEB%.TWikiRegistration][%MAKETEXT{"Register"}%]]</li></ul>'}%
+<div class="patternLeftBarPersonalContent">%INCLUDE{"%MAINWEB%.%WIKINAME%LeftBar" warn="<ul><li><a href=\"%SCRIPTURLPATH{"edit"}%/%MAINWEB%/%WIKINAME%LeftBar?templatetopic=%TWIKIWEB%.WebLeftBarPersonalTemplate&amp;topicparent=%WIKINAME%\">%MAKETEXT{"Create personal sidebar"}%</a></li></ul>"}%</div></div>
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="0" format="1.1" version="2"}%
+d3 1
+a3 1
+%IF{"context authenticated" then='%MAKETEXT{"Hello [_1]!" args="[[%WIKIUSERNAME%][%SPACEOUT{%WIKINAME%}%]]"}%'}%%IF{"$ LOGOUT != ''" then='%BR%<ul><li class="patternLogOut">%LOGOUT%</li></ul>'}%%IF{"$ LOGIN != '' and not context authenticated" then='<ul><li class="patternLogIn">%LOGIN% %MAKETEXT{"or"}% [[%TWIKIWEB%.TWikiRegistration][%MAKETEXT{"Register"}%]]</li></ul>'}%
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="0" format="1.1" version="1"}%
+d3 2
+a4 2
+%IF{"context authenticated" then='%MAKETEXT{"Hello [_1]!" args="[[%WIKIUSERNAME%][%SPACEOUT{%WIKINAME%}%]]"}%%BR%%LOGOUT%' else='%LOGIN% %MAKETEXT{"or"}% [[%TWIKIWEB%.TWikiRegistration][%MAKETEXT{"Register"}%]]'}%
+<div class="patternLeftBarPersonalContent">%INCLUDE{"%MAINWEB%.%WIKINAME%LeftBar" warn="<a href=\"%SCRIPTURLPATH{"edit"}%/%MAINWEB%/%WIKINAME%LeftBar?templatetopic=%TWIKIWEB%.WebLeftBarPersonalTemplate&amp;topicparent=%WIKINAME%\">%MAKETEXT{"Create personal sidebar"}%</a>"}%</div></div>
+@

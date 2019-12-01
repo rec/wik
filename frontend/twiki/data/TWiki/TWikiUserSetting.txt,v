@@ -1,0 +1,136 @@
+head	1.5;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.5
+date	2013.10.12.01.54.42;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2010.05.29.14.44.24;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2008.12.06.09.02.16;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.01.22.03.21.24;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2007.01.16.04.12.00;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1381542882" format="1.1" version="5"}%
+%META:TOPICPARENT{name="TWikiPreferences"}%
+---+++ User Settings -- preference variables customizable by users
+
+Some of the TWikiPreferences are explicitly intended to be customized by TWiki users, though a default is provided in [[%SYSTEMWEB%.%WIKIPREFSTOPIC%]], and a site customization can take place in [[%LOCALSITEPREFS%]].
+
+Users can customize these variables by assigning them values. Example:
+<verbatim>
+   * Set LINKTOOLTIPINFO = off
+</verbatim>
+
+*The following variables are classified as user settings:*
+
+%SEARCH{"TWikiUserSetting" type="regex" topic="Var*" format="   * $topic" nonoise="on"}%
+
+__See also:__
+   * TWikiVariables - an alphabetical list of all variables
+   * TWikiPreferences and [[%LOCALSITEPREFS%]] - where user shortcuts are defined
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1273964811" version="4"}%
+d5 1
+a5 1
+Some of the TWikiPreferences are explicitly intended to be customized by TWiki users, though a default is provided in [[%SYSTEMWEB%.%WIKIPREFSTOPIC%]], and a site customisation can take place in [[%LOCALSITEPREFS%]].
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1187649998" format="1.1" version="3"}%
+d4 2
+a5 1
+Some of the TWikiPreferences are explicitly intended to be customized by TWiki users, though a default is provided in [[%TWIKIWEB%.%WIKIPREFSTOPIC%]], and a site customisation can take place in [[%LOCALSITEPREFS%]].
+a11 1
+
+d16 1
+a16 1
+*See also:*
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="SteP" date="1187649998" format="1.1" version="2"}%
+d18 1
+a18 1
+   * TWikiPreferences and [[%LOCALSITEPREFS%]] - where user shortcuts are defined@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1167346194" format="1.2" version="1"}%
+d4 1
+d6 1
+a6 7
+Some of the TWikiPreferences are explicitly intended to be customized
+by TWiki users, though a default is provided in
+[[%TWIKIWEB%.%WIKIPREFSTOPIC%]], and a site customisation can take
+place in [[%LOCALSITEPREFS%]].
+
+Users can customize these variables by assigning them values.
+Example:
+d11 1
+d13 2
+a14 1
+%SEARCH{"Type:.*TWikiUserSetting" type="regex" topic="Var*" format="   * $topic" nonoise="on"}%
+d18 1
+a18 1
+   * TWikiPreferences and [[%LOCALSITEPREFS%]] - where user shortcuts are defined
+@

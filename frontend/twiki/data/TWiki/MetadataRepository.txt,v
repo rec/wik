@@ -1,0 +1,417 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2015.03.09.09.04.10;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2013.10.14.08.02.48;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1425891850" format="1.1" version="2"}%
+---+!! Metadata Repository
+%TOC%
+
+---++ Motivation
+
+   * If you have hundreds or thousands of webs on a TWiki site, web metadata stored in a data repository is useful.
+      * It can make things more efficient. For example, you can get the list of webs without traversing a directory hierarchy.
+      * It can make things otherwise impossible possible. For example, you can have metadata of a web which is not suitable to put on !WebPreferences.
+   * If you run a federation of TWiki sites (detail later), each site needs to have site metadata of the others.
+   * Provided that you need to handle both site and web metadata, a uniform manner to handle those is handy.
+   * There are cases where other kinds of metadata needs to be handled.
+
+---++ Basics
+
+---+++ It's optional
+
+The repository being for a large site having hundreds or thousands of webs, its use is optional.
+It's activated only if the site owner explicitly turns on the metadata repository.
+
+---+++ Structure
+
+   * The repository houses data tables such as the site metadata table and the web metadata table.
+   * A table consists of records which have unique names. A web metadata record is named by the web name.
+   * A record consists of fields, each of which consists of a field name and a value. A field name is unique in a record and a field value is a string.
+
+---+++ Only for top level webs
+
+For practicality, web metadata is only for top level webs.
+More accurately, a subweb has the same web metadata as its parent.
+
+The reason is that site administration gets complicated if subwebs can have different web metadata.
+
+---++ Examples
+
+Here's how a metadata repository would be used by federated TWiki sites.
+
+---+++ Federation of sites
+
+Let's assume the following federation of TWiki sites.
+   * It consists of three TWiki sites - in Americas, Europe, and Asia.
+   * All sites in the federation have the same set of webs.
+   * Each web in the federation has one master site where update happens.
+   This means that a web is read-only on a non master site.
+      * Let's say !WebOne's master is Americas site, !WebTwo's Europe, and !WebThree's Asia.
+      * Each site mirrors sites whose master is not local periodically.
+         * Americas site mirrors !WebTwo and !WebThree.
+         * Europe site mirrors !WebOne and !WebThree.
+         * Asia site mirrors !WebOne and !WebTwo.
+         * Mirroring is basically copying files using the =rsync= command.
+
+%ATTACHURL%/site-mirroring.png
+
+---+++ Web admins
+
+If there are many webs, it may not be easy to get hold of people responsible for a web.
+So it's handy if all webs have their admins clearly defined.
+Given that, let's assume we define admins for each web and store as a part of web metadata.
+
+---+++ Site metadata and web metadata fields
+
+The following fields are needed in a site metadata record to implement the federation shown above. 
+   * server
+   * data directory path on the server
+   * pub directory path on the server
+And the site metadata table is as follows.
+| *Name* | *Server* | *DataDir* | *PubDir* |
+| am | strawman | /d/twiki/data | /d/twiki/pub |
+| eu | woodenman | /var/twiki/data | /var/twiki/pub |
+| as | tinman | /share/twiki/data | /share/twiki/pub |
+
+And the following fields in the web metadata.
+   * admin group
+   * master site
+The web metadata table is as follows.
+| *Name* | *Admin* | *Master* |
+| !WebOne | !GodelGroup | am |
+| !WebTwo | !EscherGroup | eu |
+| !WebThree | !BachGroup | as |
+
+---++ How to get and put data - overview
+
+   * You can retrieve data from the metadata repository using [[VarMDREPO][%<nop>MDREPO{...}%]].
+   * You can put data by the =mdrepo= script. It works from browser as well as command line.
+Using these, you can construct a web interface to display and manipulate the webs table as follows.
+<script>
+function loadWebForm(name, admin, master)
+{
+    document.webForm._recid.value = name;
+    var masterOpts = document.webForm.__master.options;
+    for ( var i = 0 ; i < masterOpts.length ; i++ ) {
+        if ( masterOpts[i].text == master ) {
+            masterOpts[i].selected = true;
+        }
+        else {
+            masterOpts[i].selected = false;
+        }
+    }
+    document.webForm.__admin.value = admin;
+    document.webForm._updt.style.display = "inline";
+    document.webForm._del.style.display = "inline";
+}
+function hideUpdateDelete()
+{
+    document.webForm._updt.style.display = "none";
+    document.webForm._del.style.display = "none";
+}
+function checkWebEntry(form) {
+    if ( form._recid.value == '' || form.__admin.value == '' ) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+</script>
+<blockquote>
+<form>
+Initial Letters:<input class="twikiInputField" name="websfilter" value="%URLPARAM{"websfilter"}%" size="12" />
+<input class="twikiSubmit" type="submit" value="List sites" /><br/>
+</form>
+<form name="webForm" action="%SCRIPTURL%/mdrepo" method="post" onsubmit="return checkWebEntry(this);">
+<input class="twikiSubmit" type="submit" name="_add" value="add"/>
+<input style="display:none" class="twikiSubmit" type="submit" name="_updt" value="update"/>
+<input style="display:none" class="twikiSubmit" type="submit" name="_del" value="delete"/>
+<input class="twikiSubmit" type="reset" value="clear" onclick="hideUpdateDelete();"/>
+| *Name* | *Admin* | *Master* | *Load Row* |
+| <input class="twikiInputField" size="20" name="_recid"/> | <input class="twikiInputField" name="__admin" size="12"/> | <select name="__master"><option>am</option><option>eu</option><option>as</option></select> | |
+| !WebOne | !GodelGroup | am | <a href="javascript:loadWebForm('WebOne', 'GodelGroup', 'am')">do</a> |
+| !WebThree | !BachGroup | as | <a href="javascript:loadWebForm('WebThree', 'BachGroup', 'as')">do</a> |
+| !WebTwo | !EscherGroup | eu | <a href="javascript:loadWebForm('WebTwo', 'EscherGroup', 'eu')">do</a> |
+<!-- the above 3 lines would be replace by %MDREPO{"webs" filter="%IF{"'%URLPARAM{websfilter}%' = ''" then="^ " else="^%URLPARAM{"websfilter"}%"}%"
+format="| [[$_.WebHome][$_]] | !$admin | $master | <a href=\"javascript:loadWebForm('$_', '$admin', '$master')\">do</a> |"}% -->
+</form>
+</blockquote>
+
+---++ mdrepo script from command line
+
+Go to the bin directory then you can use the =mdrepo= script in the following format: =./mdrepo COMMAND ARGUMENT ...=
+Arguments depend on the command.
+
+---+++ mdrepo show <i>TABLE</i> <i>RECORD_ID</i>
+
+Shows the specified record of the specified table.
+
+Example: 
+<verbatim>
+$ ./mdrepo show sites am
+am
+    datadir=/d/twiki/data
+    pubdir=/d/twiki/pub
+    server=strawman
+</verbatim>
+
+---+++ mdrepo list <i>TABLE</i>
+
+Shows all the records of the specified table.
+
+Example:
+<verbatim>
+$ ./mdrepo list sites
+am
+    datadir=/d/twiki/data
+    pubdir=/d/twiki/pub
+    server=strawman
+
+as
+    datadir=/share/twiki/data
+    pubdir=/share/twiki/pub
+    server=tinman
+
+eu
+    datadir=/var/twiki/data
+    pubdir=/var/twiki/pub
+    server=woodenman
+</verbatim>
+
+---+++ mdrepo add <i>TABLE</i> <i>RECORD_ID</i> <i>FIELD_NAME</i>=<i>VALUE</i> ...
+
+Adds a new record. It returns nothing. If the specified record already exists, it complains.
+
+Example:
+<verbatim>
+$ ./mdrepo add webs WebFour admin=HofstadterGroup master=am 
+</verbatim>
+
+---+++ mdrepo updt <i>TABLE</i> <i>RECORD_ID</i> <i>FIELD_NAME</i>=<i>VALUE</i> ...
+
+Update an existing record. It returns nothing. If the specified record does not exist, it complains.
+
+Example:
+<verbatim>
+$ ./mdrepo updt webs WebFour admin=GardnerGroup master=am
+</verbatim>
+
+---+++ mdrepo del <i>TABLE</i> <i>RECORD_ID</i>
+
+Deletes an existing record. It returns nothing. If the specified record does not exist, it complains.
+
+Example:
+<verbatim>
+$ ./mdrepo del webs WebFour admin=GardnerGroup master=am
+</verbatim>
+
+---+++ mdrep load <i>TABLE</i> <i>FILE</i>
+
+Loads records to the specified table from the specified file. The file content is in the same format as the list command's output.
+Nonexistent records are created.
+Existing records are updated.
+
+Example:
+<verbatim>
+$ ./mdrepo load /var/tmp/temp-webs
+</verbatim>
+
+---+++ mdrepo rset <i>TABLE</i>
+
+Makes the specified table empty. It returns nothing.
+
+Example:
+<verbatim>
+$ ./mdrepo rset sites
+</verbatim>
+
+---++ mdrepo script from browser
+
+---+++ Restrictions
+
+Compared with command line use, using it from browser is restricted for risk mitigation.
+
+   * Not all tables are subject to manipulation from brower. Only tables permitted by [[#Configuration][Configuration]].
+      * The sites tabe is rarely updated hence allowing its updat from browser does not increase convenience significantly. Still, if it's modified in a wrong manner, the damage can be huge. So making it updatable from browser is not recommended.
+   * Only the following commands can be issued from browser: =add=, =updt=, =del=
+      * =show= and =list= commands are not needed because %<nop>MDREPO{...}% does those jobs.
+      * =load= and =rset= are too dangerous.
+
+When the =mdrepo= script is used from browser, =%<nop>ALLOWROOTCHANGE%= is examined. If it allows you, the operation is executed.
+
+If =%<nop>ALLOWROOTCHANGE%= does not allow you, TWiki checks if the user mapping handler has the =mdrepoOpAllowed()= method.
+If the method exists, it's called in the following manner to check if the operation is permitted.
+<verbatim>
+$mapping->mdrepoOpAllowed($cUID, $cmd, $table, $recId, \%rec);
+</verbatim>
+Here's how =mdrepoOpAllow()= is supposed to behave.
+   * If the operation is allowed, the method returns "" (a null string), in which case the the operation is executed
+   * Otherwise, it returns the reason of not allowing, in which case, the operation is not executed
+Read =lib/TWiki/UI/MdrepoUI.pm= about how exactly it's called and its result is used.
+
+By providing =mdrepoOpAllowed()=, you can make metadata creation/update/deletion self-service to some extent.
+But for =mdrepoOpAllowed()=, all metadata manipulation requires Main.TWikiAdminGroup members' intervention.
+
+---+++ URL parameters
+
+=mdrepo= script checks
+   * if the =_add= parameter is true (a string other than "0" or "" (zero length string)
+   * otherwise checks if the =_updt= parameter is true
+   * otherwise checks if =_del= is true
+The command is determined this way.
+
+The table and the record ID are specified by the =_table= and =_recid= parameters.
+
+Field values are specified by parameters of the =__<i>FIELD_NAME</i> format.
+
+For example, submitting the following form has the same effect as the command line shown further below.
+<verbatim>
+<form action="%SCRIPTURL%/mdrepo" method="post">
+<input type="hidden" name="_add" value="add"/>
+<input type="hidden" name="_table" value="webs"/>
+<input type="hidden" name="_recid" value="WebFour"/>
+<input type="hidden" name="__admin" value="GardnerGroup"/>
+<input type="hidden" name="__master" value="am"/>
+<input type="submit"/>
+</verbatim>
+
+<verbatim>
+$ ./mdrepo add webs WebFour admin=GardnerGroup master=am
+</verbatim>
+
+---+++ Output
+
+By default, the script's output is in the text/plain MIME type.
+If the command succeeds, it returns nothing.
+When something goes wrong, an error message is returned.
+
+If =redirectto= URL parameter is provided, the script returns HTTP redirect to the specified URL.
+If the =redirectto= parameter contains =%<nop>RESULT%=, it's replaced by the message to be shown when =redirectto= is not specified.
+
+---++ Record IDs and field names
+
+So far, only metadata tables for sites and webs are discussed.
+TWiki core uses only those two tables.
+But the metadata repository can house more tables.
+
+For sites and webs tables, word characters (letters, numbers, and underscores(_)) are enough for record IDs.
+So by default, record IDs are restricted to those characters to avoid confusion and unnecessary complication.
+As described in the next section, you can specify a regular expression of valid record IDs.
+You may need to specify it if you use other tables than sites and webs.
+
+Similarly, field names are restricted.
+By default, field names are restricted to word characters.
+You can specify a regular expression of valid field names if needed.
+
+---++ Configuration
+
+To turn on the metadata repository, you need to have the following three settings.
+<verbatim>
+$TWiki::cfg{Mdrepo}{Store} = 'DB_File';
+$TWiki::cfg{Mdrepo}{Dir} = '/var/twiki/mdrepo';
+$TWiki::cfg{Mdrepo}{Tables} = [qw(sites webs:b)];
+</verbatim>
+   $ $TWiki::cfg{Mdrepo}{Store}: Specifies a tie-able Perl class.
+   $ $TWiki::cfg{Mdrepo}{Dir}: Specifies a path to a directory where the !MdrepoStore class have files.
+   $ $TWiki::cfg{Mdrepo}{Tables}: Specifies the names of the tables used. A table name may be followed by a colon and options. "b" is currently the only option recognized, which means the table can be updated from browser.
+
+By the following setting, each web required to have its metadata record.
+<verbatim>
+$TWiki::cfg{Mdrepo}{WebRecordRequired} = 1;
+</verbatim>
+For a large site having thousands of webs, this is handy for site management.
+Specifically this brings the following behaviors.
+   * A web not having a web metadata record regarded as nonexistent.
+   Existence of a directory under $TWiki::cfg{DataDir} isn't enough.
+   * A web creation by %SYSTEMWEB%.ManagingWebs is rejected if the corresponding
+   web metadata is not present.
+   Similarly, a web cannot be renamed to a web whose top level web doesn't have its web metadata record.
+   * %<nop>WEBLIST{...}% gets faster referring to web metadata rather than traversing a directory hiearchy.
+   For practicality, only top level webs are listed except with the current web --
+   the current web's ancestors and decendants are listed.
+
+As mentioned in the previous section, you can customize regular expressions of valid record IDs and field names as follows.
+<verbatim>
+$TWiki::cfg{Mdrepo}{RecordIDRe} = '\\w[-.:\\w]*';
+$TWiki::cfg{Mdrepo}{FieldNameRe} = '\\w[-\\w]*';
+</verbatim>
+
+---++ Audit trail
+
+When the =mdrepo= script is used either from command line or browser, if the command is either =add=, =updt=, =del=, or =rset=, it's recorded on the log file in the same manner as other scripts. Specifically, the activity is put on the 5th column.
+| *Command* | *5th column format* |
+| =add= | <code>add <i>TABLE</i> <i>RECORD_ID</i> <i>FIELD_NAME=VALUE</i> ... </code> |
+| =updt= | <code>cur <i>TABLE</i> <i>RECORD_ID</i> <i>FIELD_NAME=VALUE</i> ... <br/>updt <i>TABLE</i> <i>RECORD_ID</i> <i>FIELD_NAME=VALUE</i> ... </code> |
+| =del= | <code>cur <i>TABLE</i> <i>RECORD_ID</i> <i>FIELD_NAME=VALUE</i> ... <br/>del <i>TABLE</i> <i>RECORD_ID</i> </code> |
+| =rset= | <code>cur <i>TABLE</i> <i>RECORD_ID</i> <i>FIELD_NAME=VALUE</i> ... <br/>cur <i>TABLE</i> <i>RECORD_ID</i> <i>FIELD_NAME=VALUE</i> ... <br/> ... <br/>rset <i>TABLE</i></code> |
+As the table above suggests, =updt=, =del=, and =rset= commands put multiple log entries so that the previous values are recorded. Here's an example of log entries left by a =updt= operation.
+<verbatim>
+| 2012-06-15 - 13:16 | guest | mdrepo | TemporaryTestWeb.TestTopic | cur sites am datadir=/d/twiki/data pubdir=/d/twiki/pub server=strawman |  |
+| 2012-06-15 - 13:16 | guest | mdrepo | TemporaryTestWeb.TestTopic | updt sites am datadir=/d/twiki/dat pubdir=/d/twiki/pu server=strawma |  |
+</verbatim>
+When the =mdrepo= script is used from a command line, the topic name on the log is always <nop>%USERSWEB%.%HOMETOPIC%.
+
+Audit trail is there by default.
+In case you want to suppress it, you can do it by setting a false value to $TWiki::cfg{Log}{mdrepo} configuration preference.
+
+__Related Topics:__ AdminDocumentationCategory, AutonomousWebs, ReadOnlyAndMirrorWebs, UsingMultipleDisks, UserMasquerading
+
+%META:FILEATTACHMENT{name="site-mirroring.png" attachment="site-mirroring.png" attr="" comment="" date="1339638656" path="site-mirroring.png" size="16575" user="TWikiContributor" version="1"}%
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1356486891" format="1.1" version="1"}%
+d27 7
+d229 5
+a233 5
+Compared with command line use, browser use of mdrepo script is restricted for risk mitigation.
+   * Only the users having ALLOWROOTCHANGE permission can use it.
+   * Only tables allowed to be modified from browser explicitly can be manipulated. See [[#Configuration][Configuration]] for detail.
+      * Site metadata is only rarely updated hence update from browser is not highly convenient. Still, if it's modified in a wrong manner, the damage damage can be huge. As such, many people would think that site metadata is not suitable for browser update.
+   * Only the following commands are available: =add=, =updt=, =del=
+d235 16
+a250 1
+      * =load= and =rset= are rather dangerous.
+d288 15
+d330 6
+a353 7
+---++ Only for top level webs
+
+For practicality, web metadata is only for top level webs.
+More accurately, a subweb has the same web metadata as its parent.
+
+The reason is that site administration gets complicated if subwebs can have different web metadata.
+
+@

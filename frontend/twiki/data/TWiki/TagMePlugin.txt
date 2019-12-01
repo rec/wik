@@ -1,0 +1,645 @@
+%META:TOPICINFO{author="TWikiContributor" date="1530860906" format="1.1" version="10"}%
+---+!! Tag-me Plugin
+<!--
+   Contributions to this plugin are appreciated. Please update the plugin page at
+   http://twiki.org/cgi-bin/view/Plugins/TagMePlugin or provide feedback at
+   http://twiki.org/cgi-bin/view/Plugins/TagMePluginDev.
+   If you are a TWiki contributor please update the plugin in the SVN repository.
+-->
+<sticky>
+<div class="twikiTocFloat">
+%TOC{title="Page contents"}%
+</div>
+</sticky>
+Plugin to tag wiki content collectively or authoritatively in order to make it easier to find content and to get a meaningful page ranking.
+
+---++ Introduction
+
+The larger a TWiki installation gets, the harder it becomes to find content.
+Even in a single web, if it has many topics, it may be difficult to keep the webcontent well organized and easy to navigate.
+
+Meanwhile, intranet search does not work well due to inadequate ranking of search engines on intranets. This is because there are typically not many cross-links between pages.
+
+Given the challenge, this plugin provides a tagging capability to TWiki.
+
+There are clear benefits in tagging content in a large TWiki (10K or more topics):
+
+   * Find relevant content in a large system quickly,
+      * by quickly accessing related topics via the tags on a topic
+      * by quickly accessing related topics via related tags listed in a specific tag view
+      * by quickly identifying important tags in the tag cloud
+   * Solve the search ranking issue of wiki content indexed by a search engine
+   * Help solve stale content issue (old topics do not get tagged)
+
+---+++ Single v.s. multiple tag namespaces
+
+By default, there is only one tag namespace - all webs share a single tag set.
+If =$TWiki::cfg{TagMePlugin}{SplitSpace}= is set to 1, each top level web has its own tag namespace, which is shared by its subwebs.
+This is %IF{"{TagMePlugin}{SplitSpace}" else="*not*"}% the case on this TWiki installation.
+Switching between single tag namespace and multiple namespaces takes some effort, you should understand the consequences and set the appropriate value for your installation.
+
+%IF{"istopic 'UserSubwebs'" then="<nop>" else="<div style='display:none'>"}%
+If UserSubwebs are in effect (this is %IF{"{UserSubwebs}{Enabled}" else="not"}% the case on this installation), each user subweb has its own tag name space, which is shared by its subwebs, provided that multiple tag namespaces are in effect.
+%IF{"istopic 'UserSubwebs'" then="<nop>" else="</div>"}%
+
+---+++ User conscious v.s. user agnostic tagging
+
+There are two modes of tagging - user conscious tagging and user agnostic tagging.
+
+Under user conscious tagging:
+
+   * Let the individuals build their own taxonomy to find content quickly
+   * Let the users do the ranking to get an "human intelligence" ranking of important content
+   * Access my favorite topics quickly (assuming I tag topics of interest)
+
+It is used as follows.
+
+   * Any topic can be tagged by individuals =-&gt;= create taxonomy for individuals
+   * Show tag statistics of all users on each topic =-&gt;= show popularity
+   * Encourage users to reuse the same tag on a topic =-&gt;= get a "collective ranking", or "vote for a tag", or "tag count"
+   * Make it as easy as possible to increase the tag count
+   * Make it as easy as possible to add a new tag to a topic
+   * Encourage users to create new tags, but try to avoid use of similar tags for the same subject
+   * Search for topic by tag, sorted by tag popularity
+
+Under user agnostic tagging:
+
+   * A tag is put on a topic or not and there is not voting aspect in tagging. This implies that tags are user agnostic
+   * You can restrict who can tag topics and probably you do
+
+You may not like the "democratic" nature of user conscious tagging.
+As the owner of a web, you may want total control over what tags topics in the web have.
+That is achieved by user agnostic tagging if you restrict tagging.
+
+By default, the plugin works in the user conscious tagging mode.
+If you set =$TWiki::cfg{TagMePlugin}{UserAgnostic}= 1, user agnostic tagging is used.
+
+If there is only one tag namespace (the default setting), user conscious or user agnostic is a global setting. You cannot set one web user conscious tagging while another web user agnostic.
+This is because under single tag namespace, tag search is global - all webs are subject to tag search.
+User conscious tagging and user agnostic tagging are semantically different.
+Different things should not be mixed together.
+
+If multiple tag namespaces are there, each top level web can choose user conscious or user agnostic tagging by setting =TAGMEPLUGIN_USER_AGNOSTIC_TAGGING= preferences variable =on= or =off= on the !WebPreferences topic.
+The default tagging mode is specified by =$TWiki::cfg{TagMePlugin}{UserAgnostic}=.
+
+Please note that setting =TAGMEPLUGIN_USER_AGNOSTIC_TAGGING= on the %LOCALTWIKIPREFS% topic doesn't have the effect.
+
+---++ Permission
+
+---+++ Who can add/delete/rename tags in the tag set
+
+The plug-in maintains a set of tags. Only tags in the tag set can be added to a topic.
+By default, any authenticated user can add/delete/rename tags in the tag set.
+But you may want to restrict who can modify the tag set.
+
+=DENY_TAG_CHANGE= and =ALLOW_TAG_CHANGE=, which are supposed to be set and finalized in %LOCALTWIKIPREFS%, restrict users who can modify the tag set.
+The way they work is similar to other access control variables DENY* and ALLOW*. You can find out the details of TWiki's access control at [[TWiki.TWikiAccessControl]].
+
+Under multiple tag namespaces, =DENY_TAG_CHANGE= and =ALLOW_TAG_CHANGE= need to be set at the web level. Those variables set at the TWiki installation level don't take effect.
+
+Just like Main.TWikiAdminGroup members can view/update/delete any topic regardless of access restriction, they can add/delete/rename tags regardless of =DENY_TAG_CHANGE= and =ALLOW_TAG_CHANGE=.
+
+---+++ Who can tag
+
+You may want to restrict who can put/remove tags to/from topics.
+Please note that whether you can add/delete/rename tags in the tag set (tag change permission) and whether you can put/remove tags to/from a topic (tagging permmision) are two different things. Tagging permission is set by the following preference variables.
+   * DENYWEBTAG
+   * ALLOWWEBTAG
+   * DENYWEBTAG
+   * ALLOWWEBTAG
+If none of above is set, a user who can change a topic can put/remove tags to/from the topic.
+
+Even if a user is denied tagging by the logic above, if the user has tag change permission, the user is allowed to put/remove tags to/from a topic.
+This may sound odd. The reason behind this is as follows.
+   * If you have tag change permission, you can add and delete tags. Only unused tags can be deleted. As such, when you delete a tag, you need to remove the tag from all topics having it.
+   * If you have tag change permission, you can rename an existing tag. A rename operation ends up changing tags on multiple topics.
+For these, if you can change the tag set but you cannot put/remove tags, it's strange.
+
+As you can imagine, Main.TWikiAdminGroup members can tag any topic regardless of access restriction.
+
+%IF{"istopic 'ReadOnlyAndMirrorWebs'" then="<nop>" else="<div style='display:none'>"}%
+---+++ Behavior on a read-only web
+
+If ReadOnlyAndMirrorWebs is in use, some webs are read-only.
+This plug-in supports read-only webs.
+On a read-only web, tags are displayed but cannot be manipulated.
+%IF{"istopic 'ReadOnlyAndMirrorWebs'" then="<nop>" else="</div>"}%
+
+---++ User Interface
+
+---+++ Tag list on topic
+
+Every topic has a list showing all tags associated with the topic. Additional tags can be added to the topic, and new tags can be created.
+
+---++++ Default "twiki" style
+
+Screenshot of tags shown on a topic:
+<div class="twikiImage"><img src="%ATTACHURLPATH%/topictags.gif" alt="Screenshot of tags on a topic"  width="451" height="26" /></div>
+
+You see:
+   * a list of tags with vote count and add/remove vote buttons,
+   * an add tag selector
+   * a link to create a new tag 
+   * a link to the all tags view
+
+---++++ "blog" style
+
+But the same control can have a different look and feel if we specify 
+=style="blog"=. In view mode it has a terse apperance:
+
+<div class="twikiImage"><img src="%ATTACHURLPATH%/topictags_styleblog.gif" alt="Screenshot of tags on a topic, style=blog"  width="490" height="163" /></div>
+
+But, if you click on Tags, and that you have an account and can edit tags, you
+will see:
+
+<div class="twikiImage"><img src="%ATTACHURLPATH%/topictags_styleblog_open.gif" alt="Screenshot of tags on a topic, style=blog"  width="489" height="464" /></div>
+
+In this style, you can define tag bundles - bundles are groups of tags that are presented as menus for convenience.
+It is a list of space-separated (or comma-separated if your tags may contain spaces) prefixed by bundle labels terminated by colon (":"). e.g:
+   * <nop>Set TAGMEPLUGIN_BUNDLES = 
+   * #Set TAGMEPLUGIN_BUNDLES = Rating: * ** ** Todo: to_blog to_read
+   * #Set TAGMEPLUGIN_BUNDLES = Rating:, *, **, **, Todo:, to_blog, to_read
+Tags in bundes need to be valid - simply putting a tag in a bundle doesn't make it valid. You need to create it on TagMeCreateNewTag before putting a tag in a bundle.
+
+=TAGMEPLUGIN_BUNDLES= is a preferences variable and you can set its value at the installation level, the web level, or the topic level.
+
+---+++ Create, rename, delete, list, search tags
+
+There are topics for various tag operations as shown below.
+Links to those topics are provided from various places off the shelf.
+Things are supposed to just work without doing anything special.
+So this part of this topic is to inform you what topics are there for tag manipulation rather than how to set things up.
+
+| *Operation* | *Topic name* |
+| Creation | TagMeCreateNewTag |
+| Rename | TagMeRenameTag |
+| Deletion | TagMeDeleteTag |
+| Listing | TagMeViewAllTags, TagMeViewMyTags |
+| Search | TagMeSearch |
+
+The %SYSTEMWEB% web has all of those topics.
+And the =_default= template web has all of those topics now, but not in the past.
+Lack of those topics in each web is not an issue under single tag namespace since only those topics in the %SYSTEMWEB% web are referred to.
+All tag operations are done on those topics in the %SYSTEMWEB% web.
+
+If you employ multiple tag namespaces, each top level web needs those topics to manipulate tags in the web, hence you may need to copy those topics from the =_default= web.
+
+---++++ Create, rename, delete tags programmatically
+
+You may want to do tag creation, rename, deletion programatically. Maybe needless to say, you can do that by mimicking form submission from those pages.
+
+| *Topic name* | *Form parameter* |
+| TagMeCreateNewTag | =createtag=my+tag+name= |
+| TagMeRenameTag | =renametagfrom=my+old+tag+name= <br/> and =renametagto=my+new+tag+name= |
+| TagMeDeleteTag | =deletetag=my+tag+name= |
+
+---++++ List tags
+
+TagMeViewAllTags shows all tags either in the TWiki installation (if there is only one tag namespace) or in the current top level web (if each top level web has its tag namespace). The font size indicates the overall tag count of a tag.
+
+Screenshot of tag cloud in the list all tags view:
+<div class="twikiImage">
+<img src="%ATTACHURLPATH%/alltagcloud.gif" alt="Screenshot of view all tags tag cloud" width="650" height="200"  />
+</div>
+
+__%T% Tip:__ In a <nop>%HOMETOPIC% of a web you can show a tag cloud of all tagged topics in that web with this variable:
+<verbatim>
+<div class="tagmeTagCloud" style="line-height:2em;">
+%TAGME{ tpaction="showalltags" format="<a href=\"%SCRIPTURL{view}%/%SYSTEMWEB%/TagMeSearch?tag=$tag\" style=\"font-size:$size%\">$tag</a>" separator="&nbsp; " minsize="94" maxsize="220"}%
+</div>
+</verbatim>
+
+If user conscious tagging is in effect, TagMeViewMyTags shows all tags used by the logged-in user. The font size indicates the overall tag count of a tag.
+Under user agnostic tagging, TagMeViewMyTags shows the same result as TagMeViewAllTags.
+
+---++++ Tag search
+
+TagMeSearch shows a list of topics that are tagged with all of the selected tags, sorted by relevance. Topics with a high tag count are shown first.
+
+---++ Plugin variables
+
+---+++ TAGME
+
+Various tag operations are provided through the =%<nop>TAGME{}%= variable. The =tpaction=""= parameter is required.
+
+   * =%<nop>TAGME{ tpaction="show" ...}%= - shows the tag list on topic
+     | *Parameter* | *Comment* | *Default* |
+     | =style="blog"= | will expand into a "tag edit" frame that allows tag management as commonly found in blogs or tag systems like delicious, but only if tpaction is actually present. If =tpaction= is omitted, but the style is ="blog"=, will show nothing. Thus a button to make the edit tags frame appear can be put as: <br /> =&lt;a href="%<nop>SCRIPTURL{viewauth}%/%<nop>SYSTEMWEB%/%<nop>TOPIC%?tpaction=show"&gt;Edit tags&lt;/a&gt;= | "twiki" | 
+     | =label=", "= | (for style=blog) link label (text) to open the edit tags form | =""= |
+     | =button=", "= | (for style=blog) the complete button, link or html construct that will be shown when not in edit tag mode. Should open the Edit tag form when clicked by redirection to this same topic with a =tpaction=show= added. Overrides =label=. | =""= |
+     | =header="..."= | (for style=blog) Printed before the edit tags form if it is not empty, =$n= can be used for newlines. e.g: =header="Manage your tags: &lt;i&gt;"= | =""= |
+     | =footer="..."= | (for style=blog) Printed after the edit tags form  if it is not empty, =$n= can be used for newlines. e.g: =footer="&lt;/i&gt;"= | =""= |
+   * =%<nop>TAGME{ tpaction="showalltags" ... }%= - view all tags or my tags as a tag cloud
+     | *Parameter* | *Comment* | *Default* |
+     | =by="me"= | My own tags only; can also be a USERNAME | all tags |
+     | =web="%<nop>WEB%"= | Limit query to a web | current web |
+     | =topic="*Plugin"= | Limit query to a topic, or a comma-space delimited list of topics with optional asterisk wildcards | all topics |
+     | =exclude="fixme"= | Exclude tags; specify a tag, or a comma-space delimited list of tags with optional asterisk wildcards  | all tags |
+     | =mincount="2"= | Exclude tags below the threshold of =mincount= votes | all tags | 
+     | =minsize="90"= | Minimum size of tag =$size= (typically percent font size) | ="90"= |
+     | =maxsize="180"= | Maximum size of tag =$size= | ="180"= |
+     | =format="..."= | Format of a tag, tokens =$tag=, =$size=, =$marker= (adds selected="selected" for use in html options), =$count=, =$order= | ="$tag"= |
+     | =header="..."= | Printed before the list of tags if it is not empty, =$n= can be used for newlines. e.g: =header="Tags: &lt;i&gt;"= | =""= |
+     | =separator=", "= | Separator between tags | =", "=, unless =format= has been specified |
+     | =footer="..."= | Printed after the list of tags if it is not empty, =$n= can be used for newlines. e.g: =footer="&lt;/i&gt;"= | =""= |
+   * =%<nop>TAGME{ tpaction="query" ... }%= - tag search
+     | *Parameter* | *Comment* | *Default* |
+     | =by="me"= | My tagged topics only; can also be a USERNAME | all tagged topics |
+     | =web="%<nop>WEB%"= | Limit query to a web | current web |
+     | =topic="*Plugin"= | Limit query to a topic, or a comma-space delimited list of topics with optional asterisk wildcards | all topics |
+     | =tag="..."= | Name of tag | (required) |
+     | =sort="web"= | Sorting of tagged topics: ="tagcount"= by tag count (relevance), ="web"= by web then topic name, ="topic"= by topic name | ="tagcount"= |
+     | =norelated="on"= | Do not show the list of "related tags" | (show related tags) |
+     | =nototal="on"= | Do not show total number of topics found | (show total) |
+     | =minsize="90"= | Minimum size of topic =$size= (typically percent font size) | ="90"= |
+     | =maxsize="180"= | Maximum size of topic =$size= | ="180"= |
+     | =format="..."= | Format of a topic, any token of [[%SYSTEMWEB%.FormattedSearch]] can be used, such as =$web=, =$topic=, =$summary=, =$rev=, =$n=. In addition, =$votecount= expands to the number of tag votes, =$size= to the suggested font size, and =$taglist= to the tag list of the topic.  | (nice formatting) |
+     | =separator=", "= | Separator between tags, =$n= or =$n()= can be used for newlines | ="$n"= |
+     | =limit=""= | limit number of results if =sort="web"= | |
+     | =header=""= | if =sort="web"=, add this header once per web with results (only =$web= is interpreted) | =---+++ $web= |
+     | =footer=""= | if =sort="web"=, add this footer once per web with results (only =$web= and =$count= and $showmore are interpreted) |=showing $limit out of $count results $showmore= |
+      | =refine= | Normally related tags are shown that when clicked on will search for the related tag. If =refine= is set to 1, then the link instead will *add* the clicked tag to the set of tags being searched for, allowing you to incrementally refine search results. If not set the value of =ALWAYS_REFINE= is used. |
+   * =%<nop>TAGME{ tpaction="newtag" ... }%= - create new tag
+     | *Parameter* | *Comment* | *Default* |
+     | =tag="..."= | Name of tag. Accepts alphanumeric and underscore characters only (unless ={TagMePlugin}{NormalizeTagInput}= is set to 0 to allow any user input) | (required) |
+   * =%<nop>TAGME{ tpaction="add" ... }%= - add tag to topic, or add vote to existing tag
+     | *Parameter* | *Comment* | *Default* |
+     | =tag="..."= | Name of tag | (required) |
+     | =nostatus="on"= | Turn off status text shown when a tag is added or voted on | (show status text) |
+   * =%<nop>TAGME{ tpaction="newtagandadd" ... }%= - create new tag and add tag to topic
+     | *Parameter* | *Comment* | *Default* |
+     | =tag="..."= | Name of tag. Accepts alphanumeric and underscore characters only (unless ={TagMePlugin}{NormalizeTagInput}= is set to 0 to allow any user input) | (required) |
+   * =%<nop>TAGME{ tpaction="remove" ... }%= - remove my tag vote on existing tag
+     | *Parameter* | *Comment* | *Default* |
+     | =tag="..."= | Name of tag | (required) |
+     | =nostatus="on"= | Turn off status text shown when a tag is removed or voted on | (show status text) |
+
+---+++ TAGMEPLUGIN_USER_AGNOSTIC
+
+=%<nop>TAGMEPLUGIN_USER_AGNOSTIC%= (without =_TAGGING=)is expanded to =off= if the current web employs user conscious tagging. It's expanded to =on= if the current web employs user agnostic tagging.
+
+This variable is for reading, not for setting whereas =TAGMEPLUGIN_USER_AGNOSTIC_TAGGING= (with =_TAGGING=) is for setting.
+
+---+++ TAGMEPLUGIN_USER_AGNOSTIC_TAGGING
+
+=%<nop>TAGMEPLUGIN_USER_AGNOSTIC_TAGGING%= is referred to by the plugin code only if multiple tag namespaces are there.
+This is to override the installation-wide default of user conscious tagging or user agnostic tagging.
+The installation-wide default is specified by =$TWiki::cfg{TagMePlugin}{UserAgnostic}=.
+
+#TagsOnPage
+---++ How to put tags on every page
+
+To show the tag interface at the top of the page directly below the breadcrumb (like on twiki.org), use the default template =view.tagme.tmpl= in the templates directory.
+
+This template is in fact a 'skin' template. To enable it, write in [[%LOCALTWIKIPREFS%]]:
+<pre>
+   * <nop>Set SKIN = tagme,pattern
+</pre>
+The list of skins can be appended, for instance: =tagme,corporate,pattern=.
+
+For the "blog" style, use for a simple "Tags: list-of-tags (edit)" at the top
+of the page:
+<pre>
+   * <nop>Set SKIN = tagme_styleblog,pattern
+</pre>
+And for an alternate style, with no tags line shown if no tags exists, and
+the button to open the tag edit frame placed at the right of the Edit and
+Attach ones, in the same style, on the upper right:
+<pre>
+   * <nop>Set SKIN = tagme_styleblogbutton,pattern
+</pre>
+
+<div class="twikiNotification" style="padding:.5em 20px; margin:1em 0; background-color:#ffc;">
+*For TWiki 4.1, use:*
+<pre>
+   * Set S<nop>KIN = tagme04x01,pattern
+</pre>
+</div>
+
+---+++ Customizing the appearance
+
+If you customize your site you probably want to change overall appearance. You can find instructions how to do that - at least for default pattern skin - in [[%SYSTEMWEB%.PatternSkinCssCookbook]]. %BR%
+The short summary is:
+   * Create an empty CSS file, for instance =sitestyle.css=
+   * Copy the CSS styles for =tagmetags= (see below at [[%TOPIC%#ExampleStyle][Example styles used on twiki.org]]) into the file
+   * Attach the file to [[%LOCALTWIKIPREFS%]]
+   * In [[%LOCALTWIKIPREFS%]], write: 
+   <verbatim>
+   * Set USERSTYLEURL = %PUBURL%/%USERSWEB%/TWikiPreferences/sitestyle.css
+   </verbatim>
+
+---+++ Other places for the tag interface
+
+To show the tags in the top bar, edit [[%SYSTEMWEB%.WebTopBar]] and copy:
+<verbatim>
+<div class="tagmetags">
+Tags: %TAGME{ tpaction="%URLPARAM{tpaction}%" web="%WEB%" tag="%URLPARAM{tag}%" }%, [[%SYSTEMWEB%.TagMeViewAllTags][view all tags]]
+</div>
+</verbatim>
+
+To show the tags at the bottom of every page, write in [[%LOCALTWIKIPREFS%]] assuming the skin's view template has =%<nop>WEBCOPYRIGHT%= at the bottom:
+<verbatim>
+ * Set WEBCOPYRIGHT = Tags: %TAGME{ tpaction="%URLPARAM{tpaction}%" web="%WEB%" tag="%URLPARAM{tag}%" }%, [[%SYSTEMWEB%.TagMeViewAllTags][view all tags]] %BR% Copyright &copy; 1999-%GMTIME{"$year"}% by... etc
+</verbatim>
+
+---+++ Show tags without vote buttons
+
+To just show the tags for a topic, without buttons or "Create new tag" link, use a =showalltags= search:
+<verbatim>
+Tags: %TAGME{ tpaction="showalltags" web="%WEB%" topic="%TOPIC%" format="<a href=\"%SCRIPTURL{view}%/%SYSTEMWEB%/TagMeSearch?tag=$tag\">$tag</a> " }%
+</verbatim>
+
+---++ Tag styles
+
+---+++ CSS Styles
+
+!TagMePlugin writes the following CSS styles:
+
+| *Class*             | *Used where* |
+| =tagMeControl=      | Around 'tags shown on a topic': tag link plus vote counter plus add/vote button |
+| =tagMeVoteCount=    | Around vote count number |
+| =tagMeNotification= | =span=: One-line notification feedback after adding or removal of a tag and on in this process |
+| =tagMeNotification= | =div=: Block of notification feedback after creation of a tag and on errors in this process |
+| =tagmeAction=       | Link style for buttons add and remove tag vote |
+| =tagmeNavigation=   | Table style for tabbed admin pages |
+
+---++++ Search results CSS Styles
+
+| *Class*                   | *Used where* |
+| =tagmeRelated=            | Text style of the line "Related tags (Click to refine the search)" |
+| =tagmeResultsTable=       | Table style for search results |
+| =tagmeResultsTableHeader= | Table header with link to topic, last modified date and author. These have the additional classes =td.tagmeTopicTd=, =td.tagmeDateTd=, =td.tagmeAuthorTd=, =tagmeTopicTdWeb= |
+| =tagmeResultsDetails=     | Wrapper around =tagmeResultsSummary= and =tagmeResultsDetails= |
+| =tagmeResultsSummary=     | The topic summary |
+| =tagmeResultsTags=        | List of tags for the topic |
+
+---+++ Preventing link wrap
+
+If users are allowed to use spaces in their tag names (when ={TagMePlugin}{NormalizeTagInput}= is set to 0), tag links may break halfway to the next line. To prevent wrapping, add a wrapper =div= around the tags:
+
+<verbatim>
+<div class="tagmeTagCloud">
+%TAGME{ ... }%
+</div>
+</verbatim>
+
+This CSS style is included in =tagme.css=:
+<verbatim>
+.tagmeTagCloud a {
+   white-space:nowrap;
+}
+</verbatim>
+
+#ExampleStyle
+---+++ Example styles used on twiki.org
+
+To show the 'tags shown on a topic': 
+
+<verbatim>
+<div class="tagmetags">
+Tags: %TAGME{ tpaction="%URLPARAM{tpaction}%" web="%WEB%" tag="%URLPARAM{tag}%" }%, [[%SYSTEMWEB%.TagMeViewAllTags][view all tags]]
+</div>
+</verbatim>
+
+CSS styles:
+
+<verbatim>
+.tagmetags select {
+   font-size:.8em;
+   margin:0 .25em;
+}
+.tagmetags a {
+   text-decoration:none;
+   white-space:nowrap;
+}
+.tagmetags a:link,
+.tagmetags a:visited {
+   color:#8E9195; /* all links are gray; for blue links use: #06c */
+   text-decoration:none;
+}
+.tagmetags a:hover {
+   color:#FBF7E8; 
+}
+.tagMeControl {
+   color:#8E9195; /* gray for non-links */
+}
+</verbatim>
+
+#PluginSettings
+---++ Plugin Settings
+
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}% "
+ hidelink="Hide details %ICONURL{toggleclose}% "
+}%
+
+<!-- provided for compatibility only
+   * Set SHORTDESCRIPTION = Tag wiki content collectively or authoritatively to find content by keywords
+-->
+---+++ Configuration parameters
+The %TOPIC% has the following settings in =LocalSite.cfg=.
+   * =$TWiki::cfg{TagMePlugin}{SplitSpace}= (default: 0)%BR%
+     If 1, then each top level web has its own tag namespace
+   * =$TWiki::cfg{TagMePlugin}{UserAgnostic}= (default: 0) %BR%
+     If 1, then user agonostic tagging is conducted. Otherwise, user conscious tagging.
+   * =$TWiki::cfg{TagMePlugin}{NormalizeTagInput}= (default 0) %BR%
+     When you add a new tag, the tag name is somewhat normalized.
+     If this parameter is 1, then the degree of normalization is higher - 
+     a tag consists only of non-accented letters, numbers, or underscores.
+     To achieve that, spaces and hyphens are replaced with underscores,
+     characters other than non-accented letters, numbers, or underscores are eliminated, all uppercase letters are made lowercase.
+     If this parameter is 0, then the following characters are eliminated: <code>^#,'&quot;|&#42;</code> %BR%
+     Other than that, no normalization is conducted.
+   * =$TWiki::cfg{TagMePlugin}{LogAction}= (default: 0) %BR%
+     If 1, then tag actions such as creation of a new tag, adding a tag to a topic are logged in the log file in the same manner as topic view and edit are logged.
+   * =$TWiki::cfg{TagMePlugin}{AlwaysRefine}= (default: 0) %BR%
+     If 1, then the =refine= parameter is always added to TAGME queries.
+   * =$TWiki::cfg{TagMePlugin}{TagLenLimit}= (default: 30) %BR%
+     Maximum length of a tag name
+   * =$TWiki::cfg{TagMePlugin}{Debug}= (default: 0) %BR%
+     If 1, then debug messages are put into the debug log file
+
+---+++ Switching !SplitNamespace and/or !UserAgnostic
+
+You may change ={TagMePlugin}{SplitSpace}= or ={TagMePlugin}{UserAgnostic}= after using <nop>%TOPIC% for a while.
+This is not recommended, but you may need to do that.
+So here's how you can deal with it.
+
+---++++ Switching !SplitNamespace
+
+If ={TagMePlugin}{SplitSpace}= is 0, all tag data, namely the tag set and which topic has which tags put by whom, is stored in the following directory:%BR%
+=$TWiki::cfg{WorkingDir}/work_areas/TagMePlugin=
+
+If the directory there are two kinds of files:
+   * =_tags_all.txt= - having the tag set
+   * <code>_tags_<i>WEB</i>.<i>TOPIC</i>.txt</code> (e.g. =_tags_TWiki.WebPreferences.txt=) - having who put which tag to which topic
+
+If ={TagMePlugin}{SplitSpace}= is 1, tag data is stored in the =pub= directories of top level webs under the =.tags= subdirectory. For example, !WebA's tag data is stored in =pub/WebA/.tags=, !WebB's tag data is stored in =pub/WebB/.tags=, etc. Tag data file names and content are the same as they are under single tag namespace configuration.
+
+As you see, under the multiple tag namespace configuration, tag data is not stored under =$TWiki::cfg{WorkingDir}=. Instead, it's stored under <code>pub/<i>WEB_NAME</i></code>. This is to mirror a web simply by mirroring <code>data/<i>WEB_NAME</i></code> and <code>pub/<i>WEB_NAME</i></code>.
+
+If you change ={TagMePlugin}{SplitSpace}= from 0 to 1, all webs become unable to see existing tag data since they refer to their own tag data, which is empty immediately after the switch.
+There is no ready-made tool, but it's easy to move/copy tag data files from =$TWiki::cfg{WorkingDir}/work_areas/TagMePlugin= to <code>pub/<i>WEB_NAME</i>/.tags</code>.
+
+The amount of information-wise, single tag namespace and mutliple tag namespaces are not different.
+Though cumbersome, you can go back and force without losing information.
+
+---++++ Switching !UserAgnostic
+
+If ={TagMePlugin}{UserAgnostic}= is 0, tagging data in <code>_tags_<i>WEB</i>.<i>TOPIC</i>.txt</code> consists of lines for tags put to the topic. For example, if the user =john= (login name) put the tag =foo=, the file gets the following line.
+<blockquote>
+001, foo, john
+</blockquote>
+Then if the user =jane= put the tag =foo=, the line becomes as follows.
+<blockquote>
+002, foo, john, jane
+</blockquote>
+
+Even if ={TagMePlugin}{UserAgnostic}= is 1, the tagging data file format remains the same.
+The difference is, when the tagging data file is read, each line is recognized as:
+<blockquote>
+001, <i>TAG</i>, <i>YOUR_LOGIN_ID</i>
+</blockquote>
+
+This means, if you switch ={TagMePlugin}{UserAgnostic}= from 0 to 1, all tags put by anybody are recognized as yours. Due to the way showing tags in user agnostic tagging, those tags are displayed as expected.
+
+A tagging data file remains as it is unless a tag is added or removed. Then, the file is filled with lines of the following format.
+<blockquote>
+001, <i>TAG</i>, <i>YOUR_LOGIN_ID</i>
+</blockquote>
+And the information of who put which tag is lost.
+
+Obviously, user conscious tagging houses more information than user agnostic tagging. So switching from user conscious to user agnostic has no problem. But the other way around causes a weird situation - all tags put to the topic A is by the user U while the topic B has tags tags put only by the user V.
+
+%ENDTWISTY%
+
+---++ Plugin Installation Instructions
+
+This plugin is pre-installed. TWiki administrators can upgrade the plugin as needed on the TWiki server.
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}% "
+ hidelink="Hide details %ICONURL{toggleclose}% "
+}%
+
+   * Download the ZIP file from the plugin web (see below)
+   * Unzip ==%TOPIC%.zip== in your twiki installation directory. Content:
+     | *File:* | *Description:* |
+     | ==data/TWiki/%TOPIC%.txt== | Plugin topic |
+     | ==data/TWiki/TagMeViewAllTags.txt== | Supporting topic to view all tags |
+     | ==data/TWiki/TagMeViewMyTags.txt== | Supporting topic to view my tags |
+     | ==data/TWiki/TagMeSearch.txt== | Supporting topic to search for tagged topics |
+     | ==data/TWiki/TagMeManage.txt== | Supporting topic to create new tags |
+     | ==data/TWiki/TagMeDebug*.txt== | Supporting topics for debug |
+     | ==lib/TWiki/Plugins/%TOPIC%.pm== | Plugin Perl module |
+     | ==pub/TWiki/%TOPIC%/*.gif== | Icon files |
+     | ==templates/view.tagme.tmpl== | Template containing GUI components |
+   * Configure and enable the Plugin:
+      * Run the [[%SCRIPTURL%/configure%SCRIPTSUFFIX%][configure]] script to enable the plugin
+      * Overload the Plugin settings as needed in the [[%LOCALTWIKIREFS%]]:
+         * Determine who will be allowed to rename and delete tags.
+         * For international character support: set =NORMALIZE_TAG_INPUT= to 0.
+         * To allow any user input as tag name also set =NORMALIZE_TAG_INPUT= to 0.
+      * To put the tags interface on every page, see the instructions above at [[%TOPIC%#TagsOnPage][How to put tags on every page]]
+   * Test if the installation was successful:
+      * Go to [[TagMeCreateNewTag]] and add a tag
+   * <div class="twikiNotification" style="padding:.5em 20px; margin:1em 0; background-color:#ffc;">
+     __Note__: If you have upgraded !TagMePlugin to TWiki 4.2 or later and appear to have lost all your old tags: Copy all your tag files from =pub/TWiki/TagMePlugin/= files to =working/work_areas/TagMePlugin/= and they should magically re-appear.
+     </div>
+%ENDTWISTY%
+
+---++ Limitations
+
+   * TWiki 04-Sep-2005 and older: Tags are lost if a topic is renamed or moved.
+
+---++ Plugin Info
+
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  Plugin Author: | TWiki:Main.PeterThoeny, TWiki:Main.ArthurClemens |
+|  Copyright: | &copy; 2006-2018 Peter Thoeny, [[http://twiki.org/][TWiki.org]]; <br /> &copy; 2006-2018 TWiki:TWiki.TWikiContributor |
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+|  Plugin Version: | 2018-07-05 |
+%TWISTY{
+ mode="div"
+ showlink="Show Change History %ICONURL{toggleopen}%"
+ hidelink="Hide Change History %ICONURL{toggleclose}% "
+}%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  2018-07-05: | TWikibug:Item7841: Copyright update to 2018 |
+|  2016-01-09: | TWikibug:Item7708: Copyright update to 2016 |
+|  2015-02-16: | TWikibug:Item7604: Switch from GPL v2 to v3 |
+|  2014-05-15: | TWikibug:Item7492: Hide tags in print using hideInPrint CSS class (requires PatternSkin 2014-05-15) |
+|  2013-10-24: | Twikibug:Item7375: bug fixes, document improvement, code cleanup |
+|  2013-10-23: | Twikibug:Item6816: tag add/delete/rename permission bug fixed |
+|  2013-04-18: | TWikibug:Item7234: Problems when {TagMePlugin}{SplitSpace} is true |
+|  2013-04-11: | TWikibug:Item7224: Using TWiki::Func::isAnAdmin() instead of non existing TWiki::Access::isAdminOrWebAdmin() |
+|  2013-03-12: | TWikibug:Item7185: Rename $TWiki::cfg{PersonalWebName} to $TWiki::cfg{UsersWebName} |
+|  2013-01-28: | TWikibug:Item7091: Use TWISTY in installation instructions and change history |
+|  2012-12-03: | TWikibug:Item7034: Multiple tag namespaces support. -- TWiki:Main.YaojunFei |
+|  2012-09-04: | TWikibug:Item6923: Nicer reporting pages with gray gradient tabs |
+|  2011-07-12: | TWikibug:Item6768: Allow login name or !WikiWord name for =by=""= tag queries; user specific "no tag yet" message if =by= user is not logged in user |
+|  2011-05-25: | TWikibug:Item6732: Fix for administrator not able to delete tag if Main web is renamed to User web |
+|  2010-06-12: | TWikibug:Item6490: Fixing hardcoded link to TWiki web |
+|  2010-05-26: | TWikibug:Item6433: Doc improvements |
+|  23 Oct 2009: | Peter Thoeny: Validate tag against known tags when adding a tag; improved docs  |
+|  30 Aug 2008: | Colas Nahaboo: enhancements to the "blog" style: Bundles, count of known tags, option to delete tags |
+|  28 Aug 2008: | Colas Nahaboo: prefix & suffix options renamed as header & footer. New parameter style to TAGME to be able to define different UI style for the default "show" action of TAGME. Implemented a first one, "blog" for the simpler case of authors managing the same tags |
+|  26 Aug 2008: | Colas Nahaboo: prefix & suffix options to TAGME |
+|  16 Oct 2007: | Arthur Clemens: added backward compatible example template. |
+|  26 Sep 2007: | TWiki:Main.CrawfordCurrie TWikibug:Item4728 fixed incorrect cloud font sizes to reflect relative importance of tags actually being displayed |
+|  11 Sep 2007: | Arthur Clemens: updated example template to TWiki template convention. |
+|  11 Jun 2007: | Arthur Clemens: fixed sizing of tags with the same tag count; fixed CSS class for select box; updated documentation with "How to put tags on every page". |
+|  07 Jun 2007: | Arthur Clemens: removed dependency on (unreleased) TWiki 4.2. |
+|  21 May 2007: | TWiki:Main.WillNorris: added =view.tagme.tmpl= and updated installation instructions. |
+|  30 Apr 2007: | Arthur Clemens: fixed calculation of sizes in tag cloud; if =mincount= is passed only the shown tags are calculated. |
+|  18 Apr 2007: | Arthur Clemens: added permissions for rename and delete; added TagMeChangeRequests. |
+|  17 Apr 2007: | TWiki:Main.CrawfordCurrie for [[http://www.escapestudios.co.uk/][Escape Studios]]: contributed support for incremental refinement of tag searches. |
+|  12 Apr 2007: | TWiki:Main.CrawfordCurrie contributed ability to search for multiple tags. TWiki:Main.SvenDowideit for [[http://www.escapestudios.co.uk/][Escape Studios]]: added parameters needed for custom search result display. |
+|  05 Apr 2007: | Arthur Clemens: The "topic tags" select box is now created with Javascript to prevent the tag options getting indexed by search engines. The former select box is used for noscript fallback. |
+|  02 Apr 2007: | Arthur Clemens: Added "Delete Tag" interface. Added tabbed interface for Create, Rename, Delete tags. |
+|  30 Mar 2007: | Arthur Clemens: Added "Rename Tag" interface. |
+|  22 Mar 2007: | Arthur Clemens: Added option =NORMALIZE_TAG_INPUT= (to be set to 0) to allow any word as tag name (including upper case, punctuation characters and spaces). Moved "Create New Tag" to dedicated page. Created CSS styles in =tagme.css=. Added =mincount= parameter to =TAGME{tpaction="showalltags"}=. |
+|  14 Nov 2006: | Fix IE browser crash issue on print (forms can't be named "tags"; debug by TWiki:Main.KevinKalmbach) |
+|  14 Oct 2006: | Fix show default problem introduced by version 07 Oct 2006 (contributed by TWiki:Main.ChristianSuenkel) |
+|  07 Oct 2006: | nostatus="on" parameter for add/remove tag (contributed by TWiki:Main.FredMorris) |
+|  05 Oct 2006: | Fix issue of missing topics in tag search if topic name contains plus or minus sign (workaround for TWiki core TWikibug:Item2625 and TWikibug:Item2967) |
+|  04 Oct 2006: | Fix issue of statistics moving !WebHome tags to !WebStatistics |
+|  02 Oct 2006: | Support for topic rename (tags are no longer lost) |
+|  14 Sep 2006: | MAKETEXT support (TWiki:Main.KoenMartens); fixed nested webs issue; fix in generated XHTML (TWiki:Main.ArthurClemens) |
+|  20 May 2006: | Support international characters (contributed by TWiki:Main.AntonioTerceiro) |
+|  09 May 2006: | Support for sub-webs; enclose tag list on topic in =span class="tagMePlugin"=; tag selector not shown if empty; limit max size of new tags to 30 characters |
+|  21 Mar 2006: | !TagMeSearch with =minsize= and =maxsize= parameters; !TagMeSearch format with =$votecount=, =$size=; fixed !JavaScript compatibility issue on TWiki 4.0 |
+|  11 Mar 2006: | !TagMeSearch with =sort=, =norelated=, =nototal=, =format= and =separator= paramters; linked tags in create new tag section; renamed !TagMeViewSpecificTag to a shorter !TagMeSearch; workaround for Dakar TWikibug:Item1838 to fix broken links in top bar |
+|  06 Mar 2006: | Remove my tag vote; added exclude="", minsize="" and maxsize="" parameters; more intuitive icons; in default view, sort tags alphabetically instead of sort by tag vote |
+|  03 Mar 2006: | Allow underscore in tags (and convert space and dash to underscore); added web="" and topic="" parameters; fixed font size issue in tag cloud with disproportional counts |
+|  28 Feb 2006: | Use tabs in all/my/specific tags view; show related tags in specific tags view; check if topic exists when adding tags; |
+|  26 Feb 2006: | Added view all tags / my tags (as tag clouds); view specific tag (sorted by tag count); do not allow guests to create new tags; log add/create tag actions |
+|  20 Feb 2006: | Initial version |
+%ENDTWISTY%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  TWiki Dependency: | $TWiki::Plugins::VERSION 1.024 |
+|  CPAN Dependencies: | none |
+|  Other Dependencies: | none |
+|  Perl Version: | 5.8 |
+|  [[TWiki:Plugins/Benchmark][Benchmarks]]: | %SYSTEMWEB%.GoodStyle 100%, %SYSTEMWEB%.FormattedSearch 100%, %TOPIC% 99% |
+|  Plugin Home: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC% |
+|  Feedback: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Dev |
+|  Appraisal: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Appraisal |
+
+__Related Topics:__ %SYSTEMWEB%.TagMeViewAllTags, %SYSTEMWEB%.TagMeViewMyTags, %SYSTEMWEB%.TagMeSearch, %SYSTEMWEB%.TagMeDebugViewTags, %SYSTEMWEB%.TagMeDebugSearch, %SYSTEMWEB%.TWikiPlugins, %SYSTEMWEB%.DeveloperDocumentationCategory, %SYSTEMWEB%.AdminDocumentationCategory, %SYSTEMWEB%.TWikiPreferences
+<!--
+TWiki 6.0.0 has introduced =LOCALSITEPREFS=, which is Main.TWikiPreferences by default but can be a different value.
+   * Set LOCALTWIKIPREFS = %IF{"defined LOCALSITEPREFS" then="%LOCALSITEPREFS%" else="Main.TWikiPreferences"}%
+-->
+%META:FILEATTACHMENT{name="tag_add.gif" attr="h" comment="Button: add tag" date="1141691885" path="tag_add.gif" size="857" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="tag_remove.gif" attr="h" comment="Button: remove tag" date="1141697484" path="tag_remove.gif" size="862" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="alltagcloud.gif" attr="h" comment="Screenshot of view all tags tag cloud" date="1141693726" path="alltagcloud.gif" size="8087" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="topictags.gif" attr="h" comment="Screenshot of tags on a topic" date="1141696674" path="topictags.gif" size="1945" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="topictags_styleblog.gif" attr="h" comment="Screenshot of tags on a topic, closed" date="1219868858" path="topictags_styleblog.gif" size="12712" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="topictags_styleblog_open.gif" attr="h" comment="Screenshot of tags on a topic, opened" date="1219868858" path="topictags_styleblog_open.gif" size="22259" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="tag_addnew.gif" attr="h" comment="" date="1141696362" path="tag_addnew.gif" size="852" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="tagme.css" attr="h" comment="CSS styles" date="1141696362" path="tagme.css" size="1349" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="buttons_gradient.psd" attr="h" comment="Buttons design document (Photoshop format)" date="1141696362" path="buttons_gradient.psd" size="41686" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="gray-gradient-1.png" attachment="gray-gradient-1.png" attr="h" comment="" date="1346791909" path="gray-gradient-1.png" size="339" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="gray-gradient-2.png" attr="h" comment="" date="1346791204" path="gray-gradient-2.png" size="353" user="TWikiContributor" version="1"}%

@@ -1,0 +1,10 @@
+%META:TOPICINFO{author="TWikiContributor" date="1354777456" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarBASEWEB
+---+++ BASEWEB -- base web where an INCLUDE started
+   * The web name where the includes started, e.g. the web of the first topic of nested includes. Same as =%<nop>WEB%= in case there is no include.
+   * Syntax: =%<nop>BASEWEB%=
+   * Syntax: =%<nop>BASEWEB{format="..."}%= -- see [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWEB][WEB]] for format documentation
+   * Example: If topic A includes B, and B includes C, then a =%<nop>BASEWEB%= in topic C is reported as the web of topic A when looking at topic A, the web of topic B when looking at topic B, and the web of topic C when looking at topic C itself.
+   * Category: SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBASETOPIC][BASETOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarINCLUDINGWEB][INCLUDINGWEB]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarINCLUDE][INCLUDE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWEB][WEB]]

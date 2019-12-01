@@ -1,0 +1,87 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2010.06.28.02.45.07;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2010.05.29.14.44.31;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.24;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1277693107" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiTipsOfTheDay"}%
+---+ Comment box with !CommentPlugin 
+
+The CommentPlugin allows users to quickly post comments to a page without an edit/save cycle. 
+
+Write =%<nop>COMMENT{ attributes }%= or simply =%<nop>COMMENT%= anywhere in a TWiki topic.
+
+Example:
+<form name="disabled">
+<table><tr valign="middle"><td><textarea rows="3" cols="40" name="comment" wrap="soft" onfocus="if(this.value=='')this.value=''" onblur="if(this.value=='')this.value=''" class="twikiInputField">This non-working example is for demonstration purposes only</textarea></td><td><input type="submit" value="Add comment" disabled="disabled" class="twikiSubmit" /></td></tr></table>
+</form>
+
+[[CommentPlugin][More Information...]]
+
+[[TWikiTipsOfTheDay][See More Tips...]]
+
+-- __Contributors:__ TWiki:Main.PaulineCheung
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1267683174" format="1.1" version="2"}%
+d5 1
+a5 1
+The CommentPlugin allows users to quickly post comments to a page without an edit/preview/save cycle. 
+d18 1
+a18 1
+-- __Contributors:__ TWiki:Main/PaulineCheung - 2005-01-29
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1107572800" format="1.0" version="1"}%
+d11 1
+a11 1
+<table><tr valign="middle"><td><textarea rows="3" cols="40" name="comment" wrap="soft" onfocus="if(this.value=='')this.value=''" onblur="if(this.value=='')this.value=''">This non-working example is for demonstration purposes only</textarea></td><td><input type="submit" value="Add comment" disabled="disabled" /></td></tr></table>
+d18 1
+a18 2
+-- TWiki:Main.PaulineCheung - 29 Jan 2005
+
+@

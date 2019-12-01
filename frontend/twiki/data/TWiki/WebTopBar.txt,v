@@ -1,0 +1,151 @@
+head	1.6;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.6
+date	2014.06.19.03.03.06;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2008.01.22.03.21.26;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2006.04.01.05.55.32;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2006.02.01.12.01.23;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2004.08.25.07.55.56;	author PeterThoeny;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2004.08.16.05.28.43;	author ArthurClemens;	state Exp;
+branches;
+next	;
+
+
+desc
+@none
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1403146986" format="1.1" version="6"}%
+%META:TOPICPARENT{}%
+<table border="0" cellpadding="0" cellspacing="0" style="width:100%; margin-top:12px;">
+<tr><td valign="middle"><span id="twikiLogo" class="twikiImage"><a href="%WEBLOGOURL%"><img src="%WEBLOGOIMG%" border="0" alt="%WEBLOGOALT%" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+<noautolink>
+   * <form name="jumpForm" action="%SCRIPTURLPATH{"view"}%/%BASEWEB%/%BASETOPIC%"><input id="jumpFormField" type="text" class="twikiInputField" name="topic" value="" size="18" title="%MAKETEXT{"Jump to a topic by its name; browse to a topic by typing a partial name"}%" /><noscript>&nbsp;<input type="submit" class="twikiButton" size="5" name="submit" value="%MAKETEXT{"Jump"}%" />&nbsp;</noscript>
+   </form>
+   * <form name="quickSearchForm" action="%SCRIPTURLPATH{view}%/%INCLUDINGWEB%/WebSearch"><input type="text" class="twikiInputField" id="quickSearchBox" name="search" value="" size="18" title="%MAKETEXT{"Search in current web. For example, to search for all topics that contain &#34;SOAP&#34;, &#34;WSDL&#34;, a literal &#34;web service&#34;, but not &#34;shampoo&#34;, write: soap wsdl &#34;web service&#34; -shampoo"}%" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="%BASEWEB%" /><noscript>&nbsp;<input type="submit" size="5" class="twikiButton" name="submit" value="%MAKETEXT{"Search"}%" />&nbsp;</noscript>
+   </form>
+   * %INCLUDE{%SYSTEMWEB%.LanguageSelector}%
+</noautolink></td></tr></table>
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1138738574" format="1.1" version="5"}%
+d7 1
+a7 1
+   * <form name="jumpForm" action="%SCRIPTURLPATH{"view"}%/%BASEWEB%/%BASETOPIC%"><input id="jumpFormField" type="text" class="twikiInputField" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="twikiButton" size="5" name="submit" value="%MAKETEXT{"Jump"}%" />&nbsp;</noscript>
+d9 1
+a9 1
+   * <form name="quickSearchForm" action="%SCRIPTURLPATH{view}%/%INCLUDINGWEB%/WebSearch"><input type="text" class="twikiInputField" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="%BASEWEB%" /><noscript>&nbsp;<input type="submit" size="5" class="twikiButton" name="submit" value="%MAKETEXT{"Search"}%" />&nbsp;</noscript>
+d12 1
+a12 1
+</noautolink></td></tr></table>@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1138738574" format="1.1" version="4"}%
+d3 2
+a4 2
+<table border="0" cellpadding="0" cellspacing="0" style="width:100%; margin-top:11px;">
+<tr><td valign="middle"><a href="%WEBLOGOURL%"><img src="%WEBLOGOIMG%" border="0" alt="%WEBLOGOALT%" /></a></td>
+d7 6
+a12 4
+   * <form name="jumpForm" action="%SCRIPTURLPATH{"view"}%/%BASEWEB%/%BASETOPIC%"><input id="jumpFormField" type="text" class="twikiInputField patternFormFieldDefaultColor" name="topic" size="14" value="%MAKETEXT{"Jump"}%" onfocus="clearDefaultandCSS(this);" onblur="setDefaultText(this);" /></form>
+   * <form name="quickSearchForm" action="%SCRIPTURLPATH{view}%/%INCLUDINGWEB%/WebSearch">%IF{" '%URLPARAM{"search" encode="entity" scope="topic"}%' = '' " then="<input type=\"text\" class=\"twikiInputField patternFormFieldDefaultColor\" name=\"search\" value=\"%MAKETEXT{"Search"}%\" size=\"14\" onfocus=\"clearDefaultandCSS(this);\" onblur=\"setDefaultText(this);\" />" else="<input type=\"text\" class=\"twikiInputField\" name=\"search\" value=\"%URLPARAM{ "search" encode="entity" scope="topic" }%\" size=\"14\" />"}%</form>
+   * %INCLUDE{%TWIKIWEB%.LanguageSelector}%
+</noautolink></td></tr></table>
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="ArthurClemens" date="1138738574" format="1.1" version="3"}%
+d3 8
+a10 1
+<span class="patternTopBarLogo twikiLeft"><a href="%WEBLOGOURL%"><img src="%WEBLOGOIMG%" border="0" alt="%WEBLOGOALT%" /></a></span>@
+
+
+1.2
+log
+@none
+@
+text
+@d1 3
+a3 12
+%META:TOPICINFO{author="PeterThoeny" date="1093420556" format="1.0" version="1.2"}%
+<div class="twikiLeft">
+<a href="%WIKILOGOURL%"><img src="%WIKILOGOIMG%" border="0" alt="Home"/></a>
+</div>
+<div class="twikiRight twikiSearchBox">
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td><label for="go">Jump: </label><input type="text" id="go" name="topic" size="16" /></td>
+</tr>
+</table>
+</div>
+
+@
+
+
+1.1
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="ArthurClemens" date="1092634123" format="1.0" version="1.1"}%
+d6 5
+a10 2
+%TABLE{tableborder="0" cellpadding="0" cellspacing="0"}%
+| <label for="go">Jump: </label><input type="text" id="go" name="topic" size="16" /> |
+@

@@ -1,0 +1,144 @@
+head	1.6;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.6
+date	2013.03.23.08.16.51;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2012.11.12.06.58.21;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2012.06.30.07.25.53;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2010.05.29.14.44.19;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.12.06.09.02.14;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2008.01.22.03.21.25;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1364026611" format="1.1" version="6"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarCALC
+---+++ CALC{"formula"} -- add spreadsheet calculations to tables
+   * The =%<nop>CALC{formula}%= variable is handled by the SpreadSheetPlugin. Over 100 functions are available, such as =$ABS()=, =$EXACT()=, =$EXISTS()=, =$GET()/$SET()=, =$IF()=, =$LOG()=, =$LOWER()=, =$PERCENTILE()=, =$TIME()=, =$VALUE()=.
+   * Syntax: =%<nop>CALC{formula}%=
+   * Examples:
+      * =%<nop>CALC{$SUM($ABOVE())}%= returns the sum of all cells above the current cell
+      * =%<nop>CALC{$EXISTS(<nop>Web.SomeTopic)}%= returns =1= if the topic exists
+      * =%<nop>CALC{$UPPER(Collaboration)}%= returns =COLLABORATION=
+   * Note: The CALC variable is handled with delay compared to other TWiki variables. You may get unexpected results if you nest CALC inside other variables (such as =%<nop>INCLUDE{%<nop>CALC{...}%}%=) because it does not get evaluated inside-out & left-to-right like ordinary TWiki variables. Use [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarCALCULATE][CALCULATE]] if you nest variables.
+   * Category: DevelopmentVariables, TablesAndSpreadsheetsVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarCALCULATE][CALCULATE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarIF][IF]], %SYSTEMWEB%.IfStatements, SpreadSheetPlugin
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1352703501" format="1.1" version="5"}%
+d5 1
+a5 1
+   * The =%<nop>CALC{formula}%= variable is handled by the SpreadSheetPlugin. Around 100 functions are available, such as =$ABS()=, =$EXACT()=, =$EXISTS()=, =$GET()/$SET()=, =$IF()=, =$LOG()=, =$LOWER()=, =$PERCENTILE()=, =$TIME()=, =$VALUE()=.
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1341041153" format="1.1" version="4"}%
+d11 2
+a12 1
+   * __Note:__ The CALC variable is handled with delay compared to other TWiki variables. You may get unexpected results if you nest CALC inside other variables (such as =%<nop>INCLUDE{%<nop>CALC{...}%}%=) because it does not get evaluated inside-out & left-to-right like ordinary TWiki variables. Use [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarCALCULATE][CALCULATE]] if you nest variables.
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1274941772" format="1.1" version="3"}%
+d4 3
+a6 3
+---+++ CALC{"formula"} -- add spreadsheet calculations to tables and outside tables
+   * The =%<nop>CALC{"formula"}%= variable is handled by the SpreadSheetPlugin. There are around 80 formulae, such as =$ABS()=, =$EXACT()=, =$EXISTS()=, =$GET()/$SET()=, =$IF()=, =$LOG()=, =$LOWER()=, =$PERCENTILE()=, =$TIME()=, =$VALUE()=.
+   * Syntax: =%<nop>CALC{"formula"}%=
+d8 5
+a12 4
+      * =%<nop>CALC{"$SUM($ABOVE())"}%= returns the sum of all cells above the current cell
+      * =%<nop>CALC{"$EXISTS(<nop>Web.SomeTopic)"}%= returns =1= if the topic exists
+      * =%<nop>CALC{"$UPPER(Collaboration)"}%= returns =COLLABORATION=
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarIF][IF]], IfStatements, SpreadSheetPlugin
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1180825069" format="1.0" version="2"}%
+d5 7
+a11 8
+	* The =%<nop>CALC{"formula"}%= variable is handled by the SpreadSheetPlugin. There are around 80 formulae, such as =$ABS()=, =$EXACT()=, =$EXISTS()=, =$GET()/$SET()=, =$IF()=, =$LOG()=, =$LOWER()=, =$PERCENTILE()=, =$TIME()=, =$VALUE()=.
+	* Syntax: =%<nop>CALC{"formula"}%=
+	* Examples:
+		* =%<nop>CALC{"$SUM($ABOVE())"}%= returns the sum of all cells above the current cell
+		* =%<nop>CALC{"$EXISTS(<nop>Web.SomeTopic)"}%= returns =1= if the topic exists
+		* =%<nop>CALC{"$UPPER(Collaboration)"}%= returns =COLLABORATION=
+	* Related: [[#VarIF][IF]], SpreadSheetPlugin
+
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1180825069" format="1.0" version="1"}%
+@

@@ -1,0 +1,23 @@
+%META:TOPICINFO{author="TWikiContributor" date="1352960948" format="1.1" version="6"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarSTARTSECTION
+---+++ STARTSECTION -- marks the start of a section within a topic
+   * Section boundaries are defined with =%<nop>STARTSECTION{}%= and =%<nop>ENDSECTION{}%=.
+   * Sections may be given a name to help identify them, and/or a type, which changes how they are used.
+      * =type="section"= - the default, used for a generic section, such as a named section used by [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarINCLUDE][INCLUDE]].
+      * =type="include"= - like =%<nop>STARTINCLUDE%= ... =%<nop>STOPINCLUDE%= except that you can have as many include blocks as you want (=%<nop>STARTINCLUDE%= is restricted to only one).
+      * =type="templateonly"= - start position of text to be removed when a template topic is used. Use this to embed text that you _do not_ want expanded when a new topic based on the template topic is created. TWikiTemplates has more.
+      * =type="expandvariables"= - start position where TWikiVariables get expanded when a new topic is created. As documented in TWikiTemplates#VariableExpansion, only certain variables get expanded when a new topic based on the template topic is created. All variables get expanded within a ="expandvariables"= section.
+   * Syntax: =%<nop>STARTSECTION{"name"}% ................... %<nop>ENDSECTION{"name"}%=
+   * Syntax: =%<nop>STARTSECTION{type="include"}% ........... %<nop>ENDSECTION{type="include"}%=
+   * Syntax: =%<nop>STARTSECTION{type="templateonly"}% ...... %<nop>ENDSECTION{type="templateonly"}%=
+   * Syntax: =%<nop>STARTSECTION{type="expandvariables"}% ... %<nop>ENDSECTION{type="expandvariables"}%=
+   * Supported parameters:
+     | *Parameter:* | *Description:* | *Default* |
+     | ="name"= | Name of the section. Must be unique inside a topic. | Generated name |
+     | =type="..."= | Type of the section; type ="section"=, ="include"=,  ="templateonly"=, or ="expandvariables"= | ="section"= |
+     | =disablefixlinks="on"= | Only for named sections: Bypass fixing !WikiWord links if section is included from a topic in another web. Fixing links in included text such as from !SomeLink to !Thisweb.SomeLink is usually desirable so that links in included text still point to the same target. | fix links |
+   * __%X% Note:__ If a section is not given a name, it will be assigned one. Unnamed sections are assigned names starting with =_SECTION0= for the first unnamed section in the topic, =_SECTION1= for the second, etc..
+   * __%X% Note:__ You can define nested sections. Do not overlap sections. Use named sections to make sure that the correct START and ENDs are matched. Section markers are *not* displayed when a topic is viewed.
+   * Category: DevelopmentVariables, WorkflowAndAutomationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENDSECTION][ENDSECTION]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarHIDE][HIDE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarINCLUDE][INCLUDE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarNOP][NOP]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSTARTINCLUDE][STARTINCLUDE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSTOPINCLUDE][STOPINCLUDE]]

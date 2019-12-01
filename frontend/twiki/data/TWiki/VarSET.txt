@@ -1,0 +1,24 @@
+%META:TOPICINFO{author="TWikiContributor" date="1428462192" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarSET
+---+++ SET{"name" value="..."} -- set a variable
+   * Set a named variable that can be retrieved later with =%<nop>GET{}%=. No output is shown, e.g. =%<nop>SET{}%= resolves to an empty string. It is also possible to set a JSON object using a JSON path. %IF{"'%INCLUDINGTOPIC%'!='SetGetPlugin'" then="The =%<nop>SET{}<nop>%= and =%<nop>GET{}<nop>%= variables are handled by the SetGetPlugin." }%
+   * Syntax: =%<nop>SET{ "name" value="..." remember="1" }%=
+   * Parameters:
+     | *Parameter* | *Description* | *Default* |
+     | ="name"= | Name of variable. Alphanumeric characters, dashes and underscores can be used. | (required) |
+     | =value="..."= | Value of variable. Escape double quotes with backslash. | (required, may be empty) |
+     | =remember="1"= | If set, the variable will be stored persistently so that it can be used later in any TWiki topic. Alternatively use the =store= parameter. [[SetGetPlugin#RememberNotes][See important notes]]. | ="0"= |
+     | =store="..."= | Specify a store name to persistently store the variable, such as =store="Parts"=. Use alphanumeric characters, dashes and underscores for the name. For better performance, store is preferred over the remember parameter if you need to store a large dataset. [[SetGetPlugin#RememberNotes][See important notes]]. | =""= |
+   * Example: =%<nop>SET{"lunch" value="Sushi"}%=%IF{"'%INCLUDINGTOPIC%'!='SetGetPlugin'" then=" - [[SetGetPlugin#SetGetExamples][see more examples]]." }%
+   * JSON Syntax: =%<nop>SET{ name = { ... } remember="1" }%=%IF{"'%INCLUDINGTOPIC%'!='SetGetPlugin'" then=" - [[SetGetPlugin#JsonObjects][see description]]." }%
+      * An optional =remember="1"= or =store="..."= parameter can be appended. If specified, the JSON object will be stored persistently so that it can be used later in any TWiki topic.
+   * Example to set, modify and get a JSON object:
+      * =%<nop>SET{ menu = { "File": { "New": [ "new", "F" ], "Open": [ "open", "F" ] }, "Edit": { "Copy": [ "cpy", "F" ], "Paste": [ "pst", "F" ] } } }%= - set a JSON object
+      * =%<nop>GET{ menu }%= - returns: ={"File":{"New":["new","F"],"Open":["open","F"]},"Edit":{"Copy":["cpy","F"],"Paste":["pst","F"]}}=
+      * =%<nop>SET{ menu.File.Open[1] = "T" }%= - modify a JSON object
+      * =%<nop>GET{ menu }%= - returns: ={"File":{"New":["new","F"],"Open":["open","T"]},"Edit":{"Copy":["cpy","F"],"Paste":["pst","F"]}}=
+      * =%<nop>SET{ menu.Edit.Cut = [ "cut", "T" ] }%= - add to a JSON object
+      * =%<nop>GET{ menu }%= - returns: ={"File":{"New":["new","F"],"Open":["open","T"]},"Edit":{"Copy":["cpy","F"],"Paste":["pst","F"],"Cut":["cut","T"]}}=
+   * Category: ApplicationsAndComponentsVariables, DevelopmentVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables' OR '%INCLUDINGTOPIC%'='SetGetPlugin'" then="#"}%VarGET][GET]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarIF][IF]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables' OR '%INCLUDINGTOPIC%'='SetGetPlugin'" then="#"}%VarSETGETDUMP][SETGETDUMP]], %IF{"'%INCLUDINGTOPIC%'!='SetGetPlugin'" then="SetGetPlugin, "}%SpreadSheetPlugin#FuncSET

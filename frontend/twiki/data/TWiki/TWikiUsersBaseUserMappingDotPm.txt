@@ -1,0 +1,177 @@
+---+ Package =TWiki::Users::BaseUserMapping=
+
+User mapping is the process by which TWiki maps from a username (a login name)
+to a display name and back. It is also where groups are maintained.
+
+The BaseMapper provides support for a small number of predefined users.
+No registration - this is a read only usermapper. It uses the mapper
+prefix 'BaseUserMapping_'.
+
+---+++!! Users
+   * TWikiAdmin - uses the password that was set in Configure (IF its not null)
+   * TWikiGuest
+   * UnknownUser
+   * TWikiContributor - 1 Jan 2005
+   * TWikiRegistrationAgent - 1 Jan 2005
+
+---+++!! Groups
+   * $TWiki::cfg{SuperAdminGroup}
+   * TWikiBaseGroup
+
+
+%TOC%
+
+---++ ClassMethod *new* <tt>($session)</tt>
+
+Construct the BaseUserMapping object
+
+
+
+---++ ObjectMethod *finish* <tt>()</tt>
+Break circular references.
+
+
+
+---++ ObjectMethod *loginTemplateName* <tt>() -> templateFile</tt>
+
+allows UserMappings to come with customised login screens - that should preffereably only over-ride the UI function
+
+
+
+---++ ObjectMethod *handlesUser* <tt>($cUID,$login,$wikiname) -> $boolean</tt>
+
+See baseclass for documentation.
+
+In the BaseUserMapping case, we know all
+the details of the users we specialise in.
+
+
+
+---++ ObjectMethod *login2cUID* <tt>($login) -> $cUID</tt>
+
+Convert a login name to the corresponding canonical user name. The
+canonical name can be any string of 7-bit alphanumeric and underscore
+characters, and must correspond 1:1 to the login name.
+(undef on failure)
+
+
+
+---++ ObjectMethod *getLoginName* <tt>($cUID) -> login</tt>
+
+converts an internal cUID to that user's login
+(undef on failure)
+
+
+
+---++ ObjectMethod *getWikiName* <tt>($cUID) -> wikiname</tt>
+
+Map a canonical user name to a wikiname
+
+
+
+---++ ObjectMethod *userExists* <tt>($user) -> $boolean</tt>
+
+Determine if the user already exists or not.
+
+
+
+---++ ObjectMethod *eachUser* <tt>() -> listIteratorofcUIDs</tt>
+
+See baseclass for documentation.
+
+
+
+---++ ObjectMethod *eachGroupMember* <tt>($group) -> listIteratorofcUIDs</tt>
+
+See baseclass for documentation.
+
+The basemapper implementation assumes that there are no nested groups in the
+basemapper.
+
+
+
+---++ ObjectMethod *isGroup* <tt>($name) -> boolean</tt>
+
+See baseclass for documentation.
+
+
+
+---++ ObjectMethod *eachGroup* <tt>() -> ListIteratorofgroupnames</tt>
+
+See baseclass for documentation.
+
+
+
+---++ ObjectMethod *eachMembership* <tt>($cUID) -> ListIteratorofgroupsthisuserisin</tt>
+
+See baseclass for documentation.
+
+
+
+---++ ObjectMethod *isAdmin* <tt>($cUID) -> $boolean</tt>
+
+True if the user is an admin
+   * is a member of the $TWiki::cfg{SuperAdminGroup}
+
+
+
+---++ ObjectMethod *getEmails* <tt>($name) -> @emailAddress</tt>
+
+If $name is a cUID, return their email addresses. If it is a group,
+return the addresses of everyone in the group.
+
+
+
+---++ ObjectMethod *getUserData* <tt>($cUID) -> $dataRef</tt>
+
+Return a reference to an array of hashes with user data, used to manage 
+users. Each item is a hash with:
+
+   * ={name}= - name of field, such as "email"
+   * ={title}= - title of field, such as "E-mail"
+   * ={value}= - value of field, such as "jimmy@example.com"
+   * ={type}= - type of field: =text=, =password=, =checkbox=, =label=
+   * ={size}= - size of field, such as =40=
+   * ={note}= - comment note, if any
+
+User management forms can be build dynamically from this data structure.
+Each password manager may return a different set of fields.
+
+
+
+---++ ObjectMethod *findUserByWikiName* <tt>($wikiname) -> listofcUIDsassociatedwiththatwikiname</tt>
+
+See baseclass for documentation.
+
+
+
+---++ ObjectMethod *checkPassword* <tt>($login,$passwordU) -> $boolean</tt>
+
+Finds if the password is valid for the given user.
+
+Returns 1 on success, undef on failure.
+
+
+
+---++ ObjectMethod *setPassword* <tt>($cUID,$newPassU,$oldPassU) -> $boolean</tt>
+
+If the $oldPassU matches matches the user's password, then it will
+replace it with $newPassU.
+
+If $oldPassU is not correct and not 1, will return 0.
+
+If $oldPassU is 1, will force the change irrespective of
+the existing password, adding the user if necessary.
+
+Otherwise returns 1 on success, undef on failure.
+
+
+
+---++ ObjectMethod *passwordError* <tt>() -> $string</tt>
+
+returns a string indicating the error that happened in the password handlers
+TODO: these delayed error's should be replaced with Exceptions.
+
+returns undef if no error
+
+

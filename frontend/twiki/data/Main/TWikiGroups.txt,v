@@ -1,0 +1,379 @@
+head	1.13;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.13
+date	2014.06.05.19.52.14;	author TWikiContributor;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2013.09.16.05.19.36;	author TWikiContributor;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2011.06.10.08.37.59;	author TWikiContributor;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2010.05.29.14.45.06;	author TWikiContributor;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2008.01.22.03.21.37;	author TWikiContributor;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2007.01.16.04.12.06;	author TWikiContributor;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2006.06.25.16.26.24;	author TWikiContributor;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2006.04.01.05.54.52;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2006.02.01.12.01.14;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2004.08.05.03.48.52;	author PeterThoeny;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2002.12.11.05.40.52;	author PeterThoeny;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2000.12.14.02.49.26;	author PeterThoeny;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2000.11.08.08.12.12;	author PeterThoeny;	state Exp;
+branches;
+next	;
+
+
+desc
+@none
+@
+
+
+1.13
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1401997934" format="1.1" version="13"}%
+---+ TWiki Groups
+
+Use these groups to define fine grained [[%SYSTEMWEB%.TWikiAccessControl][access control]] in <nop>%WIKITOOLNAME%:
+
+%GROUPS%
+
+<form action="%SCRIPTURLPATH{"save"}%/%WEB%/" method="post" onsubmit="if( /^[A-Z]+[a-z0-9]+[A-Z-a-z0-9]*Group$/.test( this.topic.value ) ) { return true; }; alert( 'A group topic name must be a !WikiWord and must end in ...Group' ); return false;">
+%TABLE{databg="#f4f4f8" cellpadding="10"}%
+| <span style="white-space: nowrap;">New Group:</span> |<input type="text" name="topic" value="NameGroup" size="40" class="twikiInputField" />&nbsp;<input class="twikiSubmit" type="submit" value="Add"/> |
+|^|%ICON{"warning"}% A group topic name must be a [[%SYSTEMWEB%.WikiWord][WikiWord]] and __must__ end in =...Group=. %BR% %ICON{"tip"}% New topics are based on [[TWikiGroupTemplate]] |
+<input type="hidden" name="templatetopic" value="TWikiGroupTemplate"/>
+<input type="hidden" name="topicparent" value="%TOPIC%"/>
+<input type="hidden" name="onlywikiname" value="on" />
+<input type="hidden" name="onlynewtopic" value="on" />
+</form>
+
+*IMPORTANT NOTE:* Think twice before restricting write access to a web or a topic, because an open system where everybody can contribute is the essence of [[%SYSTEMWEB%.WikiCulture][WikiCulture]]. Experience shows that unrestricted write access works very well because:
+   * There is enough peer pressure to post only appropriate content.
+   * Content does not get lost because topics are under revision control.
+   * A topic can be rolled back to a previous version.
+
+<!--
+   * Set READONLYSKINMODE = 1
+-->
+__Related topics:__ [[%SYSTEMWEB%.TWikiAccessControl][TWikiAccessControl]], [[%WEBPREFSTOPIC%]], [[UserList]], [[%WIKIUSERSTOPIC%]], [[%SYSTEMWEB%.WikiCulture][WikiCulture]]
+@
+
+
+1.12
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1379308776" format="1.1" version="12"}%
+d8 1
+a8 1
+<form action="%SCRIPTURLPATH{"save"}%/%WEB%/" method="post">
+@
+
+
+1.11
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1307695079" format="1.1" version="11"}%
+@
+
+
+1.10
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111931141" format="1.0" version="10"}%
+d4 1
+a4 1
+These groups can be used to define fine grained [[%SYSTEMWEB%.TWikiAccessControl][TWikiAccessControl]] in <nop>%WIKITOOLNAME%:
+d8 4
+a11 8
+<form action="%SCRIPTURLPATH{"edit"}%/%WEB%/" method="get">
+
+<div class="twikiFormSteps">
+<div class="twikiFormStep twikiLast">
+%TABLE{databg="" cellborder="0" tableborder="0"}%
+| New Group: |<input type="text" name="topic" value="NameGroup" size="40" class="twikiInputField" />&nbsp;<input class="twikiSubmit" type="submit" value="Add"/>  |
+| |%ICON{"warning"}% __Note:__ A group topic name must be a [[%SYSTEMWEB%.WikiWord][WikiWord]] and __must__ end in =...Group=. New topics are based on [[TWikiGroupTemplate]]  |
+
+a15 2
+</div>
+</div>
+d21 1
+a21 1
+   * A topic revision can be undone by a member of the [[%USERSWEB%.TWikiAdminGroup][TWikiAdminGroup]] if necesssary.
+d23 4
+a26 1
+__Related topics:__ [[%SYSTEMWEB%.TWikiAccessControl][TWikiAccessControl]], [[%WEBPREFSTOPIC%]], [[%WIKIUSERSTOPIC%]], [[%SYSTEMWEB%.WikiCulture][WikiCulture]]
+@
+
+
+1.9
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111931141" format="1.0" version="9"}%
+d4 1
+a4 1
+These groups can be used to define fine grained %SYSTEMWEB%.TWikiAccessControl in <nop>%WIKITOOLNAME%:
+d14 1
+a14 1
+| |%ICON{"warning"}% __Note:__ A group topic name must be a %SYSTEMWEB%.WikiWord and __must__ end in =...Group=. New topics are based on TWikiGroupTemplate  |
+d24 1
+a24 1
+*IMPORTANT NOTE:* Think twice before restricting write access to a web or a topic, because an open system where everybody can contribute is the essence of %SYSTEMWEB%.WikiCulture. Experience shows that unrestricted write access works very well because:
+d27 1
+a27 1
+   * A topic revision can be undone by a member of the %USERSWEB%.TWikiAdminGroup if necesssary.
+d29 1
+a29 1
+__Related topics:__ %SYSTEMWEB%.TWikiAccessControl, %WEBPREFSTOPIC%, %WIKIUSERSTOPIC%, %SYSTEMWEB%.WikiCulture
+@
+
+
+1.8
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111931141" format="1.0" version="8"}%
+d4 1
+a4 1
+These groups can be used to define fine grained %TWIKIWEB%.TWikiAccessControl in <nop>%WIKITOOLNAME%:
+d14 1
+a14 1
+| |%ICON{"warning"}% __Note:__ A group topic name must be a %TWIKIWEB%.WikiWord and __must__ end in =...Group=. New topics are based on TWikiGroupTemplate  |
+d24 1
+a24 1
+*IMPORTANT NOTE:* Think twice before restricting write access to a web or a topic, because an open system where everybody can contribute is the essence of %TWIKIWEB%.WikiCulture. Experience shows that unrestricted write access works very well because:
+d27 1
+a27 1
+   * A topic revision can be undone by a member of the %MAINWEB%.TWikiAdminGroup if necesssary.
+d29 1
+a29 1
+__Related topics:__ %TWIKIWEB%.TWikiAccessControl, %WEBPREFSTOPIC%, %WIKIUSERSTOPIC%, %TWIKIWEB%.WikiCulture
+@
+
+
+1.7
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111931141" format="1.0" version="7"}%
+a7 1
+<div class="twikiPageForm">
+a8 6
+New Group:
+     <input type="text" name="topic" value="NameGroup" size="30"/>&nbsp;<input class="twikiSubmit" type="submit" value="Add"/>
+     <input type="hidden" name="templatetopic" value="TWikiGroupTemplate"/>
+     <input type="hidden" name="topicparent" value="%TOPIC%"/>
+     <input type="hidden" name="onlywikiname" value="on" />
+     <input type="hidden" name="onlynewtopic" value="on" />
+d10 12
+a21 1
+%ICON{"warning"}% __Note:__ A group topic name must be a %TWIKIWEB%.WikiWord and __must__ end in =...Group=. New topics are based on TWikiGroupTemplate
+a22 1
+</div>
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111931141" format="1.0" version="6"}%
+d6 1
+a6 1
+%SEARCH{"GROUP" topic="*Group" casesensitive="on" nosummary="on" nosearch="on" noheader="on" nototal="on" format="   * $topic$n      * <font size=\"-1\">Members: $pattern(.*   \* Set GROUP =([^\n]*).*)</font>"}%
+d8 1
+d10 1
+a10 1
+   * New Group:
+d16 2
+a17 1
+      * %ICON{"warning"}% __Note:__ A group topic name must be a %TWIKIWEB%.WikiWord and __must__ end in =...Group=. New topics are based on TWikiGroupTemplate
+d19 1
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111931141" format="1.0" version="5"}%
+d6 1
+a6 1
+%SEARCH{"GROUP" topic="*Group" casesensitive="on" nosummary="on" nosearch="on" noheader="on" nototal="on" format="	* $topic$n		* <font size=\"-1\">Members: $pattern(.*	\* Set GROUP =([^\n]*).*)</font>"}%
+d9 7
+a15 7
+	* New Group:
+	  <input type="text" name="topic" value="NameGroup" size="30"/>&nbsp;<input class="twikiSubmit" type="submit" value="Add"/>
+	  <input type="hidden" name="templatetopic" value="TWikiGroupTemplate"/>
+	  <input type="hidden" name="topicparent" value="%TOPIC%"/>
+	  <input type="hidden" name="onlywikiname" value="on" />
+	  <input type="hidden" name="onlynewtopic" value="on" />
+		* %ICON{"warning"}% __Note:__ A group topic name must be a %TWIKIWEB%.WikiWord and __must__ end in =...Group=. New topics are based on TWikiGroupTemplate
+d19 3
+a21 3
+	* There is enough peer pressure to post only appropriate content.
+	* Content does not get lost because topics are under revision control.
+	* A topic revision can be undone by a member of the %MAINWEB%.TWikiAdminGroup if necesssary.
+@
+
+
+1.4
+log
+@none
+@
+text
+@d1 4
+a4 2
+%META:TOPICINFO{author="PeterThoeny" date="1091677732" format="1.0" version="1.4"}%
+These groups can be used to define fine grained %TWIKIWEB%.TWikiAccessControl in %WIKITOOLNAME%:
+d8 1
+a8 1
+<form action="%SCRIPTURL%/edit%SCRIPTSUFFIX%/%WEB%/" method="get">
+d10 1
+a10 1
+	  <input type="text" name="topic" value="NameGroup" size="30"/>
+d15 1
+a15 2
+	  <input type="submit" value="Add"/>
+		* __Note:__ A group topic name must be a %TWIKIWEB%.WikiWord and __must__ end in =...Group=. New topics are based on TWikiGroupTemplate
+d18 1
+a18 1
+*IMPORTANT NOTE:* Think twice before restricting write access to a web or a topic, because an open system where everybody can contribute is the essence of the %TWIKIWEB%.WikiCulture. Experience shows that unrestricted write access works very well because:
+d21 1
+a21 1
+	* A topic revision can be undone by a member of the %MAINWEB%.TWikiAdminGroup in case it needs to be.
+a23 4
+
+-- TWiki:Main.PeterThoeny - 04 Aug 2004 %BR%
+-- TWiki:Main.AurelioAHeckert - 03 Aug 2004
+
+@
+
+
+1.3
+log
+@none
+@
+text
+@d1 26
+a26 18
+%META:TOPICINFO{author="PeterThoeny" date="1039585252" format="1.0" version="1.3"}%
+These groups can be used to define fine grained %TWIKIWEB%.TWikiAccessControl in %WIKITOOLNAME%:
+
+	* TWikiAdminGroup
+	* EngineeringGroup
+	* SupportGroup
+	* 
+
+Add your groups to this list and define new group topics similar to existing ones. Group topics __must__ end in =...Group.=
+
+*IMPORTANT NOTE:* Think twice before restricting write access to a web or a topic, because an open system where everybody can contribute is the essence of the %TWIKIWEB%.WikiCulture. Experience shows that unrestricted write access works very well because:
+	* There is enough peer pressure to post only appropriate content.
+	* Content does not get lost because topics are under revision control.
+	* A topic revision can be undone by a member of the %MAINWEB%.TWikiAdminGroup in case needed.
+
+__Related topics:__ %TWIKIWEB%.TWikiAccessControl, %WEBPREFSTOPIC%, %WIKIUSERSTOPIC%, %TWIKIWEB%.WikiCulture.
+
+-- %MAINWEB%.PeterThoeny - 07 Nov 2000 <br>
+@
+
+
+1.2
+log
+@none
+@
+text
+@d1 1
+d12 1
+a12 1
+	* There is enough peer pressure to post only conform content.
+@
+
+
+1.1
+log
+@none
+@
+text
+@d15 1
+a15 1
+__Related topics:__ %TWIKIWEB%.TWikiAccessControl, WebPreferences, TWikiUsers, %TWIKIWEB%.WikiCulture.
+@

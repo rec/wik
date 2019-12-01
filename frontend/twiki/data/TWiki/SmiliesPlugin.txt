@@ -1,0 +1,167 @@
+%META:TOPICINFO{author="TWikiContributor" date="1530857199" format="1.1" version="17"}%
+---+!! The Smilies Plugin <nop>:-)
+<!--
+   Contributions to this TWiki plugin are appreciated. Please update the plugin page at
+   http://twiki.org/cgi-bin/view/Plugins/SmiliesPlugin or provide feedback at
+   http://twiki.org/cgi-bin/view/Plugins/SmiliesPluginDev.
+   If you are a TWiki contributor please update the plugin in the SVN repository.
+-->
+<sticky>
+<div class="twikiTocFloat">
+%TOC{title="Page contents"}%
+</div>
+</sticky>
+%SHORTDESCRIPTION%
+
+---++ Introduction
+
+Smilies are common in e-mail messages and bulletin board posts. They are used to convey an emotion, such as a smile :<nop>-) or a frown :<nop>-( . This plugin automatically converts certain smilies to a nice small icon.
+
+---++ Smilies Table
+
+Here is the list of smilies supported by this plugin. To add others, attach new icons to this topic and tweak the table below.
+
+| *You type*      | *You see*                   | *Emotion* |
+| <nop>:-)        | %ATTACHURL%/smile.gif       | "smile" |
+| <nop>:)         | %ATTACHURL%/smile.gif       | "smile" |
+| <nop>8-)        | %ATTACHURL%/cool.gif        | "cool!" |
+| <nop>:cool:     | %ATTACHURL%/cool.gif        | "cool!" |
+| <nop>:-I        | %ATTACHURL%/indifferent.gif | "indifferent" |
+| <nop>:(         | %ATTACHURL%/frown.gif       | "frown" |
+| <nop>:-(        | %ATTACHURL%/frown.gif       | "frown" |
+| <nop>:o         | %ATTACHURL%/redface.gif     | "embarrassment" |
+| <nop>:D         | %ATTACHURL%/biggrin.gif     | "big grin" |
+| <nop>:-D        | %ATTACHURL%/biggrin.gif     | "big grin" |
+| <nop>;)         | %ATTACHURL%/wink.gif        | "wink" |
+| <nop>;-)        | %ATTACHURL%/wink.gif        | "wink" |
+| <nop>:p         | %ATTACHURL%/tongue.gif      | "stick out tongue" |
+| <nop>:-p        | %ATTACHURL%/tongue.gif      | "stick out tongue" |
+| <nop>:rolleyes: | %ATTACHURL%/rolleyes.gif    | "roll eyes (sarcastic)" |
+| <nop>:mad:      | %ATTACHURL%/mad.gif         | "mad!" |
+| <nop>:eek:      | %ATTACHURL%/eek.gif         | "eek!" |
+| <nop>:confused: | %ATTACHURL%/confused.gif    | "confused" |
+| <nop>&nbsp;>:-) | %ATTACHURL%/devil.gif       | "hehe!" |
+| <nop>:devil:    | %ATTACHURL%/devil.gif       | "hehe!" |
+| <nop>&nbsp;>;-) | %ATTACHURL%/devilwink.gif   | "hehe! (friendly)" |
+| <nop>:devilish: | %ATTACHURL%/devilwink.gif   | "hehe! (friendly)" |
+| <nop>:-X        | %ATTACHURL%/sealed.gif      | "sealed lips" |
+| <nop>:ok:       | %ATTACHURL%/thumbs.gif      | "thumbs up" |
+| <nop>:yes:      | %ATTACHURL%/yes.gif         | "yes" |
+| <nop>:no:       | %ATTACHURL%/no.gif          | "no" |
+| <nop>:love:     | %ATTACHURL%/love.gif        | "I love it!" |
+| <nop>:skull:    | %ATTACHURL%/skull.gif       | "dead!" |
+| <nop>:red:      | %ATTACHURL%/red.gif         | "red" |
+| <nop>:yellow:   | %ATTACHURL%/yellow.gif      | "yellow" |
+| <nop>:green:    | %ATTACHURL%/green.gif       | "green" |
+| <nop>:blue:     | %ATTACHURL%/blue.gif        | "blue" |
+
+---++ <nop>%TOPIC% Global Settings
+
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}% "
+ hidelink="Hide details %ICONURL{toggleclose}% "
+}%
+
+Plugin settings are stored as preferences variables. To reference a plugin setting write ==%<nop>&lt;plugin&gt;_&lt;setting&gt;%==, for example, ==%<nop>INTERWIKIPLUGIN_SHORTDESCRIPTION%==
+
+   * One line description, shown in the %SYSTEMWEB%.TextFormattingRules topic:
+      * Set SHORTDESCRIPTION = Render smilies as icons, like =&nbsp;:-)&nbsp;= as :-) or =&nbsp;:eek:&nbsp;= as :eek:
+
+   * The name of the topic containig your Smilies. Default: ==%WEB%.SmiliesPlugin==
+      * Set TOPIC = %SYSTEMWEB%.SmiliesPlugin
+
+   * The way the _emoticon_ is displayed. You can use ==$emoticon== (e.g. =:<nop>D=), ==$url== (e.g. =%<nop>ATTACHURL%/biggrin.gif=) and ==$tooltip== (e.g. ="big grin"=).%BR% Default: ==&lt;img src="$url" alt="$tooltip" title="$tooltip" border="0" /&gt;==
+<verbatim>
+      * Set FORMAT = <img src="$url" alt="$tooltip" title="$tooltip" border="0" />
+</verbatim>
+%ENDTWISTY%
+
+---++ Plugin Installation Instructions
+
+This plugin is pre-installed. TWiki administrators can upgrade the plugin as needed on the TWiki server.
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}% "
+ hidelink="Hide details %ICONURL{toggleclose}% "
+}%
+
+   * Download the ZIP file from the Plugin web (see below)
+   * Unzip ==%TOPIC%.zip== in your twiki installation directory. Content:
+     | *File:* | *Description:* |
+     | ==data/TWiki/%TOPIC%.txt== | Plugin topic |
+     | ==lib/TWiki/Plugins/%TOPIC%.pm== | Plugin Perl module |
+     | ==pub/TWiki/%TOPIC%/*.gif== | Plugin icon files |
+   * Visit =configure= in your TWiki installation, and enable the plugin in the {Plugins} section.
+   * Test if the plugin is correctly installed:
+   * You will see a series of icons on next line: <br />
+     :-) :) :cool: :( :o :D ;) :p :rolleyes: :mad: :eek: :confused: >:-) >;-) :-X :ok: :yes: :no: :love: :skull: :red: :green:
+%ENDTWISTY%
+
+---++ Plugin Info
+
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  Plugin Author: | TWiki:Main.AndreaSterbini, TWiki:Main.PeterThoeny |
+|  Copyright: | &copy; 2001-2007 Andrea Sterbini,%BR% &copy; 2001-2018 Peter Thoeny,%BR% &copy; 2001-2018 TWiki:TWiki.TWikiContributor |
+|  Plugin Version: | 2018-07-05 |
+%TWISTY{
+ mode="div"
+ showlink="Show Change History %ICONURL{toggleopen}%"
+ hidelink="Hide Change History %ICONURL{toggleclose}% "
+}%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  2018-07-05: | TWikibug:Item7841: Copyright update to 2018 |
+|  2016-01-09: | TWikibug:Item7708: Copyright update to 2016 |
+|  2015-02-16: | TWikibug:Item7604: Switch from GPL v2 to v3 |
+|  2013-01-13: | TWikibug:Item7091: Use TWISTY in plugin settings section, installation instructions and change history |
+|  2011-07-09: | TWikibug:Item6725: Change global package variables from "use vars" to "our" |
+|  2010-09-20: | TWikibug:Item6580: Added "red", "yellow", "green", "blue" smilies |
+|  2010-05-15: | TWikibug:Item6433: Doc improvements; replacing TWIKIWEB with SYSTEMWEB |
+|  21 Nov 2007: | Doc improvements |
+|  16 Mar 2005: | Fixed typo "scull" |
+|  5 Mar 2005: | 1.004 Crawford Currie prepared for Dakar |
+|  21 Nov 2004: | Added benchmarks (no code changes) |
+|  21 Aug 2004: | Fixed tooltip for Netscape; added "sealed lips", "thumbs up", "yes" "no", "in love", "skull" |
+|  16 Feb 2004: | Added "devil" and "devilwink" smilies (by TWiki:Main.CrawfordCurrie) |
+|  26 Feb 2003: | Added "indifferent" smilie |
+|  20 Oct 2002: | Fixed STDERR warning for non-initialized Plugin |
+|  20 Apr 2002: | Improved performance; removed non-standard Plugin API dependencies; added standard plugin topic content -- TWiki:Main.PeterThoeny |
+|  23 Nov 2001: | Added TOPIC and FORMAT setting |
+|  10 Jun 2001: | Packaged into ZIP |
+|  28 Feb 2001: | Initial version |
+%ENDTWISTY%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  CPAN Dependencies: | none |
+|  Other Dependencies: | none |
+|  Perl Version: | 5.0 |
+|  TWiki:Plugins/Benchmark: | %SYSTEMWEB%.GoodStyle 96%, %SYSTEMWEB%.FormattedSearch 98%, SmiliesPlugin 96% |
+|  Plugin Home: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC% |
+|  Feedback: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Dev |
+|  Appraisal: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Appraisal |
+
+__Related Topics:__ %SYSTEMWEB%.TWikiPreferences, %SYSTEMWEB%.TWikiPlugins
+
+%META:FILEATTACHMENT{name="biggrin.gif" attr="h" comment="" date="1071216488" path="biggrin.gif" size="152" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="confused.gif" attr="h" comment="" date="1071216502" path="confused.gif" size="110" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="cool.gif" attr="h" comment="" date="1071216522" path="cool.gif" size="124" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="eek.gif" attr="h" comment="" date="1071216532" path="eek.gif" size="1264" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="frown.gif" attr="h" comment="" date="1071216543" path="frown.gif" size="94" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="indifferent.gif" attr="h" comment="" date="1071216555" path="indifferent.gif" size="132" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="mad.gif" attr="h" comment="" date="1071216566" path="mad.gif" size="154" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="redface.gif" attr="h" comment="" date="1071216576" path="redface.gif" size="136" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="rolleyes.gif" attr="h" comment="" date="1071216591" path="rolleyes.gif" size="1784" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="smile.gif" attr="h" comment="" date="1071216609" path="smile.gif" size="93" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="tongue.gif" attr="h" comment="" date="1071216632" path="tongue.gif" size="338" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="wink.gif" attr="h" comment="" date="1071216641" path="wink.gif" size="135" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="devil.gif" attr="h" comment="" date="1077002192" path="devil.gif" size="139" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="devilwink.gif" attr="h" comment="" date="1077002138" path="devilwink.gif" size="141" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="sealed.gif" attr="h" comment="" date="1093124420" path="sealed.gif" size="142" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="thumbs.gif" attr="h" comment="" date="1093124440" path="thumbs.gif" size="166" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="yes.gif" attr="h" comment="" date="1093124449" path="yes.gif" size="262" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="no.gif" attr="h" comment="" date="1093124458" path="no.gif" size="468" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="love.gif" attr="h" comment="" date="1093124471" path="love.gif" size="379" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="skull.gif" attr="h" comment="" date="1093124482" path="skull.gif" size="1006" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="red.gif" attr="h" comment="" date="1285020468" path="red.gif" size="943" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="yellow.gif" attr="h" comment="" date="1285020468" path="yellow.gif" size="944" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="green.gif" attr="h" comment="" date="1285020468" path="green.gif" size="944" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="blue.gif" attr="h" comment="" date="1285020468" path="blue.gif" size="944" user="TWikiContributor" version="1"}%

@@ -1,0 +1,98 @@
+%META:TOPICINFO{author="TWikiContributor" date="1530850726" format="1.1" version="2"}%
+---+!! !MovedSkin
+<!--
+   Contributions to this skin are appreciated. Please update the skin page at
+   http://twiki.org/cgi-bin/view/Plugins/MovedSkin or provide feedback at
+   http://twiki.org/cgi-bin/view/Plugins/MovedSkinDev.
+   If you are a TWiki contributor please update the plugin in the SVN repository.
+-->
+<sticky><div style="float:right; background-color:#EBEEF0; margin:0 0 20px 20px; padding: 0 10px 0 10px;">
+%TOC{title="Page contents"}%
+</div></sticky>
+
+%SHORTDESCRIPTION%
+
+---++ Overview
+
+Sometimes a TWiki site is migrated to a new location with a new URL. For convenience users visiting the old site should find the new site. When this skin is installed and enabled at the old TWiki site, users will see a yellow moved message box instead of page content. A configurable =MOVEDMESSAGE= is set to inform users of the new location.
+
+For scheduled downtime & temporary maintenance it is better to use the read-only skin mode of the TopMenuSkin or PatternSkin instead of this !MovedSkin. For this, define a =BROADCASTMESSAGE= setting and a =Set READONLYSKINMODE = 1= setting in [[%LOCALSITEPREFS%]].
+
+---++ Screenshot
+
+%SEARCH{ "%TOPIC%" scope="topic" nosearch="on" nototal="on" format="$pattern(.*\| *Screenshot\:[^\|]*\|([^\|]*).*)" }%
+
+---++ Installation
+
+__Note:__ You do not need to install anything in the browser to use this skin. The following instructions are for the administrator who installs the skin on the TWiki server.
+
+   * For an __automated installation__, run the [[%SCRIPTURL{configure}%][configure]] script, follow "Find More Extensions" in the in the __Extensions__ section, and look for the !MovedSkin.
+      * See the [[http://twiki.org/cgi-bin/view/Plugins/BuildContribInstallationSupplement][installation supplement]] on TWiki.org for more information.
+
+   * Or, follow these __manual installation__ steps:
+      * Download the ZIP file from the Plugins home (see below).
+      * Unzip ==%TOPIC%.zip== in your twiki installation directory. Content:
+        | *File:* | *Description:* |
+        | ==data/TWiki/%TOPIC%.txt== | Skin topic |
+        | ==pub/TWiki/%TOPIC%/*.png== | Screenshots |
+        | ==templates/view.moved.tmpl== | Skin template file |
+        | ==lib/TWiki/Contrib/%TOPIC%.pm== | Skin Perl module |
+      * Set the ownership of the extracted directories and files to the webserver user.
+
+   * Skin __testing__:
+      * Test if installed: %SCRIPTURL{view}%/%WEB%/%TOPIC%?skin=moved.
+
+---++ Enabling Moved Message
+
+1. Define a MOVEDMESSAGE setting in [[%LOCALSITEPREFS%]] so that the moved message takes effect site-wide. Example:
+
+=<nop>   * Set MOVEDMESSAGE = <nop>__NOTE:__<nop> The %<nop>WIKITOOLNAME% site has been moved to a new location. The page you are trying to access is now at: %<nop>BR%%<nop>BR% <nop>http://twiki.example.com/do/view/%<nop>WEB%/%<nop>TOPIC%. %<nop>BR% Please update your bookmarks. %<nop>BR%%<nop>BR% Questions? Ask %<nop>WIKIWEBMASTER%=
+<!--
+   * Set MOVEDMESSAGE = __NOTE:__ The %WIKITOOLNAME% site has been moved to a new location. The page you are trying to access is now at: %BR%%BR% http://twiki.example.com/do/view/%WEB%/%TOPIC%. %BR% Please update your bookmarks. %BR%%BR% Questions? Ask %WIKIWEBMASTER%
+-->
+
+The =view/%<nop>WEB%/%<nop>TOPIC%= makes sure that the user ends up the new location of the current page.
+
+If you want the page to redirect automatically to the new site you can add a meta tag to the MOVEDMESSAGE setting. This example redirects after 5 seconds:
+
+=&lt;meta http-equiv="refresh" content="5;url=<nop>http://twiki.example.com/do/view/%<nop>WEB%/%<nop>TOPIC%" /&gt;=
+
+2. Test the yellow moved message box:%BR% %SCRIPTURL{view}%/%WEB%/%TOPIC%?skin=moved.
+
+3. Active the skin site-wide by changing the SKIN setting in [[%LOCALSITEPREFS%]]:
+
+=<nop>   * Set SKIN = moved=
+
+%SYSTEMWEB%.TWikiSkins has details on skin activation.
+
+---++ Skin Info
+
+<!--
+Needed by TWiki.org skin package reports:
+   * Set SHORTDESCRIPTION = Inform users that a TWiki site has moved to a new location
+Notes to skin maintainer on table rows:
+   * Screenshot: Attach a 600x130 pixel screenshot and a full screen shot to the Skin topic, then update the href and img src to reflect the names.
+   * The Description, Screenshot and Base Name rows are needed by the !TWikiSkinBrowser
+-->
+|  Skin Author: | TWiki:Main.PeterThoeny |
+|  Copyright: | &copy; 2012 [[http://www.wave.com/][Wave Systems Corp.]] <br /> &copy; 2012-2018 TWiki:Main.PeterThoeny, [[http://twiki.org/][TWiki.org]] <br /> &copy; 2012-2018 TWiki:TWiki.TWikiContributor |
+|  Sponsor: | [[http://www.wave.com/][Wave Systems Corp.]] |
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+|  Description: | Inform users that a TWiki site has moved to a new location |
+|  Screenshot: | <a href="%ATTACHURL%/fullscreen.png"><img width="600" alt="Click for full screen image" src="%ATTACHURL%/screenshot.png" height="130" /></a> |
+|  Preview: | [[%SCRIPTURL{view}%/%WEB%/%TOPIC%?skin=moved][Preview with this topic]] |
+|  Base Name: | moved |
+|  Skin Version: | 2018-07-05 |
+|  Change History: | <!-- specify latest version first --> |
+|  2018-07-05: | TWikibug:Item7841: Copyright update to 2018 |
+|  2016-01-09: | TWikibug:Item7708: Copyright update to 2016 |
+|  2012-12-16: | TWikibug:Item7085: Initial version |
+|  Dependencies: | None |
+|  Skin Home: | http://TWiki.org/cgi-bin/view/Plugins/MovedSkin |
+|  Feedback: | http://TWiki.org/cgi-bin/view/Plugins/MovedSkinDev |
+|  Appraisal: | http://TWiki.org/cgi-bin/view/Plugins/MovedSkinAppraisal |
+
+__Related topic:__ %SYSTEMWEB%.TWikiSkins, %SYSTEMWEB%.TWikiSkinBrowser, %SYSTEMWEB%.UserDocumentationCategory, %SYSTEMWEB%.AdminDocumentationCategory
+
+%META:FILEATTACHMENT{name="fullscreen.png" attachment="fullscreen.png" attr="h" comment="" date="1355703591" path="fullscreen.png" size="35104" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="screenshot.png" attachment="screenshot.png" attr="h" comment="" date="1355703302" path="screenshot.png" size="47187" user="TWikiContributor" version="1"}%

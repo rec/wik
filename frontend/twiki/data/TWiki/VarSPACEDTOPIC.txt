@@ -1,0 +1,10 @@
+%META:TOPICINFO{author="TWikiContributor" date="1352960865" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarSPACEDTOPIC
+---+++ SPACEDTOPIC -- topic name, spaced and URL-encoded *deprecated*
+   * The current topic name with added URL-encoded spaces, for use in regular expressions that search for backlinks to the current topic
+   * Syntax: =%<nop>SPACEDTOPIC%=
+   * Expands to: =%SPACEDTOPIC%=
+   * Note: This is a deprecated variable. It can be duplicated with =%<nop>ENCODE{%<nop>SPACEOUT{"%<nop>TOPIC%" separator=" *"}%}%=
+   * Category: FormattingAndRenderingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSPACEOUT][SPACEOUT]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarTOPIC][TOPIC]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENCODE][ENCODE]]

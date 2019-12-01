@@ -1,0 +1,229 @@
+%META:TOPICINFO{author="TWikiContributor" date="1530851496" format="1.1" version="32"}%
+---+!! Pattern Skin
+<!--
+   Contributions to this skin are appreciated. Please update the skin page at
+   http://twiki.org/cgi-bin/view/Plugins/PatternSkin or provide feedback at
+   http://twiki.org/cgi-bin/view/Plugins/PatternSkinDev.
+   If you are a TWiki contributor please update the skin in the SVN repository.
+-->
+<sticky>
+<div class="twikiTocFloat">
+%TOC{title="Page contents"}%
+</div>
+</sticky>
+%SHORTDESCRIPTION%. For use in corporate or perhaps in personal websites it should be fairly easy to tune the looks or even create a !PatternSkin-based new skin.
+<!--
+   * Set SHORTDESCRIPTION = CSS based skin with clean and productive editing environment
+-->
+
+---++ Screenshot
+
+<a href="%ATTACHURL%/patternskin_screenshot_full.png"><img src="%ATTACHURL%/patternskin_screenshot.png" style="border:1px solid #eee;" alt="Click for full screen image" width="600" height="130" /></a>
+<!--
+%SEARCH{ "%TOPIC%" scope="topic" nosearch="on" nototal="on" format="$pattern(.*\| *Screenshot\:[^\|]*\|([^\|]*).*)" }%
+<div class="twikiGrayText">Click to view full screenshot</div>-->
+
+---++ Creating your own look
+
+---+++ Template customization
+
+%SYSTEMWEB%.PatternSkinCustomization - how to configure page elements
+%TOC{"%SYSTEMWEB%.PatternSkinCustomization" title=" "}%
+
+---+++ Style sheet customization
+
+%SYSTEMWEB%.PatternSkinCssCookbook - how to customize the visual style
+%TOC{"%SYSTEMWEB%.PatternSkinCssCookbook" title=" "}%
+
+---+++ Changing graphics
+
+The original Photoshop files of the skin graphics (mainly background images) are attached to PatternSkinGraphics.
+
+---+++ Hide content in print
+
+Use the =hideInPrint= class to hide specific content from printing. Example:
+<verbatim>
+<div class="hideInPrint">
+This text does not show in print view
+</div>
+</verbatim>
+
+---++ Supported browsers
+
+!PatternSkin has been tested successfully on the following browsers:
+   * Windows
+      * Internet Explorer 8.0, 7.0, 6.0, 5.5
+      * Mozilla/Firefox 3.5, 2.0, 1.5
+   * Mac OS X
+      * Safari 5.0.5, 3.0.2
+      * Mozilla/Firefox 3.5, 2.0, 1.5
+   * *nix
+      * Mozilla/Firefox 1.5
+
+Though not thoroughly tested, !PatternSkin works fine with Google Chrome at least from 2013.
+
+---++ Attaching files
+
+With HTML5 capable web browsers, the Attach page of this skin provides a drag and drop feature. You can click the drop area to use a file dialog box. In the dialog box, you can select multiple files at a time. This drag and drop feature uses [[http://dropzonejs.com/][DropzoneJS]] !JavaScript libary.
+<blockquote>
+%ATTACHURL%/drag-and-drop.png
+</blockquote>
+With the other browsers, the Attach page shows a button to pop up a file dialog box. You can select only one file at a time.
+<blockquote>
+%ATTACHURL%/choose-file.png
+</blockquote>
+You can upload up to 10 files at a time.
+File uploading starts when you click the "Uplaod file" button.
+Before that, you can remove a file from the upload file list by clicking a "Remove file" (on HTML5 capable web browsers) or a removal icon (on HTML5 incapable web browsers).
+
+Specifically, the drag and drop feature works with the following web browsers.
+   * Chrome 7+
+   * Firefox 4+
+   * IE 10+
+   * Opera 12+ (Version 12 for Mac OS is disabled because their API is buggy)
+   * Safari 6+
+
+In case you want to disable the drag and drop feature with an HTML5 capable browser, you can do it by setting =DROPZONEJS_DISABLE= "on".
+To do it at the web level, the following line is to be put on !WebPreferences.
+<pre>
+   * <nop>Set DROPZONEJS_DISABLE = on
+</pre>
+
+---++ Installation
+
+*Note:* You do not need to install anything on the browser to use this skin. The following instructions are for the administrator who installs the skin on the server where TWiki is running.
+
+*Note 2:* !PatternSkin is included with TWiki by default. Use the following instructions only if you are upgrading !PatternSkin.
+
+   * Download the ZIP file from the Skin Home page (see below)
+   * Unzip ==%TOPIC%.zip== in your twiki installation directory
+   * Test if installed: %SCRIPTURLPATH{"view"}%/%WEB%/%TOPIC%?skin=pattern
+   * For skin activation see %SYSTEMWEB%.TWikiSkins
+
+---+++ Troubleshooting
+
+If you have set the SKIN variable setting to =pattern= and you still don't see the layout as on the <a href="%ATTACHURL%/patternskin_screenshot_full.png">screenshot</a>, a few settings in may have been disabled.
+
+Check these variables here:
+   * TWIKILAYOUTURL = %TWIKILAYOUTURL%
+   * TWIKISTYLEURL = %TWIKISTYLEURL%
+   * TWIKICOLORSURL = %TWIKICOLORSURL%
+   * SKIN = %SKIN%
+
+If TWIKILAYOUTURL or TWIKISTYLEURL don't give a value or point to non-existing files, check in %SYSTEMWEB%.TWikiPreferences that the following variables do exist and that they are set to on:
+<pre>
+   * %<nop>SYSTEMWEB%.PatternSkin settings:
+      * <nop>Set TWIKILAYOUTURL = %<nop>PUBURLPATH%/%<nop>SYSTEMWEB%/PatternSkin/layout.css
+      * <nop>Set TWIKISTYLEURL = %<nop>PUBURLPATH%/%<nop>SYSTEMWEB%/PatternSkin/style.css
+      * <nop>Set TWIKICOLORSURL = %<nop>PUBURLPATH%/%<nop>SYSTEMWEB%/PatternSkin/colors.css
+</pre>
+
+*NOTE:* customization of these values should be done in [[%LOCALSITEPREFS%]]
+
+If this still does not work, contact the administrator who installs skins.
+
+For further troubleshooting and feedback, go to TWiki:Plugins/PatternSkinDev. Report bugs at TWikibug:PatternSkin.
+
+---++ Skin Info
+
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  Skin Author: | TWiki:Main.ArthurClemens, TWiki:Main.PeterThoeny |
+|  Copyright: | &copy; 2004-2008 TWiki:Main.ArthurClemens <br /> &copy; 2008-2018 TWiki:Main.PeterThoeny <br /> &copy; 2004-2018 TWiki:TWiki.TWikiContributor |
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+|  Description: | TWiki's base skin; CSS based, flexible and <nop>W3C-compliant |
+|  Screenshot: | <a href="%ATTACHURL%/patternskin_screenshot_full.png"><img src="%ATTACHURL%/patternskin_screenshot.png" style="border:1px solid #eee;" alt="Click for full screen image" width="600" height="130" /></a> |
+|  Preview: | [[%SCRIPTURL{view}%/%WEB%/%TOPIC%?skin=pattern][Preview with this skin]] |
+|  Base Name: | pattern |
+|  Skin Version: | 2018-07-05 |
+%TWISTY{
+ mode="div"
+ showlink="Show Change History %ICONURL{toggleopen}%"
+ hidelink="Hide Change History %ICONURL{toggleclose}% "
+}%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  2018-07-05: | TWikibug:Item7841: Copyright update to 2018 |
+|  2016-01-09: | TWikibug:Item7708: Copyright update to 2016 |
+|  2015-09-17: | TWikibug:Item7688: Parts of SEARCH results difficult to select |
+|  2015-05-14: | TWikibug:Item7652: Fix for dark on dark links in table headers |
+|  2015-05-08: | TWikibug:Item7649: Responsive multi-column page layout using CSS |
+|  2014-07-17: | TWikibug:Item7534: Show history and other topic actions in read-only skin mode - this requires patching core file viewtopicactionbuttons.tmpl as well |
+|  2014-06-18: | TWikibug:Item7520: Context sensitive tooltip help for Jump box and Search box |
+|  2014-06-16: | TWikibug:Item7516: edit.pattern.tmpl of !PatternSkin refers two invalid JS functions "enableTWikiMandatoryChecks" and "suppressTWikiSaveValidation" |
+|  2014-06-12: | TWikibug:Item7514: table header color specification in CSS considered harmful |
+|  2014-05-22: | TWikibug:Item7501: !DropzoneJSSkin and PatternSkin with !DropzoneJSSkin integrated fail to update file with the manage attachment action |
+|  2014-05-21: | TWikibug:Item7494: PatternSkin to integrate !DropzoneJSSkin |
+|  2014-05-15: | TWikibug:Item7492: New hideInPrint CSS class to hide specific content from printing |
+|  2014-02-03: | TWikibug:Item7427: Fix for too small or too big font with twikiSubmit class on button tag and the a tag |
+|  2013-12-29: | TWikibug:Item7398: Fix for comments in attachment table are center aligned instead of left aligned |
+|  2013-10-14: | TWikibug:Item7367: Fix topic info on !WebLeftBarPersonalTemplate |
+|  2013-10-03: | TWikibug:Item7359: Usability: Hide bookmark table when adding a new bookmark |
+|  2013-10-01: | TWikibug:Item7159: "Proportional" is misspelled in locale files and twiki.pattern.tmpl |
+|  2013-09-14: | TWikibug:Item7341: Use slightly less vertical space in search result |
+|  2013-05-14: | TWikibug:Item7154: Remove very faint gray gradient at top of main window |
+|  2013-04-09: | TWikibug:Item7151: Small fix in hidden edit link when in read-only skin mode |
+|  2013-03-29: | TWikibug:Item7207: Layout improvements for radio buttons and checkboxes in TWiki Forms |
+|  2013-01-23: | TWikibug:Item6977: !TWiki.WebLeftBarExample timed out on a large site, which is fixed |
+|  2013-01-10: | TWikibug:Item7088: Better help text in bookmark page |
+|  2013-01-04: | TWikibug:Item7115: Configurable signatures with profile pictures - updating "Your signature to copy/paste" input field with new SIGNATUREFORMAT setting |
+|  2012-10-23: | TWikibug:Item7006: Removing obsolete and unreferenced !PatternSkinHeaderArt topic |
+|  2012-10-20: | TWikibug:Item7003: Icon bullet lists feature with =* icon:name= syntax |
+|  2012-03-23: | TWikibug:Item6834: Better style in user bookmark menu pulldown preview |
+|  2012-01-19: | TWikibug:Item6838: Add Perl logo next to TWiki logo in bottom bar |
+|  2012-01-13: | TWikibug:Item6832: Fix for can't upload attachments in Chrome |
+|  2011-10-03: | TWikibug:Item6819: Move change TWiki form from edit screen to "more" screen |
+|  2011-07-28: | TWikibug:Item6780: Usability: Link to !UserList topic instead of !TWikiUsers |
+|  2011-07-27: | TWikibug:Item6779: Fix for tables rendering too dark in Firefox 4 |
+|  2011-06-11: | TWikibug:Item6209: Fix for underscores in topic name with WebTopicCreator are not possible -- TWiki:Main.PeterThoeny |
+|  2011-05-18: | TWikibug:Item6682: Read-only skin mode with READONLYSKINMODE preferences setting -- TWiki:Main.PeterThoeny |
+|  2011-01-03: | TWikibug:Item6628: Minor gradient fix - change main window gradient from pale red to pale gray -- TWiki:Main.PeterThoeny |
+|  2010-12-20: | TWikibug:Item6622 - Don't hide non-hidden attachments by default, e.g. toggle state is "show" on initial view -- TWiki:Main.PeterThoeny |
+|  2010-11-25: | TWikibug:Item6608 - Reduce the size of H1 and H2 fonts -- TWiki:Main.PeterThoeny |
+|  2010-09-24: | TWikibug:Item6544 - fix for Jump box having no help text in IE8 -- TWiki:Main.IanBowles |
+|  2010-07-03: | TWikibug:Item6514 - fix for float overlapping the topic action links at bottom if topic is short -- TWiki:Main/PeterThoeny |
+|  2010-06-19: | TWikibug:Item6499 - less screeming submit button and cancel button, aligning with color palette of TWiki:Plugins/TopMenuSkin -- TWiki:Main/PeterThoeny |
+|  2010-06-12: | TWikibug:Item5335 - conditional signature based on NOAUTOLINK setting, either user =Main.FirstLast= or =[<nop>[Main.Firstlast][Firstlast]]=; force-linking user name in topic info in case NOAUTOLINK set -- TWiki:Main/PeterThoeny |
+|  2010-05-25: | TWikibug:Item6453 - don't use red color in topic action, implies red-links -- TWiki:Main/PeterThoeny and TWiki:Main/SopanShewale |
+|  2010-04-28: | TWikibug:Item6416 - fix for only two pages printing in FF 3.6 -- TWiki:Main/PeterThoeny |
+|  03 Aug 2008: | v.3.0.1 - TWiki 4.2.1 (Edinburgh) RELEASE VERSION |
+|  13 Jul 2007: | v.3.0.0 - TWiki 4.2.0 (Edinburgh) RELEASE VERSION |
+|  15 Jan 2006: | v.2.0.6 - TWiki 4.1.0 (Edinburgh) RELEASE VERSION |
+|  26 Sep 2006: | v.2.0.5 - Fixed form background colors |
+|  22 Jul 2006: | v.2.0.4 - Refactored info in colors.css; fixed textarea color |
+|  26 Jun 2006: | v.2.0.3 - TWiki 4.0.3 (Dakar) RELEASE VERSION |
+|  31 Jan 2006: | v.2.0.0 - TWiki 4.0.0 (Dakar) RELEASE VERSION |
+|  28 Aug 2004: | v.1.0.9 - TWiki 3.0 (Cairo) RELEASE VERSION |
+|  08 Aug 2004: | Initial version (v1.0.0) |
+%ENDTWISTY%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  Dependencies: | TWiki:Plugins/TwistyContrib (included in TWiki distribution) |
+|  Skin Home: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC% |
+|  Feedback: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Dev |
+|  Download: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC% |
+
+---++ Related topics
+
+   * %SYSTEMWEB%.TWikiCss
+   * %SYSTEMWEB%.PatternSkinCss
+   * %SYSTEMWEB%.PatternSkinCssCookbook
+   * %SYSTEMWEB%.PatternSkinCssCookbookCenterPage
+   * %SYSTEMWEB%.PatternSkinCssCookbookEditTableStyle
+   * %SYSTEMWEB%.PatternSkinCssCookbookFonts
+   * %SYSTEMWEB%.PatternSkinCssCookbookNoLeftBar
+   * %SYSTEMWEB%.PatternSkinCssCookbookNoTopBar
+   * %SYSTEMWEB%.PatternSkinCustomization
+   * %SYSTEMWEB%.PatternSkinGraphics
+   * %SYSTEMWEB%.WebBottomBar
+   * %SYSTEMWEB%.WebLeftBar
+   * %SYSTEMWEB%.WebLeftBarCookbook
+   * %SYSTEMWEB%.WebLeftBarExample
+   * %SYSTEMWEB%.WebLeftBarLogin
+   * %SYSTEMWEB%.WebLeftBarPersonalTemplate
+   * %SYSTEMWEB%.WebLeftBarSearch
+   * %SYSTEMWEB%.WebLeftBarWebsList
+   * %SYSTEMWEB%.WebTopBar
+   * %SYSTEMWEB%.AdminDocumentationCategory
+
+Other skins:
+   * %SYSTEMWEB%.TWikiSkins
+   * %SYSTEMWEB%.TWikiSkinBrowser
+   * %SYSTEMWEB%.TopMenuSkin

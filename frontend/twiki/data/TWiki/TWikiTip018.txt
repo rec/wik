@@ -1,0 +1,11 @@
+%META:TOPICINFO{author="TWikiContributor" date="1277689754" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiTipsOfTheDay"}%
+---+ Inline search
+
+To embed a search in a topic, use the =%<nop>SEARCH{ &lt;parameters&gt; }%= TWiki Variable. The search variable is used by many TWiki applications.
+
+__Related Topics:__ VarSEARCH, FormattedSearch, QuerySearch
+
+[[TWikiTipsOfTheDay][See More Tips...]]
+
+-- __Contributors:__ TWiki:Main.PaulineCheung, TWiki:Main.PeterThoeny

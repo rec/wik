@@ -1,0 +1,43 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2013.10.14.08.02.52;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1352705799" format="1.1" version="1"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarDASHBOARD
+---+++ DASHBOARD -- build a dashboard with banner and boxes
+   * Use this variable to quickly create dashboards for intranet home, team homepages, project homepages and knowledge bases. See the TWikiDashboardAddOn for details on enabling and using the =%<nop>DASHBOARD{...}%= variable.
+   * Syntax: =%<nop>DASHBOARD{ section="..." ... }%=
+   * Example:
+     %BR% =%<nop>DASHBOARD{ section="dashboard_start" }%=
+     %BR% =%<nop>DASHBOARD{ section="banner" image="..." title="..." }%=
+     %BR% =%<nop>DASHBOARD{ section="box_start" title="Box 1 title" }%=
+     %BR% =Box 1 content=
+     %BR% =%<nop>DASHBOARD{ section="box_end" }%=
+     %BR% =%<nop>DASHBOARD{ section="box_start" title="Box 2 title" }%=
+     %BR% =Box 2 content=
+     %BR% =%<nop>DASHBOARD{ section="box_end" }%=
+     %BR% =...=
+     %BR% =%<nop>DASHBOARD{ section="dashboard_end" }%=
+   * Category: AdministrationVariables, ApplicationsAndComponentsVariables, DevelopmentVariables, FormattingAndRenderingVariables, UIAndVisualizationVariables
+   * Related: TWikiDashboardAddOn
+@

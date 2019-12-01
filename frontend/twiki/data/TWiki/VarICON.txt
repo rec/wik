@@ -1,0 +1,22 @@
+%META:TOPICINFO{author="TWikiContributor" date="1352797408" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarICON
+---+++ ICON{"name"} -- small documentation graphic or icon of common attachment types
+   * Generates the HTML img tag of a small graphic image attached to TWikiDocGraphics. Images typically have a 16x16 pixel size. You can select a specific image by name, or you can give a full file path or URL, in which case the type of the file will be used to select one of a collection of common file type icons.
+   * Syntax: =%<nop>ICON{"name"}%=
+   * Supported parameters:
+     | *Parameter:* | *Description:* | *Default:* |
+     | ="name"= | Name of icon | required |
+     | =format="..."= | Format of icon. Supported variables (with %ICON{person}% =%<nop>ICON{"person"}%= example): %BB% =$name= - name of icon (=person=) %BB% =$type= - type of icon (=gif=) %BB% =$filename= - icon filename (=person.gif=) %BB% =$web= - web where icon is defined (=TWiki=) %BB% =$topic= - topic where icon is defined (=TWikiDocGraphics=) %BB% =$description= - icon description (=Person=) %BB% =$width= - width of icon ('16') %BB% =$height= - height of icon ('16') %BB% =$img= - full img tag of icon (=&lt;img src="... /&gt;=) %BB% =$info= - icon tag with usage info in title %BB% =$url= - URL of icon (=http://example.com/pub/TWiki/TWikiDocGraphics/person.gif=) %BB% =$urlpath= - URL path of icon (=/pub/TWiki/TWikiDocGraphics/person.gif=) | =format="$img"= |
+     | =default="else"= | Alternate icon if named icon is not defined | =default="$name"= |
+   * Examples:
+      * =%<nop>ICON{"flag-gray"}%= returns: %ICON{"flag-gray"}%
+      * =%<nop>ICON{"pdf"}%= returns: %ICON{"pdf"}%
+      * =%<nop>ICON{"smile.pdf"}%= returns: %ICON{"smile.pdf"}%
+      * =%<nop>ICON{"/home/sweet/home.pdf"}%= returns: %ICON{"/home/sweet/home.pdf"}%
+      * =%<nop>ICON{"http://twiki.org/doc/xhtml.xsl"}%= returns: %ICON{"http://twiki.org/doc/xhtml.xsl"}%
+      * =%<nop>ICON{"bubble" format="$description icon is defined in $web.$topic"}%= returns: %ICON{"bubble" format="$description icon is defined in $web.$topic"}%
+   * Graphic samples: %ICON{"arrowbright"}% =arrowbright=, %ICON{"bubble"}% =bubble=, %ICON{"choice-yes"}% =choice-yes=, %ICON{"hand"}% =hand=
+   * File type samples: %ICON{"bmp"}% =bmp=, %ICON{"doc"}% =doc=, %ICON{"gif"}% =gif=, %ICON{"hlp"}% =hlp=, %ICON{"html"}% =html=, %ICON{"mp3"}% =mp3=, %ICON{"pdf"}% =pdf=, %ICON{"ppt"}% =ppt=, %ICON{"txt"}% =txt=, %ICON{"xls"}% =xls=, %ICON{"xml"}% =xml=, %ICON{"zip"}% =zip=
+   * Category: FormattingAndRenderingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarICONURL][ICONURL]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarICONURLPATH][ICONURLPATH]], %WIKIPREFSTOPIC%, FileAttachments, TWikiDocGraphics

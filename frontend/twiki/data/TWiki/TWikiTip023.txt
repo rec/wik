@@ -1,0 +1,21 @@
+%META:TOPICINFO{author="TWikiContributor" date="1277693104" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiTipsOfTheDay"}%
+---+ Control table attributes with !TablePlugin
+
+The TablePlugin gives extra control over table display:
+   * Allows sorting
+   * Changing table properties like border width, cell spacing and cell padding
+   * Changing background color and text color for header cells
+   * Changing background color and text color for data cells - colors can _alternate_
+   * Table attributes can be set and overridden in this order:
+      * Default =TABLEATTRIBUTES= Plugin setting in this topic
+      * A =TABLEATTRIBUTES= preferences setting on site-level (TWikiPreferences), web-level (any WebPreferences), or topic level. For example:
+         * =Set TABLEATTRIBUTES = tableborder="0" cellpadding="1" ...=
+
+To change table characteristics place =%<nop>TABLE{...}%= before the table.
+
+[[TablePlugin][More Information...]]
+
+[[TWikiTipsOfTheDay][See More Tips...]]
+
+-- __Contributors:__ TWiki:Main.PaulineCheung

@@ -1,0 +1,76 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2008.01.22.03.21.30;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@---+ Package =TWiki::LoginManager::TemplateLogin=
+
+This is a login manager that you can specify in the security setup section of
+[[%SCRIPTURL{"configure"}%][configure]]. It provides users with a
+template-based form to enter usernames and passwords, and works with the
+PasswordManager that you specify to verify those passwords.
+
+Subclass of TWiki::LoginManager; see that class for documentation of the
+methods of this class.
+
+
+%TOC%
+
+---++ ClassMethod *new* <tt>($session,$impl)</tt>
+
+Construct the TemplateLogin object
+
+
+
+---++ ObjectMethod *forceAuthentication* <tt>() -> boolean</tt>
+
+method called when authentication is required - redirects to (...|view)auth
+Triggered on auth fail
+
+
+
+---++ ObjectMethod *loginUrl* <tt>() -> $loginUrl</tt>
+
+TODO: why is this not used internally? When is it called, and why
+Content of a login link
+
+
+
+---++ ObjectMethod *login* <tt>($query,$twiki)</tt>
+
+If a login name and password have been passed in the query, it
+validates these and if authentic, redirects to the original
+script. If there is no username in the query or the username/password is
+invalid (validate returns non-zero) then it prompts again.
+
+If a flag to remember the login has been passed in the query, then the
+corresponding session variable will be set. This will result in the
+login cookie being preserved across browser sessions.
+
+The password handler is expected to return a perl true value if the password
+is valid. This return value is stored in a session variable called
+VALIDATION. This is so that password handlers can return extra information
+about the user, such as a list of TWiki groups stored in a separate
+database, that can then be displayed by referring to
+%<nop>SESSION_VARIABLE{"VALIDATION"}%
+
+
+@

@@ -1,0 +1,73 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2013.10.14.08.02.48;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1356420332" format="1.1" version="1"}%
+%META:TOPICPARENT{name="UserDocumentationCategory"}%
+---+ Copying Topics
+
+_Browser-based copy for individual topics_
+
+---++ Overview
+
+You can use browser-based controls to copy a topic within the same web or to another web.
+The specified topic is copied in its entirety including revision history and attachments.
+
+---++ How to Copy a Topic
+
+   1. *Click* on ==[More topic actions]== (bottom right of page) on the topic to be changed, then, in the new screen, on ==[Copy topic]==. You can now copy in one operation
+   1. *To web:* Select the target web if other than the current web
+   1. *To topic:* Enter the new topic name - default is current name
+   1. *Overwrite:* By default, you are warned if the destination topic exists and the copying is aborted. If you check the overwrite checkbox, existence of the target topic doesn't prevent copying from taking place
+   1. *Disable fix links:* This checkbox appears only if =DISABLEFIXLINKCHECKBOX= preference variable is ='on'=. Checking this checbox makes the copying operation bypass fixing !WikiWord links in the copy destination topic if copy is done across webs
+   1. *Click* on ==[Copy]==: the topic will be copied.
+
+---++ Overwriting destination
+
+If the overwrite checkbox is checked and the destination topic does exist, the destination topic is deleted before copying.
+This is like deleting the destination topic from browser before the copying operation - moving the destination topic to the Trash web.
+
+This means that if you cannot delete the destination topic due to access restriction, copying fails even if you check the overwrite checkbox.
+
+---++ Link fixing in the destination
+
+Fixing links in the copy destination topic such as from !SomeLink to !Otherweb.SomeLink is usually desirable so that links in the copied topic still point to the same target.
+
+You may clone a set of topics linking each other to a different web.
+In that case, link fixing is not desirable.
+For example, let's assume !WebOne has !TopicA, !TopicB, and !TopicC linking each other. Also assume that you want to clone the set of topics to !WebTwo.
+If you copy those topics ordinarily, !WebTwo.TopicA has links to !WebOne.TopicB and !WebOne.TopicC.
+This is not desired.
+!WebTwo.TopicA must havve links to !WebTwo.TopicB and !WebTwo.TopicC.
+
+This kind of situation does occur but is rather rare and esoteric.
+To avoid unnecessary confusion, the disable fix links checkbox is supressed by default. =DISABLEFIXLINKSCHECKBOX= needs to be set ='on'= for the checkbox to show up.
+
+---++ Effect of User Access Settings
+
+User permissions affect the 'copy' functions in various ways. To copy a topic, you need ==VIEW== access to that topic.
+In addition, you need ==CHANGE== access to the destination topic.
+If the destination topic already exists and hence is overwritten, ==RENAME== access to the destination is also needed so that it can be deleted before copying.
+See TWikiAccessControl for information on setting up access permissions.
+
+__Related Topics:__ UserDocumentationCategory, AdminDocumentationCategory
+@

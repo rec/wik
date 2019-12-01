@@ -1,0 +1,15 @@
+---+ Package =TWiki::Net::HTTPResponse=
+
+Fakeup of HTTP::Response for use when LWP is not available. Only implements
+a small subset of the HTTP::Response methods:
+| =code()= |
+| =message()= |
+| =header($field)= |
+| =content()= |
+| =is_error()= |
+| =is_redirect()= |
+
+See the documentation of HTTP::Response for information about the methods.
+
+
+%TOC%

@@ -1,0 +1,231 @@
+head	1.9;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.9
+date	2013.09.24.02.27.04;	author TWikiContributor;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2013.09.24.02.27.04;	author TWikiContributor;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2012.09.13.06.36.54;	author TWikiContributor;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2011.08.21.00.50.52;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2010.05.29.14.45.05;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2007.01.16.04.12.07;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2006.04.01.05.54.52;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2006.02.01.12.01.14;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2004.08.05.04.03.58;	author PeterThoeny;	state Exp;
+branches;
+next	;
+
+
+desc
+@none
+@
+
+
+1.9
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1379989624" format="1.1" version="9"}%
+%META:TOPICPARENT{name="TWikiGroups"}%
+---+!! %PARENTBC% <nop>%URLPARAM{"topic"}%
+
+Use this group for [[%SYSTEMWEB%.TWikiAccessControl][access control]] of webs and topics.
+
+%EDITPREFERENCES{ "%SYSTEMWEB%.TWikiPreferencesForm" editbutton="Edit Group Settings" }%
+
+   * Member list:
+      * Set GROUP = %WIKINAME%
+
+   * Purpose of this group:
+      * Set DESCRIPTION = 
+
+   * Persons/group who can change the list: 
+      * Set ALLOWTOPICCHANGE = %URLPARAM{"topic"}%
+
+%T% The GROUP and ALLOWTOPICCHANGE settings accept a comma-space delimited list of users and groups in [[%SYSTEMWEB%.WikiWord][WikiWord]] format. Groups may be nested.
+
+<!--
+   * Set READONLYSKINMODE = 1
+-->
+__%MAKETEXT{"Related topics:"}%__ [[TWikiGroups]], [[%SYSTEMWEB%.TWikiAccessControl][TWikiAccessControl]], [[UserList]], [[%WIKIUSERSTOPIC%]]
+@
+
+
+1.8
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1379989624" format="1.1" version="8"}%
+d18 1
+a18 1
+%T% The GROUP and ALLOWTOPICCHANGE settings accept a comma-space delimited list of users and groups in [[%SYSTEMWEB%.WikiWord][WikiFord]] format. Groups may be nested.
+@
+
+
+1.7
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1347518214" format="1.1" version="7"}%
+d3 1
+a3 1
+---+!! [[TWikiGroups]] &#187; <nop>%URLPARAM{"topic"}%
+d12 3
+d18 1
+a18 1
+%T% Both settings accept a comma-space delimited list of users and groups in %SYSTEMWEB%.WikiWord format. Groups can be nested.
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1313887852" format="1.1" version="6"}%
+d3 1
+a3 1
+---+!! <nop>%URLPARAM{"topic"}%
+d5 1
+a5 1
+Use this group for  [[%SYSTEMWEB%.TWikiAccessControl][access control]] of webs and topics.
+d7 1
+a7 3
+<noautolink>
+%EDITPREFERENCES{ "%SYSTEMWEB%.TWikiPreferencesForm" editbutton="Edit %TOPIC% settings" }%
+</noautolink>
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1273956256" format="1.1" version="5"}%
+d5 7
+a11 1
+   * Member list (comma-separated list):
+d13 2
+a14 1
+   * Persons/group who can change the list:
+d17 6
+a22 1
+__%MAKETEXT{"Related topics:"}%__ [[%WIKIUSERSTOPIC%]], [[TWikiGroups]], [[%SYSTEMWEB%.TWikiAccessControl][TWikiAccessControl]]
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111931141" format="1.0" version="4"}%
+d6 1
+a6 1
+      * Set GROUP = %WIKIUSERNAME%
+d10 1
+a10 2
+__%MAKETEXT{"Related topics:"}%__ %WIKIUSERSTOPIC%, TWikiGroups, %TWIKIWEB%.TWikiAccessControl
+
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111931141" format="1.0" version="3"}%
+d5 2
+a6 2
+   * Member list:
+      * Set GROUP = %WIKIUSERNAME%, Main.Others...
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111931141" format="1.0" version="2"}%
+d5 4
+a8 4
+	* Member list:
+		* Set GROUP = %WIKIUSERNAME%, Main.Others...
+	* Persons/group who can change the list:
+		* Set ALLOWTOPICCHANGE = %URLPARAM{"topic"}%
+@
+
+
+1.1
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1091678638" format="1.0" version="1.1"}%
+d5 4
+a8 2
+	* Set GROUP = %WIKIUSERNAME%, Main.Others...
+	* Set ALLOWTOPICCHANGE = %URLPARAM{"topic"}%
+d10 1
+a10 3
+__Related topics:__ %WIKIUSERSTOPIC%, TWikiGroups, %TWIKIWEB%.TWikiAccessControl
+
+-- %WIKIUSERNAME% - %DATE%
+@

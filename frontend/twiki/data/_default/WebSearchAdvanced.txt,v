@@ -1,0 +1,48 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2015.05.15.21.32.20;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2009.03.30.09.18.26;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1431725540" format="1.0" version="2"}%
+%META:TOPICPARENT{name="WebSearch"}%
+%INCLUDE{ "%SYSTEMWEB%.%TOPIC%" disablefixlinks="on" }%
+
+%META:PREFERENCE{name="READONLYSKINMODE" title="READONLYSKINMODE" type="Set" value="1"}%
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1163619832" format="1.0" version="1"}%
+d3 3
+a5 1
+%INCLUDE{"%SYSTEMWEB%.%TOPIC%"}%
+@

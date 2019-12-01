@@ -1,0 +1,450 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2018.07.16.03.20.47;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1531705322" format="1.1" version="1"}%
+---+!! TWiki Sheet Plugin
+<!--
+   Contributions to this plugin package are appreciated. Please update this page at
+   http://twiki.org/cgi-bin/view/Plugins/TWikiSheetPlugin or provide feedback at
+   http://twiki.org/cgi-bin/view/Plugins/TWikiSheetPluginDev.
+   If you are a TWiki contributor please update the extension in the SVN repository.
+-->
+<sticky>
+<div style="float:right; background-color:#EBEEF0; margin:0 0 20px 20px; padding: 0 10px 0 10px;">
+%TOC{title="Page contents"}%
+</div>
+<div style="float:right; width:307px; margin:0 0 20px 20px; padding:0 10px 0 10px;">
+<img src="%ATTACHURLPATH%/screenshot.png" alt="screenshot.png" width="307" height="190" />
+</div>
+</sticky>
+%SHORTDESCRIPTION%
+
+---++ Introduction
+
+The TWiki Sheet Plugin turns a TWiki table into a spreadsheet that can be modified right in the browser. TWiki Sheet looks and feels like Excel and Google Sheets. Functions with a familiar syntax such as ==SUM(A2:A6)= can be added to cells. A cell range can be selected, copied and pasted between TWiki Sheet, Excel and Google Sheets. Changes to cells are saved automatically in the background, e.g. there is no explicit save step. Concurrent editing can be enabled, e.g. changes by others will magically show up in TWiki Sheet.
+
+---++ Related Plugins
+
+1. The pre-installed SpreadSheetPlugin also offers spreadsheet functions for TWiki tables, such as =%<nop>CALC{$SUM($ABOVE())}%=. The syntax is TWiki specific, and the function are evaluated server side. We recommend using the !SpreadSheetPlugin for TWiki applications that deliver ready-made tables.
+
+2. The pre-installed EditTablePlugin offers table editing for TWiki tables using a conventional edit, modify, save sequence. This is done with HTML forms, e.g. has the look and feel of a web application. The !EditTablePlugin does not offer spreadsheet functions, however, it is possible to add !SpreadSheetPlugin functions.
+
+We recommend using TWiki Sheet if you want to easily work with spreadsheets in TWiki, as you would in Excel and Google Sheets.
+
+---++ Description
+
+<div style="float:right; margin: -15px 0 20px 20px; padding: 0 0;">
+<pre>
+%<nop>TWIKISHEET{ }%
+|  | 16Q1 | 16Q2 | 16Q3 |
+| East: | 163 | 182 | 208 |
+| Center: | 82 | 97 | 126 |
+| West: | 217 | 231 | 294 |
+| Total: | =SUM(B2:B4) | =SUM(C2:C4) | =SUM(D2:D4) |
+</pre>
+</div>
+Add =%<nop>TWIKISHEET{ }%= before a TWiki table to turn that table into a TWiki Sheet, as can be seen to the right. Multiple tables in a TWiki topic can be changed into TWiki Sheets.
+
+A TWiki Sheet can be in edit mode by default (as in Excel or Google Sheets), or can be set to toggle between view mode and edit mode.
+
+The user interface of TWiki Sheet is done client side with a !Javascript widget; for details see the [[#TechnicalDetail][technical detail]] section below.
+
+---+++ TWIKISHEET Variable
+
+The =%<nop>TWIKISHEET{ }%= variable supports the following parameters:
+
+%INCLUDE{ "VarTWIKISHEET" section="parameters" }%
+
+---+++ TWiki Sheet Editing
+
+   * Double-click on a cell to change the text
+   * Put the focus on a cell and enter text to replace the current text
+   * Select cells, spanning multiple rows and columns if needed, and copy to another place in the sheet, or another TWiki Sheet, Excel or Google Sheets
+   * Pasting a cell range that does not fit into the current sheet will expand the sheet automatically to the right or bottom
+   * To add/delete a row or cell, right-click on a cell
+   * A cell starting with an =<nop>=<nop>= equal sign indicates a formula cell, such as ==SUM(B2:B10)=
+
+---+++ Formulas
+
+Formulas can be added to a cell. Start with an =<nop>=<nop>= equal sign and add a formula like you would in Excel or Google Sheets.
+
+Many functions are available, see http://handsontable.github.io/ruleJS/
+
+Formulas are considered alpha at this time; for example, cell ranges are not adjusted on copy & paste.
+
+#ModesOfOperation
+---+++ Modes of Operation
+
+You can chose from these modes of operation, controlled by the =mode=""= parameter:
+
+   * =mode="classic"= - classic TWiki mode:
+      * The table is rendered as a regular TWiki table.
+      * Press the "Edit" button to switch into TWiki Sheet mode, e.g. spreadsheet edit mode.
+      * Press the "Done" button to switch back to the TWiki table.
+      * There is no "Save" because the table is saved back to the TWiki server on each cell change.
+      * TWiki variables are expanded properly in the in the regular TWiki table, but not in TWiki Sheet.
+   * =mode="toggle"= - toggle mode:
+      * The table is rendered as a read-only TWiki Sheet.
+      * Press the "Edit" button to switch into TWiki Sheet edit mode.
+      * Press the "Done" button to switch back to the read-only mode.
+      * There is no "Save" because the table is saved back to the TWiki server on each cell change.
+   * =mode="toggle-edit"= - toggle-edit mode:
+      * Like ="toggle"= mode, but initial state is TWiki Sheet edit mode.
+   * =mode="edit"= - always on mode:
+      * The table is always in TWiki Sheet edit mode.
+      * There is no "Save" because the table is saved back to the TWiki server on each cell change.
+
+__Notes:__
+
+   * TWiki variables such as =%<nop>WIKINAME%= are not expanded in TWiki Sheet. That this, they are preserved properly, but you can't see the expanded value unless =mode="classic"= is used.
+   * The default mode of operation can be set with the ={Plugins}{TWikiSheetPlugin}{Mode}= configure setting, which is initially set to ="classic"=.
+
+#ConcurrentEditing
+---+++ Concurrent Editing
+
+If enabled, multiple people can edit TWiki Sheet and see each other's changes. This includes editing cells, pasting a range of cells, drag-filling cells, adding/removing rows, adding/removing columns, and undo. Concurrent editing is enabled by the =concurrent=""= parameter:
+
+   * =concurrent="0"= - disable concurrent editing; changes by others will be shown after a page reload.
+   * =concurrent="1"= - enable concurrent editing; changes by others will show up while editing TWiki Sheet.
+
+__Notes:__
+
+   * The default concurrent editing mode can be set with the ={Plugins}{TWikiSheetPlugin}{ConcurrentEdit}= configure setting, which is initially set to ="0"=.
+   * Administrators can set the refresh rate for concurrent editing with the ={Plugins}{TWikiSheetPlugin}{ConcurrentEditRefresh}= configure setting, which is initially set to ="10"= seconds.
+   * Even if enabled, users have to be authenticated in order to see other people's changes.
+
+---++ Examples
+
+---+++ mode="edit"
+
+<table><tr><td valign="top">
+__Raw text:__
+<pre>
+%<nop>TWIKISHEET{ mode="edit" save="0" }%
+|  | 16Q1 | 16Q2 | 16Q3 | 16Q4 |
+| East: | 163 | 182 | 208 | 193 |
+| Center: | 82 | 97 | 126 | 91 |
+| West: | 217 | 231 | 294 | 249 |
+| Total: | =SUM(B2:B4) | =SUM(C2:C4) | =SUM(D2:D4) | =SUM(E2:E4) |
+| Min: | =MIN(B2:B4) | =MIN(C2:C4) | =MIN(D2:D4) | =MIN(E2:E4) |
+| Max: | =MAX(B2:B4) | =MAX(C2:C4) | =MAX(D2:D4) | =MAX(E2:E4) |
+</pre>
+</td><td>&nbsp;&nbsp;</td><td valign="top">
+__Renders as TWiki Sheet (if installed):__
+<div style="margin-top: 10px;">
+%TWIKISHEET{ mode="edit" save="0" }%
+|  | 16Q1 | 16Q2 | 16Q3 | 16Q4 |
+| East: | 163 | 182 | 208 | 193 |
+| Center: | 82 | 97 | 126 | 91 |
+| West: | 217 | 231 | 294 | 249 |
+| Total: | =SUM(B2:B4) | =SUM(C2:C4) | =SUM(D2:D4) | =SUM(E2:E4) |
+| Min: | =MIN(B2:B4) | =MIN(C2:C4) | =MIN(D2:D4) | =MIN(E2:E4) |
+| Max: | =MAX(B2:B4) | =MAX(C2:C4) | =MAX(D2:D4) | =MAX(E2:E4) |
+</div>
+</td><td>&nbsp;&nbsp;</td><td valign="top">
+__Screenshot:__
+<div style="margin-top: 10px;">
+<img src="%ATTACHURLPATH%/screenshot.png" alt="screenshot.png" width="307" height="190" />
+</div>
+</td></tr></table>
+
+---+++ mode="toggle"
+
+<table><tr><td valign="top">
+__Raw text:__
+<pre>
+%<nop>TWIKISHEET{ mode="toggle" save="0" }%
+|  | 16Q1 | 16Q2 | 16Q3 | 16Q4 |
+| East: | 163 | 182 | 208 | 193 |
+| Center: | 82 | 97 | 126 | 91 |
+| West: | 217 | 231 | 294 | 249 |
+| Total: | =SUM(B2:B4) | =SUM(C2:C4) | =SUM(D2:D4) | =SUM(E2:E4) |
+| Min: | =MIN(B2:B4) | =MIN(C2:C4) | =MIN(D2:D4) | =MIN(E2:E4) |
+| Max: | =MAX(B2:B4) | =MAX(C2:C4) | =MAX(D2:D4) | =MAX(E2:E4) |
+</pre>
+</td><td>&nbsp;&nbsp;</td><td valign="top">
+__Renders as TWiki Sheet (if installed):__
+<div style="margin-top: 10px;">
+%TWIKISHEET{ mode="toggle" save="0" }%
+|  | 16Q1 | 16Q2 | 16Q3 | 16Q4 |
+| East: | 163 | 182 | 208 | 193 |
+| Center: | 82 | 97 | 126 | 91 |
+| West: | 217 | 231 | 294 | 249 |
+| Total: | =SUM(B2:B4) | =SUM(C2:C4) | =SUM(D2:D4) | =SUM(E2:E4) |
+| Min: | =MIN(B2:B4) | =MIN(C2:C4) | =MIN(D2:D4) | =MIN(E2:E4) |
+| Max: | =MAX(B2:B4) | =MAX(C2:C4) | =MAX(D2:D4) | =MAX(E2:E4) |
+</div>
+</td><td>&nbsp;&nbsp;</td><td valign="top">
+__Screenshot:__
+<div style="margin-top: 10px;">
+<img src="%ATTACHURLPATH%/screenshot-toggle.png" alt="screenshot-toggle.png" width="307" height="211" />
+</div>
+</td></tr></table>
+
+---+++ mode="classic"
+
+<table><tr><td valign="top">
+__Raw text:__
+<pre>
+%<nop>TWIKISHEET{ mode="classic" save="0" }%
+|  | 16Q1 | 16Q2 | 16Q3 | 16Q4 |
+| East: | 163 | 182 | 208 | 193 |
+| Center: | 82 | 97 | 126 | 91 |
+| West: | 217 | 231 | 294 | 249 |
+| Names: | WEB | TOPIC | BULLET | WIKINAME |
+| Variables: | %<nop>WEB% | %<nop>TOPIC% | %<nop>BULLET% | %<nop>WIKINAME% |
+</pre>
+</td><td>&nbsp;&nbsp;</td><td valign="top">
+__Renders as TWiki table or TWiki Sheet (if installed):__
+<div style="margin-top: 10px;">
+%TWIKISHEET{ mode="classic" save="0" }%
+|  | 16Q1 | 16Q2 | 16Q3 | 16Q4 |
+| East: | 163 | 182 | 208 | 193 |
+| Center: | 82 | 97 | 126 | 91 |
+| West: | 217 | 231 | 294 | 249 |
+| Names: | WEB | TOPIC | BULLET | WIKINAME |
+| Variables: | %WEB% | %TOPIC% | %BULLET% | %WIKINAME% |
+</div>
+</td><td>&nbsp;&nbsp;</td><td valign="top">
+__Screenshot:__
+<div style="margin-top: 10px;">
+<img src="%ATTACHURLPATH%/screenshot-classic.png" alt="screenshot-classic.png" width="394" height="188" />
+</div>
+</td></tr></table>
+
+---++ Known Limitations
+
+1. TWiki variables in TWiki Sheets are not expanded unless =mode="classic"= is used. That this, they are preserved as is, but that means they do not show the actual value.
+
+2. Cell span and row span are not supported.
+
+3. Formulas are considered alpha at this time. For example, cell ranges are not adjusted on copy & paste.
+
+#TechnicalDetail
+---++ Technical Detail
+
+This section is for developers who would like to learn how TWiki Sheets work.
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}% "
+ hidelink="Hide details %ICONURL{toggleclose}% "
+}%
+
+The TWiki Sheet user interface is done client side using the Handsontable !JavaScript widget. Handsontable is a data grid component with an Excel-like appearance that integrates with any data source and comes with many [[http://docs.handsontable.com/0.24.1/tutorial-features.html][features]] like data validation, sorting, grouping, data binding or column ordering.
+
+The Handsontable is initialized with an array-of-an-array object representing the table, such as:
+<verbatim>
+var tableData = [
+  ["", "Maserati", "Mazda", "Mercedes", "Mini"],
+  [2013, 2941, 4303, 3154, 2814],
+  [2014, 2905, 2867, 4128, 2195],
+  [2015, 2517, 4822, 3552, 3127],
+  [2016, 2174, 3184, 3912, 2651]
+];
+</verbatim>
+
+A Handsontable is initialized as follows:
+
+<verbatim>
+<script src="/common/handsontable/dist/handsontable.full.js"></script>
+<link  href="/common/handsontable/dist/handsontable.full.css" rel="stylesheet" media="screen" />
+
+<div id="tableContainer"></div>
+<script>
+  var container = $( '#tableContainer' );
+  container.handsontable({
+    data: tableData,
+    rowHeaders: true,
+    colHeaders: true,
+    contextMenu: true,
+    manualColumnResize: true,
+    afterChange: function( changes, source ) {
+      // save changes to server
+    }
+  });
+</script>
+</verbatim>
+
+A =%<nop>TWIKISHEET{}%= followed by a TWiki table is converted to an array-of-an-array !JavaScript object, which is used to initialize a Handsontable table.
+
+On each cell change, an Ajax POST is initiated that calls the REST API of the !TWikiSheetPlugin on the TWiki server. Here is the code snippet that does the Ajax call:
+
+<verbatim>
+  function twSheetAfterChange( n, changes, source ) {
+    if( changes ) {
+      var tws = twSheet[n];
+      if( $authenticated && tws.save ) {
+        var sendData = {
+          action: 'change',
+          webTopic: tws.webTopic,
+          tableNumber: n,
+          tableData: JSON.stringify(tws.data),
+          changes: JSON.stringify(changes)
+        }
+        var jqxhr = $.ajax({
+          url: '/do/rest/TWikiSheetPlugin/save',
+          method: 'POST',
+          data: sendData
+        })
+        .done(function( result ) {
+          console.log( '- save ok: ' + JSON.stringify( result, null, ' ') );
+        })
+        .fail(function() {
+          alert( 'TWiki Sheet Error: Failed to save changes' );
+        });
+      }
+    }
+  }
+</verbatim>
+
+The =rest/TWikiSheetPlugin/save= API takes the table data, and updates the TWiki topic if the user has permission.
+
+Note to plugin maintainer: The formula code has a bug that prevents the fill-handle from functioning properly. Patch to fix:
+
+<verbatim>
+--- pub/TWiki/TWikiSheetPlugin/handsontable-ruleJS/src/handsontable.formula.js	(revision 30103)
++++ pub/TWiki/TWikiSheetPlugin/handsontable-ruleJS/src/handsontable.formula.js	(working copy)
+@@@@ -130,7 +130,7 @@@@
+           var cellId = instance.plugin.utils.translateCellCoords({row: row, col: col});
+ 
+           // if changed value, all references cells should be recalculated
+-          if (value[0] !== '=' || prevValue !== value) {
++          if (value && (value[0] !== '=' || prevValue !== value)) {
+             instance.plugin.matrix.removeItem(cellId);
+ 
+             // get referenced cells
+@@@@ -155,13 +155,20 @@@@
+       var instance = this;
+ 
+       var r = index.row,
+-        c = index.col,
+-        value = data[r][c],
++        c = index.col;
++      if( !data || !data[r] || !data[r][c]) {
++        return {
++          value: value,
++          iterators: iterators
++        };
++      }
++
++      var value = data[r][c],
+         delta = 0,
+         rlength = data.length, // rows
+         clength = data ? data[0].length : 0; //cols
+ 
+-      if (value[0] === '=') { // formula
++      if (value && value[0] === '=') { // formula
+ 
+         if (['down', 'up'].indexOf(direction) !== -1) {
+           delta = rlength * iterators.row;
+</verbatim>
+
+%ENDTWISTY%
+
+---++ Plugin Installation &amp; Configuration
+
+You do not need to install anything on the browser to use this plugin. These instructions are for the administrator who installs the plugin on the TWiki server.
+
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}% "
+ hidelink="Hide details %ICONURL{toggleclose}% "
+}%
+
+   * For an __automated installation__, run the [[%SCRIPTURL{configure}%][configure]] script and follow "Find More Extensions" in the in the __Extensions__ section.
+      * See the [[http://twiki.org/cgi-bin/view/Plugins/BuildContribInstallationSupplement][installation supplement]] on TWiki.org for more information.
+
+   * Or, follow these __manual installation__ steps:
+      * Download the ZIP file from the Plugins home (see below).
+      * Unzip ==%TOPIC%.zip== in your twiki installation directory. Content:
+        | *File:* | *Description:* |
+        | ==data/TWiki/TWikiSheetPlugin.txt== | Plugin topic |
+        | ==data/TWiki/VarTWIKISHEET.txt== | Variable documentation topic |
+        | ==lib/TWiki/Plugins/TWikiSheetPlugin.pm== | Plugin Perl module |
+        | ==lib/TWiki/Plugins/TWikiSheetPlugin/Config.spec== | Configuration spec file |
+        | ==lib/TWiki/Plugins/TWikiSheetPlugin/Core.pm== | Plugin core module |
+        | ==pub/TWiki/TWikiSheetPlugin/handsontable/== | Directory with Handsontable !JavaScript widget |
+        | ==pub/TWiki/TWikiSheetPlugin/handsontable-ruleJS/== | Directory with Handsontable plugin |
+        | ==pub/TWiki/TWikiSheetPlugin/ruleJS/== | Directory with !RuleJS !JavaScript library |
+        | ==pub/TWiki/TWikiSheetPlugin/screenshot*.png== | Image files |
+        | ==pub/TWiki/TWikiSheetPlugin/twSheet.css== | Plugin style sheet |
+      * Set the ownership of the extracted directories and files to the webserver user.
+
+   * Install the CPAN:JSON Perl module, version 2.0 or later (for instructions see TWiki:TWiki.HowToInstallCpanModules)
+
+   * Plugin configuration:
+      * Run the [[%SCRIPTURL{configure}%][configure]] script and enable the plugin in the __Plugins__ section.
+
+   * Test if the configuration is successful:
+      * See example above. Note that this example does not save changes back to the server
+      * Create a topic in the Sandbox.WebHome web, add a table, prefixed with =%<nop>TWIKISHEET{}%=. Change cells, then reload the page to verify that the changes were saved.
+
+%ENDTWISTY%
+
+#PluginInfo
+---++ Plugin Info
+
+   * Set SHORTDESCRIPTION = Add TWiki Sheet spreadsheet functionality to TWiki tables
+
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  Author: | TWiki:Main.PeterThoeny, [[http://twiki.org/][TWiki.org]] |
+|  Copyright: | &copy; 2016-2018 TWiki:Main.PeterThoeny %BR% &copy; 2016-2018 TWiki:TWiki.TWikiContributor |
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+|  Handsontable: | Version: 0.24.1; License: MIT; Copyright: &copy; 2012-2014 Marcin Warpechowskiy; &copy; 2015 Handsoncode sp. z o.o., hello@@handsoncode[dot]net |
+|  !RuleJS: | Version: 0.0.3; License: MIT; Copyright: &copy; 2012-2014 Marcin Warpechowskiy, hello@@handsoncode[dot]net |
+|  Jison: | Version: 0.4.15; License: MIT; Copyright: &copy; 2009-2014 Zachary Carter |
+|  formula.js: | Version: 1.0.5; License: MIT & ASF; Copyright: &copy; 2014 Sutoiku, Inc. |
+|  Version: | 2018-07-15 |
+%TWISTY{
+ mode="div"
+ showlink="Show Change History %ICONURL{toggleopen}%"
+ hidelink="Hide Change History %ICONURL{toggleclose}% "
+}%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  2018-07-15: | TWikibug:Item7845: Add missing screenshots to manifest; set default mode to classic |
+|  2018-07-06: | TWikibug:Item7842: Update HTML table after edit session in classic mode; Item7841: Copyright update to 2018 |
+|  2016-05-13: | TWikibug:Item7737: Document JSON module dependency |
+|  2016-04-17: | TWikibug:Item7737: The same user can now concurrent-edit the same TWiki Sheet in multiple windows |
+|  2016-04-14: | TWikibug:Item7737: Concurrent editing support - see each others changes while editing TWiki Sheet |
+|  2016-04-09: | TWikibug:Item7737: Aggregate changes to a moving time window of 500ms - this is to prevent saving changes out of sync due to network timing issues, which would cause corrupted tables; fix another formula.js bug to prevent a crash on undo |
+|  2016-04-06: | TWikibug:Item7737: Support Handsontable options to customize the TWiki Sheet; fix VBAR and BR issue |
+|  2016-04-02: | TWikibug:Item7737: Add modes of operation: ="classic"=, ="toggle"=, ="toggle-edit"= and ="edit"=; preserve TWiki variables; support TWiki Sheets in included topics; fix formula.js bug that prevented fill-handle from functioning properly |
+|  2016-03-30: | TWikibug:Item7737: Protect VBAR and BR by converting them to vertical bar and \n |
+|  2016-03-29: | TWikibug:Item7737: Initial version of !TWikiSheetPlugin |
+%ENDTWISTY%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  TWiki Dependency: | $TWiki::Plugins::VERSION 1.2 |
+|  CPAN Dependencies: | CPAN:JSON &gt;= 2.0 |
+|  Other Dependencies: | !JavaScript libraries: Handsontable (included); !RuleJS (included); formula.js (included) |
+|  Perl Version: | 5.008 |
+|  [[TWiki:Plugins.Benchmark][Plugin Benchmark]]: | %SYSTEMWEB%.GoodStyle nn%, %SYSTEMWEB%.FormattedSearch nn%, %TOPIC% nn% |
+|  Home: | http://TWiki.org/cgi-bin/view/Plugins/TWikiSheetPlugin |
+|  Feedback: | http://TWiki.org/cgi-bin/view/Plugins/TWikiSheetPluginDev |
+|  Appraisal: | http://TWiki.org/cgi-bin/view/Plugins/TWikiSheetPluginAppraisal |
+
+__Related:__ VarTWIKISHEET, <!--Sandbox.TWikiSheetPluginTest,--> TablePlugin, EditTablePlugin, SpreadSheetPlugin, %SYSTEMWEB%.TWikiPlugins
+
+%META:FILEATTACHMENT{name="screenshot.png" attachment="screenshot.png" attr="h" comment="" date="1458956173" path="screenshot.png" size="28501" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="screenshot-classic.png" attachment="screenshot-classic.png" attr="h" comment="" date="1459653815" path="screenshot-classic.png" size="29854" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="screenshot-toggle.png" attachment="screenshot-toggle.png" attr="h" comment="" date="1459653815" path="screenshot-toggle.png" size="28885" user="TWikiContributor" version="1"}%
+@

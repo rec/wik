@@ -1,0 +1,163 @@
+head	1.4;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.4
+date	2012.11.13.09.19.06;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2012.09.04.21.24.39;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2011.07.17.22.04.56;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2010.05.29.14.44.12;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1352798346" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TagMePlugin"}%
+---+!! Tag-me: Delete Tag
+
+%STARTINCLUDE%
+<table class="tagmeNavigation" border="0" cellpadding="3" cellspacing="0"><tr>
+<td>&nbsp; &nbsp;</td>
+<td bgcolor="#eef0f8" style="background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TagMePlugin/gray-gradient-2.png); border: solid 1px #d7dced;">&nbsp; [[%BASEWEB%.TagMeCreateNewTag][Create New Tag]] &nbsp;</td>
+<td>&nbsp;</td>
+<td bgcolor="#eef0f8" style="background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TagMePlugin/gray-gradient-2.png); border: solid 1px #d7dced;">&nbsp; [[%BASEWEB%.TagMeRenameTag][Rename Tag]] &nbsp;</td>
+<td>&nbsp;</td>
+<td bgcolor="#d7dced" style="background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TagMePlugin/gray-gradient-1.png); border: solid 1px #d7dced;">&nbsp; *Delete Tag* &nbsp;</td>
+</tr></table>
+<table border="0" cellpadding="5" cellspacing="0" style="width:100%;">
+<tr bgcolor="#d7dced"><td style="width:100%;"></td></tr>
+</table>
+%STARTSECTION{"delete"}%
+<noautolink><form name="renametag" action="%SCRIPTURL{viewauth}%/%BASEWEB%/%BASETOPIC%" method="post" onsubmit="return confirmDelete(this.oldtag.value, this.postChangeRequest);">%TAGME{ tpaction="%URLPARAM{"deleteaction" default="deletetaginit"}%" oldtag="%URLPARAM{oldtag}%" note="%URLPARAM{renametagnote}%" }%
+
+<div class="twikiFormSteps">
+<div class="twikiFormStep">
+Tag to delete: %BR%
+<select name="oldtag">
+<option>%URLPARAM{deletetag}%</option>
+%TAGME{ tpaction="showalltags" format="<option>$tag</option>" separator="$n" }%
+</select>
+</div>
+<div class="twikiFormStep twikiLast">
+<input %IF{"context inactive" then="disabled"}% type="submit" class="twikiSubmit" value="%MAKETEXT{"Delete"}%" />
+</div>
+</div>
+<input type="hidden" name="deleteaction" value="deletetag" />
+</form>
+</noautolink>
+%ENDSECTION{"delete"}%
+
+%BR%
+<span class="twikiGrayText">Other tag options: [[%BASEWEB%.TagMeViewAllTags][View all tags]], %IF{"'%TAGMEPLUGIN_USER_AGNOSTIC%' = 'on'" else="[[%BASEWEB%.TagMeViewMyTags][View my tags]], "}%[[%BASEWEB%.TagMeSearch][Search tags]]</span>
+
+%STARTSECTION{"dialogJavascript"}%
+<script language="javascript" type="text/javascript">
+<!-- // <pre>-hide
+function confirmDelete(inTagName, inSendsPostRequest) {
+   if (inSendsPostRequest) {
+      return true;
+   }
+   if (confirm("Are you sure you want to delete tag \"" + inTagName + "\"?")) {
+      return true;
+   }
+   return false;
+}
+// </pre>-hide -->
+</script>
+%ENDSECTION{"dialogJavascript"}%
+%STOPINCLUDE%
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1346793879" format="1.1" version="3"}%
+d8 1
+a8 1
+<td bgcolor="#eef0f8" style="background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TagMePlugin/gray-gradient-2.png); border: solid 1px #d7dced;">&nbsp; [[TagMeCreateNewTag][Create New Tag]] &nbsp;</td>
+d10 1
+a10 1
+<td bgcolor="#eef0f8" style="background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TagMePlugin/gray-gradient-2.png); border: solid 1px #d7dced;">&nbsp; [[TagMeRenameTag][Rename Tag]] &nbsp;</td>
+d29 1
+a29 1
+<input type="submit" class="twikiSubmit" value="%MAKETEXT{"Delete"}%" />
+a35 1
+%STOPINCLUDE%
+d38 1
+a38 1
+<span class="twikiGrayText">Other tag options: [[TagMeViewAllTags][View all tags]], [[TagMeViewMyTags][View my tags]], [[TagMeSearch][Search tags]]</span>
+d55 1
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1310940296" format="1.0" version="2"}%
+d8 1
+a8 1
+<td bgcolor="#F6F4EB">&nbsp; [[TagMeCreateNewTag][Create New Tag]] &nbsp;</td>
+d10 1
+a10 1
+<td bgcolor="#F6F4EB">&nbsp; [[TagMeRenameTag][Rename Tag]] &nbsp;</td>
+d12 1
+a12 1
+<td bgcolor="#EAE9DE">&nbsp; *Delete Tag* &nbsp;</td>
+d15 1
+a15 1
+<tr bgcolor="#EAE9DE"><td style="width:100%;"></td></tr>
+d45 7
+a51 7
+	if (inSendsPostRequest) {
+		return true;
+	}
+	if (confirm("Are you sure you want to delete tag \"" + inTagName + "\"?")) {
+		return true;
+	}
+	return false;
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1163536597" format="1.0" version="1"}%
+@

@@ -1,0 +1,6 @@
+---+ Package =TWiki::UI::Rest=
+
+UI delegate for REST interface
+
+
+%TOC%

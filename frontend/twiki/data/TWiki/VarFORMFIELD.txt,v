@@ -1,0 +1,225 @@
+head	1.9;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.9
+date	2017.12.31.23.38.44;	author TWikiContributor;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2015.10.24.19.42.22;	author TWikiContributor;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2014.03.22.20.33.55;	author TWikiContributor;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2013.07.18.02.03.35;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2011.06.14.03.41.48;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2011.01.09.06.53.52;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2008.08.03.22.17.45;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.01.22.03.21.27;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.06.25.16.26.28;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.9
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1514763524" format="1.1" version="9"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarFORMFIELD
+---+++ FORMFIELD{"fieldname"} -- render a field in the form attached to some topic
+   * Syntax: =%<nop>FORMFIELD{"fieldname"}%=
+   * Supported parameters:
+     | *Parameter:* | *Description:* | *Default:* |
+     | ="fieldname"= | The name of a [[TWikiForms][TWiki form]] field | required |
+     | =topic="..."= | Topic where form data is located. May be of the form =Web.<nop>TopicName= | Current topic |
+     | =rev="..."= | Get the form field value from the specified topic revision, range ="1"= to top revision of topic. ="0"= is equivalent to the top revision | The =rev= URL parameter value if present, otherwise the top revision |
+     | =format="..."= | Format string. Supported variables:%BB% =$value= - form field value %BB% =$value(<i>20, -&lt;br /&gt;</i>)= - value hyphenated every 20 characters using separator <tt>-&lt;br /&gt;</tt> %BB% =$value(<i>30, ...</i>)= - value shortened to 30 characters %BB% =$length= - length of value (can be used to test if value is set) %BB% =$title= - raw field name (includes space and other special characters) %BB% =$name= - field name (sanitized title) %BB% =$attributes= - form field attributes %BB% =$formtopic= - name of form definition topic | ="$value"= |
+     | =default="..."= | Text shown when no value is defined for the field | =""= |
+     | =alttext="..."= | Text shown when field is not found in the form | =""= |
+     | =newline="$br"= | Convert newlines in textarea to other delimiters. Variable =$br= expands to =&lt;br /&gt;= tag, and =$n= to a newline. Other text is encoded based on =encode= parameter. | no conversion |
+     | =encode="html"= | Encode special characters into HTML entities. If a FORMFIELD is passed into an HTML form field it should be encoded as ="html"=. Additional encodings available: =encode="quote"=, =encode="moderate"=, =encode="safe"=, =encode="entity"=, =encode="url"= and =encode="csv"=. See [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENCODE][ENCODE]] for details. | =""= (no encoding) |
+   * Example: =%<nop>FORMFIELD{ "<nop>ProjectName" topic="Projects.<nop>SushiProject" default="(not set)" alttext="<nop>ProjectName field not found" }%= 
+   * Example: =%<nop>FORMFIELD{ "Title" topic="%<nop>INCLUDINGTOPIC%" }%=
+      * Note: Specify =topic="%<nop>INCLUDINGTOPIC%"= if you have a base topic that includes a report topic, and in the report topic you want to reference a field of the base topic
+   * Example: =%<nop>FORMFIELD{ "LastName" topic="%<nop>USERSWEB%.%<nop>WIKINAME%" encode="safe" }%=
+      * Note: Returns the "LastName" field from your profile page %USERSWEB%.%WIKINAME%
+      * %T% Tip: Use =encode="safe"= to guard against Cross-Site Scripting (XSS) attacks
+   * Example: =&lt;input type="text" name="Address" value="%<nop>FORMFIELD{ "Address" encode="html" }%" /&gt;=
+      * Note: It is easier to use [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarEDITFORMFIELD][EDITFORMFIELD]] for custom input fields
+   * Category: DatabaseAndFormsVariables, DevelopmentVariables, FormattingAndRenderingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarEDITFORM][EDITFORM]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarEDITFORMFIELD][EDITFORMFIELD]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENCODE][ENCODE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENTITY][ENTITY]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarFORM][FORM]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETA][META]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETASEARCH][METASEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]], TWikiForms, FormattedSearch, QuerySearch, SearchHelp
+@
+
+
+1.8
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1445715742" format="1.1" version="8"}%
+d16 2
+a17 2
+   * Example: =%<nop>FORMFIELD{"<nop>ProjectName" topic="Projects.<nop>SushiProject" default="(not set)" alttext="<nop>ProjectName field not found"}%= 
+   * Example: =%<nop>FORMFIELD{"Title" topic="%<nop>INCLUDINGTOPIC%" }%=
+d19 3
+d25 1
+a25 1
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarEDITFORMFIELD][EDITFORMFIELD]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENCODE][ENCODE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENTITY][ENTITY]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETA][META]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETASEARCH][METASEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]], TWikiForms, FormattedSearch, QuerySearch, SearchHelp
+@
+
+
+1.7
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1395520435" format="1.1" version="7"}%
+d4 1
+a4 1
+---+++ FORMFIELD{"fieldname"} -- renders a field in the form attached to some topic
+d17 2
+d21 2
+a22 2
+   * Category: DatabaseAndFormsVariables, DevelopmentVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarEDITFORMFIELD][EDITFORMFIELD]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENCODE][ENCODE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENTITY][ENTITY]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETA][META]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETASEARCH][METASEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]], FormattedSearch, QuerySearch, SearchHelp
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1374113015" format="1.1" version="6"}%
+d15 1
+a15 1
+     | =encode="html"= | Encode special characters into HTML entities. If a FORMFIELD is passed into an HTML form field it should be encoded as ="html"=. Additional encodings available: =encode="quote"=, =encode="moderate"=, =encode="safe"=, =encode="entity"= and =encode="url"=. See [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENCODE][ENCODE]] for details. | =""= (no encoding) |
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1308022908" format="1.1" version="5"}%
+d10 2
+a11 1
+     | =format="..."= | Format string. Variable =$value= expands to the field value, =$title= to the raw field name, =$name= to the field name, =$attributes= to the attributes, =$type= to the form field type, =$size= to the size, and =$definingTopic= to the form definition topic. | ="$value"= |
+d18 3
+a20 1
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENCODE][ENCODE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETASEARCH][METASEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]], FormattedSearch, QuerySearch, SearchHelp
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1294556032" format="1.1" version="4"}%
+d13 2
+d16 2
+a17 1
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETASEARCH][METASEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]], FormattedSearch, QuerySearch, SearchHelp
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.1" version="3"}%
+d10 1
+a10 1
+     | =format="..."= | Format string. =$value= expands to the field value, and =$title= expands to the fieldname (also expands $name, $attributes, $type, $size and $definingTopic) | ="$value"= |
+d13 2
+a14 3
+   * Example: =%<nop>FORMFIELD{"<nop>ProjectName" topic="Projects.<nop>SushiProject" default="(not set)" alttext="<nop>ProjectName field found"}%= 
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]]
+
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.1" version="2"}%
+d10 1
+a10 1
+     | =format="..."= | Format string. =$value= expands to the field value, and =$title= expands to the fieldname | ="$value"= |
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.2" version="1"}%
+a3 1
+
+d10 1
+a10 1
+     | =format="..."= | Format string. =$value= expands to the field value, and =$title= expands to the field title | ="$value"= |
+d14 1
+a14 1
+   * Related: [[#VarSEARCH][SEARCH]]
+@

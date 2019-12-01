@@ -1,0 +1,158 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2012.12.29.06.26.07;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2010.05.29.14.45.02;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2009.03.30.09.18.26;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1356762367" format="1.1" version="3"}%
+%DASHBOARD{ section="dashboard_start" }%
+%DASHBOARD{ section="banner"
+ image="%PUBURL%/%SYSTEMWEB%/TWikiDashboardImages/golden-gate-sunset.jpg"
+ title="%MAKETEXT{"Welcome to the [_1] web" args="<nop>%WEB%"}%"
+ titlestyle="color:#800000;"
+}%
+<!--===== OVERVIEW ============================================-->
+%DASHBOARD{ section="box_start"
+ title="Overview"
+}%
+Edit this topic to customize this dashboard. Change the boxes (tiles) to fit the needs of your team.
+   * See [[%SYSTEMWEB%.TWikiDashboardAddOn][TWiki Dashboard add-on]] docs.
+   * Many [[%SYSTEMWEB%.TWikiDashboardImages][banner images]] are available.
+
+%DASHBOARD{ section="box_end" }%
+<!--===== WEB LINKS ============================================-->
+%DASHBOARD{ section="box_start"
+ title="%WEB% Web Links"
+ contentstyle="overflow: hidden;"
+}%
+   * Add useful links here
+
+%DASHBOARD{ section="box_end" }%
+<!--===== RECENT CHANGES ============================================-->
+%DASHBOARD{ section="box_start"
+ title="[[%BASEWEB%.WebChanges][Recent Changes]]"
+ contentstyle="overflow: hidden;"
+}%
+%INCLUDE{ "%SYSTEMWEB%.WebChangesRightBox" section="bullet_list" limit="30" }%
+
+%DASHBOARD{ section="box_end" }%
+<!--===== BOX 4 ============================================-->
+%DASHBOARD{ section="box_start"
+ title="Box 4"
+ contentstyle="overflow: hidden;"
+}%
+Edit topic to customize
+
+%DASHBOARD{ section="box_end" }%
+<!--===== BOX 5 ============================================-->
+%DASHBOARD{ section="box_start"
+ title="Box 5"
+ contentstyle="overflow: hidden;"
+}%
+Edit topic to customize
+
+%DASHBOARD{ section="box_end" }%
+<!--===== WEB UTILITIES ============================================-->
+%DASHBOARD{ section="box_start"
+ title="%WEB% Web Utilities"
+ contentstyle="overflow: hidden;"
+}%
+   * icon:searchtopic [[WebSearch][Web search]] &amp; [[WebSearchAdvanced][advanced search]]
+   * icon:index [[WebTopicList][Web topic list]] - all topics
+   * icon:mail [[WebNotify][Web notify]] - subscribe to e-mail alerts
+   * icon:rss [[WebRss][RSS]] &amp; [[WebAtom][ATOM]] feeds of topic changes
+   * icon:statistics [[WebStatistics][Web statistics]]
+   * icon:wrench [[WebPreferences][Web preferences]] - preferences of this web
+   * icon:topmenu [[WebTopMenu]] - top menu definition
+
+%DASHBOARD{ section="box_end" }%
+<!--===== END ============================================-->
+%DASHBOARD{ section="dashboard_end" }%
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 64
+a64 21
+%META:TOPICINFO{author="TWikiContributor" date="1273185196" format="1.1" version="2"}%
+%INCLUDE{%SYSTEMWEB%.WebChangesRightBox}%
+---+!! %MAKETEXT{"Welcome to the [_1] web" args="<nop>%WEB%"}%
+
+Replace this text with a short description on how this web is used.
+
+   * Add links to useful topics in this web
+   * ...
+   * ...
+
+---++ <nop>%WEB% Web Utilities
+
+   * [[WebSearch]] - simple search
+   * [[WebSearchAdvanced]] - %MAKETEXT{"advanced search"}%
+   * [[WebTopicList]] - all topics in alphabetical order
+   * [[WebChanges]] - recent topic changes in this web
+   * [[WebNotify]] - subscribe to an e-mail alert sent when topics change
+   * [[WebRss]], [[WebAtom]] - RSS and ATOM news feeds of topic changes
+   * [[WebStatistics]] - listing popular topics and top contributors
+   * [[WebTopMenu]] - top menu definition
+   * [[WebPreferences]] - preferences of this web
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 2
+a2 1
+%META:TOPICINFO{author="TWikiContributor" date="1112002813" format="1.0" version="1"}%
+d5 3
+a7 1
+---++ %MAKETEXT{"Available Information"}%
+d10 1
+a10 2
+   * ...
+ 
+a11 9
+<form action='%SCRIPTURLPATH{"search"}%/%WEB%/'>
+   * <input type="text" name="search" size="22" />&nbsp;<input type="submit" class="twikiSubmit" value="%MAKETEXT{"Search"}%" /> - [[WebSearchAdvanced][%MAKETEXT{"advanced search"}%]]
+   * WebTopicList - all topics in alphabetical order
+   * WebChanges - recent topic changes in this web
+   * WebNotify - subscribe to an e-mail alert sent when topics change
+   * WebRss, WebAtom - RSS and ATOM news feeds of topic changes
+   * WebStatistics - listing popular topics and top contributors
+   * WebPreferences - preferences of this web
+</form>
+d13 9
+@

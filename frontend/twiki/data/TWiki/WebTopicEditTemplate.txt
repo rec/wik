@@ -1,0 +1,10 @@
+%META:TOPICINFO{author="TWikiContributor" date="1376602846" format="1.0" version="7"}%
+---+ Title
+
+Article text.
+
+%STARTSECTION{ type="expandvariables" }%%SIGNATUREFORMAT%%ENDSECTION{ type="expandvariables" }%
+
+---++ Comments
+
+%COMM%NOP%ENT%

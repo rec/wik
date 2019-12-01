@@ -1,0 +1,259 @@
+head	1.4;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.4
+date	2018.01.01.06.12.04;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2014.05.30.23.13.25;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2012.11.18.19.32.50;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2011.08.21.04.16.18;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1514787124" format="1.1" version="4"}%
+---+ %MAKETEXT{"Change Profile Picture of [_1]" args="%URLPARAM{ "wikiname" default=" " }%" }%
+
+<!--<pre>-->
+<style type='text/css' media='all'>
+ .profileBox {
+  border: solid #dddddd 1px;
+  -moz-box-shadow: 2px 2px 3px #e8e8e8;
+  -webkit-box-shadow: 2px 2px 3px #e8e8e8;
+  box-shadow: 2px 2px 3px #e8e8e8;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 5px 10px 10px 10px;
+  background-image: url(%PUBURLPATH%/%WEB%/UserProfileHeader/gradient-title.png);
+  background-repeat: repeat-x;
+  background-color: #ffffff;
+ }
+ .profileHeader {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-style: italic;
+  color: #333333;
+}
+ #viewInfo .twikiLastCol {
+  min-width:19em;
+ }
+</style>
+%CALCULATE{$SET(PatternSkinVersion, $VALUE($SUBSTITUTE(%INCLUDE{ "%SYSTEMWEB%.PatternSkin" pattern=".*Skin Version: *. *([0-9\-]+).*" }%, -,)))$IF($GET(PatternSkinVersion)<20140522, <nop>, <script src="%PUBURL%/%SYSTEMWEB%/PatternSkin/dropzone.min.js"></script> <link rel="stylesheet" href="%PUBURL%/%SYSTEMWEB%/PatternSkin/dropzone.css" />)}%
+<style>
+#dropzonePreviews {
+  width: 160px;
+  border-width: 5px;
+  border-style: dashed;
+  border-color: #aaa;
+  margin-top: 10px;
+  min-height: 120px;
+  position: relative;
+}
+#dropzoneMessage {
+  position: absolute;
+  top: 29px;
+  left: 0;
+  overflow: hidden;
+  color: #aaa;
+  font-size: 1.5em;
+  line-height: normal;
+  width: 100%;
+  text-align: center;
+}
+.dz-size {
+  display: none;
+}
+</style>
+<script type="text/javascript">
+%CALCULATE{$IF($GET(PatternSkinVersion)<20140522, /*, <nop>)}%
+var myDropzone;
+Dropzone.autoDiscover = false;
+$(document).ready(
+  function(){
+   if ( Dropzone.isBrowserSupported() ) {
+    $('#fileUpload').replaceWith('<div id="dropzonePreviews" class="dropzone-previews"><div id="dropzoneMessage" class="dz-message" style="">Drop file %BR% or click</div></div>');
+    $('#submitFile').replaceWith('<button type="button" class="twikiSubmit" onClick="myDropzone.processQueue();" %IF{ "defined 'wikiname'" else="disabled=\"disabled\"" }%>%MAKETEXT{"Upload"}%</button>');
+    myDropzone = new Dropzone("form.dropzone", {
+      maxFiles: 1,
+      maxFilesize: %IF{"$'ATTACHFILESIZELIMIT' = '' or $'ATTACHFILESIZELIMIT' = '0'" then="1024 * 1024" else="%ATTACHFILESIZELIMIT% / 1024"}%,
+      withCredentials: true,
+      paramName: 'filepath',
+      addRemoveLinks: true,
+      autoProcessQueue: false,
+      acceptedFiles: 'image/*',
+      previewsContainer: "div#dropzonePreviews",
+      uploadMultiple: false,
+      parallelUploads: 1,
+      params: {noredirect: '1'},
+      clickable: "div#dropzonePreviews",
+      success: function(file, responseText, e) {
+        var xhr = file.xhr;
+        if ( xhr && xhr.getResponseHeader("Content-type").indexOf("text/html" ) != -1) {
+          document.open();
+          document.write(responseText);
+          document.close();
+        } else {
+          window.location.href = '%SCRIPTURL{view}%/%WEB%/%URLPARAM{wikiname}%';
+        }
+      },
+    });
+   }
+  }
+);
+%CALCULATE{$IF($GET(PatternSkinVersion)<20140522, */, <nop>)}%
+function validateFileType( fieldID, allowedTypes )
+{
+  var fileName=document.getElementById( fieldID ).value;
+  if( !fileName ) {
+    alert( 'Please specify a file of type '+allowedTypes+'.' );
+    return false;
+  } else {
+    var fileExt = (fileName.substring((fileName.lastIndexOf('.')+1)).toLowerCase());
+    var ext=allowedTypes.split( /, */ );
+    for ( var i in ext ) {
+      if( ext[i]==fileExt ) {
+        return true;
+      }
+    }
+    alert( 'Invalid file type. Please specify a file of type '+allowedTypes+'.' );        
+    return false;
+  }
+}
+</script>
+<!--</pre>-->
+<table border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" class="profileBox" style="width: 200px;" rowspan="3">
+<div class="profileHeader">
+%MAKETEXT{"Current picture"}%:
+</div>
+%CALCULATE{$SET(current-image, %FORMFIELD{ "Image" topic="%URLPARAM{wikiname}%" encode="safe" }%)}%<nop>
+<img %IF{
+ "'%URLPARAM{wikiname}%'/attachments[name='%CALCULATE{$GET(current-image)}%']"
+ then='src="%PUBURLPATH%/%WEB%/%URLPARAM{wikiname}%/%CALCULATE{$GET(current-image)}%" title="%CALCULATE{$GET(current-image)}%"'
+ else='src="%PUBURLPATH%/%WEB%/UserProfileHeader/default-user-profile.jpg"'
+}% width="200" alt="" />
+</td><td valign="top">
+<img src="%PUBURLPATH%/%WEB%/UserProfileHeader/spacer.gif" width="20" height="1" />
+</td><td valign="top" class="profileBox">
+<div class="profileHeader">
+%MAKETEXT{"Upload new picture"}%:
+</div>
+<form name="main" enctype="multipart/form-data" class="dropzone" onsubmit="return validateFileType( 'imageFile', 'jpg, png, gif' );" action="%SCRIPTURL{upload}%/%WEB%/%URLPARAM{wikiname}%" method="post" />
+<table border="0" cellspacing="0" cellpadding="0" style="margin: .5em .2em .5em .2em;"><tr><td valign="top">
+<div id="fileUpload" class="square">
+<input type="file" name="filepath" id="imageFile" class="upload" value="" size="36" %IF{ "defined 'wikiname'" else="disabled='disabled'" }% />
+</div>
+</td><td style="padding: 0 1em;">
+<div style="white-space: nowrap; margin-bottom: 1em;">
+<input type="submit" class="twikiSubmit" id="submitFile" value='%MAKETEXT{"Upload"}%' %IF{ "defined 'wikiname'" else="disabled='disabled'" }% />
+<input type="hidden" name="filename" value="" />
+<input type="hidden" name="filecomment" value="" />
+<input type="hidden" name="createlink" value="" />
+<input type="hidden" name="hidefile" value="on" />
+<input type="hidden" name="updatefield" value="Image" />
+%IF{ "defined 'wikiname'" then="&nbsp; [[%URLPARAM{wikiname}%][%MAKETEXT{"Cancel"}%]]" }%
+</div>
+%T% %MAKETEXT{"Recommended step before upload: Crop the image to about square size, and resize it to a width of 200 pixels. This makes it load faster."}%
+</td><td style="padding: 0 1em; color: #444444;">
+</td></tr></table>
+</form>
+</td></tr><tr><td></td><td>
+<img src="%PUBURLPATH%/%WEB%/UserProfileHeader/spacer.gif" width="1" height="20" />
+</td></tr><tr><td></td><td valign="top" class="profileBox">
+<div class="profileHeader">
+%MAKETEXT{"Select existing picture"}%:
+</div>
+%CALCULATE{$LISTJOIN(&nbsp; , $LISTMAP(<form action="%SCRIPTURL{save}%/%WEB%/%URLPARAM{wikiname}%" method="post" /> <input type="hidden" name="Image" value="$item" /> <input type="image" src="%PUBURLPATH%/%WEB%/%URLPARAM{wikiname}%/$item" height="60" border="0" alt="" title="$item" class="twikiButton" style="padding:10px" /></form>, $LISTIF($NOT($EXACT($item,undef)), %SEARCH{ "%URLPARAM{wikiname}%" scope="topic" topic="%URLPARAM{wikiname}%" nonoise="1" limit="1" format="$query(attachments[name~'*.jpg'].name), $query(attachments[name~'*.JPG'].name), $query(attachments[name~'*.png'].name), $query(attachments[name~'*.PNG'].name), $query(attachments[name~'*.gif'].name), $query(attachments[name~'*.GIF'].name)" }%)))}%
+</td></tr></table>
+
+%IF{ "defined 'wikiname'" then="__%MAKETEXT{"Return to"}%:__ [[%URLPARAM{wikiname}%]]" }%
+
+<!--
+   * Set ALLOWTOPICCHANGE = %USERSWEB%.TWikiAdminGroup
+   * Set READONLYSKINMODE = 1
+-->
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1401491605" format="1.1" version="3"}%
+d115 1
+a115 1
+%CALCULATE{$SET(current-image, %FORMFIELD{ "Image" topic="%URLPARAM{wikiname}%" }%)}%<nop>
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1353267170" format="1.1" version="2"}%
+d28 26
+d55 36
+d127 8
+a134 3
+<form name="main" enctype="multipart/form-data" onsubmit="return validateFileType( 'imageFile', 'jpg, png, gif' );" action="%SCRIPTURL{upload}%/%WEB%/%URLPARAM{wikiname}%" method="post" />
+<input type="file" name="filepath" id="imageFile" value="" size="36" %IF{ "defined 'wikiname'" else="disabled=''disabled'" }% />
+<input type="submit" class="twikiSubmit" value='%MAKETEXT{"Upload"}%' %IF{ "defined 'wikiname'" else="disabled=''disabled'" }% />
+d141 1
+a141 1
+<div style="margin-top: 5px; color: #444444">
+d143 2
+a144 1
+</div>
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1311545688" format="1.1" version="1"}%
+d8 5
+d53 6
+a58 5
+<img src="%IF{
+ "'%URLPARAM{wikiname}%'/attachments[name='%FORMFIELD{ "Image" topic="%URLPARAM{wikiname}%" }%']"
+ then='%PUBURLPATH%/%WEB%/%URLPARAM{wikiname}%/$percntFORMFIELD{ "Image" topic="%URLPARAM{wikiname}%" }$percnt'
+ else='%PUBURLPATH%/%WEB%/UserProfileHeader/default-user-profile.jpg'
+}%" width="200" alt="" />
+d84 1
+a84 1
+%CALC{$LISTJOIN(&nbsp; , $LISTMAP(<form action="%SCRIPTURL{save}%/%WEB%/%URLPARAM{wikiname}%" method="post" /> <input type="hidden" name="Image" value="$item" /> <input type="image" src="%PUBURLPATH%/%WEB%/%URLPARAM{wikiname}%/$item" XXwidth="100" height="60" alt="" border="0" class="twikiButton" style="padding:10px" /></form>, $LISTIF($NOT($EXACT($item,undef)), %SEARCH{ "%URLPARAM{wikiname}%" scope="topic" topic="%URLPARAM{wikiname}%" nonoise="1" limit="1" format="$query(attachments[name~'*.jpg'].name), $query(attachments[name~'*.JPG'].name), $query(attachments[name~'*.png'].name), $query(attachments[name~'*.PNG'].name), $query(attachments[name~'*.gif'].name), $query(attachments[name~'*.GIF'].name)" }%)))}%
+@

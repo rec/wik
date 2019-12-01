@@ -1,0 +1,36 @@
+%META:TOPICINFO{author="TWikiContributor" date="1401996095" format="1.1" version="17"}%
+%META:TOPICPARENT{name="TWikiGroups"}%
+---+ %PARENTBC% TWiki Administrator Group
+
+This is a super user group that has access to all content, regardless of [[%SYSTEMWEB%.TWikiAccessControl][access control]]. This group has also access to the [[%SCRIPTURL{configure}%][configure]] script to do system level configuration.
+
+%EDITPREFERENCES{ "%SYSTEMWEB%.TWikiPreferencesForm" editbutton="Edit Group Settings" }%
+
+   * Member list (comma-separated list):
+      * Set GROUP = 
+
+   * Persons/group who can change the list:
+      * Set ALLOWTOPICCHANGE = TWikiAdminGroup
+
+%T% Both settings accept a comma-space delimited list of users and groups in %SYSTEMWEB%.WikiWord format. Groups can be nested.
+
+%INCLUDE{"TWikiAdminUser" section="sudo_login"}%
+
+<sticky><div style="background-color:#FFF263; padding: 10px; display: %IF{"(NOT defined GROUP) OR $GROUP = ''" then="block" else="none"}%"></sticky>
+__How to add the first administrator:__ %BR%
+If you haven't previously set up an administrator, follow these steps:
+   1 Authenticate as the internal TWiki administrator:
+      * %ADMINLOGIN%
+   1 Edit this topic
+   1 Insert the wikinames of admin users in the TWiki Administrator Group by listing them in the GROUP setting %BR% (example =* Set GROUP = <nop>JohnSmith, <nop>JamesBond=)
+   1 Save this topic
+   1 [[%LOGOUTURL%][Logout]] from the Internal TWikiAdminUser
+   1 Verify that new members show up properly in the group listing at TWikiGroups
+   1 Make sure always to keep this topic write protected by keeping the already defined ALLOWTOPICCHANGE setting
+   1 The ALLOWTOPICHANGE and ALLOWTOPICRENAME settings in [[%SYSTEMWEB%.TWikiPreferences]] and [[%USERSWEB%.TWikiPreferences]] have already been set to this group (<nop>TWikiAdminGroup), restricting edit of site-wide preferences to the TWiki Administrator Group
+<sticky></div></sticky>
+
+<!--
+   * Set READONLYSKINMODE = 1
+-->
+__Related topics:__ [[TWikiGroups]], [[%SYSTEMWEB%.TWikiAccessControl][TWikiAccessControl]], [[UserList]], [[%WIKIUSERSTOPIC%]], [[TWikiAdminUser]]

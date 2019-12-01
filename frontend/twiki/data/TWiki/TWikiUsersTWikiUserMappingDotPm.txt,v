@@ -1,0 +1,303 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2011.08.21.04.16.00;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@---+ Package =TWiki::Users::TWikiUserMapping=
+
+The User mapping is the process by which TWiki maps from a username (a login name)
+to a wikiname and back. It is also where groups are defined.
+
+By default TWiki maintains user topics and group topics in the %USERSWEB% that
+define users and group. These topics are
+   * !TWikiUsers - stores a mapping from usernames to TWiki names
+   * !WikiName - for each user, stores info about the user
+   * !GroupNameGroup - for each group, a topic ending with "Group" stores a list of users who are part of that group.
+
+Many sites will want to override this behaviour, for example to get users and groups from a corporate database.
+
+This class implements the basic TWiki behaviour using topics to store users,
+but is also designed to be subclassed so that other services can be used.
+
+Subclasses should be named 'XxxxUserMapping' so that configure can find them.
+
+
+%TOC%
+
+---++ ClassMethod *new* <tt>($session,$impl)</tt>
+
+Constructs a new user mapping handler of this type, referring to $session
+for any required TWiki services.
+
+
+
+---++ ObjectMethod *finish* <tt>()</tt>
+Break circular references.
+
+
+
+---++ ObjectMethod *supportsRegistration* <tt>() -> false</tt>
+return 1 if the UserMapper supports registration (ie can create new users)
+
+
+
+---++ ObjectMethod *handlesUser* <tt>($cUID,$login,$wikiname) -> $boolean</tt>
+
+Called by the TWiki::Users object to determine which loaded mapping
+to use for a given user.
+
+The user can be identified by any of $cUID, $login or $wikiname. Any of
+these parameters may be undef, and they should be tested in order; cUID
+first, then login, then wikiname. This mapping is special - for backwards
+compatibility, it assumes responsibility for _all_ non BaseMapping users.
+If you're needing to mix the TWikiuserMapping with other mappings,
+define $this->{mapping_id} = 'TWikiUserMapping_';
+
+
+
+---++ ObjectMethod *login2cUID* <tt>($login,$dontcheck) -> $cUID</tt>
+
+Convert a login name to the corresponding canonical user name. The
+canonical name can be any string of 7-bit alphanumeric and underscore
+characters, and must correspond 1:1 to the login name.
+(undef on failure)
+
+(if dontcheck is true, return a cUID for a nonexistant user too.
+This is used for registration)
+
+
+
+---++ ObjectMethod *getLoginName* <tt>($cUID) -> login</tt>
+
+Converts an internal cUID to that user's login
+(undef on failure)
+
+
+
+---++ ObjectMethod *addUser* <tt>($login,$wikiname,$password,$emails,$mcp) -> $cUID</tt>
+
+throws an Error::Simple 
+
+Add a user to the persistant mapping that maps from usernames to wikinames
+and vice-versa. The default implementation uses a special topic called
+"TWikiUsers" in the users web. Subclasses will provide other implementations
+(usually stubs if they have other ways of mapping usernames to wikinames).
+Names must be acceptable to $TWiki::cfg{NameFilter}
+$login must *always* be specified. $wikiname may be undef, in which case
+the user mapper should make one up.
+This function must return a *canonical user id* that it uses to uniquely
+identify the user. This can be the login name, or the wikiname if they
+are all guaranteed unigue, or some other string consisting only of 7-bit
+alphanumerics and underscores.
+if you fail to create a new user (for eg your Mapper has read only access), 
+            throw Error::Simple(
+               'Failed to add user: '.$ph->error());
+
+
+
+---++ ObjectMethod *removeUser* <tt>($cUID) -> $boolean</tt>
+
+Delete the users entry. Removes the user from the password
+manager and user mapping manager. Does *not* remove their personal
+topics, which may still be linked.
+
+
+
+---++ ObjectMethod *getWikiName* <tt>($cUID) -> $wikiname</tt>
+
+Map a canonical user name to a wikiname. If it fails to find a
+WikiName, it will attempt to find a matching loginname, and use
+an escaped version of that.
+If there is no matching WikiName or LoginName, it returns undef.
+
+
+
+---++ ObjectMethod *userExists* <tt>($cUID) -> $boolean</tt>
+
+Determine if the user already exists or not. Whether a user exists
+or not is determined by the password manager.
+
+
+
+---++ ObjectMethod *eachUser* <tt>() -> TWiki::ListIteratorofcUIDs</tt>
+
+See baseclass for documentation
+
+
+
+---++ ObjectMethod *eachGroupMember* <tt>($group) -> listIteratorofcUIDs</tt>
+
+See baseclass for documentation
+
+
+
+---++ ObjectMethod *isGroup* <tt>($user) -> boolean</tt>
+
+See baseclass for documentation
+
+
+
+---++ ObjectMethod *eachGroup* <tt>() -> ListIteratorofgroupnames</tt>
+
+See baseclass for documentation
+
+
+
+---++ ObjectMethod *eachMembership* <tt>($cUID) -> ListIteratorofgroupsthisuserisin</tt>
+
+See baseclass for documentation
+
+
+
+---++ ObjectMethod *isAdmin* <tt>($cUID) -> $boolean</tt>
+
+True if the user is an admin
+   * is $TWiki::cfg{SuperAdminGroup}
+   * is a member of the $TWiki::cfg{SuperAdminGroup}
+
+
+
+---++ ObjectMethod *findUserByEmail* <tt>($email) -> \@@cUIDs</tt>
+   * =$email= - email address to look up
+Return a list of canonical user names for the users that have this email
+registered with the password manager or the user mapping manager.
+
+The password manager is asked first for whether it maps emails.
+If it doesn't, then the user mapping manager is asked instead.
+
+
+
+---++ ObjectMethod *getEmails* <tt>($name) -> @@emailAddress</tt>
+
+If $name is a user, return their email addresses. If it is a group,
+return the addresses of everyone in the group.
+
+The password manager and user mapping manager are both consulted for emails
+for each user (where they are actually found is implementation defined).
+
+Duplicates are removed from the list.
+
+
+
+---++ ObjectMethod *setEmails* <tt>($cUID,@@emails) -> boolean</tt>
+
+Set the email address(es) for the given user.
+The password manager is tried first, and if it doesn't want to know the
+user mapping manager is tried.
+
+
+
+---++ StaticMethod *mapper_getEmails* <tt>($session,$user)</tt>
+
+Only used if passwordManager->isManagingEmails= = =false
+(The emails are stored in the user topics.
+
+Note: This method is PUBLIC because it is used by the tools/upgrade_emails.pl
+script, which needs to kick down to the mapper to retrieve email addresses
+from TWiki topics.
+
+
+
+---++ StaticMethod *mapper_setEmails* <tt>($session,$user,@@emails)</tt>
+
+Only used if =passwordManager->isManagingEmails= = =false=.
+(emails are stored in user topics
+
+
+
+---++ ObjectMethod *getMustChangePassword* <tt>($cUID) -> $flag</tt>
+
+Returns 1 if the $cUID must change the password, else 0. Returns undef if $cUID not found.
+
+
+
+---++ ObjectMethod *getUserData* <tt>($cUID) -> $dataRef</tt>
+
+Return a reference to an array of hashes with user data, used to manage 
+users. Each item is a hash with:
+
+   * ={name}= - name of field, such as "email"
+   * ={title}= - title of field, such as "E-mail"
+   * ={value}= - value of field, such as "jimmy@@example.com"
+   * ={type}= - type of field: =text=, =password=, =checkbox=, =label=
+   * ={size}= - size of field, such as =40=
+   * ={note}= - comment note, if any
+
+User management forms can be build dynamically from this data structure.
+Each password manager may return a different set of fields.
+
+
+
+---++ ObjectMethod *setUserData* <tt>($cUID,$dataRef)</tt>
+
+Set the user data of a user. Same array of hashes as getUserData is 
+assumed, although only ={name}= and ={value}= are used.
+
+
+
+---++ ObjectMethod *findUserByWikiName* <tt>($wikiname) -> listofcUIDsassociatedwiththatwikiname</tt>
+
+See baseclass for documentation
+
+The $skipExistanceCheck parameter
+is private to this module, and blocks the standard existence check
+to avoid reading .htpasswd when checking group memberships).
+
+
+
+---++ ObjectMethod *checkPassword* <tt>($login,$password) -> $boolean</tt>
+
+Finds if the password is valid for the given user.
+
+Returns 1 on success, undef on failure.
+
+
+
+---++ ObjectMethod *setPassword* <tt>($cUID,$newPassU,$oldPassU,$mcp) -> $boolean</tt>
+
+BEWARE: $user should be a cUID, but is a login when the resetPassword
+functionality is used.
+The UserMapper needs to convert either one to a valid login for use by
+the Password manager
+
+TODO: needs fixing
+
+If the $oldPassU matches matches the user's password, then it will
+replace it with $newPassU.
+
+If $oldPassU is not correct and not 1, will return 0.
+
+If $oldPassU is 1, will force the change irrespective of
+the existing password, adding the user if necessary.
+
+Otherwise returns 1 on success, undef on failure.
+
+
+
+---++ ObjectMethod *passwordError* <tt>() -> $string</tt>
+
+returns a string indicating the error that happened in the password handlers
+TODO: these delayed error's should be replaced with Exceptions.
+
+returns undef if no error
+
+
+@

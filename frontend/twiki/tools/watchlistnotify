@@ -1,0 +1,94 @@
+#!/usr/bin/perl -w
+#
+# Script for TWiki Enterprise Collaboration Platform, http://TWiki.org/
+#
+# Copyright (C) 2014 Timothe Litt
+# Copyright (C) 2013-2015 Wave Systems Corp.
+# Copyright (C) 2013-2018 Peter Thoeny, peter[at]thoeny.org
+# Copyright (C) 2013-2018 TWiki Contributors
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 3
+# of the License, or (at your option) any later version. For
+# more details read LICENSE in the root of this distribution.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details, published at
+# http://www.gnu.org/copyleft/gpl.html
+#
+# As per the GPL, removal of this notice is prohibited.
+#
+# Mail notification script, part of the WatchlistPlugin. You must
+# add the TWiki bin dir to the search path for this script, so it
+# can find the rest of TWiki, such as:
+# perl -I /var/www/twiki/bin /var/www/twiki/tools/watchlistnotify
+
+use strict;
+use warnings;
+
+use Carp;
+
+BEGIN {
+    $TWiki::cfg{Engine} = 'TWiki::Engine::CLI';
+    $SIG{__DIE__}       = \&Carp::confess;
+    $ENV{TWIKI_ACTION}  = 'watchlistnotify';
+    @INC = ( '.', grep { $_ ne '.' } @INC );
+    require 'setlib.cfg';
+    $TWiki::cfg{SwitchBoard} ||= {};
+    $TWiki::cfg{SwitchBoard}{watchlistnotify} = [
+        'TWiki::Plugins::WatchlistPlugin', 'watchlistNotify',
+        { watchlistnotify => 1 }
+    ];
+}
+
+use TWiki;
+use TWiki::UI;
+use TWiki::Time;    # Assumed loaded by WatchlistPlugin
+
+if ( $TWiki::RELEASE !~ /^TWiki-4\./ ) {
+
+    # V5+
+    no warnings 'once';
+    $TWiki::engine->run();    # Never returns
+    exit;
+}
+
+# V4 only
+
+my $verbose = 1;
+
+# Called from the command line
+foreach my $arg (@ARGV) {
+    if ( $arg eq "-q=1" || $arg eq "-quiet=1" ) {
+        $verbose = 0;
+    }
+}
+
+my $twiki = TWiki->new;
+$TWiki::Plugins::SESSION = $twiki;
+
+my $context = TWiki::Func::getContext();
+
+unless ( $context->{WatchlistPluginEnabled} ) {
+    die
+      "watchlistnotify: WatchlistPlugin is not active, notifications skipped\n";
+}
+
+# absolute URL context for links in email
+$context->{absolute_urls} = 1;
+
+# Setup query to match switches
+
+my $query = TWiki::Func::getCgiQuery();
+$query->param( 'quiet', !$verbose );
+
+# Invoke the notifier (does all webs)
+
+TWiki::Plugins::WatchlistPlugin::watchlistNotify();
+
+exit;
+
+# EOF

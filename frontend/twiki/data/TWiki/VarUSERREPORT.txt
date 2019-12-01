@@ -1,0 +1,18 @@
+%META:TOPICINFO{author="TWikiContributor" date="1360195407" format="1.1" version="1"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarUSERREPORT
+---+++ USERREPORT -- show user reports with profile pictures
+   * Show various user reports documented in UserReports
+   * Syntax: =%<nop>USERREPORT{ action="..." ... }%=
+   * Overview of actions with parameters:
+     | *Report* | *action=* | *Parameters* |
+     | Show a simple list of registered users | ="user_list"= | =search=, =limit=, =sort=, =reverse= |
+     | Show the profile picture image of a user | ="profile_picture"= | =user=, =height=, =width=, =title= |
+     | Show slim, one line height user boxes | ="slim_box_start"= %BR% ="slim_box"= or %BR% ="slim_box_list"= %BR% ="slim_box_end"= | =style= %BR% =user=, =style= %BR% =users=, =style= %BR% none |
+     | Show small, two line height user boxes | ="small_box_start"= %BR% ="small_box"= or %BR% ="small_box_list"= %BR% ="small_box_end"= | =style= %BR% =user=, =style= %BR% =users=, =style= %BR% none |
+     | Show users in business card format | ="business_card_start"= %BR% ="business_card"= or %BR% ="business_card_list"= %BR% ="business_card_end"= | =style= %BR% =user=, =style= %BR% =users=, =style= %BR% none |
+     | Show a selector to pick a user,%BR% for use in HTML forms | ="select_one_user"= | =name=, =selected=, =users= |
+     | Show rows of checkboxes to select users,%BR% for use in HTML forms | ="select_users"= | =name=, =selected=, =users=, =colums=, =style= |
+   * Example: =%<nop>USERREPORT{ action="user_list" search="jane" limit="5" }%=
+   * Category: AdministrationVariables, DevelopmentVariables, UsersAndAuthenticationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarBUBBLESIG][BUBBLESIG]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarUSERSIG][USERSIG]], %USERSWEB%.UserList, UserReports

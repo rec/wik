@@ -1,0 +1,283 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2018.07.06.00.56.44;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2015.01.11.07.08.22;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2013.10.14.08.02.54;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1530838604" format="1.1" version="3"}%
+---+!! Date Picker Plugin
+<!--
+   Contributions to this plugin package are appreciated. Please update this page at
+   http://twiki.org/cgi-bin/view/Plugins/DatePickerPlugin or provide feedback at
+   http://twiki.org/cgi-bin/view/Plugins/DatePickerPluginDev.
+   If you are a TWiki contributor please update the extension in the SVN repository.
+-->
+<sticky>
+<div class="twikiTocFloat">
+%TOC{title="Page contents" depth="2"}%
+</div>
+<div style="float:right; margin:0 0 20px 20px; padding: 0 10px 0 10px;">
+<img src="%PUBURLPATH%/%WEB%/%TOPIC%/screenshot.png" alt="Date picker screenshot" width="237" height="202" />
+</div>
+</sticky>
+%SHORTDESCRIPTION%
+
+---++ Introduction
+
+The !DatePickerPlugin handles an input field with a pop-up calendar to select a date for use in TWiki forms and TWiki applications. The plugin is based on the [[http://www.dynarch.com/projects/calendar/old/][Mishoo JSCalendar]], a DHTML pop-up calendar. The date format can be customized.
+
+%X% __ATTENTION:__ This plugin replaces the JSCalendarContrib. The !DatePickerPlugin and older versions of the !JSCalendarContrib do not coexist. Before using the !DatePickerPlugin, uninstall the !JSCalendarContrib, or upgrade the contrib to version 2012-12-12 or later.
+
+---++ Use Date Picker in !TWikiForms
+
+This package adds a =date= type to %SYSTEMWEB%.TWikiForms:
+
+| *Type* | *Description* | *Size* | *Value* |
+| =date= | %IF{ "'%BASETOPIC%'!='%TOPIC%'" then="<img src='%PUBURLPATH%/%WEB%/DatePickerPlugin/screenshot-small.png' alt='screenshot-small' width='150' height='127' align='right' style='margin-left:15px;' /> "}%Text input field and a button next to it to pick a date from a pop-up calendar. The date can also be typed into the text box. %IF{ "'%BASETOPIC%'='TWikiForms'" then="[[DatePickerPlugin][See details]]." }% | Text box width in number of characters | Initial (default) date |
+
+Example form definition:
+
+| *Name:* | *Type:* | *Size* | *Values:* | *Tooltip message:* |
+| Start date | date | 12 | %SERVERTIME{$year-$mo-$day}% | Select start date |
+
+---++ Use Date Picker in HTML Forms
+
+You can also use the date picker directly in your HTML forms, without having to write any code. Just include this in the topic text:
+<pre>
+&lt;form action="..."&gt;
+%<nop>DATEPICKER{ name="Start_date" value="%SERVERTIME{$year-$mo-$day}%" }%
+&lt;form&gt;
+</pre>
+This will show an HTML input field named "Start_date" and a button to popup a calendar to select a date.
+
+%INCLUDE{ "VarDATEPICKER" section="parameters" }%
+
+Test: (this only works if the !DatePickerPlugin is installed and enabled)
+
+<form>
+%DATEPICKER{ name="Start_date" value="%SERVERTIME{$year-$mo-$day}%" }%
+</form>
+
+---++ Detailed Documentation
+
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}% "
+ hidelink="Hide details %ICONURL{toggleclose}% "
+}%
+
+
+Read [[%ATTACHURL%/doc/html/reference.html][the Mishoo documentation]] or
+[[%ATTACHURL%/index.html][visit the demo page]] for detailed information 
+on using the calendar widget.
+
+This plugin includes the following function to make using the calendar
+easier from other TWiki plugins:
+
+
+---+++ renderForEdit
+
+=TWiki::Plugins::DatePickerPlugin::renderForEdit( $name, $value, $format [, \%options] ) -> $html=
+
+This is the simplest way to use calendars from a plugin.
+   * =$name= is the name of the CGI parameter for the calendar
+     (it should be unique),
+   * =$value= is the current value of the parameter (may be undef)
+   * =$format= is the format to use (optional; the default is set
+     in =configure=). The HTML returned will display a date field
+     and a drop-down calendar.
+   * =\%options= is an optional hash containing base options for
+     the textfield.
+
+__Notes:__
+   * The CSS and Javascript are added if needed, e.g. the =addToHEAD()=
+     function does not need to be called.
+   * No output is shown if =$name= is empty or undef, but the CSS and
+     Javascript are loaded if needed. This can be used to preload the
+     CSS and Javascript with a parameterless =%<nop>DATEPICKER{}%=
+     variable.
+
+Example:
+<verbatim>
+use TWiki::Plugins::DatePickerPlugin;
+...
+my $fromDate = TWiki::Plugins::DatePickerPlugin::renderForEdit(
+   'from', '2012-12-31');
+my $toDate = TWiki::Plugins::DatePickerPlugin::renderForEdit(
+   'to', undef, '%Y');
+</verbatim>
+
+
+---+++ addToHEAD
+
+=TWiki::Plugins::DatePickerPlugin::addToHEAD( $setup )=
+
+This function will automatically add the headers for the calendar to the page
+being rendered. It's intended for use when you want more control over the
+formatting of your calendars than =renderForEdit= affords. =$setup= is the name
+of the calendar setup module; it can either be omitted, in which case the method
+described in the Mishoo documentation can be used to create calendars, or it
+can be ='twiki'=, in which case a Javascript helper function called
+'showCalendar' is added that simplifies using calendars to set a value in a
+text field. For example, say we wanted to display the date with the calendar
+icon _before_ the text field, using the format =%Y %b %e=
+<verbatim>
+use TWiki::Plugins::DatePickerPlugin;
+...
+
+sub commonTagsHandler {
+  ....
+  # Add styles and javascript for the date picker & enable 'showCalendar'
+  TWiki::Plugins::DatePickerPlugin::addToHEAD( 'twiki' );
+
+  my $cal = CGI::image_button(
+      -name => 'img_datefield',
+      -onclick =>
+       "return showCalendar('id_datefield','%Y %b %e')",
+      -src=> TWiki::Func::getPubUrlPath() . '/' .
+             TWiki::Func::getTwikiWebname() .
+             '/DatePickerPlugin/img.gif',
+      -alt => 'Calendar',
+      -align => 'middle' )
+    . CGI::textfield(
+      { name => 'date', id => "id_datefield" });
+  ....
+}
+</verbatim>
+
+The first parameter to =showCalendar= is the id of the textfield, and the 
+second parameter is the date format. Default format is ='%Y-%m-%d'=.
+
+The =addToHEAD= function can be called from =commonTagsHandler= for adding
+the header to all pages, or from =beforeEditHandler= just for edit pages etc.
+
+
+
+%ENDTWISTY%
+
+---++ Installation Instructions
+
+You do not need to install anything on the browser to use this plugin. These instructions are for the administrator who installs the plugin on the TWiki server.
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}% "
+ hidelink="Hide details %ICONURL{toggleclose}% "
+}%
+
+   * For an __automated installation__, run the [[%SCRIPTURL{configure}%][configure]] script and follow "Find More Extensions" in the in the __Extensions__ section.
+      * See the [[http://twiki.org/cgi-bin/view/Plugins/BuildContribInstallationSupplement][installation supplement]] on TWiki.org for more information.
+
+   * Or, follow these __manual installation__ steps:
+      * Download the ZIP file from the extension home on twiki.org (see below).
+      * Unzip ==%TOPIC%.zip== in your twiki installation directory.
+      * Set the ownership of the extracted directories and files to the webserver user.
+      * Install the dependencies (if any).
+
+   * Plugin __configuration and testing__: 
+      * Run the [[%SCRIPTURL{configure}%][configure]] script and enable the plugin in the __Plugins__ section.
+      * Configure additional plugin settings in the __Extensions__ section if needed.
+      * Test if the installation was successful using the examples provided.
+
+
+   * An administrator can customize the appearance of the calendar by modifying ={Plugins}{DatePickerPlugin}= settings in the "Extensions" section of configure:
+     | *Setting* | *Default* |
+     | =$TWiki::cfg{Plugins}{DatePickerPlugin}{Format}= | ='%Y-%m-%d'= |
+     | =$TWiki::cfg{Plugins}{DatePickerPlugin}{Lang}= | ='en'= |
+     | =$TWiki::cfg{Plugins}{DatePickerPlugin}{Style}= | ='twiki'= |
+
+%ENDTWISTY%
+
+---++ Plugin Info
+
+   * Set SHORTDESCRIPTION = Pop-up calendar with date picker, for use in TWiki forms, HTML forms and TWiki plugins
+
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  Author: | TWiki:Main.PeterThoeny, [[http://twiki.org/][TWiki.org]] |
+|  Copyright: | &copy; See [[%ATTACHURL%/doc/html/reference.html][the Mishoo documentation]] for Mishoo JSCalendar; %BR% &copy; 2012 [[http://www.wave.com/][Wave Systems Corp.]] for TWiki !DatePickerPlugin rewrite; %BR% &copy; 2004-2018 TWiki:Main.PeterThoeny for TWiki !DatePickerPlugin; %BR% &copy; 2004-2018 TWiki:TWiki.TWikiContributor for TWiki !DatePickerPlugin |
+|  Sponsor: | [[http://www.wave.com/][Wave Systems Corp.]] |
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+|  Dependencies: | JQueryPlugin (pre-installed) |
+|  Version: | 2018-07-05 |
+|  Change History: | <!-- versions below in reverse order -->&nbsp; |
+|  2018-07-05: | TWikibug:Item7841: Copyright update to 2018 |
+|  2016-01-08: | TWikibug:Item7708: Copyright update to 2016 |
+|  2015-01-10: | TWikibug:Item7604: Switch to GPL v3 |
+|  2014-12-11: | TWikibug:Item7577: TWiki form field type with configure attributes -- TWiki:Main.PeterThoeny |
+|  2013-09-04: | TWikibug:Item7333: Support more input field attributes, such as accesskey, pattern and required -- TWiki:Main.PeterThoeny |
+|  2013-01-09: | TWikibug:Item7091: Use TWISTY in detailed documentation section, installation instructions -- TWiki:Main.PeterThoeny |
+|  2012-12-20: | TWikibug:Item7077: Initial version, partly based on work of TWiki:Plugins.JSCalendarContrib -- TWiki:Main.PeterThoeny |
+|  Home: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC% |
+|  Feedback: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Dev |
+|  Appraisal: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Appraisal |
+
+__Related Topics:__ VarDATEPICKER, %SYSTEMWEB%.TWikiPreferences, %SYSTEMWEB%.TWikiForms, %SYSTEMWEB%.TWikiPlugins
+
+%META:FILEATTACHMENT{name="screenshot-small.png" attachment="screenshot-small.png" attr="h" comment="" date="1355129304" path="screenshot-small.png" size="5948" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="screenshot.png" attachment="screenshot.png" attr="h" comment="" date="1355129304" path="screenshot.png" size="21973" user="TWikiContributor" version="1"}%
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1420960102" format="1.1" version="2"}%
+d190 1
+a190 1
+|  Copyright: | &copy; See [[%ATTACHURL%/doc/html/reference.html][the Mishoo documentation]] for Mishoo JSCalendar; %BR% &copy; 2012 [[http://www.wave.com/][Wave Systems Corp.]] for TWiki !DatePickerPlugin rewrite; %BR% &copy; 2004-2015 TWiki:Main.PeterThoeny for TWiki !DatePickerPlugin; %BR% &copy; 2004-2015 TWiki:TWiki.TWikiContributor for TWiki !DatePickerPlugin |
+d194 1
+a194 1
+|  Version: | 2015-01-10 |
+d196 2
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1378336741" format="1.1" version="1"}%
+d10 1
+a10 1
+<div style="float:right; background-color:#EBEEF0; margin:0 0 20px 20px; padding: 0 10px 0 10px;">
+d190 1
+a190 1
+|  Copyright: | &copy; See [[%ATTACHURL%/doc/html/reference.html][the Mishoo documentation]] for Mishoo JSCalendar; %BR% &copy; 2012 [[http://www.wave.com/][Wave Systems Corp.]] for TWiki !DatePickerPlugin rewrite; %BR% &copy; 2004-2013 TWiki:Main.PeterThoeny for TWiki !DatePickerPlugin; %BR% &copy; 2004-2013 TWiki:TWiki.TWikiContributor for TWiki !DatePickerPlugin |
+d194 1
+a194 1
+|  Version: | 2013-09-04 |
+d196 2
+@

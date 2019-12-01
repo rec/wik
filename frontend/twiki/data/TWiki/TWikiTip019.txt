@@ -1,0 +1,21 @@
+%META:TOPICINFO{author="TWikiContributor" date="1277689756" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiTipsOfTheDay"}%
+---+ Commenting with hidden text
+
+To hide some text within a TWiki topic, use HTML comments. 
+
+Example comment within a sentence:
+
+=Visible &lt;!--- and hidden ---&gt; text=
+
+Example spanning multiple lines:
+<verbatim>
+<!--
+   * Useful to hide settings:
+      * Set EXAMPLE = This is hidden
+-->
+</verbatim>
+
+[[TWikiTipsOfTheDay][See More Tips...]]
+
+-- __Contributors:__ TWiki:Main.PaulineCheung

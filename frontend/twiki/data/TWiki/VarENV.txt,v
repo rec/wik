@@ -1,0 +1,51 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2012.11.12.08.22.16;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2008.01.22.03.21.32;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1352708536" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarENV
+---+++ ENV{"varname"} -- inspect the value of an environment variable
+   * Returns the current value of the environment variable in the CGI (Common Gateway Interface) environment. This is the environment that the TWiki scripts run in on the web server.
+   * __Note:__ For security reasons, only those variables whose names match the regular expression in ={AccessibleENV}= in the *Security Settings/Miscellaneous* section of =configure= can be displayed. Any other variable will just be shown as an empty string, irrespective of its real value.
+   * Example: =%<nop>ENV{MOD_PERL}%= displays as: %ENV{MOD_PERL}%
+   * If a variable is undefined (as against being set to the empty string) it will be returned as =not set=.
+   * Category: SystemInformationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarHTTPHOST][HTTP_HOST]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarREMOTEADDR][REMOTE_ADDR]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarREMOTEPORT][REMOTE_PORT]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarREMOTEUSER][REMOTE_USER]]
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1170581173" format="1.1" version="1"}%
+d9 1
+@

@@ -1,0 +1,67 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2011.07.28.22.00.09;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2010.05.29.14.45.03;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1311890409" format="1.1" version="2"}%
+---+ Top Menu of <nop>%WEB% Web
+
+This topic defines the menu structure of the <nop>%WEB% web, used by the [[%SYSTEMWEB%.TopMenuSkin][TopMenuSkin]].
+
+-----
+%INCLUDE{"%SYSTEMWEB%.TopMenuSkin"}%
+<div class="twTopMenuTab">%STARTINCLUDE%
+%INCLUDE{%SYSTEMWEB%.TopMenuSkinHomeMenu}%
+   * [[%BASEWEB%.%HOMETOPIC%][<img src="%ICONURL{web-bg}%" border="0" alt="" width="16" height="16" style="background-color:%WEBBGCOLOR%" /> <nop>%MAKETEXT{"[_1] Web" args="%BASEWEB{format="$current"}%"}% %ICON{menu-down}%]]
+      * [[%SCRIPTURLPATH{"view"}%/%BASEWEB%/WebCreateNewTopic?topicparent=%BASETOPIC%][ %ICON{"newtopic"}% %MAKETEXT{"Create New Topic"}%]]
+      * [[%BASEWEB%.WebTopicList][ %ICON{"index"}% %MAKETEXT{"Index"}%]]
+      * [[%BASEWEB%.WebSearch][ %ICON{"searchtopic"}% %MAKETEXT{"Search"}%]]
+      * [[%BASEWEB%.WebChanges][ %ICON{"changes"}% %MAKETEXT{"Changes"}%]]
+      * [[%BASEWEB%.WebNotify][ %ICON{"notify"}% %MAKETEXT{"Notifications"}%]]
+      * [[%BASEWEB%.WebRss][ %ICON{"feed"}% %MAKETEXT{"RSS Feed"}%]]
+      * [[%BASEWEB%.WebStatistics][ %ICON{"statistics"}% %MAKETEXT{"Statistics"}%]]
+      * [[%BASEWEB%.WebPreferences][ %ICON{"wrench"}% %MAKETEXT{"Preferences"}%]]
+%INCLUDE{%SYSTEMWEB%.TopMenuSkinTopicMenu}%
+%STOPINCLUDE%</div>
+-----
+
+   * Disable WYSIWYG editor for this page:
+      * Set EDITMETHOD = raw
+
+__Related topics:__ [[%SYSTEMWEB%.TopMenuSkin][TopMenuSkin]], [[%SYSTEMWEB%.TopMenuSkinHomeMenu][TopMenuSkinHomeMenu]], [[%SYSTEMWEB%.TopMenuSkinTopicMenu][TopMenuSkinTopicMenu]]
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1274422969" format="1.1" version="1"}%
+d23 3
+@

@@ -1,0 +1,229 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2013.10.14.08.02.47;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2010.05.29.14.44.48;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@---+ Package =TWiki::Engine=
+
+The engine class is a singleton that implements details about TWiki's
+execution mode. This is the base class and implements basic behavior.
+
+Each engine should inherits from this and overload methods necessary
+to achieve correct behavior.
+
+
+%TOC%
+
+---++ ObjectMethod *CRLF* <tt>() -> $crfl</tt>
+
+Utility constant. Defined as sub thus can be used from
+children objects.
+
+
+
+---++ ClassMethod *new* <tt>() -> $engine</tt>
+
+Constructs an engine object.
+
+
+
+---++ ObjectMethod *run* <tt>()</tt>
+
+Start point to TWiki Runtime Engines.
+
+
+
+---++ ObjectMethod *prepare* <tt>() -> $req</tt>
+
+Initialize a TWiki::Request object by calling many preparation methods
+and returns it, or a status code in case of error.
+
+
+
+---++ ObjectMethod *prepareConnection* <tt>($req)</tt>
+
+Abstract method, must be defined by inherited classes.
+   * =$req= - TWiki::Request object to populate
+
+Should fill remoteAddr, method and secure fields of =$req= object.
+
+
+
+---++ ObjectMethod *prepareQueryParameters* <tt>($req,$queryString)</tt>
+
+Should fill $req's query parameters field.
+
+This method populates $req as it should if given $queryString parameter.
+Subclasses may redefine this method and call SUPER with query string obtained.
+
+
+
+---++ ObjectMethod *prepareHeaders* <tt>($req)</tt>
+
+Abstract method, must be defined by inherited classes.
+   * =$req= - TWiki::Request object to populate
+
+Should fill $req's headers and remoteUser fields.
+
+
+
+---++ ObjectMethod *preparePath* <tt>($req)</tt>
+
+Abstract method, must be defined by inherited classes.
+   * =$req= - TWiki::Request object to populate
+
+Should fill $req's uri and pathInfo fields.
+
+
+
+---++ ObjectMethod *prepareCookies* <tt>($req)</tt>
+
+   * =$req= - TWiki::Request object to populate
+
+Should fill $req's cookie field. This method take cookie data from
+previously populated headers field and initializes from it. Maybe 
+doesn't need to overload in children classes.
+
+
+
+---++ ObjectMethod *prepareBody* <tt>($req)</tt>
+
+Abstract method, must be defined by inherited classes.
+   * =$req= - TWiki::Request object to populate
+
+Should perform any initialization tasks related to body processing.
+
+
+
+---++ ObjectMethod *prepareBodyParameters* <tt>($req)</tt>
+
+Abstract method, must be defined by inherited classes.
+   * =$req= - TWiki::Request object to populate
+
+Should fill $req's body parameters.
+
+
+
+---++ ObjectMethod *prepareUploads* <tt>($req)</tt>
+
+Abstract method, must be defined by inherited classes.
+   * =$req= - TWiki::Request object to populate
+
+Should fill $req's uploads field. Its a hashref whose keys are
+parameter names and values TWiki::Request::Upload objects.
+
+
+
+---++ ObjectMethod *finalize* <tt>($res,$req)</tt>
+
+Finalizes the request by calling many methods to send response to client and 
+take any appropriate finalize actions, such as delete temporary files.
+   * =$res= is the TWiki::Response object
+   * =$req= it the TWiki::Request object. Needed to finalizeUploads
+
+
+
+---++ ObjectMethod *finalizeUploads* <tt>($res,$req)</tt>
+
+Abstract method, must be defined by inherited classes.
+   * =$res= - TWiki::Response object to get data from
+   * =$req= - TWiki::Request object to get data from
+
+Should delete any temp files created in preparation phase.
+
+
+
+---++ ObjectMethod *finalizeError* <tt>($res)</tt>
+
+Called if some engine especific error happens.
+
+   * =$res= - TWiki::Response object to get data from
+
+
+
+---++ ObjectMethod *finalizeHeaders* <tt>($res,$req)</tt>
+
+Base method, must be redefined by inherited classes. For convenience
+this method deals with HEAD requests related stuff. Children classes
+should call SUPER.
+   * =$res= - TWiki::Response object to get data from
+   * =$req= - TWiki::Request object to get data from
+
+Should call finalizeCookies and then send $res' headers to client.
+
+
+
+---++ ObjectMethod *finalizeCookies* <tt>($res)</tt>
+
+   * =$res= - TWiki::Response object to both get data from and populate
+
+Should populate $res' headers field with cookies, if any.
+
+
+
+---++ ObjectMethod *finalizeBody* <tt>($res)</tt>
+
+   * =$res= - TWiki::Response object to get data from
+
+Should send $res' body to client. This method calls =write()=
+as needed, sou engines should redefine that method insted of this one.
+
+
+
+---++ ObjectMethod *prepareWrite* <tt>($res)</tt>
+
+Abstract method, must be defined by inherited classes.
+   * =$res= - TWiki::Response object to get data from
+
+Shold perform any task needed before writing.
+That's ok if none needed ;-)
+
+
+
+---++ ObjectMethod *write* <tt>($buffer)</tt>
+
+Abstract method, must be defined by inherited classes.
+   * =$buffer= - chunk of data to be sent
+
+Should send $buffer to client.
+
+
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 4
+---+ Package ==
+
+%TOC%
+---+!! package TWiki::Engine
+d10 2
+@

@@ -1,0 +1,29 @@
+%META:TOPICINFO{author="TWikiContributor" date="1472616094" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarEDITFORMFIELD
+---+++ EDITFORMFIELD{"fieldname" form=""} -- render an input field specified in a form template topic
+   * Use this to create HTML forms that update TWikiForms, such as a custom "create new topic" form, or a topic header that allows users to change some form values at the top of the page. A valid form is composed of a start form type, various form fields, a submit type, and an end form type.
+   * Syntax:
+      * =%<nop>EDITFORMFIELD{"fieldname" form="...Form"}%= - create form field defined in a TWiki Form template
+      * =%<nop>EDITFORMFIELD{"fieldname" topic="..."}%= - create form field based on a topic that has a TWiki Form & initialize its value
+      * =%<nop>EDITFORMFIELD{"fieldname" type="..."}%= - create an HTML input field
+   * Supported parameters:
+     | *Parameter:* | *Description:* | *Default:* |
+     | ="fieldname"= | The name of a [[TWikiForms][TWiki form]] field or HTML form field. | Required |
+     | =form="..."= | Name of form template topic, such as ="BugForm"=. Specify topic name or =Web.TopicName= | <span style="white-space: nowrap;"> Either =form= or =topic= %BR% is required unless %BR% =type= is specified </span> |
+     | =topic="..."= | Name of topic containing form, such as ="Bug1234"=. Specify topic name or =Web.TopicName= |^|
+     | =format="..."= | Format string. Supported variables: %BB% =$inputfield= - rendered form input field. %BB% =$title= - raw field name (includes space and other special characters). %BB% =$name= - field name (sanitized title). %BB% =$size= - size of field or selector. %BB% =$value= - initial value, or select options. %BB% =$tooltip= - tooltip message. %BB% =$attributes= - type attributes, such as H for hidden, M for mandatory. %BB% =$extra= - extra information, such as %RED%*%ENDCOLOR% for mandatory field. %BR% See details in TWikiForms#FormFieldTypes. This parameter is ignored if =type="..."= is specified. | ="$inputfield"= |
+     | =value="..."= | Initial value of input field. If omitted and if =topic="..."= is specified, the value is taken from the named form field. | =""= |
+     | =type="start"= | Special case: Start an HTML form. Parameters: %BR% ="form" type="start" action="save" topic="..." method="" onsubmit="" onreset=""= %BB% =action=: Specify a [[TWikiScripts][TWiki script]] (=view=, =edit=, =save=, ...), or a full action URL, default ="view"=. %BB% =topic=: Specify topic name or =Web.TopicName=, default current topic; ignored if full action URL is provided. %BB% =method=: HTML form action method, default ="post"= for save action, else ="get"=. %BB% =onsubmit=: Execute !JavaScript when the form is submitted, optional. %BB% =onreset=: Execute !JavaScript when the reset button is clicked, optional. | =""= |
+     | =type="end"= | Special case: End an HTML form. Parameters: %BR% ="form" type="end"= | =""= |
+     | =type="..."= | Special case: Create an input field regardless of the type defined in the !TWikiForm. Used mainly for hidden fields and submit button. The nameless parameter is the field name. Supported types: %BB% ="fieldname" type="hidden" value="..."= - hidden input field. %BB% ="fieldname" type="submit" value="..."= - submit button, =value= is button label. %BB% ="fieldname" type="button" value="..." onclick="..."= - regular button, =value= is button label. %BB% ="fieldname" type="text" value="..." size="80"= - text input field. %BB% ="fieldname" type="textarea" value="..." size="80x6"= - multi line text area field, =size= denotes columns x rows. %BB% ="fieldname" type="checkbox" value="..." text="..."= - checkbox, =text= is display text. %BB% ="fieldname" type="radio" value="..." text="..."= - radio button, =text= is display text. %BB% In addition, any valid XHML and HTML5 input type is supported, such as =type="date"=, =type="file"=, =type="image"=. %BR% Additional type-specific parameters can be supplied, such as =alt="..."=, =checked="checked"=, =class="..."=, =max="..."=, =min="..."=, =placeholder="..."=, =src="..."=, =style="..."=, =width="..."=. Consult HTML documentation. | =""= |
+   * Example: =%<nop>EDITFORMFIELD{ "ReleaseType" form="PackageForm" value="Beta-1" }%=
+   * Example: Custom form in an included header to update some values of the base topic
+     %BR% =%<nop>EDITFORMFIELD{ "form" type="start" action="save" topic="%<nop>BASEWEB%.%<nop>BASETOPIC%" method="post" }%=
+     %BR% =| Priority: | %<nop>EDITFORMFIELD{ "Priority" topic="%<nop>BASETOPIC%" }% |=
+     %BR% =| Status:   | %<nop>EDITFORMFIELD{ "Status"   topic="%<nop>BASETOPIC%" }% |=
+     %BR% =|  | %<nop>EDITFORMFIELD{ "form" type="submit" value="Update" }% |=
+     %BR% =%<nop>EDITFORMFIELD{ "Updated" type="hidden" value="%<nop>SERVERTIME{$year-$mo-$day}%" }%=
+     %BR% =%<nop>EDITFORMFIELD{ "form" type="end" }%=
+   * Category: DatabaseAndFormsVariables, DevelopmentVariables, EditingAndContentUpdateVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarEDITFORM][EDITFORM]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarEDITTABLE][EDITTABLE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarFORM][FORM]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarFORMFIELD][FORMFIELD]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarMETASEARCH][METASEARCH]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSEARCH][SEARCH]], TWikiForms, FormattedSearch, QuerySearch, SearchHelp, TWikiScripts, TWikiTemplates

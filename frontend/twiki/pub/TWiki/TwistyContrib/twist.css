@@ -1,0 +1,27 @@
+.twistyHidden { display:none; }
+.twistyMakeHidden {} /* reserved */
+.twistyMakeVisible { display:none; }
+
+.twistyTrigger {}
+.twistyTrigger a:active,
+.twistyTrigger a:hover,
+.twistyTrigger a:link,
+.twistyTrigger a {
+  border: 0 none;
+  text-decoration: none;
+}
+.twistyContent {}
+.twistyPlaceholder { /* color to be implemented by skin */ }
+.twistyRememberSetting { /* behavior class */ }
+.twistyForgetSetting { /* behavior class */ }
+.twistyStartHide { /* behavior class */ }
+.twistyStartShow { /* behavior class */ }
+.twistyInited1 { /* behavior class: state is set to shown */ }
+.twistyInited0 { /* behavior class: state is set to hidden */ }
+
+/* These styles are available in TWiki 4.2, but provided here for older TWiki versions: */
+.twikiMakeVisible,
+.twikiMakeVisibleInline,
+.twikiMakeVisibleBlock {
+	display:none; /* will be made visible with javascript */
+}

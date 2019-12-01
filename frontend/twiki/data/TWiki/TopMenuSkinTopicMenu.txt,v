@@ -1,0 +1,135 @@
+head	1.4;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.4
+date	2013.03.03.23.53.18;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2011.07.28.22.00.57;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2010.06.06.07.19.14;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2010.05.29.14.44.54;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1362354798" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TopMenuSkinDefaultWebTopMenu"}%
+---+ Topic Menu of !TopMenuSkin
+
+This topic defines the Topic pulldown menu with topic actions, used by the TopMenuSkin.
+
+-----
+%INCLUDE{"TopMenuSkin"}%
+<div class="twTopMenuTab">%STARTINCLUDE%<nop>
+   * %META{
+ "parent"
+ nowebhome="on"
+ prefix="<img src='%PUBURL%/%SYSTEMWEB%/TopMenuSkin/menu-right.png' alt='' width='8' height='22' />$n   * "
+ separator="$n   * <img src='%PUBURL%/%SYSTEMWEB%/TopMenuSkin/menu-right.png' alt='' width='8' height='22' />$n   * "
+ format="<a href='%SCRIPTURL{view}%/$web/$topic' title='$topic (parent topic)'>P</a>"
+}%
+   * <img src='%PUBURL%/%SYSTEMWEB%/TopMenuSkin/menu-right.png' alt='' width='8' height='22' />
+   * <a href="%SCRIPTURL{view}%/%BASEWEB%/%BASETOPIC%" title="%MAKETEXT{"Topic"}% <nop>%BASETOPIC% -- %REVINFO{ "<nop>$wikiname - $date - r$rev" web="%BASEWEB%" topic="%BASETOPIC%" }%">%MAKETEXT{"View"}% %ICONURL{menu-down}%</a>
+      * <a href='%SCRIPTURLPATH{"view"}%/%BASEWEB%/%BASETOPIC%?raw=on%REVARG%' rel='nofollow' title='View raw text without formatting'>%MAKETEXT{"Raw View"}%</a>
+      * <a href='%SCRIPTURLPATH{"view"}%/%BASEWEB%/%BASETOPIC%?cover=print%REVARG%' rel='nofollow' title='Printable version of this topic'>%MAKETEXT{"Print version"}%</a>
+      * <a href='%SCRIPTURLPATH{"oops"}%/%BASEWEB%/%BASETOPIC%?template=backlinksweb' rel='nofollow' title='Search the <nop>%BASEWEB% web for topics that link to here'>%MAKETEXT{"Find backlinks"}%</a>
+      * <a href='%SCRIPTURLPATH{"rdiff"}%/%BASEWEB%/%BASETOPIC%?type=history' rel='nofollow' title='View total topic history'>%MAKETEXT{"History"}%</a>
+      * <a href='%SCRIPTURLPATH{"oops"}%/%BASEWEB%/%BASETOPIC%?template=oopsmore&param1=%MAXREV%&param2=%CURRREV%' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions'>%MAKETEXT{"More topic actions"}%</a>
+%IF{
+ "defined 'READONLYSKINMODE' AND ($ READONLYSKINMODE > 0)"
+ then="<nop>"
+ else="   * %IF{"context new_topic" then="<a href='%SCRIPTURL{edit}%/%BASEWEB%/%BASETOPIC%?t=%GMTIME{$epoch}%%TMPL:P{"url_param_editaction"}%' rel='nofollow' title='Create new topic'>%MAKETEXT{"Create"}% %ICONURL{menu-down}%</a>" else="<a href='%SCRIPTURL{edit}%/%BASEWEB%/%BASETOPIC%?t=%GMTIME{$epoch}%%TMPL:P{"url_param_editaction"}%' rel='nofollow' title='Edit this topic text'>%MAKETEXT{"Edit"}% %ICONURL{menu-down}%</a>" }%
+      * <a href='%SCRIPTURL{edit}%/%BASEWEB%/%BASETOPIC%?t=%GMTIME{$epoch}%%TMPL:P{"url_param_editaction"}%;nowysiwyg=1' rel='nofollow' title='Raw Edit this topic text'>%MAKETEXT{"Raw edit"}%</a>
+      * <a href='%SCRIPTURLPATH{attach}%/%BASEWEB%/%BASETOPIC%' rel='nofollow' title='Attach an image or document to this topic'>%MAKETEXT{"Attach file or image"}%</a>
+      * [[%SCRIPTURL{manage}%/%BASEWEB%/%BASETOPIC%?t=%SERVERTIME{$epoch}%;action=editSettings][%MAKETEXT{"Edit topic preference settings"}%]]
+      * [[%SCRIPTURL{oops}%/%BASEWEB%/%BASETOPIC%?template=oopsmore#SetParent][%MAKETEXT{"Set new parent"}%]]
+      * <a href='%SCRIPTURLPATH{oops}%/%BASEWEB%/%BASETOPIC%?template=oopsmore&param1=%MAXREV%&param2=%CURRREV%' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions'>%MAKETEXT{"More topic actions"}%</a>"
+}%
+%IF{
+ "context WatchlistPluginEnabled AND context authenticated"
+ then="   * $percntWATCHLIST{ \"showwatchlink\" format=\"<a href='$url' title='$watch this topic'>$watch %ICON{ "menu-down" format="<img src='$urlpath' width='$width' height='$height' border='0' alt='' />" }%</a>\" }$percnt
+      * $percntWATCHLIST{ \"showwatchlistlink\" format=\"[[$url][Watchlist Changes]]\" }$percnt"
+ else="<nop>"
+}%
+<nop>%STOPINCLUDE%</div>
+-----
+
+   * Disable WYSIWYG editor for this page:
+      * Set EDITMETHOD = raw
+
+__Related topics:__ TopMenuSkin, TopMenuSkinTopBar, WebTopMenu, TopMenuSkinDefaultWebTopMenu, TopMenuSkinHomeMenu
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1311890457" format="1.1" version="3"}%
+d34 6
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1275808754" format="1.1" version="2"}%
+d24 4
+a27 1
+   * %IF{"context new_topic" then="<a href='%SCRIPTURL{edit}%/%BASEWEB%/%BASETOPIC%?t=%GMTIME{$epoch}%%TMPL:P{"url_param_editaction"}%' rel='nofollow' title='Create new topic'>%MAKETEXT{"Create"}% %ICONURL{menu-down}%</a>" else="<a href='%SCRIPTURL{edit}%/%BASEWEB%/%BASETOPIC%?t=%GMTIME{$epoch}%%TMPL:P{"url_param_editaction"}%' rel='nofollow' title='Edit this topic text'>%MAKETEXT{"Edit"}% %ICONURL{menu-down}%</a>" }%
+d32 2
+a33 1
+      * <a href='%SCRIPTURLPATH{oops}%/%BASEWEB%/%BASETOPIC%?template=oopsmore&param1=%MAXREV%&param2=%CURRREV%' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions'>%MAKETEXT{"More topic actions"}%</a>
+d37 3
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1274933558" format="1.1" version="1"}%
+d13 3
+a15 3
+ prefix="<img src='%PUBURL%/%SYSTEMWEB%/TopMenuSkin/menu-right.gif' alt='' width='10' height='16' />$n   * "
+ separator="$n   * <img src='%PUBURL%/%SYSTEMWEB%/TopMenuSkin/menu-right.gif' alt='' width='10' height='16' />$n   * "
+ format="<a href='%SCRIPTURL{view}%/$web/$topic' alt='$topic' title='$topic (parent topic)'>P</a>"
+d17 2
+a18 2
+   * <img src='%PUBURL%/%SYSTEMWEB%/TopMenuSkin/menu-right.gif' alt='' width='10' height='16' />
+   * <a href="%SCRIPTURL{view}%/%BASEWEB%/%BASETOPIC%" alt="%BASETOPIC%" title="%MAKETEXT{"Topic"}% <nop>%BASETOPIC% -- %REVINFO{ "<nop>$wikiname - $date - r$rev" web="%BASEWEB%" topic="%BASETOPIC%" }%">%MAKETEXT{"View"}% %ICONURL{menu-down}%</a>
+@

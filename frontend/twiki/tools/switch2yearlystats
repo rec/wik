@@ -1,0 +1,134 @@
+#!/usr/bin/perl
+#
+# TWiki Collaboration Platform, http://TWiki.org/
+#
+# Copyright (C) 2004 Wind River Systems Inc.
+# Copyright (C) 2004-2018 Peter Thoeny, peter[at]thoeny.org and
+# TWiki Contributors. All Rights Reserved. TWiki Contributors are
+# listed in the AUTHORS file in the root of this distribution.
+# NOTE: Please extend that file, not this notice.
+#
+# For licensing info read LICENSE file in the TWiki root.
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 3
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details, published at
+# http://www.gnu.org/copyleft/gpl.html
+#
+# As per the GPL, removal of this notice is prohibited.
+
+# This tool is to be executed before you run the =statistics= script 
+# after changing {Stats}{TopicPerYear} to true (it's false by default).
+# If {Stats}{TopicPerYear} is false, this script finishes without doing
+# anything.
+#
+# If you did set {Stats}{TopicPerYear} true when you started using TWiki,
+# you don't need to use this tool. Rather you must not run this tool.
+# Please read TWiki.TWikiSiteTools#WebStatisticsYYYY about this tool.
+
+# You must add the TWiki bin dir to the
+# search path for this script, so it can find the rest of TWiki e.g.
+# perl -I /usr/local/twiki/bin /usr/local/twiki/tools/switch2yearlystats
+
+use warnings;
+use strict;
+
+BEGIN {
+    require 'setlib.cfg';
+}
+
+require TWiki;
+require TWiki::Time;
+
+$TWiki::cfg{Stats}{TopicPerYear} or
+    die "{Stats}{TopicPerYear} is false, which is unexpected. Exiting.\n";
+$TWiki::cfg{Plugins}{RTNotifyPlugin}{Enabled} = 0;
+    # To suppress real-time notification in case it's enabled.
+    # I know It's bad to have a line for an unbundled plug-in in a file in
+    # TWiki core, especially if the plug-in is not contributed to twiki.org.
+    # Please forgive me since the line above is harmless.
+    # -- Main.HideyoImazu
+my $session = new TWiki($TWiki::cfg{SuperAdminGroup});
+my $store = $session->{store};
+my $year = TWiki::Time::formatTime(time(), '$year', 'gmtime');
+
+# If *Statistics includes *StatisticsFooter:
+#   If it's empty, nothing needs to be done.
+#   If it's not empty, it's renamed to *StatisticsYYYY where YYYY is the
+#   current year
+# If *Statistics does not include *StatisticsFooter:
+#   It's moved to *Statistics0000
+sub moveToYYYYAndCopyTmpl {
+    my ($web, $topic, $tmplWeb, $tmplTopic) = @_;
+    print STDERR "$web.$topic\n";
+    if ( $store->topicExists($web, $topic) ) {
+        my ($meta, $text) = $store->readTopic(undef, $web, $topic);
+        my @rowHeads = $text =~ /^\|/mg;
+            # to checks if it's empty - if it has two tables rows or less,
+            # it's empty.
+        if ( $text =~ /%INCLUDE{.*StatisticsFooter\b/ ) {
+            # new format
+            if ( @rowHeads > 2 ) {
+                # not empty
+                if ( $store->topicExists($web, $topic.$year) ) {
+                    print STDERR
+                    "$topic$year already exists. $topic is not moved\n";
+                }
+                else {
+                    $store->moveTopic($web, $topic, $web, $topic.$year);
+                    print STDERR "$topic -> $topic$year\n";
+                }
+            }
+            # if it's in the new format and empty, nothing needs to be done
+        }
+        else {
+            # old format
+            if ( $store->topicExists($web, $topic.'0000') ) {
+                print STDERR
+                "${topic}0000 already exists. $topic is not moved\n";
+            }
+            else {
+                $store->moveTopic($web, $topic, $web, $topic.'0000');
+                print STDERR "$topic -> ${topic}0000\n";
+            }
+        }
+    }
+
+    # create a new empty Statistics
+    unless ( $store->topicExists($web, $topic) ) {
+        # If the Statistics topic has not been moved, it won't be overwritten
+        my ($meta, $text) = $store->readTopic(undef, $tmplWeb, $tmplTopic);
+        $store->saveTopic(
+            $session->{user}, $web, $topic, $text, $meta,
+            { minor => 1, dontlog => 1 },
+        );
+    }
+}
+
+my @weblist = $store->getListOfWebs('user,writable');
+
+# process Main.SiteStatistics
+if ( grep { $_ eq $TWiki::cfg{UsersWebName} } @weblist ) {
+    moveToYYYYAndCopyTmpl(
+        $TWiki::cfg{UsersWebName},
+        $TWiki::cfg{Stats}{SiteStatsTopicName} || 'SiteStatistics',
+        $TWiki::cfg{SystemWebName},
+        'SiteStatisticsTemplate',
+    );
+}
+
+# process WebStatistics
+my $webStatsTopic = $TWiki::cfg{Stats}{TopicName} || 'WebStatistics';
+foreach my $web ( @weblist ) {
+    if ( $TWiki::cfg{Stats}{ExcludedWebRegex} ) {
+        next if ( $web =~ /$TWiki::cfg{Stats}{ExcludedWebRegex}/ );
+    }
+    moveToYYYYAndCopyTmpl($web, $webStatsTopic, '_default', $webStatsTopic);
+}
+
+exit 0;

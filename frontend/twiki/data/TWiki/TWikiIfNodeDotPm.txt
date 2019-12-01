@@ -1,0 +1,6 @@
+---+ Package =TWiki::If::Node=
+
+Node class for the result of an If statement parse
+
+
+%TOC%

@@ -1,0 +1,211 @@
+head	1.4;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.4
+date	2013.04.05.07.00.57;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2011.02.02.05.01.06;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2010.05.29.14.45.03;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2009.03.30.09.18.26;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1365145257" format="1.1" version="4"}%
+---+!! <nop>%WEB% Web Preferences
+
+<sticky><div style="float:right; background-color:#EBEEF0; margin:0 0 20px 20px; padding: 0 10px 0 10px;">
+%TOC{ title="Page contents" }%
+</div></sticky>
+The following settings are __web preferences__ of the [[%WEB%.%HOMETOPIC%][%WEB%]] web. These preferences override the __site-level preferences__ in [[%SYSTEMWEB%.%WIKIPREFSTOPIC%]] and [[%LOCALSITEPREFS%]], and can be overwritten by __user preferences__ (your personal topic, such as [[%USERSWEB%.%WIKINAME%][%WIKINAME%]] in the [[%USERSWEB%.%HOMETOPIC%][%USERSWEB%]] web). These web preferences can be overridden by __topic preferences__, e.g. preferences in individual topics.
+
+%EDITPREFERENCES{"%SYSTEMWEB%.TWikiPreferencesForm"}%
+
+---++ Web Preferences Settings
+
+These settings override the defaults for this web only. See [[%SYSTEMWEB%.TWikiPreferences#DefaultWebPreferences][full list of defaults with explanation]].
+
+   * Web Settings used in [[%SYSTEMWEB%.SiteMap][SiteMap]], configured automatically when you create a web: <div style='background-color: %WEBBGCOLOR%;float: right'> &nbsp;%WEBBGCOLOR%&nbsp; </div>
+      * Set WEBBGCOLOR = #DDDDDD
+      * Set SITEMAPWHAT = 
+      * Set SITEMAPLIST = on
+
+   * Exclude web from a =web="all"= search: (Set to =on= for hidden webs, default is empty)
+      * Set NOSEARCHALL = on
+
+   * Prevent automatic linking of [[%SYSTEMWEB%.WikiWords][WikiWords]] and acronyms (if set to =on=); link <nop>WikiWords (if empty):
+      * #Set NOAUTOLINK = 
+      * __Note:__ You can still use the =[<nop>[...][...]]= syntax to link topics if you disabled <nop>WikiWord linking.%BR% The =&lt;noautolink&gt; ... &lt;/noautolink&gt;= syntax can be used to prevents links within a block of text.
+
+   * Default template for *new topics* in this web:
+      * WebTopicEditTemplate: Default template for new topics in this web (if it exists, it overrides the site-level template)
+      * [[%USERSWEB%.WebTopicEditTemplate]]: Site-level default topic template (if it exists, it overides the system-level template)
+      * [[%SYSTEMWEB%.WebTopicEditTemplate]]: System-level default topic template (do not modify! Create a site-level template in the %USERS% web instead)
+
+---++ Access Control and Security
+
+   * Users or groups who __are not__ / __are__ allowed to __view__ / __change__ / __rename__ topics in the <nop>%WEB% web: (See [[%SYSTEMWEB%.TWikiAccessControl][TWikiAccessControl]]).
+      * Set DENYWEBVIEW = 
+      * Set ALLOWWEBVIEW = 
+      * Set DENYWEBCHANGE = 
+      * Set ALLOWWEBCHANGE = 
+      * Set DENYWEBRENAME = 
+      * Set ALLOWWEBRENAME = 
+
+   * Users or groups allowed to change or rename this <nop>%TOPIC% topic: (e.g., [[%USERSWEB%.TWikiAdminGroup][TWikiAdminGroup]])
+      * Set ALLOWTOPICCHANGE = %USERSWEB%.TWikiAdminGroup
+      * Set ALLOWTOPICRENAME = %USERSWEB%.NobodyGroup
+
+   * Web preferences that are *not* allowed to be overridden by sub-web, user or topic preferences:
+      * Set FINALPREFERENCES = NOSEARCHALL, ATTACHFILESIZELIMIT, WIKIWEBMASTER, WEBCOPYRIGHT, WEBTOPICLIST, DENYWEBVIEW, ALLOWWEBVIEW, DENYWEBCHANGE, ALLOWWEBCHANGE, DENYWEBRENAME, ALLOWWEBRENAME
+
+%EDITPREFERENCES{"%SYSTEMWEB%.TWikiPreferencesForm"}%
+
+%INCLUDE{%SYSTEMWEB%.WebPreferencesHelp}%
+
+%META:FILEATTACHMENT{name="favicon.ico" attachment="favicon.ico" attr="" comment="placeholder favicon" date="1100974473" path="favicon.ico" size="318" user="TWikiContributor" version="1.1"}%
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1296622866" format="1.1" version="3"}%
+a31 2
+   * Comma separated list of *forms* that can be attached to topics in this web. See [[%SYSTEMWEB%.TWikiForms][TWikiForms]] for more information.
+      * Set WEBFORMS = 
+d49 2
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1273167157" format="1.1" version="2"}%
+d4 4
+a7 1
+The following settings are __web preferences__ of the [[%WEB%.%HOMETOPIC%][%WEB%]] web. These preferences overwrite the __site-level preferences__ in [[%SYSTEMWEB%.%WIKIPREFSTOPIC%]] and [[%LOCALSITEPREFS%]], and can be overwritten by __user preferences__ (your personal topic, eg: [[%USERSWEB%.%WIKINAME%][%WIKINAME%]] in the [[%USERSWEB%.%HOMETOPIC%][%USERSWEB%]] web).
+d9 1
+a9 1
+%TOC%
+d13 1
+a13 1
+These settings override the defaults for this web only. See [[%SYSTEMWEB%.TWikiPreferences#DefaultWebPreferences][full list of defaults with explanation]]. Many of the settings below are commented out. Remove the # sign to enable a local customisation.
+d15 1
+a15 7
+   * List of topics of the <nop>%WEB% web:
+      * #Set WEBTOPICLIST = %WEBTOPICLIST%
+
+<div style='background-color: %WEBBGCOLOR%;float: right'>
+&nbsp;%WEBBGCOLOR%&nbsp;
+</div>
+   * Web-specific background color: (Pick a lighter one of the [[%SYSTEMWEB%.StandardColors][StandardColors]]).
+d17 2
+a18 1
+      * __Note:__ This setting is automatically configured when you create a web
+d20 2
+a21 11
+   * Image, URL and alternate tooltip text of web's logo.%BR%
+     __Note:__ Don't add your own local logos to the [[%SYSTEMWEB%.TWikiLogos][TWikiLogos]] topic; create your own logos topic instead.
+      * #Set WEBLOGOIMG = %WEBLOGOIMG%
+      * #Set WEBLOGOURL = %WEBLOGOURL%
+      * #Set WEBLOGOALT = %WEBLOGOALT%
+
+   * List this web in the [[%SYSTEMWEB%.SiteMap][SiteMap]]. If you want the web listed, then set SITEMAPLIST to =on=, do not set NOSEARCHALL, and add the "what" and "use to..." description for the site map. Use links that include the name of the web, i.e. <nop>%WEB%.Topic links.%BR%
+      __Note:__ Unlike other variables, the setting of SITEMAPLIST is *not* inherited from parent webs. It has to be set in *every* web that is to be listed in the [[%SYSTEMWEB%.SiteMap][SiteMap]] %BR%
+      * Set SITEMAPLIST = on
+      * Set SITEMAPWHAT = 
+      * __Note:__ Above settings are automatically configured when you create a web
+d23 8
+a30 11
+   * Exclude web from a =web="all"= search: (Set to =on= for hidden webs).
+      * Set NOSEARCHALL = 
+      * __Note:__ This setting is automatically configured when you create a web
+
+   * Prevent automatic linking of [[%SYSTEMWEB%.WikiWords][WikiWords]] and acronyms (if set to =on=); link <nop>WikiWords (if empty); can be overwritten by web preferences:
+      * #Set NOAUTOLINK = %NOAUTOLINK%
+      * __Note:__ You can still use the =[<nop>[...][...]]= syntax to link topics if you disabled <nop>WikiWord linking. The =&lt;noautolink&gt; ... &lt;/noautolink&gt;= syntax can be used to prevents links within a block of text.
+
+   * Default template for *new topics* for this web:
+      * WebTopicEditTemplate: Default template for new topics in this web. (Site-level is used if topic does not exist)
+      * [[%SYSTEMWEB%.WebTopicEditTemplate]]: Site-level default topic template
+d33 2
+a34 1
+      * Set WEBFORMS =
+d45 2
+a46 2
+      * Set ALLOWTOPICCHANGE = 
+      * Set ALLOWTOPICRENAME = 
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 2
+%META:TOPICINFO{author="TWikiContributor" date="1172730733" format="1.0" version="1"}%
+%META:TOPICPARENT{name="WebHome"}%
+d4 1
+a4 1
+The following settings are __web preferences__ of the [[%WEB%.%HOMETOPIC%][%WEB%]] web. These preferences overwrite the __site-level preferences__ in [[%SYSTEMWEB%.%WIKIPREFSTOPIC%]] and [[%LOCALSITEPREFS%]], and can be overwritten by __user preferences__ (your personal topic, eg: %USERSWEB%.%WIKINAME% in the [[%USERSWEB%.%HOMETOPIC%][%USERSWEB%]] web).
+d18 1
+a18 1
+   * Web-specific background color: (Pick a lighter one of the %SYSTEMWEB%.StandardColors).
+d23 1
+a23 1
+     __Note:__ Don't add your own local logos to the %SYSTEMWEB%.TWikiLogos topic; create your own logos topic instead.
+d28 2
+a29 2
+   * List this web in the %SYSTEMWEB%.SiteMap. If you want the web listed, then set SITEMAPLIST to =on=, do not set NOSEARCHALL, and add the "what" and "use to..." description for the site map. Use links that include the name of the web, i.e. <nop>%WEB%.Topic links.%BR%
+      __Note:__ Unlike other variables, the setting of SITEMAPLIST is *not* inherited from parent webs. It has to be set in *every* web that is to be listed in the %SYSTEMWEB%.SiteMap %BR%
+a31 1
+      * Set SITEMAPUSETO = 
+d46 1
+a46 1
+   * Comma separated list of *forms* that can be attached to topics in this web. See %SYSTEMWEB%.TWikiForms for more information.
+d49 1
+a49 1
+   * Users or groups who __are not__ / __are__ allowed to __view__ / __change__ / __rename__ topics in the <nop>%WEB% web: (See %SYSTEMWEB%.TWikiAccessControl).
+d57 1
+a57 1
+   * Users or groups allowed to change or rename this <nop>%TOPIC% topic: (e.g., %USERSWEB%.TWikiAdminGroup)
+d66 1
+a66 1
+%META:FILEATTACHMENT{name="favicon.ico" attachment="favicon.ico" attr="" comment="placeholder favicon" date="1100974473" path="favicon.ico" size="318" tmpFilename="/var/tmp/CGItemp25580" user="TWikiContributor" version="1.1"}%
+@

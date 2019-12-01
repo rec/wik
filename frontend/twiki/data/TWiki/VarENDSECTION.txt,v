@@ -1,0 +1,118 @@
+head	1.5;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.5
+date	2012.11.12.08.21.27;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2010.05.29.14.44.42;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2009.03.30.09.18.18;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.01.22.03.21.33;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.06.25.16.26.28;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1352708487" format="1.1" version="5"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarENDSECTION
+---+++ ENDSECTION{"name"} -- marks the end of a named section within a topic
+   * Syntax: =%<nop>ENDSECTION{"name"}%=
+   * Syntax: =%<nop>ENDSECTION{type="include"}%=
+   * Syntax: =%<nop>ENDSECTION{type="templateonly"}%=
+   * Syntax: =%<nop>ENDSECTION{type="expandvariables"}%=
+   * Supported parameter:
+     | *Parameter:* | *Description:* |
+     | ="name"= | Name of the section. |
+     | =type="..."= | Type of the section being terminated; supported types ="section"=, ="include"=, ="templateonly"=, ="expandvariables"= |
+   * If the =STARTSECTION= is named, the corresponding =ENDSECTION= must also be named with the same name. If the =STARTSECTION= specifies a type, then the corresponding =ENDSECTION= must also specify the same type. If the section is unnamed, =ENDSECTION= will match with the nearest unnamed =%<nop>STARTSECTION%= *of the same type* above it. 
+   * Category: DevelopmentVariables, WorkflowAndAutomationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENDSECTION][ENDSECTION]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarINCLUDE][INCLUDE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSTARTINCLUDE][STARTINCLUDE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSTARTSECTION][STARTSECTION]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSTOPINCLUDE][STOPINCLUDE]]
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1274763999" format="1.1" version="4"}%
+d14 1
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1233237974" format="1.1" version="3"}%
+d14 1
+a14 1
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSTARTSECTION][STARTSECTION]]
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.1" version="2"}%
+d7 2
+d12 1
+a12 1
+     | =type="..."= | Type of the section being terminated; supported types ="section"=, ="include"=, ="templateonly"=. |
+a14 1
+
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.2" version="1"}%
+a3 1
+
+d12 1
+a12 1
+   * Related: [[#VarSTARTSECTION][STARTSECTION]]
+@

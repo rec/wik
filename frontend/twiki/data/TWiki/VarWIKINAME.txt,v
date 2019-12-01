@@ -1,0 +1,79 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2012.11.15.07.40.23;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.01.22.03.21.32;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.06.25.16.26.30;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1352965223" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarWIKINAME
+---+++ WIKINAME -- your Wiki username
+   * The WikiName is the same as =%<nop>USERNAME%= if not defined in the %USERSWEB%.%WIKIUSERSTOPIC% topic
+   * Syntax: =%<nop>WIKINAME%=
+   * Expands to: =%WIKINAME%=
+   * Note: When used in a template topic, this variable will be expanded when the template is used to create  new topic. See TWikiTemplates#TemplateTopicsVars for details.
+   * Category: SystemInformationVariables, UsersAndAuthenticationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarREMOTEUSER][REMOTE_USER]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarUSERINFO][USERINFO]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarUSERNAME][USERNAME]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWIKIUSERNAME][WIKIUSERNAME]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarWIKIUSERSTOPIC][WIKIUSERSTOPIC]]
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.1" version="2"}%
+d8 2
+a9 1
+   * __%X% Note:__ When used in a template topic, this variable will be expanded when the template is used to create  new topic. See TWikiTemplates#TemplateTopicsVars for details.
+a10 1
+
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.2" version="1"}%
+a3 1
+
+d5 1
+a5 1
+   * The WikiName is the same as =%<nop>USERNAME%= if not defined in the %MAINWEB%.%WIKIUSERSTOPIC% topic
+d9 1
+a9 1
+   * Related: [[#VarREMOTEUSER][REMOTE_USER]], [[#VarUSERINFO][USERINFO]], [[#VarUSERNAME][USERNAME]], [[#VarWIKIUSERNAME][WIKIUSERNAME]], [[#VarWIKIUSERSTOPIC][WIKIUSERSTOPIC]]
+@

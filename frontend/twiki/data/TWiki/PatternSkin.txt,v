@@ -1,0 +1,1404 @@
+head	1.32;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.32
+date	2018.07.06.04.31.36;	author TWikiContributor;	state Exp;
+branches;
+next	1.31;
+
+1.31
+date	2015.09.17.06.27.23;	author TWikiContributor;	state Exp;
+branches;
+next	1.30;
+
+1.30
+date	2014.07.17.19.07.07;	author TWikiContributor;	state Exp;
+branches;
+next	1.29;
+
+1.29
+date	2013.10.14.07.43.25;	author TWikiContributor;	state Exp;
+branches;
+next	1.28;
+
+1.28
+date	2013.01.11.01.42.32;	author TWikiContributor;	state Exp;
+branches;
+next	1.27;
+
+1.27
+date	2012.10.24.03.21.54;	author TWikiContributor;	state Exp;
+branches;
+next	1.26;
+
+1.26
+date	2012.03.23.18.45.21;	author TWikiContributor;	state Exp;
+branches;
+next	1.25;
+
+1.25
+date	2012.01.14.05.48.46;	author TWikiContributor;	state Exp;
+branches;
+next	1.24;
+
+1.24
+date	2011.07.28.22.08.43;	author TWikiContributor;	state Exp;
+branches;
+next	1.23;
+
+1.23
+date	2011.01.04.03.15.09;	author TWikiContributor;	state Exp;
+branches;
+next	1.22;
+
+1.22
+date	2010.09.25.00.59.45;	author TWikiContributor;	state Exp;
+branches;
+next	1.21;
+
+1.21
+date	2010.05.29.14.44.37;	author TWikiContributor;	state Exp;
+branches;
+next	1.20;
+
+1.20
+date	2009.04.29.20.53.45;	author TWikiContributor;	state Exp;
+branches;
+next	1.19;
+
+1.19
+date	2008.12.06.09.02.23;	author TWikiContributor;	state Exp;
+branches;
+next	1.18;
+
+1.18
+date	2008.08.03.22.17.43;	author TWikiContributor;	state Exp;
+branches;
+next	1.17;
+
+1.17
+date	2008.01.22.03.21.26;	author TWikiContributor;	state Exp;
+branches;
+next	1.16;
+
+1.16
+date	2007.01.16.04.12.06;	author TWikiContributor;	state Exp;
+branches;
+next	1.15;
+
+1.15
+date	2006.04.01.05.55.29;	author TWikiContributor;	state Exp;
+branches;
+next	1.14;
+
+1.14
+date	2006.02.01.12.01.22;	author TWikiContributor;	state Exp;
+branches;
+next	1.13;
+
+1.13
+date	2004.08.30.15.32.17;	author ArthurClemens;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2004.08.29.23.21.37;	author ArthurClemens;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2004.08.28.23.11.49;	author ArthurClemens;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2004.08.27.09.31.18;	author ArthurClemens;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2004.08.25.12.20.25;	author ArthurClemens;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2004.08.17.17.11.46;	author ArthurClemens;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2004.08.17.12.51.35;	author ArthurClemens;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2004.08.17.10.54.07;	author ArthurClemens;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2004.08.17.05.01.52;	author PeterThoeny;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2004.08.17.00.03.45;	author ArthurClemens;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2004.08.16.11.27.55;	author ArthurClemens;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2004.08.16.09.13.09;	author ArthurClemens;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2004.08.16.05.39.41;	author ArthurClemens;	state Exp;
+branches;
+next	;
+
+
+desc
+@none
+@
+
+
+1.32
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1530851496" format="1.1" version="32"}%
+---+!! Pattern Skin
+<!--
+   Contributions to this skin are appreciated. Please update the skin page at
+   http://twiki.org/cgi-bin/view/Plugins/PatternSkin or provide feedback at
+   http://twiki.org/cgi-bin/view/Plugins/PatternSkinDev.
+   If you are a TWiki contributor please update the skin in the SVN repository.
+-->
+<sticky>
+<div class="twikiTocFloat">
+%TOC{title="Page contents"}%
+</div>
+</sticky>
+%SHORTDESCRIPTION%. For use in corporate or perhaps in personal websites it should be fairly easy to tune the looks or even create a !PatternSkin-based new skin.
+<!--
+   * Set SHORTDESCRIPTION = CSS based skin with clean and productive editing environment
+-->
+
+---++ Screenshot
+
+<a href="%ATTACHURL%/patternskin_screenshot_full.png"><img src="%ATTACHURL%/patternskin_screenshot.png" style="border:1px solid #eee;" alt="Click for full screen image" width="600" height="130" /></a>
+<!--
+%SEARCH{ "%TOPIC%" scope="topic" nosearch="on" nototal="on" format="$pattern(.*\| *Screenshot\:[^\|]*\|([^\|]*).*)" }%
+<div class="twikiGrayText">Click to view full screenshot</div>-->
+
+---++ Creating your own look
+
+---+++ Template customization
+
+%SYSTEMWEB%.PatternSkinCustomization - how to configure page elements
+%TOC{"%SYSTEMWEB%.PatternSkinCustomization" title=" "}%
+
+---+++ Style sheet customization
+
+%SYSTEMWEB%.PatternSkinCssCookbook - how to customize the visual style
+%TOC{"%SYSTEMWEB%.PatternSkinCssCookbook" title=" "}%
+
+---+++ Changing graphics
+
+The original Photoshop files of the skin graphics (mainly background images) are attached to PatternSkinGraphics.
+
+---+++ Hide content in print
+
+Use the =hideInPrint= class to hide specific content from printing. Example:
+<verbatim>
+<div class="hideInPrint">
+This text does not show in print view
+</div>
+</verbatim>
+
+---++ Supported browsers
+
+!PatternSkin has been tested successfully on the following browsers:
+   * Windows
+      * Internet Explorer 8.0, 7.0, 6.0, 5.5
+      * Mozilla/Firefox 3.5, 2.0, 1.5
+   * Mac OS X
+      * Safari 5.0.5, 3.0.2
+      * Mozilla/Firefox 3.5, 2.0, 1.5
+   * *nix
+      * Mozilla/Firefox 1.5
+
+Though not thoroughly tested, !PatternSkin works fine with Google Chrome at least from 2013.
+
+---++ Attaching files
+
+With HTML5 capable web browsers, the Attach page of this skin provides a drag and drop feature. You can click the drop area to use a file dialog box. In the dialog box, you can select multiple files at a time. This drag and drop feature uses [[http://dropzonejs.com/][DropzoneJS]] !JavaScript libary.
+<blockquote>
+%ATTACHURL%/drag-and-drop.png
+</blockquote>
+With the other browsers, the Attach page shows a button to pop up a file dialog box. You can select only one file at a time.
+<blockquote>
+%ATTACHURL%/choose-file.png
+</blockquote>
+You can upload up to 10 files at a time.
+File uploading starts when you click the "Uplaod file" button.
+Before that, you can remove a file from the upload file list by clicking a "Remove file" (on HTML5 capable web browsers) or a removal icon (on HTML5 incapable web browsers).
+
+Specifically, the drag and drop feature works with the following web browsers.
+   * Chrome 7+
+   * Firefox 4+
+   * IE 10+
+   * Opera 12+ (Version 12 for Mac OS is disabled because their API is buggy)
+   * Safari 6+
+
+In case you want to disable the drag and drop feature with an HTML5 capable browser, you can do it by setting =DROPZONEJS_DISABLE= "on".
+To do it at the web level, the following line is to be put on !WebPreferences.
+<pre>
+   * <nop>Set DROPZONEJS_DISABLE = on
+</pre>
+
+---++ Installation
+
+*Note:* You do not need to install anything on the browser to use this skin. The following instructions are for the administrator who installs the skin on the server where TWiki is running.
+
+*Note 2:* !PatternSkin is included with TWiki by default. Use the following instructions only if you are upgrading !PatternSkin.
+
+   * Download the ZIP file from the Skin Home page (see below)
+   * Unzip ==%TOPIC%.zip== in your twiki installation directory
+   * Test if installed: %SCRIPTURLPATH{"view"}%/%WEB%/%TOPIC%?skin=pattern
+   * For skin activation see %SYSTEMWEB%.TWikiSkins
+
+---+++ Troubleshooting
+
+If you have set the SKIN variable setting to =pattern= and you still don't see the layout as on the <a href="%ATTACHURL%/patternskin_screenshot_full.png">screenshot</a>, a few settings in may have been disabled.
+
+Check these variables here:
+   * TWIKILAYOUTURL = %TWIKILAYOUTURL%
+   * TWIKISTYLEURL = %TWIKISTYLEURL%
+   * TWIKICOLORSURL = %TWIKICOLORSURL%
+   * SKIN = %SKIN%
+
+If TWIKILAYOUTURL or TWIKISTYLEURL don't give a value or point to non-existing files, check in %SYSTEMWEB%.TWikiPreferences that the following variables do exist and that they are set to on:
+<pre>
+   * %<nop>SYSTEMWEB%.PatternSkin settings:
+      * <nop>Set TWIKILAYOUTURL = %<nop>PUBURLPATH%/%<nop>SYSTEMWEB%/PatternSkin/layout.css
+      * <nop>Set TWIKISTYLEURL = %<nop>PUBURLPATH%/%<nop>SYSTEMWEB%/PatternSkin/style.css
+      * <nop>Set TWIKICOLORSURL = %<nop>PUBURLPATH%/%<nop>SYSTEMWEB%/PatternSkin/colors.css
+</pre>
+
+*NOTE:* customization of these values should be done in [[%LOCALSITEPREFS%]]
+
+If this still does not work, contact the administrator who installs skins.
+
+For further troubleshooting and feedback, go to TWiki:Plugins/PatternSkinDev. Report bugs at TWikibug:PatternSkin.
+
+---++ Skin Info
+
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  Skin Author: | TWiki:Main.ArthurClemens, TWiki:Main.PeterThoeny |
+|  Copyright: | &copy; 2004-2008 TWiki:Main.ArthurClemens <br /> &copy; 2008-2018 TWiki:Main.PeterThoeny <br /> &copy; 2004-2018 TWiki:TWiki.TWikiContributor |
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+|  Description: | TWiki's base skin; CSS based, flexible and <nop>W3C-compliant |
+|  Screenshot: | <a href="%ATTACHURL%/patternskin_screenshot_full.png"><img src="%ATTACHURL%/patternskin_screenshot.png" style="border:1px solid #eee;" alt="Click for full screen image" width="600" height="130" /></a> |
+|  Preview: | [[%SCRIPTURL{view}%/%WEB%/%TOPIC%?skin=pattern][Preview with this skin]] |
+|  Base Name: | pattern |
+|  Skin Version: | 2018-07-05 |
+%TWISTY{
+ mode="div"
+ showlink="Show Change History %ICONURL{toggleopen}%"
+ hidelink="Hide Change History %ICONURL{toggleclose}% "
+}%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  2018-07-05: | TWikibug:Item7841: Copyright update to 2018 |
+|  2016-01-09: | TWikibug:Item7708: Copyright update to 2016 |
+|  2015-09-17: | TWikibug:Item7688: Parts of SEARCH results difficult to select |
+|  2015-05-14: | TWikibug:Item7652: Fix for dark on dark links in table headers |
+|  2015-05-08: | TWikibug:Item7649: Responsive multi-column page layout using CSS |
+|  2014-07-17: | TWikibug:Item7534: Show history and other topic actions in read-only skin mode - this requires patching core file viewtopicactionbuttons.tmpl as well |
+|  2014-06-18: | TWikibug:Item7520: Context sensitive tooltip help for Jump box and Search box |
+|  2014-06-16: | TWikibug:Item7516: edit.pattern.tmpl of !PatternSkin refers two invalid JS functions "enableTWikiMandatoryChecks" and "suppressTWikiSaveValidation" |
+|  2014-06-12: | TWikibug:Item7514: table header color specification in CSS considered harmful |
+|  2014-05-22: | TWikibug:Item7501: !DropzoneJSSkin and PatternSkin with !DropzoneJSSkin integrated fail to update file with the manage attachment action |
+|  2014-05-21: | TWikibug:Item7494: PatternSkin to integrate !DropzoneJSSkin |
+|  2014-05-15: | TWikibug:Item7492: New hideInPrint CSS class to hide specific content from printing |
+|  2014-02-03: | TWikibug:Item7427: Fix for too small or too big font with twikiSubmit class on button tag and the a tag |
+|  2013-12-29: | TWikibug:Item7398: Fix for comments in attachment table are center aligned instead of left aligned |
+|  2013-10-14: | TWikibug:Item7367: Fix topic info on !WebLeftBarPersonalTemplate |
+|  2013-10-03: | TWikibug:Item7359: Usability: Hide bookmark table when adding a new bookmark |
+|  2013-10-01: | TWikibug:Item7159: "Proportional" is misspelled in locale files and twiki.pattern.tmpl |
+|  2013-09-14: | TWikibug:Item7341: Use slightly less vertical space in search result |
+|  2013-05-14: | TWikibug:Item7154: Remove very faint gray gradient at top of main window |
+|  2013-04-09: | TWikibug:Item7151: Small fix in hidden edit link when in read-only skin mode |
+|  2013-03-29: | TWikibug:Item7207: Layout improvements for radio buttons and checkboxes in TWiki Forms |
+|  2013-01-23: | TWikibug:Item6977: !TWiki.WebLeftBarExample timed out on a large site, which is fixed |
+|  2013-01-10: | TWikibug:Item7088: Better help text in bookmark page |
+|  2013-01-04: | TWikibug:Item7115: Configurable signatures with profile pictures - updating "Your signature to copy/paste" input field with new SIGNATUREFORMAT setting |
+|  2012-10-23: | TWikibug:Item7006: Removing obsolete and unreferenced !PatternSkinHeaderArt topic |
+|  2012-10-20: | TWikibug:Item7003: Icon bullet lists feature with =* icon:name= syntax |
+|  2012-03-23: | TWikibug:Item6834: Better style in user bookmark menu pulldown preview |
+|  2012-01-19: | TWikibug:Item6838: Add Perl logo next to TWiki logo in bottom bar |
+|  2012-01-13: | TWikibug:Item6832: Fix for can't upload attachments in Chrome |
+|  2011-10-03: | TWikibug:Item6819: Move change TWiki form from edit screen to "more" screen |
+|  2011-07-28: | TWikibug:Item6780: Usability: Link to !UserList topic instead of !TWikiUsers |
+|  2011-07-27: | TWikibug:Item6779: Fix for tables rendering too dark in Firefox 4 |
+|  2011-06-11: | TWikibug:Item6209: Fix for underscores in topic name with WebTopicCreator are not possible -- TWiki:Main.PeterThoeny |
+|  2011-05-18: | TWikibug:Item6682: Read-only skin mode with READONLYSKINMODE preferences setting -- TWiki:Main.PeterThoeny |
+|  2011-01-03: | TWikibug:Item6628: Minor gradient fix - change main window gradient from pale red to pale gray -- TWiki:Main.PeterThoeny |
+|  2010-12-20: | TWikibug:Item6622 - Don't hide non-hidden attachments by default, e.g. toggle state is "show" on initial view -- TWiki:Main.PeterThoeny |
+|  2010-11-25: | TWikibug:Item6608 - Reduce the size of H1 and H2 fonts -- TWiki:Main.PeterThoeny |
+|  2010-09-24: | TWikibug:Item6544 - fix for Jump box having no help text in IE8 -- TWiki:Main.IanBowles |
+|  2010-07-03: | TWikibug:Item6514 - fix for float overlapping the topic action links at bottom if topic is short -- TWiki:Main/PeterThoeny |
+|  2010-06-19: | TWikibug:Item6499 - less screeming submit button and cancel button, aligning with color palette of TWiki:Plugins/TopMenuSkin -- TWiki:Main/PeterThoeny |
+|  2010-06-12: | TWikibug:Item5335 - conditional signature based on NOAUTOLINK setting, either user =Main.FirstLast= or =[<nop>[Main.Firstlast][Firstlast]]=; force-linking user name in topic info in case NOAUTOLINK set -- TWiki:Main/PeterThoeny |
+|  2010-05-25: | TWikibug:Item6453 - don't use red color in topic action, implies red-links -- TWiki:Main/PeterThoeny and TWiki:Main/SopanShewale |
+|  2010-04-28: | TWikibug:Item6416 - fix for only two pages printing in FF 3.6 -- TWiki:Main/PeterThoeny |
+|  03 Aug 2008: | v.3.0.1 - TWiki 4.2.1 (Edinburgh) RELEASE VERSION |
+|  13 Jul 2007: | v.3.0.0 - TWiki 4.2.0 (Edinburgh) RELEASE VERSION |
+|  15 Jan 2006: | v.2.0.6 - TWiki 4.1.0 (Edinburgh) RELEASE VERSION |
+|  26 Sep 2006: | v.2.0.5 - Fixed form background colors |
+|  22 Jul 2006: | v.2.0.4 - Refactored info in colors.css; fixed textarea color |
+|  26 Jun 2006: | v.2.0.3 - TWiki 4.0.3 (Dakar) RELEASE VERSION |
+|  31 Jan 2006: | v.2.0.0 - TWiki 4.0.0 (Dakar) RELEASE VERSION |
+|  28 Aug 2004: | v.1.0.9 - TWiki 3.0 (Cairo) RELEASE VERSION |
+|  08 Aug 2004: | Initial version (v1.0.0) |
+%ENDTWISTY%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  Dependencies: | TWiki:Plugins/TwistyContrib (included in TWiki distribution) |
+|  Skin Home: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC% |
+|  Feedback: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Dev |
+|  Download: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC% |
+
+---++ Related topics
+
+   * %SYSTEMWEB%.TWikiCss
+   * %SYSTEMWEB%.PatternSkinCss
+   * %SYSTEMWEB%.PatternSkinCssCookbook
+   * %SYSTEMWEB%.PatternSkinCssCookbookCenterPage
+   * %SYSTEMWEB%.PatternSkinCssCookbookEditTableStyle
+   * %SYSTEMWEB%.PatternSkinCssCookbookFonts
+   * %SYSTEMWEB%.PatternSkinCssCookbookNoLeftBar
+   * %SYSTEMWEB%.PatternSkinCssCookbookNoTopBar
+   * %SYSTEMWEB%.PatternSkinCustomization
+   * %SYSTEMWEB%.PatternSkinGraphics
+   * %SYSTEMWEB%.WebBottomBar
+   * %SYSTEMWEB%.WebLeftBar
+   * %SYSTEMWEB%.WebLeftBarCookbook
+   * %SYSTEMWEB%.WebLeftBarExample
+   * %SYSTEMWEB%.WebLeftBarLogin
+   * %SYSTEMWEB%.WebLeftBarPersonalTemplate
+   * %SYSTEMWEB%.WebLeftBarSearch
+   * %SYSTEMWEB%.WebLeftBarWebsList
+   * %SYSTEMWEB%.WebTopBar
+   * %SYSTEMWEB%.AdminDocumentationCategory
+
+Other skins:
+   * %SYSTEMWEB%.TWikiSkins
+   * %SYSTEMWEB%.TWikiSkinBrowser
+   * %SYSTEMWEB%.TopMenuSkin
+@
+
+
+1.31
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1442471243" format="1.1" version="31"}%
+d131 1
+a131 1
+|  Copyright: | &copy; 2004-2008 TWiki:Main.ArthurClemens <br /> &copy; 2008-2013 TWiki:Main.PeterThoeny <br /> &copy; 2004-2015 TWiki:TWiki.TWikiContributor |
+d137 1
+a137 1
+|  Skin Version: | 2015-09-17 |
+d144 2
+@
+
+
+1.30
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1405624027" format="1.1" version="30"}%
+d10 1
+a10 1
+<div style="float:right; background-color:#EBEEF0; margin:0 0 20px 20px; padding: 0 10px 0 10px;">
+d131 1
+a131 1
+|  Copyright: | &copy; 2004-2008 TWiki:Main.ArthurClemens <br /> &copy; 2008-2013 TWiki:Main.PeterThoeny <br /> &copy; 2004-2014 TWiki:TWiki.TWikiContributor |
+d137 1
+a137 1
+|  Skin Version: | 2014-07-17 |
+d144 3
+@
+
+
+1.29
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1381736605" format="1.1" version="29"}%
+d42 9
+d63 29
+d121 1
+a121 1
+*NOTE:* customization of these values should be done in [[%USERSWEB%.TWikiPreferences]]
+d131 1
+a131 1
+|  Copyright: | &copy; 2004-2008 TWiki:Main.ArthurClemens <br /> &copy; 2008-2013 TWiki:Main.PeterThoeny <br /> &copy; 2004-2013 TWiki:TWiki.TWikiContributor |
+d137 1
+a137 1
+|  Skin Version: | 2013-10-14 |
+d144 9
+@
+
+
+1.28
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1357868552" format="1.1" version="28"}%
+d91 1
+d99 15
+a113 2
+|  Skin Version: | 2013-01-10 |
+|  History: | <!-- specify latest version first -->&nbsp; |
+d115 1
+d117 1
+d121 1
+d144 2
+@
+
+
+1.27
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1351048914" format="1.1" version="27"}%
+d92 1
+a92 1
+|  Copyright: | &copy; 2004-2008 TWiki:Main.ArthurClemens <br /> &copy; 2008-2012 TWiki:Main.PeterThoeny <br /> &copy; 2004-2012 TWiki:TWiki.TWikiContributor |
+d98 1
+a98 1
+|  Skin Version: | 2012-10-23 |
+d100 1
+@
+
+
+1.26
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1332528321" format="1.1" version="26"}%
+d98 1
+a98 1
+|  Skin Version: | 2012-03-23 |
+d100 1
+@
+
+
+1.25
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1326520126" format="1.1" version="25"}%
+d98 1
+a98 1
+|  Skin Version: | 2012-01-13 |
+d100 2
+@
+
+
+1.24
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1311890923" format="1.1" version="24"}%
+d92 1
+a92 1
+|  Copyright: | &copy; 2004-2008 TWiki:Main.ArthurClemens <br /> &copy; 2008-2011 TWiki:Main.PeterThoeny <br /> &copy; 2004-2011 TWiki:TWiki.TWikiContributor |
+d98 1
+a98 1
+|  Skin Version: | 2011-07-28 |
+d100 1
+@
+
+
+1.23
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1294110909" format="1.1" version="23"}%
+d46 2
+a47 2
+      * Internet Explorer 7.0, 6.0, 5.5 (note: Explorer 5.0 is *not* supported: will function but shows visual quirks)
+      * Mozilla/Firefox 2.0, 1.5
+d49 2
+a50 2
+      * Safari 3.0.2
+      * Mozilla/Firefox 2.0, 1.5 (note: Firefox 1.0 will show visual quirks)
+d52 1
+a52 1
+      * Mozilla/Firefox 1.5 (note: Firefox 1.0 will show visual quirks)
+d91 2
+a92 2
+|  Skin Author: | TWiki:Main.ArthurClemens |
+|  Copyright: | &copy; 2004-2008 TWiki:Main.ArthurClemens; <br /> &copy; 2004-2010 TWiki:TWiki.TWikiContributor |
+d94 1
+a94 1
+|  Description: | TWiki's default skin; CSS based, flexible and <nop>W3C-compliant |
+d98 1
+a98 1
+|  Skin Version: | 2011-01-03 |
+d100 4
+@
+
+
+1.22
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1285376385" format="1.1" version="22"}%
+d9 1
+d13 1
+d98 1
+a98 1
+|  Skin Version: | 2010-09-24 |
+d100 3
+@
+
+
+1.21
+log
+@buildrelease
+@
+text
+@d1 2
+a2 2
+%META:TOPICINFO{author="TWikiContributor" date="1274847641" format="1.1" version="21"}%
+---+!! Pattern skin
+d89 2
+a90 2
+|  Skin Author: | TWiki:Main/ArthurClemens |
+|  Copyright: | &copy; 2004-2008 TWiki:Main/ArthurClemens; <br /> &copy; 2004-2010 TWiki:TWiki/TWikiContributor |
+d96 1
+a96 1
+|  Skin Version: | 2010-05-25 |
+d98 4
+d144 1
+@
+
+
+1.20
+log
+@buildrelease
+@
+text
+@d1 2
+a2 2
+%META:TOPICINFO{author="TWikiContributor" date="1160971176" format="1.1" version="20"}%
+%STARTINCLUDE%
+d4 4
+a7 1
+   * Set SHORTDESCRIPTION = <nop>PatternSkin provides a CSS based default look and feel for TWiki - flexible and <nop>W3C-compliant. Its layout and color scheme are designed to provide a nice, clean and productive editing environment
+d9 3
+a11 2
+---+!! Pattern skin
+
+d13 3
+a15 2
+
+%TOC{title="Page contents"}%
+d19 1
+a19 1
+<a href="%ATTACHURL%/patternskin_screenshot_full.png"><img src="%ATTACHURL%/patternskin_screenshot.jpg" style="border:1px solid #eee;" alt="Click for full screen image" width="600" height="130" /></a>
+d27 1
+d29 1
+a29 1
+%TOC{"%SYSTEMWEB%.PatternSkinCustomization"}%
+d32 1
+d34 1
+a34 1
+%TOC{"%SYSTEMWEB%.PatternSkinCssCookbook"}%
+d37 1
+d85 1
+a85 1
+For further troubleshooting and feedback, go to TWiki:Plugins/PatternSkinDev. Report bugs in the [[TWiki:Support/WebHome][Support web]].
+d89 3
+d93 1
+a93 1
+|  Screenshot: | <a href="%ATTACHURL%/patternskin_screenshot_full.png"><img src="%ATTACHURL%/patternskin_screenshot.jpg" style="border:1px solid #eee;" alt="Click for full screen image" width="600" height="130" /></a> |
+d96 1
+a96 2
+|  Skin Author: | TWiki:Main/ArthurClemens |
+|  Skin Version: | 03 Aug 2008 (v3.0.1) | 
+d98 2
+d109 1
+a109 1
+|  Dependencies: | TWiki:Plugins/TwistyContrib (automatically supported by Dakar) |
+d111 1
+a111 1
+|  Feedback: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Dev | %STOPINCLUDE%
+a139 5
+
+---++ Feedback
+
+Leave remarks, suggestions and other feedback in TWiki:Plugins.PatternSkinDev.
+
+@
+
+
+1.19
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1224099309" format="1.1" reprev="1.1" version="19"}%
+a132 29
+%META:FILEATTACHMENT{name="bg_outer_gradient.gif" attr="" autoattached="1" comment="" date="1221992216" path="bg_outer_gradient.gif" size="356" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="bullet-toc.gif" attr="" autoattached="1" comment="" date="1221992216" path="bullet-toc.gif" size="54" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="TWiki_header.gif" attr="" autoattached="1" comment="" date="1221992216" path="TWiki_header.gif" size="16562" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="background_input.gif" attr="" autoattached="1" comment="" date="1221992216" path="background_input.gif" size="55" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="button_font_selector.gif" attr="" autoattached="1" comment="" date="1221992216" path="button_font_selector.gif" size="831" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="layout.css" attr="" autoattached="1" comment="" date="1221992216" path="layout.css" size="4198" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="bullet-personal_sidebar.gif" attr="" autoattached="1" comment="" date="1221992216" path="bullet-personal_sidebar.gif" size="51" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="background_submit.gif" attr="" autoattached="1" comment="" date="1221992216" path="background_submit.gif" size="158" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="border_sidebar_personal.gif" attr="" autoattached="1" comment="" date="1221992216" path="border_sidebar_personal.gif" size="47" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="bullet-lock.gif" attr="" autoattached="1" comment="" date="1221992216" path="bullet-lock.gif" size="281" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="form_gradient.gif" attr="" autoattached="1" comment="" date="1221992216" path="form_gradient.gif" size="173" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="pattern_edit.js" attr="" autoattached="1" comment="" date="1221992216" path="pattern_edit.js" size="3854" version=""}%
+%META:FILEATTACHMENT{name="background_button.gif" attr="" autoattached="1" comment="" date="1221992216" path="background_button.gif" size="104" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="bg_action_gradient.gif" attr="" autoattached="1" comment="" date="1221992216" path="bg_action_gradient.gif" size="866" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="patternskin_screenshot.jpg" attr="" autoattached="1" comment="" date="1221992216" path="patternskin_screenshot.jpg" size="54937" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="patternskin_screenshot_full.png" attr="" autoattached="1" comment="" date="1221992216" path="patternskin_screenshot_full.png" size="131008" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="bg_buttoncancel_gradient.gif" attr="" autoattached="1" comment="" date="1221992216" path="bg_buttoncancel_gradient.gif" size="1544" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="bg_button_gradient.gif" attr="" autoattached="1" comment="" date="1221992216" path="bg_button_gradient.gif" size="1449" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="print.css" attr="" autoattached="1" comment="" date="1221992216" path="print.css" size="3081" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="style.css" attr="" autoattached="1" comment="" date="1221992216" path="style.css" size="20812" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="bg_button_small_gradient.gif" attr="" autoattached="1" comment="" date="1221992216" path="bg_button_small_gradient.gif" size="1327" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="pattern.js" attr="" autoattached="1" comment="" date="1221992216" path="pattern.js" size="3450" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="colors.css" attr="" autoattached="1" comment="" date="1221992216" path="colors.css" size="17603" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="bg_submit_gradient.gif" attr="" autoattached="1" comment="" date="1221992216" path="bg_submit_gradient.gif" size="1472" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="button_arrow.gif" attr="" autoattached="1" comment="" date="1221992216" path="button_arrow.gif" size="1297" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="background_action.gif" attr="" autoattached="1" comment="" date="1221992216" path="background_action.gif" size="229" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="background_alert.gif" attr="" autoattached="1" comment="" date="1221992216" path="background_alert.gif" size="1195" version=""}%
+%META:FILEATTACHMENT{name="webtopiccreator.js" attr="" autoattached="1" comment="" date="1221992216" path="webtopiccreator.js" size="4652" version=""}%
+%META:FILEATTACHMENT{name="background_form_element.gif" attr="" autoattached="1" comment="" date="1221992216" path="background_form_element.gif" size="70" user="TWikiContributor" version=""}%
+@
+
+
+1.18
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1160971176" format="1.1" version="18"}%
+d133 29
+a161 32
+%META:FILEATTACHMENT{name="TWiki_header.gif" attr="" autoattached="1" comment="" date="1182955036" path="TWiki_header.gif" size="18053" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="background_submit.gif" attr="" autoattached="1" comment="" date="1182955036" path="background_submit.gif" size="158" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="border_sidebar_personal.gif" attr="" autoattached="1" comment="" date="1183837372" path="border_sidebar_personal.gif" size="47" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="background_button.gif" attr="" autoattached="1" comment="" date="1182955036" path="background_button.gif" size="104" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="patternskin_screenshot.jpg" attr="" autoattached="1" comment="" date="1184362908" path="patternskin_screenshot.jpg" size="54937" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="bg_button_gradient.gif" attr="" autoattached="1" comment="" date="1183811042" path="bg_button_gradient.gif" size="1473" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="print.css" attr="" autoattached="1" comment="" date="1182955036" path="print.css" size="3033" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="bg_button_small_gradient.gif" attr="" autoattached="1" comment="" date="1183811027" path="bg_button_small_gradient.gif" size="1337" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="bullet-toc.gif" attr="" autoattached="1" comment="" date="1182955036" path="bullet-toc.gif" size="54" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="striped_blue.gif" attr="" autoattached="1" comment="" date="1182955036" path="striped_blue.gif" size="238" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="bg_submit_gradient.gif" attr="" autoattached="1" comment="" date="1183665090" path="bg_submit_gradient.gif" size="1476" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="background_action.gif" attr="" autoattached="1" comment="" date="1182955036" path="background_action.gif" size="229" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="background_form_element.gif" attr="" autoattached="1" comment="" date="1182955036" path="background_form_element.gif" size="70" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="bullet-down.gif" attr="" autoattached="1" comment="" date="1183989197" path="bullet-down.gif" size="59" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="bg_outer_gradient.gif" attr="" autoattached="1" comment="" date="1184332033" path="bg_outer_gradient.gif" size="433" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="striped_white.gif" attr="" autoattached="1" comment="" date="1182955036" path="striped_white.gif" size="234" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="background_input.gif" attr="" autoattached="1" comment="" date="1182955036" path="background_input.gif" size="55" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="button_font_selector.gif" attr="" autoattached="1" comment="" date="1184105853" path="button_font_selector.gif" size="831" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="layout.css" attr="" autoattached="1" comment="" date="1184279679" path="layout.css" size="4322" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="bullet-lock.gif" attr="" autoattached="1" comment="" date="1183989167" path="bullet-lock.gif" size="64" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="form_gradient.gif" attr="" autoattached="1" comment="" date="1182955036" path="form_gradient.gif" size="173" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="bg_action_gradient.gif" attr="" autoattached="1" comment="" date="1184355082" path="bg_action_gradient.gif" size="355" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="patternskin_screenshot_full.png" attr="" autoattached="1" comment="" date="1184362710" path="patternskin_screenshot_full.png" size="131008" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="striped_pageshadow.gif" attr="" autoattached="1" comment="" date="1182955036" path="striped_pageshadow.gif" size="234" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="bg_buttoncancel_gradient.gif" attr="" autoattached="1" comment="" date="1184016448" path="bg_buttoncancel_gradient.gif" size="1544" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="style.css" attr="" autoattached="1" comment="" date="1184361490" path="style.css" size="19292" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="striped_gray.gif" attr="" autoattached="1" comment="" date="1182955036" path="striped_gray.gif" size="238" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="striped_yellow.gif" attr="" autoattached="1" comment="" date="1182955036" path="striped_yellow.gif" size="238" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="pattern.js" attr="" autoattached="1" comment="" date="1184192338" path="pattern.js" size="3526" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="colors.css" attr="" autoattached="1" comment="" date="1184360679" path="colors.css" size="16740" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="button_arrow.gif" attr="" autoattached="1" comment="" date="1184105722" path="button_arrow.gif" size="1297" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="bullet-personal_sidebar.gif" attr="" autoattached="1" comment="" date="1183989183" path="bullet-personal_sidebar.gif" size="60" user="TWikiContributor" version=""}%
+@
+
+
+1.17
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1160971176" format="1.1" version="17"}%
+d86 1
+a86 1
+|  Skin Version: | 13 Jul 2007 (v3.0.0) | 
+d88 1
+@
+
+
+1.16
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributors" date="1160971176" format="1.1" version="16"}%
+d3 3
+d8 1
+a8 1
+*<nop>PatternSkin provides a CSS based default look and feel for TWiki - flexible and <nop>W3C-compliant.* Its layout and color scheme are designed to provide a nice, clean and productive _editing environment_. For use in corporate or perhaps in personal websites it should be fairly easy to tune the looks or even create a !PatternSkin-based new skin.
+d22 2
+a23 2
+%TWIKIWEB%.PatternSkinCustomization - how to configure page elements
+%TOC{"%TWIKIWEB%.PatternSkinCustomization"}%
+d26 5
+a30 2
+%TWIKIWEB%.PatternSkinCssCookbook - how to customize the visual style
+%TOC{"%TWIKIWEB%.PatternSkinCssCookbook"}%
+d36 2
+a37 2
+      * Internet Explorer 6.0, 5.5 (note: Explorer 5.0 is *not* supported: will function but shows visual quirks)
+      * Mozilla/Firefox
+d39 2
+a40 2
+      * Safari 2.0.3
+      * Mozilla/Firefox 1.5 (note: Firefox 1.0 will show visual quirks)
+d53 1
+a53 1
+   * For skin activation see %TWIKIWEB%.TWikiSkins
+d65 1
+a65 1
+If TWIKILAYOUTURL or TWIKISTYLEURL don't give a value or point to non-existing files, check in %TWIKIWEB%.TWikiPreferences that the following variables do exist and that they are set to on:
+d67 4
+a70 4
+   * %<nop>TWIKIWEB%.PatternSkin settings:
+      * <nop>Set TWIKILAYOUTURL = %<nop>PUBURLPATH%/%<nop>TWIKIWEB%/PatternSkin/layout.css
+      * <nop>Set TWIKISTYLEURL = %<nop>PUBURLPATH%/%<nop>TWIKIWEB%/PatternSkin/style.css
+      * <nop>Set TWIKICOLORSURL = %<nop>PUBURLPATH%/%<nop>TWIKIWEB%/PatternSkin/colors.css
+d73 1
+a73 1
+*NOTE:* customization of these values should be done in [[%MAINWEB%.TWikiPreferences]]
+d86 1
+a86 1
+|  Skin Version: | 15 Jan 2006 (v2.0.6) | 
+d88 1
+d103 20
+a122 20
+   * %TWIKIWEB%.TWikiCss
+   * %TWIKIWEB%.PatternSkinCss
+   * %TWIKIWEB%.PatternSkinCssCookbook
+   * %TWIKIWEB%.PatternSkinCssCookbookCenterPage
+   * %TWIKIWEB%.PatternSkinCssCookbookEditTableStyle
+   * %TWIKIWEB%.PatternSkinCssCookbookFonts
+   * %TWIKIWEB%.PatternSkinCssCookbookNoLeftBar
+   * %TWIKIWEB%.PatternSkinCssCookbookNoTopBar
+   * %TWIKIWEB%.PatternSkinCustomization
+   * %TWIKIWEB%.PatternSkinJavascripts
+   * %TWIKIWEB%.WebBottomBar
+   * %TWIKIWEB%.WebLeftBar
+   * %TWIKIWEB%.WebLeftBarCookbook
+   * %TWIKIWEB%.WebLeftBarExample
+   * %TWIKIWEB%.WebLeftBarLogin
+   * %TWIKIWEB%.WebLeftBarPersonalTemplate
+   * %TWIKIWEB%.WebLeftBarSearch
+   * %TWIKIWEB%.WebLeftBarWebsList
+   * %TWIKIWEB%.WebTopBar
+   * %TWIKIWEB%.AdminDocumentationCategory
+d125 2
+a126 2
+   * %TWIKIWEB%.TWikiSkins
+   * %TWIKIWEB%.TWikiSkinBrowser
+d132 32
+a163 29
+
+%META:FILEATTACHMENT{name="oopsmore_diff_sidebyside.gif" attr="" autoattached="1" comment="" date="1159030472" path="oopsmore_diff_sidebyside.gif" size="1994" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="bullet-down.gif" attr="" autoattached="1" comment="" date="1159030472" path="bullet-down.gif" size="441" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="striped_white.gif" attr="" autoattached="1" comment="" date="1159030474" path="striped_white.gif" size="234" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="gradient_blue.gif" attr="" autoattached="1" comment="" date="1159030473" path="gradient_blue.gif" size="3813" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="background_input.gif" attr="" autoattached="1" comment="" date="1159030472" path="background_input.gif" size="55" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="TWiki_header.gif" attr="" autoattached="1" comment="" date="1159030472" path="TWiki_header.gif" size="18053" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="layout.css" attr="" autoattached="1" comment="" date="1159038567" path="layout.css" size="4952" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="oopsmore_diff_sequential.gif" attr="" autoattached="1" comment="" date="1159030472" path="oopsmore_diff_sequential.gif" size="3464" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="form_gradient.gif" attr="" autoattached="1" comment="" date="1159030471" path="form_gradient.gif" size="4115" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="background_submit.gif" attr="" autoattached="1" comment="" date="1159030473" path="background_submit.gif" size="158" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="background_button.gif" attr="" autoattached="1" comment="" date="1159030474" path="background_button.gif" size="104" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="patternskin_screenshot.jpg" attr="" autoattached="1" comment="" date="1159030474" path="patternskin_screenshot.jpg" size="41406" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="striped_pageshadow.gif" attr="" autoattached="1" comment="" date="1159030470" path="striped_pageshadow.gif" size="234" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="patternskin_screenshot_full.png" attr="" autoattached="1" comment="" date="1159030473" path="patternskin_screenshot_full.png" size="150987" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="TWiki_header.psd" attr="" autoattached="1" comment="" date="1159030471" path="TWiki_header.psd" size="425495" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="style.css" attr="" autoattached="1" comment="" date="1159306534" path="style.css" size="19435" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="print.css" attr="" autoattached="1" comment="" date="1159038573" path="print.css" size="1984" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="striped_gray.gif" attr="" autoattached="1" comment="" date="1159030472" path="striped_gray.gif" size="238" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="striped_yellow.gif" attr="" autoattached="1" comment="" date="1159030474" path="striped_yellow.gif" size="238" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="pattern.js" attr="" autoattached="1" comment="" date="1159030471" path="pattern.js" size="494" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="striped_blue.gif" attr="" autoattached="1" comment="" date="1159030471" path="striped_blue.gif" size="238" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="colors.css" attr="" autoattached="1" comment="" date="1159053978" path="colors.css" size="17464" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="gradient_yellow.gif" attr="" autoattached="1" comment="" date="1159030472" path="gradient_yellow.gif" size="4114" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="bullet-blue.gif" attr="" autoattached="1" comment="" date="1159030470" path="bullet-blue.gif" size="49" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="background_action.gif" attr="" autoattached="1" comment="" date="1159030470" path="background_action.gif" size="104" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="oopsmore_diff_debug.gif" attr="" autoattached="1" comment="" date="1159030473" path="oopsmore_diff_debug.gif" size="3205" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="background_form_element.gif" attr="" autoattached="1" comment="" date="1159030470" path="background_form_element.gif" size="70" user="UnknownUser" version=""}%
+%META:REVCOMMENT{ncomments="0"}%
+@
+
+
+1.15
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1129330724" format="1.1" version="15"}%
+d5 1
+a5 1
+*<nop>PatternSkin is developed to provide a CSS based default look and feel for TWiki - flexible and W3C-compliant.* Its layout and color scheme are designed to provide a nice, clean and productive _editing environment_. For use in corporate or perhaps in personal websites it should be fairly easy to tune the looks or even create a !PatternSkin-based new skin.
+d9 1
+a9 1
+---++ Screen Shot
+d18 7
+a24 7
+It is easy to tune the look and feel of !PatternSkin by changing the color and space (margin, padding) settings in the Style Sheet files. 
+
+You may also choose to radically change the look and create a !PatternSkin-based new skin. This is easier than to create a skin by writing new template files; you can concentrate on how things should look instead of what elements should get displayed.
+
+   * PatternSkinCustomization - how to configure page elements
+   * PatternSkinCssCookbook - how to customize the default look of TWiki
+   * PatternSkinCss - documentation of !PatternSkin CSS classes
+d67 2
+d75 1
+a75 1
+|  Description: | TWiki's default skin; CSS based, flexible and W3C-compliant |
+d77 1
+a77 1
+|  Preview: | [[%SCRIPTURL{view}%/%WEB%/%TOPIC%?skin=pattern][Preview with this topic]] |
+d80 1
+a80 1
+|  Skin Version: | 31 Jan 2006 (v2.0.0) | 
+d82 6
+a87 2
+|  31 Jan 2006: | v.2.0.0 - DAKAR RELEASE VERSION |
+|  28 Aug 2004: | v.1.0.9 - CAIRO RELEASE VERSION |
+d96 20
+a115 20
+   * TWikiCss
+   * PatternSkinCss
+   * PatternSkinCssCookbook
+   * PatternSkinCssCookbookCenterPage
+   * PatternSkinCssCookbookEditTableStyle
+   * PatternSkinCssCookbookFonts
+   * PatternSkinCssCookbookNoLeftBar
+   * PatternSkinCssCookbookNoTopBar
+   * PatternSkinCustomization
+   * PatternSkinJavascripts
+   * WebBottomBar
+   * WebLeftBar
+   * WebLeftBarCookbook
+   * WebLeftBarExample
+   * WebLeftBarLogin
+   * WebLeftBarPersonalTemplate
+   * WebLeftBarSearch
+   * WebLeftBarWebsList
+   * WebTopBar
+   * AdminDocumentationCategory
+d118 2
+a119 2
+   * TWikiSkins
+   * TWikiSkinBrowser
+d126 28
+a153 11
+%META:FILEATTACHMENT{name="style.css" attr="" autoattached="1" comment="Style: appearance: margins, paddings, fonts" date="1129325986" path="style.css" size="19065" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="tips_bg.gif" attr="" autoattached="1" comment="" date="1129323432" path="tips_bg.gif" size="3813" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="twikiTable_header_bg.gif" attr="" autoattached="1" comment="" date="1129323321" path="twikiTable_header_bg.gif" size="238" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="page_bg.gif" attr="" autoattached="1" comment="" date="1129323311" path="page_bg.gif" size="4085" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="layout.css" attr="" autoattached="1" comment="Layout: positioning of page elements" date="1129323310" path="layout.css" size="1676" user="TWikiContributor" version=""}%
+%META:FILEATTACHMENT{name="info_bg.gif" attr="" autoattached="1" comment="" date="1129323309" path="info_bg.gif" size="238" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="colors.css" attr="" autoattached="1" comment="Text colors, border colors, background colors" date="1129325055" path="colors.css" size="15202" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="twikiPageForm_bg.gif" attr="" autoattached="1" comment="" date="1129323320" path="twikiPageForm_bg.gif" size="238" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="bullet-blue.gif" attr="" autoattached="1" comment="" date="1129323302" path="bullet-blue.gif" size="49" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="view.pattern.tmpl" attr="" autoattached="1" comment="" date="1129323322" path="view.pattern.tmpl" size="5629" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="i_arrow_down.gif" attr="" autoattached="1" comment="Icon: down arrow; used for Table Of Contents" date="1129323308" path="i_arrow_down.gif" size="56" user="TWikiContributor" version=""}%
+@
+
+
+1.14
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1129330724" format="1.1" version="14"}%
+d22 3
+a24 3
+	* PatternSkinCustomization - how to configure page elements
+	* PatternSkinCssCookbook - how to customize the default look of TWiki
+	* PatternSkinCss - documentation of !PatternSkin CSS classes
+d29 8
+a36 8
+	* Windows
+		* Internet Explorer 6.0, 5.5 (note: Explorer 5.0 is *not* supported: will function but shows visual quirks)
+		* Mozilla/Firefox
+	* Mac OS X
+		* Safari 2.0.3
+		* Mozilla/Firefox
+	* *nix
+		* Mozilla/Firefox
+d44 4
+a47 4
+	* Download the ZIP file from the Skin Home page (see below)
+	* Unzip ==%TOPIC%.zip== in your twiki installation directory
+	* Test if installed: %SCRIPTURLPATH{"view"}%/%WEB%/%TOPIC%?skin=pattern
+	* For skin activation see %TWIKIWEB%.TWikiSkins
+d54 4
+a57 4
+	* TWIKILAYOUTURL = %TWIKILAYOUTURL%
+	* TWIKISTYLEURL = %TWIKISTYLEURL%
+	* TWIKICOLORSURL = %TWIKICOLORSURL%
+	* SKIN = %SKIN%
+d61 4
+a64 4
+	* %<nop>TWIKIWEB%.PatternSkin settings:
+		* <nop>Set TWIKILAYOUTURL = %<nop>PUBURLPATH%/%<nop>TWIKIWEB%/PatternSkin/layout.css
+		* <nop>Set TWIKISTYLEURL = %<nop>PUBURLPATH%/%<nop>TWIKIWEB%/PatternSkin/style.css
+		* <nop>Set TWIKICOLORSURL = %<nop>PUBURLPATH%/%<nop>TWIKIWEB%/PatternSkin/colors.css
+d90 20
+a109 20
+	* TWikiCss
+	* PatternSkinCss
+	* PatternSkinCssCookbook
+	* PatternSkinCssCookbookCenterPage
+	* PatternSkinCssCookbookEditTableStyle
+	* PatternSkinCssCookbookFonts
+	* PatternSkinCssCookbookNoLeftBar
+	* PatternSkinCssCookbookNoTopBar
+	* PatternSkinCustomization
+	* PatternSkinJavascripts
+	* WebBottomBar
+	* WebLeftBar
+	* WebLeftBarCookbook
+	* WebLeftBarExample
+	* WebLeftBarLogin
+	* WebLeftBarPersonalTemplate
+	* WebLeftBarSearch
+	* WebLeftBarWebsList
+	* WebTopBar
+	* AdminDocumentationCategory
+d112 2
+a113 2
+	* TWikiSkins
+	* TWikiSkinBrowser
+@
+
+
+1.13
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="ArthurClemens" date="1093879937" format="1.0" version="1.13"}%
+d11 1
+a11 1
+<a href="%ATTACHURL%/patternskin_screenshot_full.gif"><img src="%ATTACHURL%/patternskin_screenshot.gif" style="border:1px solid #eee;" alt="Click for full screen image" width="600" height="130" /></a>
+d16 10
+d33 1
+a33 1
+		* Safari 1.2
+a34 2
+
+Not tested, but will probably work (let me know):
+d46 1
+a46 1
+	* Test if installed: %SCRIPTURL%/view%SCRIPTSUFFIX%/%WEB%/%TOPIC%?skin=pattern
+d56 1
+d59 1
+a59 1
+If TWIKILAYOUTURL or TWIKISTYLEURL don't give a value or point to non-existing files, check in TWiki.TWikiPreferences that the following variables do exist and that they are set to on:
+d62 3
+a64 2
+		* <nop>Set TWIKILAYOUTURL = %<nop>PUBURL%/%<nop>TWIKIWEB%/PatternSkin/layout.css
+		* <nop>Set TWIKISTYLEURL = %<nop>PUBURL%/%<nop>TWIKIWEB%/PatternSkin/style.css
+d69 1
+a69 25
+For further troubleshooting and feedback, go to TWiki:Plugins/PatternSkinDev.
+
+---++ Creating your own look
+
+It is easy to tune the look and feel of !PatternSkin by changing the color and space (margin, padding) settings in the Style Sheet files. 
+
+You may also choose to radically change the look and create a !PatternSkin-based new skin. This is easier than to create a skin by writing new template files; you can concentrate on how things should look instead of what elements should get displayed.
+
+You can either:
+	* Change the =layout.css= and =style.css= attachment files for this topic (upload updated versions)
+	* In TWiki.TWikiPreferences, point the variables =TWIKILAYOUTURL= and =TWIKISTYLEURL= to other attachments, perhaps in another topic (your new skin topic?)
+
+See for practical details: PatternSkinCustomization %BR%
+The CSS classes that !PatternSkin uses are documented in PatternSkinCss.
+
+---++ Customization
+
+See: PatternSkinCustomization, PatternSkinPalette
+
+---++ Further reading
+
+	* PatternSkinCustomization - Practical information on how to change the looks of !PatternSkin
+	* PatternSkinPalette - How to change the colors only
+	* PatternSkinCss - A reference to used CSS classes
+	* TWiki:Plugins/PatternSkinDev - Development page, bug reports, solutions from users
+d73 3
+a75 2
+|  Description: | Provides a CSS based default look and feel for TWiki - flexible and W3C-compliant |
+|  Screenshot: | <a href="%ATTACHURL%/patternskin_screenshot_full.gif"><img src="%ATTACHURL%/patternskin_screenshot.gif" style="border:1px solid #eee;" alt="Click for full screen image" width="600" height="130" /></a> |
+d78 1
+a78 1
+|  Skin Version: | 28 Aug 2004 (v1.0.9) | 
+d80 2
+a81 10
+|  28 Aug 2004: | v.1.0.9 - CAIRO RELEASE VERSION - Removed twikiTopic div from attach template |
+|  24 Aug 2004: | v.1.0.8 - Fix for disabled !TablePlugin; added plain.pattern.tmpl |
+|  23 Aug 2004: | v.1.0.7 - Change to checkboxes in edit and preview screen; removed REVINFO at bottom; style changes |
+|  22 Aug 2004: | v.1.0.6b - Removed files from zip that are now part of the TWiki distribution; removed .DS_Store files |
+|  17 Aug 2004: | v.1.0.6 - Support for twikiMoved css class |
+|  17 Aug 2004: | v.1.0.5 - Fix for not showing SEARCHSTRING |
+|  16 Aug 2004: | v.1.0.4 - Fixes search results layout with noheader="on" |
+|  14 Aug 2004: | v.1.0.3 - Update to attach template, css fix to edit template |
+|  14 Aug 2004: | v.1.0.2 - Fixes print template, table paddings in topics, minor changes to style.css |
+|  13 Aug 2004: | v.1.0.1 - Updated /data/TWiki/WebLeftBarPersonalTemplate and style.css |
+d83 1
+a83 1
+|  Dependencies: | |
+d87 1
+d91 9
+d102 1
+d104 1
+d106 2
+a107 1
+	* WebLeftBarCookbook
+d109 1
+a109 2
+
+See also [[%TOPIC%#Further_reading][Further reading]] on this page.
+a118 1
+-- TWiki:Main/ArthurClemens - 28 Aug 2004
+d120 11
+a130 5
+%META:FILEATTACHMENT{name="i_arrow_down.gif" attr="" comment="Icon: down arrow; used for Table Of Contents" date="1092634909" path="i_arrow_down.gif" size="56" user="ArthurClemens" version="1.1"}%
+%META:FILEATTACHMENT{name="layout.css" attr="" comment="Layout: positioning of page elements" date="1093436449" path="layout.css" size="1823" user="ArthurClemens" version="1.2"}%
+%META:FILEATTACHMENT{name="style.css" attr="" comment="Style: appearance: margins, fonts, colors" date="1093824372" path="style.css" size="26547" user="ArthurClemens" version="1.8"}%
+%META:FILEATTACHMENT{name="patternskin_screenshot.gif" attr="h" comment="" date="1092762581" path="patternskin_screenshot.gif" size="8898" user="ArthurClemens" version="1.2"}%
+%META:FILEATTACHMENT{name="patternskin_screenshot_full.gif" attr="h" comment="" date="1092762639" path="patternskin_screenshot_full.gif" size="63480" user="ArthurClemens" version="1.1"}%
+@
+
+
+1.12
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="ArthurClemens" date="1093821697" format="1.0" version="1.12"}%
+d18 1
+a18 1
+!PatternSkin has been tested succesfully on the following browsers:
+d67 1
+a67 1
+You can eiter:
+@
+
+
+1.11
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="ArthurClemens" date="1093734709" format="1.0" version="1.11"}%
+d132 1
+a132 1
+%META:FILEATTACHMENT{name="style.css" attr="" comment="Style: appearance: margins, fonts, colors" date="1093734622" path="style.css" size="26514" user="ArthurClemens" version="1.6"}%
+@
+
+
+1.10
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="ArthurClemens" date="1093599078" format="1.0" version="1.10"}%
+a70 3
+If you want to change colors and white space of screen elements, modify =style.css=. %BR%
+If you want to change the positioning of screen elements, modify =layout.css=.
+
+d76 1
+a76 1
+See: PatternSkinCustomization
+d81 1
+d91 1
+a91 1
+|  Skin Version: | 24 Aug 2004 (v1.0.8) | 
+d93 1
+d128 1
+a128 1
+-- TWiki:Main/ArthurClemens - 24 Aug 2004
+d132 1
+a132 1
+%META:FILEATTACHMENT{name="style.css" attr="" comment="Style: appearance: margins, fonts, colors" date="1093599077" path="style.css" size="26189" user="ArthurClemens" version="1.5"}%
+@
+
+
+1.9
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="ArthurClemens" date="1093436425" format="1.0" version="1.9"}%
+d133 1
+a133 1
+%META:FILEATTACHMENT{name="style.css" attr="" comment="Style: appearance: margins, fonts, colors" date="1093436572" path="style.css" size="26169" user="ArthurClemens" version="1.4"}%
+@
+
+
+1.8
+log
+@none
+@
+text
+@d1 1
+a1 2
+%META:TOPICINFO{author="ArthurClemens" date="1092762706" format="1.0" version="1.8"}%
+%STARTINCLUDE%
+d93 1
+a93 1
+|  Skin Version: | 17 Aug 2004 (v1.0.6) | 
+d95 3
+d105 1
+a105 1
+|  Dependencies: | TWiki.TablePlugin |
+d129 1
+a129 1
+-- TWiki:Main/ArthurClemens - 17 Aug 2004
+d132 2
+a133 2
+%META:FILEATTACHMENT{name="layout.css" attr="" comment="Layout: positioning of page elements" date="1092634933" path="layout.css" size="1713" user="ArthurClemens" version="1.1"}%
+%META:FILEATTACHMENT{name="style.css" attr="" comment="Style: appearance: margins, fonts, colors" date="1092762501" path="style.css" size="26112" user="ArthurClemens" version="1.3"}%
+@
+
+
+1.7
+log
+@none
+@
+text
+@d1 2
+a2 1
+%META:TOPICINFO{author="ArthurClemens" date="1092747095" format="1.0" version="1.7"}%
+d12 1
+a12 1
+<a href="%ATTACHURL%/patternskin_screenshot_full.png"><img src="%ATTACHURL%/patternskin_screenshot.gif" style="border:1px solid #eee;" alt="Click for full screen image" width="600" height="130" /></a>
+d91 1
+a91 1
+|  Screenshot: | <a href="%ATTACHURL%/patternskin_screenshot_full.png"><img src="%ATTACHURL%/patternskin_screenshot.gif" style="border:1px solid #eee;" alt="Click for full screen image" width="600" height="130" /></a> |
+d94 4
+a97 2
+|  Skin Version: | 16 Aug 2004 (v1.0.4) | 
+|  Change History: | <!-- specify latest version first -->&nbsp; |
+d102 1
+a102 1
+|  08 Aug 2004: | Initial version (v1.000) |
+d106 1
+a106 1
+
+d127 1
+a127 1
+-- TWiki:Main/ArthurClemens - 16 Aug 2004
+d131 3
+a133 3
+%META:FILEATTACHMENT{name="style.css" attr="" comment="Style: appearance: margins, fonts, colors" date="1092647527" path="style.css" size="26003" user="ArthurClemens" version="1.2"}%
+%META:FILEATTACHMENT{name="patternskin_screenshot.gif" attr="h" comment="" date="1092635051" path="patternskin_screenshot.gif" size="6416" user="ArthurClemens" version="1.1"}%
+%META:FILEATTACHMENT{name="patternskin_screenshot_full.png" attr="h" comment="" date="1092635073" path="patternskin_screenshot_full.png" size="118816" user="ArthurClemens" version="1.1"}%
+@
+
+
+1.6
+log
+@none
+@
+text
+@d1 2
+a2 1
+%META:TOPICINFO{author="ArthurClemens" date="1092740047" format="1.0" version="1.6"}%
+d93 1
+a93 2
+|  Skin Version: | 16 Aug 2004 (v1.0.4) |
+|  Download&nbsp;<nop>PatternSkin: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC% | 
+d102 1
+a102 1
+|  Feedback: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Dev |
+@
+
+
+1.5
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1092718912" format="1.0" version="1.5"}%
+d92 2
+a93 2
+|  Skin Version: | 08 Aug 2004 (v1.000) |
+|  Download&nbsp;<nop>PatternSkin: | [[%ATTACHURL%/PatternSkin.zip][PatternSkin.zip]]<br /> *Note:* the CSS files in this topic may be more recent than the version in the zip file | 
+@
+
+
+1.4
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="ArthurClemens" date="1092701025" format="1.0" version="1.4"}%
+d70 1
+a70 1
+If you want to change colors and white space of screen elements, modify =style.css=. <br/>
+d73 1
+a73 1
+See for practical details: PatternSkinCustomization <br />
+d106 7
+a112 7
+	* TWiki:TWiki/TWikiCss
+	* TWiki:TWiki/WebBottomBar
+	* TWiki:TWiki/WebLeftBar
+	* TWiki:TWiki/WebLeftBarExample
+	* TWiki:TWiki/WebLeftBarPersonalTemplate
+	* TWiki:TWiki/WebLeftBarCookbook
+	* TWiki:TWiki/WebTopBar
+d117 2
+a118 2
+	* TWiki:TWiki/TWikiSkins
+	* TWiki:TWiki/TWikiSkinBrowser
+d120 3
+a122 1
+---
+a125 5
+---++ Feedback
+
+Leave remarks, suggestions and other feedback in [[Plugins.PatternSkinDev]].
+
+%META:FILEATTACHMENT{name="PatternSkin.zip" attr="" comment="Skin package v.1.0.4" date="1092701504" path="PatternSkin.zip" size="162422" user="ArthurClemens" version="1.4"}%
+@
+
+
+1.3
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="ArthurClemens" date="1092655675" format="1.0" version="1.3"}%
+d95 1
+d120 4
+d128 1
+a128 5
+---
+
+-- TWiki:Main/ArthurClemens - 16 Aug 2004
+
+%META:FILEATTACHMENT{name="PatternSkin.zip" attr="" comment="Skin package v.1.0.3" date="1092655651" path="PatternSkin.zip" size="162337" user="ArthurClemens" version="1.2"}%
+@
+
+
+1.2
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="ArthurClemens" date="1092647589" format="1.0" version="1.2"}%
+d119 4
+d127 1
+a127 1
+%META:FILEATTACHMENT{name="PatternSkin.zip" attr="" comment="Skin package v.1.0.3" date="1092634885" path="PatternSkin.zip" size="168808" user="ArthurClemens" version="1.1"}%
+@
+
+
+1.1
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="ArthurClemens" date="1092634781" format="1.0" version="1.1"}%
+d108 1
+d121 1
+a121 1
+-- TWiki:Main/ArthurClemens - 15 Aug 2004
+d126 1
+a126 1
+%META:FILEATTACHMENT{name="style.css" attr="" comment="Style: appearance: margins, fonts, colors" date="1092634959" path="style.css" size="25954" user="ArthurClemens" version="1.1"}%
+@

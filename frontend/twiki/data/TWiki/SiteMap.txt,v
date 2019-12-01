@@ -1,0 +1,631 @@
+head	1.23;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.23
+date	2015.07.21.18.08.49;	author TWikiContributor;	state Exp;
+branches;
+next	1.22;
+
+1.22
+date	2014.03.18.21.07.02;	author TWikiContributor;	state Exp;
+branches;
+next	1.21;
+
+1.21
+date	2013.08.07.21.03.37;	author TWikiContributor;	state Exp;
+branches;
+next	1.20;
+
+1.20
+date	2012.10.22.20.49.59;	author TWikiContributor;	state Exp;
+branches;
+next	1.19;
+
+1.19
+date	2012.05.02.01.19.05;	author TWikiContributor;	state Exp;
+branches;
+next	1.18;
+
+1.18
+date	2011.01.22.05.06.41;	author TWikiContributor;	state Exp;
+branches;
+next	1.17;
+
+1.17
+date	2010.06.19.01.04.42;	author TWikiContributor;	state Exp;
+branches;
+next	1.16;
+
+1.16
+date	2010.05.29.14.44.29;	author TWikiContributor;	state Exp;
+branches;
+next	1.15;
+
+1.15
+date	2008.12.06.09.02.19;	author TWikiContributor;	state Exp;
+branches;
+next	1.14;
+
+1.14
+date	2008.08.03.22.17.42;	author TWikiContributor;	state Exp;
+branches;
+next	1.13;
+
+1.13
+date	2008.01.22.03.21.25;	author TWikiContributor;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2007.01.16.04.12.00;	author TWikiContributor;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2006.06.25.16.26.26;	author TWikiContributor;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2006.04.01.05.55.10;	author TWikiContributor;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2006.02.01.12.01.18;	author TWikiContributor;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2004.08.15.08.42.48;	author PeterThoeny;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2004.08.15.02.18.29;	author PeterThoeny;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2004.08.15.01.17.27;	author ArthurClemens;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2003.11.01.09.40.15;	author PeterThoeny;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2003.03.09.08.50.02;	author PeterThoeny;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2003.03.08.06.31.00;	author PeterThoeny;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2002.04.21.06.18.29;	author PeterThoeny;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2002.04.12.08.32.00;	author PeterThoeny;	state Exp;
+branches;
+next	;
+
+
+desc
+@none
+@
+
+
+1.23
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1437502129" format="1.1" version="23"}%
+---+ <nop>%WIKITOOLNAME% Site Map
+
+_TWiki is divided up into webs, also known as workspaces or collaboration spaces._
+
+%STARTINCLUDE%<nop>
+%TABLE{ sort="off" }%
+| *Web* | *Description* | *Links* |
+%SEARCH{
+ "\* *Set *SITEMAPLIST *\= *on" type="regex" web="%USERSWEB%, %SYSTEMWEB%, all"
+ topic="%WEBPREFSTOPIC%"
+ nonoise="on"
+ format="| $percntCALCULATE{$SET(weblist, $SPLIT(/, $web))<div style=\"white-space: nowrap\">$REPEAT(<img src=\"%ICONURL{empty}%\" alt=\"\" width=\"16\" height=\"16\" border=\"0\" />, $INT($LISTSIZE($GET(weblist)) - 1))<span style=\"background-color:$pattern(.*?\* Set WEBBGCOLOR\s*=\s*([^\s]*).*)\"><img src=\"%ICONURL{blank-bg}%\" alt=\"\" width=\"16\" height=\"16\" border=\"0\" /></span> <b>[[$web.%HOMETOPIC%][$LISTITEM(-1, $GET(weblist))]]</b> </div>}$percnt |$pattern(.*?\* Set SITEMAPWHAT\s*=([^\n\r]*).*) | <div style=\"white-space: nowrap\"> [[$web.WebSearch][<img src=\"%ICONURL{searchtopic}%\" alt=\"Search\" title=\"Search <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]] [[$web.WebChanges][<img src=\"%ICONURL{recentchanges}%\" alt=\"Changes\" title=\"Recent changes in the <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]] [[$web.%NOTIFYTOPIC%][<img src=\"%ICONURL{notify}%\" alt=\"Notification\" title=\"Get notified of changes to the <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]] [[$web.WebStatistics][<img src=\"%ICONURL{statistics}%\" alt=\"Statistics\" title=\"Statistics of <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]] [[$web.WebPreferences][<img src=\"%ICONURL{wrench}%\" alt=\"Preferences\" title=\"Preferences of <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]] </div> |"
+}%
+| %GRAY% %T% Webs are color-coded for identification and reference. Contact %WIKIWEBMASTER% if you need a workspace web for your team. %ENDCOLOR% |||
+
+<table><tr><td valign="top" cellpadding="5">
+__Legend:__
+</td><td>&nbsp;</td><td valign="top">
+%ICON{searchtopic}% Search the web %BR% %ICON{recentchanges}% See recent changes in the web %BR% %ICON{notify}% Subscribe to get notified of changes by e-mail %BR% %ICON{statistics}% Usage statistics of the web %BR% %ICON{wrench}% Web-specific preferences
+</td></tr></table>
+<nop>%STOPINCLUDE%
+
+__Related topics:__ SiteChanges, TWikiSite, SitePermissions, UserDocumentationCategory, AdminToolsCategory
+@
+
+
+1.22
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1395176822" format="1.1" version="22"}%
+d17 5
+a21 4
+%TABLE{ sort="off" tableborder="0" databg="#ffffff" }%
+| Legend: | %ICON{searchtopic}% Search the web | %ICON{statistics}% Usage statistics of the web |
+|^| %ICON{recentchanges}% See recent changes in the web | %ICON{wrench}% Web-specific preferences |
+|^| %ICON{notify}% Subscribe to get notified of changes by e-mail | |
+@
+
+
+1.21
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1375909417" format="1.1" version="21"}%
+d15 1
+a15 1
+| %GRAY% %T% Webs are colored coded for identification and reference. Contact %WIKIWEBMASTER% if you need a workspace web for your team. %ENDCOLOR% |||
+@
+
+
+1.20
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1350938999" format="1.1" version="20"}%
+d10 1
+a10 1
+ "\* Set SITEMAPLIST \= on" type="regex" web="%USERSWEB%, %SYSTEMWEB%, all"
+@
+
+
+1.19
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1335921545" format="1.1" version="19"}%
+d6 1
+a6 1
+%STARTINCLUDE%
+d13 1
+a13 1
+ format="| $percntCALC{$SET(weblist, $SPLIT(/, $web))<div style=\"white-space: nowrap\">$REPEAT(<img src=\"%ICONURL{empty}%\" alt=\"\" width=\"16\" height=\"16\" border=\"0\" />, $INT($LISTSIZE($GET(weblist)) - 1))<span style=\"background-color:$pattern(.*?\* Set WEBBGCOLOR\s*=\s*([^\s]*).*)\"><img src=\"%ICONURL{blank-bg}%\" alt=\"\" width=\"16\" height=\"16\" border=\"0\" /></span> <b>[[$web.%HOMETOPIC%][$LISTITEM(-1, $GET(weblist))]]</b> </div>}$percnt |$pattern(.*?\* Set SITEMAPWHAT\s*=([^\n\r]*).*) | <div style=\"white-space: nowrap\"> [[$web.WebSearch][<img src=\"%ICONURL{searchtopic}%\" alt=\"Search\" title=\"Search <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]] [[$web.WebChanges][<img src=\"%ICONURL{recentchanges}%\" alt=\"Changes\" title=\"Recent changes in the <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]] [[$web.%NOTIFYTOPIC%][<img src=\"%ICONURL{notify}%\" alt=\"Notification\" title=\"Get notified of changes to the <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]] [[$web.WebStatistics][<img src=\"%ICONURL{statistics}%\" alt=\"Statistics\" title=\"Statistics of <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]] [[$web.WebPreferences][<img src=\"%ICONURL{wrench}%\" alt=\"Preferences\" title=\"Preferences of <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]] </div> |"
+d21 1
+a21 1
+%STOPINCLUDE%
+@
+
+
+1.18
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1295672801" format="1.1" version="18"}%
+d9 6
+a14 1
+%SEARCH{ "\* Set SITEMAPLIST \= on" type="regex" web="%USERSWEB%, %SYSTEMWEB%, all" topic="%WEBPREFSTOPIC%" nototal="on" nosearch="on" format="| <div style=\"white-space: nowrap\"><span style=\"background-color:$pattern(.*?\* Set WEBBGCOLOR\s*=\s*([^\s]*).*)\"><img src=\"%ICONURL{blank-bg}%\" alt=\"\" width=\"16\" height=\"16\" border=\"0\" /></span> <b>[[$web.%HOMETOPIC%][$web]]</b> </div> |$pattern(.*?\* Set SITEMAPWHAT\s*=([^\n\r]*).*) | <div style=\"white-space: nowrap\"> [[$web.WebSearch][<img src=\"%ICONURL{searchtopic}%\" alt=\"Search\" title=\"Search <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]] [[$web.WebChanges][<img src=\"%ICONURL{recentchanges}%\" alt=\"Changes\" title=\"Recent changes in the <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]] [[$web.%NOTIFYTOPIC%][<img src=\"%ICONURL{notify}%\" alt=\"Notification\" title=\"Get notified of changes to the <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]] [[$web.WebStatistics][<img src=\"%ICONURL{statistics}%\" alt=\"Statistics\" title=\"Statistics of <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]] [[$web.WebPreferences][<img src=\"%ICONURL{wrench}%\" alt=\"Preferences\" title=\"Preferences of <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]] </div> |" }%
+@
+
+
+1.17
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1276909482" format="1.1" version="17"}%
+d4 1
+a4 1
+_TWiki is devided up into webs, also known as workspaces or collaboration spaces._
+d8 3
+a10 3
+| *TWiki Web* | *Description of Web* | *Links* |
+%SEARCH{ "\* Set SITEMAPLIST \= on" type="regex" web="%USERSWEB%, %SYSTEMWEB%, all" topic="%WEBPREFSTOPIC%" nototal="on" nosearch="on" format="| <div style=\"white-space: nowrap\"><span style=\"background-color:$pattern(.*?\* Set WEBBGCOLOR\s*=\s*([^\s]*).*)\"><img src=\"%ICONURL{blank-bg}%\" alt=\"\" width=\"16\" height=\"16\" border=\"0\" /></span> <b>[[$web.%HOMETOPIC%][$web]]</b></div> |$pattern(.*?\* Set SITEMAPWHAT\s*=([^\n\r]*).*)  | <div style=\"white-space: nowrap\">[[$web.%HOMETOPIC%][<img src=\"%ICONURL{home}%\" alt=\"Home\" title=\"Home of <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]] [[$web.WebSearch][<img src=\"%ICONURL{searchtopic}%\" alt=\"Search\" title=\"Search <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]] [[$web.WebChanges][<img src=\"%ICONURL{recentchanges}%\" alt=\"Changes\" title=\"Recent changes in the <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]] [[$web.%NOTIFYTOPIC%][<img src=\"%ICONURL{notify}%\" alt=\"Notification\" title=\"Get notified of changes to the <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]] [[$web.WebStatistics][<img src=\"%ICONURL{statistics}%\" alt=\"Statistics\" title=\"Statistics of <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]] [[$web.WebPreferences][<img src=\"%ICONURL{wrench}%\" alt=\"Preferences\" title=\"Preferences of <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]]</div> |" }%
+| Webs are colored coded for identification and reference. This table is updated automatically based on <nop>WebPreferences settings of individual webs. Contact %WIKIWEBMASTER% if you need a separate collaboration web for your team. See also %SYSTEMWEB%.AdminToolsCategory. |||
+d12 4
+a15 2
+| Legend: | %ICON{home}% Go to the home of the web | %ICON{recentchanges}% See recent changes in the web |
+|^| %ICON{searchtopic}% Search the web | %ICON{notify}% Subscribe to get notified of changes by e-mail |
+@
+
+
+1.16
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1274842763" format="1.1" version="16"}%
+d16 1
+a16 1
+__Related topics:__ SiteChanges, TWikiSite, SitePermissions, UserDocumentationCategory
+@
+
+
+1.15
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1208655647" format="1.1" version="15"}%
+d3 3
+d7 4
+a10 3
+| *TWiki Web* | *Description of Web* | *Used to...* | *Links* |
+%SEARCH{ "\* Set SITEMAPLIST \= on" type="regex" web="%MAINWEB%, %TWIKIWEB%, all" topic="%WEBPREFSTOPIC%" nototal="on" nosearch="on" format="| <div style=\"white-space: nowrap\"><span style=\"background-color:$pattern(.*?\* Set WEBBGCOLOR\s*=\s*([^\s]*).*)\"><img src=\"%ICONURL{blank-bg}%\" alt=\"Web color\" width=\"16\" height=\"16\" border=\"0\" /></span> <b>[[$web.%HOMETOPIC%][$web]]</b></div> |$pattern(.*?\* Set SITEMAPWHAT\s*=([^\n\r]*).*)  |$pattern(.*?\* Set SITEMAPUSETO\s*=([^\n\r]*).*)  | <div style=\"white-space: nowrap\">[[$web.%HOMETOPIC%][<img src=\"%ICONURL{home}%\" alt=\"Home of $web web\" width=\"16\" height=\"16\" border=\"0\" />]] [[$web.WebSearch][<img src=\"%ICONURL{searchtopic}%\" alt=\"Search $web web\" width=\"16\" height=\"16\" border=\"0\" />]] [[$web.WebChanges][<img src=\"%ICONURL{recentchanges}%\" alt=\"Recent changes in the $web web\" width=\"16\" height=\"16\" border=\"0\" />]] [[$web.%NOTIFYTOPIC%][<img src=\"%ICONURL{notify}%\" alt=\"Get notified of changes to the $web web\" width=\"16\" height=\"16\" border=\"0\" />]]</div> |" }%
+| You can use color coding by web for identification and reference. This table is updated automatically based on <nop>WebPreferences settings of the individual webs. Contact %WIKIWEBMASTER% if you need a separate collaboration web for your team. See also %SYSTEMWEB%.AdminToolsCategory. ||||
+d15 2
+@
+
+
+1.14
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1208655647" format="1.1" version="14"}%
+d6 1
+a6 1
+| You can use color coding by web for identification and reference. This table is updated automatically based on <nop>WebPreferences settings of the individual webs. Contact %WIKIWEBMASTER% if you need a separate collaboration web for your team. See also AdminToolsCategory. ||||
+d10 1
+@
+
+
+1.13
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1163619832" format="1.0" version="13"}%
+d4 3
+a6 30
+<table width="100%" border="0" cellspacing="2" bgcolor="#000000" cellpadding="3">
+  <tr bgcolor="#eeeeee">
+    <th>
+     Web
+    </th><th>
+     <nop>%WIKITOOLNAME% Site Map
+    </th><th>
+      Use to...
+    </th>
+  </tr>
+%SEARCH{ "\* Set SITEMAPLIST \= on" type="regex" web="%USERSWEB%, %SYSTEMWEB%, all" topic="%WEBPREFSTOPIC%" nototal="on" nosearch="on" format=" <tr bgcolor=\"$pattern(.*?\* Set WEBBGCOLOR\s*=\s*([^\s]*).*)\">$n <td align=\"right\" style=\"white-space: nowrap;\"> <b>[[$web.%HOMETOPIC%][$web]]</b>&nbsp;[[$web.%HOMETOPIC%][<img src=\"%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/home.gif\" alt=\"Home of <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]]&nbsp;[[$web.WebSearch][<img src=\"%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/searchtopic.gif\" alt=\"Search <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]]&nbsp;[[$web.WebChanges][<img src=\"%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/recentchanges.gif\" alt=\"Recent changes in the <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]]&nbsp;[[$web.%NOTIFYTOPIC%][<img src=\"%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/notify.gif\" alt=\"Get notified of changes to the <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]]</td>$n <td> $pattern(.*?\* Set SITEMAPWHAT\s*=([^\n\r]*).*) </td><td> $pattern(.*?\* Set SITEMAPUSETO\s*=([^\n\r]*).*) </td> </tr>" }%
+  <tr bgcolor="#ffffff">
+    <td colspan="3">You can use color coding by web for identification and reference. This table is updated automatically based on <nop>WebPreferences settings of the individual webs. Contact %WIKIWEBMASTER% if you need a separate collaboration web for your team. See also AdminToolsCategory.</td>
+  </tr>
+</table>
+<table border="0" cellspacing="2" cellpadding="3">
+  <tr bgcolor="#ffffff">
+    <td valign="top"> Legend of icons: </td>
+    <td valign="top"> &nbsp;</td>
+    <td valign="top">
+<img src="%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/home.gif" alt="Home of web" width="16" height="16" border="0" /> = Go to the home of the web%BR%
+<img src="%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/searchtopic.gif" alt="Search web" width="16" height="16" border="0" /> = Search the web
+    </td>
+    <td valign="top"> &nbsp;</td>
+    <td valign="top">
+<img src="%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/recentchanges.gif" alt="Recent changes in the web" width="16" height="16" border="0" /> = See recent changes in the web%BR%
+<img src="%PUBURLPATH%/%SYSTEMWEB%/TWikiDocGraphics/notify.gif" alt="Get notified of changes to the web" width="16" height="16" border="0" /> = Subscribe to get notified of changes by e-mail
+    </td>
+  </tr>
+</table>
+d8 2
+@
+
+
+1.12
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1163619832" format="1.0" version="12"}%
+d14 1
+a14 1
+%SEARCH{ "\* Set SITEMAPLIST \= on" type="regex" web="%MAINWEB%, %TWIKIWEB%, all" topic="%WEBPREFSTOPIC%" nototal="on" nosearch="on" format=" <tr bgcolor=\"$pattern(.*?\* Set WEBBGCOLOR\s*=\s*([^\s]*).*)\">$n <td align=\"right\" style=\"white-space: nowrap;\"> <b>[[$web.%HOMETOPIC%][$web]]</b>&nbsp;[[$web.%HOMETOPIC%][<img src=\"%PUBURLPATH%/%TWIKIWEB%/TWikiDocGraphics/home.gif\" alt=\"Home of <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]]&nbsp;[[$web.WebSearch][<img src=\"%PUBURLPATH%/%TWIKIWEB%/TWikiDocGraphics/searchtopic.gif\" alt=\"Search <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]]&nbsp;[[$web.WebChanges][<img src=\"%PUBURLPATH%/%TWIKIWEB%/TWikiDocGraphics/recentchanges.gif\" alt=\"Recent changes in the <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]]&nbsp;[[$web.%NOTIFYTOPIC%][<img src=\"%PUBURLPATH%/%TWIKIWEB%/TWikiDocGraphics/notify.gif\" alt=\"Get notified of changes to the <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]]</td>$n <td> $pattern(.*?\* Set SITEMAPWHAT\s*=([^\n\r]*).*) </td><td> $pattern(.*?\* Set SITEMAPUSETO\s*=([^\n\r]*).*) </td> </tr>" }%
+d24 2
+a25 2
+<img src="%PUBURLPATH%/%TWIKIWEB%/TWikiDocGraphics/home.gif" alt="Home of web" width="16" height="16" border="0" /> = Go to the home of the web%BR%
+<img src="%PUBURLPATH%/%TWIKIWEB%/TWikiDocGraphics/searchtopic.gif" alt="Search web" width="16" height="16" border="0" /> = Search the web
+d29 2
+a30 2
+<img src="%PUBURLPATH%/%TWIKIWEB%/TWikiDocGraphics/recentchanges.gif" alt="Recent changes in the web" width="16" height="16" border="0" /> = See recent changes in the web%BR%
+<img src="%PUBURLPATH%/%TWIKIWEB%/TWikiDocGraphics/notify.gif" alt="Get notified of changes to the web" width="16" height="16" border="0" /> = Subscribe to get notified of changes by e-mail
+@
+
+
+1.11
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="11"}%
+d14 1
+a14 1
+%SEARCH{ "\* Set SITEMAPLIST \= on" regex="on" web="%MAINWEB%, %TWIKIWEB%, all" topic="%WEBPREFSTOPIC%" nototal="on" nosearch="on" format=" <tr bgcolor=\"$pattern(.*?\* Set WEBBGCOLOR\s*=\s*([^\s]*).*)\">$n <td align=\"right\" style=\"white-space: nowrap;\"> <b>[[$web.%HOMETOPIC%][$web]]</b>&nbsp;[[$web.%HOMETOPIC%][<img src=\"%PUBURLPATH%/%TWIKIWEB%/TWikiDocGraphics/home.gif\" alt=\"Home of <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]]&nbsp;[[$web.WebSearch][<img src=\"%PUBURLPATH%/%TWIKIWEB%/TWikiDocGraphics/searchtopic.gif\" alt=\"Search <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]]&nbsp;[[$web.WebChanges][<img src=\"%PUBURLPATH%/%TWIKIWEB%/TWikiDocGraphics/recentchanges.gif\" alt=\"Recent changes in the <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]]&nbsp;[[$web.%NOTIFYTOPIC%][<img src=\"%PUBURLPATH%/%TWIKIWEB%/TWikiDocGraphics/notify.gif\" alt=\"Get notified of changes to the <nop>$web web\" width=\"16\" height=\"16\" border=\"0\" />]]</td>$n <td> $pattern(.*?\* Set SITEMAPWHAT\s*=([^\n\r]*).*) </td><td> $pattern(.*?\* Set SITEMAPUSETO\s*=([^\n\r]*).*) </td> </tr>" }%
+@
+
+
+1.10
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="10"}%
+d16 1
+a16 1
+    <td colspan="3"><font size="-1">You can use color coding by web for identification and reference. This table is updated automatically based on <nop>WebPreferences settings of the individual webs. Contact %WIKIWEBMASTER% if you need a separate collaboration web for your team. See also AdminToolsCategory. </font></td>
+d21 2
+a23 7
+<font size="-1">
+Legend of icons:
+</font></td>
+    <td valign="top">
+&nbsp;</td>
+    <td valign="top">
+<font size="-1">
+d26 2
+a27 3
+</font></td>
+    <td valign="top">
+&nbsp;</td>
+a28 1
+<font size="-1">
+d31 1
+a31 1
+</font></td>
+@
+
+
+1.9
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="9"}%
+d6 7
+a12 7
+	 <th>
+	  Web
+	 </th><th>
+	  <nop>%WIKITOOLNAME% Site Map
+	 </th><th>
+		Use to...
+	 </th>
+d16 1
+a16 1
+	 <td colspan="3"><font size="-1">You can use color coding by web for identification and reference. This table is updated automatically based on <nop>WebPreferences settings of the individual webs. Contact %WIKIWEBMASTER% if you need a separate collaboration web for your team. See also AdminToolsCategory. </font></td>
+d21 1
+a21 1
+	 <td valign="top">
+d25 1
+a25 1
+	 <td valign="top">
+d27 1
+a27 1
+	 <td valign="top">
+d32 1
+a32 1
+	 <td valign="top">
+d34 1
+a34 1
+	 <td valign="top">
+@
+
+
+1.8
+log
+@none
+@
+text
+@d1 2
+a2 2
+%META:TOPICINFO{author="PeterThoeny" date="1092559368" format="1.0" version="1.8"}%
+---+ %WIKITOOLNAME% Site Map
+d9 1
+a9 1
+	  %WIKITOOLNAME% Site Map
+d14 1
+a14 1
+%SEARCH{ "\* Set SITEMAPLIST \= on" regex="on" web="%MAINWEB%, %TWIKIWEB%, all" topic="%WEBPREFSTOPIC%" nototal="on" nosearch="on" format=" <tr bgcolor=\"$pattern(.*?\* Set WEBBGCOLOR\s*=\s*([^\s]*).*)\">$n <td align=\"right\"> <b>[[$web.%HOMETOPIC%][$web]]</b>&nbsp;[[$web.%HOMETOPIC%][<img src=\"%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/home.gif\" alt=\"Home of <nop>$web web\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$web.WebSearch][<img src=\"%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/searchtopic.gif\" alt=\"Search <nop>$web web\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$web.WebChanges][<img src=\"%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/recentchanges.gif\" alt=\"Recent changes in the <nop>$web web\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$web.%NOTIFYTOPIC%][<img src=\"%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/notify.gif\" alt=\"Get notified of changes to the <nop>$web web\" width=\"16\" height=\"16\" border=\"0\">]]</td>$n <td> $pattern(.*?\* Set SITEMAPWHAT\s*=([^\n\r]*).*) </td><td> $pattern(.*?\* Set SITEMAPUSETO\s*=([^\n\r]*).*) </td> </tr>" }%
+d16 1
+a16 1
+	 <td colspan="3"><font size="-1">You can use color coding by web for identification and reference. This table is updated automatically based on <nop>WebPreferences settings of the individual webs. Contact %WIKIWEBMASTER% if you need a separate collaboration web for your team. See also AdminTools. </font></td>
+d29 2
+a30 2
+<img src="%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/home.gif" alt="Home of web" width="16" height="16" border="0"> = Go to the home of the web%BR%
+<img src="%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/searchtopic.gif" alt="Search web" width="16" height="16" border="0"> = Search the web
+d36 2
+a37 2
+<img src="%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/recentchanges.gif" alt="Recent changes in the web" width="16" height="16" border="0"> = See recent changes in the web%BR%
+<img src="%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/notify.gif" alt="Get notified of changes to the web" width="16" height="16" border="0"> = Subscribe to get notified of changes by e-mail
+@
+
+
+1.7
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1092536309" format="1.0" version="1.7"}%
+d5 1
+a5 1
+  <tr bgcolor="#ffffff">
+d14 1
+a14 1
+%SEARCH{ "\* Set SITEMAPLIST \= on" regex="on" web="%MAINWEB%, %TWIKIWEB%, all" topic="%WEBPREFSTOPIC%" nototal="on" nosearch="on" format=" <tr bgcolor=\"$pattern(.*?\* Set WEBBGCOLOR\s*=\s*([^\s]*).*)\">$n <td align=\"right\"> <b>[[$web.%HOMETOPIC%][$web]]</b>&nbsp;[[$web.%HOMETOPIC%][<img src=\"%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/home.gif\" alt=\"Home of $web web\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$web.WebSearch][<img src=\"%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/searchtopic.gif\" alt=\"Search $web web\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$web.WebChanges][<img src=\"%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/recentchanges.gif\" alt=\"Recent changes in the $web web\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$web.%NOTIFYTOPIC%][<img src=\"%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/notify.gif\" alt=\"Get notified of changes to the $web web\" width=\"16\" height=\"16\" border=\"0\">]]</td>$n <td> $pattern(.*?\* Set SITEMAPWHAT\s*=([^\n\r]*).*) </td><td> $pattern(.*?\* Set SITEMAPUSETO\s*=([^\n\r]*).*) </td> </tr>" }%
+d16 1
+a16 1
+	 <td colspan="3"><font size="-1">You can use color coding by web for identification and reference. This table is updated automatically based on <nop>WebPreferences settings of the individual webs. Contact %WIKIWEBMASTER% if you need a separate collaboration web for your team. </font></td>
+@
+
+
+1.6
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="ArthurClemens" date="1092532647" format="1.0" version="1.6"}%
+d14 1
+a14 1
+%SEARCH{ "\* Set SITEMAPLIST \= on" regex="on" web="%MAINWEB%, %TWIKIWEB%, all" topic="%WEBPREFSTOPIC%" nototal="on" nosearch="on" format=" <tr bgcolor=\"$pattern(.*?\* Set WEBBGCOLOR\s*=\s*([^\s]*).*)\">$n <td align=\"right\"> <b>[[$web.%HOMETOPIC%][$web]]</b>&nbsp;[[$web.%HOMETOPIC%][<img src=\"%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/home.gif\" alt=\"Home of $web web\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$web.WebSearch][<img src=\"%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/searchtopic.gif\" alt=\"Search $web web\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$web.WebChanges][<img src=\"%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/changes.gif\" alt=\"Recent changes in the $web web\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$web.%NOTIFYTOPIC%][<img src=\"%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/notify.gif\" alt=\"Get notified of changes to the $web web\" width=\"16\" height=\"16\" border=\"0\">]]</td>$n <td> $pattern(.*?\* Set SITEMAPWHAT\s*=([^\n\r]*).*) </td><td> $pattern(.*?\* Set SITEMAPUSETO\s*=([^\n\r]*).*) </td> </tr>" }%
+d36 1
+a36 1
+<img src="%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/changes.gif" alt="Recent changes in the web" width="16" height="16" border="0"> = See recent changes in the web%BR%
+@
+
+
+1.5
+log
+@none
+@
+text
+@d1 41
+a41 40
+%META:TOPICINFO{author="PeterThoeny" date="1067679615" format="1.0" version="1.5"}%
+---+ %WIKITOOLNAME% Site Map
+%STARTINCLUDE%
+<table width="100%" border="0" cellspacing="2" bgcolor="#000000" cellpadding="3">
+  <tr bgcolor="#99CCCC">
+	 <th>
+	  Web
+	 </th><th>
+	  %WIKITOOLNAME% Site Map
+	 </th><th>
+		Use to...
+	 </th>
+  </tr>
+%SEARCH{ "\* Set SITEMAPLIST \= on" regex="on" web="%MAINWEB%, %TWIKIWEB%, all" topic="%WEBPREFSTOPIC%" nototal="on" nosearch="on" format=" <tr bgcolor=\"$pattern(.*?\* Set WEBBGCOLOR\s*=\s*([^\s]*).*)\">$n <td align=\"right\"> <b>[[$web.%HOMETOPIC%][$web]]</b>&nbsp;[[$web.%HOMETOPIC%][<img src=\"%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/home.gif\" alt=\"Home of $web web\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$web.WebSearch][<img src=\"%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/searchtopic.gif\" alt=\"Search $web web\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$web.WebChanges][<img src=\"%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/changes.gif\" alt=\"Recent changes in the $web web\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$web.%NOTIFYTOPIC%][<img src=\"%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/notify.gif\" alt=\"Get notified of changes to the $web web\" width=\"16\" height=\"16\" border=\"0\">]]</td>$n <td> $pattern(.*?\* Set SITEMAPWHAT\s*=([^\n\r]*).*) </td><td> $pattern(.*?\* Set SITEMAPUSETO\s*=([^\n\r]*).*) </td> </tr>" }%
+  <tr bgcolor="#ffffff">
+	 <td colspan="3"><font size="-1">You can use color coding by web for identification and reference. This table is updated automatically based on <nop>WebPreferences settings of the individual webs. Contact %WIKIWEBMASTER% if you need a separate collaboration web for your team. </font></td>
+  </tr>
+</table>
+<table border="0" cellspacing="2" cellpadding="3">
+  <tr bgcolor="#ffffff">
+	 <td valign="top">
+<font size="-1">
+Legend of icons:
+</font></td>
+	 <td valign="top">
+&nbsp;</td>
+	 <td valign="top">
+<font size="-1">
+<img src="%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/home.gif" alt="Home of web" width="16" height="16" border="0"> = Go to the home of the web%BR%
+<img src="%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/searchtopic.gif" alt="Search web" width="16" height="16" border="0"> = Search the web
+</font></td>
+	 <td valign="top">
+&nbsp;</td>
+	 <td valign="top">
+<font size="-1">
+<img src="%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/changes.gif" alt="Recent changes in the web" width="16" height="16" border="0"> = See recent changes in the web%BR%
+<img src="%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/notify.gif" alt="Get notified of changes to the web" width="16" height="16" border="0"> = Subscribe to get notified of changes by e-mail
+</font></td>
+  </tr>
+</table>
+@
+
+
+1.4
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1047199802" format="1.0" version="1.4"}%
+d14 1
+a14 1
+%SEARCH{ "\* Set SITEMAPLIST \= on" regex="on" web="%MAINWEB%, %TWIKIWEB%, all" nototal="on" nosearch="on" format=" <tr bgcolor=\"$pattern(.*?\* Set WEBBGCOLOR\s*=\s*([^\s]*).*)\">$n <td align=\"right\"> <b>[[$web.%HOMETOPIC%][$web]]</b>&nbsp;[[$web.%HOMETOPIC%][<img src=\"%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/home.gif\" alt=\"Home of $web web\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$web.WebSearch][<img src=\"%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/searchtopic.gif\" alt=\"Search $web web\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$web.WebChanges][<img src=\"%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/changes.gif\" alt=\"Recent changes in the $web web\" width=\"16\" height=\"16\" border=\"0\">]]&nbsp;[[$web.%NOTIFYTOPIC%][<img src=\"%PUBURL%/%TWIKIWEB%/TWikiDocGraphics/notify.gif\" alt=\"Get notified of changes to the $web web\" width=\"16\" height=\"16\" border=\"0\">]]</td>$n <td> $pattern(.*?\* Set SITEMAPWHAT\s*=([^\n\r]*).*) </td><td> $pattern(.*?\* Set SITEMAPUSETO\s*=([^\n\r]*).*) </td> </tr>" }%
+@
+
+
+1.3
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1047105060" format="1.0" version="1.3"}%
+d17 22
+@
+
+
+1.2
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1019369909" format="1.0" version="1.2"}%
+d6 3
+a8 1
+	 <th colspan="2">
+d14 1
+a14 1
+%SEARCH{ "\* Set SITEMAPLIST \= on" regex="on" web="%MAINWEB%, %TWIKIWEB%, all" nototal="on" nosearch="on" format=" <tr bgcolor=\"$pattern(.*?\* Set WEBBGCOLOR\s*=\s*([^\s]*).*)\">$n <td> <b>%WIKITOOLNAME%.[[$web.%HOMETOPIC%][$web]]</b></td>$n <td> $pattern(.*?\* Set SITEMAPWHAT\s*=([^\n\r]*).*)$n <font size=\"-2\"> &nbsp; &nbsp; <nobr> { [[$web.WebChanges][Changes]] | [[$web.WebSearch][Search]] | [[$web.WebPreferences][Prefs]] } </nobr></font> </td><td> $pattern(.*?\* Set SITEMAPUSETO\s*=([^\n\r]*).*) </td> </tr>" }%
+@
+
+
+1.1
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1018600320" format="1.0" version="1.1"}%
+d12 1
+a12 1
+%SEARCH{ "\* Set SITEMAPLIST \= on" regex="on" web="all" nototal="on" nosearch="on" format=" <tr bgcolor=\"$pattern(.*?\* Set WEBBGCOLOR\s*=\s*([^\s]*).*)\">$n <td> <b>%WIKITOOLNAME%.[[$web.%HOMETOPIC%][$web]]</b></td>$n <td> $pattern(.*?\* Set SITEMAPWHAT\s*=([^\n\r]*).*)$n <font size=\"-2\"> &nbsp; &nbsp; <nobr> { [[$web.WebChanges][Changes]] | [[$web.WebSearch][Search]] | [[$web.WebPreferences][Prefs]] } </nobr></font> </td><td> $pattern(.*?\* Set SITEMAPUSETO\s*=([^\n\r]*).*) </td> </tr>" }%
+@

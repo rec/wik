@@ -1,0 +1,13 @@
+%META:TOPICINFO{author="TWikiContributor" date="1364026611" format="1.1" version="6"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarCALC
+---+++ CALC{"formula"} -- add spreadsheet calculations to tables
+   * The =%<nop>CALC{formula}%= variable is handled by the SpreadSheetPlugin. Over 100 functions are available, such as =$ABS()=, =$EXACT()=, =$EXISTS()=, =$GET()/$SET()=, =$IF()=, =$LOG()=, =$LOWER()=, =$PERCENTILE()=, =$TIME()=, =$VALUE()=.
+   * Syntax: =%<nop>CALC{formula}%=
+   * Examples:
+      * =%<nop>CALC{$SUM($ABOVE())}%= returns the sum of all cells above the current cell
+      * =%<nop>CALC{$EXISTS(<nop>Web.SomeTopic)}%= returns =1= if the topic exists
+      * =%<nop>CALC{$UPPER(Collaboration)}%= returns =COLLABORATION=
+   * Note: The CALC variable is handled with delay compared to other TWiki variables. You may get unexpected results if you nest CALC inside other variables (such as =%<nop>INCLUDE{%<nop>CALC{...}%}%=) because it does not get evaluated inside-out & left-to-right like ordinary TWiki variables. Use [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarCALCULATE][CALCULATE]] if you nest variables.
+   * Category: DevelopmentVariables, TablesAndSpreadsheetsVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarCALCULATE][CALCULATE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarIF][IF]], %SYSTEMWEB%.IfStatements, SpreadSheetPlugin

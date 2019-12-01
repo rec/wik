@@ -1,0 +1,46 @@
+%META:TOPICINFO{author="TWikiContributor" date="1348653067" format="1.1" version="1"}%
+---+!! Subweb and topic names - conflicts, view URLs, and links
+
+If your TWiki installation has the hierarchical webs feature turned on,
+you face subtle issues about subweb (web inside a web) and topic names.
+If you are unfamiliar with subwebs, please read ManagingWebs#Hierarchical_Webs.
+
+TWiki 5.1.2 has introduced measures to take care of those issues.
+As such, in this topic "in the past" means 5.1.1 and earler; "now" means 5.1.2 and later.
+
+---++ Avoiding conflicts of subweb and topic names
+
+If the topic =AaAa.BbB= exists, the subweb =AaAa/BbBb= must not exist.
+If they co-exist, when the topic !AaAa.BbBb is moved, all topics of the =AaAa/BbBb= subweb lose all attachments.
+This is because =AaAa.BbBb= topic's attachments are stored in the directory
+=.../pub/AaAa/BbBb/= while =AaAa/BbBb= subweb's topics have their attachments in the directory =.../pub/AaAa/BbBb/TOPIC/=.
+When =AaAa.BbBb= topic is renamed to =AaAa.CcCc=, =.../pub/AaAa/BbBb= directory is renamed to =.../pub/AaAa/CcCc=, which causes =AaAa/BbBb= subweb to lose its all attachments.
+
+In the past there was no mechanism to avoid clash of subweb and topic names.
+But now you cannot create a subweb whose name clashes with an existing topic name and vice versa.
+Renaming of topics and webs have name clash detection and avoidance logics.
+
+---++ View URLs
+
+Let's say there is a subweb named =AaAa/DdDd=.
+In the past http:<nop>//twiki.example.com/cgi-bin/view/AaAa/DdDd led to the "This topic does not exist" page.
+But now it causes redirecttion to http:<nop>//twiki.example.com/cgi-bin/view/AaAa/DdDd/WebHome.
+
+Even now, =AaAa.BbBb= topic and =AaAa/BbBb= subweb may co-exist as a legcy from an old version.
+In that case, http:<nop>//twiki.example.com/cgi-bin/view/AaAa/BbBb shows !AaAa.BbBb topic while http:<nop>//twiki.example.com/cgi-bin/view/AaAa/BbBb/ shows the home page of the =AaAa/BbBb= subweb.
+
+---++ Links on topics
+
+=TopicName=, =WebName.TopicName=, =[<nop>[TopicName][...]]=, and =[<nop>[WebName.TopicName][...]]= become links to the specified topics.
+If =TopicName= is actually a subweb name rather than a topic name, those links point to =WebHome= of the subweb.
+
+This may sound strange to a long term TWiki user.
+If a subweb =AaAa/DdDd= exists, on the topic =AaAa.EeEe=, =DdDd= and =[<nop>[DdDd]]= become links to =AaAa/DdDd.WebHome=.
+You can link to a subweb in a relative manner.
+
+The old behavior was to make a link to create the "missing topic" =AaAa.DdDd=.
+This is wrong for sure.
+And they have to become links - otherwise the label in =[<nop>[link][label]]= goes nowhere.
+If so, there is no other link destination than =WebHome= of the subweb.
+
+__Related Topics:__ AdminDocumentationCategory

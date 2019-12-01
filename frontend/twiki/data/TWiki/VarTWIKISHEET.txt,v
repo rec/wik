@@ -1,0 +1,64 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2018.07.16.03.20.36;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1460626719" format="1.1" version="1"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarTWIKISHEET
+---+++ TWIKISHEET{} -- enable TWiki Sheet (spreadsheet) and set options
+   * The =%<nop>TWIKISHEET{}%= variable is handled by the TWikiSheetPlugin
+   * Syntax: =%<nop>TWIKISHEET{ _parameters_ }%=
+   * Supported parameters:%STARTSECTION{parameters}%
+     | *Parameter* | *Description* | *Example* | *Default* |
+     | =mode= | [[TWikiSheetPlugin#ModesOfOperation][Mode of operation]]: %BB% =mode="classic"= - regular TWiki table and an edit button; once pressed, the table switches into spreadsheet edit mode. %BB% =mode="toggle"= - spreadsheet in read-only mode and an edit button; once pressed, the table switches into spreadsheet edit mode. %BB% =mode="toggle-edit"= - like ="toggle"= but initial state is spreadsheet edit mode. %BB% =mode="edit"= - the table is always in spreadsheet edit mode. | =mode="edit"= | ={Plugins}%BR%{TWikiSheetPlugin}%BR%{Mode}= %BR% configure %BR% setting (="toggle"=) |
+     | =concurrent= | [[TWikiSheetPlugin#ConcurrentEditing][Concurrent editing]]. If enabled, multiple people can edit TWiki Sheet and see each other's changes. This includes editing cells, pasting a range of cells, drag-filling cells, adding/removing rows, adding/removing columns, and undo. %BB% =concurrent="0"= - disable concurrent editing; changes by others will be shown after a page reload. %BB% =concurrent="1"= - enable concurrent editing; changes by others will show up while editing TWiki Sheet. | =concurrent="1"= | ={Plugins}%BR%{TWikiSheetPlugin}%BR%{ConcurrentEdit}= %BR% configure %BR% setting (="0"=) |
+     | =save= | Optionally disable save; useful to demo the plugin | =save="0"= | =save="1"= |
+     | =width= | Table width in pixels; a horizontal scrollbar is added if needed | =width="500"= | (full window width) |
+     | =height= | Table height in pixels; a vertical scrollbar is added if needed | =height="300"= | (full table height) |
+     | =colHeaders= | Set to ="false"= to disable the default column headers (A, B, C); set to a function for custom headers, such as:%BR%=colHeaders="function(index) { return String.fromCharCode(65+index) + ' (' + (index + 1) + ')'; }"=, %BR% which will show headers =A (1)=, =B (2)=, =C (3)=, ... | =colHeaders="false"= | =colHeaders="true"= |
+     | =rowHeaders= | Set to ="false"= to disable the default row headers  (1, 2, 3) | =rowHeaders="false"= | =rowHeaders="true"= |
+     | =contextMenu= | Defines the right-click context menu; set to ="false"= to disable; set to array of available strings, such as:%BR% =contextMenu="['row_above', 'row_below', 'col_left', 'col_right', 'remove_row', 'remove_col', '---------', 'undo', 'redo']"= | =contextMenu="false"= | =contextMenu="true"= |
+     | =fixedRowsTop= | Fixed number of rows shown on top; takes effect if =height= parameter is used | =fixedRowsTop="1"= | (none) |
+     | =fixedColumnsLeft= | Fixed number of columns shown on the left; takes effect if =width= parameter is used | =fixedColumnsLeft="2"= | (none) |
+     | =formulas= | Formula support; set to ="false"= to disable spreadsheet calculations in table cells, such as: ==SUM(A1:A8)= | =formulas="false"= | =formulas="true"= |
+     | =maxCols= | Maximum number of columns | =maxCols="10"= | (unlimited) |
+     | =maxRows= | Maximum number of rows | =maxRows="1000"= | (unlimited) |
+     | =minSpareCols= | When set to 1 (or more), automatically add a new column at the right if there are no more empty columns | =minSpareCols="1"= | =minSpareCols="0"= |
+     | =minSpareRows= | When set to 1 (or more), automatically add a new row at the bottom if there are no more empty rows | =minSpareRows="1"= | =minSpareRows="0"= |
+     | =wordWrap= | Word wrap; set to ="false"= to disable cell content wrapping if it does not fit in the fixed column width | =wordWrap="false"= | =wordWrap="true"= |
+     | more... | Additional [[http://docs.handsontable.com/0.24.1/Options.html][Handsontable options]] can be used. Notes on types of values: %BB% Number value: Specify the number, such as =width="500"= %BB% String value: Enclose the string in single quotes, such as =preventOverflow="'horizontal'"= %BB% Boolean value: Specify ="true"= or ="false"=, such as =manualRowResize="true"= %BB% Array value: Specify the array, such as =manualRowResize="[40, 50]"= %BB% Object value: Specify the object, such as =columnSorting="{ column: 2, sortOrder: true }"= %BB% Function: Specify the !JavaScript function, such as:%BR% &nbsp;&nbsp; =cells="function( row, col, prop ) { var cp = {}; if( row===0 ) { cp.readOnly = true; } return cp; }"= | | | |%ENDSECTION{parameters}%
+   * Example:
+     <table><tr><td valign="top">
+     =%<nop>TWIKISHEET{ mode="edit" save="0" }%= %BR%
+     =|  | 16Q1 | 16Q2 | 16Q3 | 16Q4 |= %BR%
+     =| East: | 163 | 182 | 208 | 193 |= %BR%
+     =| Center: | 82 | 97 | 126 | 91 |= %BR%
+     =| West: | 217 | 231 | 294 | 249 |= %BR%
+     =| Total: | =SUM(B2:B4) | =SUM(<nop>C2:C4) | =SUM(D2:D4) | =SUM(E2:E4) |= %BR%
+     =| Min: | =MIN(B2:B4) | =MIN(<nop>C2:C4) | =MIN(D2:D4) | =MIN(E2:E4) |= %BR%
+     =| Max: | =MAX(B2:B4) | =MAX(<nop>C2:C4) | =MAX(D2:D4) | =MAX(E2:E4) |=
+     </td><td>&nbsp;</td><td valign="top">
+     <img src="%PUBURLPATH%/%WEB%/TWikiSheetPlugin/screenshot.png" alt="screenshot.png" width="307" height="190" />
+     </td></tr></table>
+   * Category: DatabaseAndFormsVariables, EditingAndContentUpdateVariables, FormattingAndRenderingVariables, TablesAndSpreadsheetsVariables
+   * Related: See TWikiSheetPlugin for more details
+@

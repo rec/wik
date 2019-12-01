@@ -1,0 +1,783 @@
+head	1.20;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.20
+date	2013.04.10.18.07.30;	author TWikiContributor;	state Exp;
+branches;
+next	1.19;
+
+1.19
+date	2013.01.16.08.21.31;	author TWikiContributor;	state Exp;
+branches;
+next	1.18;
+
+1.18
+date	2012.09.16.07.34.32;	author TWikiContributor;	state Exp;
+branches;
+next	1.17;
+
+1.17
+date	2011.07.29.04.23.54;	author TWikiContributor;	state Exp;
+branches;
+next	1.16;
+
+1.16
+date	2010.11.05.23.56.38;	author TWikiContributor;	state Exp;
+branches;
+next	1.15;
+
+1.15
+date	2010.05.29.14.44.58;	author TWikiContributor;	state Exp;
+branches;
+next	1.14;
+
+1.14
+date	2009.04.29.20.53.56;	author TWikiContributor;	state Exp;
+branches;
+next	1.13;
+
+1.13
+date	2009.03.30.09.18.24;	author TWikiContributor;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2008.01.22.03.21.27;	author TWikiContributor;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2007.01.16.04.12.04;	author TWikiContributor;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2006.06.25.16.26.25;	author TWikiContributor;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2006.04.01.05.55.08;	author TWikiContributor;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2006.02.01.12.01.17;	author TWikiContributor;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2004.08.15.08.30.34;	author PeterThoeny;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2004.04.25.00.33.52;	author PeterThoeny;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2003.03.26.05.54.00;	author PeterThoeny;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2003.03.25.18.25.40;	author PeterThoeny;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2002.06.05.07.34.49;	author PeterThoeny;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2002.06.01.07.26.29;	author PeterThoeny;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2002.05.05.00.10.00;	author PeterThoeny;	state Exp;
+branches;
+next	;
+
+
+desc
+@none
+@
+
+
+1.20
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1365617250" format="1.1" version="20"}%
+---++ My Links
+
+%STARTSECTION{ type="expandvariables" }%
+   * [[%SYSTEMWEB%.WelcomeGuest][WelcomeGuest]] - starting points on TWiki
+   * [[%SYSTEMWEB%.TWikiUsersGuide][TWikiUsersGuide]] - complete TWiki documentation, Quick Start to Reference
+   * [[Sandbox.%HOMETOPIC%][%HOMETOPIC%]] - try out TWiki on your own
+   * [[Sandbox.%TOPIC%Sandbox][%TOPIC%Sandbox]] - just for me
+
+---++ My Personal Preferences
+%ENDSECTION{ type="expandvariables" }%
+%EDITPREFERENCES{"%SYSTEMWEB%.TWikiPreferencesForm"}%
+%STARTSECTION{ type="expandvariables" }%
+   * Preference for the editor, default is the WYSIWYG editor. The options are raw, wysiwyg:
+      * Set EDITMETHOD = wysiwyg
+
+   * Fixed [[%SYSTEMWEB%.TopMenuSkin#FixedTopMenu][pulldown menu-bar]], on or off. If off, the menu-bar hides automatically when scrolling.
+      * Set FIXEDTOPMENU = off
+
+   * Show tool-tip topic info on mouse-over of [[%SYSTEMWEB%.WikiWord][WikiWord]] links, on or off:
+      * Set LINKTOOLTIPINFO = off
+%ENDSECTION{ type="expandvariables" }%
+%INCLUDE{%SYSTEMWEB%.PersonalPreferencesHelp}%
+%STARTSECTION{ type="expandvariables" }%
+---++ Related Topics
+
+   * [[%SYSTEMWEB%.ChangePassword][ChangePassword]] for changing your password
+   * [[%SYSTEMWEB%.ChangeEmailAddress][ChangeEmailAddress]] for changing your email address
+   * [[%USERSWEB%.UserList][UserList]] has a list of other TWiki users
+   * [[%SYSTEMWEB%.UserDocumentationCategory][UserDocumentationCategory]] is a list of TWiki user documentation
+   * [[%SYSTEMWEB%.UserToolsCategory][UserToolsCategory]] lists all TWiki user tools
+%SPLIT%
+   * %KEY%: %VALUE%%SPLIT%
+%ENDSECTION{ type="expandvariables" }%
+%STARTSECTION{type="templateonly"}%
+----
+Notes to TWiki Administrator:
+
+Anything inside this "templateonly" section will not be copied to the home topic of the new user. It is a resource for the administrator to tailor the users home topic.
+
+The default topic text above is for English speaking users. If you have a multilingual wiki community you can replace the "My Links", "Personal Preferences" and "Related Topics" sections above with the localized text below. Text enclosed in %MAKETEXT will be shown in the language selected by the user. Please note that the %MAKETEXT can be quite intimidating to new users. Consider translating above text to your own language if your community uses a non-English language. (Remove all text from =%<nop>STARTSECTION{type="templateonly"}%= to =%<nop>ENDSECTION{type="templateonly"}%= when you are done)
+
+Text for multilingual wiki community, copy from here to %<nop>ENDSECTION{type="templateonly"}%
+
+<!--
+   NOTE:
+
+   Text enclosed in '%MAKETEXT' below will be shown in your selected language 
+   when you view the topic.
+
+   When you edit this topic for your own purposes, you are advised not to
+   touch the MAKETEXT calls. If you want to change the text of one of the
+   MAKETEXTed strings, just delete the call completely and replace it with
+   your own text e.g. instead of:
+      ---++ %MAKETEXT{"Personal Preferences"}%
+   write:
+      ---++ My Own Setup
+-->
+---++ %MAKETEXT{"My Links"}%
+
+   * %MAKETEXT{"[_1] - starting points on TWiki" args="[[%SYSTEMWEB%.WelcomeGuest][WelcomeGuest]]"}%
+   * %MAKETEXT{"[_1] - complete TWiki documentation, Quick Start to Reference" args="[[%SYSTEMWEB%.TWikiUsersGuide][TWikiUsersGuide]]"}%
+   * %MAKETEXT{"[_1] - try out TWiki on your own" args="[[Sandbox.%HOMETOPIC%][%HOMETOPIC%]]"}%
+   * %MAKETEXT{"[_1] - just for me" args="[[Sandbox.%TOPIC%Sandbox][%TOPIC%Sandbox]]"}%
+
+---++ %MAKETEXT{"Personal Preferences"}%
+
+%EDITPREFERENCES{"%SYSTEMWEB%.TWikiPreferencesForm"}%
+
+   * %MAKETEXT{"Preference for the editor, default is the WYSIWYG editor. The options are raw, wysiwyg:"}%
+      * Set EDITMETHOD = wysiwyg
+
+   * %MAKETEXT{"Fixed pulldown menu-bar of [_1], on or off. If off, the menu-bar hides automatically when scrolling." args="[[%SYSTEMWEB%.TopMenuSkin#FixedTopMenu][TopMenuSkin]]"}%
+      * Set FIXEDTOPMENU = off
+
+   * %MAKETEXT{"Show tool-tip topic info on mouse-over of [_1] links, on or off:" args="[[%SYSTEMWEB%.WikiWord][WikiWord]]"
+}%
+      * Set LINKTOOLTIPINFO = off
+
+%INCLUDE{%SYSTEMWEB%.PersonalPreferencesHelp}%
+
+---++ %MAKETEXT{"Related Topics"}%
+
+   * %MAKETEXT{"[_1] for changing your password" args="[[%SYSTEMWEB%.ChangePassword][ChangePassword]]"}%
+   * %MAKETEXT{"[_1] for changing your email address" args="[[%SYSTEMWEB%.ChangeEmailAddress][ChangeEmailAddress]]"}%
+   * %MAKETEXT{"[_1] has a list of other TWiki users" args="[[%USERSWEB%.UserList][UserList]]"}%
+   * %MAKETEXT{"[_1] is a list of TWiki user documentation" args="[[%SYSTEMWEB%.UserDocumentationCategory][UserDocumentationCategory]]"}%
+   * %MAKETEXT{"[_1] lists all TWiki user tools" args="[[%SYSTEMWEB%.UserToolsCategory][UserToolsCategory]]"}%
+
+%ENDSECTION{type="templateonly"}%
+
+%META:FORM{name="%25SYSTEMWEB%25.UserForm"}%
+%META:FIELD{name="FirstName" attributes="" title="First Name" value=""}%
+%META:FIELD{name="LastName" attributes="" title="Last Name" value=""}%
+%META:FIELD{name="Titles" attributes="" title="Titles" value=""}%
+%META:FIELD{name="Email" attributes="" title="Email" value=""}%
+%META:FIELD{name="Telephone" attributes="" title="Telephone" value=""}%
+%META:FIELD{name="Mobile" attributes="" title="Mobile" value=""}%
+%META:FIELD{name="SkypeID" attributes="" title="Skype ID" value=""}%
+%META:FIELD{name="Department" attributes="" title="Department" value=""}%
+%META:FIELD{name="Organization" attributes="" title="Organization" value=""}%
+%META:FIELD{name="URL" attributes="" title="URL" value=""}%
+%META:FIELD{name="Location" attributes="" title="Location" value=""}%
+%META:FIELD{name="Region" attributes="" title="Region" value=""}%
+%META:FIELD{name="Country" attributes="" title="Country" value=""}%
+%META:FIELD{name="Image" attributes="H" title="Image" value=""}%
+%META:FIELD{name="StatusUpdate" attributes="" title="Status Update" value=""}%
+%META:PREFERENCE{name="VIEW_TEMPLATE" title="VIEW_TEMPLATE" type="Local" value="UserView"}%
+@
+
+
+1.19
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1358324491" format="1.1" version="19"}%
+d17 1
+a17 1
+   * Fixed [[%SYSTEMWEB%.TopMenuSkin#FixedTopMenu][pulldown menu-bar]], on or off. The menu-bar hides automatically if off.
+d73 1
+a73 1
+   * %MAKETEXT{"Fixed pulldown menu-bar of [_1], on or off. The menu-bar hides automatically if off." args="[[%SYSTEMWEB%.TopMenuSkin#FixedTopMenu][TopMenuSkin]]"}%
+@
+
+
+1.18
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1347780872" format="1.1" version="18"}%
+a4 1
+   * [[%SYSTEMWEB%.ATasteOfTWiki][ATasteOfTWiki]] - view a short introductory presentation on TWiki for beginners
+a60 1
+   * %MAKETEXT{"[_1] - view a short introductory presentation on TWiki for beginners" args="[[%SYSTEMWEB%.ATasteOfTWiki][ATasteOfTWiki]]"}%
+@
+
+
+1.17
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1311913434" format="1.1" version="17"}%
+a9 2
+   * 
+   * 
+d15 6
+a22 3
+
+   * Preference for the editor, default is the WYSIWYG editor. The options are raw, wysiwyg:
+      * Set EDITMETHOD = wysiwyg
+a66 2
+   * 
+   * 
+d72 8
+a79 1
+   * %MAKETEXT{"Show tool-tip topic info on mouse-over of [_1] links, on or off:" args="[[%SYSTEMWEB%.WikiWord][WikiWord]]"}%
+a81 3
+   * Preference for the editor, default is the WYSIWYG editor. The options are raw, wysiwyg:
+      * Set EDITMETHOD = wysiwyg
+
+@
+
+
+1.16
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1289001398" format="1.1" version="16"}%
+d14 3
+a16 1
+
+a21 1
+
+a24 1
+
+d29 1
+a29 1
+   * [[%USERSWEB%.%WIKIUSERSTOPIC%][%WIKIUSERSTOPIC%]] has a list of other TWiki users
+d71 2
+d76 3
+d85 1
+a85 1
+   * %MAKETEXT{"[_1] has a list of other TWiki users" args="[[%USERSWEB%.%WIKIUSERSTOPIC%][%WIKIUSERSTOPIC%]]"}%
+d90 1
+d92 12
+a103 5
+%META:FIELD{name="FirstName" attributes="" title="<nop>FirstName" value=""}%
+%META:FIELD{name="LastName" attributes="" title="<nop>LastName" value=""}%
+%META:FIELD{name="OrganisationName" attributes="" title="<nop>OrganisationName" value=""}%
+%META:FIELD{name="OrganisationURL" attributes="" title="<nop>OrganisationURL" value=""}%
+%META:FIELD{name="Profession" attributes="" title="Profession" value=""}%
+d105 2
+a106 9
+%META:FIELD{name="State" attributes="" title="State" value=""}%
+%META:FIELD{name="Address" attributes="" title="Address" value=""}%
+%META:FIELD{name="Location" attributes="" title="Location" value=""}%
+%META:FIELD{name="Telephone" attributes="" title="Telephone" value=""}%
+%META:FIELD{name="VoIP" attributes="" title="<nop>VoIP" value=""}%
+%META:FIELD{name="InstantMessagingIM" attributes="" title="<nop>InstantMessaging (IM)" value=""}%
+%META:FIELD{name="Email" attributes="" title="Email" value=""}%
+%META:FIELD{name="HomePage" attributes="" title="<nop>HomePage" value=""}%
+%META:FIELD{name="Comment" attributes="" title="Comment" value=""}%
+@
+
+
+1.15
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1273964680" version="15"}%
+d18 3
+@
+
+
+1.14
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1240003685" format="1.1" version="14"}%
+a12 1
+
+a31 1
+
+d59 1
+a59 1
+   * %MAKETEXT{"[_1] - starting points on TWiki" args="[[%TWIKIWEB%.WelcomeGuest][WelcomeGuest]]"}%
+d82 1
+a82 2
+
+%META:FORM{name="%25TWIKIWEB%25.UserForm"}%
+@
+
+
+1.13
+log
+@buildrelease
+@
+text
+@d1 1
+a1 4
+%META:TOPICINFO{author="TWikiContributor" date="1233377748" format="1.1" version="13"}%
+%SPLIT%
+   * %KEY%: %VALUE%%SPLIT%
+
+d5 3
+a7 3
+   * [[%TWIKIWEB%.ATasteOfTWiki][ATasteOfTWiki]] - view a short introductory presentation on TWiki for beginners
+   * [[%TWIKIWEB%.WelcomeGuest][WelcomeGuest]] - starting points on TWiki
+   * [[%TWIKIWEB%.TWikiUsersGuide][TWikiUsersGuide]] - complete TWiki documentation, Quick Start to Reference
+a11 5
+%ENDSECTION{ type="expandvariables" }%
+
+---++ My Personal Data
+
+Note: if personal data is being stored using a secret database, then it is only visible to the user and to administrators.
+a12 1
+| E-mail | %USERIN%NOP%FO{"%TOPIC%" format="$emails"}% |
+d16 2
+a17 1
+Uncomment preferences variables to activate them (remove the #-sign). Help and details on preferences variables are available in [[%TWIKIWEB%.%WIKIPREFSTOPIC%][%WIKIPREFSTOPIC%]].
+d19 3
+a21 2
+   * Show tool-tip topic info on mouse-over of [[%TWIKIWEB%.WikiWord][WikiWord]] links, on or off:
+      * #Set LINKTOOLTIPINFO = off
+d25 8
+a32 5
+   * [[%TWIKIWEB%.ChangePassword][ChangePassword]] for changing your password
+   * [[%TWIKIWEB%.ChangeEmailAddress][ChangeEmailAddress]] for changing your email address
+   * [[%MAINWEB%.%WIKIUSERSTOPIC%][%WIKIUSERSTOPIC%]] has a list of other TWiki users
+   * [[%TWIKIWEB%.UserDocumentationCategory][UserDocumentationCategory]] is a list of TWiki user documentation
+   * [[%TWIKIWEB%.UserToolsCategory][UserToolsCategory]] lists all TWiki user tools
+d60 1
+a60 1
+   * %MAKETEXT{"[_1] - view a short introductory presentation on TWiki for beginners" args="[[%TWIKIWEB%.ATasteOfTWiki][ATasteOfTWiki]]"}%
+d62 1
+a62 1
+   * %MAKETEXT{"[_1] - complete TWiki documentation, Quick Start to Reference" args="[[%TWIKIWEB%.TWikiUsersGuide][TWikiUsersGuide]]"}%
+d70 2
+a71 1
+%MAKETEXT{"Uncomment preferences variables to activate them (remove the #-sign). Help and details on preferences variables are available in [_1]." args="[[%TWIKIWEB%.%WIKIPREFSTOPIC%][%WIKIPREFSTOPIC%]]"}%
+d73 1
+a73 2
+   * %MAKETEXT{"Show tool-tip topic info on mouse-over of [_1] links, on or off:" args="[[%TWIKIWEB%.WikiWord][WikiWord]]"}%
+      * #Set LINKTOOLTIPINFO = off
+d77 5
+a81 5
+   * %MAKETEXT{"[_1] for changing your password" args="[[%TWIKIWEB%.ChangePassword][ChangePassword]]"}%
+   * %MAKETEXT{"[_1] for changing your email address" args="[[%TWIKIWEB%.ChangeEmailAddress][ChangeEmailAddress]]"}%
+   * %MAKETEXT{"[_1] has a list of other TWiki users" args="[[%MAINWEB%.%WIKIUSERSTOPIC%][%WIKIUSERSTOPIC%]]"}%
+   * %MAKETEXT{"[_1] is a list of TWiki user documentation" args="[[%TWIKIWEB%.UserDocumentationCategory][UserDocumentationCategory]]"}%
+   * %MAKETEXT{"[_1] lists all TWiki user tools" args="[[%TWIKIWEB%.UserToolsCategory][UserToolsCategory]]"}%
+@
+
+
+1.12
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1167346194" format="1.0" version="12"}%
+d7 6
+a12 5
+   * %TWIKIWEB%.ATasteOfTWiki - view a short introductory presentation on TWiki for beginners
+   * %TWIKIWEB%.WelcomeGuest - starting points on TWiki
+   * %TWIKIWEB%.TWikiUsersGuide - complete TWiki documentation, Quick Start to Reference
+   * Sandbox.%HOMETOPIC% - try out TWiki on your own
+   * Sandbox.%TOPIC%Sandbox - just for me
+d15 1
+d25 1
+a25 1
+Uncomment preferences variables to activate them (remove the #-sign). Help and details on preferences variables are available in %TWIKIWEB%.%WIKIPREFSTOPIC%.
+d27 1
+a27 1
+   * Show tool-tip topic info on mouse-over of %TWIKIWEB%.WikiWord links, on or off:
+d32 5
+a36 5
+   * %TWIKIWEB%.ChangePassword for changing your password
+   * %TWIKIWEB%.ChangeEmailAddress for changing your email address
+   * %MAINWEB%.%WIKIUSERSTOPIC% has a list of other TWiki users
+   * %TWIKIWEB%.UserDocumentationCategory is a list of TWiki user documentation
+   * %TWIKIWEB%.UserToolsCategory lists all TWiki user tools
+a43 4
+On public TWiki's on the Internet user topics are often subject to spam so you may want to limit editing to the user himself. You can do this by moving these two lines to the Personal Preferences section above. Remove the small # in front of the "Set".
+   * Write protect your home page: (set it to your %TWIKIWEB%.WikiName)
+      * #Set ALLOWTOPICCHANGE = %WIKIUSERNAME%
+
+d64 5
+a68 5
+   * %MAKETEXT{"[_1] - view a short introductory presentation on TWiki for beginners" args="%TWIKIWEB%.ATasteOfTWiki"}%
+   * %MAKETEXT{"[_1] - starting points on TWiki" args="%TWIKIWEB%.WelcomeGuest"}%
+   * %MAKETEXT{"[_1] - complete TWiki documentation, Quick Start to Reference" args="%TWIKIWEB%.TWikiUsersGuide"}%
+   * %MAKETEXT{"[_1] - try out TWiki on your own" args="Sandbox.%HOMETOPIC%"}%
+   * %MAKETEXT{"[_1] - just for me" args="Sandbox.%TOPIC%Sandbox"}%
+d74 1
+a74 1
+%MAKETEXT{"Uncomment preferences variables to activate them (remove the #-sign). Help and details on preferences variables are available in [_1]." args="%TWIKIWEB%.%WIKIPREFSTOPIC%"}%
+d76 1
+a76 1
+   * %MAKETEXT{"Show tool-tip topic info on mouse-over of [_1] links, on or off:" args="%TWIKIWEB%.WikiWord"}%
+d81 5
+a85 5
+   * %MAKETEXT{"[_1] for changing your password" args="%TWIKIWEB%.ChangePassword"}%
+   * %MAKETEXT{"[_1] for changing your email address" args="%TWIKIWEB%.ChangeEmailAddress"}%
+   * %MAKETEXT{"[_1] has a list of other TWiki users" args="%MAINWEB%.%WIKIUSERSTOPIC%"}%
+   * %MAKETEXT{"[_1] is a list of TWiki user documentation" args="%TWIKIWEB%.UserDocumentationCategory"}%
+   * %MAKETEXT{"[_1] lists all TWiki user tools" args="%TWIKIWEB%.UserToolsCategory"}%
+d88 2
+a89 1
+%META:FORM{name="%TWIKIWEB%.UserForm"}%
+@
+
+
+1.11
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1167346194" format="1.0" version="11"}%
+d90 1
+a90 1
+%META:FORM{name="%MAINWEB%.UserForm"}%
+@
+
+
+1.10
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="10"}%
+a26 8
+   * Horizontal size of text edit box:
+      * #Set EDITBOXWIDTH = 70
+   * Vertical size of text edit box:
+      * #Set EDITBOXHEIGHT = 22
+   * Style of text edit box. =width: 99%= for full window width (default), =width: auto= to disable.
+      * #Set EDITBOXSTYLE = width: 99%
+   * Write protect your home page: (set it to your %TWIKIWEB%.WikiName)
+      * #Set ALLOWTOPICCHANGE = %WIKIUSERNAME%
+d35 1
+d37 8
+a44 1
+Note to TWiki Administrator:
+d46 1
+a46 1
+Above text is for English speaking users. If you have a multilingual wiki community you can replace the "My Links", "Personal Preferences" and "Related Topics" sections above with the localized text below. Text enclosed in %MAKETEXT will be shown in the language selected by the user. Please note that the %MAKETEXT can be quite intimidating to new users. Consider translating above text to your own language if your community uses a non-English language. (Remove all text from =%<nop>STARTSECTION{type="templateonly"}%= to =%<nop>ENDSECTION{type="templateonly"}%= when you are done)
+a79 8
+   * %MAKETEXT{"Horizontal size of text edit box:"}%
+      * #Set EDITBOXWIDTH = 70
+   * %MAKETEXT{"Vertical size of text edit box:"}%
+      * #Set EDITBOXHEIGHT = 22
+   * %MAKETEXT{"Style of text edit box. =width: 99%= for full window width (default), =width: auto= to disable."}%
+      * #Set EDITBOXSTYLE = width: 99%
+   * %MAKETEXT{"Write protect your home page: (set it to your [_1])" args="%TWIKIWEB%.WikiName"}%
+      * Set ALLOWTOPICCHANGE = %WIKIUSERNAME%
+@
+
+
+1.9
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="9"}%
+d15 7
+a21 1
+---++ Personal Preferences
+@
+
+
+1.8
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="8"}%
+d3 1
+a3 1
+	* %KEY%: %VALUE%%SPLIT%
+d7 7
+a13 7
+	* %TWIKIWEB%.ATasteOfTWiki - view a short introductory presentation on TWiki for beginners
+	* %TWIKIWEB%.WelcomeGuest - starting points on TWiki
+	* %TWIKIWEB%.TWikiUsersGuide - complete TWiki documentation, Quick Start to Reference
+	* Sandbox.%HOMETOPIC% - try out TWiki on your own
+	* Sandbox.%TOPIC%Sandbox - just for me
+	* 
+	* 
+d19 10
+a28 10
+	* Show tool-tip topic info on mouse-over of %TWIKIWEB%.WikiWord links, on or off:
+		* #Set LINKTOOLTIPINFO = off
+	* Horizontal size of text edit box:
+		* #Set EDITBOXWIDTH = 70
+	* Vertical size of text edit box:
+		* #Set EDITBOXHEIGHT = 22
+	* Style of text edit box. =width: 99%= for full window width (default), =width: auto= to disable.
+		* #Set EDITBOXSTYLE = width: 99%
+	* Write protect your home page: (set it to your %TWIKIWEB%.WikiName)
+		* #Set ALLOWTOPICCHANGE = %WIKIUSERNAME%
+d32 5
+a36 5
+	* %TWIKIWEB%.ChangePassword for changing your password
+	* %TWIKIWEB%.ChangeEmailAddress for changing your email address
+	* %MAINWEB%.%WIKIUSERSTOPIC% has a list of other TWiki users
+	* %TWIKIWEB%.UserDocumentationCategory is a list of TWiki user documentation
+	* %TWIKIWEB%.UserToolsCategory lists all TWiki user tools
+d45 1
+a45 1
+	NOTE:
+d47 2
+a48 2
+	Text enclosed in '%MAKETEXT' below will be shown in your selected language 
+	when you view the topic.
+d50 7
+a56 7
+	When you edit this topic for your own purposes, you are advised not to
+	touch the MAKETEXT calls. If you want to change the text of one of the
+	MAKETEXTed strings, just delete the call completely and replace it with
+	your own text e.g. instead of:
+		---++ %MAKETEXT{"Personal Preferences"}%
+	write:
+		---++ My Own Setup
+d60 7
+a66 7
+	* %MAKETEXT{"[_1] - view a short introductory presentation on TWiki for beginners" args="%TWIKIWEB%.ATasteOfTWiki"}%
+	* %MAKETEXT{"[_1] - starting points on TWiki" args="%TWIKIWEB%.WelcomeGuest"}%
+	* %MAKETEXT{"[_1] - complete TWiki documentation, Quick Start to Reference" args="%TWIKIWEB%.TWikiUsersGuide"}%
+	* %MAKETEXT{"[_1] - try out TWiki on your own" args="Sandbox.%HOMETOPIC%"}%
+	* %MAKETEXT{"[_1] - just for me" args="Sandbox.%TOPIC%Sandbox"}%
+	* 
+	* 
+d72 10
+a81 10
+	* %MAKETEXT{"Show tool-tip topic info on mouse-over of [_1] links, on or off:" args="%TWIKIWEB%.WikiWord"}%
+		* #Set LINKTOOLTIPINFO = off
+	* %MAKETEXT{"Horizontal size of text edit box:"}%
+		* #Set EDITBOXWIDTH = 70
+	* %MAKETEXT{"Vertical size of text edit box:"}%
+		* #Set EDITBOXHEIGHT = 22
+	* %MAKETEXT{"Style of text edit box. =width: 99%= for full window width (default), =width: auto= to disable."}%
+		* #Set EDITBOXSTYLE = width: 99%
+	* %MAKETEXT{"Write protect your home page: (set it to your [_1])" args="%TWIKIWEB%.WikiName"}%
+		* Set ALLOWTOPICCHANGE = %WIKIUSERNAME%
+d85 5
+a89 5
+	* %MAKETEXT{"[_1] for changing your password" args="%TWIKIWEB%.ChangePassword"}%
+	* %MAKETEXT{"[_1] for changing your email address" args="%TWIKIWEB%.ChangeEmailAddress"}%
+	* %MAKETEXT{"[_1] has a list of other TWiki users" args="%MAINWEB%.%WIKIUSERSTOPIC%"}%
+	* %MAKETEXT{"[_1] is a list of TWiki user documentation" args="%TWIKIWEB%.UserDocumentationCategory"}%
+	* %MAKETEXT{"[_1] lists all TWiki user tools" args="%TWIKIWEB%.UserToolsCategory"}%
+@
+
+
+1.7
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1092558634" format="1.0" version="1.7"}%
+d5 7
+a11 4
+__My Links__
+	* %TWIKIWEB%.WelcomeGuest to learn TWiki
+	* Sandbox.WebHome web to try out TWiki
+	* Sandbox.%TOPIC%Sandbox just for me
+d15 6
+a20 3
+__Personal Preferences (details in %TWIKIWEB%.TWikiVariables)__
+	* Show tool-tip topic info on mouse-over of %TWIKIWEB%.WikiWord links, on or off: (see details in %TWIKIWEB%.%WIKIPREFSTOPIC%)
+		* Set LINKTOOLTIPINFO = off
+d22 1
+a22 1
+		* Set EDITBOXWIDTH = 70
+d24 1
+a24 1
+		* Set EDITBOXHEIGHT = 22
+d26 64
+a89 9
+		* Set EDITBOXSTYLE = width: 99%
+	* Optionally write protect your home page: (set it to your %TWIKIWEB%.WikiName)
+		* Set ALLOWTOPICCHANGE =
+
+__Related topics__
+	* ChangePassword
+	* %TWIKIWEB%.%WIKIPREFSTOPIC% has site-level preferences of %WIKITOOLNAME%.
+	* %WEBPREFSTOPIC% has preferences of the %WIKITOOLNAME%.%WEB% web.
+	* %MAINWEB%.%WIKIUSERSTOPIC% has a list of other TWiki users.
+d91 18
+@
+
+
+1.6
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1082853232" format="1.0" version="1.6"}%
+d14 1
+a14 1
+		* Set LINKTOOLTIPINFO = on
+d18 1
+a18 1
+		* Set EDITBOXHEIGHT = 17
+d25 1
+@
+
+
+1.5
+log
+@none
+@
+text
+@d1 28
+a28 25
+%META:TOPICINFO{author="PeterThoeny" date="1048658040" format="1.0" version="1.5"}%
+%SPLIT%
+	* %KEY%: %VALUE%%SPLIT%
+
+__My Links__
+	* %TWIKIWEB%.WelcomeGuest to learn TWiki
+	* Sandbox.WebHome web to try out TWiki
+	* Sandbox.%TOPIC%Sandbox just for me
+	* 
+	* 
+
+__Personal Preferences (details in %TWIKIWEB%.TWikiVariables)__
+	* Horizontal size of text edit box:
+		* Set EDITBOXWIDTH = 70
+	* Vertical size of text edit box:
+		* Set EDITBOXHEIGHT = 17
+	* Style of text edit box. =width: 99%= for full window width (default), =width: auto= to disable.
+		* Set EDITBOXSTYLE = width: 99%
+	* Optionally write protect your home page: (set it to your %TWIKIWEB%.WikiName)
+		* Set ALLOWTOPICCHANGE =
+
+__Related topics__
+	* %TWIKIWEB%.%WIKIPREFSTOPIC% has site-level preferences of %WIKITOOLNAME%.
+	* %WEBPREFSTOPIC% has preferences of the %WIKITOOLNAME%.%WEB% web.
+	* %MAINWEB%.%WIKIUSERSTOPIC% has a list of other TWiki users.
+@
+
+
+1.4
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1048616740" format="1.0" version="1.4"}%
+d6 1
+d8 2
+@
+
+
+1.3
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1023262489" format="1.0" version="1.3"}%
+d4 4
+@
+
+
+1.2
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1022916389" format="1.0" version="1.2"}%
+d10 2
+a11 2
+	* Style of text edit box. =width: 100%= for full window width (default), =width: auto= to disable.
+		* Set EDITBOXSTYLE = width: 100%
+@
+
+
+1.1
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1020557400" format="1.0" version="1.1"}%
+d10 2
+@

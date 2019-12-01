@@ -1,0 +1,18 @@
+%META:TOPICINFO{author="TWikiContributor" date="1277626021" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiTipsOfTheDay"}%
+---+ File attachments
+
+One can attach files to any topic. The action of attaching a file to a topic is similar to attaching a file to an e-mail. The link to attach a file is located at the end of the topic. 
+
+Features:
+   * Browse to one or more files to upload
+   * "Link" checkbox - to inline images
+   * "Hide file" checkbox
+   * Version control
+   * "manage" link to see older revisions and to change properties
+
+__Related Topic:__ FileAttachment
+
+[[TWikiTipsOfTheDay][See More Tips...]]
+
+-- __Contributors:__ TWiki:Main.PaulineCheung

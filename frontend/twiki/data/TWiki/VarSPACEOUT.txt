@@ -1,0 +1,14 @@
+%META:TOPICINFO{author="TWikiContributor" date="1421290710" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarSPACEOUT
+---+++ SPACEOUT{"string"} -- renders string with spaces inserted in sensible places
+   * Inserts spaces between word components. Word component boundaries are transitions from lowercase to uppercase or numeric, from numeric to uppercase or lowercase, and from uppercase to numeric characters.
+   * Useful for spacing out WikiWords
+   * Syntax: =%<nop>SPACEOUT{ "%<nop>TOPIC%" }%=
+   * Expands to: =%SPACEOUT{ "%INCLUDINGTOPIC%" }%=
+   * Supported parameters:
+     | *Parameter:* | *Description:* | *Default:* |
+     | =separator= | The separator to put between words e.g. %<nop>SPACEOUT{"DogsCatsBudgies" separator=", "}% -> %SPACEOUT{"DogsCatsBudgies" separator=", "}% | ' ' |
+   * %T% Hint: Spaced out !WikiWords are not automatically linked. To SPACEOUT a !WikiWord but preserve the link use "double bracket" format. For example, =[<nop>[WebHome][%<nop>SPACEOUT{"Web<nop>Home"}%]]= expands to [[WebHome][%SPACEOUT{"WebHome"}%]]
+   * Category: FormattingAndRenderingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSPACEDTOPIC][SPACEDTOPIC]], [[SpreadSheetPlugin#FuncPROPERSPACE][$PROPERSPACE()]] of SpreadSheetPlugin

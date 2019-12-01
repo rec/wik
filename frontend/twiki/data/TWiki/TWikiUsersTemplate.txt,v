@@ -1,0 +1,148 @@
+head	1.4;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.4
+date	2010.06.12.07.18.41;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2010.05.29.14.44.57;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.12.06.09.02.31;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2008.01.22.03.21.34;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1276327121" format="1.1" version="4"}%
+---+ List of <nop>%WIKITOOLNAME% Users
+
+Below is a list of users with accounts. If you want to edit topics or see protected areas of the site then you can get added to the list by registering: fill out the form in [[%SYSTEMWEB%.TWikiRegistration][TWikiRegistration]]. 
+
+If you forget your password, [[%SYSTEMWEB%.ResetPassword][ResetPassword]] will get a new one sent to you.
+
+%INCLUDE{"UserListHeader"}%
+
+----
+#ListStart
+[[#A][A]] [[#B][B]] [[#C][C]] [[#D][D]] [[#E][E]] [[#F][F]] [[#G][G]] [[#H][H]] [[#I][I]] [[#J][J]] [[#K][K]] [[#L][L]] [[#M][M]] [[#N][N]] [[#O][O]] [[#P][P]] [[#Q][Q]] [[#R][R]] [[#S][S]] [[#T][T]] [[#U][U]] [[#V][V]] [[#W][W]] [[#X][X]] [[#Y][Y]] [[#Z][Z]]
+
+   * A - <a name="A">- - - -</a>
+   * B - <a name="B">- - - -</a>
+   * C - <a name="C">- - - -</a>
+   * D - <a name="D">- - - -</a>
+   * E - <a name="E">- - - -</a>
+   * F - <a name="F">- - - -</a>
+   * G - <a name="G">- - - -</a>
+   * H - <a name="H">- - - -</a>
+   * I - <a name="I">- - - -</a>
+   * J - <a name="J">- - - -</a>
+   * K - <a name="K">- - - -</a>
+   * L - <a name="L">- - - -</a>
+   * M - <a name="M">- - - -</a>
+   * N - <a name="N">- - - -</a>
+   * O - <a name="O">- - - -</a>
+   * P - <a name="P">- - - -</a>
+   * Q - <a name="Q">- - - -</a>
+   * R - <a name="R">- - - -</a>
+   * S - <a name="S">- - - -</a>
+   * T - <a name="T">- - - -</a>
+   * TWikiContributor - 2005-01-01
+   * TWikiGuest - guest - 1999-02-10
+   * TWikiRegistrationAgent - 2005-01-01
+   * U - <a name="U">- - - -</a>
+   * UnknownUser - 2005-01-01
+   * V - <a name="V">- - - -</a>
+   * W - <a name="W">- - - -</a>
+   * X - <a name="X">- - - -</a>
+   * Y - <a name="Y">- - - -</a>
+   * Z - <a name="Z">- - - -</a>
+
+__%X% Note:__ There are four default system users:
+   * *TWikiContributor* - placeholder for a TWiki developer, and is used in TWiki documentation
+   * *TWikiGuest* - guest user, used as a fallback if the user can't be identified
+   * *TWikiRegistrationAgent* - special user used during the new user registration process
+   * *UnknownUser* - used where the author of a previously stored piece of data can't be determined
+
+__Access Control:__
+   * Set ALLOWTOPICCHANGE = TWikiAdminGroup, TWikiRegistrationAgent
+
+__Related topics:__ [[%SYSTEMWEB%.TWikiRegistration][TWikiRegistration]], [[%SYSTEMWEB%.ResetPassword][ResetPassword]]
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1178574333" format="1.1" version="3"}%
+d4 1
+a4 1
+Below is a list of users with accounts. If you want to edit topics or see protected areas of the site then you can get added to the list by registering: fill out the form in %SYSTEMWEB%.TWikiRegistration. 
+d6 1
+a6 1
+If you forget your password, %SYSTEMWEB%.ResetPassword will get a new one sent to you.
+d53 2
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 2
+a2 2
+%META:TOPICINFO{author="TWikiContributor" date="1178574333" format="1.1" reprev="1.2" version="2"}%
+---+ List of <nop>%WIKITOOLNAME% users
+d4 1
+a4 1
+Below is a list of users with accounts. If you want to edit topics or see protected areas of the site then you can get added to the list by registering: fill out the form in %TWIKIWEB%.TWikiRegistration. 
+d6 1
+a6 1
+If you forget your password, %TWIKIWEB%.ResetPassword will get a new one sent to you.
+d34 3
+a36 3
+   * TWikiContributor - 1 Jan 2005
+   * TWikiGuest - guest - 10 Feb 1999
+   * TWikiRegistrationAgent - 1 Jan 2005
+d38 1
+a38 1
+   * UnknownUser - 1 Jan 2005
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiAdminGroup" date="1178574333" format="1.1" reprev="1.2" version="1"}%
+@

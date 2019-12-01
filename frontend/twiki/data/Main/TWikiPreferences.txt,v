@@ -1,0 +1,228 @@
+head	1.8;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.8
+date	2016.08.03.05.23.37;	author TWikiContributor;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2013.09.25.18.40.25;	author TWikiContributor;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2010.05.29.14.45.04;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2008.01.22.03.21.37;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2007.01.16.04.12.07;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2006.04.01.05.54.53;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2006.02.01.12.01.14;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2003.12.20.21.29.00;	author PeterThoeny;	state Exp;
+branches;
+next	;
+
+
+desc
+@none
+@
+
+
+1.8
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1470201817" format="1.1" version="8"}%
+---+!! %MAKETEXT{"Local customizations of site-wide preferences"}%
+
+<div class="twikiHelp">%ICON{"info"}% %MAKETEXT{"Site-level preferences are located in [_1], however this [_2] prefs topic has override priority and should be used for local customizations. This allows for easier upgrades as you don't need to worry about the shipped preferences clobbering yours. It's easier to keep a handle on if you only copy over the settings you actually change." args="[[%SYSTEMWEB%.%TOPIC%]], [[%USERSWEB%.%TOPIC%]]"}% </div>
+
+%EDITPREFERENCES{"%SYSTEMWEB%.TWikiPreferencesForm"}%
+%IF{"$ SCRIPTNAME != 'viewauth%SCRIPTSUFFIX%'" then="<span class='twikiGrayText'>%MAKETEXT{"Quick edit of existing preferences (edit the topic text to set new preferences)"}%</span>" }%
+
+---++ Site Specific Site-wide Preferences
+<!-- Add site-wide preferences here -->
+
+   * Image and URL of the logo of this TWiki installation:
+      * Set WIKILOGOIMG = %PUBURLPATH%/%SYSTEMWEB%/TWikiLogos/T-logo-140x40-t.gif
+      * Example URL if logo attached to this topic: %PUBURLPATH%/%USERSWEB%/TWikiPreferences/my-logo-100x50.png
+      * Set WIKILOGOURL = %SCRIPTURL{view}%/%USERSWEB%/%HOMETOPIC%
+
+---++ Final Preferences
+
+   * =FINALPREFERENCES= locks site-level preferences that are *not* allowed to be overridden by [[%WEBPREFSTOPIC%]] or user preferences:
+      * Set FINALPREFERENCES = ALLOWROOTCHANGE, ATTACHFILESIZELIMIT, DENYROOTCHANGE, DOCWEB, ICONTOPIC, PREVIEWBGIMAGE, SYSTEMWEB, TWIKICOLORSURL, TWIKILAYOUTURL, TWIKISTYLEURL, USERSWEB, WIKIHOMEURL, WIKITOOLNAME
+
+---++ Security Settings
+
+   * Only TWiki administrators are allowed to change this topic:
+      * Set ALLOWTOPICCHANGE = TWikiAdminGroup
+      * Set ALLOWTOPICRENAME = TWikiAdminGroup
+   * Disable WYSIWYG editor for this preferences topic only:
+      * Local TINYMCEPLUGIN_DISABLE = on
+
+%EDITPREFERENCES{"%SYSTEMWEB%.TWikiPreferencesForm"}%
+
+__Related topics:__ [[%SYSTEMWEB%.%TOPIC%]], [[%SYSTEMWEB%.TWikiVariables][TWikiVariables]], [[%SYSTEMWEB%.TWikiAccessControl][TWikiAccessControl]]
+@
+
+
+1.7
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1380134425" format="1.1" version="7"}%
+d12 4
+a15 1
+
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@d1 2
+a2 2
+%META:TOPICINFO{author="TWikiContributor" date="1274900747" format="1.1" version="6"}%
+---+!! %MAKETEXT{"Local customisations of site-wide preferences"}%
+d4 1
+a4 1
+<div class="twikiHelp">%ICON{"info"}% %MAKETEXT{"Site-level preferences are located in [_1], however this [_2] prefs topic has override priority and should be used for local customisations. This allows for easier upgrades as you don't need to worry about the shipped preferences clobbering yours. It's easier to keep a handle on if you only copy over the settings you actually change." args="[[%SYSTEMWEB%.%TOPIC%]], [[%USERSWEB%.%TOPIC%]]"}% </div>
+d6 1
+a6 1
+%EDITPREFERENCES{"%SYSTEMWEB%/TWikiPreferencesForm"}%
+d17 1
+a17 1
+      * Set FINALPREFERENCES = ATTACHFILESIZELIMIT, PREVIEWBGIMAGE, WIKITOOLNAME, WIKIHOMEURL, ALLOWROOTCHANGE, DENYROOTCHANGE, TWIKILAYOUTURL, TWIKISTYLEURL, TWIKICOLORSURL, USERSWEB, SYSTEMWEB, DOCWEB
+d27 2
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1123279665" format="1.0" version="5"}%
+d9 2
+a10 1
+<!-- Preferences start here -->
+d12 5
+a16 1
+   * =FINALPREFERENCES= locks site-level preferences that are *not* allowed to be overridden by %WEBPREFSTOPIC% or user preferences:
+d19 7
+a25 4
+<!-- Keep this as a security measure:
+   * Set ALLOWTOPICCHANGE = TWikiAdminGroup
+   * Set ALLOWTOPICRENAME = TWikiAdminGroup
+-->
+d27 1
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 2
+a2 1
+%META:TOPICINFO{author="TWikiContributor" date="1123279665" format="1.0" version="4"}%
+d4 1
+a4 1
+| Site-level preferences are located in [[%TWIKIWEB%.%TOPIC%]], however this [[%MAINWEB%.%TOPIC%]] prefs topic has override priority and should be used for local customisations. This allows for easier upgrades as you don't need to worry about the shipped preferences clobbering yours. It's easier to keep a handle on if you only copy over the settings you actually change.|
+d6 2
+a7 2
+%EDITPREFERENCES{"TWikiPreferencesForm"}% 
+_(Click for form-based editing of existing preferences.)_
+d9 1
+d12 1
+a12 1
+      * Set FINALPREFERENCES = ATTACHFILESIZELIMIT, PREVIEWBGIMAGE, WIKITOOLNAME, WIKIWEBMASTER, SMTPMAILHOST, SMTPSENDERHOST, ALLOWWEBMANAGE, PROXYHOST, PROXYPORT
+d14 1
+a14 1
+<!-- keep this as a security measure:
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1123279665" format="1.0" version="3"}%
+d3 1
+a3 1
+| Site-level preferences are located in [[%TWIKIWEB%.%TOPIC%]], however this [[%MAINWEB%.%TOPIC%]] prefs topic has overrride priority and should be used for local customisations. This allows for easier upgrades as you don't need to worry about the shipped preferences clobbering yours. It's easier to keep a handle on if you only copy over the settings you actually change.|
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1123279665" format="1.0" version="2"}%
+d9 2
+a10 2
+	* =FINALPREFERENCES= locks site-level preferences that are *not* allowed to be overridden by %WEBPREFSTOPIC% or user preferences:
+		* Set FINALPREFERENCES = ATTACHFILESIZELIMIT, PREVIEWBGIMAGE, WIKITOOLNAME, WIKIWEBMASTER, SMTPMAILHOST, SMTPSENDERHOST, ALLOWWEBMANAGE, PROXYHOST, PROXYPORT
+d13 2
+a14 2
+	* Set ALLOWTOPICCHANGE = TWikiAdminGroup
+	* Set ALLOWTOPICRENAME = TWikiAdminGroup
+@
+
+
+1.1
+log
+@none
+@
+text
+@d1 16
+a16 9
+%META:TOPICINFO{author="PeterThoeny" date="1071955740" format="1.0" version="1.1"}%
+The site-level preferences are located in [[%TWIKIWEB%.%TOPIC%]]
+<!-- keep this as a security measure:
+	* Set ALLOWTOPICCHANGE = TWikiAdminGroup
+	* Set ALLOWTOPICRENAME = TWikiAdminGroup
+-->
+
+
+-- Main.PeterThoeny - 20 Dec 2003
+@

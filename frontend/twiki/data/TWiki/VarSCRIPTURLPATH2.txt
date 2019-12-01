@@ -1,0 +1,28 @@
+%META:TOPICINFO{author="TWikiContributor" date="1352962713" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarSCRIPTURLPATH2
+---+++ SCRIPTURLPATH{"script"} -- URL path of TWiki script
+   * As =%<nop>SCRIPTURL{"script"}%=, but doesn't include the protocol and host part of the URL
+   * Like =%<nop>SCRIPTURL{"script"}%=, this variable is aware of ReadOnlyAndMirrorWebs. So it may return a URL of a different site.
+   * Syntax: =%<nop>SCRIPTURLPATH{"script" ...}%=
+   * Supported parameters:
+     | *Parameter:* | *Description:* | *Default:* |
+     | ="script"= | The name of the script. | |
+     | =web="WEB"= | Specifies a web | When a topic name is specified and a web is not, the current web is assumed |
+     | =topic="TOPIC"= or =topic="WEB.TOPIC"= | Specifies a topic or both a web and a topic | |
+     | =master="on"= | A URL on the master site is needed or not. | =off= |
+   * If =web="WEB"= is specified but =topic= is not specified, the resulting URL ends with =WEB=.
+   * Example: =%<nop>SCRIPTURLPATH{"view"}%= expands to ="%SCRIPTURLPATH{"view"}%"= (This might be a null string. Hence surrounded by double quotes)
+   * Example: =%<nop>SCRIPTURLPATH{"view" web="%<nop>WEB%"}%= expands to =%SCRIPTURLPATH{"view" web="%WEB%"}%=
+   * Example: =%<nop>SCRIPTURLPATH{"view" topic="%<nop>TOPIC%"}%= expands to =%SCRIPTURLPATH{"view" topic="%TOPIC%"}%=
+   * Example: Let's assume this site has a web named 'Flowers' whose master site is =http:<nop>//florawiki/cgi-bin=. Then =%<nop>SCRIPTURLPATH{"edit" web="Flowers"}%= expands to =http<nop>://florawiki/cgi-bin/edit/Flowers=. This is because the 'Flower' web on this site is a slave and editing needs to happen on the master site.
+   * Category: DevelopmentVariables, SystemInformationVariables
+   * Related:
+     [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarCONTENTMODE][CONTENTMODE]],
+     [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarPUBURLPATH][PUBURLPATH]],
+     [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSCRIPTNAME][SCRIPTNAME]],
+     [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSCRIPTSUFFIX][SCRIPTSUFFIX]],
+     [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSCRIPTURL][SCRIPTURL]],
+     [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSCRIPTURL2][SCRIPTURL{"script"}]],
+     [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSCRIPTURLPATH][SCRIPTURLPATH]],
+     ReadOnlyAndMirrorWebs, MetadataRepository, TWikiScripts

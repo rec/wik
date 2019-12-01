@@ -1,0 +1,101 @@
+%META:TOPICINFO{author="TWikiContributor" date="1333063943" format="1.1" version="21"}%
+%STARTINCLUDE%
+---+ 20-Minute TWiki Tutorial
+
+This step-by-step, hands-on tutorial gets you up to speed with all the TWikiSite basics, in _mere minutes_...
+
+%TOC%
+
+---++ 1. Get set...
+
+Open two browser windows, so that you can follow these steps in one window, while trying things out in the other.
+
+---++ 2. Take a quick tour...
+
+A TWikiSite is divided into webs; each one usually represents one workspace for collaboration. You can navigate the webs from the Home menu of each web page.
+   * Each web has hyperlinked topics, displayed as pages in your browser. 
+   * The home page in each web is the %HOMETOPIC% topic.
+   * To browse a TWiki web, just click on any highlighted link. These links are called WikiWords and comprise two or more words with initial capitals, run together. 
+   * Follow the WikiWord link and learn what it is.
+   * If you know the name of a topic, you can jump directly to it by typing its name into the JumpBox on the top of the page. Type =%NOTIFYTOPIC%= to jump to the %NOTIFYTOPIC% topic. __Hint:__ Do not confuse the Jump box with search.
+   * You can search each TWiki web. Enter a search string in the %HOMETOPIC% topic or the WebSearch topic accessible from the =Search= link in the Web menu. TWiki searches for an exact match; optionally, you can also use RegularExpressions.
+
+---++ 3. Create an account...
+
+To edit topics or participate in restricted webs, you need to have a TWiki account.
+   * Go to the TWikiRegistration page to create your TWiki account. Fill in a couple of lines and you're set!
+
+---++ 4. Check out TWiki users &amp; groups...
+
+   * Go to the %USERSWEB%.UserList topic; it has a list of all users of TWiki. Your name will be in this list after you register.
+   * Go to the %USERSWEB%.TWikiGroups topic in the %USERSWEB% web; it has a list of groups which can be used to define fine grained TWikiAccessControl in TWiki.
+
+---++ 5. Learn the page controls...
+
+The buttons at the top and the color-coded control strip at the bottom of the page have a collection of action links. Different skins show different links, but most will have some or all of:
+   * ==Edit== - add to or edit the topic (discussed later)
+   * ==Raw Edit== - edit the topic using WikiSyntax (discussed later)
+   * ==Raw View== - show the source text without editing the topic
+   * ==Attach== - attach files to a topic (discussed later)
+   * ==Backlinks== - find out what other topics link to this topic (reverse link)
+   * ==Print version== - goes to a stripped down version of the page, good for printing
+   * ==History== - topics are under revision control - =History= shows you the complete change history of the topic, for example, who changed what and when
+   * ==r3 &gt; r2 &gt; r1== - view a previous version of the topic or the difference between two versions
+   * ==More topic actions== - additional controls, such as rename/move, version control, and setting the topic's parent.
+
+---++ 6. Create a topic, modify a topic, and link to a topic...
+
+Go to the [[Sandbox.%HOMETOPIC%][Sandbox]]. This is the sandbox web, where you can create topics and add content to try it all out at will.
+   * To create your own test topic, click on =Create !TestTopic###=, or invent a WikiWord and click on ==Create by Name==. You are now in edit mode where you can add content to the new topic. Save the topic and voil&agrave;, you just created your first TWiki page!
+   * Click on ==Edit== to modify your own test topic again (or any other topic for that matter).
+   * Now, let's create a new topic starting from your own test topic:
+      1. In edit mode, enter a new text with a WikiWord, for example:%BR%
+         =This is <nop>%WIKINAME%Sandbox topic.=
+      1. Save the topic. The name appears highlighted with a red-link. This means that the topic doesn't exist yet.
+      1. Click on the red-link. Now you're in edit mode for the new topic.
+      1. Type some text. You can add headings, bullets, tables and more using the controls of the WYSIWYG editor.
+      1. A signature with your name is already entered by default. Keep it at the bottom.%BR%
+         __Note:__ The =%USERSWEB%.= in front of your name is a web prefix. It means that you have a link from the current web to your personal topic located in the %USERSWEB% web.
+      1. Save the topic...
+   * Link to another topic:
+      1. In edit mode, enter the WikiWord of a topic that already exists in the Sandbox web, for example:%BR%
+         =This links to <nop>WebSearch.=
+      1. Save the topic. WebSearch is now a link you can click.%BR%
+         __Note:__ WikiWords are linked automatically; there is no link if you look at the text in edit mode.
+      1. You can also create a nice looking link without a !BumpyWord. Enter for example:%BR%
+         =[<nop>[WebSearch][This is a link to search]].=
+   * Learn about ==Raw Edit== (for advanced/technical users)
+      1. Topics can be modified in WYSIWYG mode (default) and in ==Raw Edit== mode. Raw mode shows text in !TWikiShorthand, a very simple markup language. Follow the TWikiShorthand link to see how, then:
+      1. Go back to your own sandbox topic and ==Raw Edit== it.
+      2. Enter some text in TWikiShorthand: *bold* text, _italic_ text, __bold italic__ text, a bullet list, tables, paragraphs, etc.%BR%
+       __Hint:__ If you need help, click on the [[TextFormattingRules][Edit help]] link located above the text edit box.
+      3. Save the topic.
+   * __%T% Tip:__ When you only want to see the source code of a topic click the ==Raw View== link.
+
+---++ 7. Use your browser to upload files as page attachments...
+
+You can attach _any_ type of file to a topic - documents, images, programs, whatever - where they can be opened, viewed, or downloaded. 
+   * Attaching files is just like including a file with an e-mail.
+      1. Go back to your sandbox topic and click on ==Attach==.
+      1. Click ==[Browse]== to find a file on your machine that you'd like to attach; enter an optional comment; leave everything else unchecked.
+      1. Click ==[Upload file]==, then scroll to the end of the page to see the new attachment listing.
+   * Do this again - this time, upload a =.gif=, =.png=, or =.jpg= image file.
+      * Check the =Link= box to _create a link to the attached file at the end of the topic_. The image will show up at the bottom of the topic. 
+      * Edit the topic to move/resize the image.
+   * If you have an image of yourself, your cat, your sprawling family estate...why not upload it now to personalize your TWiki profile page %WIKIUSERNAME%?
+
+---++ 8. Get alerted whenever topics are changed...
+
+%NOTIFYTOPIC% is a subscription service that automatically notifies you by e-mail when topics change in a TWiki web. This is a convenience service - for many people, checking e-mail is easier than checking the Web.
+   * If you're using TWiki to collaborate on a project, it's important to know when anyone on your team posts an update. If you're following a specific discussion, it's convenient to know when there's new input.
+   * Alerts are e-mailed as links to individual topics that have been changed in a set period: Each day, every hour, whatever is configured for your system.
+   * It's strongly recommended that you try out the service by subscribing to each TWiki web that's relevant to you. You can subscribe and unsubscribe instantly, on a per web basis using %NOTIFYTOPIC%. 
+   * If you prefer, you can subscribe to RSS and ATOM feeds. Every web has a WebRss feed and a WebAtom feed, respectively.
+
+That's it! You're now equipped with all the TWiki essentials. You are ready to roll.
+
+__%T% Note:__ When first using TWiki, it will probably seem strange to be able to change other people's postings - we're used to _separating_ individual messages, with  e-mail, message boards, non-wiki collaboration platforms. __Don't worry about it.__ You can't accidentally delete important stuff - you can always check previous versions, and copy-and-paste from them if you want to undo any changes. After a short while, TWiki-style free-form communication becomes second-nature. You'll expect it everywhere!
+
+__Related Topics:__ UserDocumentationCategory, WelcomeGuest, ATasteOfTWiki, TWikiVariables, WikiSyntax, TWikiDocGraphics
+
+-- __Contributors:__ TWiki:Main/ArthurClemens, TWiki:Main/AurelioAHeckert, TWiki:Main/ChrisGarrod, TWiki:Main/MikeMannix, TWiki:Main/SebastianKlus, TWiki:Main/PeterThoeny

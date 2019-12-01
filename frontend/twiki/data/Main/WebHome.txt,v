@@ -1,0 +1,830 @@
+head	1.30;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.30
+date	2013.11.07.22.11.53;	author TWikiContributor;	state Exp;
+branches;
+next	1.29;
+
+1.29
+date	2012.11.09.09.31.25;	author TWikiContributor;	state Exp;
+branches;
+next	1.28;
+
+1.28
+date	2011.09.01.15.52.42;	author TWikiContributor;	state Exp;
+branches;
+next	1.27;
+
+1.27
+date	2011.08.16.19.26.15;	author TWikiContributor;	state Exp;
+branches;
+next	1.26;
+
+1.26
+date	2010.06.12.07.45.57;	author TWikiContributor;	state Exp;
+branches;
+next	1.25;
+
+1.25
+date	2010.05.29.14.45.03;	author TWikiContributor;	state Exp;
+branches;
+next	1.24;
+
+1.24
+date	2008.01.22.03.21.37;	author TWikiContributor;	state Exp;
+branches;
+next	1.23;
+
+1.23
+date	2007.01.16.04.12.07;	author TWikiContributor;	state Exp;
+branches;
+next	1.22;
+
+1.22
+date	2006.04.01.05.54.56;	author TWikiContributor;	state Exp;
+branches;
+next	1.21;
+
+1.21
+date	2006.02.01.12.01.14;	author TWikiContributor;	state Exp;
+branches;
+next	1.20;
+
+1.20
+date	2003.02.02.02.43.11;	author PeterThoeny;	state Exp;
+branches;
+next	1.19;
+
+1.19
+date	2002.06.28.08.53.58;	author PeterThoeny;	state Exp;
+branches;
+next	1.18;
+
+1.18
+date	2002.04.14.06.15.39;	author PeterThoeny;	state Exp;
+branches;
+next	1.17;
+
+1.17
+date	2002.04.07.10.23.00;	author PeterThoeny;	state Exp;
+branches;
+next	1.16;
+
+1.16
+date	2001.11.24.11.35.42;	author PeterThoeny;	state Exp;
+branches;
+next	1.15;
+
+1.15
+date	2001.08.31.07.04.44;	author MikeMannix;	state Exp;
+branches;
+next	1.14;
+
+1.14
+date	2001.07.17.07.15.33;	author PeterThoeny;	state Exp;
+branches;
+next	1.13;
+
+1.13
+date	2001.03.16.09.31.20;	author PeterThoeny;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2000.12.14.02.47.42;	author PeterThoeny;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2000.11.27.08.43.46;	author PeterThoeny;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2000.11.08.07.55.40;	author PeterThoeny;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2000.09.15.00.07.21;	author PeterThoeny;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2000.09.09.20.58.22;	author PeterThoeny;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2000.08.19.00.38.13;	author PeterThoeny;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2000.08.03.08.11.07;	author PeterThoeny;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2000.04.05.22.23.33;	author PeterThoeny;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2000.02.26.10.06.33;	author PeterThoeny;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2000.02.04.21.45.56;	author PeterThoeny;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	99.10.05.07.27.28;	author PeterThoeny;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	99.06.13.06.30.45;	author thoeny;	state Exp;
+branches;
+next	;
+
+
+desc
+@none
+@
+
+
+1.30
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1383862313" format="1.1" version="30"}%
+%DASHBOARD{ section="dashboard_start" }%
+%DASHBOARD{ section="banner"
+ image="%PUBURL%/%SYSTEMWEB%/TWikiDashboardImages/golden-gate-dawn.jpg"
+ title="TWiki<sup>&reg;</sup> - the Open Source Enterprise Wiki and Web Application Platform"
+ titlestyle="color:#800000;"
+ button1="TWiki Help|%SYSTEMWEB%.%HOMETOPIC%"
+}%
+<!--===== WELCOME ============================================-->
+%DASHBOARD{ section="box_start"
+ title="Welcome to TWiki"
+}%
+Congratulations, you have finished installing TWiki! Edit and customize this dashboard.
+
+TWiki<sup>&reg;</sup> is a flexible, powerful, secure, yet simple Enterprise Wiki and Web Application Platform. Use TWiki for team collaboration, project management, document management, as a knowledge base and more on an intranet or on the Internet. [[%SYSTEMWEB%.%HOMETOPIC%][Learn more]].
+
+%DASHBOARD{ section="box_end" }%
+<!--===== MAIN WEB LINKS ============================================-->
+%DASHBOARD{ section="box_start"
+ title="Main Web Links"
+ contentstyle="overflow: hidden;"
+}%
+   * icon:tip [[%SYSTEMWEB%.WelcomeGuest][Welcome Guest - look here first]]
+   * icon:persons [[TWikiGroups][TWiki Groups - for access control]]
+   * icon:searchtopic [[WebSearch][Web Search]]
+   * icon:index [[WebTopicList][Web Topic List]] - all topics
+   * icon:mail [[WebNotify][Web Notify]] - subscribe to e-mail alerts
+   * icon:rss [[WebRss][RSS]] &amp; [[WebAtom][ATOM]] feeds of topic changes
+   * icon:statistics [[WebStatistics][Web Statistics]] %IF{ "istopic 'SiteStatistics'" then="&amp; [[SiteStatistics][Site Statistics]]" }%
+   * icon:wrench [[WebPreferences][Web Preferences]] - preferences of this web
+   * icon:mechanics [[%LOCALSITEPREFS%][TWiki Preferences]] - site level preferences
+
+%DASHBOARD{ section="box_end" }%
+<!--===== TWIKI USERS ============================================-->
+%DASHBOARD{ section="box_start"
+ title="[[%BASEWEB%.UserList][TWiki Users]]"
+ contentstyle="overflow: hidden; margin-right: -10px; margin-bottom: -10px; padding-bottom: 10px;"
+}%
+%INCLUDE{ "%USERSWEB%.UserList" section="search_box" size="16" }%
+&nbsp; [[%SYSTEMWEB%.TWikiRegistration][Register]]
+%USERREPORT{ action="slim_box_css" }%
+%USERREPORT{ action="slim_box_start" style="background-color: white;" }%
+%USERREPORT{ action="slim_box_list" users="%USERREPORT{ action="user_list" limit="10" sort="modified" reverse="on" }%" }%
+%USERREPORT{ action="slim_box_end" }%
+
+%DASHBOARD{ section="box_end" }%
+<!--===== SITE MAP ============================================-->
+%DASHBOARD{ section="box_start"
+ title="[[%SYSTEMWEB%.SiteMap][Site Map]]"
+ width="646" height="600"
+}%
+%INCLUDE{%SYSTEMWEB%.SiteMap}%
+
+%DASHBOARD{ section="box_end" }%
+<!--===== RECENT CHANGES ============================================-->
+%DASHBOARD{ section="box_start"
+ title="[[%BASEWEB%.WebChanges][Recent Changes in Main Web]]"
+ contentstyle="overflow: hidden;"
+ height="600"
+}%
+%INCLUDE{ "%SYSTEMWEB%.WebChangesRightBox" section="bullet_list" limit="30" }%
+
+%DASHBOARD{ section="box_end" }%
+%DASHBOARD{ section="dashboard_end" }%
+@
+
+
+1.29
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1352453485" format="1.1" version="29"}%
+d5 1
+a5 1
+ title="TWiki Enterprise Collaboration Platform"
+d15 1
+a15 1
+TWiki<sup>&reg;</sup> is a flexible, powerful, secure, yet simple web-based collaboration platform. Use TWiki to run a project development space, a document management system, a knowledge base or any other groupware tool on either an intranet or on the Internet. [[%SYSTEMWEB%.%HOMETOPIC%][Learn more]].
+@
+
+
+1.28
+log
+@buildrelease
+@
+text
+@d1 51
+a51 10
+%META:TOPICINFO{author="TWikiContributor" date="1314892362" format="1.1" version="28"}%
+%INCLUDE{%SYSTEMWEB%.WebChangesRightBox}%
+---+!! Welcome to the TWiki Enterprise Collaboration Platform
+
+Congratulations, you have finished installing TWiki! *Replace this text with a description of your new TWiki site and links to content.*
+
+To learn more about TWiki, visit the [[%SYSTEMWEB%.WebHome][TWiki web]]. Please ensure that the read/write permissions for each web on your site match your access control policies (see [[%SYSTEMWEB%.SitePermissions]] and [[%SYSTEMWEB%.TWikiPreferences]]). This site is running TWiki version *%WIKIVERSION%*, Plugin API version *%PLUGINVERSION{}%*
+
+---++ Site Map
+
+d54 8
+a61 1
+---++ <nop>%WEB% Web Utilities
+d63 2
+a64 15
+   * [[%SYSTEMWEB%.WelcomeGuest][WelcomeGuest]] - for first time visitors
+   * [[%SYSTEMWEB%.TWikiRegistration][Registration]] - become a <nop>%WIKITOOLNAME% user
+   * [[UserList]] - list of users of this <nop>%WIKITOOLNAME% site
+   * [[TWikiGroups]] - list of groups used for access control
+   * [[WebSearch]] - simple search
+   * [[WebSearchAdvanced]] - %MAKETEXT{"advanced search"}%
+   * [[WebTopicList]] - all topics in alphabetical order
+   * [[WebChanges]] - recent topic changes in this web
+   * [[WebNotify]] - subscribe to an e-mail alert sent when topics change
+   * [[WebRss]], [[WebAtom]] - RSS and ATOM news feeds of topic changes
+   * [[WebStatistics]] - listing popular topics and top contributors
+   * [[WebTopMenu]] - top menu definition
+   * [[WebPreferences]] - preferences of this web
+   * [[%LOCALSITEPREFS%]] - site level preferences
+   * [[%SYSTEMWEB%.SiteMap][SiteMap]] - site map listing all <nop>%WIKITOOLNAME% webs
+@
+
+
+1.27
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1313522775" format="1.1" version="27"}%
+d3 1
+a3 1
+---+!! Welcome to the <nop>%USERSWEB% web 
+d5 1
+a5 1
+Congratulations, you have finished installing TWiki! *Replace this text with a description of your new TWiki site and links to content.* Consider including the [[%SYSTEMWEB%.SiteMap][Site Map]].
+d9 4
+a14 1
+   * [[%SYSTEMWEB%.SiteMap][SiteMap]] - site map listing all <nop>%WIKITOOLNAME% webs
+d17 1
+a17 1
+   * [[%WIKIUSERSTOPIC%]] - list of users of this <nop>%WIKITOOLNAME% site
+d28 2
+@
+
+
+1.26
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1276328757" format="1.1" version="26"}%
+d5 1
+a5 1
+Congratulations, you have finished installing TWiki.
+d7 1
+a7 3
+This site is running TWiki version *%WIKIVERSION%*, Plugin API version *%PLUGINVERSION{}%*
+
+To learn more about TWiki, visit the [[%SYSTEMWEB%.WebHome][TWiki web]]. Please ensure that the read/write permissions for each web on your site match your access control policies (see [[%SYSTEMWEB%.SitePermissions]] and [[%SYSTEMWEB%.TWikiPreferences]]). Replace this text with a description of your new %IF{"defined WIKITOOLNAME" then="<nop>%WIKITOOLNAME%" else="TWiki"}% site. 
+@
+
+
+1.25
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1273185215" format="1.1" version="25"}%
+d9 1
+a9 1
+To learn more about TWiki, visit the [[%SYSTEMWEB%.WebHome][TWiki web]]. Please ensure that the read/write permissions for each web on your site match your access control policies (see TWiki.SitePermissions and [[%SYSTEMWEB%.TWikiPreferences]]). Replace this text with a description of your new %IF{"defined WIKITOOLNAME" then="<nop>%WIKITOOLNAME%" else="TWiki"}% site. 
+@
+
+
+1.24
+log
+@buildrelease
+@
+text
+@d1 2
+a2 1
+%META:TOPICINFO{author="TWikiContributor" date="1120846368" format="1.1" version="24"}%
+d4 1
+d9 1
+a9 4
+To learn more about TWiki, visit the [[%SYSTEMWEB%.WebHome][TWiki web]]. Please ensure that the read/write
+permissions for each web on your site match your access control policies (see TWiki.SitePermissions
+and [[%SYSTEMWEB%.TWikiPreferences]]). Replace this text with a description of your new
+%IF{"defined WIKITOOLNAME" then="<nop>%WIKITOOLNAME%" else="TWiki"}% site. 
+d12 3
+a14 2
+<form action="%SCRIPTURLPATH{view}%/%INCLUDINGWEB%/WebSearch">
+   * %SYSTEMWEB%.WelcomeGuest - for first time visitors
+d16 11
+a26 11
+   * %WIKIUSERSTOPIC% - list of users of this <nop>%WIKITOOLNAME% site
+   * TWikiGroups - list of groups used for access control
+   * <input class="twikiInputField" type="text" name="search" size="22" />&nbsp;<input type="submit" class="twikiSubmit" value="Search" /> - [[WebSearchAdvanced][advanced search]]
+   * WebTopicList - all topics in alphabetical order
+   * WebChanges - recent topic changes in this web
+   * WebNotify - subscribe to an e-mail alert sent when topics change
+   * WebRss, WebAtom - RSS and ATOM news feeds of topic changes
+   * WebStatistics - listing popular topics and top contributors
+   * WebPreferences - preferences of this web
+</form>
+
+@
+
+
+1.23
+log
+@buildrelease
+@
+text
+@d1 7
+a7 4
+%META:TOPICINFO{author="TWikiContributor" date="1120846368" format="1.1" version="23"}%
+---+!! Welcome to the <nop>%MAINWEB% web 
+Congratulations, you have finished the TWiki installation. If you want to learn
+more about TWiki then visit the [[%TWIKIWEB%.WebHome][TWiki web]]. Please ensure that the read/write
+d9 1
+a9 1
+and [[%TWIKIWEB%.TWikiPreferences]]). Replace this text with a description of your new
+d13 3
+a15 3
+<form action='%SCRIPTURLPATH{"search"}%/%WEB%/'>
+   * %TWIKIWEB%.WelcomeGuest - for first time visitors
+   * [[%TWIKIWEB%.TWikiRegistration][Registration]] - become a <nop>%WIKITOOLNAME% user
+@
+
+
+1.22
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1120846368" format="1.1" version="22"}%
+d15 1
+a15 1
+   * <input type="text" name="search" size="22" />&nbsp;<input type="submit" class="twikiSubmit" value="Search" /> - [[WebSearchAdvanced][advanced search]]
+@
+
+
+1.21
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1120846368" format="1.1" version="21"}%
+d11 11
+a21 11
+	* %TWIKIWEB%.WelcomeGuest - for first time visitors
+	* [[%TWIKIWEB%.TWikiRegistration][Registration]] - become a <nop>%WIKITOOLNAME% user
+	* %WIKIUSERSTOPIC% - list of users of this <nop>%WIKITOOLNAME% site
+	* TWikiGroups - list of groups used for access control
+	* <input type="text" name="search" size="22" />&nbsp;<input type="submit" class="twikiSubmit" value="Search" /> - [[WebSearchAdvanced][advanced search]]
+	* WebTopicList - all topics in alphabetical order
+	* WebChanges - recent topic changes in this web
+	* WebNotify - subscribe to an e-mail alert sent when topics change
+	* WebRss, WebAtom - RSS and ATOM news feeds of topic changes
+	* WebStatistics - listing popular topics and top contributors
+	* WebPreferences - preferences of this web
+@
+
+
+1.20
+log
+@none
+@
+text
+@d1 23
+a23 35
+%META:TOPICINFO{author="PeterThoeny" date="1044153791" format="1.0" version="1.20"}%
+<table><tr><td>
+*<font size="+1"> %TWIKIWEB%.WelcomeGuest: </font>* TWiki is a flexible, powerful, secure, yet simple web-based collaboration platform. Use TWiki to run a project development space, a document management system, a knowledge base or any other groupware tool on either on an intranet or on the Internet. You can edit any TWiki page.
+</td><td>
+<a href="http://TWiki.org/"><img src="%PUBURL%/%TWIKIWEB%/TWikiLogos/twikiRobot131x64.gif" width="131" height="64" alt="Powered by TWiki" border="0" /></a>
+</td><td>
+<b>The TWiki <sup>TM</sup> home is <br> at http://TWiki.org/ </b>
+</td></tr>
+</table>
+
+%INCLUDE{"%TWIKIWEB%.SiteMap"}%
+
+*%WIKITOOLNAME%.%WEB% Web:*
+	* <b> %WIKIUSERSTOPIC%: </b> List of users of this %WIKITOOLNAME% web.
+	* TWikiGroups: List of groups.
+	* OfficeLocations: Corporate offices.
+
+%INCLUDE{"%TWIKIWEB%.WebSiteTools"}%
+
+*%WIKITOOLNAME%.%TWIKIWEB% Web:*
+	* <b> %TWIKIWEB%.WelcomeGuest: </b> Look here first to get you rolling on %WIKITOOLNAME%.
+	* %TWIKIWEB%.TWikiSite: Explains what a %WIKITOOLNAME% site is.
+	* %TWIKIWEB%.TWikiRegistration: Create your account in order to edit topics.
+	* Documentation:
+		* %TWIKIWEB%.TWikiFAQ has a list of frequently asked questions.
+		* %TWIKIWEB%.TWikiDocumentation is the implementation documentation of TWiki. 
+		* %TWIKIWEB%.TWikiHistory shows TWiki's implementation history. 
+	* How to edit text:
+		* %TWIKIWEB%.GoodStyle: Things to consider when changing text.
+		* %TWIKIWEB%.TextFormattingRules: Easy to learn rules for editing text.
+		* %TWIKIWEB%.TextFormattingFAQ: Answers to frequently asked questions about text formatting.
+	* %TWIKIWEB%.%WIKIPREFSTOPIC%: %WIKITOOLNAME% site-level preferences 
+
+*Notes:*
+%INCLUDE{"%TWIKIWEB%.YouAreHere"}%
+@
+
+
+1.19
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1025254438" format="1.0" version="1.19"}%
+d3 1
+a3 1
+*<font size="+1"> %TWIKIWEB%.WelcomeGuest: </font>* %WIKITOOLNAME% is a web-based collaboration tool, web authoring tool, document management tool and knowledge base tool. You can edit any %WIKITOOLNAME% page.
+@
+
+
+1.18
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1018764939" format="1.0" version="1.18"}%
+d5 1
+a5 1
+<a href="http://TWiki.org/"><img src="%PUBURL%/twikilogo3.gif" width="131" height="64" alt="Powered by TWiki" border="0" /></a>
+@
+
+
+1.17
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1018174980" format="1.0" version="1.17"}%
+d18 1
+a18 9
+<form action="%SCRIPTURLPATH%/search%SCRIPTSUFFIX%/%WEB%/">
+	* WebSearch: Full text search of the %WIKITOOLNAME%.%WEB% web.
+	* <input type="text" name="search" size="32" /> <input type="submit" value="Search" /> &nbsp;&nbsp; (More options in WebSearch)
+	* WebChanges: Find out recent modifications to the %WIKITOOLNAME%.%WEB% web.
+	* WebIndex: Display all %WIKITOOLNAME%.%WEB% topics in alphabetical order. See also the faster WebTopicList 
+	* %NOTIFYTOPIC%: Subscribe to be automatically notified when something changes in the %WIKITOOLNAME%.%WEB% web.
+	* %STATISTICSTOPIC%: View access statistics of the %WIKITOOLNAME%.%WEB% web.
+	* %WEBPREFSTOPIC%: Preferences of the %WIKITOOLNAME%.%WEB% web.
+</form>
+d35 1
+a35 2
+	* You are currently in the %WIKITOOLNAME%.%WEB% web. The color code for this web is a light yellow background, so you know where you are.
+	* If you are not familiar with the %WIKITOOLNAME% collaboration tool, please visit %TWIKIWEB%.WelcomeGuest in the %WIKITOOLNAME%.%TWIKIWEB% web first.
+@
+
+
+1.16
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="1006601742" format="1.0" version="1.16"}%
+d11 1
+a11 1
+%INCLUDE{"%TWIKIWEB%.TWikiWebsTable"}%
+@
+
+
+1.15
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="MikeMannix" date="999241484" format="1.0" version="1.15"}%
+d22 1
+a22 1
+	* WebIndex: Display all %WIKITOOLNAME%.%WEB% topics in alphabetical order.
+@
+
+
+1.14
+log
+@none
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="PeterThoeny" date="995354133" format="1.0beta2" version="1.14"}%
+d30 1
+a30 1
+	* %TWIKIWEB%.TWikiWeb: Explains what a %WIKITOOLNAME% web is.
+@
+
+
+1.13
+log
+@none
+@
+text
+@d1 1
+d5 1
+a5 1
+<a href="http://TWiki.org/"><img src="%PUBURL%/twikilogo3.gif" width="131" height="64" alt="Powered by TWiki" border="0"></a>
+d18 1
+a18 1
+<FORM action="%SCRIPTURLPATH%/search%SCRIPTSUFFIX%/%WEB%/">
+d20 2
+a21 2
+	* <INPUT type="text" name="search" size="32"> <INPUT type="submit" value="Search"> &nbsp;&nbsp; (More options in WebSearch)
+	* WebChanges: Find out recent changes of the %WIKITOOLNAME%.%WEB% web.
+d26 1
+a26 1
+</FORM>
+@
+
+
+1.12
+log
+@none
+@
+text
+@d2 1
+a2 1
+%TWIKIWEB%.WelcomeGuest: %WIKITOOLNAME% is a web-based collaboration tool, web authoring tool, document management tool and knowledge base tool. You can edit any %WIKITOOLNAME% page.
+d6 1
+a6 1
+<b>The TWiki home is <br> at http://TWiki.org/ </b>
+@
+
+
+1.11
+log
+@none
+@
+text
+@d13 1
+a13 1
+	* <b> TWikiUsers: </b> List of users of this %WIKITOOLNAME% web.
+@
+
+
+1.10
+log
+@none
+@
+text
+@d32 1
+@
+
+
+1.9
+log
+@none
+@
+text
+@d4 1
+a4 1
+<a href="http://TWiki.SourceForge.net/"><img src="%PUBURL%/twikilogo3.gif" width="131" height="64" alt="Powered by TWiki" border="0"></a>
+d6 1
+a6 1
+*The TWiki home is at* <br> http://TWiki.SourceForge.net/
+d10 1
+a10 1
+%INCLUDE{"TWiki.TWikiWebsTable"}%
+d14 1
+@
+
+
+1.8
+log
+@none
+@
+text
+@d2 1
+a2 1
+Welcome to %WIKITOOLNAME%, a web-based collaboration tool, document management tool and knowledge base tool.
+d6 1
+a6 1
+<b>The TWiki home is at <br> http://TWiki.SourceForge.net/ </b>
+d41 1
+a41 1
+	* If you are not familiar with the %WIKITOOLNAME% collaboration tool, please visit %TWIKIWEB%.WelcomeGuest in %WIKITOOLNAME%.%TWIKIWEB% first.
+@
+
+
+1.7
+log
+@none
+@
+text
+@d27 1
+a27 1
+	* %TWIKIWEB%.WelcomeGuest: Look here first to get yourself rolling on %WIKITOOLNAME%.
+d30 7
+@
+
+
+1.6
+log
+@none
+@
+text
+@d2 1
+a2 1
+Welcome to %WIKITOOLNAME%, a web based collaboration tool, document management tool and knowledge base tool.
+d17 1
+a17 2
+	* <A HREF="%SCRIPTURLPATH%/search%SCRIPTSUFFIX%/%WEB%/?scope=topic&regex=on&search=.*">Topic index</A>: List up all %WIKITOOLNAME%.%WEB% topics in alphabetical order.
+	* <A HREF="%SCRIPTURLPATH%/view%SCRIPTSUFFIX%/%WEB%/WebSearch">Search</A>: Full text search of the %WIKITOOLNAME%.%WEB% web.
+d19 2
+a20 1
+	* <A HREF="%SCRIPTURLPATH%/changes%SCRIPTSUFFIX%/%WEB%">Changes</A>: Find out recent changes of the %WIKITOOLNAME%.%WEB% web.
+d24 1
+a24 1
+.
+d27 1
+a27 1
+	* %TWIKIWEB%.WelcomeGuest: Look here first to get you rolling on %WIKITOOLNAME%.
+a30 1
+</FORM>
+d34 1
+@
+
+
+1.5
+log
+@none
+@
+text
+@d2 1
+a2 1
+Welcome to the home of %WIKITOOLNAME%.%WEB%. This is a web based collaboration area to get to know the %WIKITOOLNAME% tool.
+d10 1
+a10 4
+Good *starting points* at the %WIKITOOLNAME%.%WEB% web are listed below:
+	* WelcomeGuest: Look here first to get you rolling on %WIKITOOLNAME%.
+	* TWikiWeb: Explains what a %WIKITOOLNAME% web is.
+	* <b> TWikiUsers: </b> List of visitors to this %WIKITOOLNAME% web.
+d12 3
+a14 4
+	* GoodStyle: Things to consider when changing text.
+	* TextFormattingRules: Easy to learn rules when editing text.
+	* TextFormattingFAQ: Answers to frequently asked questions about text formatting.
+	* TestArea: The place to get your virtual %WIKITOOLNAME% hands dirty!
+d24 7
+a30 1
+	* %MAINWEB%.%WIKIPREFSTOPIC%: %WIKITOOLNAME% site-level preferences .
+a34 4
+
+----
+
+%INCLUDE{"Main/TWikiWebsTable.txt"}%
+@
+
+
+1.4
+log
+@none
+@
+text
+@d1 1
+a2 3
+
+<table><tr><td>
+<a href="http://www.mindspring.com/~peterthoeny/twiki/"><img src="%PUBURL%/twikilogo3.gif" width="131" height="64" alt="Powered by TWiki" border="0"></a>
+d4 3
+a6 1
+<b>The TWiki home is at <br> http://www.mindspring.com/~peterthoeny/twiki/ </b>
+d10 1
+a10 1
+Good *starting points* at the %WIKITOOLNAME%.%WEB% web are:
+@
+
+
+1.3
+log
+@none
+@
+text
+@d1 1
+a1 1
+Welcome to the home of TWiki.%WEB%. This is a web based collaboration area to get to know the TWiki tool.
+d10 4
+a13 4
+Good *starting points* at the TWiki.Main web are:
+	* WelcomeGuest: Look here first to get you rolling on TWiki.
+	* TWikiWeb: Explains what a TWiki web is.
+	* <b> TWikiUsers: </b> List of visitors to this TWiki web.
+d18 1
+a18 1
+	* TestArea: The place to get your virtual TWiki hands dirty!
+d21 8
+a28 6
+	* <A HREF="%SCRIPTURLPATH%/search%SCRIPTSUFFIX%/%WEB%/?scope=topic&regex=on&search=.*">Topic index</A>: List up all TWiki.%WEB% topics in alphabetical order.
+	* <A HREF="%SCRIPTURLPATH%/view%SCRIPTSUFFIX%/%WEB%/WebSearch">Search</A>: Full text search of TWiki.%WEB%.
+	* <INPUT type="text" name="search" size="32"> <INPUT type="submit" value="Search"> <INPUT type="hidden" name="scope" value="text"> &nbsp;&nbsp; (More options in WebSearch)
+	* <A HREF="%SCRIPTURLPATH%/changes%SCRIPTSUFFIX%/%WEB%">Changes</A>: Find out recent changes of the %WEB% web.
+	* WebNotify: Subscribe to be automatically notified when something changes in TWiki.%WEB%.
+	* WebStatistics: View access statistics of the TWiki.%WEB% web.
+d32 1
+a32 1
+	* You are currently in the TWiki.%WEB% web. The color code for this web is a light yellow background, so you know where you are.
+d36 1
+a36 1
+%INCLUDE{"wikiwebtable.inc"}%
+@
+
+
+1.2
+log
+@none
+@
+text
+@d6 1
+a6 1
+<b>The TWiki home is at <br> http://www.mindspring.net/~peterthoeny/twiki/ </b>
+d20 5
+a24 5
+<FORM name="main" action="../../search/%WEB%/">
+	* <A HREF="../../search/%WEB%/?scope=topic&regex=on&search=.*">Topic index</A>: List up all TWiki.%WEB% topics in alphabetical order.
+	* <A HREF="../../view/%WEB%/WebSearch">Search</A>: Full text search of TWiki.%WEB%.
+	* <INPUT type="text" name="search" size="32"> <INPUT type="submit" value="Search"> <INPUT type="hidden" name="scope" value="text"> <INPUT type="hidden" name="ignorecase" value="on"> &nbsp;&nbsp; (More options in WebSearch)
+	* <A HREF="../../changes/%WEB%">Changes</A>: Find out recent changes of the %WEB% web.
+d26 1
+d34 1
+a34 1
+%INCLUDE:"wikiwebtable.inc"%
+@
+
+
+1.1
+log
+@none
+@
+text
+@d3 6
+a8 1
+<B> The TWiki home is at http://www.mindspring.net/~peterthoeny/twiki/index.html </B>
+@

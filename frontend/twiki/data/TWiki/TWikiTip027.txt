@@ -1,0 +1,13 @@
+%META:TOPICINFO{author="TWikiContributor" date="1277704918" format="1.1" version="2"}%
+%META:TOPICPARENT{name="TWikiTipsOfTheDay"}%
+---+ Custom rendered bullets
+
+The RenderListPlugin can render bullet lists in a variety of different ways, for example to show org charts or a directory tree. 
+
+Use =%<nop>RENDERLIST{ parameters }%= before any bullet list.
+
+[[RenderListPlugin][More Information...]]
+
+[[TWikiTipsOfTheDay][See More Tips...]]
+
+-- __Contributors:__ TWiki:Main.PaulineCheung

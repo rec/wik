@@ -1,0 +1,36 @@
+%META:TOPICINFO{author="TWikiContributor" date="1442470755" format="1.1" version="13"}%
+---+ %MAKETEXT{"Recent Changes in [_1] Web" args="<nop>%INCLUDINGWEB%"}% <span style="font-size: 50%">%MAKETEXT{"retrieved at [_1]" args="%DISPLAYTIME{"$hour:$min ($tz)"}%"}%</span>
+%INCLUDE{"%SYSTEMWEB%.SearchResultsPagination" section="preamble"}%<nop>
+%CALCULATE{$SET(now, $TIME())}%<nop>
+<!-- remove the format parameter to show absolute date instead if topic age -->
+%SEARCH{
+ "^."
+ web="%INCLUDINGWEB%"
+ type="regex"
+ scope="topic"
+ nosearch="on"
+ noheader="on"
+ nototal="on"
+ sort="modified"
+ start="%CALCULATE{$GET(start)}%"
+ limit="%CALCULATE{$GET(limit)}%"
+ footer="$percntCALCULATE{$SET(ntopics, $tntopics)}$percnt"
+ reverse="on"
+ format="<div class=\"patternSearchResult\">
+<div class=\"twikiTopRow\">
+<a href=\"%SCRIPTURLPATH{view}%/$web/$topic\"><b>$topic</b></a>
+<div class=\"twikiRight\">
+<span class=\"twikiSRRev\" style=\"white-space:nowrap\">
+<a href=\"%SCRIPTURLPATH{rdiff}%/$web/$topic\" title=\"$date\" rel=\"nofollow\">$percntCALCULATE{$SET(epoch, $TIME($date GMT))$FORMATTIMEDIFF(min, 1, $TIMEDIFF($GET(epoch), $GET(now), minute))}$percnt ago</a> - %REVISION% &nbsp;</span>
+<span class=\"twikiSRAuthor\"> [[$wikiusername][$wikiname]] </span>
+</div>
+<br class=\"twikiClear\" />
+</div><!--/twikiTopRow-->
+<div class=\"twikiBottomRow\"><div class=\"twikiSummary twikiGrayText\">$summary</div><!--/twikiSummary--></div><!--/twikiBottomRow-->
+</div><!--/patternSearchResult-->"
+}%
+%INCLUDE{"%SYSTEMWEB%.SearchResultsPagination" section="postamble"}%<nop>
+
+%MAKETEXT{"Show [_1] results per page, or [_2]show all[_3]." args="%CALCULATE{$LISTJOIN(&#44; , $LISTMAP($IF($VALUE($GET(limit))==$item, <b>$item</b>, <a href='%SCRIPTURLPATH{"view"}%/%INCLUDINGWEB%/%INCLUDINGTOPIC%?limit=$item' rel='nofollow'>$item</a>), 10, 20, 50, 100, 500, 1000)), $IF($EXACT($GET(limit), all), <b>, <a href='%SCRIPTURLPATH{"view"}%/%INCLUDINGWEB%/%INCLUDINGTOPIC%?limit=all' rel='nofollow'>), $IF($EXACT($GET(limit), all), </b>, </a>)}%"}%
+
+__Related topics:__ %ICON{feed}% [[%INCLUDINGWEB%.WebRss][RSS feed]], [[%INCLUDINGWEB%.WebAtom][ATOM feed]], [[%INCLUDINGWEB%.WebNotify][WebNotify]], %IF{"istopic '%SYSTEMWEB%.SiteChanges'" then="[[%SYSTEMWEB%.SiteChanges][site changes]], "}%[[%SYSTEMWEB%.SiteMap][site map]]

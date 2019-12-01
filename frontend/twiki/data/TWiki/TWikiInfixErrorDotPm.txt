@@ -1,0 +1,6 @@
+---+ Package =TWiki::Infix::Error=
+
+Class of errors used with TWiki::Infix::Parser
+
+
+%TOC%

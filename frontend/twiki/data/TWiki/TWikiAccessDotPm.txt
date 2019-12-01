@@ -1,0 +1,169 @@
+---+ Package =TWiki::Access=
+
+A singleton object of this class manages the access control database.
+
+
+%TOC%
+---+ Dynamic access control and permission caching
+
+As TWiki:Codev/DynamicAccessControl suggests, various cool things can be
+done if TWiki variables in access control variables such as ALLOWTOPICVIEW
+and ALLOWWEBVIEW are expanded before examining whether the user is in those
+values.
+Now we have the feature. This chapter describes its design details.
+
+If that's implemented naively, permission checking may take significantly
+longer than before in some cases. So having efficiency in mind is crucial.
+
+There had been room for efficiency improvement in access control.
+So this is a good opportunity to improve efficiency in general of access
+control.
+
+---++ Basics of dynamic access control
+
+If an access control variable contains % and %<nop>DYNAMIC_ACCESS_CONTROL%
+is on at the web level, the access control variable is evaluated by
+TWiki::handleCommonTags(). And then, permission is determined.
+
+During variable expansion, access checking may occur. For example,
+%<nop>FORMFIELD{"fieldname"}% causes access checking. To prevent infinite
+recursion, a TWiki::Access class instance now has =recursion= attribute
+housing recursion depth. If checkAccessPermission() ends up calling itself,
+the recursive call returns true immediately.
+
+---++ When to check the user is an admin
+
+Most topics doesn't restrict viewing. While checking admin membership takes
+some cost. Checking if the user is an admin should take place immediately
+before concluding permission is denied.
+
+$users->isAdmin($user, $topic, $web) depends on the user mapping handler.
+Under !TWikiUserMapping, a user is an admin or not regardless of web or topic.
+In that case, once a user is determined to be an admin, subsequent calls to
+TWiki::Access:checkAccessPermission() can return true without looking into
+access control variables such as DENYTOPICVIEW or ALLOWWEBVIEW.
+
+This may not be true under other user mappings. Each web may have its own
+admin.
+
+$TWiki::cfg{Access}{AdminDomain} is to specify the span. It's either
+"site" (default) or "web".
+
+It is thinkable that admin differs from topic to topic within a web.
+But that seems chaotic and until a realistic scenario of that is presented,
+that is not considered.
+
+---++ Why caching matters
+
+In general, during a single session (the lifetime of a TWiki class instance),
+TWiki::Access::checkAccessPermission() is called multiple times.
+In some cases quite a fiew times - for example, %<nop>SEARCH{...}% checks
+view permission for all topics it processes.
+As such access permission checking should be efficient.
+
+Most topics don't have DENYTOPIC* or ALLOWTOPIC* set.
+In that case, DENYWEB* and ALLOWWEB* determins permission, which is the same
+for all topics in a web.
+This provide an opportunity for caching to increase efficiency.
+
+The same topic may be INCLUDEd multiple times in a topic. In that case,
+caching a topic's permission contributes to efficiency.
+
+Admin membership is another factor. Once a user is determined to be an admin,
+you can skip accecc checking and simply return true.
+
+Determining wheter the user is a member of an access control variable
+value may take time if groups are involved. So it's thinkable to cache
+whether the user is in a string or not. But until a good number of cases
+where membership caching is useful, it's not implemented.
+
+---++ How permission should be cached and cached data should be used
+
+Only view permmission and admin membership are worth caching.
+There are no ways for change or rename permission to be checked more than
+once in a session let alone root permission.
+
+If the user is turned out be an admin, that fact must be recorded to save
+the effort of determining permission subsequently.
+
+In checkAccessPermission() cached permission data is used as follows:
+   1, cached admin membership
+   1. cached topic level access
+   1. (actual topic level permission check)
+   1. cached web level access
+   1. (acttual web level permission check)
+
+When examined, access to the topic needs to be cached because regardless
+of access control variables, whether it's determined statically or
+dynamically, access to the same topic remains the same and there are
+cases where access to the same topic is examined more than once.
+
+In addition, access at the web level can be cached in some cases.
+
+| # | DENYTOPIC | ALLOWTOPIC | DENYWEB          | ALLOWWEB          | WEB level caching |
+| 1 | empty     | *          | *                | *                 | no  |
+| 2 | match     | *          | *                | *                 | no  |
+| 3 | no match  | set        | *                | *                 | no  |
+| 4 | not set   | not set    | static, match    | *                 | yes |
+| 5 | not set   | not set    | dynamic          | *                 | no  |
+| 6 | not set   | not set    | static, no match | dynamic           | no  |
+| 7 | not set   | not set    | static, no match | static or not set | yes |
+| 8 | not set   | not set    | not set          | dynamic           | no  |
+| 9 | not set   | not set    | not set          | static or not set | yes |
+
+---++ Data structure
+
+A TWiki::Access class instance now has =cache= attribute for permission
+caching, which has a slot for each user.
+
+| *Data* | *Where it's housed* |
+| admin membership | $access->{cache}{$user}{isadmin}{"web"} |
+| view access to the web | $access->{cache}{$user}{allowview}{"web"} |
+| view access to the topic | $access->{cache}{$user}{allowview}{"web.topic"} |
+| failure value of the web | $access->{cache}{$user}{failure}{"web"} |
+| failure value of the topic | $access->{cache}{$user}{failure}{"web.topic"} |
+
+---++ Notes for unit test
+
+Once checkAccessPermission() returns a value for a user-web-topic
+combination, the same value is always returned for the same user-web-topic
+combination during the same session.
+
+!UnitTestContrib functions may call checkAccessPermission() repeatedly for
+the same user-web-topic combination while changing other arguments.
+As such, in test functions, before calling checkAccessPermission(),
+the session's permission cache needs to be cleared.
+
+
+
+
+---++ ClassMethod *new* <tt>($session)</tt>
+
+Constructor.
+
+
+
+---++ ObjectMethod *finish* <tt>()</tt>
+Break circular references.
+
+
+
+---++ ObjectMethod *getReason* <tt>() -> $string</tt>
+
+Return a string describing the reason why the last access control failure
+occurred.
+
+
+
+---++ ObjectMethod *checkAccessPermission* <tt>($action,$user,$text,$meta,$topic,$web) -> $boolean</tt>
+
+Check if user is allowed to access topic
+   * =$action=  - 'VIEW', 'CHANGE', 'CREATE', etc.
+   * =$user=    - User id (*not* wikiname)
+   * =$text=    - If undef or '': Read '$theWebName.$theTopicName' to check permissions
+   * =$meta=    - If undef, but =$text= is defined, then metadata will be parsed from =$text=. If defined, then metadata embedded in =$text= will be ignored. Always ignored if =$text= is undefined. Settings in =$meta= override * Set settings in plain text.
+   * =$topic=   - Topic name to check, e.g. 'SomeTopic' *undef to check web perms only)
+   * =$web=     - Web, e.g. 'Know'
+If the check fails, the reason can be recoveered using getReason.
+
+

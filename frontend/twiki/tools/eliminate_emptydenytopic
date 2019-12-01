@@ -1,0 +1,117 @@
+#!/usr/bin/perl
+#
+# TWiki Collaboration Platform, http://TWiki.org/
+#
+# Copyright (C) 2004 Wind River Systems Inc.
+# Copyright (C) 2004-2018 Peter Thoeny, peter[at]thoeny.org and
+# TWiki Contributors. All Rights Reserved. TWiki Contributors are
+# listed in the AUTHORS file in the root of this distribution.
+# NOTE: Please extend that file, not this notice.
+#
+# For licensing info read LICENSE file in the TWiki root.
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 3
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details, published at
+# http://www.gnu.org/copyleft/gpl.html
+#
+# As per the GPL, removal of this notice is prohibited.
+
+# This tool is expected to be run after a TWiki site is upgraded from pre
+# 6.0 to post 6.0. What this does is to replace
+#    * Set DENYTOPICVIEW =
+# with
+#    * Set ALLOWTOPICVIEW = Main.AllUsersGroup
+# Not only DENYTOPICVIEW but also DENYTOPICCHANGE and DENYTOPICRENAME are
+# taken care of. All occurrences of them are replaced.
+#
+# There are cases for the simple replacement not to work well.
+# If "Set ALLOWTOPICVIEW" is present after "Set DENYTOPICVIEW", replacing
+# "Set DENYTOPICVIEW" with "Set ALLOWTOPICVIEW" doesn't make a difference.
+#
+# Please read TWiki.TWikiAccessControl#OpenUpTopicsInRestrictedWeb
+# about empty DENYTOPICVIEW.
+
+# You must add the TWiki bin dir to the
+# search path for this script, so it can find the rest of TWiki e.g.
+# perl -I /usr/local/twiki/bin /usr/local/twiki/tools/mailnotify
+
+# SYNOPSIS
+#    eliminate_emptydenytopic [-scan] [WEB ...]
+#
+# DESCRIPTION
+#    If you specify -scan, then topics are not update. Only searching for
+#    topics to be modified is conducted.
+#
+#    If you specify web names, only those specified are processed. Otherwise,
+#    all writable webs are processed.
+#
+#    It creates a log file eedt.txt at the same directory as the acces log.
+
+use warnings;
+use strict;
+
+BEGIN {
+    require 'setlib.cfg';
+}
+
+require TWiki;
+require TWiki::Time;
+use Getopt::Long;
+
+$TWiki::cfg{Plugins}{RTNotifyPlugin}{Enabled} = 0;
+    # To suppress real-time notification in case it's enabled.
+    # I know It's bad to have a line for an unbundled plug-in in a file in
+    # TWiki core, especially if the plug-in is not contributed to twiki.org.
+    # Please forgive me since the line above is harmless.
+    # -- Main.HideyoImazu
+my $session = new TWiki($TWiki::cfg{SuperAdminGroup});
+my $store = $session->{store};
+my $user = $session->{user};
+my $logFile = $TWiki::cfg{LogFileName};
+$logFile =~ s:/[^/]+$:/eedt.txt:;
+open(my $log, '>>', $logFile);
+print $log
+    TWiki::Time::formatTime(time(), '$year-$mo-$day $hour:$min:$sec', 'gmtime'),
+    " $0 ", join(' ', @ARGV), "\n";
+
+sub replaceIfFound {
+    my ($web, $topic, $scan) = @_;
+    my ($meta, $text) = $store->readTopic(undef, $web, $topic);
+    if ( $text =~ s{^((?:\t|   )+\* Set +)DENY(TOPIC[A-Z]+) *= *$}
+                   {$1ALLOW$2 = Main.AllUsersGroup}mg
+    ) {
+        print STDERR "$web.$topic\n";
+        print $log "$web.$topic\n";
+        $store->saveTopic($user, $web, $topic, $text, $meta, {minor => 1})
+            unless ( $scan );
+    }
+}
+
+my $scan;
+GetOptions(scan => \$scan);
+
+my @weblist;
+if ( @ARGV ) {
+    @weblist = @ARGV;
+}
+else {
+    @weblist = $store->getListOfWebs('user,writable');
+}
+foreach my $web ( @weblist ) {
+    print STDERR $web, "\n";
+    for my $topic ( $store->getTopicNames($web) ) {
+        replaceIfFound($web, $topic, $scan);
+    }
+}
+
+print $log
+    TWiki::Time::formatTime(time(), '$year-$mo-$day $hour:$min:$sec', 'gmtime'),
+    " finished\n";
+
+exit 0;

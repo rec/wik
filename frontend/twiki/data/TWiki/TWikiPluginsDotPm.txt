@@ -1,0 +1,132 @@
+---+ Package =TWiki::Plugins=
+
+This module defines the singleton object that handles Plugins
+loading, initialization and execution.
+
+This class uses Chain of Responsibility (GOF) pattern to dispatch
+handler calls to registered plugins.
+
+
+%TOC%
+
+Note that as of version 1.026 of this module, TWiki internal
+methods are _no longer available_ to plugins. Any calls to
+TWiki internal methods must be replaced by calls via the
+=$SESSION= object in this package, or via the Func package.
+For example, the call:
+
+=my $pref = TWiki::getPreferencesValue('URGH');=
+
+should be replaced with
+
+=my $pref = TWiki::Func::getPreferencesValue('URGH');=
+
+and the call
+
+=my $t = TWiki::writeWarning($message);=
+
+should be replaced with
+
+=my $pref = $TWiki::Plugins::SESSION->writeWarning($message);=
+
+Methods in other modules such as Store must be accessed through
+the relevant TWiki sub-object, for example
+
+=TWiki::Store::saveTopic(...)=
+
+should be replaced with
+
+=$TWiki::Plugins::SESSION->{store}->saveTopic(...)=
+
+Note that calling TWiki internal methods is very very bad practice,
+and should be avoided wherever practical.
+
+The developers of TWiki reserve the right to change internal
+methods without warning, unless those methods are clearly
+marked as PUBLIC. PUBLIC methods are part of the core specification
+of a module and can be trusted.
+
+
+---++ PUBLIC constant $VERSION
+
+This is the version number of the plugins package. Use it for checking
+if you have a recent enough version.
+
+---++ PUBLIC $SESSION
+
+This is a reference to the TWiki session object. It can be used in
+plugins to get at the methods of the TWiki kernel.
+
+You are _highly_ recommended to only use the methods in the
+[[TWikiFuncDotPm][Func]] interface, unless you have no other choice,
+as kernel methods may change between TWiki releases.
+
+
+---++ ClassMethod *new* <tt>($session)</tt>
+
+Construct new singleton plugins collection object. The object is a
+container for a list of plugins and the handlers registered by the plugins.
+The plugins and the handlers are carefully ordered.
+
+
+
+---++ ObjectMethod *finish* <tt>()</tt>
+Break circular references.
+
+
+
+---++ ObjectMethod *load* <tt>($allDisabled) -> $loginName</tt>
+
+Find all active plugins, and invoke the early initialisation.
+Has to be done _after_ prefs are read.
+
+Returns the user returned by the last =initializeUserHandler= to be
+called.
+
+If allDisabled is set, no plugin handlers will be called.
+
+
+
+---++ ObjectMethod *settings* <tt>()</tt>
+
+Push plugin settings onto preference stack
+
+
+
+---++ ObjectMethod *enable* <tt>()</tt>
+
+Initialisation that is done after the user is known.
+
+
+
+---++ ObjectMethod *getPluginVersion* <tt>() -> $number</tt>
+
+Returns the $TWiki::Plugins::VERSION number if no parameter is specified,
+else returns the version number of a named Plugin. If the Plugin cannot
+be found or is not active, 0 is returned.
+
+
+
+---++ ObjectMethod *addListener* <tt>($command,$handler)</tt>
+
+   * =$command= - name of the event
+   * =$handler= - the handler object.
+
+Add a listener to the end of the list of registered listeners for this event.
+The listener must implement =invoke($command,...)=, which will be triggered
+when the event is to be processed.
+
+
+
+---++ ObjectMethod *dispatch* <tt>($handlerName,...)</tt>
+Dispatch the given handler, passing on ... in the parameter vector
+
+
+
+---++ ObjectMethod *haveHandlerFor* <tt>($handlerName) -> $boolean</tt>
+
+   * =$handlerName= - name of the handler e.g. preRenderingHandler
+Return: true if at least one plugin has registered a handler of
+this type.
+
+

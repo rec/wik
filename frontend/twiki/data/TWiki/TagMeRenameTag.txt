@@ -1,0 +1,53 @@
+%META:TOPICINFO{author="TWikiContributor" date="1352798346" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TagMePlugin"}%
+---+!! Tag-me: Rename Tag
+
+%INCLUDE{"TagMeCreateNewTag" section="cleanTagJavascript"}%
+%STARTINCLUDE%
+<table class="tagmeNavigation" border="0" cellpadding="3" cellspacing="0"><tr>
+<td>&nbsp; &nbsp;</td>
+<td bgcolor="#eef0f8" style="background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TagMePlugin/gray-gradient-2.png); border: solid 1px #d7dced;">&nbsp; [[%BASEWEB%.TagMeCreateNewTag][Create New Tag]] &nbsp;</td>
+<td>&nbsp;</td>
+<td bgcolor="#d7dced" style="background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TagMePlugin/gray-gradient-1.png); border: solid 1px #d7dced;">&nbsp; *Rename Tag* &nbsp;</td>
+<td>&nbsp;</td>
+<td bgcolor="#eef0f8" style="background-image: url(%PUBURLPATH%/%SYSTEMWEB%/TagMePlugin/gray-gradient-2.png); border: solid 1px #d7dced;">&nbsp; [[%BASEWEB%.TagMeDeleteTag][Delete Tag]] &nbsp;</td>
+</tr></table>
+<table border="0" cellpadding="5" cellspacing="0" style="width:100%;">
+<tr bgcolor="#d7dced"><td style="width:100%;"></td></tr>
+</table>
+%STARTSECTION{"create"}%
+<noautolink><form name="renametag" action="%SCRIPTURL{viewauth}%/%BASEWEB%/%BASETOPIC%" method="post" onsubmit="return cleanTag(this.newtag.value);">%TAGME{ tpaction="%URLPARAM{"renameaction" default="renametaginit"}%" oldtag="%URLPARAM{oldtag}%" newtag="%URLPARAM{newtag}%" note="%URLPARAM{renametagnote}%" }%
+
+<div class="twikiFormSteps">
+<div class="twikiFormStep">
+Tag to rename: %BR%
+<select name="oldtag">
+<option>%URLPARAM{renametagfrom}%</option>
+%TAGME{ tpaction="showalltags" format="<option>$tag</option>" separator="$n" }%
+</select>
+</div>
+<div class="twikiFormStep">
+New name for this tag: %BR%
+<input type="text" value="%URLPARAM{"renametagto" default="%URLPARAM{renametagfrom}%"}%" name="newtag" id="newtag" class="twikiInputField" size="30" onblur="this.value=cleanTag(this.value)" />
+</div>
+<div class="twikiFormStep twikiLast">
+<input %IF{"context inactive" then="disabled"}% type="submit" class="twikiSubmit" value="%MAKETEXT{"Rename"}%" />
+</div>
+</div>
+<input type="hidden" name="renameaction" value="renametag" />
+</form>
+</noautolink>
+%ENDSECTION{"rename"}%
+
+%BR%
+<span class="twikiGrayText">Other tag options: [[%BASEWEB%.TagMeViewAllTags][View all tags]], %IF{"'%TAGMEPLUGIN_USER_AGNOSTIC%' = 'on'" else="[[%BASEWEB%.TagMeViewMyTags][View my tags]], "}%[[%BASEWEB%.TagMeSearch][Search tags]]</span>
+
+<script type="text/javascript">
+//<![CDATA[
+   addLoadEvent(setHandyFocus);
+   function setHandyFocus () {
+        document.getElementById('newtag').focus();
+   }
+//]]>
+</script>
+%STOPINCLUDE%

@@ -1,0 +1,12 @@
+---+ Package =TWiki::LoginManager::Session=
+
+Class to provide CGI::Session like infra-structure, compatible with
+TWiki Runtime Engine mechanisms other than CGI.
+
+It inherits from CGI::Session and redefine methods that uses %ENV directly,
+replacing by calls to TWiki::Request object, that is passed to constructor.
+
+It also redefines =name= method, to avoid creating CGI object.
+
+
+%TOC%

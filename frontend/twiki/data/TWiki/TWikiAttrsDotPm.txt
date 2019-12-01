@@ -1,0 +1,72 @@
+---+ Package =TWiki::Attrs=
+
+Class of attribute sets, designed for parsing and storing attribute values
+from a TWiki tag e.g. =%<nop>TAG{"joe" fred="bad" joe="mad"}%=
+
+An attribute set is a hash containing an entry for each parameter. The
+default parameter (unnamed quoted string) is named <code>_<nop>DEFAULT</code> in the hash.
+
+Attributes declared later in the string will override those of the same
+name defined earlier. The one exception to this is the _DEFAULT key, where
+the _first_ instance is always taken.
+
+As well as the default TWiki syntax (parameter values double-quoted)
+this class also parses single-quoted values, unquoted spaceless
+values, spaces around the =, and commas as well as spaces separating values.
+The extended syntax has to be enabled by passing the =$friendly= parameter
+to =new=.
+
+
+%TOC%
+
+---++ ClassMethod *new* <tt>($string,$friendly)=>\%attrsObjectRef</tt>
+
+   * =$string= - String containing attribute specification
+   * =$friendly= - if true, the parse will be according to the extended syntax pioneered by the original Contrib::Attrs. Otherwise it will be strict as per traditional TWiki syntax.
+
+Parse a standard attribute string containing name=value pairs and create a new
+attributes object. The value may be a word or a quoted string. If there is an
+error during parsing, the parse will complete but $attrs->{_ERROR} will be
+set in the new object. $attrs->{_RAW} will always contain the full unprocessed
+$string.
+
+Extended syntax example:
+<verbatim>
+my $attrs = new TWiki::Attrs('the="time \\"has come", "the walrus" said to=speak of=\'many \\'things\', 1);
+</verbatim>
+In this example:
+   * =the= will be =time "has come=
+   * <code>_<nop>_<nop>default__</code> will be =the walrus=
+   * =said= will be =on=
+   * =to= will be =speak=
+   * =of= will be =many 'things=
+
+Only " and ' are escaped.
+
+Traditional syntax is as old TWiki, except that the whole string is parsed
+(the old parser would only recognise default values in position 1, nowhere
+else)
+
+
+
+---++ ObjectMethod *isEmpty* <tt>() -> boolean</tt>
+
+Return false if attribute set is not empty.
+
+
+
+---++ ObjectMethod *remove* <tt>($key) -> $value</tt>
+
+   * =$key= - Attribute to remove
+Remove an attr value from the map, return old value. After a call to
+=remove= the attribute is no longer defined.
+
+
+
+---++ ObjectMethod *stringify* <tt>() -> $string</tt>
+
+Generate a printed form for the map, using strict
+attribute syntax, with only the single-quote extension
+syntax observed (no {} brackets, though).
+
+

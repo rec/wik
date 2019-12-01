@@ -1,0 +1,91 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2014.11.14.23.26.41;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2012.11.14.04.49.11;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2010.10.10.02.10.10;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1416007601" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarJQTABPANE
+---+++ JQTABPANE -- start a JQuery tab pane
+   * Create nice looking horizontal tab panes in TWiki topics. Write a sequence of =%<nop>JQTAB{"..."}%= and =%<nop>JQENDTAB%= pairs, and enclose them in =%<nop>JQTABPANE%= and =%<nop>JQENDTABPANE%=. Tab panes can be nested, e.g. within one tab you can add another tab pane. These variable are handled by the JQueryPlugin.
+   * Syntax: =%<nop>JQTABPANE{ select="1" }% %<nop>JQTAB{"Tab 1"}% ... %<nop>JQENDTAB% %<nop>JQTAB{"Tab 2"}% ... %<nop>JQENDTAB% ... %<nop>JQENDTABPANE%=
+   * Supported parameter:
+     | *Parameter:* | *Description:* | *Default:* |
+     | =select=""= | Select a tab pane, default is the first tab. | ="1"= |
+   * Note: A tab can be selected with a =tab= URL parameter using =%<nop>JQTABPANE{ select="%<nop>URLPARAM{tab}%" }%=
+   * Example:
+     %BR% =%<nop>JQTABPANE%=
+     %BR% =%<nop>JQTAB{"Tab 1"}%=
+     %BR% =Tab 1 content...=
+     %BR% =%<nop>JQENDTAB%=
+     %BR% =%<nop>JQTAB{"Tab 2"}%=
+     %BR% =Tab 2 content...=
+     %BR% =%<nop>JQENDTAB%=
+     %BR% =%<nop>JQENDTABPANE%=
+   * Renders as:
+     %JQTABPANE%
+     %JQTAB{"Tab 1"}%
+     Tab 1 content...
+     %JQENDTAB%
+     %JQTAB{"Tab 2"}%
+     Tab 2 content...
+     %JQENDTAB%
+     %JQENDTABPANE%
+   * Category: ApplicationsAndComponentsVariables, FormattingAndRenderingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarJQENDTAB][JQENDTAB]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarJQENDTABPANE][JQENDTABPANE]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarJQTAB][JQTAB]], JQueryPlugin
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1352868551" format="1.1" version="2"}%
+d6 5
+a10 1
+   * Syntax: =%<nop>JQTABPANE% %<nop>JQTAB{"Tab 1}% ... %<nop>JQENDTAB% %<nop>JQTAB{"Tab 2}% ... %<nop>JQENDTAB% ... %<nop>JQENDTABPANE%=
+d20 9
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1276063560" format="1.1" version="1"}%
+d16 1
+@

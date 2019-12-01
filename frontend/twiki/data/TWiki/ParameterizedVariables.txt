@@ -1,0 +1,60 @@
+%META:TOPICINFO{author="TWikiContributor" date="1301208112" format="1.1" version="1"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+---+ Parameterized Variables (Macros)
+%STARTINCLUDE%
+It is possible to pass parameters to TWiki variables. This is called a macro in a programming language.
+
+To define a parameterized variable, set a variable that contains other variables, such as:
+<verbatim>
+   * Set EXAMPLE = Example variable using %DEFAULT%, %PARAM1% and %PARAM2%
+   * Set DEMO = Demo using %DEFAULT{ default="(undefined)" }%,
+                %PARAM1{ default="(undefined)" }% and %PARAM2{ default="(undefined)" }%
+</verbatim>
+
+A special =%<nop>DEFAULT%= variable denotes the default (nameless) parameter of the calling variable. Variables optionally may list a =default="..."= parameter that gets used in case the calling variable does not specify that parameter.
+
+To use a parameterized variable (or call a macro), add parameters within the curly brackets, such as:
+<verbatim>
+   * %EXAMPLE{ "foo" PARAM1="bar" PARAM2="baz" }%
+   * %DEMO{ "demo" PARAM2="parameter 2" }% -- note that PARAM1 is missing
+</verbatim>
+which resolves to:
+   * %EXAMPLE{ "foo" PARAM1="bar" PARAM2="baz" }%
+   * %DEMO{ "demo" PARAM2="parameter 2" }% -- note that PARAM1 is missing
+
+Parameters in the variable definition are expanded using the following sequence:
+
+   1. Parameter from variable call. In above example, =%<nop>PARAM1%= gets expanded to =bar=.
+   2. Session variable and preferences settings
+
+---++!! Example
+
+*Define variables:*
+<verbatim>
+   * Set DRINK = red wine
+   * Set FAVORITE = My %DEFAULT{default="favorite"}% dish is %DISH{default="steak"}%,
+                    my %DEFAULT{default="favorite"}% drink is %DRINK%.
+</verbatim>
+%T% The default can be defined with a default parameter (=%<nop>DISH{default="steak"}%=), or as a preferences setting (=Set DRINK = ...=).
+
+*Use Variables:*
+<verbatim>
+%FAVORITE{ DISH="Sushi" DRINK="Sake" }%
+</verbatim>
+Returns: %BR%
+%FAVORITE{ DISH="Sushi" DRINK="Sake" }%
+
+<verbatim>
+%FAVORITE{}%
+</verbatim>
+Returns: %BR%
+%FAVORITE{}%
+
+<verbatim>
+%FAVORITE{ "preferred" }%
+</verbatim>
+Returns: %BR%
+%FAVORITE{ "preferred" }%
+%STOPINCLUDE%
+
+__Related:__ TWikiVariables, IncludeTopicsAndWebPages

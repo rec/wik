@@ -1,0 +1,52 @@
+%META:TOPICINFO{author="TWikiContributor" date="1311890457" format="1.1" version="3"}%
+%META:TOPICPARENT{name="TopMenuSkin"}%
+---+ Top Menu of <nop>%WEB% Web
+
+This topic defines the menu structure of the <nop>%WEB% web, used by the [[TopMenuSkin]].
+
+-----
+%INCLUDE{"%SYSTEMWEB%.TopMenuSkin"}%
+<div class="twTopMenuTab">%STARTINCLUDE%
+%INCLUDE{%SYSTEMWEB%.TopMenuSkinHomeMenu}%
+   * [[%BASEWEB%.%HOMETOPIC%][ <img src="%ICONURL{web-bg}%" border="0" alt="" width="16" height="16" style="background-color:%WEBBGCOLOR%" /> <nop>%MAKETEXT{"[_1] Web" args="%BASEWEB{format="$current"}%"}% %ICONURL{menu-down}% ]]
+      * [[%BASEWEB%.TWikiRegistration][ %ICON{"edittable"}% %MAKETEXT{"User registration"}%]]
+      * [[%USERSWEB%.UserList][ %ICON{"person"}% %MAKETEXT{"Users"}%]]
+      * [[%USERSWEB%.TWikiGroups][ %ICON{"group"}% %MAKETEXT{"Groups"}%]]
+      * [[%BASEWEB%.WebTopicList][ %ICON{"index"}% %MAKETEXT{"Index"}%]]
+      * [[%BASEWEB%.WebSearch][ %ICON{"searchtopic"}% %MAKETEXT{"Search"}%]]
+      * [[%BASEWEB%.WebChanges][ %ICON{"changes"}% %MAKETEXT{"Changes"}%]]
+      * [[%BASEWEB%.WebNotify][ %ICON{"notify"}% %MAKETEXT{"Notifications"}%]]
+      * [[%BASEWEB%.WebRss][ %ICON{"feed"}% %MAKETEXT{"RSS Feed"}%]]
+      * [[%BASEWEB%.WebStatistics][ %ICON{"statistics"}% %MAKETEXT{"Statistics"}%]]
+      * [[%BASEWEB%.WebPreferences][ %ICON{"wrench"}% %MAKETEXT{"Preferences"}%]]
+%INCLUDE{%SYSTEMWEB%.TopMenuSkinTopicMenu}%
+   * [[UserDocumentationCategory][%MAKETEXT{"User Reference"}% %ICONURL{menu-down}% ]]
+      * [[ATasteOfTWiki]]
+      * [[TextFormattingRules]]
+      * [[TWikiVariables]]
+      * [[FormattedSearch]]
+      * [[QuerySearch]]
+      * [[TWikiDocGraphics]]
+      * [[TWikiSkinBrowser]]
+      * [[InstalledPlugins]]
+   * [[AdminToolsCategory][%MAKETEXT{"Admin Maintenance"}% %ICONURL{menu-down}% ]]
+      * [[TWikiReferenceManual][Reference Manual]]
+      * [[InterWikis]]
+      * [[ManagingUsers]]
+      * [[ManagingWebs]]
+      * [[TWikiSiteTools]]
+      * [[%WIKIPREFSTOPIC%]]
+      * [[%WEBPREFSTOPIC%]]
+   * [[CategoryCategory][%MAKETEXT{"Categories"}% %ICONURL{menu-down}% ]]
+      * [[AdminDocumentationCategory][Admin Documentation]]
+      * [[AdminToolsCategory][Admin Tools]]
+      * [[DeveloperDocumentationCategory][Developer Doc]]
+      * [[UserDocumentationCategory][User Documentation]]
+      * [[UserToolsCategory][User Tools]]
+%STOPINCLUDE%</div>
+-----
+
+   * Disable WYSIWYG editor for this page:
+      * Set EDITMETHOD = raw
+
+__Related topics:__ [[TopMenuSkin]], [[TopMenuSkinTopBar]], [[TopMenuSkinDefaultWebTopMenu]], [[TopMenuSkinHomeMenu]], [[TopMenuSkinTopicMenu]]

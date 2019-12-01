@@ -1,0 +1,141 @@
+%META:TOPICINFO{author="TWikiContributor" date="1530836171" format="1.1" version="6"}%
+---+!! Color Picker Plugin
+<!--
+   Contributions to this plugin package are appreciated. Please update this page at
+   http://twiki.org/cgi-bin/view/Plugins/ColorPickerPlugin or provide feedback at
+   http://twiki.org/cgi-bin/view/Plugins/ColorPickerPluginDev.
+   If you are a TWiki contributor please update the extension in the SVN repository.
+-->
+<sticky>
+<div class="twikiTocFloat">
+%TOC{title="Page contents"}%
+</div>
+<img src="%ATTACHURLPATH%/screenshot-edit.png" alt="screenshot-edit.png" width="201" height="227" style="float:right" />
+</sticky>
+%SHORTDESCRIPTION%
+
+---++ Introduction
+
+This TWiki plugin packages the [[http://acko.net/dev/farbtastic][Farbtastic color picker]], which is a jQuery plugin developed by Steven Wittens of Acko.net. The package adds a color picker to TWiki forms and TWiki applications.
+
+---++ Using the color picker in !TWikiForms
+
+This package adds a =color= type to %SYSTEMWEB%.TWikiForms:
+
+| *Type* | *Description* | *Size* | *Value* |
+| =color= | %IF{ "'%BASETOPIC%'!='%TOPIC%'" then="<img src='%PUBURLPATH%/%WEB%/ColorPickerPlugin/screenshot-small.png' alt='screenshot-small' width='150' height='170' align='right' /> " }%Single-line text box and a color picker to pick a color. The color can also be typed into the text box, such as =#123456=. %BR% An attribute of =type="popup"= shows a button that, when clicked, opens a color picker popup. %IF{ "'%BASETOPIC%'='TWikiForms'" then="[[ColorPickerPlugin][See details]]." }% | Text box width in number of characters | Initial (default) color |
+
+Example form definition:
+
+| *Name:* | *Type:* | *Size* | *Values:* | *Tooltip message:* | *Attributes:* |
+| Background color | color | 12 | | Select color | type="popup" |
+
+__Note:__ The =type="popup"= attribute requires TWiki-6.0.2 or later.
+
+---++ Using the color picker in an HTML form
+
+You can also use the color picker directly in your HTML forms, without having to write any code. Just include this in the topic text:
+<verbatim>
+<form action="...">
+%COLORPICKER{ name="text_color" size="12" value="#123456" class="twikiInputField" }%
+<form>
+</verbatim>
+This will show an HTML input field named "text_color" and a color picker tied to it.
+
+%INCLUDE{ "VarCOLORPICKER" section="parameters" }%
+
+Test: (this only works if the !ColorPickerPlugin is installed and enabled)
+
+<form>
+%COLORPICKER{ name="text_color" size="12" value="#123456" class="twikiInputField" }%
+</form>
+
+---++ Using the color picker with disabled plugin
+
+It is also possible to use the color picker in HTML forms with _disabled_ !ColorPickerPlugin:
+
+<verbatim>
+%INCLUDE{ "%SYSTEMWEB%.ColorPickerPlugin" section="code" }%
+<form action="...">
+%INCLUDE{ "%SYSTEMWEB%.ColorPickerPlugin" section="picker" NAME="demo_color" SIZE="12" VALUE="#123456" EXTRA="class=\"twikiInputField\"" }%
+</form>
+</verbatim>
+This will show an HTML input field named "demo_color" and a color picker tied to it. The ="code"= section should be included once per topic, the ="picker"= section can be included as many times as needed. The =NAME= parameter is required; =SIZE=, =VALUE= and =EXTRA= parameters are optional. Use the =EXTRA= parameter to add additional parameters to the HTML input field.
+
+Test: (this works only if the !ColorPickerPlugin is installed and disabled)
+
+<!--
+%STARTSECTION{code}%<script type="text/javascript" src="%PUBURL%/%SYSTEMWEB%/ColorPickerPlugin/farbtastic.js"></script> <link rel="stylesheet" href="%PUBURL%/%SYSTEMWEB%/ColorPickerPlugin/farbtastic.css" type="text/css" />%ENDSECTION{code}%
+%STARTSECTION{picker}%<input type="text" id="%NAME%" name="%NAME%" value="%IF{ "defined VALUE" then="$percntVALUE$percnt" else="#808080" }%" size="%IF{ "defined SIZE" then="$percntSIZE$percnt" else="12" }%" %IF{ "defined EXTRA" then="$percntEXTRA$percnt" }% /> <div id="%NAME%picker"></div> <script type="text/javascript"> $(document).ready(function() { $('#%NAME%picker').farbtastic('#%NAME%'); }); </script>%ENDSECTION{picker}%
+-->
+%INCLUDE{ "%TOPIC%" section="code" }%
+<form>
+%INCLUDE{ "%TOPIC%" section="picker" NAME="demo_color" SIZE="12" VALUE="#ff6611" EXTRA="class=\"twikiInputField\"" }%
+</form>
+
+---++ Installation Instructions
+
+This plugin is pre-installed. TWiki administrators can upgrade the plugin as needed on the TWiki server.
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}% "
+ hidelink="Hide details %ICONURL{toggleclose}% "
+}%
+
+   * For an __automated installation__, run the [[%SCRIPTURL{configure}%][configure]] script and follow "Find More Extensions" in the in the __Extensions__ section.
+      * See the [[http://twiki.org/cgi-bin/view/Plugins/BuildContribInstallationSupplement][installation supplement]] on TWiki.org for more information.
+
+   * Or, follow these __manual installation__ steps:
+      * Download the ZIP file from the extension home on twiki.org (see below).
+      * Unzip ==%TOPIC%.zip== in your twiki installation directory.
+      * Set the ownership of the extracted directories and files to the webserver user.
+      * Install the dependencies (if any).
+
+   * Plugin __configuration and testing__: 
+      * Run the [[%SCRIPTURL{configure}%][configure]] script and enable the plugin in the __Plugins__ section.
+      * Configure additional plugin settings in the __Extensions__ section if needed.
+      * Test if the installation was successful using the examples provided.
+
+%ENDTWISTY%
+
+---++ Plugin Info
+
+   * Set SHORTDESCRIPTION = Color picker for use in TWiki forms and TWiki applications
+
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  Author: | TWiki:Main.PeterThoeny, [[http://twiki.org/][TWiki.org]] |
+|  Copyright: | &copy; 2007 [[http://acko.net/about][Steven Wittens]], Acko.net for Farbtastic jQuery plugin %BR% &copy; 2010-2018 TWiki:Main.PeterThoeny and TWiki:TWiki.TWikiContributor for TWiki !ColorPickerPlugin |
+|  Sponsor: | [[http://www.wave.com/][Wave Systems Corp.]] for type parameter |
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+|  Dependencies: | JQueryPlugin (pre-installed) |
+|  Version: | 2018-07-05 |
+%TWISTY{
+ mode="div"
+ showlink="Show Change History %ICONURL{toggleopen}%"
+ hidelink="Hide Change History %ICONURL{toggleclose}%"
+}%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  2018-07-05: | TWikibug:Item7841: Copyright update to 2018 |
+|  2016-01-08: | TWikibug:Item7708: Copyright update to 2016 |
+|  2015-01-10: | TWikibug:Item7604: Switch to GPL v3 |
+|  2014-12-29: | TWikibug:Item7601: Implement new type="popup" parameter for popup color widget |
+|  2014-12-20: | TWikibug:Item7601: New type parameter to set the type of color widget |
+|  2014-12-11: | TWikibug:Item7577: TWiki form field type with configure attributes, color type supports form, onblur, onfocus, onchange, onselect, onmouseover, onmouseout, pattern, placeholder, spellcheck, style, tabindex, title, translate |
+|  2013-02-15: | TWikibug:Item7148: Fix for color picker not working if initial value of TWiki forms field of type color is empty |
+|  2013-01-09: | TWikibug:Item7091: Dependency clarification; use TWISTY for installation instructions |
+|  2012-12-03: | TWikibug:Item7020: Add VarCOLORPICKER with category; doc improvements |
+|  2012-08-11: | TWikibug:Item6837: Doc fixes; updated installation instructions |
+|  2011-06-11: | TWikibug:Item6725: Change global package variables from "use vars" to "our" |
+|  2010-11-30: | TWikibug:Item6610: Rewrite !ColorPickerContrib into !ColorPickerPlugin |
+|  2010-11-27: | TWikibug:Item6609: In %SYSTEMWEB%.TWikiForms type table, automatically list the =color= form field type defined in this contrib -- TWiki:Main.PeterThoeny |
+|  2010-11-26: | TWikibug:Item6606: Complete rewrite of contrib using [[http://acko.net/dev/farbtastic][Farbtastic color picker]] -- TWiki:Main.PeterThoeny |
+|  2006-10-27: | Initial version of !ColorPickerContrib by TWiki:Main.FlavioCurti using Colorpicker by Norman Timmler (inlet media e.K., Hamburg, Germany) |
+%ENDTWISTY%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  Home: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC% |
+|  Feedback: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Dev |
+|  Appraisal: | http://TWiki.org/cgi-bin/view/Plugins/%TOPIC%Appraisal |
+
+__Related Topics:__ VarCOLORPICKER, %SYSTEMWEB%.TWikiPreferences, %SYSTEMWEB%.TWikiForms, %SYSTEMWEB%.TWikiPlugins
+
+%META:FILEATTACHMENT{name="screenshot-edit.png" attachment="screenshot-edit.png" attr="h" comment="" date="1290756224" path="screenshot-edit.png" size="29633" user="TWikiContributor" version="1"}%

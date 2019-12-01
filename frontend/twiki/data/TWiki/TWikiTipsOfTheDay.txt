@@ -1,0 +1,22 @@
+%META:TOPICINFO{author="TWikiContributor" date="1346825748" format="1.1" version="4"}%
+---+ TWiki Tips Of The Day
+
+These are all tips of the day. They are located in the %SYSTEMWEB% web (official TWiki tips) and %USERSWEB% web (custom tips).
+
+%SEARCH{
+ "^TWiki[Custom]*Tip[0-9A-Z]"
+ web="%SYSTEMWEB%, %USERSWEB%"
+ topic="TWiki*Tip*"
+ scope="topic"
+ type="regex"
+ casesensitive="on"
+ nosearch="on"
+ nototal="on"
+ format="   * [[$web.$topic][$pattern(.*?\-\-\-\+([^\n\r]+).*)]]:$n()   $summary(noheader, 80)$percntCALC{$SETM(total, +1)}$percnt"
+}%
+
+Total: %CALC{$GET(total)}% tips
+
+__See also:__ [[TWikiTipsOfTheDayAdmin][TWiki Tips Of The Day Administration]]
+
+-- __Contributors:__ TWiki:Main.PaulineCheung, TWiki:Main.PeterThoeny

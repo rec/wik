@@ -1,0 +1,9 @@
+%META:TOPICINFO{author="TWikiContributor" date="1352797285" format="1.1" version="4"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarIF
+---+++ IF{"condition" ...} -- simple conditionals
+   * Evaluate a condition and show one text or another based on the result. See details in IfStatements
+   * Syntax: =%<nop>IF{"CONDITION" then="THEN" else="ELSE"}%= shows ="THEN"= if ="CONDITION"= evaluates to =TRUE=, otherwise ="ELSE"= will be shown
+   * Example: =%<nop>IF{"defined FUNFACTOR" then="FUNFACTOR is defined" else="FUNFACTOR is not defined"}%= renders as =%IF{"defined FUNFACTOR" then="FUNFACTOR is defined" else="FUNFACTOR is not defined"}%=
+   * Category: DevelopmentVariables, WorkflowAndAutomationVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarGET][GET]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarSET][SET]], IfStatements, [[SpreadSheetPlugin#FuncIF][$IF()]] of SpreadSheetPlugin, QuerySearch

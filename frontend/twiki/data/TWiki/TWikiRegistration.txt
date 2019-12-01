@@ -1,0 +1,190 @@
+%META:TOPICINFO{author="TWikiContributor" date="1440364998" format="1.1" version="21"}%
+---+ %MAKETEXT{"Registration"}%
+
+%IF{"context registration_supported" 
+then="*%MAKETEXT{"To edit pages on this TWikiSite, you must have a registered user name and password."}%* %IF{"context registration_enabled" then="" else="%BR%%BR% __%MAKETEXT{"Sorry, Registration has been temporarily disabled"}%__ "}%" 
+else="*%MAKETEXT{"This TWiki does _not_ support new User Registration"}%*"
+}%
+
+<!--
+   * Set NOREGISTRATION = %IF{"context registration_supported" then="%IF{"context registration_enabled" then="" else="DISABLED"}%" else="DISABLED"}%
+-->
+
+%H% *%MAKETEXT{"Note:"}%* %MAKETEXT{"Registered users can [[[_1]][change]] and [[[_2]][reset]] their passwords." args="%SYSTEMWEB%.ChangePassword,%SYSTEMWEB%.ResetPassword"}%
+
+%MAKETEXT{"*Important:* the information provided in this form will be stored in a database on the TWiki server. This database is accessible to anyone who can access the server through the web (though passwords will be encrypted, and e-mail addresses will be obfuscated to help prevent spamming). Your country, or the country where the server is hosted, may have Data Protection laws governing the maintenance of such databases. If you are in doubt, you should contact [_1] for details of the Data Protection Policy of this TWiki server before registering." args="<a href='mailto:%WIKIWEBMASTER%?subject=Data%20Protection%20Policy'>%WIKIWEBMASTER%</a>"}%
+
+<!--
+## IMPORTANT NOTE if you want to customize this form: You can delete or add new input variables in this form. The name="" parameter of the input tags must start with: "Twk0..." (if this is an optional entry), "Twk1..." (if this is a required entry). This will ensure that the fields are processed correctly.
+-->
+<script language="javascript">
+<!--
+function capitalise(name)
+{
+ var sIn = name;
+ var sOut = '';
+ var chgUpper = true;
+ for ( var i = 0; i < sIn.length; i++ ) {
+  var ch = sIn.charAt( i );
+  var chVal = ch.charCodeAt(0);
+  var ch1 = '';
+  var ch2 = '';
+  if( ((chVal>=48) && (chVal<=57)) || ((chVal>=65) && (chVal<=90)) || ((chVal>=97) && (chVal<=122)) ) { ch1 = ch; }
+  else if( chVal<=126 ) { ch1 = ' '; }
+  if( (chVal==192) || (chVal==193) || (chVal==194) || (chVal==195) ) { ch1 = 'A'; }
+  if( chVal==196) { ch1 = 'A'; ch2 = 'E'; }
+  if( chVal==197) { ch1 = 'A'; ch2 = 'A'; }
+  if( chVal==198) { ch1 = 'A'; ch2 = 'E'; }
+  if( chVal==199) { ch1 = 'C'; }
+  if( (chVal==200) || (chVal==201) || (chVal==202) || (chVal==203) ) { ch1 = 'E'; }
+  if( (chVal==204) || (chVal==205) || (chVal==206) || (chVal==207) ) { ch1 = 'I'; }
+  if( chVal==208) { ch1 = 'd'; }
+  if( chVal==209) { ch1 = 'N'; }
+  if( (chVal==210) || (chVal==211) || (chVal==212) || (chVal==213) ) { ch1 = 'O'; }
+  if( chVal==214) { ch1 = 'O'; ch2 = 'E'; }
+  if( chVal==216) { ch1 = 'O'; ch2 = 'E'; }
+  if( (chVal==217) || (chVal==218) || (chVal==219) ) { ch1 = 'U'; }
+  if( chVal==220) { ch1 = 'U'; ch2 = 'E'; }
+  if( chVal==221) { ch1 = 'Y'; }
+  if( chVal==222) { ch1 = 'P'; }
+  if( chVal==223) { ch1 = 's'; ch2 = 's'; }
+  if( (chVal==224) || (chVal==225) || (chVal==226) || (chVal==227) ) { ch1 = 'a'; }
+  if( chVal==228) { ch1 = 'a'; ch2 = 'e'; }
+  if( chVal==229) { ch1 = 'a'; ch2 = 'a'; }
+  if( chVal==230) { ch1 = 'a'; ch2 = 'e'; }
+  if( chVal==231) { ch1 = 'c'; }
+  if( (chVal==232) || (chVal==233) || (chVal==234) || (chVal==235) ) { ch1 = 'e'; }
+  if( (chVal==236) || (chVal==237) || (chVal==238) || (chVal==239) ) { ch1 = 'i'; }
+  if( chVal==240) { ch1 = 'd'; }
+  if( chVal==241) { ch1 = 'n'; }
+  if( (chVal==242) || (chVal==243) || (chVal==244) || (chVal==245) ) { ch1 = 'o'; }
+  if( chVal==246) { ch1 = 'o'; ch2 = 'e'; }
+  if( chVal==248) { ch1 = 'o'; ch2 = 'e'; }
+  if( (chVal==249) || (chVal==250) || (chVal==251) ) { ch1 = 'u'; }
+  if( chVal==252) { ch1 = 'u'; ch2 = 'e'; }
+  if( chVal==253) { ch1 = 'y'; }
+  if( chVal==254) { ch1 = 'p'; }
+  if( chVal==255) { ch1 = 'y'; }
+  if( ch1!=' ' ) {
+   if( chgUpper ) {
+    ch1 = ch1.toUpperCase(); chgUpper = false; 
+   } 
+   sOut+=ch1;
+   sOut+=ch2; 
+  } else {
+   chgUpper = true; 
+  } 
+ }
+ return sOut;
+}
+//-->
+</script>
+
+<form action="%SCRIPTURLPATH{"register"}%/%USERSWEB%/%HOMETOPIC%" method="post">
+<div class="twikiFormSteps">
+<div class="twikiFormStep">
+*%MAKETEXT{"To register as a new user, simply fill out this form:"}%*
+</div>
+<div class="twikiFormStep">
+<table border="0" cellpadding="0" cellspacing="6">
+<tr>
+  <td></td>
+  <td>%MAKETEXT{"Fields marked [_1] are required" args="=<font color='red'>**</font>="}%</td>
+</tr>
+<tr>
+  <td align="right"> %MAKETEXT{"First Name:"}% </td>
+  <td><input %NOREGISTRATION% type="text" name="Twk1FirstName" size="40" class="twikiInputField" value="%URLPARAM{"FirstName" encode="entity"}%" onblur="this.form.Twk1WikiName.value=capitalise(this.value)+capitalise(this.form.Twk1LastName.value)" /> =<font color="red">**</font>= </td>
+</tr>
+<tr>
+  <td align="right"> %MAKETEXT{"Last Name:"}% </td>
+  <td><input %NOREGISTRATION%  type="text" name="Twk1LastName" size="40" class="twikiInputField" value="%URLPARAM{"LastName" encode="entity"}%" onblur="this.form.Twk1WikiName.value=capitalise(this.form.Twk1FirstName.value)+capitalise(this.value)" /> =<font color="red">**</font>= </td>
+</tr>
+  <td align="right"> %MAKETEXT{"(identifies you to others) WikiName:"}% </td>
+  <td><input %NOREGISTRATION%  type="text" name="Twk1WikiName" size="40" class="twikiInputField" value="%URLPARAM{"WikiName" encode="entity"}%" onblur="" /> =<font color="red">**</font>= </td>
+</tr>
+<!--
+## NOTE: Optional row for login name, enabled by {Register}{AllowLoginName} option in =configure=
+   * Set BESPOKE_AUTH = <tr><td align=\"right\"> %MAKETEXT{"(how you log in) LoginName:"}% </td><td><input %NOREGISTRATION% type=\"text\" name=\"Twk1LoginName\" size=\"40\" class=\"twikiInputField\" value=\"%URLPARAM{"LoginName" default="%REMOTE_USER%" encode="entity"}%\" /> =<font color='red'>**</font>= </td></tr>
+-->
+%IF{"$ ALLOWLOGINNAME" then="%BESPOKE_AUTH%"}%
+<tr>
+  <td align="right"> %MAKETEXT{"E-mail address:"}% </td>
+  <td><input %NOREGISTRATION%  type="text" name="Twk1Email" size="40" class="twikiInputField" value="%URLPARAM{"Email" encode="entity"}%" /> =<font color="red">**</font>= </td>
+</tr>
+<!--
+## NOTE: Optional rows for password, enabled by {Register}{AllowLoginName} option in =configure=, we assume that login name means that TWiki does not handle passwords
+   * Set BESPOKE_PASSWORD = <tr><td align=\"right\"> %MAKETEXT{"Password:"}% </td><td><input %NOREGISTRATION% type=\"password\" name=\"Twk0Password\" size=\"40\" class=\"twikiInputField\" value=\"%URLPARAM{"Password" encode="entity"}%\" /> =<font color=\"red\">**</font>= </td></tr>\
+     <tr><td align=\"right\"> %MAKETEXT{"Retype password:"}% </td><td><input %NOREGISTRATION% type=\"password\" name=\"Twk0Confirm\" size=\"40\" class=\"twikiInputField\" value=\"%URLPARAM{"Confirm" encode="entity"}%\" /> =<font color=\"red\">**</font>= </td></tr>
+-->
+%IF{"$ ALLOWLOGINNAME < 1" then="%BESPOKE_PASSWORD%"}%
+<!--
+## NOTE: Optional "system generated password" row for administrators
+   * Set SYSTEM_GENERATED_PASSWORD = <tr><td align=\"right\"> </td><td> <input %NOREGISTRATION% type=\"checkbox\" name=\"Twk0SystemGeneratedPassword\" id=\"SGP\" class=\"twikiCheckbox\" /><label for=\"SGP\"> %MAKETEXT{"Use system generated password"}% </label> </td></tr>
+-->
+%IF{"$ ALLOWLOGINNAME < 1 AND '%USERNAME%' ingroup 'TWikiAdminGroup' AND {Register}{AllowSystemGeneratedPassword}" then="%SYSTEM_GENERATED_PASSWORD%" else="<nop>"}%
+<!--## NOTE: Optional "must change password" row for administrators
+   * Set MUST_CHANGE_PASSWORD = <tr><td align=\"right\"> </td><td> <input %NOREGISTRATION% type=\"checkbox\" name=\"Twk0MustChangePassword\" id=\"MCP\" class=\"twikiCheckbox\" /><label for=\"MCP\"> %MAKETEXT{"Must change password"}% </label> </td></tr>
+-->
+%IF{"$ ALLOWLOGINNAME < 1 AND '%USERNAME%' ingroup 'TWikiAdminGroup'" then="%MUST_CHANGE_PASSWORD%" else="<nop>"}%
+<tr>
+  <td align="right"> %MAKETEXT{"Organization:"}% </td>
+  <td><input %NOREGISTRATION%  type="text" name="Twk0Organization" size="40" class="twikiInputField" value="%URLPARAM{"Organization" encode="entity"}%" /></td>
+</tr><tr>
+  <td align="right"> %MAKETEXT{"URL:"}% </td>
+  <td><input %NOREGISTRATION%  type="text" name="Twk0URL" size="40" class="twikiInputField" value="%URLPARAM{"URL" encode="entity"}%" onBlur="if(this.value=='http://') { this.value='' }" onFocus="if(this.value=='') { this.value='http://' }" /></td>
+</tr><tr>
+  <td align="right"> %MAKETEXT{"Country:"}% </td>
+  <td>
+  <select class="twikiSelect" %NOREGISTRATION%  name="Twk1Country" size="1">
+  <option selected value="%URLPARAM{"Country" default="" encode="entity"}%">%URLPARAM{"Country" default="Select..." encode="entity"}%</option>
+%CALCULATE{
+  $LISTJOIN(
+    $n,
+    $LISTEACH(
+      <option $IF($EXACT(%GET{country}%, $item), $CHAR(32)selected="selected",)>$item</option>,
+      USA, Afghanistan, Albania, Algeria, Andorra, Angola, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belarus, Belgium, Belize, Benin, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, Bulgaria, Burkina Faso, Burma, Burundi, Cambodia, Cameroon, Canada, Cape Verde, Central African Republic, Chad, Chile, China, Colombia, Costa Rica, Cote d'Ivoire, Croatia, Cuba, Cyprus, Czech Republic, Democratic Republic of the Congo, Denmark, Djibouti, Dominica, Dominican Republic, East Timor, Ecuador, Egypt, El Salvador, Eritrea, Estonia, Ethiopia, Fiji, Finland, France, Gabon, Georgia, Germany, Ghana, Gibraltar, Greece, Grenada, Guatemala, Guinea, Guyana, Haiti, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Iran, Iraq, Ireland, Israel, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Korea, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lebanon, Lesotho, Liberia, Libya, Liechtenstein, Lithuania, Luxembourg, Macao, Macedonia, Malawi, Malaysia, Maldives, Mali, Malta, Marshall Islands, Mauritania, Mauritius, Mexico, Micronesia, Moldova, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Namibia, Nauru, Nepal, Netherlands, New Zealand, Nicaragua, Niger, Nigeria, Norway, Oman, Pakistan, Palau, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Republic of the Congo, Romania, Russia, Rwanda, Saint Lucia, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, Solomon Islands, Somalia, South Africa, South Sudan, Spain, Sri Lanka, Sudan, Suriname, Swaziland, Sweden, Switzerland, Syria, Taiwan, Tajikistan, Tanzania, Thailand, Togo, Tonga, Trinidad and Tobago, Tunisia, Turkey, Turkmenistan, Tuvalu, Uganda, Ukraine, United Arab Emirates, United Kingdom, Uruguay, USA, Uzbekistan, Vanuatu, Vatican City, Venezuela, Vietnam, Yemen, Yugoslavia, Zambia, Zimbabwe
+    )
+  )
+}%
+  <option value="Other Country">%MAKETEXT{"Other Country"}%</option>
+  </select> =<font color="red">**</font>=
+  </td>
+</tr>
+<tr>
+  <td valign="top" align="right"> %MAKETEXT{"Comment:"}% </td>
+  <td><input %NOREGISTRATION%  type="text" name="Twk0Comment" size="40" class="twikiInputField" value="%URLPARAM{"Comment" encode="entity"}%" /></td>
+</tr>
+<tr>
+  <td> </td>
+  <td>
+    <input type="hidden" name="rx" value='%BLACKLISTPLUGIN{ action="magic" }%' />
+    <input type="hidden" name="topic" value="%TOPIC%" />
+    <input type="hidden" name="topicparent" value="UserList" /> 
+    <input type="hidden" name="action" value="register" />
+    <input %NOREGISTRATION%  type="submit" class="twikiSubmit" value=' %MAKETEXT{"Submit"}% ' />
+  </td>
+</tr>
+</table>
+</div><!-- /twikiFormStep-->
+<div class="twikiFormStep twikiLast">
+%MAKETEXT{"When [_1] receives the form, it will mail an account activation code to the e-mail address you gave above. Enter that activation code in the following screen, or follow the link in the e-mail, to activate your account. Once your account is activated, [_1] will:" args="%WIKITOOLNAME%"}%
+   * %MAKETEXT{"Finish creating an account for you, so that you can start editing pages using your WikiName."}%
+   * %MAKETEXT{"Create your personal [_1] topic using your WikiName as topic name, and add the data you submitted to the topic." args="<nop>%WIKITOOLNAME%"}%
+   * %MAKETEXT{"Add your name to the list of users in the [_1] topic in the [_2] web." args="%USERSWEB%.%WIKIUSERSTOPIC%,%USERSWEB%"}%
+   * %MAKETEXT{"Send you a confirmation of your registration by e-mail."}%
+<!--
+## NOTE: Login method used by this site:
+   * Set LOGIN_METHOD_IN_THIS_SITE = %IF{"$ ALLOWLOGINNAME" then="LoginName" else="WikiName"}%
+-->
+%MAKETEXT{"Once registered you can login using your [_1] and password." args="%LOGIN_METHOD_IN_THIS_SITE%"}%
+</div><!-- /twikiFormStep-->
+</div><!-- /twikiFormSteps-->
+</form>
+
+<div class="twikiHelp">
+%ICON{info}% %MAKETEXT{"If you have any questions about registration, send an e-mail to [_1]." args="<a href='mailto:%WIKIWEBMASTER%?subject=%TOPIC%&#32;Question'>%WIKIWEBMASTER%</a>"}%
+</div>
+<!--
+## Use raw edit for this topics:
+   * Set EDITMETHOD = raw
+-->

@@ -1,0 +1,570 @@
+%META:TOPICINFO{author="TWikiContributor" date="1530854816" format="1.1" version="2"}%
+---+!! Scroll Box Add-on
+<!--
+   Contributions to this add-on are appreciated. Please update the add-on page at
+   http://twiki.org/cgi-bin/view/Plugins/ScrollBoxAddOn or provide feedback at
+   http://twiki.org/cgi-bin/view/Plugins/ScrollBoxAddOnDev.
+   If you are a TWiki contributor please update the add-on in the SVN repository.
+-->
+<sticky>
+<div class="twikiTocFloat">
+%TOC{title="Page contents"}%
+</div>
+</sticky>
+%SHORTDESCRIPTION%
+
+---++ Introduction
+<div style="float:right; margin:0 0 20px 20px; padding: 0">
+%INCLUDE{
+  "ScrollBoxAddOn"
+  section="scroll_box"
+  name="teaser"
+  title="Scroll Box Use Cases"
+  content="<br /><!-- make space on top -->
+   * Scrolling text box
+   * Logo roll
+   * Image rotation
+   * What's new box
+   * RSS feed
+   * Twitter feed
+   * New registrations
+   * Recent changes box"
+  delay="60"
+  vstep="1"
+  width="200"
+  height="100"
+}%
+</div>
+
+Use this add-on to create nice looking text scroll boxes, logo rolls and boxes with images that get replaced in regular intervals. Scrolling stops if you hover the mouse pointer over the scroll area.
+
+This add-on uses CSS and !JavaScript. It falls back to show initial content in case !JavaScript is not available. All code is included, e.g. there are no external dependencies. The Scroll Box Add-on is inspired by the [[http://www.dhtmlgoodies.com/index.html?whichScript=scrolling_content][scrolling content script]] of dhtmlgoodies.com.
+
+The twiki.org redesign of December 2010 added a logo roll to the homepage. This add-on was created based on that work.
+
+---++ Usage
+
+There are two options to create scroll boxes:
+   * Using INCLUDE
+   * Using HTML &amp; CSS
+
+---+++ Scroll Box Using INCLUDE
+
+Create scroll boxes in TWiki pages by including two named sections defined in the !ScrollBoxAddOn topic, called ="scroll_box_engine"= and ="scroll_box"=, respectively. Example:
+<verbatim>
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="scroll_box_engine" }%
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="scroll_box"
+  name="must_be_unique"
+  title="This is a test"
+  content="TWiki keeps getting more and more useful."
+  delay="100"
+  vstep="1"
+  width="400"
+  height="30"
+}%
+</verbatim>
+
+The ="scroll_box_engine"= section defines the CSS and !JavaScript. It must be included once per page.
+
+The ="scroll_box"= section generates a scroll box. It can be included more than once on a page to create multiple scroll boxes. Parameters of "scroll_box" section:
+
+| *Parameter* | *Description* | *Default* |
+| =name= | Name of the box. Must be unique per page.%BR% Use only alphanumeric characters and underscore! | (none) |
+| =title= | Title of the box. | (no title) |
+| =content= | Content of the box. Can be of any form, such as TML, HTML, images.%BR% Make sure to escape double quotes with a backslash, such as =&lt;br clear=\"all\"&gt;=. | (none) |
+| =delay= | Delay between scrolls, in milliseconds. | ="1000"= |
+| =vstep= | Vertical step taken per scroll, in pixels. | (container height) |
+| =width= | Box width, in pixels. | ="300"= |
+| =height= | Box height of scrollable area, in pixels. | ="40"= |
+| =boxstyle= | CSS of outer box. | ="border: solid #d0d0d0 1px;%BR% padding: 15px;"= |
+| =titlestyle= | CSS of title. | ="text-align:center;%BR% font-size:19px;%BR% font-weight:bold;%BR% color: #333335;%BR% padding:0 0 12px 0;%BR% white-space: nowrap;%BR% overflow: hidden;"= |
+| =contentstyle= | CSS of content. | ="text-align: justify;"= |
+
+---+++ Scroll Box Using HTML &amp; CSS
+
+You can define your own style and create your own scroll box. Example:
+
+<verbatim>
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="scroll_box_engine" }% <!-- once per page -->
+<div id="myOwnBoxContainer">
+ <div id="myOwnBoxContent">
+  (put content here)
+ </div><!-- id="myOwnBoxContent" -->
+</div><!-- id="myOwnBoxContainer" -->
+<script type="text/javascript">
+ initScrollBox( 'myOwnBoxContainer', 100, 1, 200, 400 );
+</script>
+</verbatim>
+
+The first parameter of =initScrollBox()= is the ID of the div that contains the scroll box. The numeric parameters are =delay=, =vstep=, =width= and =height=, respectively.
+
+---+++ Static Box Using INCLUDE
+
+Create static boxes in TWiki pages by including two named sections defined in the !ScrollBoxAddOn topic, called ="scroll_box_engine"= and ="static_box"=, respectively. Example:
+<verbatim>
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="scroll_box_engine" }%
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="static_box"
+  title="Nice box"
+  content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  width="400"
+  height="225"
+}%
+</verbatim>
+
+The ="scroll_box_engine"= section defines the CSS and !JavaScript. It must be included once per page.
+
+The ="static_box"= section generates a static box. It can be included more than once on a page to create multiple boxes. Parameters of "static_box" section:
+
+| *Parameter* | *Description* | *Default* |
+| =title= | Title of the box. | (no title) |
+| =content= | Content of the box. Can be of any form, such as TML, HTML, images.%BR% Make sure to escape double quotes with a backslash, such as =&lt;br clear=\"all\"&gt;=. | (none) |
+| =width= | Box width, in pixels. | ="300"= |
+| =height= | Height of content, in pixels. | (auto) |
+| =boxstyle= | CSS of outer box. | ="border: solid #d0d0d0 1px;%BR% padding: 15px;"= |
+| =titlestyle= | CSS of title. | ="text-align:center;%BR% font-size:19px;%BR% font-weight:bold;%BR% color: #333335;%BR% padding:0 0 12px 0;%BR% white-space: nowrap;%BR% overflow: hidden;"= |
+| =contentstyle= | CSS of content. | (none) |
+
+---+++ Static Box Using 2 INCLUDEs
+
+This is an alternative to the previous example. The box is split up into two INCLUDEs with a "static_box_start" section, the box content, and a "static_box_end" section. Example:
+<verbatim>
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="scroll_box_engine" }%
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="static_box_start"
+  title="Nice box"
+  width="400"
+  height="225"
+}%
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+eiusmod tempor incididunt ut labore et dolore magna aliqua.
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="static_box_end" }%
+</verbatim>
+
+The ="scroll_box_engine"= section defines the CSS and !JavaScript. It must be included once per page.
+
+The ="static_box_start"= section generates the start of a static box. Parameters of "static_box_start" section:
+
+| *Parameter* | *Description* | *Default* |
+| =title= | Title of the box. | (no title) |
+| =width= | Box width, in pixels. | ="300"= |
+| =height= | Height of content, in pixels. | (auto) |
+| =boxstyle= | CSS of outer box. | ="border: solid #d0d0d0 1px;%BR% padding: 15px;"= |
+| =titlestyle= | CSS of title. | ="text-align:center;%BR% font-size:19px;%BR% font-weight:bold;%BR% color: #333335;%BR% padding:0 0 12px 0;%BR% white-space: nowrap;%BR% overflow: hidden;"= |
+| =contentstyle= | CSS of content. | (none) |
+
+The ="static_box_end"= section generates the end of the static box. Pairs of ="static_box_start"= and ="static_box_end"= section INCLUDEs can be done on a page to create multiple boxes.
+
+---++ Named sections
+
+This section defines the named sections ="scroll_box_engine"=, ="scroll_box"=, ="static_box"=, ="static_box_start"= and ="static_box_end"=. View the [[%SCRIPTURL{view}%/%WEB%/%TOPIC%?raw=on][raw text]] of this topic to look under the hood.
+<!--=========================================================
+%STARTSECTION{ "static_box_start" }%<div class="scrollBoxOuter" style="%IF{ "defined 'width'" then="width: %width%px; " }%%IF{ "defined 'boxstyle'" then="%boxstyle%" }%">
+%IF{ "defined 'title'" then="<div class=\"scrollBoxTitle\" style=\"%IF{ "defined 'titlestyle'" then="%titlestyle%" }%\"> %title% </div>" else="<nop>" }%
+ <div class="scrollBoxContainer" style="%IF{ "defined 'height'" then="height: %height%px" else="height: auto" }%; %IF{ "defined 'contentstyle'" then="%contentstyle%" }%">%ENDSECTION{ "static_box_start" }%
+=============================================================
+%STARTSECTION{ "static_box_end" }%</div>
+</div>%ENDSECTION{ "static_box_end" }%
+=============================================================
+%STARTSECTION{ "static_box" }%<div class="scrollBoxOuter" style="%IF{ "defined 'width'" then="width: %width%px; " }%%IF{ "defined 'boxstyle'" then="%boxstyle%" }%">
+%IF{ "defined 'title'" then="<div class=\"scrollBoxTitle\" style=\"%IF{ "defined 'titlestyle'" then="%titlestyle%" }%\"> %title% </div>" else="<nop>" }%
+ <div class="scrollBoxContainer" style="%IF{ "defined 'height'" then="height: %height%px" else="height: auto" }%; %IF{ "defined 'contentstyle'" then="%contentstyle%" }%">
+%content%
+ </div>
+</div>%ENDSECTION{ "static_box" }%
+=============================================================
+%STARTSECTION{ "scroll_box" }%<div id="%name%Box" class="scrollBoxOuter" style="%IF{ "defined 'boxstyle'" then="%boxstyle%" }%">
+%IF{ "defined 'title'" then="<div class=\"scrollBoxTitle\" style=\"%IF{ "defined 'titlestyle'" then="%titlestyle%" }%\"> %title% </div>" else="<nop>" }%
+ <div id="%name%Container" class="scrollBoxContainer">
+  <div id="%name%Content" class="scrollBoxContent" style="%IF{ "defined 'contentstyle'" then="%contentstyle%" }%">
+%content%
+  </div>
+ </div>
+</div>
+<script type="text/javascript">
+ initScrollBox( '%name%Container', %delay%, %vstep%, %width%, %height% );
+</script>%ENDSECTION{ "scroll_box" }%
+=============================================================
+%STARTSECTION{ "scroll_box_engine" }%%ADDTOHEAD{
+ "scroll_box_engine"
+ text="<script type='text/javascript'>
+ // inspired by www.dhtmlgoodies.com/index.html?whichScript=scrolling_content
+ var scrollData = new Array();
+ function doScrollCanvas( containerID )
+ {
+  var vPos = scrollData[containerID]['canvasObj'].style.top;
+  if( scrollData[containerID]['doScroll'] ) {
+   vPos = vPos.replace(/[^\-0-9]/g,'') - scrollData[containerID]['verticalStep'];
+   if( vPos/1 + scrollData[containerID]['canvasHeight']/1 < 1 ) { vPos = 0 };
+   scrollData[containerID]['canvasObj'].style.top = vPos + 'px';
+  }
+  setTimeout('doScrollCanvas(\"' + containerID + '\")', scrollData[containerID]['delay']);
+}
+ function doStopScroll()
+ {
+  var containerID = this.id;
+  scrollData[containerID]['doScroll'] = false;
+ }
+ function doStartScroll()
+ {
+  var containerID = this.id;
+  scrollData[containerID]['doScroll'] = true;
+ }
+ function initScrollBox( containerID, delay, vstep, width, height )
+ {
+  var scrollContainer = document.getElementById( containerID );
+  var scrollCanvas = scrollContainer.getElementsByTagName( 'DIV' )[0];
+  if( ! delay ) { delay = 1000; }
+  if( ! vstep ) { vstep = scrollContainer.clientHeight; }
+  if( width )   { scrollContainer.parentNode.style.width = width + 'px'; }
+  if( height )  { scrollContainer.style.height = height + 'px'; }
+  scrollContainer.onmouseover = doStopScroll;
+  scrollContainer.onmouseout = doStartScroll;
+  scrollData[containerID] = new Array();
+  scrollData[containerID]['canvasObj'] = scrollCanvas;
+  scrollData[containerID]['canvasHeight'] = scrollCanvas.offsetHeight;
+  scrollData[containerID]['verticalStep'] = vstep;
+  scrollData[containerID]['delay'] = delay;
+  scrollData[containerID]['doScroll'] = true;
+  scrollCanvas.style.top = scrollData[containerID]['verticalStep'] + 'px';
+  doScrollCanvas( containerID );
+ }
+</script>
+<style type='text/css' media='all'>
+ .scrollBoxOuter {
+  border: solid #d0d0d0 1px;
+  -moz-box-shadow: 2px 2px 3px #e8e8e8;
+  -webkit-box-shadow: 2px 2px 3px #e8e8e8;
+  box-shadow: 2px 2px 3px #e8e8e8;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  width: 300px;
+  padding: 15px;
+  background-image: url(%PUBURLPATH%/%WEB%/%TOPIC%/gradient-title.png);
+  background-repeat: repeat-x;
+  background-color: #ffffff;
+ }
+ .scrollBoxTitle {
+  text-align:center;
+  font-size:19px;
+  font-weight:bold;
+  color: #333335;
+  margin: -5px 0 0 0;
+  padding: 0 0 12px 0;
+  white-space: nowrap;
+  overflow: hidden;
+ }
+ .scrollBoxTitle a:link,
+ .scrollBoxTitle a:visited {
+  color: #333335;
+ }
+ .scrollBoxContainer {
+  overflow: hidden;
+  height: 40px;
+  padding: 0px;
+  position: relative;
+ }
+ .scrollBoxContent {
+  position: relative;
+  top: 0px;
+  padding: 0px;
+  text-align: justify;
+ }
+ .scrollBoxContent img {
+  padding: 0px;
+  vertical-align: middle;
+ }
+ </style>"
+}%<nop>%ENDSECTION{ "scroll_box_engine" }%
+==========================================================-->
+
+---++ Examples
+
+---+++ Text scroll demo
+
+This example shows a box that scrolls text in one pixel increments.
+
+How it works: We place the text in a scrollable canvas that is 300 pixels wide. The text is justified left and right as specified in the style sheet of the scroll box content. We tell the scroll box to show a container 300 pixels wide and 150 pixels high. That is, we only see part of the canvas. We move the canvas up 1 pixel at a time and to wait 100 milliseconds between steps, e.g. we get the impression of smoothly scrolling text in the container.
+
+<table><tr><td valign="top">
+__Rendered text scroll:__
+
+%INCLUDE{
+  "ScrollBoxAddOn"
+  section="scroll_box"
+  name="textExample"
+  title="Lorem ipsum"
+  content="<br /><!-- make space on top -->
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  delay="100"
+  vstep="1"
+  width="300"
+  height="150"
+}%
+
+</td><td>&nbsp;&nbsp;&nbsp;</td><td valign="top">
+__Raw text:__
+<verbatim>
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="scroll_box_engine" }%
+%INCLUDE{
+  "%SYSTEMWEB%.ScrollBoxAddOn"
+  section="scroll_box"
+  name="textExample"
+  title="Lorem ipsum"
+  content="<br /><!-- make space on top -->
+    Lorem ipsum dolor sit amet, consectetur
+    ...
+    deserunt mollit anim id est laborum."
+  delay="100"
+  vstep="1"
+  width="300"
+  height="150"
+}%
+</verbatim>
+</td></tr></table>
+
+---+++ Logo roll demo
+
+This example shows a logo roll that changes every 2 seconds.
+
+How it works: We have a set of logos that all have the same height of 30 pixels:
+
+| <img src="%ATTACHURLPATH%/com-cisco.png" alt="cisco" width='56' height='30' /> \
+<img src="%ATTACHURLPATH%/com-hp.png" alt="hp" width='43' height='30' /> \
+<img src="%ATTACHURLPATH%/com-fedex.png" alt="fedex" width='88' height='30' /> \
+<img src="%ATTACHURLPATH%/com-nasa.png" alt="nasa" width='41' height='30' /> \
+<img src="%ATTACHURLPATH%/com-google.png" alt="google" width='85' height='30' /> \
+<img src="%ATTACHURLPATH%/com-intel.png" alt="intel" width='45' height='30' /> \
+<img src="%ATTACHURLPATH%/com-sony.png" alt="sony" width='77' height='30' /> \
+<img src="%ATTACHURLPATH%/com-motorola.png" alt="motorola" width='48' height='30' /> \
+<img src="%ATTACHURLPATH%/com-ebay.png" alt="ebay" width='63' height='30' /> \
+<img src="%ATTACHURLPATH%/com-ubs.png" alt="ubs" width='77' height='30' /> \
+<img src="%ATTACHURLPATH%/com-cmu.png" alt="cmu" width='117' height='30' /> |
+
+We place the logos in a scrollable canvas that is 300 pixels wide. The logos wrap around; they are justified left and right as specified in the style sheet of the scroll box content. We tell the scroll box to step by 30 pixels at a time, e.g. we will cycle through the logos row by row because the icons are 30 pixels high.
+
+__Note:__ It is important to specify the width and height of the images, or scrolling might not work on some browsers. Browsers need to know the total scrollable area before all images are loaded.
+
+<table><tr><td valign="top">
+__Rendered logo roll:__
+
+%INCLUDE{
+  "ScrollBoxAddOn"
+  section="scroll_box"
+  name="logoExample"
+  title="TWiki Users Around the Globe"
+  content="     <img src='%ATTACHURLPATH%/com-cisco.png' alt='com-cisco.png' width='56' height='30' />
+     <img src='%ATTACHURLPATH%/com-hp.png' alt='hp' width='43' height='30' />
+     <img src='%ATTACHURLPATH%/com-fedex.png' alt='fedex' width='88' height='30' />
+     <img src='%ATTACHURLPATH%/com-nasa.png' alt='nasa' width='41' height='30' />
+     <img src='%ATTACHURLPATH%/com-google.png' alt='google' width='85' height='30' />
+     <img src='%ATTACHURLPATH%/com-intel.png' alt='intel' width='45' height='30' />
+     <img src='%ATTACHURLPATH%/com-sony.png' alt='sony' width='77' height='30' />
+     <img src='%ATTACHURLPATH%/com-motorola.png' alt='motorola' width='48' height='30' />
+     <img src='%ATTACHURLPATH%/com-ebay.png' alt='ebay' width='63' height='30' />
+     <img src='%ATTACHURLPATH%/com-ubs.png' alt='ubs' width='77' height='30' />
+     <img src='%ATTACHURLPATH%/com-cmu.png' alt='cmu' width='117' height='30' />"
+  delay="2000"
+  vstep="30"
+  width="300"
+  height="30"
+}%
+
+</td><td>&nbsp;&nbsp;&nbsp;</td><td valign="top">
+__Raw text:__
+<verbatim>
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="scroll_box_engine" }%
+%INCLUDE{
+  "%SYSTEMWEB%.ScrollBoxAddOn"
+  section="scroll_box"
+  name="logoExample"
+  title="TWiki Users Around the Globe"
+  content="<img src='%ATTACHURLPATH%/com-cisco.png' alt='cisco' width='56' height='30' />
+     <img src='%ATTACHURLPATH%/com-hp.png' alt='hp' width='43' height='30' />
+     ...
+     <img src='%ATTACHURLPATH%/com-cmu.png' alt='cmu' width='117' height='30' />"
+  delay="2000"
+  vstep="30"
+  width="300"
+  height="30"
+}%
+</verbatim>
+</td></tr></table>
+
+---+++ Image swap demo
+
+This example shows a box containing an image that get replaced every 3 seconds.
+
+How it works: The images are 300 pixels wide and 225 pixels high. We place the images in a scrollable canvas that is 300 pixels wide, e.g. one image fits on each "line". In other words, the images are stacked on top of each other. We tell the scroll box to step by 225 pixels at a time, e.g. the same as the image height. This results in cycling through the images one by one.
+
+__Note:__ It is important to specify the width and height of the images, or scrolling might not work on some browsers. Browsers need to know the total scrollable area before all images are loaded.
+
+<table><tr><td valign="top">
+__Rendered image box:__
+
+%INCLUDE{
+  "ScrollBoxAddOn"
+  section="scroll_box"
+  name="imageExample"
+  title="Beverly Hills"
+  content="     <img src='%ATTACHURLPATH%/Dsc08566.jpg' alt='Beverly Hills park' title='Beverly Hills park' width='300' height='225' />
+     <img src='%ATTACHURLPATH%/Dsc08581.jpg' alt='Beverly Hills Rodeo Drive' title='Beverly Hills Rodeo Drive' width='300' height='225' />
+     <img src='%ATTACHURLPATH%/Dsc08580.jpg' alt='Expensive cars' title='Expensive cars' width='300' height='225' />
+     <img src='%ATTACHURLPATH%/Dsc08567.jpg' alt='Beverly Hills City Hall' title='Beverly Hills City Hall' width='300' height='225' />"
+  delay="3000"
+  vstep="225"
+  width="300"
+  height="225"
+}%
+
+</td><td>&nbsp;&nbsp;&nbsp;</td><td valign="top">
+__Raw text:__
+<verbatim>
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="scroll_box_engine" }%
+%INCLUDE{
+  "%SYSTEMWEB%.ScrollBoxAddOn"
+  section="scroll_box"
+  name="imageExample"
+  title="Beverly Hills"
+  content="<img src='%ATTACHURLPATH%/Dsc08566.jpg' alt='Beverly Hills' width='300' height='225' />
+     <img src='%ATTACHURLPATH%/Dsc08581.jpg' alt='Rodeo Drive' width='300' height='225' />
+     <img src='%ATTACHURLPATH%/Dsc08580.jpg' alt='Expensive cars' width='300' height='225' />
+     <img src='%ATTACHURLPATH%/Dsc08567.jpg' alt='Beverly Hills City Hall' width='300' height='225' />"
+  delay="3000"
+  vstep="225"
+  width="300"
+  height="225"
+}%
+</verbatim>
+</td></tr></table>
+
+---+++ Static box demo
+
+<table><tr><td valign="top">
+__Rendered static box:__
+
+%INCLUDE{
+  "ScrollBoxAddOn"
+  section="static_box"
+  title="Nice box"
+  content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
+commodo consequat."
+  width="300"
+  contentstyle="text-align: justify;"
+}%
+
+</td><td>&nbsp;&nbsp;&nbsp;</td><td valign="top">
+__Raw text:__
+<verbatim>
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="scroll_box_engine" }%
+%INCLUDE{
+  "%SYSTEMWEB%.ScrollBoxAddOn"
+  section="static_box"
+  title="Nice box"
+  content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
+commodo consequat."
+  width="300"
+  contentstyle="text-align: justify;"
+}%
+</verbatim>
+</td></tr><tr><td valign="top">
+__Same static box, alternative syntax:__
+
+%INCLUDE{ "ScrollBoxAddOn" section="static_box_start"
+  title="Nice box" width="300" contentstyle="text-align: justify;" }%
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
+commodo consequat.
+%INCLUDE{ "ScrollBoxAddOn" section="static_box_end" }%
+
+</td><td>&nbsp;&nbsp;&nbsp;</td><td valign="top">
+__Raw text:__
+<verbatim>
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="scroll_box_engine" }%
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="static_box_start"
+  title="Nice box" width="300" contentstyle="text-align: justify;" }%
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
+commodo consequat.
+%INCLUDE{ "%SYSTEMWEB%.ScrollBoxAddOn" section="static_box_end" }%
+</verbatim>
+</td></tr></table>
+
+---++ Installation Instructions
+
+__Note:__ You do not need to install anything on the browser to use this add-on. The following instructions are for the administrator who installs the add-on on the TWiki server. 
+%TWISTY{
+ mode="div"
+ showlink="Show details %ICONURL{toggleopen}% "
+ hidelink="Hide details %ICONURL{toggleclose}% "
+}%
+
+   * Download the ZIP file from the Add-on Home (see below)
+   * Unzip ==%TOPIC%.zip== in your twiki installation directory. Content:
+     | *File:* | *Description:* |
+     | ==data/TWiki/%TOPIC%.txt== | Add-on topic |
+     | ==pub/TWiki/%TOPIC%/*== | Images used by the examples |
+   * Test if the installation was successful:
+      * See if above examples work
+%ENDTWISTY%
+
+---++ Add-On Info
+
+   * Set SHORTDESCRIPTION = Add scroll boxes, image rotation and static boxes to TWiki pages
+
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  Add-on Author: | TWiki:Main.PeterThoeny |
+|  Copyright: | &copy; 2012-2018 TWiki:Main.PeterThoeny |
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+|  Add-on Version: | 2018-07-05 |
+%TWISTY{
+ mode="div"
+ showlink="Show Change History %ICONURL{toggleopen}%"
+ hidelink="Hide Change History %ICONURL{toggleclose}%"
+}%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  2018-07-05: | TWikibug:Item7841: Copyright update to 2018 |
+|  2016-01-09: | TWikibug:Item7708: Copyright update to 2016 |
+|  2013-10-11: | TWikibug:Item7328: Fix for !ScrollBoxAddOn not working on IE9 -- TWiki:Main.YaojunFei |
+|  2013-05-04: | TWikibug:Item7154: Document need to specify image width & height; add Twisty to history and installation section |
+|  2012-10-14: | TWikibug:Item6985: Dark link colors in scroll box titles |
+|  2012-10-12: | TWikibug:Item6971: Add !ScrollBoxAddOn to core distribution |
+|  2012-10-04: | TWikibug:Item6956: CSS based box shadow and rounded corners |
+|  2012-05-14: | TWikibug:Item6837: Add non-scrolling box feature with "static_box*" sections; change padding from 10px to 15px; add boxstyle, titlestyle and contentstyle parameters |
+|  2011-02-10: | TWikibug:Item6638: Avoid &lt;p /&gt; tag when including scroll box engine |
+|  2011-01-25: | TWikibug:Item6638: Small style change: More padding below title |
+|  2010-12-23: | TWikibug:Item6623: Doc improvements; changing function initScrollContent to initScrollBox |
+|  2010-12-22: | TWikibug:Item6623: Initial version |
+%ENDTWISTY%
+%TABLE{ tablewidth="100%" columnwidths="170," }%
+|  TWiki Dependency: | $TWiki::Plugins::VERSION 1.1 (TWiki 4.0) |
+|  CPAN Dependencies: | none |
+|  Other Dependencies: | none |
+|  Perl Version: | 5.005 |
+|  Add-on Home: | http://TWiki.org/cgi-bin/view/Plugins/ScrollBoxAddOn |
+|  Feedback: | http://TWiki.org/cgi-bin/view/Plugins/ScrollBoxAddOnDev |
+|  Appraisal: | http://TWiki.org/cgi-bin/view/Plugins/ScrollBoxAddOnAppraisal |
+
+__Related Topic:__ %SYSTEMWEB%.TWikiAddOns
+
+%META:FILEATTACHMENT{name="gradient-title.png" attachment="gradient-title.png" attr="h" comment="" date="1349373319" path="gradient-title.png" size="249" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="com-cisco.png" attachment="com-cisco.png" attr="h" comment="" date="1293056897" path="com-cisco.png" size="2873" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="com-fedex.png" attachment="com-fedex.png" attr="h" comment="" date="1293056897" path="com-fedex.png" size="7147" user="TWikiContributory" version="1"}%
+%META:FILEATTACHMENT{name="com-google.png" attachment="com-google.png" attr="h" comment="" date="1293056897" path="com-google.png" size="7014" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="com-ebay.png" attachment="com-ebay.png" attr="h" comment="" date="1293056897" path="com-ebay.png" size="2407" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="com-nasa.png" attachment="com-nasa.png" attr="h" comment="" date="1293056897" path="com-nasa.png" size="6270" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="com-sony.png" attachment="com-sony.png" attr="h" comment="" date="1293056897" path="com-sony.png" size="1786" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="com-ubs.png" attachment="com-ubs.png" attr="h" comment="" date="1293056897" path="com-ubs.png" size="6919" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="com-intel.png" attachment="com-intel.png" attr="h" comment="" date="1293057389" path="com-intel.png" size="1752" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="com-motorola.png" attachment="com-motorola.png" attr="h" comment="" date="1293057389" path="com-motorola.png" size="2059" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="com-hp.png" attachment="com-hp.png" attr="h" comment="" date="1293057389" path="com-hp.png" size="6157" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="com-cmu.png" attachment="com-cmu.png" attr="h" comment="" date="1293057389" path="com-cmu.png" size="5976" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="Dsc08566.jpg" attachment="Dsc08566.jpg" attr="h" comment="" date="1293062933" path="Dsc08566.jpg" size="27845" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="Dsc08581.jpg" attachment="Dsc08581.jpg" attr="h" comment="" date="1293062933" path="Dsc08581.jpg" size="27620" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="Dsc08580.jpg" attachment="Dsc08580.jpg" attr="h" comment="" date="1293062932" path="Dsc08580.jpg" size="27677" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="Dsc08567.jpg" attachment="Dsc08567.jpg" attr="h" comment="" date="1293062932" path="Dsc08567.jpg" size="27688" user="TWikiContributor" version="1"}%

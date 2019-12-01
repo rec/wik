@@ -1,0 +1,19 @@
+%META:TOPICINFO{author="TWikiContributor" date="1436486367" format="1.1" version="5"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarGET
+---+++ GET{"name"} -- get a variable
+   * Get the value of a named variable, previously set with =%<nop>SET{}%=. %IF{"'%INCLUDINGTOPIC%'!='SetGetPlugin'" then="The =%<nop>SET{}<nop>%= and =%<nop>GET{}<nop>%= variables are handled by the SetGetPlugin." }%
+   * Syntax: =%<nop>GET{ "name" default="..." }%=
+   * Parameters:
+     | *Parameter* | *Description* | *Default* |
+     | ="name"= | Name of variable, such as =menu=. May optionally contain a JSON path, such as =menu.File.Open=. | (required) |
+     | =format="..."= | Format with supported variables: %BB% =$name= for variable name %BB% =$value= for variable value %BB% =$isdefined= expanding to =1= or =0= depending if variable is defined or not %BB% =$isset= expanding to =1= or =0= depending if variable is logically true or false %BB% =$ispersistent= expanding to =1= or =0= depending if variable is persistent or not %BB% all %SYSTEMWEB%.FormatTokens such as =$dollar=, =$n=, =$percnt=. | ="$value"= |
+     | =default="..."= | Text shown if variable is not defined, e.g. not found. This parameter overrides the format parameter. | =""= (empty string) |
+     | =store="..."= | Specify a store name that holds the persistent variable. This assumes the variable was previously set with the same store name. | =""= |
+   * Example: =%<nop>GET{"lunch"}%= returns =Sushi= if the following has been previously set:%BR% =%<nop>SET{ "lunch" value="Sushi" }%= %IF{"'%INCLUDINGTOPIC%'!='SetGetPlugin'" then=" - [[SetGetPlugin#SetGetExamples][see more examples]]" }%
+   * JSON Syntax: =%<nop>GET{ name }%=%IF{"'%INCLUDINGTOPIC%'!='SetGetPlugin'" then=" - [[SetGetPlugin#JsonObjects][see description]]." }%
+   * Example to set a JSON object and to get a JSON object with a JSON path:
+      * =%<nop>SET{ menu = { "File": { "New": [ "new", "F" ], "Open": [ "open", "F" ] }, "Edit": { "Copy": [ "cpy", "F" ], "Paste": [ "pst", "F" ] } } }%= - set a JSON object
+      * =%<nop>GET{ menu.File.Open }%= - returns: =["open","F"]=
+   * Category: ApplicationsAndComponentsVariables, DevelopmentVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarIF][IF]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables' OR '%INCLUDINGTOPIC%'='SetGetPlugin'" then="#"}%VarSET][SET]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables' OR '%INCLUDINGTOPIC%'='SetGetPlugin'" then="#"}%VarSETGETDUMP][SETGETDUMP]], %IF{"'%INCLUDINGTOPIC%'!='SetGetPlugin'" then="SetGetPlugin, "}%SpreadSheetPlugin#FuncGET

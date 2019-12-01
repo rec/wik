@@ -1,0 +1,10 @@
+%META:TOPICINFO{author="TWikiContributor" date="1430971256" format="1.1" version="1"}%
+%META:TOPICPARENT{name="TWikiVariables"}%
+#VarFOURCOLUMNS
+---+++ FOURCOLUMNS -- responsive four-column page layout
+   * Write =%<nop>FOURCOLUMNS% ...text... %<nop>ENDCOLUMNS%= to get a page layout with __four columns__. The layout is responsive, e.g. it automatically adjusts to a lower number of columns (4 =&gt; 3 =&gt; 2 =&gt; 1) depending on the window width or screen width of the device used. The 300 pixels minimum width of a column determines the number of columns shown. Embedded images scale down automatically to the width of the screen if needed.
+   * Syntax: =%<nop>FOURCOLUMNS% ... %<nop>ENDCOLUMNS%=
+   * Example: <div style="color: gray; padding: 5px 0;"> %FOURCOLUMNS%  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra ante ac augue sagittis semper. Vestibulum sed urna quam. Phasellus eleifend dolor id dui dictum lobortis. Etiam enim erat, fermentum eget libero non, pretium vestibulum nisi. Nam eget nisi diam. Cras egestas, nibh a malesuada hendrerit, tellus turpis gravida dolor, at fermentum ipsum libero id eros. Mauris a nunc turpis. Fusce turpis dui, blandit nec maximus at, sagittis et arcu. Duis eros sapien, accumsan sed varius eget, elementum eu sapien. Nulla congue, nulla efficitur gravida porta, leo ex feugiat purus, sit amet sagittis leo arcu at magna. Pellentesque eleifend, libero quis consectetur tincidunt, orci ipsum scelerisque turpis, vulputate feugiat risus orci non odio. Integer id enim turpis. Cras et nisl quis massa ornare maximus id sit amet justo. Mauris at mi eget nisi imperdiet ullamcorper. %ENDCOLUMNS% </div>
+   * Type: Preference variable - TWikiRenderingShortcut.
+   * Category: FormattingAndRenderingVariables
+   * Related: [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarTWOCOLUMNS][TWOCOLUMNS]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarTHREECOLUMNS][THREECOLUMNS]], [[%IF{"'%INCLUDINGTOPIC%'='TWikiVariables'" then="#"}%VarENDCOLUMNS][ENDCOLUMNS]], [[TWikiPreferences#RenderingShortcuts][TWikiPreferences rendering shortcuts]]

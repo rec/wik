@@ -1,0 +1,22 @@
+%META:TOPICINFO{author="TWikiContributor" date="1311890409" format="1.1" version="2"}%
+---+ Top Menu of <nop>%WEB% Web
+
+This topic defines the menu structure of the <nop>%WEB% web, used by the [[%SYSTEMWEB%.TopMenuSkin][TopMenuSkin]].
+
+-----
+%INCLUDE{"%SYSTEMWEB%.TopMenuSkin"}%
+<div class="twTopMenuTab">%STARTINCLUDE%
+%INCLUDE{%SYSTEMWEB%.TopMenuSkinHomeMenu}%
+   * [[%BASEWEB%.%HOMETOPIC%][<img src="%ICONURL{web-bg}%" border="0" alt="" width="16" height="16" style="background-color:%WEBBGCOLOR%" /> <nop>%MAKETEXT{"[_1] Web" args="%BASEWEB{format="$current"}%"}% %ICON{menu-down}%]]
+      * [[%BASEWEB%.TrashAttachment][ %ICON{"attachfile"}% Trash Attachment]]
+      * [[%BASEWEB%.WebTopicList][ %ICON{"index"}% %MAKETEXT{"Index"}%]]
+      * [[%BASEWEB%.WebSearch][ %ICON{"searchtopic"}% %MAKETEXT{"Search"}%]]
+      * [[%BASEWEB%.WebChanges][ %ICON{"changes"}% %MAKETEXT{"Changes"}%]]
+%INCLUDE{%SYSTEMWEB%.TopMenuSkinTopicMenu}%
+%STOPINCLUDE%</div>
+-----
+
+   * Disable WYSIWYG editor for this page:
+      * Set EDITMETHOD = raw
+
+__Related topics:__ [[%SYSTEMWEB%.TopMenuSkin][TopMenuSkin]], [[%SYSTEMWEB%.TopMenuSkinHomeMenu][TopMenuSkinHomeMenu]], [[%SYSTEMWEB%.TopMenuSkinTopicMenu][TopMenuSkinTopicMenu]]

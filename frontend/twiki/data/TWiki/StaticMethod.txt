@@ -1,0 +1,14 @@
+%META:TOPICINFO{author="TWikiContributor" date="1380137794" format="1.1" version="3"}%
+%META:TOPICPARENT{name="ClassMethod"}%
+---+ Static Method
+
+A !StaticMethod is a method in a package that can be called without reference to an object of the package type. For example,
+
+---+ package Telecoms
+---++ !StaticMethod defaultColor()
+
+<verbatim>
+my $color = Telecoms::defaultColor()
+</verbatim>
+
+__Related Topics:__ ClassMethod, ObjectMethod, DeveloperDocumentationCategory

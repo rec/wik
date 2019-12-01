@@ -1,0 +1,638 @@
+head	1.12;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.12
+date	2012.10.03.23.57.49;	author TWikiContributor;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2012.08.07.19.16.20;	author TWikiContributor;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2011.04.04.20.00.30;	author TWikiContributor;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2010.05.29.14.44.17;	author TWikiContributor;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2009.09.02.13.43.05;	author TWikiContributor;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2008.08.03.22.17.44;	author TWikiContributor;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2008.01.22.03.21.27;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2007.02.05.00.18.36;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2007.01.16.04.12.00;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2006.06.25.16.26.25;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2006.04.01.05.55.07;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.17;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.12
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1349308669" format="1.1" version="12"}%
+---+ IF Statements
+
+The =%<nop>IF%= construct gives TWiki the power to include content in topics based on the value of simple expressions.
+
+=%<nop>IF{"CONDITION" then="THEN" else="ELSE"}%=
+
+In the example above, if CONDITION evaluates to TRUE, then THEN will be shown in the topic; otherwise ELSE will be shown.
+
+Note that because of the way TWiki evaluates, then whatever is in the THEN and ELSE parameters will already have been expanded by the time the condition is actually evaluated. The standard FormatTokens such as =$percnt= for =%= can be used in the THEN and ELSE parameters when you need to *delay evaluation* of (for example) a TWiki variable.
+
+The basic syntax of a condition is the same as [[QuerySearch][the syntax used for queries]], with *operators* <code>=</code>, <code>!=</code>, <code>~</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>NOT</code>, <code>AND</code>, <code>OR</code>, <code>()</code>, and *functions* <code>lc()</code>, <code>uc()</code>, <code>d2n()</code>.
+
+In addition, the following *special operators* are supported:
+
+| =context= | True if the current context is set (see below) |
+| =allows= | ='X' allows 'Y'= is true if web/topic 'X' exists and allows access mode 'Y' for the current user. Web access rights are only checked if there is no topic called 'X'. |
+| =istopic= | =istopic 'X'= is true if topic 'X' exists |
+| =isweb= | =isweb 'X'= is true if web 'X' exists |
+| =ingroup= | ='X' ingroup 'Y'= is true if user 'X' is in group 'Y'. 'X' can be a login name or a wikiname. |
+| =defined= | True if a preference variable or url parameter of this name is defined. |
+| =isempty= | True if a preference variable, url parameter or session variable of this name has an empty value. It is equivalent to the expression =(!defined(x) &#124;&#124; $x='')= |
+| =$= | expands a URL parameter or [[TWikiVariables][TWikiVariable]] name. Plugin handlers *are not called*. Built-in variables and user-defined preferences are supported. You can pass a limited subset of parameters to TWiki variables by enclosing the variable name in single quotes; for example, =$ 'VARIABLE{value}'=. The ='VARIABLE{value}'= string may *not* contain quotes (' or "). |
+| ={X}= | expands to the value of the configuration variable {X} - for example, ={ScriptUrlPath}= |
+
+You can test if a *configuration item* is set or not, using conditions such as ="{AntiSpam}{HideUserDetails}"=. It is not possible see the value of a configuration. Configuration items are defined in [[%SCRIPTURLPATH{"configure"}%][configure]].
+
+You can test if a *context identifier* is set or not, using conditions such as ="context authenticated"=. Context identifier are used in TWiki to label various stages of the rendering process. They are especially useful for [[TWikiSkins][skin]] authors to find out where they are in the rendering process. The following context identifiers are available:
+
+| *id* | *context* |
+| =absolute_urls= | Set if absolute URLs are required |
+| =attach= | in attach script (see TWikiScripts) |
+| =authenticated= | a user is authenticated |
+| =body_text=  | when the body text is being processed in a view (useful in plugin handlers) |
+| =can_login= | current environment supports login |
+| =changes= | in changes script (see TWikiScripts) |
+| =command_line= | the running script was run from the command line, and not from CGI |
+| =content_master= | with the current web, this site is the master of the federated sites (see ReadOnlyAndMirrorWebs) |
+| =content_slave= | with the current web, this site is a slave and another site in the federation is the master (see ReadOnlyAndMirrorWebs) |
+| =diff= | in rdiff script (see TWikiScripts) |
+| =edit= | in edit script (see TWikiScripts) |
+| =footer_text= | when the footer text is being processed in a view (useful in plugin handlers) |
+| =header_text= | when the header text is being processed in a view (useful in plugin handlers) |
+| =i18n_enabled= | when user interface <nop>I18N support is enabled (i.e., user can choose the language for UI) |
+| =inactive= | if active links such as 'edit' and 'attach' should be disabled; a read-only web puts all topics in this context (see ReadOnlyAndMirrorWebs) |
+| =login= &amp; =logon= | in login / logon script (see TWikiScripts) |
+| =manage= | in manage script (see TWikiScripts) |
+| =new_topic= | if the topic doesn't already exist |
+| =oops= | in oops script (see TWikiScripts) |
+| =preview= | in preview script (see TWikiScripts) |
+| =register= | in register script (see TWikiScripts) |
+| =rename= | in rename script (see TWikiScripts) |
+| =resetpasswd= | in resetpasswd script (see TWikiScripts) |
+| =rss= | if this is an RSS skin rendering |
+| =save= | in save script (see TWikiScripts) |
+| =search= | in search script (see TWikiScripts) |
+| =statistics= | in statistics script (see TWikiScripts) |
+| =textareas_hijacked= | provided for use by editors that highjack textareas, and want to signal this fact. This is used by skins, for example, so they can suppress extra controls when textareas have been hijacked. |
+| =upload= | in upload script (see TWikiScripts) |
+| =view= | in view script (see TWikiScripts) |
+| =viewfile= | in viewfile script (see TWikiScripts) |
+| =rest= | in rest script (see TWikiScripts) |
+| =registration_supported= | registration is supported by the current <nop>UserMapper |
+| =registration_enabled= | set if ={Register}{EnableNewUserRegistration}= is on, and registrationis supported |
+| =passwords_modifyable= | set if the password manager support changing the password / email |
+
+In addition there is a context identifier for each enabled plugin; for example, if =Gallous<nop>TwistyPlugin= is installed __and enabled__, then the context ID =Gallous<nop>TwistyPluginEnabled= will be set. Other extensions may set additional context identifiers.
+
+The =%<nop>IF{}%= statement is deliberately kept simple. In particular, note that there is no way to conditionally execute a Set statement. If you need more sophisticated control over formatting, then consider using the SpreadSheetPlugin.
+
+Note also that while the [[QuerySearch][query syntax]] can be used to access form fields, there are some contexts in which an IF statement may be used where there is no topic context, or the topic context is not what you expected.
+
+---++ Examples
+
+__1. TWiki variable defined or not__
+<verbatim>
+%IF{"defined 'WIKINAME'" then="WIKINAME is defined" else="WIKINAME is not defined"}%
+</verbatim>
+
+__2. Compare TWiki variable__
+<verbatim>
+You are %IF{ "$ WIKINAME='TWikiGuest' and not defined 'OPEN_DAY'" then="not" }% allowed to
+%IF{ "context view" then="view" else="edit"}% this TWiki today.
+</verbatim>
+
+__3. URL parameter__
+<verbatim>
+%IF{ "defined 'search'" then="Search: $percntURLPARAM{search}$percnt" else="No search passed in"}%
+</verbatim>
+
+__4. Range test on URL parameter__
+<verbatim>
+url param t is %IF{ "0 < $ t and $ t < 1000" then="in" else="out of"}% range.
+</verbatim>
+
+__5. Text comparison of URL parameter__
+<verbatim>
+%IF{ "$'URLPARAM{scope}'='text'" then="Plain text search" }% 
+</verbatim>
+
+__6. Configuration item set or not__
+<verbatim>
+%IF{ "{AntiSpam}{HideUserDetails}" then="User details are hidden" }%
+</verbatim>
+
+__7. Plugin enabled test__
+<verbatim>
+TablePlugin is %IF{ "context TablePluginEnabled" then="enabled" else="disabled" }%.
+</verbatim>
+expands to: %BR%
+TablePlugin is %IF{ "context TablePluginEnabled" then="enabled" else="disabled" }%.
+
+__8. Check access permissions__
+<verbatim>
+You %IF{"'%TOPIC%' allows 'change'" then="can" else="cannot"}% change this topic.
+You %IF{"'Sandbox.TestTopic' allows 'change'" then="can" else="cannot"}% change Sandbox.TestTopic.
+You %IF{"'Sandbox' allows 'change'" then="can" else="cannot"}% change Sandbox web
+</verbatim>
+expands to: %BR%
+You %IF{"'%TOPIC%' allows 'change'" then="can" else="cannot"}% change this topic. %BR%
+You %IF{"'Sandbox.TestTopic' allows 'change'" then="can" else="cannot"}% change Sandbox.TestTopic. %BR%
+You %IF{"'Sandbox' allows 'change'" then="can" else="cannot"}% change Sandbox web
+
+__9. Check topic existence__
+<verbatim>
+Topic Sandbox.TestTopic %IF{"istopic 'Sandbox.TestTopic'" then="exists" else="does not exist"}%
+Web Sandbox.WebHome %IF{"isweb 'Sandbox'" then="exists" else="does not exist"}%
+</verbatim>
+expands to: %BR%
+Topic Sandbox.TestTopic %IF{"istopic 'Sandbox.TestTopic'" then="exists" else="does not exist"}% %BR%
+Web Sandbox.WebHome %IF{"isweb 'Sandbox'" then="exists" else="does not exist"}%
+
+__10. Group membership__
+<verbatim>
+You %IF{"'%USERNAME%' ingroup 'TWikiAdminGroup'" then="are an admin" else="are a normal user"}% 
+</verbatim>
+expands to: %BR%
+You %IF{"'%USERNAME%' ingroup 'TWikiAdminGroup'" then="are an admin" else="are a normal user"}% 
+
+__11. Conditional include__
+<verbatim>
+%IF{"'%USERNAME%' ingroup 'ExecutiveGroup'" then="$percntINCLUDE{ExecutiveReport}$percnt"}% 
+</verbatim>
+The !ExecutiveReport topic is only included if the user is in the !ExecutiveGroup.
+
+__12. Hide section of text conditionally using CSS display__
+<verbatim>
+<div style="display: %IF{"'%USERNAME%' ingroup 'TWikiAdminGroup'" then="block" else="none"}%">
+   * Conditional text enclosed in div tags here...
+   * ...can be as long as needed
+</div>
+</verbatim>
+Above text is only shown to users who are in the !TWikiAdminGroup.
+
+__Related Topics:__ QuerySearch, VarIF, VarGET, VarSET, VarSEARCH, FormattedSearch, FormatTokens, SpreadSheetPlugin, TWikiScripts
+
+-- __Contributors:__ TWiki:Main.ArthurClemens, TWiki:Main.CrawfordCurrie, TWiki:Main.PeterThoeny, TWiki:Main.SopanShewale, TWiki:Main.SvenDowideit, TWiki:Main.WillNorris - 2012-08-07
+@
+
+
+1.11
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1344366980" format="1.1" version="11"}%
+d38 2
+d45 1
+a45 1
+| =inactive= | if active links such as 'edit' and 'attach' should be disabled |
+a47 1
+| =mirror= | if this is a mirror |
+@
+
+
+1.10
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1301947230" format="1.1" version="10"}%
+d8 1
+a8 1
+In the example above, if CONDITION evaluates to TRUE, then THEN will be included in the topic; otherwise ELSE will be included.
+d10 1
+a10 1
+Note that because of the way TWiki evaluates, then whatever is in the THEN and ELSE parameters will already have been expanded by the time the condition is actually evaluated. The standard FormatTokens can be used in the THEN and ELSE parameters when you need to delay evaluation of (for example) a TWiki variable.
+d12 3
+a14 1
+The basic syntax of a condition is the same as [[QuerySearch][the syntax used for queries]], with operators <code>=</code>, <code>!=</code>, <code>~</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>NOT</code>, <code>AND</code>, <code>OR</code>, <code>()</code>, and functions <code>lc()</code>, <code>uc()</code>, <code>d2n()</code>. In addition, the following special operators are supported:
+d26 3
+a28 1
+__Examples:__
+d30 45
+a74 1
+1. TWiki variable defined or not
+d79 1
+a79 1
+2. Compare TWiki variable
+d85 1
+a85 1
+3. URL parameter
+d90 1
+a90 1
+4. Range test on URL parameter
+d95 1
+a95 1
+5. Text comparison of URL parameter
+d100 1
+a100 1
+6. Configuration item set or not
+d105 1
+a105 1
+7. Plugin enabled test
+d112 1
+a112 1
+8. Check access permissions
+d119 2
+a120 2
+You %IF{"'%TOPIC%' allows 'change'" then="can" else="cannot"}% change this topic.
+You %IF{"'Sandbox.TestTopic' allows 'change'" then="can" else="cannot"}% change Sandbox.TestTopic.
+d123 1
+a123 1
+9. Check topic existance
+d126 1
+a126 1
+Web Sandbox.TestTopic %IF{"isweb 'Sandbox'" then="exists" else="does not exist"}%
+d129 2
+a130 2
+Topic Sandbox.TestTopic %IF{"istopic 'Sandbox.TestTopic'" then="exists" else="does not exist"}%
+Web Sandbox.TestTopic %IF{"isweb 'Sandbox'" then="exists" else="does not exist"}%
+d132 1
+a132 1
+10. Group membership
+d139 7
+a145 1
+11. Hide section of text conditionally using CSS visibility
+d147 1
+a147 1
+<div style="visibility: %IF{"'%USERNAME%' ingroup 'TWikiAdminGroup'" then="visible" else="hidden"}%">
+a153 45
+*Configuration items* are defined in [[%SCRIPTURLPATH{"configure"}%][configure]]. You cannot see the value of a configuration item, you can only see if the item is set or not.
+
+*Context identifiers* are used in TWiki to label various stages of the rendering process. They are especially useful for [[TWikiSkins][skin]] authors to find out where they are in the rendering process. The following context identifiers are available:
+| *id* | *context* |
+| =absolute_urls= | Set if absolute URLs are required |
+| =attach= | in attach script (see TWikiScripts) |
+| =authenticated= | a user is authenticated |
+| =body_text=  | when the body text is being processed in a view (useful in plugin handlers) |
+| =can_login= | current environment supports login |
+| =changes= | in changes script (see TWikiScripts) |
+| =command_line= | the running script was run from the command line, and not from CGI |
+| =diff= | in rdiff script (see TWikiScripts) |
+| =edit= | in edit script (see TWikiScripts) |
+| =footer_text= | when the footer text is being processed in a view (useful in plugin handlers) |
+| =header_text= | when the header text is being processed in a view (useful in plugin handlers) |
+| =i18n_enabled= | when user interface <nop>I18N support is enabled (i.e., user can choose the language for UI) |
+| =inactive= | if active links such as 'edit' and 'attach' should be disabled |
+| =login= &amp; =logon= | in login / logon script (see TWikiScripts) |
+| =manage= | in manage script (see TWikiScripts) |
+| =mirror= | if this is a mirror |
+| =new_topic= | if the topic doesn't already exist |
+| =oops= | in oops script (see TWikiScripts) |
+| =preview= | in preview script (see TWikiScripts) |
+| =register= | in register script (see TWikiScripts) |
+| =rename= | in rename script (see TWikiScripts) |
+| =resetpasswd= | in resetpasswd script (see TWikiScripts) |
+| =rss= | if this is an RSS skin rendering |
+| =save= | in save script (see TWikiScripts) |
+| =search= | in search script (see TWikiScripts) |
+| =statistics= | in statistics script (see TWikiScripts) |
+| =textareas_hijacked= | provided for use by editors that highjack textareas, and want to signal this fact. This is used by skins, for example, so they can suppress extra controls when textareas have been hijacked. |
+| =upload= | in upload script (see TWikiScripts) |
+| =view= | in view script (see TWikiScripts) |
+| =viewfile= | in viewfile script (see TWikiScripts) |
+| =rest= | in rest script (see TWikiScripts) |
+| =registration_supported= | registration is supported by the current <nop>UserMapper |
+| =registration_enabled= | set if ={Register}{EnableNewUserRegistration}= is on, and registrationis supported |
+| =passwords_modifyable= | set if the password manager support changing the password / email |
+
+In addition there is a context identifier for each enabled plugin; for example, if =Gallous<nop>BreeksPlugin= is installed *and enabled*, then the context ID =Gallous<nop>BreeksPluginEnabled= will be set. Other extensions may set additional context identifiers.
+
+The =%<nop>IF%= statement is deliberately kept simple. In particular, note that there is no way to conditionally execute a Set statement. If you need more sophisticated control over formatting, then consider using the SpreadSheetPlugin.
+
+Note also that while the [[QuerySearch][query syntax]] can be used to access form fields, there are some contexts in which an IF statement may be used where there is no topic context, or the topic context is not what you expected.
+
+d156 1
+a156 1
+-- __Contributors:__ TWiki:Main.ArthurClemens, TWiki:Main.CrawfordCurrie, TWiki:Main.PeterThoeny, TWiki:Main.SopanShewale, TWiki:Main.SvenDowideit, TWiki:Main.WillNorris - 2011-04-04
+@
+
+
+1.9
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1273290249" format="1.1" version="9"}%
+d145 1
+a145 1
+__Related Topics:__ QuerySearch, VarIF, VarSEARCH, FormattedSearch
+d147 1
+a147 1
+-- __Contributors:__ TWiki:Main/ArthurClemens, TWiki:Main/CrawfordCurrie, TWiki:Main/PeterThoeny, TWiki:Main/SopanShewale, TWiki:Main/SvenDowideit, TWiki:Main/WillNorris - 2010-04-09
+@
+
+
+1.8
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1244160963" format="1.1" version="8"}%
+d20 1
+d91 9
+d144 4
+@
+
+
+1.7
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1183830381" format="1.1" version="7"}%
+d12 1
+a12 1
+The basic syntax of a condition is the same as [[QuerySearch][the syntax used for queries]], with the addition of the following special operators:
+d14 8
+a21 8
+| context | True if the current context is set (see below) |
+| allows | ='X' allows 'Y'= is true if web/topic 'X' exists and allows access mode 'Y' for the current user. Web access rights are only checked if there is no topic called 'X'. |
+| istopic | =istopic 'X'= is true if topic 'X' exists |
+| isweb | =isweb 'X'= is true if web 'X' exists |
+| ingroup | ='X' ingroup 'Y'= is true if user 'X' is in group 'Y'. 'X' can be a login name or a wikiname. |
+| defined | True if a preference variable or url parameter of this name is defined. |
+| $ | expands a URL parameter or [[TWikiVariables][TWikiVariable]] name. Plugin handlers *are not called*. Built-in variables and user-defined preferences are supported. You can pass a limited subset of parameters to TWiki variables by enclosing the variable name in single quotes; for example, =$ 'VARIABLE{value}'=. The ='VARIABLE{value}'= string may *not* contain quotes (' or "). |
+| {X} | expands to the value of the configuration variable {X} - for example, ={ScriptUrlPath}= |
+d94 34
+a127 34
+| absolute_urls | Set if absolute URLs are required |
+| attach | in attach script (see TWikiScripts) |
+| authenticated | a user is authenticated |
+| body_text  | when the body text is being processed in a view (useful in plugin handlers) |
+| can_login | current environment supports login |
+| changes | in changes script (see TWikiScripts) |
+| command_line | the running script was run from the command line, and not from CGI |
+| diff | in rdiff script (see TWikiScripts) |
+| edit | in edit script (see TWikiScripts) |
+| footer_text | when the footer text is being processed in a view (useful in plugin handlers) |
+| header_text | when the header text is being processed in a view (useful in plugin handlers) |
+| i18n_enabled | when user interface <nop>I18N support is enabled (i.e., user can choose the language for UI) |
+| inactive | if active links such as 'edit' and 'attach' should be disabled |
+| login & logon | in login / logon script (see TWikiScripts) |
+| manage | in manage script (see TWikiScripts) |
+| mirror | if this is a mirror |
+| new_topic | if the topic doesn't already exist |
+| oops | in oops script (see TWikiScripts) |
+| preview | in preview script (see TWikiScripts) |
+| register | in register script (see TWikiScripts) |
+| rename | in rename script (see TWikiScripts) |
+| resetpasswd | in resetpasswd script (see TWikiScripts) |
+| rss | if this is an RSS skin rendering |
+| save | in save script (see TWikiScripts) |
+| search | in search script (see TWikiScripts) |
+| statistics | in statistics script (see TWikiScripts) |
+| textareas_hijacked | provided for use by editors that highjack textareas, and want to signal this fact. This is used by skins, for example, so they can suppress extra controls when textareas have been hijacked. |
+| upload | in upload script (see TWikiScripts) |
+| view | in view script (see TWikiScripts) |
+| viewfile | in viewfile script (see TWikiScripts) |
+| rest | in rest script (see TWikiScripts) |
+| registration_supported | registration is supported by the current UserMapper |
+| registration_enabled | set if ={Register}{EnableNewUserRegistration}= is on, and registrationis supported |
+| passwords_modifyable | set if the password manager support changing the password / email |
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1183830381" format="1.1" version="6"}%
+d18 1
+a18 1
+| ingroup | ='X' ingroup 'Y'= is true if user 'X' is in group 'Y' |
+d27 1
+a27 1
+%IF{"defined WIKINAME" then="WIKINAME is defined" else="WIKINAME is not defined"}%
+d32 1
+a32 1
+You are %IF{ "$ WIKINAME='TWikiGuest' and not defined OPEN_DAY" then="not" }% allowed to
+d38 1
+a38 1
+%IF{ "defined search" then="Search: $percntURLPARAM{search}$percnt" else="No search passed in"}%
+d95 1
+d107 2
+d113 3
+d119 1
+d121 1
+d123 1
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 2
+a2 3
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="5"}%
+
+---+ =IF= Statements
+d10 3
+a12 1
+What can be included in the THEN and ELSE parameters is obviously limited by standard TWiki syntax for parameters.
+a13 17
+The basic syntax of a condition is as follows:
+<verbatim>
+expr ::= '(' expr ')' ;
+expr ::= andexpr | andexpr 'or' expr ;
+andexpr ::= notexpr | notexpr 'and' andexpr ;
+notexpr ::= basexpr | 'not' baseexpr ;
+basexpr ::= atom | uop atom | atom bop basexpr ;
+uop ::= 'context' | 'defined' | '$' ;
+bop ::= '=' | '!=' | '>' | '<' | '>=' | '<=' ;
+atom ::= context identifier, TWiki variable name, single-quoted string, or configuration item
+</verbatim>
+| *Operators* ||
+| and | True if both sides are true |
+| or | True if one or other side is true |
+| not | negate the following expression |
+| <nop>=, !<nop>= | String comparison |
+| &lt;, &gt;, &lt;=, &gt;= | Number comparison (there is no explicit numeric =) |
+d15 4
+d20 6
+a25 2
+| $ | expands a URL parameter or [[TWikiVariables][TWikiVariable]]. Plugin handlers *are not called*. Built-in variables and user-defined preferences are supported. You can pass a limited subset of parameters to TWiki variables by enclosing the variable name in single quotes; for example, =$ 'VARIABLE{value}'=. The ='VARIABLE{value}'= string may *not* contain quotes (' or "). |
+examples:
+a26 1
+TWiki variable defined or not
+d28 1
+d30 2
+d34 1
+d36 14
+a49 2
+URL parameter
+%IF{ "defined search" then="Search: %URLPARAM{search}%" else="No search passed in"}%
+d51 2
+a52 1
+Configuration item set or not
+d54 19
+d74 8
+a81 1
+url param t is %IF{ "0 < $ t and $ t < 1000" then="in" else="out of"}% range.
+d83 3
+a85 2
+Text comparison
+%IF{ "$'URLPARAM{scope}'='text'" then="Plain text search" }% 
+d87 2
+d113 1
+d116 3
+d123 2
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="4"}%
+d67 1
+a67 1
+| i18n_enabled | when user interface I18N support is enabled (i.e., user can choose the language for UI) |
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@d1 4
+d53 1
+a53 1
+*Configuration items* are defined in =configure=. You cannot see the value of a configuration item, you can only see if the item is set or not.
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d7 1
+a7 8
+What can be included in the THEN and ELSE parameters is obviously limited by standard TWiki syntax for parameters. The best way to use this feature is to define two TWikiVariables, one for the THEN case and the other for the ELSE case. For example:
+<verbatim>
+<!--
+   * Set LI = Fred is here!
+   * Set LO = Fred is there!
+-->
+%IF{"context authenticated and defined WIKINAME and $ WIKINAME='FredBloggs'" then="%LI%" else="%LO%"}%
+</verbatim>
+d18 1
+a18 1
+atom ::= context identifier, TWiki variable name, single-quoted string
+d28 1
+a28 1
+| $ | expands a URL parameter or [[TWikiVariables][TWikiVariable]]. Plugin handlers *are not called*. Built-in variables and user-defined preferences are supported. You can pass a limited subset of parameters to TWiki variables by enclosing the variable name in single quotes; for example, =$ 'VARIABLE{value}'=. The quoted string may *not* contain quotes (' or "). |
+d31 1
+d37 1
+d40 3
+d45 1
+a47 3
+Given
+   * Set OPEN_DAY = yes
+this expands to:
+d49 1
+a49 2
+You are %IF{ "$ WIKINAME='TWikiGuest' and not defined OPEN_DAY" then="not" }% allowed to
+%IF{ "context view" then="view" else="edit"}% this TWiki today.
+d51 1
+a51 1
+Context identifiers are used in TWiki to label various stages of the rendering process. They are especially useful for [[TWikiSkins][skin]] authors to find out where they are in the rendering process. The following context identifiers are available:
+d75 1
+a75 1
+In addition there is an identifier for each enabled plugin; for example, if =Gallous<nop>BreeksPlugin= is installed *and enabled*, then the context ID =Gallous<nop>BreeksPluginEnabled= will be set.
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d10 2
+a11 2
+	* Set LI = Fred is here!
+	* Set LO = Fred is there!
+d50 1
+a50 1
+	* Set OPEN_DAY = yes
+@

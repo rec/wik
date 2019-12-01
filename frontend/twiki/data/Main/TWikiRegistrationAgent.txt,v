@@ -1,0 +1,54 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2010.05.29.14.45.05;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.01.12.01.14;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@new-topic
+@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1273956256" format="1.1" version="2"}%
+---+ The <nop>TWikiRegistrationAgent User
+
+This is a TWiki user used by TWiki when it registers new users. This user has special access to write to [[%WIKIUSERSTOPIC%]], and does not have an entry in the password system.
+
+__Related topics:__ [[%WIKIUSERSTOPIC%]], [[%SYSTEMWEB%.TWikiRegistration][TWikiRegistration]]
+
+%META:PREFERENCE{name="ALLOWTOPICCHANGE" title="ALLOWTOPICCHANGE" type="Set" value="TWikiAdminGroup"}%
+@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111931141" format="1.0" version="1"}%
+d4 1
+a4 1
+This is a TWiki User used by TWiki when it registers new users. This user has special access to write to %WIKIUSERSTOPIC%, and does not need an entry in the password system.
+d6 1
+a6 1
+__Related topics:__ %WIKIUSERSTOPIC%, %TWIKIWEB%.TWikiRegistration
+@

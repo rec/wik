@@ -1,0 +1,12 @@
+%META:TOPICINFO{author="TWikiContributor" date="1403146986" format="1.1" version="6"}%
+%META:TOPICPARENT{}%
+<table border="0" cellpadding="0" cellspacing="0" style="width:100%; margin-top:12px;">
+<tr><td valign="middle"><span id="twikiLogo" class="twikiImage"><a href="%WEBLOGOURL%"><img src="%WEBLOGOIMG%" border="0" alt="%WEBLOGOALT%" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+<noautolink>
+   * <form name="jumpForm" action="%SCRIPTURLPATH{"view"}%/%BASEWEB%/%BASETOPIC%"><input id="jumpFormField" type="text" class="twikiInputField" name="topic" value="" size="18" title="%MAKETEXT{"Jump to a topic by its name; browse to a topic by typing a partial name"}%" /><noscript>&nbsp;<input type="submit" class="twikiButton" size="5" name="submit" value="%MAKETEXT{"Jump"}%" />&nbsp;</noscript>
+   </form>
+   * <form name="quickSearchForm" action="%SCRIPTURLPATH{view}%/%INCLUDINGWEB%/WebSearch"><input type="text" class="twikiInputField" id="quickSearchBox" name="search" value="" size="18" title="%MAKETEXT{"Search in current web. For example, to search for all topics that contain &#34;SOAP&#34;, &#34;WSDL&#34;, a literal &#34;web service&#34;, but not &#34;shampoo&#34;, write: soap wsdl &#34;web service&#34; -shampoo"}%" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="%BASEWEB%" /><noscript>&nbsp;<input type="submit" size="5" class="twikiButton" name="submit" value="%MAKETEXT{"Search"}%" />&nbsp;</noscript>
+   </form>
+   * %INCLUDE{%SYSTEMWEB%.LanguageSelector}%
+</noautolink></td></tr></table>

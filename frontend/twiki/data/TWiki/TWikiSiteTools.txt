@@ -1,0 +1,274 @@
+%META:TOPICINFO{author="TWikiContributor" date="1381660194" format="1.1" version="20"}%
+%STARTINCLUDE%
+---+ TWiki Site Tools
+
+_Utilities for searching, navigation, and monitoring site activity_
+
+TWiki Site Tools include utilities for navigating, searching and keeping up with site activity. Preferences can be configured by web or site-wide. You are currently in the *%SYSTEMWEB%* web. In particular, TWiki provides two highly configurable, automated site monitoring tools, *<nop>WebNotify*, to e-mail alerts when topics are edited, and *<nop>WebStatistics*, to generate detailed activity reports.
+
+%TOC%
+
+#WebNotify
+---++ <nop>WebNotify - recent changes alert
+
+Each TWiki web has an automatic e-mail alert service that sends a list of recent changes on a preset schedule, like once a day. Users can subscribe and unsubscribe using %NOTIFYTOPIC% in each web. The Perl script =mailnotify= is called by a background process at regular intervals. The script sends an automated e-mail to subscribed users if topics were changed in a web since the script was last run.
+
+   * You can create a WebNotify link using TWikiVariables with ==%<nop>NOTIFYTOPIC%==
+
+%INCLUDE{"WebChangesAlert"}%
+
+You can also use =%<nop>USERSWEB%= instead of =Main=, but this is not necessary even if you have renamed the main web by configuring ={MainWebName}= in [[%SCRIPTURLPATH{"configure"}%][configure]].
+
+#WebSearch
+---++ <nop>WebSearch - search TWiki site
+
+WebSearch is an extremely fast and flexible search facility, part of the core TWiki feature set. WebSearchAdvanced offers more options, including:
+   * topic title or full-text search
+   * regular expressions
+   * search within web or site-wide
+   * index-style A-Z alphabetical listing sorted topic title
+   * many more
+
+See also: SearchHelp for help; TWikiVariables and FormattedSearch for including hard-coded searches in text.
+
+#WebChanges
+---++ <nop>WebChanges - what's new
+
+To check for the most recently edited topics while on-site, use the WebChanges link, usually located in the toolbar. It lists the most recently modified topics, newest first, along with the first couple of lines of the page content.
+
+This is simply a preset =SEARCH=. The number of topics listed by the =limit= parameter.:
+<blockquote>
+<pre>
+%<nop>SEARCH{
+ ".*"
+ web="%INCLUDINGWEB%"
+ type="regex"
+ nosearch="on"
+ sort="modified"
+ reverse="on" 
+ limit="50"
+}%
+</pre>
+</blockquote>
+
+#WebRssAndAtom
+---++ <nop>WebRss and <nop>WebAtom - news feeds on recent changes
+
+You can point your news reader at WebRss and WebAtom to find out what is new in a TWiki web. WebRssBase and WebAtomBase have the details. Like WebChanges, this is based on a =%<nop>SEARCH{}%=.
+
+#WebIndex
+---++ <nop>WebIndex - list of topics
+
+WebIndex lists all web topics in alphabetical order, with the first couple of lines of text. This is simply a preset =SEARCH=:
+<blockquote>
+<pre>
+%<nop>SEARCH{
+ "\.*"
+ scope="topic"
+ type="regex"
+ nosearch="on"
+}%
+</pre>
+</blockquote>
+
+#WebStatistics
+---++ <nop>WebStatistics - site statistics
+
+You can generate a listing manually, or on an automated schedule, of visits to individual pages, on a per web basis. Compiled as a running total on a monthly basis. Includes totals for Topic Views, Topic Saves, Attachment Uploads, Most Popular Topics with number of views, and Top Contributors showing total of saves and attachment uploads. Previous months are saved.
+
+%T% You can create a WebStatistics link using TWikiVariables with ==%<nop>STATISTICSTOPIC%==
+
+TWiki also generates overall site usage statistics in [[%USERSWEB%.SiteStatistics]] (do not create that page, it is created automatically based on SiteStatisticsTemplate). On a monthly basis, the following items are recorded using system data and TWiki log data across all webs: Number of webs, number of topics, number of attachments, number of topic views, number of topic updates, number of files uploads, data size, pub size, disk use, number of users, number of groups, number of plugins installed compared to total number of plugins available, and the 10 top contributors.
+
+---+++ Configuring for automatic operation
+
+   * You can automatically generate usage statistics for the whole site and all webs. To enable this:
+      * Make sure variable ={Log}{view}=, ={Log}{save}= and ={Log}{upload}= are set in [[%SCRIPTURLPATH{"configure"}%][configure]]. This will generate log file entries (see below).
+      * Call the =twiki/bin/statistics= script from a cron job - once a day is recommended. This will update the %USERSWEB%.SiteStatistics and the WebStatistics topics in all webs.
+      * __Attention:__ The script must run as the same user as the CGI scripts are running, such as user =nobody= or =www-data=. Example crontab entry: %BR% =0 0 * * * (cd /path/to/twiki/bin; ./statistics &gt;/dev/null 2&gt;&amp;1)=
+      * There is a workaround in case you can't run the script as user =nobody= : Run the utility =twiki/tools/geturl.pl= in your cron job and specify the URL of the =twiki/bin/statistics= script as a parameter. Example: %BR% =0 0 * * * (cd /path/to/twiki/tools; ./geturl.pl mydomain.com /urlpath/to/twiki/bin/statistics &gt;/dev/null 2&gt;&amp;1)= 
+      * __NOTE:__ =geturl.pl= will do a TWiki CGI request as the <nop>TWikiGuest user, so if you use this workaround, the !WebStatistics topics you are updating will have to be writable by <nop>TWikiGuest.
+
+When running from the command line or a cron job, you can pass parameters to the script like this:
+<verbatim>
+cd twiki/bin; ./statistics -logdate 2011-05 -webs TWiki,Sandbox
+</verbatim>
+
+---+++ Generating statistics manually by URL
+
+   * If ={Stats}{DisableInvocationFromBrowser}= config parameter is false (it's %IF{"{Stats}{DisableInvocationFromBrowser}" then="true" else="false"}% in this installation), the =twiki/bin/statistics= script can also be executed as a CGI script - just enter the URL in your browser. Examples:
+      * Update current month for all webs you have access to: %BR% =%SCRIPTURLPATH{statistics}%=
+      * Update current month for %USERSWEB% web only: %BR% =%SCRIPTURLPATH{statistics}%/%USERSWEB%=
+      * Update %SERVERTIME{$month $year}% for %USERSWEB% web: %BR% =%SCRIPTURLPATH{statistics}%/%USERSWEB%?logdate=%SERVERTIME{$year-$mo}%=
+      * Update %SERVERTIME{$month $year}% for the !ProjectX, !ProjectY and !ProjectZ webs: %BR% =%SCRIPTURLPATH{statistics}%?logdate=%SERVERTIME{$year-$mo}%;webs=ProjectX,ProjectY,ProjectZ=
+
+#MaxNoOfItemsInColumns
+---+++ The maximum number of items in columns
+
+There are columns having a list of items.
+The maximum number of items listed in a column is specified as follows.
+
+| *Topic* | *Column and part* | *Configuration parameter* | *Default* |
+| <nop>%STATISTICSTOPIC% of webs | [[#AffiliationBreakdown][Affiliation breakdown]] in "Topic views", "Topic saves", and "File uploads" columns | ={Stats}{TopAffiliation}= |  10 |
+|^| "Most popular topic views" column | ={Stats}{TopViews}= |  10 |
+|^| "Top viewers" column | ={Stats}{TopViewers}= |  10 |
+|^| "Top contributors for tpoic save and uploads" column | ={Stats}{TopContrib}= |  10 |
+| <nop>%USERSWEB%.%SITESTATISTICSTOPIC% | The list of webs viewed the most number of times in the "Webs Viewed" column | ={Stats}{SiteTopViews}= |  0 |
+|^| The list of webs updated the most number of times in the "Webs Updated" column | ={Stats}{SiteTopUpdates}= |  0 |
+|^| [[#AffiliationBreakdown][Affiliation breakdown]] in "Topic Views", "Topic Saves", and "File Uploads" columns | ={Stats}{SiteTopAffiliation}= |  10 |
+|^| "Top Viewers" column | ={Stats}{SiteTopViewers}= |  10 |
+|^| "Top Contributors" column | ={Stats}{SiteTopContrib}= |  10 |
+
+#AffiliationBreakdown
+---+++ Affiliation breakdown of views, saves, and uploads
+
+If you run TWiki in an orgaization, you may want to see division breakdown of topic views, topic saves, and file uploads - in a month, how many topic views are there from the R&D division, the Sales division, etc.
+
+You can have affiliation breakdown at the Topic views, Topic saves, and File uploads columns of <nop>%STATISTICSTOPIC% and <nop>%SITESTATISTICSTOPIC% as follows.
+
+| *Month:* | *Topic <br /> views:* | *Topic <br /> saves:* | *File <br /> uploads:* | *Most popular <br /> topic views:* | *Top viewerss:* | *Top contributors for <br /> topic save and uploads:* |
+| <!--statDate--> | <!--statViews--> | <!--statSaves--> | <!--statUploads--> | <!--statTopViews--> | <!--statTopViewers--> | <!--statTopContributors--> |
+| 2013-08 | 10325<br />(150 unique users)<br />6921 R&D<br />1736 Operation<br />&nbsp;&nbsp;927 Sales<br />&nbsp;&nbsp;623 Management<br />&nbsp;&nbsp;&nbsp;&nbsp;98 Unknown | 7<br />(3 unique users)<br />7 R&D | 3<br />(1 unique users)<br />3 R&D | 6941 <nop>WebHome<br />&nbsp;&nbsp;872 <nop>WebSearch<br />&nbsp;&nbsp;848 <nop>ToolSiteMap<br />&nbsp;&nbsp;376 <nop>ToolDashboard<br />&nbsp;&nbsp;223 <nop>WebSearchAdvanced<br />&nbsp;&nbsp;185 <nop>ContRequests<br />&nbsp;&nbsp;127 <nop>WebTopicList<br />&nbsp;&nbsp;&nbsp;&nbsp;89 <nop>ToolPersonalWebs<br />&nbsp;&nbsp;&nbsp;&nbsp;72 <nop>ToolMasquerading<br />&nbsp;&nbsp;&nbsp;&nbsp;70 <nop>TWikiAdminUser | 525&nbsp;<nop>PeterThoeny<br />&nbsp;&nbsp;49 <nop>MahiroAndo<br />&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;<nop>HdeyoImazu | 5 <nop>HdeyoImazu<br />1 <nop>MahiroAndo<br />1 <nop>PeterThoeny |
+
+Affiliation breakdown is turned off by default.
+To turn it on, you need to do two things.
+
+   1. Provide =getAffiliation($cUID)= object method in the current user mapping handler. It's supposed return the affiliation (division, department, etc.) of the =$cUID=. If the affiliation is unknown, it returns =undef=.
+   1. Set ={Stats}{Breakdown}= configuration papameter true by putting the following line in =lib/LocalSite.cfg=.
+   <verbatim>
+$TWiki::cfg{Stats}{Breakdown} = 1;
+</verbatim>
+
+#ExcludedWebRegex
+---+++ Excluding some webs from <nop>%STATISTICSTOPIC% update
+
+You can exclude webs from <nop>%STATISTICSTOPIC% update by specifying ={Stats}{ExcludedWebRegex}= config parameter as follows.
+<verbatim>
+$TWiki::cfg{Stats}{ExcludedWebRegex} = '^(Trash(x\d+x)?\d*|Sandbox\d*)\b';
+</verbatim>
+
+You may wonder when this is needed.
+
+There are webs not worth updating <nop>%STATISTICSTOPIC% such as the Trash web. When a web is deleted, it becomes a subweb of the Trash web. By default, not only the Trash web but also subwebs of the Trash web are subject to <nop>%STATISTICSTOPIC% update.
+
+On a large TWiki site, you may have dozens of Trash webs - you may [[LargeSite#RotateTrashSandbox][rotate Trash webs]] and you may be UsingMultipleDisks (each disk requires its own Trash - e.g. !Trashx1x and !Trashx2x). If you have Trash, Trash1, ..., Trash10 for rotation and if you use 3 disks for TWiki,  you end up having 33 Trashes.
+
+#WebStatisticsYYYY
+---+++ Preventing <nop>%STATISTICSTOPIC% and <nop>%SITESTATISTICSTOPIC% from growing big
+
+<nop>%STATISTICSTOPIC% topics grow in size every month. By default you have only 10 lines per month, but you may have a lot more. If so, in 5 years, <nop>%STATISTICSTOPIC% gets really big. Besides, if you run the =statistics= script every day, you increase the revision of each !WebStatistics by one every day. If a topic has hundreds of revision, some operations such as getting the original creator of the topic takes long.
+
+There is an option to prevent the boundless growth of <nop>%STATISTICSTOPIC%.
+If you set =$TWiki::cfg{Stats}{TopicPerYear}= true, the =statistics= script writes the result to <nop>%STATISTICSTOPIC%YYYY where YYYY is the current year (e.g. <nop>%STATISTICSTOPIC%%GMTIME{$year}%) instead of <nop>%STATISTICSTOPIC%. The parameter is false by default.
+   * If TWiki:Plugins/RedirectPlugin is installed, viewing <nop>%STATISTICSTOPIC% causes redirection to the <nop>%STATISTICSTOPIC%YYYY of the year. Otherwise, <nop>%STATISTICSTOPIC% shows links to <nop>%STATISTICSTOPIC%YYYY topics.
+   * After you change ={Stats}{TopicPerYear}= to true but before you run the =statistics= script, you should run =twiki/tools/switch2yearlystats= to rename <nop>%STATISTICSTOPIC% of all webs to <nop>%STATISTICSTOPIC%YYYY of the year. In case <nop>%STATISTICSTOPIC% is not in the same format as its current template, it's renamed to <nop>%STATISTICSTOPIC%0000.
+
+The description above is applied to <nop>%USERSWEB%.%SITESTATISTICSTOPIC% as well.
+If ={Stats}{TopicPerYear}= is true:
+   * The site-wide statistics are written to <nop>%USERSWEB%.%SITESTATISTICSTOPIC%YYYY of the year instead of <nop>%USERSWEB%.%SITESTATISTICSTOPIC%
+   * <nop>%USERSWEB%.%SITESTATISTICSTOPIC% shows the list of <nop>%USERSWEB%.%SITESTATISTICSTOPIC%YYYY topics or redirects to the latest one depending on the availability of !RedirectPlugin.
+   * =twiki/tools/switch2yearlystats= renames <nop>%USERSWEB%.%SITESTATISTICSTOPIC% to <nop>%USERSWEB%.%SITESTATISTICSTOPIC%YYYY of the year or <nop>%USERSWEB%.%SITESTATISTICSTOPIC%0000.
+
+#UpgradeFromPre6x0
+---+++ Upgrade from pre 6.0
+
+---++++ Statistics topic conversion
+
+There are several changes made to <nop>%STATISTICSTOPIC% and <nop>%SITESTATISTICSTOPIC%.
+If existing statistics topics are kept as they are, topic update by the =statistics= script doesn't work well.
+By running =tools/convert_stats_twiki6= after upgrade, all statistics topics are converted for the current version of =statistics=.
+
+---++++ Top Contributors on <nop>%SITESTATISTICSTOPIC%
+
+The number of contributors listed on the "Top Contributors" column on <nop>%SITESTATISTICSTOPIC% is specified by ={Stats}{SiteTopContrib}=.
+Prior to TWiki 6.0, it was specified by ={Stats}{TopContrib}=.
+If you have a custom ={Stats}{TopContrib}= value, you need to set ={Stats}{SiteTopContrib}= as well. Otherwise, the number of "Top Contributors" on <nop>%SITESTATISTICSTOPIC% becomes the default value, which is 10.
+
+#LogFiles
+---++ Log Files
+
+TWiki generates monthly log files which are used by the statistics script
+   * The log file is defined by the *{LogFileName}* setting in [[%SCRIPTURLPATH{"configure"}%][configure]]
+   * The file name is =log&lt;year&gt;&lt;month&gt;.txt=
+   * Example path name: =twiki/logs/log%SERVERTIME{$year$mo}%.txt=
+   * Each access gets logged as: %BR%
+     =| &lt;time in GMT&gt; | &lt;wikiusername&gt; | &lt;action&gt; | &lt;web&gt;.&lt;topic&gt; | &lt;extra info&gt; | &lt;IP address&gt; |=
+   * Example log entry: %BR%
+     =| %SERVERTIME{$day $mon $year - $hour:$min}% | <nop>%USERSWEB%.TWikiGuest | view | <nop>%SYSTEMWEB%.WebRss |  | 66.124.232.02 |=
+   * Actions are logged if enabled in [[%SCRIPTURLPATH{"configure"}%][configure]] by the *{Log}{<i>action</i>}* flags
+   * Logged actions:
+     | *Script* | *Action name* | *Extra info* |
+     | attach | =attach= | when viewing attach screen of previous uploaded attachment: =filename= |
+     | changes | =changes= |  |
+     | edit | =edit= | when editing non-existing topic: =(not exist)= |
+     | login, logon,%BR% attach, edit,%BR% register, rest,%BR% view, vewfile | =sudologin=, %BR% =sudologout= | Login name of administrator user who is logging in or out |
+     | manage | =changepasswd= | Login name of user who's password is changed |
+     | mdrepo | =mdrepo= | operation and its arguments |
+     | rdiff | =rdiff= | higher and lower revision numbers: =4 3= |
+     | register | =regstart= | !WikiUserName, e-Mail address, LoginName: =user attempts to register= |
+     | register | =register= | E-mail address: =user successfully registers= |
+     | register | =bulkregister= | !WikiUserName of new, e-mail address, admin ID |
+     | rename | =rename= | when moving topic: =moved to !Newweb.NewTopic= |
+     | rename | =renameweb= | when renaming a web: =moved to !Newweb= |
+     | rename | =move= | when moving attachment: =Attachment filename moved to !Newweb.NewTopic= |
+     | resetpasswd | =resetpasswd= | Login name of user who's password is reset |
+     | save | =save= | when replacing existing revision: =repRev 3= %BR% when user checks the minor changes box: =dontNotify= %BR% when user changes attributes to an exising attachment: =filename.ext= |
+     | save | =cmd= | special admin parameter used when saving |
+     | search | =search= | search string |
+     | upload | =upload= | filename |
+     | view | =view= | when viewing non-existing topic: =(not exist)= %BR% when viewing previous topic revision: =r3= |
+     | viewfile | =viewfile= | Attachment name and revision: =File.txt, r3= |
+
+#ConfigureEmail
+---++ E-mail
+
+---+++ Configuring outgoing mail
+
+Outgoing mail is required for TWikiRegistration and for [[#WebNotify][recent changes alert]].
+
+TWiki will use the ==Net::SMTP== module if it is installed on your system. Set this with the =={SMTP}{MAILHOST}== setting in [[%SCRIPTURLPATH{"configure"}%][configure]].
+
+   * %T% You can define a separate =={SMTP}{SENDERHOST}== configure setting to set the mail sender host - some SMTP installations require this.
+   * %X% If you are using SELinux ([[Wikipedia:Security-Enhanced_Linux][Security-Enhanced Linux]]) you might need to configure it to allow TWiki to send e-mails:
+     %BR% =$ sudo setsebool -P httpd_can_sendmail on=
+     %BR% =$ sudo setsebool -P httpd_can_network_connect on=
+
+You can use an external mail program, such as ==sendmail==, if the =Net::SMTP= module is not installed or not functioning properly. Set the program path in =={MailProgram}== and set =={SMTP}{MAILHOST}== to an empty value in [[%SCRIPTURLPATH{"configure"}%][configure]].
+
+The notify e-mail uses the default =changes.tmpl= template, or a skin if activated in the TWikiPreferences.
+
+mailnotify also relies on two hidden files in each =twiki/data/Web= directory: =.changes= and =.mailnotify.= Make sure both are writable by your web server process. =.changes= contains a list of changes; go ahead and make this empty. =.mailnotify= contains a timestamp of the last time notification was done.
+
+---+++ Setting the automatic e-mail schedule
+
+*For Unix platforms:* Edit the =cron= table so that =mailnotify= is called in an interval of your choice. Please consult =man crontab= of how to modify the table that schedules program execution at certain intervals. Example:
+<pre>
+% crontab -e
+0 1 * * * (cd /path/to/twiki; perl -I bin tools/mailnotify -q)
+</pre>
+The above line will run mailnotify nightly at 01:00. The =-q= switch suppresses all normal output. Details at MailerContrib.
+
+*For ISP installations:* Many ISPs don't allow hosted accounts direct cron access, as it's often used for things that can heavily load the server. Workaround scripts are available.
+
+*On Windows:* You can use a scheduled task if you have administrative privileges. TWiki:Codev/CronTabWin is a free scheduler for Windows.
+
+---++ Site Permissions
+
+   * TWikiAccessControl describes how to restrict read and write access to topics and webs, by users and groups
+%IF{"{NoInAllPublicWebs}" else="   * SitePermissions lists the permissions settings of the webs on this TWiki site"}%
+
+---++ Backup and Restore
+
+TWiki has a solution to backup, restore and upgrade TWiki sites. It can be used via browser and on the command line. The BackupRestorePlugin is pre-installed in TWiki-5.1 and later releases; it can be installed in older TWiki releases as low as TWiki-2001-09-01 (Athens Release) to easily create a backup that can be restored on a new TWiki release. This offers an easy upgrade path for TWiki. See also TWikiUpgradeGuide.
+
+---++ Help with crontab
+
+The crontab command is used to schedule commands to be executed periodically.
+
+   * Wikipedia.org:Crontab - crontab documentation
+   * [[http://www.kalab.com/freeware/pycron/pycron.htm][pycron]] - crontab for Windows
+
+__Related Topics:__ AdminDocumentationCategory, AdminToolsCategory
+
+%STOPINCLUDE%
+-- __Contributors:__ TWiki:Main.MikeMannix, TWiki:Main.PeterThoeny, TWiki:Main.CrawfordCurrie, TWiki:Main.KennethLavrsen, TWiki:Main.SvenDowideit

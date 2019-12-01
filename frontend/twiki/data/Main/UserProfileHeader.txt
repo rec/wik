@@ -1,0 +1,205 @@
+%META:TOPICINFO{author="TWikiContributor" date="1514787116" format="1.1" version="8"}%
+---+ Header of User Profile Pages
+
+__Note:__ This is a maintenance topic, used by the TWiki Administrator.
+
+The part between the horizontal rules gets included at the top of every [[%WIKIUSERSTOPIC%]] profile page. The header can be customized to the needs of your organization. The TWiki:TWiki.UserHomepageSupplement has some additional documentation and ideas on customizing the user profile pages. __If you customize this topic make sure to reapply the changes after a TWiki upgrade.__
+
+-----
+%STARTINCLUDE%
+<style type='text/css' media='all'>
+.profileBox {
+  border: solid #dddddd 1px;
+  -moz-box-shadow: 2px 2px 3px #e8e8e8;
+  -webkit-box-shadow: 2px 2px 3px #e8e8e8;
+  box-shadow: 2px 2px 3px #e8e8e8;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 10px;
+  background-image: url(%PUBURLPATH%/%WEB%/UserProfileHeader/gradient-title.png);
+  background-repeat: repeat-x;
+  background-color: #ffffff;
+}
+.profileBox a:link {
+  text-decoration: none;
+  border: none 0;
+}
+#viewInfo .twikiLastCol {
+  min-width:19em;
+}
+.changePicture {
+  display: inline-block; /* for IE */
+  width: auto; /* for IE */
+  text-decoration: none;
+  border: 0 none;
+  font-size: 14px;
+  line-height: 18px;
+  color: #222e74;
+  background-color: #ffffff;
+  opacity: .2;
+  -moz-opacity: .2;
+  filter: alpha(opacity=20);
+}
+.changePictureHover,
+.changePicture:hover {
+  color: #222e74;
+  background-color: #ffffff;
+  opacity: .7;
+  -moz-opacity: .7;
+  filter: alpha(opacity=70);
+}
+</style>
+<!-- ===== VIEW RECORD ===== -->
+<div id="viewRecord" style="display: block; padding: 10px 0 0 0">
+<table border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" class="profileBox" style="width: 200px;" rowspan="2">
+<div style="position: absolute; width: 200px; margin-top: -1px; text-align:right;">
+<a href="%SCRIPTURL{viewauth}%/%WEB%/ChangeProfilePicture?wikiname=%INCLUDINGTOPIC%" title="%MAKETEXT{"Change profile picture"}%" class="changePicture" rel="nofollow">&nbsp;<img src='%ICONURLPATH{uweb-bo12}%' width='12' height='12' alt='' border='0' style='vertical-align: middle' /> %MAKETEXT{"Change"}%&nbsp;</a>
+</div>
+<div id="profilePicture">
+%CALCULATE{$SET(image, %FORMFIELD{ "Image" topic="%INCLUDINGTOPIC%" encode="safe" }%)}%<nop>
+%IF{
+ "'%INCLUDINGTOPIC%'/attachments[name='%CALCULATE{$GET(image)}%']"
+ then='<a href="%PUBURLPATH%/%WEB%/%INCLUDINGTOPIC%/%CALCULATE{$GET(image)}%" rel="nofollow"><img src="%PUBURLPATH%/%WEB%/%INCLUDINGTOPIC%/%CALCULATE{$GET(image)}%" width="200" border="0" alt="" /></a>'
+ else='<img src="%PUBURLPATH%/%WEB%/UserProfileHeader/default-user-profile.jpg" width="200" border="0" alt="" />'
+}%
+</div>
+<div style="margin-top: 5px; overflow: hidden; white-space: nowrap; line-height: 28px; width: 200px;">
+<noautolink>
+%ICON{mail}% %FORMFIELD{ "Email" topic="%INCLUDINGTOPIC%" encode="safe" }% &nbsp;
+%BR%%ICON{phone}% %FORMFIELD{ "Telephone" topic="%INCLUDINGTOPIC%" encode="safe" }% &nbsp;
+%BR%%ICON{mobile}% %FORMFIELD{ "Mobile" topic="%INCLUDINGTOPIC%" encode="safe" }% &nbsp;
+%BR%%ICON{skype}% %FORMFIELD{ "SkypeID" topic="%INCLUDINGTOPIC%" encode="safe" }% &nbsp;
+</noautolink>
+</div>
+</td><td valign="top">
+<img src="%PUBURLPATH%/%WEB%/UserProfileHeader/spacer.gif" width="20" height="1" />
+</td><td valign="top" colspan="3">
+<noautolink>
+<h1>
+%FORMFIELD{ "FirstName" topic="%INCLUDINGTOPIC%" encode="safe" }% %FORMFIELD{ "LastName" topic="%INCLUDINGTOPIC%" encode="safe" }% <span style="font-size: 60%"> %FORMFIELD{ "StatusUpdate" topic="%INCLUDINGTOPIC%" encode="safe" }%</span>
+</h1>
+</noautolink>
+</td></tr><tr><td></td><td valign="top" class="profileBox">
+<b>%MAKETEXT{"Info"}%:</b>
+<div style="float: right">
+<div class="twikiButton" style="margin-bottom: 3px; width: 4em; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;" onclick="document.getElementById('viewRecord').style.display = 'none'; document.getElementById('editRecord').style.display = 'block'; return false;">
+<a href="%SCRIPTURL{edit}%/%INCLUDINGWEB%/%INCLUDINGTOPIC%?action=form;t=%SERVERTIME{$epoch}%" title='%MAKETEXT{"Edit this record"}%' style="text-decoration: none; border: 0 none;" onclick="document.getElementById('viewRecord').style.display = 'none'; document.getElementById('editRecord').style.display = 'block'; return false;"><img src='%ICONURLPATH{uweb-bo12}%' width='12' height='12' alt='' border='0' style='vertical-align: middle' /> <span style='color: black;'> %MAKETEXT{"Edit"}% </span> </a>
+</div>
+</div>
+<div style="clear: right;"></div>
+<div id="viewInfo">
+|  %MAKETEXT{"Title"}%: | <noautolink> %FORMFIELD{ "Titles" topic="%INCLUDINGTOPIC%" encode="safe" }% </noautolink> |
+|  %MAKETEXT{"Department"}%: | <noautolink> %FORMFIELD{ "Department" topic="%INCLUDINGTOPIC%" encode="safe" }% </noautolink> |
+|  %MAKETEXT{"Organization"}%: | <noautolink> %FORMFIELD{ "Organization" topic="%INCLUDINGTOPIC%" encode="safe" }% </noautolink> |
+|  %MAKETEXT{"URL"}%: | %FORMFIELD{ "URL" topic="%INCLUDINGTOPIC%" encode="safe" }% |
+|  %MAKETEXT{"Location"}%: | <noautolink> %FORMFIELD{ "Location" topic="%INCLUDINGTOPIC%" encode="safe" }% </noautolink> |
+|  %MAKETEXT{"Region"}%: | <noautolink> %FORMFIELD{ "Region" topic="%INCLUDINGTOPIC%" encode="safe" }% </noautolink> |
+|  %MAKETEXT{"Country"}%: | <noautolink> %FORMFIELD{ "Country" topic="%INCLUDINGTOPIC%" encode="safe" }% </noautolink> |
+</div>
+</td><td valign="top">
+<img src="%PUBURLPATH%/%WEB%/UserProfileHeader/spacer.gif" width="20" height="1" />
+</td><td valign="top" class="profileBox" style="min-width: 200px; width: 300px;">
+%CALCULATE{$SET(showwatchlist, %IF{ "context WatchlistPluginEnabled AND NOT '%TAGCLOUDPROFILE%'='on'" then="1" else="0" }%)}%<nop>
+<div style="display: %CALCULATE{$IF($GET(showwatchlist), block, none)}%;">
+<b>%MAKETEXT{"Watchlist Changes of [_1]:" args="<nop>%FORMFIELD{ "FirstName" topic="%INCLUDINGTOPIC%" encode="safe" }%"}%</b>
+<div style="height:18em; min-width: 180px; overflow:hidden; overflow-y:auto; margin-right: -8px;">
+%WATCHLIST{
+ "showchanges"
+ wikiname="%BASETOPIC%"
+ format="$percntICON{viewtopic}$percnt <a href='%SCRIPTURL{view}%/$web/$topic' title='Changed by <nop>$wikiname on $date, r$rev'>$percntSPACEOUT{$topic}$percnt</a>"
+ empty="$percntICON{info}$percnt None (empty watchlist)"
+ separator="<br />$n"
+ limit="11"
+}%<br />
+%ICON{arrowright}% %WATCHLIST{
+ "showwatchlistlink"
+ wikiname="%BASETOPIC%"
+ format="[[$url][Watchlist details]]"
+}%
+</div>
+</div>
+<div style="display: %CALCULATE{$IF($GET(showwatchlist), none, block)}%;">
+<b>%MAKETEXT{"Tag Cloud of [_1]:" args="<nop>%FORMFIELD{ "FirstName" topic="%INCLUDINGTOPIC%" encode="safe" }%"}%</b>
+<div style="height:18em; min-width: 180px; overflow:hidden; overflow-y:auto;">
+%TAGME{ tpaction="%CALCULATE{$IF($GET(showwatchlist), DISABLE, showalltags)}%" format="<a href=\"%SCRIPTURL{view}%/%SYSTEMWEB%/TagMeSearch?tag=$tag;by=%INCLUDINGTOPIC%\" style=\"font-size:$size%\">$tag</a>" separator="&nbsp; "  minsize="80" maxsize="120" by="%INCLUDINGTOPIC%" }%
+</div>
+</div>
+</td></tr></table>
+</div>
+<!-- ===== EDIT RECORD ===== -->
+<div id="editRecord" style="display: none; padding: 10px 0 0 0">
+<form action="%SCRIPTURL{save}%/%INCLUDINGWEB%/%INCLUDINGTOPIC%" method="post">
+<table border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" class="profileBox" style="width: 200px;" rowspan="2">
+<img src="%IF{
+ "'%INCLUDINGTOPIC%'/attachments[name='%FORMFIELD{ "Image" topic="%INCLUDINGTOPIC%" encode="safe" }%']"
+ then='%PUBURLPATH%/%WEB%/%INCLUDINGTOPIC%/$percntFORMFIELD{ "Image" topic="%INCLUDINGTOPIC%" encode="safe" }$percnt'
+ else='%PUBURLPATH%/%WEB%/UserProfileHeader/default-user-profile.jpg'
+}%" width="200" alt="" />
+<div style="margin-top: 5px; overflow: hidden; white-space: nowrap; line-height: 28px; width: 200px;">
+%ICON{mail}% <input type="text" name="Email" value="%FORMFIELD{ "Email" topic="%INCLUDINGTOPIC%" encode="html" }%" style="width:170px" class="twikiInputField" />
+%BR%
+%ICON{phone}% <input type="text" name="Telephone" value="%FORMFIELD{ "Telephone" topic="%INCLUDINGTOPIC%" encode="html" }%" style="width:170px" class="twikiInputField" />
+%BR%
+%ICON{mobile}% <input type="text" name="Mobile" value="%FORMFIELD{ "Mobile" topic="%INCLUDINGTOPIC%" encode="html" }%" style="width:170px" class="twikiInputField" />
+%BR%
+%ICON{skype}% <input type="text" name="SkypeID" value="%FORMFIELD{ "SkypeID" topic="%INCLUDINGTOPIC%" encode="html" }%" style="width:170px" class="twikiInputField" />
+</div>
+</td><td valign="top">
+<img src="%PUBURLPATH%/%WEB%/UserProfileHeader/spacer.gif" width="20" height="1" />
+</td><td valign="top" colspan="3">
+<table border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" style="white-space: nowrap">
+<noautolink>
+<h1>
+%FORMFIELD{ "FirstName" topic="%INCLUDINGTOPIC%" encode="safe" }% %FORMFIELD{ "LastName" topic="%INCLUDINGTOPIC%" encode="safe" }%
+</h1>
+</noautolink>
+</td><td>&nbsp;</td><td valign="top">
+<input type="text" name="StatusUpdate" value="%FORMFIELD{ "StatusUpdate" topic="%INCLUDINGTOPIC%" encode="html" }%" size="50" class="twikiInputField" />
+<span style="font-size:90%; color:#666666; white-space: nowrap">%BR%%T% %MAKETEXT{"Status update: Make a sentence, such as: =is out of office="}% </span>
+</td></tr></table>
+</td></tr><tr><td></td><td valign="top" class="profileBox">
+<b>%MAKETEXT{"Info"}%:</b>
+<div style="float: right">
+<input type="submit" value="%MAKETEXT{"Save"}%" class="twikiSubmit" /> <a href="%SCRIPTURL{view}%/%INCLUDINGWEB%/%INCLUDINGTOPIC%" style="text-decoration: none; border: 0 none;" onclick="document.getElementById('viewRecord').style.display = 'block'; document.getElementById('editRecord').style.display = 'none'; return false;">%MAKETEXT{"Cancel"}%</a>
+</div>
+|  %MAKETEXT{"Title"}%: | <input type="text" name="Titles" value="%FORMFIELD{ "Titles" topic="%INCLUDINGTOPIC%" encode="html" }%" size="36" class="twikiInputField" /> |
+|  %MAKETEXT{"Department"}%: | <input type="text" name="Department" value="%FORMFIELD{ "Department" topic="%INCLUDINGTOPIC%" encode="html" }%" size="36" class="twikiInputField" /> |
+|  %MAKETEXT{"Organization"}%: | <input type="text" name="Organization" value="%FORMFIELD{ "Organization" topic="%INCLUDINGTOPIC%" encode="html" }%" size="36" class="twikiInputField" /> |
+|  %MAKETEXT{"URL"}%: | <input type="text" name="URL" value="%FORMFIELD{ "URL" topic="%INCLUDINGTOPIC%" encode="html" }%" size="36" class="twikiInputField" /> |
+|  %MAKETEXT{"Location"}%: | <input type="text" name="Location" value="%FORMFIELD{ "Location" topic="%INCLUDINGTOPIC%" encode="html" }%" size="36" class="twikiInputField" /> |
+|  %MAKETEXT{"Region"}%: | <input type="text" name="Region" value="%FORMFIELD{ "Region" topic="%INCLUDINGTOPIC%" encode="html" }%" size="36" class="twikiInputField" /> |
+|  %MAKETEXT{"Country"}%: | <input type="text" name="Country" value="%FORMFIELD{ "Country" topic="%INCLUDINGTOPIC%" encode="html" }%" size="36" class="twikiInputField" /> |
+</td><td valign="top">
+<img src="%PUBURLPATH%/%WEB%/UserProfileHeader/spacer.gif" width="20" height="1" />
+</td><td valign="top" class="profileBox" style="min-width: 200px;">
+<div style="display: %CALCULATE{$IF($GET(showwatchlist), block, none)}%;">
+<b>%MAKETEXT{"Watchlist Changes of [_1]:" args="<nop>%FORMFIELD{ "FirstName" topic="%INCLUDINGTOPIC%" encode="safe" }%"}%</b>
+%BR%%BR%
+<strong><em>%MAKETEXT{"Note:"}%</em></strong>
+%MAKETEXT{"Watch topics to see watchlist changes."}%
+</div>
+<div style="display: %CALCULATE{$IF($GET(showwatchlist), none, block)}%;">
+<b>%MAKETEXT{"Tag Cloud of [_1]:" args="<nop>%FORMFIELD{ "FirstName" topic="%INCLUDINGTOPIC%" encode="safe" }%"}%</b>
+%BR%%BR%
+<strong><em>%MAKETEXT{"Note:"}%</em></strong>
+%MAKETEXT{"Tag topics to modify your tag cloud."}%
+</div>
+</td></tr></table>
+</form>
+</div>
+<script type="text/javascript">
+$("#profilePicture").hover(
+ function() { $(".changePicture").addClass("changePictureHover") },
+ function() { $(".changePicture").removeClass("changePictureHover") }
+);
+</script>
+%STOPINCLUDE%
+-----
+
+   * Set ALLOWTOPICCHANGE = TWikiAdminGroup
+
+__Related topics:__ [[UserList]], [[%WIKIUSERSTOPIC%]], ChangeProfilePicture, %IF{"istopic 'UserForm'" then="[[UserForm]],"}% %IF{"istopic 'NewUserTemplate'" then="[[NewUserTemplate]],"}% [[%SYSTEMWEB%.UserForm]], [[%SYSTEMWEB%.NewUserTemplate]], [[%SYSTEMWEB%.TWikiRegistration]], [[%SYSTEMWEB%.TWikiForms]]
+
+%META:FILEATTACHMENT{name="gradient-title.png" attachment="gradient-title.png" attr="h" comment="" date="1307256050" path="gradient-title.png" size="207" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="spacer.gif" attachment="spacer.gif" attr="h" comment="" date="1307260346" path="spacer.gif" size="43" user="TWikiContributor" version="1"}%
+%META:FILEATTACHMENT{name="default-user-profile.jpg" attachment="default-user-profile.jpg" attr="h" comment="" date="1307339778" path="default-user-profile.jpg" size="7976" user="TWikiContributor" version="1"}%

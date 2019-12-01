@@ -1,0 +1,301 @@
+head	1.13;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.13
+date	2015.09.17.06.19.15;	author TWikiContributor;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2013.11.15.03.45.52;	author TWikiContributor;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2013.09.14.23.05.28;	author TWikiContributor;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2011.01.29.05.19.42;	author TWikiContributor;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2010.05.29.14.44.55;	author TWikiContributor;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2009.03.30.09.18.23;	author TWikiContributor;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2007.03.03.14.51.52;	author TWikiContributor;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2007.01.16.04.12.04;	author TWikiContributor;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2006.04.01.05.55.24;	author TWikiContributor;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2006.02.01.12.01.20;	author TWikiContributor;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2001.08.16.19.59.58;	author PeterThoeny;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2000.08.18.20.06.40;	author PeterThoeny;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2000.08.18.06.06.27;	author PeterThoeny;	state Exp;
+branches;
+next	;
+
+
+desc
+@none
+@
+
+
+1.13
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1442470755" format="1.1" version="13"}%
+---+ %MAKETEXT{"Recent Changes in [_1] Web" args="<nop>%INCLUDINGWEB%"}% <span style="font-size: 50%">%MAKETEXT{"retrieved at [_1]" args="%DISPLAYTIME{"$hour:$min ($tz)"}%"}%</span>
+%INCLUDE{"%SYSTEMWEB%.SearchResultsPagination" section="preamble"}%<nop>
+%CALCULATE{$SET(now, $TIME())}%<nop>
+<!-- remove the format parameter to show absolute date instead if topic age -->
+%SEARCH{
+ "^."
+ web="%INCLUDINGWEB%"
+ type="regex"
+ scope="topic"
+ nosearch="on"
+ noheader="on"
+ nototal="on"
+ sort="modified"
+ start="%CALCULATE{$GET(start)}%"
+ limit="%CALCULATE{$GET(limit)}%"
+ footer="$percntCALCULATE{$SET(ntopics, $tntopics)}$percnt"
+ reverse="on"
+ format="<div class=\"patternSearchResult\">
+<div class=\"twikiTopRow\">
+<a href=\"%SCRIPTURLPATH{view}%/$web/$topic\"><b>$topic</b></a>
+<div class=\"twikiRight\">
+<span class=\"twikiSRRev\" style=\"white-space:nowrap\">
+<a href=\"%SCRIPTURLPATH{rdiff}%/$web/$topic\" title=\"$date\" rel=\"nofollow\">$percntCALCULATE{$SET(epoch, $TIME($date GMT))$FORMATTIMEDIFF(min, 1, $TIMEDIFF($GET(epoch), $GET(now), minute))}$percnt ago</a> - %REVISION% &nbsp;</span>
+<span class=\"twikiSRAuthor\"> [[$wikiusername][$wikiname]] </span>
+</div>
+<br class=\"twikiClear\" />
+</div><!--/twikiTopRow-->
+<div class=\"twikiBottomRow\"><div class=\"twikiSummary twikiGrayText\">$summary</div><!--/twikiSummary--></div><!--/twikiBottomRow-->
+</div><!--/patternSearchResult-->"
+}%
+%INCLUDE{"%SYSTEMWEB%.SearchResultsPagination" section="postamble"}%<nop>
+
+%MAKETEXT{"Show [_1] results per page, or [_2]show all[_3]." args="%CALCULATE{$LISTJOIN(&#44; , $LISTMAP($IF($VALUE($GET(limit))==$item, <b>$item</b>, <a href='%SCRIPTURLPATH{"view"}%/%INCLUDINGWEB%/%INCLUDINGTOPIC%?limit=$item' rel='nofollow'>$item</a>), 10, 20, 50, 100, 500, 1000)), $IF($EXACT($GET(limit), all), <b>, <a href='%SCRIPTURLPATH{"view"}%/%INCLUDINGWEB%/%INCLUDINGTOPIC%?limit=all' rel='nofollow'>), $IF($EXACT($GET(limit), all), </b>, </a>)}%"}%
+
+__Related topics:__ %ICON{feed}% [[%INCLUDINGWEB%.WebRss][RSS feed]], [[%INCLUDINGWEB%.WebAtom][ATOM feed]], [[%INCLUDINGWEB%.WebNotify][WebNotify]], %IF{"istopic '%SYSTEMWEB%.SiteChanges'" then="[[%SYSTEMWEB%.SiteChanges][site changes]], "}%[[%SYSTEMWEB%.SiteMap][site map]]
+@
+
+
+1.12
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1384487152" format="1.1" version="12"}%
+d21 8
+a28 5
+<div class=\"twikiLeft\"><a href=\"%SCRIPTURLPATH{view}%/$web/$topic\"><b>$topic</b></a></div>
+<div class=\"twikiRight twikiSRAuthor\"> [[$wikiusername][$wikiname]] </div>
+<div class=\"twikiRight twikiSRRev\" style=\"white-space:nowrap\">
+<a href=\"%SCRIPTURLPATH{rdiff}%/$web/$topic\" title=\"$date\" rel=\"nofollow\">$percntCALCULATE{$SET(epoch, $TIME($date GMT))$FORMATTIMEDIFF(min, 1, $TIMEDIFF($GET(epoch), $GET(now), minute))}$percnt ago</a> - %REVISION% &nbsp;</div><br class=\"twikiClear\" /></div>
+<!--/twikiTopRow-->
+@
+
+
+1.11
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1379199928" format="1.1" version="11"}%
+d24 1
+a24 1
+<a href=\"%SCRIPTURLPATH{rdiff}%/$web/$topic\" title=\"$date\" rel=\"nofollow\">$percntCALCULATE{$SET(epoch, $TIME($date GMT))$FORMATTIMEDIFF(min, 1, $TIMEDIFF($GET($epoch), $GET($now), minute))}$percnt ago</a> - %REVISION% &nbsp;</div><br class=\"twikiClear\" /></div>
+@
+
+
+1.10
+log
+@buildrelease
+@
+text
+@d1 5
+a5 3
+%META:TOPICINFO{author="TWikiContributor" date="1296278382" format="1.1" version="10"}%
+---+ %MAKETEXT{"[_1] Recent Changes in [_2] Web" args="%URLPARAM{"limit" default="50"}%, <nop>%INCLUDINGWEB%"}% <span style="font-size: 50%">%MAKETEXT{"retrieved at [_1]" args="%DISPLAYTIME{"$hour:$min ($tz)"}%"}%</span>
+
+d13 5
+a17 2
+ order="modified"
+ limit="%URLPARAM{"limit" default="50"}%"
+d19 9
+d29 1
+d31 1
+a31 1
+%MAKETEXT{"Show recent changes with <a href='[_2]'>50</a>, <a href='[_3]' rel='nofollow'>100</a>, <a href='[_4]' rel='nofollow'>200</a>, <a href='[_5]' rel='nofollow'>500</a>, <a href='[_6]' rel='nofollow'>1000</a> topics, <a href='[_7]' rel='nofollow'>all changes</a>" args="%SCRIPTURLPATH{"view"}%/%INCLUDINGWEB%/WebRss, %SCRIPTURLPATH{"view"}%/%INCLUDINGWEB%/%INCLUDINGTOPIC%, %SCRIPTURLPATH{"view"}%/%INCLUDINGWEB%/%INCLUDINGTOPIC%?limit=100, %SCRIPTURLPATH{"view"}%/%INCLUDINGWEB%/%INCLUDINGTOPIC%?limit=200, %SCRIPTURLPATH{"view"}%/%INCLUDINGWEB%/%INCLUDINGTOPIC%?limit=500, %SCRIPTURLPATH{"view"}%/%INCLUDINGWEB%/%INCLUDINGTOPIC%?limit=1000, %SCRIPTURLPATH{"view"}%/%INCLUDINGWEB%/%INCLUDINGTOPIC%?limit=All"}%
+d33 1
+a33 1
+__Related topics:__ %ICON{feed}% [[%INCLUDINGWEB%.WebRss][RSS feed]], [[%INCLUDINGWEB%.WebAtom][ATOM feed]], [[%INCLUDINGWEB%.WebNotify][WebNotify]], [[%SYSTEMWEB%.SiteChanges][site changes]], [[%SYSTEMWEB%.SiteMap][site map]]
+@
+
+
+1.9
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1274929455" format="1.1" version="9"}%
+d4 11
+a14 1
+%SEARCH{"^." web="%INCLUDINGWEB%" type="regex" nosearch="on" noheader="on" order="modified" limit="%URLPARAM{"limit" default="50"}%" reverse="on"}%
+@
+
+
+1.8
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1163619832" format="1.0" version="8"}%
+d6 3
+a8 3
+<strong><em>%MAKETEXT{"See also:"}%</em></strong>
+%ICON{rss-small}%
+%MAKETEXT{"<a href='[_1]'>RSS feed</a>, recent changes with <a href='[_2]'>50</a>, <a href='[_3]' rel='nofollow'>100</a>, <a href='[_4]' rel='nofollow'>200</a>, <a href='[_5]' rel='nofollow'>500</a>, <a href='[_6]' rel='nofollow'>1000</a> topics, <a href='[_7]' rel='nofollow'>all changes</a>" args="%SCRIPTURLPATH{"view"}%/%INCLUDINGWEB%/WebRss, %SCRIPTURLPATH{"view"}%/%INCLUDINGWEB%/%INCLUDINGTOPIC%, %SCRIPTURLPATH{"view"}%/%INCLUDINGWEB%/%INCLUDINGTOPIC%?limit=100, %SCRIPTURLPATH{"view"}%/%INCLUDINGWEB%/%INCLUDINGTOPIC%?limit=200, %SCRIPTURLPATH{"view"}%/%INCLUDINGWEB%/%INCLUDINGTOPIC%?limit=500, %SCRIPTURLPATH{"view"}%/%INCLUDINGWEB%/%INCLUDINGTOPIC%?limit=1000, %SCRIPTURLPATH{"view"}%/%INCLUDINGWEB%/%INCLUDINGTOPIC%?limit=All"}%
+@
+
+
+1.7
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1163619832" format="1.0" version="7"}%
+d4 1
+a4 1
+%SEARCH{".*" web="%INCLUDINGWEB%" type="regex" nosearch="on" noheader="on" order="modified" limit="%URLPARAM{"limit" default="50"}%" reverse="on"}%
+@
+
+
+1.6
+log
+@buildrelease
+@
+text
+@d1 2
+a2 2
+%META:TOPICINFO{author="TWikiContributor" date="1163619832" format="1.0" version="6"}%
+---+ %MAKETEXT{"[_1] Recent Changes in [_2] Web" args="%URLPARAM{"limit" default="50"}%, <nop>%WEB%"}% <span style="font-size: 50%">%MAKETEXT{"retrieved at [_1]" args="%DISPLAYTIME{"$hour:$min ($tz)"}%"}%</span>
+@
+
+
+1.5
+log
+@buildrelease
+@
+text
+@d1 2
+a2 2
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="5"}%
+%SEARCH{".*" web="%INCLUDINGWEB%" regex="on" nosearch="on" order="modified" limit="50" reverse="on"}%
+d4 5
+a8 2
+   * %MAKETEXT{"See <a href='[_1]'>100</a>, <a href='[_2]'>200</a>, <a href='[_3]'>400</a>, <a href='[_4]'>800</a> most recent changes" args="%SCRIPTURLPATH{"search"}%/%INCLUDINGWEB%/?search=%5C.*;scope=topic;order=modified;reverse=on;regex=on;nosearch=on;limit=100, %SCRIPTURLPATH{"search"}%/%INCLUDINGWEB%/?search=%5C.*;scope=topic;order=modified;reverse=on;regex=on;nosearch=on;limit=200, %SCRIPTURLPATH{"search"}%/%INCLUDINGWEB%/?search=%5C.*;scope=topic;order=modified;reverse=on;regex=on;nosearch=on;limit=400, %SCRIPTURLPATH{"search"}%/%INCLUDINGWEB%/?search=%5C.*;scope=topic;order=modified;reverse=on;regex=on;nosearch=on;limit=800"}%
+   * %MAKETEXT{"See <a href='[_1]'>all</a> changes" args="%SCRIPTURLPATH{"search"}%/%INCLUDINGWEB%/SearchResult?search=%5C.*;scope=topic;order=modified;reverse=on;regex=on;nosearch=on"}%
+@
+
+
+1.4
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1111929255" format="1.0" version="4"}%
+d4 2
+a5 2
+	* %MAKETEXT{"See <a href='[_1]'>100</a>, <a href='[_2]'>200</a>, <a href='[_3]'>400</a>, <a href='[_4]'>800</a> most recent changes" args="%SCRIPTURLPATH{"search"}%/%INCLUDINGWEB%/?search=%5C.*;scope=topic;order=modified;reverse=on;regex=on;nosearch=on;limit=100, %SCRIPTURLPATH{"search"}%/%INCLUDINGWEB%/?search=%5C.*;scope=topic;order=modified;reverse=on;regex=on;nosearch=on;limit=200, %SCRIPTURLPATH{"search"}%/%INCLUDINGWEB%/?search=%5C.*;scope=topic;order=modified;reverse=on;regex=on;nosearch=on;limit=400, %SCRIPTURLPATH{"search"}%/%INCLUDINGWEB%/?search=%5C.*;scope=topic;order=modified;reverse=on;regex=on;nosearch=on;limit=800"}%
+	* %MAKETEXT{"See <a href='[_1]'>all</a> changes" args="%SCRIPTURLPATH{"search"}%/%INCLUDINGWEB%/SearchResult?search=%5C.*;scope=topic;order=modified;reverse=on;regex=on;nosearch=on"}%
+@
+
+
+1.3
+log
+@none
+@
+text
+@d1 5
+a5 5
+%META:TOPICINFO{author="PeterThoeny" date="997991998" format="1.0beta2" version="1.3"}%
+%SEARCH{".*" web="%INCLUDINGWEB%" regex="on" nosearch="on" order="modified" reverse="on" limit="50"}%
+
+	* See [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=100][100]], [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=200][200]], [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=400][400]], [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=800][800]] most recent changes
+	* See [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/SearchResult?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on][all]] changes
+@
+
+
+1.2
+log
+@none
+@
+text
+@d1 5
+a5 1
+%SEARCH{".*" regex="on" nosearch="on" nototal="on" order="modified" reverse="on" limit="50"}%
+@
+
+
+1.1
+log
+@none
+@
+text
+@d1 1
+a1 1
+%<doesNotWork>SEARCH{".*" scope="topic" regex="on" nosearch="on" nototal="on" order="date" reverse="on" limit="50"}%
+@

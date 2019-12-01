@@ -1,0 +1,8 @@
+%META:TOPICINFO{author="TWikiContributor" date="1381736385" format="1.1" version="6"}%
+<!--
+Customize this topic; samples and ideas available at TWiki:TWiki.WebLeftBarCookbook.
+-->
+*My links:*
+   * [[%SCRIPTURL{search}%/%BASEWEB%/?search=%WIKINAME%;order=modified;limit=50;reverse=on][My %BASEWEB% activities]]
+   * [[http://twiki.org/][TWiki.org]]
+<a class="twikiSmallish" href="%SCRIPTURLPATH{"edit"}%/%WEB%/%TOPIC%?t=%GM%NOP%TIME{"$epoch"}%">edit</a>

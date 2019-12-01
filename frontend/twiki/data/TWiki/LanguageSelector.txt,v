@@ -1,0 +1,78 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2008.08.03.22.17.52;	author TWikiContributor;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2008.01.22.03.21.36;	author TWikiContributor;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.06.25.16.26.25;	author TWikiContributor;	state Exp;
+branches;
+next	;
+
+
+desc
+@buildrelease
+@
+
+
+1.3
+log
+@buildrelease
+@
+text
+@%META:TOPICINFO{author="TWikiContributor" date="1129330724" format="1.1" version="3"}%
+---+!! Language selection dropdown
+
+*To be included where a language selection is needed, for instance in the top bar or left bar.*
+
+Note: this dropdown is only shown if localization is enabled.%BR%
+Test: %IF{"context i18n_enabled" then='<span style="color:green; font-weight:bold;">localization is enabled</span>' else='<span style="color:red; font-weight:bold;">localization is not enabled</span>'}% %BR%
+
+Usage:
+<verbatim>
+%INCLUDE{%SYSTEMWEB%.LanguageSelector}%
+</verbatim>
+
+Result:
+
+%STARTINCLUDE%%IF{"context i18n_enabled" then='<form name="changeLanguage" action="%SCRIPTURLPATH{"oops"}%/%BASEWEB%/%BASETOPIC%" method="get"><select name="language" class="twikiSelect" onchange="document.changeLanguage.submit()">%LANGUAGES{format="<option $marker value=\"$langtag\">$langname</option>" selection="%LANGUAGE%" separator=" "}%</select><input type="hidden" name="template" value="oopslanguagechanged" /><noscript><input class="twikiButton" type="submit" value="%MAKETEXT{"Change language"}%" /></noscript></form>'}%%STOPINCLUDE%@
+
+
+1.2
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1129330724" format="1.1" version="2"}%
+d16 1
+a16 1
+%STARTINCLUDE%%IF{"context i18n_enabled" then='<form name="%INCLUDINGWEB%%INCLUDINGTOPIC%ChangeLanguage" action="%SCRIPTURLPATH{"oops"}%/%BASEWEB%/%BASETOPIC%" method="get"><select name="language" class="twikiSelect" onchange="document.%INCLUDINGWEB%%INCLUDINGTOPIC%ChangeLanguage.submit()">%LANGUAGES{format="<option $marker value=\"$langtag\">$langname</option>" selection="%LANGUAGE%" separator=" "}%</select><input type="hidden" name="template" value="oopslanguagechanged" /><noscript><input class="twikiButton" type="submit" value="%MAKETEXT{"Change language"}%" /></noscript></form>'}%%STOPINCLUDE%@
+
+
+1.1
+log
+@buildrelease
+@
+text
+@d1 1
+a1 1
+%META:TOPICINFO{author="TWikiContributor" date="1129330724" format="1.1" version="1"}%
+d11 1
+a11 1
+%INCLUDE{%TWIKIWEB%.LanguageSelector}%
+d16 1
+a16 1
+%STARTINCLUDE%%IF{"context i18n_enabled" then='<form name="%INCLUDINGWEB%%INCLUDINGTOPIC%ChangeLanguage" action="%SCRIPTURLPATH{"oops"}%/%BASEWEB%/%BASETOPIC%" method="get"><select name="language" onchange="document.%INCLUDINGWEB%%INCLUDINGTOPIC%ChangeLanguage.submit()">%LANGUAGES{format="<option $marker value=\"$langtag\">$langname</option>" selection="%LANGUAGE%" separator=" "}%</select><input type="hidden" name="template" value="oopslanguagechanged" /><noscript><input class="twikiButton" type="submit" value="%MAKETEXT{"Change language"}%" /></noscript></form>'}%%STOPINCLUDE%@
