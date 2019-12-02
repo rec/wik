@@ -1,6 +1,10 @@
 import os
 import sys
-import enum
+try:
+    import enum
+except ImportError:
+    import _enum as enum
+
 import collections
 import struct
 import select
