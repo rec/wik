@@ -13,7 +13,7 @@ services:
       - MYSQL_USER=bookstack
       - 'MYSQL_PASSWORD=${MYSQL_PASSWORD}'
     volumes:
-      - /code/wik/docker/config/bookstack_db:/config
+      - /code/wik/docker/config:/config
     restart: unless-stopped
 
   bookstack:
@@ -27,9 +27,27 @@ services:
       - 'DB_PASS=${MYSQL_PASSWORD}'
       - DB_DATABASE=bookstackapp
     volumes:
-      - /code/wik/docker/config/bookstack:/config
+      - /code/wik/docker/config:/config
     ports:
-      - 8080:80
+      - 80:80
     restart: unless-stopped
     depends_on:
       - bookstack_db
+
+  letsencrypt:
+    image: linuxserver/letsencrypt
+    container_name: letsencrypt
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Amsterdam
+      - URL=xr.swirly.com
+      - SUBDOMAINS=www,
+      - VALIDATION=http
+    volumes:
+      - /code/wik/docker/config:/config
+    ports:
+      - 443:443
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
