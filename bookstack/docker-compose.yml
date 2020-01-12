@@ -21,9 +21,8 @@ services:
 
   bookstack:
     container_name: bookstack
-
-    # The two providers are linuxserver and solidnerd, the default
     image: '${DOCKER_PROVIDER-solidnerd}/bookstack'
+    # The two providers are linuxserver and solidnerd
 
     environment:
       PUID: 1000
