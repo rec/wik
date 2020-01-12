@@ -1,0 +1,54 @@
+version: "3"
+
+services:
+  bookstack:
+    image: linuxserver/bookstack
+    container_name: bookstack
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - DB_HOST=bookstack_db
+      - DB_USER=bookstack
+      - DB_PASS=deer-snails-sticks-obnoxious-store
+      - DB_DATABASE=bookstackapp
+    volumes:
+      - /code/wik/docker/config:/config
+    ports:
+      - 6875:80
+    restart: unless-stopped
+    depends_on:
+      - bookstack_db
+      - letsencrypt
+
+  bookstack_db:
+    image: linuxserver/mariadb
+    container_name: bookstack_db
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - MYSQL_ROOT_PASSWORD=macho-shade-wasteful-workable-appear
+      - TZ=Europe/Amsterdam
+      - MYSQL_DATABASE=bookstackapp
+      - MYSQL_USER=bookstack
+      - MYSQL_PASSWORD=deer-snails-sticks-obnoxious-store
+    volumes:
+      - /code/wik/docker/config:/config
+    restart: unless-stopped
+
+  letsencrypt:
+    image: linuxserver/letsencrypt
+    container_name: letsencrypt
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Amsterdam
+      - URL=xr.swirly.com
+      - SUBDOMAINS=www,
+      - VALIDATION=http
+    volumes:
+      - /code/wik/docker/config/letsencrypt:/config
+    ports:
+      - 8081:443
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
