@@ -1,9 +1,9 @@
 version: "3"
 
 services:
-  bookstack_db:
+  mariadb:
     image: linuxserver/mariadb
-    container_name: bookstack_db
+    container_name: mariadb
     environment:
       - PUID=1000
       - PGID=1000
@@ -13,7 +13,7 @@ services:
       - MYSQL_USER=bookstack
       - 'MYSQL_PASSWORD=${DB_USER_PASSWORD}'
     volumes:
-      - /code/wik/docker/config:/config
+      - /code/wik/bookstack/config:/config
     restart: unless-stopped
 
   bookstack:
@@ -22,32 +22,32 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - DB_HOST=bookstack_db
+      - DB_HOST=mariadb
       - DB_USER=bookstack
       - 'DB_PASS=${DB_USER_PASSWORD}'
       - DB_DATABASE=bookstackapp
     volumes:
-      - /code/wik/docker/config:/config
+      - /code/wik/bookstack/config:/config
     ports:
       - 80:80
     restart: unless-stopped
     depends_on:
-      - bookstack_db
+      - mariadb
 
-  letsencrypt:
-    image: linuxserver/letsencrypt
-    container_name: letsencrypt
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Amsterdam
-      - URL=xr.swirly.com
-      - SUBDOMAINS=www,
-      - VALIDATION=http
-    volumes:
-      - /code/wik/docker/config:/config
-    ports:
-      - 443:443
-    restart: unless-stopped
-    cap_add:
-      - NET_ADMIN
+  # letsencrypt:
+  #   image: linuxserver/letsencrypt
+  #   container_name: letsencrypt
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=Europe/Amsterdam
+  #     - URL=xr.swirly.com
+  #     - SUBDOMAINS=www,
+  #     - VALIDATION=http
+  #   volumes:
+  #     - /code/wik/bookstack/config:/config
+  #   ports:
+  #     - 443:443
+  #   restart: unless-stopped
+  #   cap_add:
+  #     - NET_ADMIN
