@@ -7,11 +7,11 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - 'MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}'
+      - 'MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}'
       - TZ=Europe/Amsterdam
       - MYSQL_DATABASE=bookstackapp
       - MYSQL_USER=bookstack
-      - 'MYSQL_PASSWORD=${MYSQL_PASSWORD}'
+      - 'MYSQL_PASSWORD=${DB_USER_PASSWORD}'
     volumes:
       - /code/wik/docker/config:/config
     restart: unless-stopped
@@ -24,7 +24,7 @@ services:
       - PGID=1000
       - DB_HOST=bookstack_db
       - DB_USER=bookstack
-      - 'DB_PASS=${MYSQL_PASSWORD}'
+      - 'DB_PASS=${DB_USER_PASSWORD}'
       - DB_DATABASE=bookstackapp
     volumes:
       - /code/wik/docker/config:/config
