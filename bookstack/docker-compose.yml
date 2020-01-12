@@ -2,8 +2,9 @@ version: "3"
 
 services:
   mariadb:
-    image: linuxserver/mariadb
     container_name: mariadb
+    image: linuxserver/mariadb
+
     environment:
       PUID: 1000
       PGID: 1000
@@ -12,42 +13,41 @@ services:
       MYSQL_DATABASE: bookstackapp
       MYSQL_USER: bookstack
       MYSQL_PASSWORD: '${DB_USER_PASSWORD}'
+
     volumes:
-      - /code/wik/bookstack/config:/config
+      - config:/config
+
     restart: unless-stopped
 
   bookstack:
-    image: linuxserver/bookstack
     container_name: bookstack
+
+    # The two providers are linuxserver and solidnerd, the default
+    image: '${DOCKER_PROVIDER-solidnerd}/bookstack'
+
     environment:
       PUID: 1000
       PGID: 1000
       DB_HOST: mariadb
       DB_USER: bookstack
+      DB_PASSWORD: '${DB_USER_PASSWORD}'
       DB_PASS: '${DB_USER_PASSWORD}'
       DB_DATABASE: bookstackapp
+
     volumes:
-      - /code/wik/bookstack/config:/config
+      - config:/config
+      - image-uploads:/var/www/bookstack/public/uploads/images
+      - attachment-uploads:/var/www/bookstack/storage/uploads/files
+
     ports:
       - 80:80
+
     restart: unless-stopped
+
     depends_on:
       - mariadb
 
-  # letsencrypt:
-  #   image: linuxserver/letsencrypt
-  #   container_name: letsencrypt
-  #   environment:
-  #     - PUID=1000
-  #     - PGID=1000
-  #     - TZ=Europe/Amsterdam
-  #     - URL=xr.swirly.com
-  #     - SUBDOMAINS=www,
-  #     - VALIDATION=http
-  #   volumes:
-  #     - /code/wik/bookstack/config:/config
-  #   ports:
-  #     - 443:443
-  #   restart: unless-stopped
-  #   cap_add:
-  #     - NET_ADMIN
+volumes:
+  config:
+  image-uploads:
+  attachment-uploads:
