@@ -46,6 +46,26 @@ services:
     depends_on:
       - mariadb
 
+ letsencrypt:
+     image: linuxserver/letsencrypt
+     container_name: letsencrypt
+     ports:
+       - 80:80
+       - 443:443
+     volumes:
+      - config:/config
+      - /etc/letsencrypt:/etc/letsencrypt
+     environment:
+       EMAIL: tom@swirly.com
+       URL: xr.swirly.com
+       SUBDOMAINS: www,api
+       VALIDATION: http
+       TZ: Europe/Amsterdam
+       PUID: 0
+       PGID: 0
+    # cap_add:
+    #   - NET_ADMIN
+
 volumes:
   config:
   image-uploads:
