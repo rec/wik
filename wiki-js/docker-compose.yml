@@ -6,7 +6,7 @@ services:
     image: postgres:11-alpine
     environment:
       POSTGRES_DB: wiki
-      POSTGRES_PASSWORD: wikijsrocks
+      POSTGRES_PASSWORD: '${DB_PASSWORD}'
       POSTGRES_USER: wikijs
     logging:
       driver: "none"
@@ -24,7 +24,7 @@ services:
       DB_HOST: db
       DB_PORT: 5432
       DB_USER: wikijs
-      DB_PASS: wikijsrocks
+      DB_PASS: '${DB_PASSWORD}'
       DB_NAME: wiki
       USE_HTTPS: 1
       LETSENCRYPT_DOMAIN: xr.swirly.com
