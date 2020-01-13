@@ -50,8 +50,7 @@ services:
      image: linuxserver/letsencrypt
      container_name: letsencrypt
      ports:
-       - 80:80
-       - 443:443
+         - 443:443
      volumes:
       - config:/config
       - /etc/letsencrypt:/etc/letsencrypt
