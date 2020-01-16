@@ -5,11 +5,11 @@ services:
      image: linuxserver/letsencrypt
      container_name: letsencrypt
      ports:
-         - 443:443
+       - 443:443
 
      volumes:
-      - config:/config
-      - /etc/letsencrypt:/etc/letsencrypt
+       - config:/config
+       - /etc/letsencrypt:/etc/letsencrypt:ro
 
      environment:
        EMAIL: tom@swirly.com
