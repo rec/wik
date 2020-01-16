@@ -9,6 +9,7 @@ services:
       PUID: 1000
       PGID: 1000
       TZ: Europe/Amsterdam
+
       MYSQL_DATABASE: bookstackapp
       MYSQL_USER: bookstack
       MYSQL_ROOT_PASSWORD: '${DB_ROOT_PASSWORD:?DB_ROOT_PASSWORD must be set}'
@@ -19,14 +20,22 @@ services:
 
     restart: unless-stopped
 
+    # The two bookstack dockers are linuxserver and solidnerd.
+    # They use the same environment variables, except that solidnerd uses
+    # DB_PASSWORD while linuxserver uses DB_PASS
+
   bookstack:
     container_name: bookstack
-    image: '${DOCKER_PROVIDER-linuxserver}/bookstack'
-    # The two providers are linuxserver and solidnerd
+    image: '${DOCKER_PROVIDER-solidnerd}/bookstack'
+
+    depends_on:
+      - mariadb
 
     environment:
       PUID: 1000
       PGID: 1000
+      TZ: Europe/Amsterdam
+
       DB_HOST: mariadb
       DB_DATABASE: bookstackapp
       DB_USER: bookstack
@@ -42,9 +51,6 @@ services:
       - 80:80
 
     restart: unless-stopped
-
-    depends_on:
-      - mariadb
 
 volumes:
   config:
