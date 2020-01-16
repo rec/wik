@@ -8,7 +8,7 @@ services:
     environment:
       PUID: 1000
       PGID: 1000
-      MYSQL_ROOT_PASSWORD: '${DB_ROOT_PASSWORD}'
+      MYSQL_ROOT_PASSWORD: '${DB_ROOT_PASSWORD:?DB_ROOT_PASSWORD must be set}'
       TZ: Europe/Amsterdam
       MYSQL_DATABASE: bookstackapp
       MYSQL_USER: bookstack
@@ -29,8 +29,8 @@ services:
       PGID: 1000
       DB_HOST: mariadb
       DB_USER: bookstack
-      DB_PASSWORD: '${DB_USER_PASSWORD}'
-      DB_PASS: '${DB_USER_PASSWORD}'
+      DB_PASSWORD: '${DB_USER_PASSWORD:?DB_USER_PASSWORD must be set}'
+      DB_PASS: '${DB_USER_PASSWORD:?DB_USER_PASSWORD must be set}'
       DB_DATABASE: bookstackapp
 
     volumes:
@@ -46,7 +46,7 @@ services:
     depends_on:
       - mariadb
 
- letsencrypt:
+  letsencrypt:
      image: linuxserver/letsencrypt
      container_name: letsencrypt
      ports:

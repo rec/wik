@@ -6,10 +6,10 @@ services:
     image: postgres:11-alpine
     environment:
       POSTGRES_DB: wiki
-      POSTGRES_PASSWORD: '${DB_PASSWORD}'
+      POSTGRES_PASSWORD: '${DB_USER_PASSWORD:?DB_USER_PASSWORD must be set}'
       POSTGRES_USER: wikijs
-    logging:
-      driver: "none"
+    # logging:
+    #  driver: "none"
     restart: unless-stopped
     volumes:
       - db-data:/var/lib/postgresql/data
@@ -24,7 +24,7 @@ services:
       DB_HOST: db
       DB_PORT: 5432
       DB_USER: wikijs
-      DB_PASS: '${DB_PASSWORD}'
+      DB_PASS: '${DB_USER_PASSWORD:?DB_USER_PASSWORD must be set}'
       DB_NAME: wiki
       USE_HTTPS: 1
       LETSENCRYPT_DOMAIN: xr.swirly.com
