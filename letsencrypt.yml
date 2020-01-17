@@ -9,7 +9,6 @@ services:
 
     volumes:
       - config:/config
-      - /etc/letsencrypt:/etc/letsencrypt:ro
 
     environment:
       EMAIL: tom@swirly.com
