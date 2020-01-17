@@ -1,4 +1,4 @@
-version: "3"
+version: '3'
 
 services:
   postgres:
@@ -30,13 +30,13 @@ services:
       DB_PASS: '${DB_USER_PASSWORD:?DB_USER_PASSWORD must be set}'
       DB_NAME: wiki
       USE_HTTPS: 1
-      LETSENCRYPT_DOMAIN: xr.swirly.com
+      LETSENCRYPT_DOMAIN: xr-wiki.duckdns.org
       LETSENCRYPT_EMAIL: tom@swirly.com
 
     restart: unless-stopped
 
     ports:
-      - '80:3000'
+      - 80:3000
 
     depends_on:
       - postgres
