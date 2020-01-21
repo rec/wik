@@ -30,13 +30,13 @@ services:
       DB_PASS: '${DB_USER_PASSWORD:?DB_USER_PASSWORD must be set}'
       DB_NAME: wiki
       USE_HTTPS: 1
-      LETSENCRYPT_DOMAIN: xr-wiki.duckdns.org
-      LETSENCRYPT_EMAIL: tom@swirly.com
+      LETSENCRYPT_DOMAIN: '${HOST_URL:?HOST_URL must be set}'
+      LETSENCRYPT_EMAIL: '${LETSENCRYPT_EMAIL:?LETSENCRYPT_EMAIL must be set}'
 
     restart: unless-stopped
 
     ports:
-      - 80:3000
+      - '80:3000'
 
     depends_on:
       - postgres

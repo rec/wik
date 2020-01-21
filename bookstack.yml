@@ -42,13 +42,17 @@ services:
       DB_PASSWORD: '${DB_USER_PASSWORD:?DB_USER_PASSWORD must be set}'
       DB_PASS: '${DB_USER_PASSWORD:?DB_USER_PASSWORD must be set}'
 
+      VIRTUAL_HOST: '${HOST_URL:?HOST_URL must be set}'
+      LETSENCRYPT_HOST: '${HOST_URL:?HOST_URL must be set}'
+      LETSENCRYPT_EMAIL: '${LETSENCRYPT_EMAIL:?LETSENCRYPT_EMAIL must be set}'
+
     volumes:
       - config:/config
       - image_uploads:/var/www/bookstack/public/uploads/images
       - attachment_uploads:/var/www/bookstack/storage/uploads/files
 
     ports:
-      - 80:80
+      - '80:80'
 
     restart: unless-stopped
 

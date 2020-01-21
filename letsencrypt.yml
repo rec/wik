@@ -5,14 +5,14 @@ services:
     image: linuxserver/letsencrypt
     container_name: letsencrypt
     ports:
-      - 443:443
+      - '443:443'
 
     volumes:
       - config:/config
 
     environment:
-      EMAIL: tom@swirly.com
-      URL: xr-bookstack.duckdns.org
+      URL: '${HOST_URL:?HOST_URL must be set}'
+      URL: '${LETSENCRYPT_EMAIL:?LETSENCRYPT_EMAIL must be set}'
       SUBDOMAINS: www,
       VALIDATION: http
       TZ: Europe/Amsterdam
