@@ -21,7 +21,7 @@ services:
     image: jrcs/letsencrypt-nginx-proxy-companion
     container_name: nginx-proxy-le
 
-    volumes_from:
+    volumes-from:
       - nginx-proxy
 
     volumes:
