@@ -1,6 +1,6 @@
-letsencrypt:
+letsencrypt-nginx-proxy-companion:
   image: jrcs/letsencrypt-nginx-proxy-companion
-  container_name: nginx-proxy-le
+  container_name: letsencrypt-nginx-proxy-companion
 
   volumes-from:
     - nginx-proxy
