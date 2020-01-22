@@ -52,7 +52,7 @@ services:
       - attachment_uploads:/var/www/bookstack/storage/uploads/files
 
     ports:
-      - '80:80'
+      - '7777:80'
 
     restart: unless-stopped
 

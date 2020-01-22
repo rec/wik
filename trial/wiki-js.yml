@@ -2,31 +2,29 @@ version: '3.7'
 
 services:
   postgres:
-    container_name: postgres
     image: postgres:11-alpine
 
     environment:
       POSTGRES_DB: wiki
       POSTGRES_PASSWORD: '${DB_USER_PASSWORD:?DB_USER_PASSWORD must be set}'
-      POSTGRES_USER: wikijs
+      POSTGRES_USER: wiki
 
     restart: unless-stopped
 
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - wikijs_db_data:/var/lib/postgresql/data
 
     logging:
       driver: 'none'
 
-  wiki:
-    container_name: wiki
+  wiki-js:
     image: requarks/wiki:2
 
     environment:
       DB_TYPE: postgres
       DB_HOST: postgres
       DB_PORT: 5432
-      DB_USER: wikijs
+      DB_USER: wiki
       DB_PASS: '${DB_USER_PASSWORD:?DB_USER_PASSWORD must be set}'
       DB_NAME: wiki
       USE_HTTPS: 1
@@ -36,10 +34,10 @@ services:
     restart: unless-stopped
 
     ports:
-      - '80:3000'
+      - '5656:3000'
 
     depends_on:
       - postgres
 
 volumes:
-  db_data:
+  wikijs_db_data:

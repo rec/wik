@@ -4,6 +4,7 @@
 #
 # Access via "http://localhost:8080"
 #   (or "http://$(docker-machine ip):8080" if using docker-machine)
+
 version: '3.7'
 
 services:
@@ -12,25 +13,40 @@ services:
     restart: unless-stopped
 
     ports:
-      - 8080:80
+      - '5757:80'
 
     links:
-      - mediawiki_database
+      - mariadb
 
     volumes:
-      - /var/www/html/images
+      - mediawiki_images:/var/www/html/images
 
+      # The comment below is from the original but this might no longer be needed
+      # since we have a persistent volume here.
+      #
       # After initial setup, download LocalSettings.php to the same directory as
       # this yaml and uncomment the following line and use compose to restart
       # the mediawiki service
       # - ./LocalSettings.php:/var/www/html/LocalSettings.php
 
-  database:
+  mariadb:
     image: mariadb
+
     restart: unless-stopped
+
     environment:
-      # @see https://phabricator.wikimedia.org/source/mediawiki/browse/master/includes/DefaultSettings.php
-      MYSQL_DATABASE: my_wiki
-      MYSQL_USER: wikiuser
-      MYSQL_PASSWORD: example
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/Amsterdam
+
+      MYSQL_DATABASE: mediawiki
+      MYSQL_USER: mediawiki
       MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+      MYSQL_PASSWORD: '${DB_USER_PASSWORD:?DB_USER_PASSWORD must be set}'
+
+    volumes:
+      - mediawiki_config:/config
+
+volumes:
+  mediawiki_config:
+  mediawiki_images:
