@@ -1,0 +1,16 @@
+version: '3'
+services:
+  dokuwiki:
+    image: linuxserver/dokuwiki
+    container_name: dokuwiki
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - APP_URL=/dokuwiki #optional
+    volumes:
+      - /path/to/appdata/config:/config
+    ports:
+      - '${DOCUWIKI_PORT:-80}:80'
+      # - 443:443 #optional
+    restart: unless-stopped
