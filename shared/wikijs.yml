@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  wikijs:
+    image: requarks/wiki:2
+
+    ports:
+      - '${WIKIJS_PORT:-80}:3000'
+
+    environment:
+      DB_TYPE: mariadb
+      DB_HOST: database
+      DB_NAME: wiki
+      DB_USER: wiki
+      DB_PASS: '${DB_USER_PASSWORD:?DB_USER_PASSWORD must be set}'
+      DB_PORT: 5432
+
+      USE_HTTPS: 1
+      LETSENCRYPT_DOMAIN: '${HOST_URL:?HOST_URL must be set}'
+      LETSENCRYPT_EMAIL: '${LETSENCRYPT_EMAIL:?LETSENCRYPT_EMAIL must be set}'
+
+    depends_on:
+      - database
+
+    restart: unless-stopped

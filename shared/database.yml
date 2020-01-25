@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  database:
+    image: mariadb
+
+    volumes:
+      - database_config:/config
+
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/Amsterdam
+
+      MYSQL_DATABASE: wiki
+      MYSQL_USER: wiki
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+      MYSQL_PASSWORD: '${DB_USER_PASSWORD:?DB_USER_PASSWORD must be set}'
+
+    restart: unless-stopped
+
+volumes:
+  database_config:
