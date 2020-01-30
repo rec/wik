@@ -1,0 +1,12 @@
+# https://github.com/thenets/docker-parsoid
+version: '3'
+
+services:
+  parsoid:
+    image: 'thenets/parsoid:0.10'
+
+    environment:
+      - PARSOID_DOMAIN_localhost=http://localhost/w/api.php
+
+    ports:
+      - '8080:8000'

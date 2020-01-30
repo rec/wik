@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  bluespice:
+    image: bluespice/bluespice-free
+    ports:
+      - '5656:80'
