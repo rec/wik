@@ -14,7 +14,7 @@ services:
       - 'vem_database_data:/var/lib/mysql'
 
   vem:
-    image: 'mediawiki-parsoid'
+    image: 'tomswirly/mediawiki-parsoid:v0.1'
     ports:
       - '${MEDIAWIKI_PORT:-80}:80'
 
@@ -27,18 +27,15 @@ services:
 
 volumes:
   vem_mediawiki:
-    driver: local
 
   vem_database_data:
-    driver: local
-    driver_opts:
-      type: 'none'
-      o: 'bind'
-      device: '/var/www/mediawiki_data'
+    # driver_opts:
+    #   type: 'none'
+    #   o: 'bind'
+    #   device: '/var/www/mediawiki_data'
 
   vem_parsoid:
-    driver: local
-    driver_opts:
-      type: 'none'
-      o: 'bind'
-      device: '/var/www/parsoid_data'
+    # driver_opts:
+    #   type: 'none'
+    #   o: 'bind'
+    #   device: '/var/www/parsoid_data'
