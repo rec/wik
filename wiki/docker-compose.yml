@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  mediawiki_database:
+    image: 'mariadb:10.4.4'
+
+    environment:
+      MYSQL_USER: mediawiki
+      MYSQL_DATABASE: mediawiki
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+      MYSQL_PASSWORD: '${DB_USER_PASSWORD:?DB_USER_PASSWORD must be set}'
+
+    volumes:
+      - 'mediawiki_database_data:/var/lib/mysql'
+
+  mediawiki:
+    image: 'tomswirly/mediawiki-parsoid'
+    ports:
+      - '${MEDIAWIKI_PORT:-80}:80'
+
+    volumes:
+      - 'mediawiki_html:/var/www/html'
+      - 'mediawiki_parsoid:/usr/lib/parsoid'
+
+    depends_on:
+      - mediawiki_database
+
+volumes:
+  mediawiki_html:
+  mediawiki_database_data:
+  mediawiki_parsoid:
