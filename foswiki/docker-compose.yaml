@@ -3,8 +3,10 @@ version: '3'
 services:
   foswiki:
     image: timlegge/docker-foswiki
+
     ports:
       - "${FOSWIKI_PORT:-8765}:80"
+
     volumes:
       - solr_logs:/opt/solr/server/logs:z
       - solr_configsets:/opt/solr/server/solr/configsets:z
@@ -13,12 +15,15 @@ services:
 
   setup:
     image: alpine:latest
+
     depends_on:
       - foswiki
+
     volumes:
       - solr_configsets:/opt/solr/server/solr/configsets:z
       - solr_foswiki:/opt/solr/server/solr/solr_foswiki:z
       - foswiki_www:/var/www/foswiki:z
+
     # Setup Solr, set default skin to Nat if no skin specified otherwise
     command: sh -c "
       chown -R 8983:8983 /opt/solr/server/solr ;
