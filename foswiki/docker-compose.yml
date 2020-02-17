@@ -2,13 +2,13 @@ version: '3'
 
 services:
   setup:
-    image: alpine:latest
+    image: ubuntu:latest
     depends_on:
-      - wiki
+      - foswiki
 
-  wiki:
+  foswiki:
     image: timlegge/docker-foswiki
-    container_name: wiki
+    container_name: foswiki
 
     ports:
       - '${FOSWIKI_PORT:-80}:80'
