@@ -57,5 +57,10 @@ def main(source, target=None):
         time.sleep(1)
 
 
+def debug():
+    print(os.environ())
+
+
 if __name__ == '__main__':
-    main(*sys.argv[1:])
+    # main(*sys.argv[1:])
+    debug()
