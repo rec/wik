@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  backup_service:
+    image: backup
+    container_name: backup_container
+
+    volumes:
+      - ssh:/root/.ssh
+      - source:/source
+      - target:/target
+
+volumes:
+  ssh:
+  source:
+  target:

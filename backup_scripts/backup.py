@@ -41,16 +41,33 @@ def commit_all():
         call(*GIT_COMMIT, message)
 
 
+def git_init():
+    if Path('.git').is_dir():
+        return
+
+    subprocess.call(('git', 'init'))
+    for i, remote in os.environ.get('BACKUP_REMOTES').split(':'):
+        subprocess.call(('git', 'remote', 'add', f'remote-{i}', remote))
+
+
 def main(source, target):
     def rsync(period):
-        t = os.path.join(target, period)
-        call(*RSYNC, source, t)
+        pdir = Path(target) / period
+
+        def func():
+            return call(*RSYNC, source, pdir)
+
+        if not pdir.exists():
+            func()
+
+        return func
 
     schedule.every().second.do(commit_all)
-    schedule.every().wednesday.at('05:32').do(rsync, 'weekly')
-    schedule.every().day.at('04:32').do(rsync, 'daily')
+    schedule.every().wednesday.at('05:32').do(rsync('weekly'))
+    schedule.every().day.at('04:32').do(rsync('daily'))
 
     os.chdir(source)
+    git_init()
 
     while True:
         schedule.run_pending()

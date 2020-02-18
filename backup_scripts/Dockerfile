@@ -1,7 +1,6 @@
 FROM python:3.8
 
 VOLUME /root/.ssh
-
 VOLUME /source
 VOLUME /target
 
