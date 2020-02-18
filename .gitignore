@@ -36,3 +36,4 @@ inc/
 
 # .env file contains passwords
 .env
+**/.ssh

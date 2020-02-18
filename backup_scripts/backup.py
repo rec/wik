@@ -15,7 +15,7 @@ def call(*args):
     return subprocess.call(args)
 
 
-def check_output(*args):
+def execute(*args):
     return subprocess.check_output(args, encoding='utf-8')
 
 
@@ -30,7 +30,7 @@ def changed_words(lines):
 def commit_all():
     subprocess.call(('git', 'add', '.'))
 
-    out = check_output(*GIT_STATUS)
+    out = execute(*GIT_STATUS)
     lines = [i.strip() for i in out.splitlines() if i.strip()]
     if lines:
         first = ', '.join(changed_words(lines))
@@ -41,9 +41,7 @@ def commit_all():
         call(*GIT_COMMIT, message)
 
 
-def main(source, target=None):
-    os.chdir(source)
-
+def main(source, target):
     def rsync(period):
         t = os.path.join(target, period)
         call(*RSYNC, source, t)
@@ -52,15 +50,12 @@ def main(source, target=None):
     schedule.every().wednesday.at('05:32').do(rsync, 'weekly')
     schedule.every().day.at('04:32').do(rsync, 'daily')
 
+    os.chdir(source)
+
     while True:
         schedule.run_pending()
         time.sleep(1)
 
 
-def debug():
-    print(os.environ())
-
-
 if __name__ == '__main__':
-    # main(*sys.argv[1:])
-    debug()
+    main(*sys.argv[1:])

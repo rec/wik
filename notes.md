@@ -104,6 +104,9 @@ like this:
     tools/configure -save -set {Password}=dont-use-this-password
     exit
 
+If you are setting up for offsite git backup then you need to do a little more
+stuff - see Appendix B.
+
 4. Configure externally
 =======================
 
@@ -195,3 +198,101 @@ Or you can create a text file called `.env` and put these lines into it:
 
 NOTE: this _only_ works if you are the only one who can see that `.env` file -
 otherwise use the command line method.
+
+
+Appendix B: Offsite git backup
+===========================
+
+In fact, we are using continuous git backup - sounds fancy!
+
+Each change to the Wiki becomes a git commit and and you get the ability to
+instantly move the Wiki back to any point in time in the past that you like
+without losing any of the new data.
+
+You get that for free without any extra setup.
+
+But even better, we can also push each commit to one or more remote servers
+which means that you are getting this backup offsite continuously.
+
+But we need to do a bit more setup for that.  This cannot be done automatically
+because there are keys and identify involved.
+
+**The goal**
+
+We need to get the `git push` command to work in the backup container without a
+password.
+
+This means we need to install some sort of authentication _key_ in the backup
+container.
+
+The details will depend on who your provider is and what keys you want to use.
+I will give instructions for _SSH_ keys and the Microsoft-owned
+defense-contractor _Github_, because they are unfortunately whom I am familiar
+with.
+
+**1. Run a terminal on the backup container**
+
+    docker exec -it backup /bin/bash
+
+**2. Generate a new key.**
+
+Github's instructions are
+[here](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+Make sure you are looking at the Linux instructions and not the ones for the
+machine you are working on!
+
+    ssh-keygen -t rsa -b 4096 -C "your@email-here.com"
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_rsa
+
+Keep this terminal open - we're going to come back to it.
+
+**3. Add the key to your account.**
+
+On github, it's https://github.com/settings/keys, (documentation
+[here](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)).
+
+**4. Create a new repository on your account.**
+
+On Github, it's here: https://github.com/new.  Select "private repository" so no
+one else can see it. Do not add a license, a README or anything else.
+
+It's simpler to name it the same as the root directory of your wiki - in our
+case, it's `foswiki` - but you can name the private repo anything you like.
+
+The result of this will be some page which contains an address looking like:
+
+    git@github.com:your-name/foswiki.git
+
+and probably a button to copy it to the clipboard!
+
+So copy that address onto your clipboard and proceed...
+
+**5. Commit the wiki installation.**
+
+Go to the root directory of your wiki and execute these commands
+
+    WIKI=the address on your clipboard
+    cd /var/www/foswiki
+    git init
+    git remote add origin $WIKI
+    git add .
+    git commit -m "First commit"
+    git push -u origin master
+
+Congratulations - you've backed up the wiki, and backups will happen
+continuously to that account from now on.
+
+To stop backups, open a terminal to the container `backup` and do this:
+
+    cd /var/www/foswiki
+    git remote remove origin
+
+To add new backups, add a new remote with a new name - it doesn't have to
+be a github account even if you started with one.
+
+    cd /var/www/foswiki
+    git remote add somename git@gitwherever.com:someone/foswiki.git
+
+You will have to also add the SSH key you created in step 3 above to this new
+account.
