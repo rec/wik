@@ -13,8 +13,12 @@ for XR Netherlands.  It should also extend to any service we want to run.
 What's missing
 ============
 
-I still don't know how to create a container that does https encryption! I know
-we have this knowledge within XR so it should be easily resolved.
+1. I still don't know how to create a container that does https encryption!
+   I know we have this knowledge within XR.
+
+2. I have never tried sending outgoing mail from any of the Wikis because this
+   involves having a permanent location.  My guess is that this won't be an
+   issue but we'll have to see.
 
 Two minutes about Docker
 ===================
@@ -110,16 +114,21 @@ subareas called _webs_ each of which can have a different style, and then each
 web is made up of the boring old WikiWords we are so familiar with from
 Wikipedia.
 
+TBD:
 Log in.
+In Foswiki, you need to configure XXX and you got to pages YYY.
 
-In Foswiki, you need to configure XXX and you go pages.
-
- 5. Test the whole system
+5. Test the whole system
 =================
 
-TBD
+6. Save the containers
+=================
 
+7. Deploy
+=================
 
+8. Set up user accounts
+=================
 
 
 Appendix A: Environment variables
