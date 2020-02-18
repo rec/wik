@@ -1,15 +1,7 @@
-FROM ubuntu:18.04
+FROM python:3.8
 
 COPY . .
 
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y \
-        python3.7 \
-		git \
-    --no-install-recommends && \
-    rm -r /var/lib/apt/lists/*
-    # && \
-    # pip3 install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
-CMD /bin/bash start.sh
+CMD ["python", "backup.py"]
