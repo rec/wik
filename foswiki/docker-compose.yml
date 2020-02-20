@@ -4,17 +4,14 @@ services:
   setup:
     image: ubuntu:latest
     depends_on:
-      - foswiki
+      - wiki
 
-  foswiki:
+  wiki:
     image: timlegge/docker-foswiki
-    container_name: foswiki
+    container_name: wiki
 
     ports:
       - '${FOSWIKI_PORT:-80}:80'
 
     volumes:
-      - files:/var/www/foswiki
-
-volumes:
-  files:
+      - "./wiki-files:/var/www/foswiki"
