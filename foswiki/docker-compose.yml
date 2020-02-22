@@ -7,7 +7,7 @@ services:
       - wiki
 
   wiki:
-    image: timlegge/docker-foswiki
+    image: timlegge/docker-foswiki:latest
     container_name: wiki
 
     ports:
